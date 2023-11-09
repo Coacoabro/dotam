@@ -1,0 +1,39 @@
+  .heroes-container {
+    background-color: #f0f0f0; /* Light gray color */
+    border-radius: 10px; /* Adjust the border radius for curved edges */
+    padding: 16px; /* Add some padding for spacing */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+  
+  .hero-table-container {
+    background-color: #CCCCCC; /* Light gray color */
+    border-radius: 10px; /* Adjust the border radius for curved edges */
+    padding: 16px; /* Add some padding for spacing */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: 10px;
+}
+
+
+
+
+/*Hero Card*/
+.hero-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card-space {
+  flex: 0 0 2px;
+  margin-bottom: 0px;
+}
+
+.hero-card img {
+  transition: transform 0.3s ease;
+}
+
+.hero-card:hover img {
+  transform: scale(0.2);
+}
