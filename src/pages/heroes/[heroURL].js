@@ -16,8 +16,7 @@ function HeroPage() {
 
   return (
     <div>
-      <h1>{heroData.localized_name}</h1>
-      <img src={'https://steamcdn-a.akamaihd.net/' + heroData.img} alt={heroData.localized_name} />
+      <h1> <img src={'https://steamcdn-a.akamaihd.net/' + heroData.img} alt={heroData.localized_name} /> {heroData.localized_name}</h1>
       <div>Attack Type: {heroData.attack_type}</div>
     </div>
   );
