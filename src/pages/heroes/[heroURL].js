@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { useRouter } from 'next/router';
+
+import StaticHeroInfo from '../../components/StaticHeroInfo'
 import heroNames from '../../../dotaconstants/build/hero_names.json';
 
 function HeroPage() {
@@ -16,7 +18,7 @@ function HeroPage() {
 
   return (
     <div>
-      <h1> <img src={'https://steamcdn-a.akamaihd.net/' + heroData.img} alt={heroData.localized_name} /> {heroData.localized_name}</h1>
+      <h1> <img src={'https://steamcdn-a.akamaihd.net/' + heroData.img} alt={heroData.localized_name} /> <StaticHeroInfo hero = {heroName} /></h1>
       <div>Attack Type: {heroData.attack_type}</div>
     </div>
   );
