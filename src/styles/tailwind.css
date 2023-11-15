@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.heroes-container {
+    background-color: #f0f0f0; /* Light gray color */
+    border-radius: 10px; /* Adjust the border radius for curved edges */
+    padding: 16px; /* Add some padding for spacing */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+  
+  .hero-table-container {
+    background-color: #CCCCCC; /* Light gray color */
+    border-radius: 10px; /* Adjust the border radius for curved edges */
+    padding: 16px; /* Add some padding for spacing */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: 10px;
+}
+
+

@@ -6,6 +6,7 @@ import abilityDesc from '../../dotaconstants/build/abilities.json'
 import aghsDesc from '../../dotaconstants/build/aghs_desc.json'
 
 import AbilityCard from './AbilityCard'
+import TalentCard from './TalentCard'
 
 function StaticBlock({hero}) {
     const Abilities = heroAbilities[hero].abilities
@@ -32,13 +33,12 @@ function StaticBlock({hero}) {
     })
 
     return(
-        <div>
+        <h1>
+            <TalentCard hero={hero} />
             {basicAbilities.map(ability => (
-                <h1><AbilityCard ability={ability} /></h1>
+                <AbilityCard ability={ability} />
             ))}
-        </div>
-        
-
+        </h1>
     )
 }
 

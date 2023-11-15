@@ -1,5 +1,5 @@
 
-import "../styles/global.css";
+import "../styles/tailwind.css";
 
 import { useEffect } from "react";
 

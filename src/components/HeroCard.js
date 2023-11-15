@@ -11,7 +11,7 @@ function HeroCard({ hero }) {
   return (
     <Link href={`/heroes/${heroURL}`}>
         <div
-        className="hero-card"
+        className=
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         >

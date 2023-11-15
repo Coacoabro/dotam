@@ -18,7 +18,8 @@ function HeroPage() {
 
   return (
     <div>
-      <h1> <img src={'https://steamcdn-a.akamaihd.net/' + heroData.img} alt={heroData.localized_name} /> <StaticHeroInfo hero = {heroName} /></h1>
+      <img src={'https://steamcdn-a.akamaihd.net/' + heroData.img} alt={heroData.localized_name} />
+      <StaticHeroInfo hero = {heroName} />
       <div>Attack Type: {heroData.attack_type}</div>
     </div>
   );
