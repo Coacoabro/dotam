@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Make sure to grab Dota Constants from OpenDota:
+
+git clone https://github.com/odota/dotaconstants.git
+
 First, run the development server:
 
 ```bash

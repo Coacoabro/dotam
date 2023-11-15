@@ -19,16 +19,16 @@ function HeroList() {
   return (
     <div className="heroes-container">
       <div>
-        <HeroTable heroes={strengthHeroes} />
+        <HeroTable heroes={strengthHeroes} attr="Strength" />
       </div>
       <div>
-        <HeroTable heroes={agilityHeroes} />
+        <HeroTable heroes={agilityHeroes} attr="Agility" />
       </div>
       <div>
-        <HeroTable heroes={intelligenceHeroes} />
+        <HeroTable heroes={intelligenceHeroes} attr="Intelligence" />
       </div>
       <div>
-        <HeroTable heroes={universalHeroes} />
+        <HeroTable heroes={universalHeroes} attr="Universal" />
       </div>
     </div>
   );

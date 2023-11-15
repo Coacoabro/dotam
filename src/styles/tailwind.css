@@ -15,9 +15,6 @@
     background-color: #CCCCCC; /* Light gray color */
     border-radius: 10px; /* Adjust the border radius for curved edges */
     padding: 16px; /* Add some padding for spacing */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: 10px;
 }
 
 
