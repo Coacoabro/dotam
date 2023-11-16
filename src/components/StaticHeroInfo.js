@@ -8,7 +8,8 @@ import aghsDesc from '../../dotaconstants/build/aghs_desc.json'
 import AbilityCard from './AbilityCard'
 import TalentCard from './TalentCard'
 
-function StaticBlock({hero}) {
+function StaticHeroInfo({heroData}) {
+    const hero = heroData.name
     const Abilities = heroAbilities[hero].abilities
     const scepterList = aghsDesc
         .filter(scepterAbility => scepterAbility.scepter_new_skill === true)
@@ -33,13 +34,20 @@ function StaticBlock({hero}) {
     })
 
     return(
-        <h1>
-            <TalentCard hero={hero} />
-            {basicAbilities.map(ability => (
-                <AbilityCard ability={ability} />
-            ))}
-        </h1>
+        <div>
+            <div className="text-4xl">
+                {heroData.localized_name}
+            </div>
+            
+            <div className="flex">
+                <TalentCard hero={hero} />
+                {basicAbilities.map(ability => (
+                    <AbilityCard ability={ability} />
+                ))}
+            </div>
+        </div>
+        
     )
 }
 
-export default StaticBlock;
+export default StaticHeroInfo;

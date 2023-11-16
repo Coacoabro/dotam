@@ -3,8 +3,10 @@ import Link from 'next/link';
 
 function TalentCard({hero}) {
     return(
-        <h1>Hello</h1>
-    )
+        <div className="p-2">
+            Talent Card Info
+        </div>
+    );
 }
 
 export default TalentCard;
