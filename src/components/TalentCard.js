@@ -1,10 +1,71 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
+
+import heroAbilities from '../../dotaconstants/build/hero_abilities.json'
+import abilityDesc from '../../dotaconstants/build/abilities.json'
+import aghsDesc from '../../dotaconstants/build/aghs_desc.json'
 
 function TalentCard({hero}) {
-    return(
-        <div className="p-2">
-            Talent Card Info
+    
+    const talentObject = heroAbilities[hero].talents
+
+    const leftTalents = talentObject
+        .filter((talent, index) => index % 2 === 0) // Get every other element
+        .map(talent => talent.name); // Extract the 'name' value
+    const leftTalentNames = leftTalents.map(talent => (abilityDesc[talent].dname))
+
+    const rightTalents = talentObject
+        .filter((talent, index) => index % 2 === 1) // Get every other element
+        .map(talent => talent.name); // Extract the 'name' value
+    const rightTalentNames = rightTalents.map(talent => (abilityDesc[talent].dname))
+
+    
+    const [showTooltip, setShowTooltip] = useState(false);
+
+    const toggleTooltip = () => {
+        setShowTooltip(!showTooltip);
+    };
+
+    return (
+        <div
+            className="relative"
+            onMouseEnter={toggleTooltip}
+            onMouseLeave={toggleTooltip}
+        >
+            <img
+                src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg"
+                alt="Talent Tree"
+                className="p-1 h-20 w-20"
+            />
+            {showTooltip && (
+                <div 
+                    className="absolute flex bg-black text-white p-2 rounded-md text-xs whitespace-pre-line"
+                    style={{
+                        left: '50%',
+                        width: '500px',
+                        height: 'auto',
+                    }}
+                    >
+                    <div className="grid grid-rows-4 text-sm gap-1 p-1">
+                        {rightTalentNames.map((talent) => (
+                        <div key={talent}>{talent}</div>
+                        ))}
+                    </div>
+                    {/* Middle column with levels */}
+                    <div className="grid grid-rows-4 text-lg gap-1 p-1">
+                        {[10, 15, 20, 25].map(level => (
+                            <div key={level} className="text-center">
+                                {level}
+                            </div>
+                        ))}
+                    </div>
+                    {/* First and third columns with hero talent information */}
+                    <div className="grid grid-rows-4 text-sm gap-1 p-1">
+                        {leftTalentNames.map((talent) => (
+                        <div key={talent}>{talent}</div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

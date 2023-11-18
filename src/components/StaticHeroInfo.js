@@ -7,6 +7,7 @@ import aghsDesc from '../../dotaconstants/build/aghs_desc.json'
 
 import AbilityCard from './AbilityCard'
 import TalentCard from './TalentCard'
+import AghsCard from './AghsCard'
 
 function StaticHeroInfo({heroData}) {
     const hero = heroData.name
@@ -20,12 +21,15 @@ function StaticHeroInfo({heroData}) {
     const basicAbilities = []
 
     Abilities.forEach((ability) => {
+        const isHidden = abilityDesc[ability].behavior && abilityDesc[ability].behavior.includes("Hidden");
         const abilityName = abilityDesc[ability].dname
         if (
             scepterList.indexOf(abilityName) !== -1 ||
             shardList.indexOf(abilityName) !== -1 ||
             ability == "generic_hidden" ||
-            ability.endsWith("_end")
+            ability.endsWith("_empty1") ||
+            ability.endsWith("_empty2") ||
+            isHidden == true
             ) {
             
         } else {
@@ -35,7 +39,7 @@ function StaticHeroInfo({heroData}) {
 
     return(
         <div>
-            <div className="text-4xl">
+            <div className="text-4xl text-white p-2">
                 {heroData.localized_name}
             </div>
             
@@ -44,6 +48,7 @@ function StaticHeroInfo({heroData}) {
                 {basicAbilities.map(ability => (
                     <AbilityCard ability={ability} />
                 ))}
+                <AghsCard hero={hero} />
             </div>
         </div>
         

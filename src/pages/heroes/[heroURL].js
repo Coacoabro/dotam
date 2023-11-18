@@ -21,8 +21,10 @@ function HeroPage() {
     const img = 'https://steamcdn-a.akamaihd.net' + heroData.img
 
     return (
-      <div className="flex">
-        <img src={img} alt={heroName} />
+      <div className="flex p-4 bg-gray-700">
+        <div className="">
+          <img src={img} alt={heroName} />
+        </div>
         <StaticHeroInfo heroData={heroData}/>
       </div>
     );
