@@ -10,12 +10,14 @@ function TalentCard({hero}) {
 
     const leftTalents = talentObject
         .filter((talent, index) => index % 2 === 0) // Get every other element
-        .map(talent => talent.name); // Extract the 'name' value
+        .map(talent => talent.name) // Extract the 'name' value
+        .reverse();
     const leftTalentNames = leftTalents.map(talent => (abilityDesc[talent].dname))
 
     const rightTalents = talentObject
         .filter((talent, index) => index % 2 === 1) // Get every other element
-        .map(talent => talent.name); // Extract the 'name' value
+        .map(talent => talent.name) // Extract the 'name' value
+        .reverse();
     const rightTalentNames = rightTalents.map(talent => (abilityDesc[talent].dname))
 
     
@@ -47,13 +49,13 @@ function TalentCard({hero}) {
                     >
                     <div className="grid grid-rows-4 text-sm gap-1 p-1">
                         {rightTalentNames.map((talent) => (
-                        <div key={talent}>{talent}</div>
+                        <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
                     </div>
                     {/* Middle column with levels */}
                     <div className="grid grid-rows-4 text-lg gap-1 p-1">
-                        {[10, 15, 20, 25].map(level => (
-                            <div key={level} className="text-center">
+                        {[25, 20, 15, 10].map(level => (
+                            <div key={level} className="text-center border border-gray-300 p-1">
                                 {level}
                             </div>
                         ))}
@@ -61,7 +63,7 @@ function TalentCard({hero}) {
                     {/* First and third columns with hero talent information */}
                     <div className="grid grid-rows-4 text-sm gap-1 p-1">
                         {leftTalentNames.map((talent) => (
-                        <div key={talent}>{talent}</div>
+                        <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
                     </div>
                 </div>

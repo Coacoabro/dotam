@@ -12,17 +12,18 @@ function AghsCard({hero}) {
     
     const Abilities = heroAbilities[hero].abilities
     const heroObject = aghsDesc.find(obj => obj.hero_name === hero)
+    console.log(heroObject)
     const abilitiesArray = Object.values(abilityDesc)
 
     const scepterName = heroObject.scepter_skill_name
+    const scepterDesc = heroObject.scepter_desc
     const scepterAbilityObject = abilitiesArray.find(ability => ability.dname === scepterName)
-    const scepterImg = 'https://steamcdn-a.akamaihd.net' + scepterAbilityObject.img
-    const scepterDesc = scepterAbilityObject.desc
+    const scepterImg = 'https://cdn.cloudflare.steamstatic.com/' + scepterAbilityObject.img
 
     const shardName = heroObject.shard_skill_name
+    const shardDesc = heroObject.shard_desc
     const shardAbilityObject = abilitiesArray.find(ability => ability.dname === shardName)
-    const shardImg = 'https://steamcdn-a.akamaihd.net' + shardAbilityObject.img
-    const shardDesc = shardAbilityObject.desc
+    const shardImg = 'https://cdn.cloudflare.steamstatic.com/' + shardAbilityObject.img
 
     
 
@@ -39,7 +40,7 @@ function AghsCard({hero}) {
       };
     
       return (
-        <div className="flex">
+        <div className="flex relative p-1 h-20 w-20">
             <div>
                 <div className="mr-4 p-1">
                     <img
@@ -66,7 +67,7 @@ function AghsCard({hero}) {
                     className="absolute bg-black flex text-white p-1 rounded-md text-xs whitespace-pre-line"
                     style={{
                     left: '50%', // Position the tooltip centrally
-                    top: '22%',
+                    top: '110%',
                     transform: 'translateX(-50%)',
                     width: '300px', // Adjust width as needed
                     height: 'auto', // Let the height expand according to content

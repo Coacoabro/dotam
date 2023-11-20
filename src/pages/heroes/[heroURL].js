@@ -4,6 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import StaticHeroInfo from '../../components/StaticHeroInfo'
+import BuildsContainer from '@/components/BuildsContainer';
 import heroNames from '../../../dotaconstants/build/hero_names.json';
 
 function HeroPage() {
@@ -18,14 +19,17 @@ function HeroPage() {
   }
   else {
 
-    const img = 'https://steamcdn-a.akamaihd.net' + heroData.img
+    const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
 
     return (
-      <div className="flex p-4 bg-gray-700">
-        <div className="">
+      <div className="p-4 bg-gray-600">
+        <div className="flex">
           <img src={img} alt={heroName} />
+          <StaticHeroInfo heroData={heroData}/>
         </div>
-        <StaticHeroInfo heroData={heroData}/>
+        <div>
+          <BuildsContainer />
+        </div>
       </div>
     );
   }
