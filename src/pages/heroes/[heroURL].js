@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import StaticHeroInfo from '../../components/StaticHeroInfo'
-import BuildsContainer from '@/components/BuildsContainer';
+import VariableHeroInfo from '@/components/VariableHeroInfo';
 import heroNames from '../../../dotaconstants/build/hero_names.json';
 
 function HeroPage() {
@@ -23,12 +23,12 @@ function HeroPage() {
 
     return (
       <div className="p-4 bg-gray-600">
-        <div className="flex">
+        <div className="flex p-1">
           <img src={img} alt={heroName} />
           <StaticHeroInfo heroData={heroData}/>
         </div>
-        <div>
-          <BuildsContainer />
+        <div className="p-1">
+          <VariableHeroInfo />
         </div>
       </div>
     );
