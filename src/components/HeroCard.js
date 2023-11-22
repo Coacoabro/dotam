@@ -27,7 +27,7 @@ function HeroCard({ hero }) {
         <img
           src={heroImage}
           alt={hero.name}
-          className="w-28 h-32 object-cover transition-transform duration-300 p-1"
+          className="w-24 h-32 object-cover transition-transform duration-300 p-1"
         />
         {hovered && (
           <video
