@@ -23,8 +23,8 @@ function HeroList() {
   const universalHeroes = Object.values(sortedHeroData).filter(hero => hero.primary_attr === 'all');
   
   return (
-    <div className="p-4">
-      <div className="bg-gray-700 rounded-lg p-4 grid grid-cols-2 gap-5">
+    <div>
+      <div className="bg-gray-700 p-4 grid grid-cols-2 gap-5">
         <div>
           <HeroTable heroes={strengthHeroes} attr="STRENGTH" img="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"/>
         </div>

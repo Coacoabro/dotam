@@ -7,7 +7,7 @@ import Logo from "../../public/Io.webp"
 
 function TopBar() {
     return (
-      <nav className="bg-gray-800 text-white py-4 flex">
+      <nav className="bg-gray-700 text-white py-4 flex">
 
         <div className="p-2">
             <Link href="/">

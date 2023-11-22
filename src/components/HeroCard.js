@@ -9,7 +9,7 @@ function HeroCard({ hero }) {
   const heroVideo = '/hero_animation/' + hero.name + '.webm';
 
   return (
-    <Link href={`/heroes/${heroURL}`}>
+    <Link href={`/${heroURL}`}>
       <div
         className="relative rounded-md transition-transform duration-300 hover:scale-150 hover:z-10"
         onMouseEnter={() => setHovered(true)}
