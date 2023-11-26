@@ -15,7 +15,7 @@ function HeroTable({heroes, attr, img}) {
       <div className="flex flex-wrap">
 
         {heroes.map(hero => (
-          <div className="hero-card-space">
+          <div>
             <HeroCard key={hero.id} hero={hero} />
           </div>
         ))}

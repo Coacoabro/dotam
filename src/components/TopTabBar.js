@@ -7,9 +7,9 @@ function TopTabBar({activeTab, setActiveTab}) {
       };
 
     return (
-        <div className="flex">
+        <div className="flex space-x-12">
           <div
-            className={`cursor-pointer px-4 py-2 rounded-tl-md rounded-tr-md ${
+            className={`cursor-pointer px-4 py-2 rounded-t-md ${
               activeTab === 0 ? 'bg-gray-500 text-white' : 'bg-gray-400 text-gray-700'
             }`}
             onClick={() => handleTabClick(0)}
@@ -17,7 +17,7 @@ function TopTabBar({activeTab, setActiveTab}) {
             Builds
           </div>
           <div
-            className={`cursor-pointer px-4 py-2 rounted-tl-md rounded-tr-md ${
+            className={`cursor-pointer px-4 py-2 rounded-t-md ${
               activeTab === 1 ? 'bg-gray-500 text-white' : 'bg-gray-400 text-gray-700'
             }`}
             onClick={() => handleTabClick(1)}
@@ -25,7 +25,7 @@ function TopTabBar({activeTab, setActiveTab}) {
             Items
           </div>
           <div
-            className={`cursor-pointer px-4 py-2 rounted-tl-md rounded-tr-md ${
+            className={`cursor-pointer px-4 py-2 rounded-t-md ${
               activeTab === 2 ? 'bg-gray-500 text-white' : 'bg-gray-400 text-gray-700'
             }`}
             onClick={() => handleTabClick(2)}
@@ -33,7 +33,7 @@ function TopTabBar({activeTab, setActiveTab}) {
             Abilities
           </div>
           <div
-            className={`cursor-pointer px-4 py-2 rounted-tl-md rounded-tr-md ${
+            className={`cursor-pointer px-4 py-2 rounded-t-md ${
               activeTab === 3 ? 'bg-gray-500 text-white' : 'bg-gray-400 text-gray-700'
             }`}
             onClick={() => handleTabClick(3)}
