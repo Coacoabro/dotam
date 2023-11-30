@@ -38,10 +38,10 @@ function TierList() {
   
 
   return (
-    <div className="bg-gray-700">
-      <div className="text-xl text-center">Dota 2 Tier List</div>
-      <div className="text-md text-center">This tier list is based on current statistical data from almost all games played within the current patch</div>
-      <div className="flex space-x-10 px-4">
+    <div className="max-w-6xl mx-auto px-4">
+      <div className="text-xl text-center py-2">Dota 2 Tier List</div>
+      <div className="text-md text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
+      <div className="flex space-x-20 px-10">
         <div className="p-2 flex space-x-2 bg-gray-800 rounded-md">
           {Role.map((role, index) => (
             <button key={index} className="w-10 h-10 rounded-md border" onClick={() => handleRoleClick(role)}>

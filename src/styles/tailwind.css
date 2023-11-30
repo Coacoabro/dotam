@@ -9,6 +9,7 @@
 
 body {
     font-family: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif;
+    @apply bg-gray-600;
   }
   
 

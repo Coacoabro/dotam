@@ -23,8 +23,11 @@ function HeroList() {
   const universalHeroes = Object.values(sortedHeroData).filter(hero => hero.primary_attr === 'all');
   
   return (
-    <div>
-      <div className="bg-gray-700 p-4 grid grid-cols-2 gap-5">
+    <div className="px-4 max-w-6xl mx-auto" >
+      <div className="text-xl text-center py-2">Dota 2 Heroes List</div>
+      <div className="text-md text-center py-2">All of these heroes suck. I promise you</div>
+      
+      <div className="grid grid-cols-2 gap-5">
         <div>
           <HeroTable heroes={strengthHeroes} attr="STRENGTH" img="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"/>
         </div>

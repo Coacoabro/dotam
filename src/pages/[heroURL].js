@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import StaticHeroInfo from '@/components/StaticHeroInfo'
 import VariableHeroInfo from '@/components/VariableHeroInfo';
 import heroNames from '../../dotaconstants/build/hero_names.json';
+import TestComponent from '@/components/TestComponent';
 
 function HeroPage() {
   
@@ -22,10 +23,11 @@ function HeroPage() {
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
 
     return (
-      <div className="p-4 bg-gray-700">
-        <div className="flex p-1">
+      <div className="p-4 max-w-6xl mx-auto">
+        <div className="flex p-3">
           <img src={img} alt={heroName} />
           <StaticHeroInfo heroData={heroData}/>
+          <TestComponent />
         </div>
         <div className="p-1">
           <VariableHeroInfo />
