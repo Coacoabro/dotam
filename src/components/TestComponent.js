@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { fetchHeroData, fetchItemData, fetchMatchData } from '../heroData'; // Adjust the import path based on your file structure
+import { fetchHeroData, fetchItemData } from '../heroData'; // Adjust the import path based on your file structure
 
 const TestComponent = () => {
   useEffect(() => {
@@ -9,9 +9,6 @@ const TestComponent = () => {
 
       const itemData = await fetchItemData();
       console.log('Item data:', itemData);
-
-      const matchData = await fetchMatchData();
-      console.log('Match data:', matchData);
     };
 
     fetchData();
