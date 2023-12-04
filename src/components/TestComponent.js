@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { fetchHeroWinRatesByRank } from '../heroData'; // Adjust the import path based on your file structure
 
-const TestComponent = () => {
+const TestComponent = ({id, name}) => {
+
+  
+
   useEffect(() => {
     const fetchData = async () => {
-      fetchHeroWinRatesByRank(1)
+      fetchHeroWinRatesByRank(id)
       .then(winRates => {
-        console.log('Win rates by rank for Anti-Mage:', winRates);
+        console.log(winRates["Rank 1"])
       })
       .catch(error => {
         console.error('Error:', error);
@@ -18,8 +21,7 @@ const TestComponent = () => {
 
   return (
     <div>
-      <h1>Testing API Fetch</h1>
-      {/* You can render fetched data here or perform further actions */}
+      <h1>{name} win rate is: {}</h1>
     </div>
   );
 };
