@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
-import { fetchHeroData, fetchItemData, fetchMatchData } from '../heroData'; // Adjust the import path based on your file structure
+import { fetchHeroWinRatesByRank } from '../heroData'; // Adjust the import path based on your file structure
 
 const TestComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
-      const heroData = await fetchHeroData();
-      console.log('Hero data:', heroData);
-
-      const itemData = await fetchItemData();
-      console.log('Item data:', itemData);
-
-      const matchData = await fetchMatchData();
-      console.log('Match data:', matchData);
+      fetchHeroWinRatesByRank(1)
+      .then(winRates => {
+        console.log('Win rates by rank for Anti-Mage:', winRates);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
     };
 
     fetchData();

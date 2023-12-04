@@ -12,7 +12,6 @@ function AghsCard({hero}) {
     
     const Abilities = heroAbilities[hero].abilities
     const heroObject = aghsDesc.find(obj => obj.hero_name === hero)
-    console.log(heroObject)
     const abilitiesArray = Object.values(abilityDesc)
 
     const scepterName = heroObject.scepter_skill_name
