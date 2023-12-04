@@ -27,7 +27,7 @@ function HeroPage() {
         <div className="flex p-3">
           <img src={img} alt={heroName} />
           <StaticHeroInfo heroData={heroData}/>
-          <TestComponent />
+          <TestComponent id={heroData.id} name={heroData.localized_name}/>
         </div>
         <div className="p-1">
           <VariableHeroInfo />
