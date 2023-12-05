@@ -54,28 +54,36 @@ function HeroPage() {
   };
 
   const [heroWinRate, setHeroWinRate] = useState(null);
+  const [heroPickRate, setHeroPickRate] = useState(null);
+  const [heroMatches, setHeroMatches] = useState(null);
+
+  useEffect(() => {
+    if (heroData) {
+      const heroID = heroData.id;
+      
+      const fetchWinData = async () => {
+        try {
+          const { winRate, pickRate, matches } = await fetchHeroWinRatesByRank({heroID, currentRank});
+          setHeroWinRate(winRate);
+          setHeroPickRate(pickRate);
+          setHeroMatches(matches);
+
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+  
+      fetchWinData();
+  
+    }
+  }, [heroData, currentRank]);
+
+
 
   if (!heroData) {
     return;
   }
   else {
-
-    const heroID = heroData.id
-    
-
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const winRate = await fetchHeroWinRatesByRank({heroID, currentRank});
-          setHeroWinRate(winRate);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-    };
-
-      fetchData();
-    }, [heroID, currentRank]
-  );
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
 
@@ -90,8 +98,9 @@ function HeroPage() {
             {Role.map((role, index) => (
               <button 
                 key={index} 
-                className={`w-10 h-10 rounded-md border ${currentRole === index ? 'bg-500' : ''} `}
+                className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
                 onClick={() => handleRoleClick(role.role)}
+                title={role.role}
               >
                 <img src={role.icon} alt={role.role} />
               </button>
@@ -99,7 +108,12 @@ function HeroPage() {
           </div>
           <div className="p-2 flex space-x-2 rounded-md">
             {Rank.map((rank, index) => (
-              <button key={index} className={`w-10 h-10 rounded-md border ${rank === currentRank ? 'bg-500' : ''} `} onClick={() => handleRankClick(rank.rank)}>
+              <button 
+                key={index} 
+                className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
+                onClick={() => handleRankClick(rank.rank)}
+                title={rank.rank}
+              >
                 <img src={rank.icon} alt={rank.rank}/>
               </button>
             ))}
@@ -109,9 +123,15 @@ function HeroPage() {
           </div>
         </div>
 
-        <div className="flex px-20 py-5">
+        <div className="flex px-20 py-5 space-x-20">
           <div className="w-24 h-24 rounded-md border-4">
             <RateCard type="Win Rate" rate={heroWinRate} />
+          </div>
+          <div className="w-24 h-24 rounded-md border-4">
+            <RateCard type="Pick Rate" rate={heroPickRate} />
+          </div>
+          <div className="w-36 h-24 rounded-md border-4">
+            <RateCard type="Matches" rate={heroMatches} />
           </div>
           
         </div>

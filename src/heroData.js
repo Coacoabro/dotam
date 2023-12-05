@@ -15,6 +15,8 @@ export const fetchHeroWinRatesByRank = async ({heroID, currentRank}) => {
     if (heroStats) {
       const winRates = {};
       let chosenWR = 0;
+      let chosenPR = 50;
+      let matches = 0;
 
       for (let i = 1; i <= 8; i++) {
         const pickKey = `${i}_pick`;
@@ -35,26 +37,39 @@ export const fetchHeroWinRatesByRank = async ({heroID, currentRank}) => {
           tempPick += parseFloat(heroStats[`${i}_pick`])
         }
         chosenWR = ((tempWin/tempPick)*100).toFixed(2)
+        matches = tempPick
         
       } else if(currentRank === "Herald") {
         chosenWR = winRates["Rank 1"]
+        matches = heroStats["1_pick"]
       } else if(currentRank === "Guardian") {
         chosenWR = winRates["Rank 2"]
+        matches = heroStats["2_pick"]
       } else if(currentRank === "Crusader") {
         chosenWR = winRates["Rank 3"]
+        matches = heroStats["3_pick"]
       } else if(currentRank === "Archon") {
         chosenWR = winRates["Rank 4"]
+        matches = heroStats["4_pick"]
       } else if(currentRank === "Legend") {
         chosenWR = winRates["Rank 5"]
+        matches = heroStats["5_pick"]
       } else if(currentRank === "Ancient") {
         chosenWR = winRates["Rank 6"]
+        matches = heroStats["6_pick"]
       } else if(currentRank === "Divine") {
         chosenWR = winRates["Rank 7"]
+        matches = heroStats["7_pick"]
       } else if(currentRank === "Immortal") {
         chosenWR = winRates["Rank 8"]
+        matches = heroStats["8_pick"]
       }
 
-      return chosenWR;
+      const winRate = parseFloat(chosenWR)
+      const pickRate = parseFloat(chosenPR)
+
+      return { winRate, pickRate, matches };
+
     } else {
       throw new Error('Hero not found.');
     }
@@ -65,5 +80,3 @@ export const fetchHeroWinRatesByRank = async ({heroID, currentRank}) => {
     return null;
   }
 };
-
-
