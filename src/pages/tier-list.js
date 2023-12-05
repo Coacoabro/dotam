@@ -42,21 +42,21 @@ function TierList() {
       <div className="text-xl text-center py-2">Dota 2 Tier List</div>
       <div className="text-md text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
       <div className="flex space-x-20 px-10">
-        <div className="p-2 flex space-x-2 bg-gray-800 rounded-md">
+        <div className="p-2 flex space-x-2 rounded-md">
           {Role.map((role, index) => (
             <button key={index} className="w-10 h-10 rounded-md border" onClick={() => handleRoleClick(role)}>
               <img src={role.icon} alt={role.role} />
             </button>
           ))}
         </div>
-        <div className="p-2 flex space-x-2 bg-gray-800 rounded-md">
+        <div className="p-2 flex space-x-2 rounded-md">
           {Rank.map((rank, index) => (
             <button key={index} className="w-10 h-10 rounded-md border" onClick={() => handleRankClick(rank)}>
               <img src={rank.icon} alt={rank.rank}/>
             </button>
           ))}
         </div>
-        <div className="rounded-md bg-gray-800 p-2">
+        <div className="rounded-md p-2">
           <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>
         </div>
       </div>

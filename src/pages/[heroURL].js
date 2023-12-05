@@ -1,12 +1,15 @@
 //individual hero pages. Will have multiple components or pages for this
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { fetchHeroWinRatesByRank } from '../heroData';
 
 import StaticHeroInfo from '@/components/StaticHeroInfo'
 import VariableHeroInfo from '@/components/VariableHeroInfo';
+import RateCard from '@/components/RateCard';
+
+
 import heroNames from '../../dotaconstants/build/hero_names.json';
-import TestComponent from '@/components/TestComponent';
 
 function HeroPage() {
   
@@ -15,10 +18,64 @@ function HeroPage() {
   const heroName = 'npc_dota_hero_' + heroURL
   const heroData = heroNames[heroName]
 
+  const Role = [
+    {role: "All", icon: "icons8-product-90.png"},
+    {role: "Safe-Lane", icon: "Safe-Lane.png"},
+    {role: "Mid-Lane", icon: "Mid-Lane.png"},
+    {role: "Off-Lane", icon: "Off-Lane.png"},
+    {role: "Soft-Support", icon: "Soft-Support.png"},
+    {role: "Hard-Support", icon: "Hard-Support.png"},
+  ]
+
+  const Rank = [
+    {rank: "All", icon: "icons8-competitive-64.png"},
+    {rank: "Herald", icon: "dota_ranks/Herald.png"},
+    {rank: "Guardian", icon: "dota_ranks/Guardian.png"},
+    {rank: "Crusader", icon: "dota_ranks/Crusader.png"},
+    {rank: "Archon", icon: "dota_ranks/Archon.png"},
+    {rank: "Legend", icon: "dota_ranks/Legend.png"},
+    {rank: "Ancient", icon: "dota_ranks/Ancient.png"},
+    {rank: "Divine", icon: "dota_ranks/Divine.png"},
+    {rank: "Immortal", icon: "dota_ranks/Immortal.png"},
+  ]
+
+  const [currentRole, setCurrentRole] = useState(null);
+
+  var currentWR
+
+  const handleRoleClick = (role) => {
+    setCurrentRole(role);
+  };
+
+  const [currentRank, setCurrentRank] = useState("All");
+
+  const handleRankClick = (rank) => {
+    setCurrentRank(rank);
+  };
+
+  const [heroWinRate, setHeroWinRate] = useState(null);
+
   if (!heroData) {
     return;
   }
   else {
+
+    const heroID = heroData.id
+    
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const winRate = await fetchHeroWinRatesByRank({heroID, currentRank});
+          setHeroWinRate(winRate);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+    };
+
+      fetchData();
+    }, [heroID, currentRank]
+  );
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
 
@@ -27,8 +84,38 @@ function HeroPage() {
         <div className="flex p-3">
           <img src={img} alt={heroName} />
           <StaticHeroInfo heroData={heroData}/>
-          <TestComponent id={heroData.id} name={heroData.localized_name}/>
         </div>
+        <div className="flex space-x-20 px-10">
+          <div className="p-2 flex space-x-2 rounded-md">
+            {Role.map((role, index) => (
+              <button 
+                key={index} 
+                className={`w-10 h-10 rounded-md border ${currentRole === index ? 'bg-500' : ''} `}
+                onClick={() => handleRoleClick(role.role)}
+              >
+                <img src={role.icon} alt={role.role} />
+              </button>
+            ))}
+          </div>
+          <div className="p-2 flex space-x-2 rounded-md">
+            {Rank.map((rank, index) => (
+              <button key={index} className={`w-10 h-10 rounded-md border ${rank === currentRank ? 'bg-500' : ''} `} onClick={() => handleRankClick(rank.rank)}>
+                <img src={rank.icon} alt={rank.rank}/>
+              </button>
+            ))}
+          </div>
+          <div className="rounded-md p-2">
+            <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>
+          </div>
+        </div>
+
+        <div className="flex px-20 py-5">
+          <div className="w-24 h-24 rounded-md border-4">
+            <RateCard type="Win Rate" rate={heroWinRate} />
+          </div>
+          
+        </div>
+
         <div className="p-1">
           <VariableHeroInfo />
         </div>
