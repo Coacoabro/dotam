@@ -39,9 +39,7 @@ function HeroPage() {
     {rank: "Immortal", icon: "dota_ranks/Immortal.png"},
   ]
 
-  const [currentRole, setCurrentRole] = useState(null);
-
-  var currentWR
+  const [currentRole, setCurrentRole] = useState("All");
 
   const handleRoleClick = (role) => {
     setCurrentRole(role);
@@ -93,7 +91,7 @@ function HeroPage() {
           <img src={img} alt={heroName} />
           <StaticHeroInfo heroData={heroData}/>
         </div>
-        <div className="flex space-x-20 px-10">
+        <div className="flex justify-between px-10">
           <div className="p-2 flex space-x-2 rounded-md">
             {Role.map((role, index) => (
               <button 
@@ -118,12 +116,9 @@ function HeroPage() {
               </button>
             ))}
           </div>
-          <div className="rounded-md p-2">
-            <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>
-          </div>
         </div>
 
-        <div className="flex px-20 py-5 space-x-20">
+        <div className="flex px-20 py-5 justify-between">
           <div className="w-24 h-24 rounded-md border-4">
             <RateCard type="Win Rate" rate={heroWinRate} />
           </div>
