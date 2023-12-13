@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fetchHeroWinRatesByRank } from '../heroData';
+import { fetchHeroPickRate } from '../heroDataQL';
 
 import StaticHeroInfo from '@/components/StaticHeroInfo'
 import VariableHeroInfo from '@/components/VariableHeroInfo';
@@ -61,16 +62,26 @@ function HeroPage() {
       
       const fetchWinData = async () => {
         try {
-          const { winRate, pickRate, matches } = await fetchHeroWinRatesByRank({heroID, currentRank});
+          const { winRate, matches } = await fetchHeroWinRatesByRank({heroID, currentRank});
           setHeroWinRate(winRate);
-          setHeroPickRate(pickRate);
           setHeroMatches(matches);
 
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       };
-  
+
+      const fetchPickData = async () => {
+        try {
+          const pickRate = await fetchHeroPickRate({heroID});
+          setHeroPickRate(pickRate)
+
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+
+      fetchPickData();
       fetchWinData();
   
     }

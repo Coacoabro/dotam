@@ -68,7 +68,7 @@ export const fetchHeroWinRatesByRank = async ({heroID, currentRank}) => {
       const winRate = parseFloat(chosenWR)
       const pickRate = parseFloat(chosenPR)
 
-      return { winRate, pickRate, matches };
+      return { winRate, matches };
 
     } else {
       throw new Error('Hero not found.');
