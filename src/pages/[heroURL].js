@@ -143,7 +143,7 @@ function HeroPage() {
         </div>
 
         <div className="p-1">
-          <VariableHeroInfo />
+          <VariableHeroInfo hero={heroName}/>
         </div>
       </div>
     );

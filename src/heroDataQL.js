@@ -33,7 +33,7 @@ export const fetchHeroPickRate = async ({heroID}) => {
           query: GET_HERO_PICK_RATE,
         });
 
-        console.log(data)
+        
 
         const heroStats = data.heroStats.winMonth;
         const totalMatches = heroStats.reduce((accumulator, hero) => accumulator + hero.matchCount, 0);
