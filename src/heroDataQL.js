@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink, gql, useQuery } from '@apollo/client';
 
 const httpLink = createHttpLink({
-    uri: 'https://api.stratz.com/',
+    uri: 'https://api.stratz.com/graphiql',
   });
 
 const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWJqZWN0IjoiZWNmMWMxNTktMzk5Yy00N2UzLWEyMTktNzZkNjA5MDNmMGE5IiwiU3RlYW1JZCI6Ijk2MTcwMTk2IiwibmJmIjoxNzAyNDM3NzczLCJleHAiOjE3MzM5NzM3NzMsImlhdCI6MTcwMjQzNzc3MywiaXNzIjoiaHR0cHM6Ly9hcGkuc3RyYXR6LmNvbSJ9.JKQ92J9j9QTh5HPtD8sxCSGkbOViKKuCtuBCD2QN0Yk';
