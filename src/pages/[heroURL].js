@@ -2,8 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+
+import { useQuery, gql } from "@apollo/client";
+import { AM_STATS } from "../graphQL/Queries";
+
 import { fetchHeroWinRatesByRank } from '../heroData';
-import { fetchHeroPickRate } from '../heroDataQL';
+import GetMatches from '../heroDataQL';
 
 import StaticHeroInfo from '@/components/StaticHeroInfo'
 import VariableHeroInfo from '@/components/VariableHeroInfo';
@@ -56,42 +60,30 @@ function HeroPage() {
   const [heroPickRate, setHeroPickRate] = useState(null);
   const [heroMatches, setHeroMatches] = useState(null);
 
+
+  setHeroMatches(GetMatches());
+  
+
   useEffect(() => {
     if (heroData) {
       const heroID = heroData.id;
-      
       const fetchWinData = async () => {
         try {
-          const { winRate, matches } = await fetchHeroWinRatesByRank({heroID, currentRank});
+          const { winRate } = await fetchHeroWinRatesByRank({ heroID, currentRank });
           setHeroWinRate(winRate);
-          setHeroMatches(matches);
-
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       };
 
-      const fetchPickData = async () => {
-        try {
-          const pickRate = await fetchHeroPickRate({heroID});
-          setHeroPickRate(pickRate)
-
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      fetchPickData();
       fetchWinData();
-  
     }
   }, [heroData, currentRank]);
-
-
 
   if (!heroData) {
     return;
   }
+
   else {
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
