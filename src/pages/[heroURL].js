@@ -1,17 +1,15 @@
-//individual hero pages. Will have multiple components or pages for this
-
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { useQuery, gql } from "@apollo/client";
-import { AM_STATS } from "../graphQL/Queries";
 
 import { fetchHeroWinRatesByRank } from '../heroData';
 import GetMatches from '../heroDataQL';
+import { heroMatchCount } from '../graphQL/useHeroData';
 
 import StaticHeroInfo from '@/components/StaticHeroInfo'
 import VariableHeroInfo from '@/components/VariableHeroInfo';
-import RateCard from '@/components/RateCard';
+import RatesContainer from '@/components/RatesContainer';
 
 
 import heroNames from '../../dotaconstants/build/hero_names.json';
@@ -24,70 +22,75 @@ function HeroPage() {
   const heroData = heroNames[heroName]
 
   const Role = [
-    {role: "All", icon: "icons8-product-90.png"},
-    {role: "Safe-Lane", icon: "Safe-Lane.png"},
-    {role: "Mid-Lane", icon: "Mid-Lane.png"},
-    {role: "Off-Lane", icon: "Off-Lane.png"},
-    {role: "Soft-Support", icon: "Soft-Support.png"},
-    {role: "Hard-Support", icon: "Hard-Support.png"},
+    {role: "", name: "All", icon: "icons8-product-90.png"},
+    {role: "POSITION_1", name: "Safe-Lane", icon: "Safe-Lane.png"},
+    {role: "POSITION_2", name: "Mid-Lane", icon: "Mid-Lane.png"},
+    {role: "POSITION_3", name: "Off-Lane", icon: "Off-Lane.png"},
+    {role: "POSITION_4", name: "Soft-Support", icon: "Soft-Support.png"},
+    {role: "POSITION_5", name: "Hard-Support", icon: "Hard-Support.png"},
   ]
 
   const Rank = [
-    {rank: "All", icon: "icons8-competitive-64.png"},
-    {rank: "Herald", icon: "dota_ranks/Herald.png"},
-    {rank: "Guardian", icon: "dota_ranks/Guardian.png"},
-    {rank: "Crusader", icon: "dota_ranks/Crusader.png"},
-    {rank: "Archon", icon: "dota_ranks/Archon.png"},
-    {rank: "Legend", icon: "dota_ranks/Legend.png"},
-    {rank: "Ancient", icon: "dota_ranks/Ancient.png"},
-    {rank: "Divine", icon: "dota_ranks/Divine.png"},
-    {rank: "Immortal", icon: "dota_ranks/Immortal.png"},
+    {rank: "", name: "All", icon: "icons8-competitive-64.png"},
+    {rank: "HERALD", name: "Herald", icon: "dota_ranks/Herald.png"},
+    {rank: "GUARDIAN", name: "Guardian", icon: "dota_ranks/Guardian.png"},
+    {rank: "CRUSADER", name: "Crusader", icon: "dota_ranks/Crusader.png"},
+    {rank: "ARCHON", name: "Archon", icon: "dota_ranks/Archon.png"},
+    {rank: "LEGEND", name: "Legend", icon: "dota_ranks/Legend.png"},
+    {rank: "ANCIENT", name: "Ancient", icon: "dota_ranks/Ancient.png"},
+    {rank: "DIVINE", name: "Divine", icon: "dota_ranks/Divine.png"},
+    {rank: "IMMORTAL", name: "Immortal", icon: "dota_ranks/Immortal.png"},
   ]
 
-  const [currentRole, setCurrentRole] = useState("All");
-
+  const [currentRole, setCurrentRole] = useState("");
   const handleRoleClick = (role) => {
     setCurrentRole(role);
   };
-
-  const [currentRank, setCurrentRank] = useState("All");
-
+  const [currentRank, setCurrentRank] = useState("");
   const handleRankClick = (rank) => {
     setCurrentRank(rank);
   };
 
-  const [heroWinRate, setHeroWinRate] = useState(null);
-  const [heroPickRate, setHeroPickRate] = useState(null);
-  const [heroMatches, setHeroMatches] = useState(null);
+  const MATCHES = gql`
+    query {
+      heroStats {
+        winGameVersion {
+          heroId
+          matchCount
+          gameVersionId
+        }
+      }
+    }
+  `;
 
-
-  setHeroMatches(GetMatches());
+  const { data } = useQuery(MATCHES);
   
 
-  useEffect(() => {
-    if (heroData) {
-      const heroID = heroData.id;
-      const fetchWinData = async () => {
-        try {
-          const { winRate } = await fetchHeroWinRatesByRank({ heroID, currentRank });
-          setHeroWinRate(winRate);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      fetchWinData();
-    }
-  }, [heroData, currentRank]);
-
-  if (!heroData) {
+  if (!heroData && !data) {
     return;
   }
 
   else {
+    
+    let totalMatches = 0;
+    let highestGameVersionId = 0;
+
+    if (data && data.heroStats && data.heroStats.winGameVersion) {
+      data.heroStats.winGameVersion.forEach((winGameVersion) => {
+        if (winGameVersion.gameVersionId > highestGameVersionId) {
+          highestGameVersionId = winGameVersion.gameVersionId;
+        }
+      });
+
+      data.heroStats.winGameVersion.forEach((winGameVersion) => {
+        if (winGameVersion.gameVersionId === highestGameVersionId) {
+          totalMatches += winGameVersion.matchCount;
+        }
+      });
+    }
+
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
-
     return (
       <div className="p-4 max-w-6xl mx-auto">
         <div className="flex p-3">
@@ -101,9 +104,9 @@ function HeroPage() {
                 key={index} 
                 className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
                 onClick={() => handleRoleClick(role.role)}
-                title={role.role}
+                title={role.name}
               >
-                <img src={role.icon} alt={role.role} />
+                <img src={role.icon} alt={role.name} />
               </button>
             ))}
           </div>
@@ -113,27 +116,16 @@ function HeroPage() {
                 key={index} 
                 className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
                 onClick={() => handleRankClick(rank.rank)}
-                title={rank.rank}
+                title={rank.name}
               >
-                <img src={rank.icon} alt={rank.rank}/>
+                <img src={rank.icon} alt={rank.name}/>
               </button>
             ))}
           </div>
         </div>
-
-        <div className="flex px-20 py-5 justify-between">
-          <div className="w-24 h-24 rounded-md border-4">
-            <RateCard type="Win Rate" rate={heroWinRate} />
-          </div>
-          <div className="w-24 h-24 rounded-md border-4">
-            <RateCard type="Pick Rate" rate={heroPickRate} />
-          </div>
-          <div className="w-36 h-24 rounded-md border-4">
-            <RateCard type="Matches" rate={heroMatches} />
-          </div>
-          
-        </div>
-
+        
+        <RatesContainer heroId = {heroData.id} rank={currentRank} role={currentRole} totalMatches={totalMatches/10} />
+        
         <div className="p-1">
           <VariableHeroInfo hero={heroName}/>
         </div>

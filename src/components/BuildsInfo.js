@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import heroNames from '../../dotaconstants/build/hero_names.json';
+import AbilitiesContainer from './Builds/AbilitiesContainer';
 
 function BuildsInfo({hero}) {
 
@@ -8,9 +9,8 @@ function BuildsInfo({hero}) {
 
     return(
         <div className="bg-gray-500 p-3">
-            Builds
             <div className="flex">
-                
+                <AbilitiesContainer hero={hero}/>
             </div>
         </div>
     )

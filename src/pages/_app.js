@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink, ApolloProvider, from } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider, gql } from '@apollo/client';
 import { onError } from "@apollo/client/link/error";
 import { setContext } from '@apollo/client/link/context';
 import "../styles/tailwind.css";
@@ -8,18 +8,21 @@ import Layout from '../components/Layout'
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
     graphqlErrors.map(({ message, location, path }) => {
-      alert(`Graphql error ${message}`);
+      console.log(`Graphql error ${message}`);
+      console.log('Location:', location);
+      console.log('Path:', path);
     });
+  }
+  if (networkError) {
+    console.log(`Network error: ${networkError}`);
   }
 });
 
-const link = from([
-  errorLink,
-  new HttpLink({ uri: "https://api.stratz.com/graphiql/" }),
-]);
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWJqZWN0IjoiZWNmMWMxNTktMzk5Yy00N2UzLWEyMTktNzZkNjA5MDNmMGE5IiwiU3RlYW1JZCI6Ijk2MTcwMTk2IiwibmJmIjoxNzAyNDM3NzczLCJleHAiOjE3MzM5NzM3NzMsImlhdCI6MTcwMjQzNzc3MywiaXNzIjoiaHR0cHM6Ly9hcGkuc3RyYXR6LmNvbSJ9.JKQ92J9j9QTh5HPtD8sxCSGkbOViKKuCtuBCD2QN0Yk';
+
+const httpLink = createHttpLink({ uri: 'https://api.stratz.com/graphql' });
 
 const authLink = setContext((_, { headers }) => {
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWJqZWN0IjoiZWNmMWMxNTktMzk5Yy00N2UzLWEyMTktNzZkNjA5MDNmMGE5IiwiU3RlYW1JZCI6Ijk2MTcwMTk2IiwibmJmIjoxNzAyNDM3NzczLCJleHAiOjE3MzM5NzM3NzMsImlhdCI6MTcwMjQzNzc3MywiaXNzIjoiaHR0cHM6Ly9hcGkuc3RyYXR6LmNvbSJ9.JKQ92J9j9QTh5HPtD8sxCSGkbOViKKuCtuBCD2QN0Yk';
   return {
     headers: {
       ...headers,
@@ -29,9 +32,25 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(link),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache()
 });
+
+// client
+//   .query({
+//     query: gql`
+//       query {
+//         heroStats {
+//           winGameVersion(heroIds: 1) {
+//             gameVersionId
+//             winCount
+//             matchCount
+//           }
+//         }
+//       }
+//     `,
+//   })
+//   .then((result) => console.log(result));
 
 function MyApp({ Component, pageProps }) {
   return (

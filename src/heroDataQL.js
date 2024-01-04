@@ -1,23 +1,46 @@
 import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
-import { AM_STATS } from "./graphQL/Queries";
+import { useQuery, gql } from "@apollo/client";
 
-const GetMatches = () => {
+const AM_STATS = gql`
+    query{
+        heroStats{
+            winGameVersion(heroIds: 1){
+                gameVersionId
+                winCount
+                matchCount
+            }
+        }
+    }
+`;
+
+
+function GetMatches() {
+  const [matchCount, setMatchCount] = useState(null);
   const { data } = useQuery(AM_STATS);
-  const [amMatchCount, setMatchCount] = useState(0);
 
   useEffect(() => {
     if (data) {
-      console.log(data);
+      let highestGameVersionId = 0;
       data.heroStats.winGameVersion.forEach((winGameVersion) => {
-        if (winGameVersion.gameVersionId === 169) {
+        if (winGameVersion.gameVersionId > highestGameVersionId) {
+          highestGameVersionId = winGameVersion.gameVersionId;
+        }
+      });
+
+      data.heroStats.winGameVersion.forEach((winGameVersion) => {
+        if (winGameVersion.gameVersionId === highestGameVersionId) {
           setMatchCount(winGameVersion.matchCount);
         }
       });
     }
   }, [data]);
 
-  return amMatchCount;
+  return (
+    <div>
+      <h1>{matchCount}</h1>
+    </div>
+  );
+
 };
 
 export default GetMatches;
