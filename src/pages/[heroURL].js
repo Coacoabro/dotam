@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-
 import { useQuery, gql } from "@apollo/client";
-
-import { fetchHeroWinRatesByRank } from '../heroData';
-import GetMatches from '../heroDataQL';
-import { heroMatchCount } from '../graphQL/useHeroData';
 
 import StaticHeroInfo from '@/components/StaticHeroInfo'
 import VariableHeroInfo from '@/components/VariableHeroInfo';
