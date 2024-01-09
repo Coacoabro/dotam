@@ -36,22 +36,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-// client
-//   .query({
-//     query: gql`
-//       query {
-//         heroStats {
-//           winGameVersion(heroIds: 1) {
-//             gameVersionId
-//             winCount
-//             matchCount
-//           }
-//         }
-//       }
-//     `,
-//   })
-//   .then((result) => console.log(result));
-
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>

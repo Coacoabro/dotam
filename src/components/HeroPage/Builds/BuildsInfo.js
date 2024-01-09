@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import AbilitiesContainer from './Builds/AbilitiesContainer';
+import AbilitiesContainer from './AbilitiesContainer';
 
 function BuildsInfo({hero}) {
 

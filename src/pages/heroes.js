@@ -1,7 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
-import heroData from '../../dotaconstants/build/hero_names.json';
-import HeroTable from '../components/HeroTable';
+import heroData from '../../dotaconstants/build/heroes.json';
+import HeroTable from '../components/Heroes/HeroTable';
 
 function HeroList() {
   const sortedHeroData = Object.values(heroData)

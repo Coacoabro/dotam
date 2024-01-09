@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'
 
 function HeroCard({ hero }) {
   const [hovered, setHovered] = useState(false);
-  const heroURL = hero.name.split('npc_dota_hero_')[1];
+  const heroURL = hero.id
+  //const heroURL = hero.localized_name.replace(/ /g, '_'); Used for when I want to have the name be in the URL. Do later
 
-  const heroImage = '/hero_thumbnail/' + heroURL + '.jpg';
+  const heroImage = '/hero_thumbnail/' + hero.name + '.jpg';
   const heroVideo = '/hero_animation/' + hero.name + '.webm';
 
   return (
-    <Link href={`/${heroURL}`}>
+
+    <Link href={`/hero/${heroURL}`}>
       <div
         className="relative rounded-md transition-transform duration-300 hover:scale-150 hover:z-10"
         onMouseEnter={() => setHovered(true)}

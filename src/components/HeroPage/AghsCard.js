@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import scepterImage from "../../public/scepter_0.png"
-import shardImage from "../../public/shard_0.png"
+import scepterImage from "../../../public/scepter_0.png"
+import shardImage from "../../../public/shard_0.png"
 
-import heroAbilities from '../../dotaconstants/build/hero_abilities.json'
-import abilityDesc from '../../dotaconstants/build/abilities.json'
-import aghsDesc from '../../dotaconstants/build/aghs_desc.json'
+import heroAbilities from '../../../dotaconstants/build/hero_abilities.json'
+import abilityDesc from '../../../dotaconstants/build/abilities.json'
+import aghsDesc from '../../../dotaconstants/build/aghs_desc.json'
 
 
 function AghsCard({hero}) {

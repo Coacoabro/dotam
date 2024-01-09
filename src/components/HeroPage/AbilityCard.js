@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import heroAbilities from '../../dotaconstants/build/hero_abilities.json'
-import Abilities from '../../dotaconstants/build/abilities.json'
+import heroAbilities from '../../../dotaconstants/build/hero_abilities.json'
+import Abilities from '../../../dotaconstants/build/abilities.json'
 
 function AbilityCard({ ability }) {
     const abilityInfo = Abilities[ability];

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import BuildsInfo from './BuildsInfo';
-import ItemsInfo from './ItemsInfo';
+import BuildsInfo from './Builds/BuildsInfo';
+import ItemsInfo from './Items/ItemsInfo';
 import AbilitiesInfo from './AbilitiesInfo';
-import MatchupsInfo from './MatchupsInfo'
+import MatchupsInfo from './Matchups/MatchupsInfo'
 import TopTabBar from './TopTabBar';
 
 function VariableHeroInfo({hero}) {

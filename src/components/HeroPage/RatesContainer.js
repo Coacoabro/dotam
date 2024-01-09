@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import RateCard from '@/components/RateCard';
+import RateCard from '@/components/HeroPage/RateCard';
 import { useQuery, gql } from '@apollo/client';
 
 function RatesContainer({ heroId , rank, role, totalMatches }) {
@@ -11,13 +11,13 @@ function RatesContainer({ heroId , rank, role, totalMatches }) {
     const HERO_STATS = gql`
             query{
                 heroStats {
-                winGameVersion(
+                winMonth(
                     gameModeIds: ALL_PICK_RANKED
                     heroIds: ${heroId}
                     ${role ? `positionIds: ${role}` : ''}
                     ${rank ? `bracketIds: ${rank}` : ''}
                 ) {
-                    gameVersionId
+                    month
                     winCount
                     matchCount
                 }
@@ -29,28 +29,30 @@ function RatesContainer({ heroId , rank, role, totalMatches }) {
 
     useEffect(() => {
         if (data) {
-            let highestGameVersionId = 0;
-            data.heroStats.winGameVersion.forEach((winGameVersion) => {
-                if (winGameVersion.gameVersionId > highestGameVersionId) {
-                    highestGameVersionId = winGameVersion.gameVersionId;
+            let highestMonth = 0;
+            data.heroStats.winMonth.forEach((winMonth) => {
+                if (winMonth.month > highestMonth) {
+                    highestMonth = winMonth.month;
                 }
             });
         
-            data.heroStats.winGameVersion.forEach((winGameVersion) => {
-                if (winGameVersion.gameVersionId === highestGameVersionId) {
-                    setHeroMatches(winGameVersion.matchCount.toLocaleString());
+            data.heroStats.winMonth.forEach((winMonth) => {
+                if (winMonth.month === highestMonth) {
+                    setHeroMatches(winMonth.matchCount.toLocaleString());
                 }
             });
 
-            data.heroStats.winGameVersion.forEach((winGameVersion) => {
-                if (winGameVersion.gameVersionId === highestGameVersionId) {
-                    setHeroWinRate(((winGameVersion.winCount / winGameVersion.matchCount)*100).toFixed(2));
+            data.heroStats.winMonth.forEach((winMonth) => {
+                if (winMonth.month === highestMonth) {
+                    setHeroWinRate(((winMonth.winCount / winMonth.matchCount)*100).toFixed(2));
                 }
             });
 
-            setHeroPickRate(((data.heroStats.winGameVersion[0].matchCount / totalMatches)*100).toFixed(2));
+            setHeroPickRate(((data.heroStats.winMonth[0].matchCount / totalMatches)*100).toFixed(2));
         }
       }, [data]);
+
+    
 
     return (
         <div className="flex px-20 py-5 justify-between">
