@@ -43,53 +43,7 @@ function HeroPage() {
   const [currentRank, setCurrentRank] = useState("");
   const handleRankClick = (rank) => {
     setCurrentRank(rank);
-  };
-
-  const [totalMatches, setTotalMatches] = useState(0);
-
-  const MATCHES = gql`
-    query {
-      heroStats {
-        winMonth(
-          gameModeIds: ALL_PICK_RANKED
-          ${currentRole ? `positionIds: ${currentRole}` : ''}
-          ${currentRank ? `bracketIds: ${currentRank}` : ''}
-      ) {
-          month
-          winCount
-          matchCount
-      }
-      }
-    }
-  `;
-
-  const { data } = useQuery(MATCHES);
-
-  useEffect(() => {
-    
-    if (data && data.heroStats && data.heroStats.winMonth) {
-
-      let total = 0;
-      let highestMonth = 0;
-
-      data.heroStats.winMonth.forEach((winMonth) => {
-        if (winMonth.month > highestMonth) {
-          highestMonth = winMonth.month;
-        }
-      });
-
-      data.heroStats.winMonth.forEach((winMonth) => {
-        if (winMonth.month === highestMonth) {
-          total += winMonth.matchCount;
-        }
-      });
-
-      setTotalMatches(total);
-      
-    }
-
-  }, [data]);
-  
+  };  
 
   if (!heroData) {
     return;
@@ -97,7 +51,6 @@ function HeroPage() {
 
   else {
     
-    console.log(totalMatches)
     const heroName = heroData.localized_name
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
@@ -134,7 +87,7 @@ function HeroPage() {
           </div>
         </div>
 
-        <RatesContainer heroId = {heroData.id} rank={currentRank} role={currentRole} totalMatches={totalMatches/10} />
+        <RatesContainer heroId = {heroData.id} rank={currentRank} role={currentRole} />
         
         
         <div className="p-1">
