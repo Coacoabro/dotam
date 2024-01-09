@@ -1,62 +1,152 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useQuery, gql } from '@apollo/client';
 
 import TierCard from '../components/TierList/TierCard'
 
 function TierList() {
 
   const Role = [
-    {role: "Safe-Lane", icon: "Safe-Lane.png"},
-    {role: "Mid-Lane", icon: "Mid-Lane.png"},
-    {role: "Off-Lane", icon: "Off-Lane.png"},
-    {role: "Soft-Support", icon: "Soft-Support.png"},
-    {role: "Hard-Support", icon: "Hard-Support.png"},
+    {role: "", name: "All", icon: "../icons8-product-90.png"},
+    {role: "POSITION_1", name: "Safe-Lane", icon: "../Safe-Lane.png"},
+    {role: "POSITION_2", name: "Mid-Lane", icon: "../Mid-Lane.png"},
+    {role: "POSITION_3", name: "Off-Lane", icon: "../Off-Lane.png"},
+    {role: "POSITION_4", name: "Soft-Support", icon: "../Soft-Support.png"},
+    {role: "POSITION_5", name: "Hard-Support", icon: "../Hard-Support.png"},
   ]
 
   const Rank = [
-    {rank: "Herald", icon: "dota_ranks/Herald.png"},
-    {rank: "Guardian", icon: "dota_ranks/Guardian.png"},
-    {rank: "Crusader", icon: "dota_ranks/Crusader.png"},
-    {rank: "Archon", icon: "dota_ranks/Archon.png"},
-    {rank: "Legend", icon: "dota_ranks/Legend.png"},
-    {rank: "Ancient", icon: "dota_ranks/Ancient.png"},
-    {rank: "Divine", icon: "dota_ranks/Divine.png"},
-    {rank: "Immortal", icon: "dota_ranks/Immortal.png"},
+    {rank: "", name: "All", icon: "../icons8-competitive-64.png"},
+    {rank: "HERALD", name: "Herald", icon: "../dota_ranks/Herald.png"},
+    {rank: "GUARDIAN", name: "Guardian", icon: "../dota_ranks/Guardian.png"},
+    {rank: "CRUSADER", name: "Crusader", icon: "../dota_ranks/Crusader.png"},
+    {rank: "ARCHON", name: "Archon", icon: "../dota_ranks/Archon.png"},
+    {rank: "LEGEND", name: "Legend", icon: "../dota_ranks/Legend.png"},
+    {rank: "ANCIENT", name: "Ancient", icon: "../dota_ranks/Ancient.png"},
+    {rank: "DIVINE", name: "Divine", icon: "../dota_ranks/Divine.png"},
+    {rank: "IMMORTAL", name: "Immortal", icon: "../dota_ranks/Immortal.png"},
   ]
 
-  const [currentRole, setCurrentRole] = useState(null);
+  const [currentRole, setCurrentRole] = useState("");
 
   const handleRoleClick = (role) => {
     setCurrentRole(role);
   };
 
-  const [currentRank, setCurrentRank] = useState(null);
+  const [currentRank, setCurrentRank] = useState("");
 
   const handleRankClick = (rank) => {
     setCurrentRank(rank);
   };
 
+  const [tierList, setTierList] = useState([{}]);
 
+  const [infoChange, setInfoChange] = useState(true);   
+
+  useEffect(() => {
+      setInfoChange(true);
+  }, [currentRank, currentRole]);
+
+  const HERO_STATS = gql`
+            query{
+                heroStats {
+                winMonth(
+                    gameModeIds: ALL_PICK_RANKED
+                    ${currentRole ? `positionIds: ${currentRole}` : ''}
+                    ${currentRank ? `bracketIds: ${currentRank}` : ''}
+                ) {
+                    month
+                    winCount
+                    matchCount
+                    heroId
+                }
+                }
+            }
+        `;
+
+  const { data } = useQuery(HERO_STATS);
   
+  useEffect(() => {
+    if (data) {
+
+      let highestMonth = 0;
+      let total = 0;
+
+      if (infoChange) {
+
+        data.heroStats.winMonth.forEach((winMonth) => {
+          if (winMonth.month > highestMonth) {
+            highestMonth = winMonth.month;
+          }
+        });
+
+        data.heroStats.winMonth.forEach((winMonth) => {
+          if (winMonth.month === highestMonth) {
+            total += winMonth.matchCount;
+          }
+        });
+
+        let finalTotal = total/10;
+        if (currentRole) {
+          finalTotal *= 5;
+        }
+
+        if (finalTotal !== 0) {
+          let tierList = [];
+          data.heroStats.winMonth.forEach((winMonth) => {
+            if (winMonth.month === highestMonth) {
+              const heroId = winMonth.heroId;
+              const heroMatches = winMonth.matchCount;
+              const heroWR = winMonth.winCount/winMonth.matchCount;
+              const heroPR = winMonth.matchCount/finalTotal;
+              const heroObj = {
+                id: heroId,
+                matches: heroMatches,
+                WR: heroWR,
+                PR: heroPR
+              }
+              tierList.push(heroObj);
+            }
+          });
+
+          setTierList(tierList);
+
+        }
+
+      }
+
+    }
+  }, [data]);
+
+  console.log(tierList)
 
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
       <div className="text-xl text-center py-2">Dota 2 Tier List</div>
       <div className="text-md text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
       <div className="flex space-x-20 px-10">
-        <div className="p-2 flex space-x-2 rounded-md bg-gray-700">
-          {Role.map((role, index) => (
-            <button key={index} className="w-10 h-10 rounded-md border" onClick={() => handleRoleClick(role)}>
-              <img src={role.icon} alt={role.role} />
-            </button>
-          ))}
-        </div>
-        <div className="p-2 flex space-x-2 rounded-md bg-gray-700">
-          {Rank.map((rank, index) => (
-            <button key={index} className="w-10 h-10 rounded-md border" onClick={() => handleRankClick(rank)}>
-              <img src={rank.icon} alt={rank.rank}/>
-            </button>
-          ))}
+        <div className="p-2 flex space-x-2 rounded-md">
+            {Role.map((role, index) => (
+              <button 
+                key={index} 
+                className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
+                onClick={() => handleRoleClick(role.role)}
+                title={role.name}
+              >
+                <img src={role.icon} alt={role.name} />
+              </button>
+            ))}
+          </div>
+          <div className="p-2 flex space-x-2 rounded-md">
+            {Rank.map((rank, index) => (
+              <button 
+                key={index} 
+                className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
+                onClick={() => handleRankClick(rank.rank)}
+                title={rank.name}
+              >
+                <img src={rank.icon} alt={rank.name}/>
+              </button>
+            ))}
         </div>
         <div className="rounded-md p-2">
           <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>
@@ -71,7 +161,16 @@ function TierList() {
             <div className="px-8">Matches</div>
             <div className="px-24">Hero Counter</div>
           </h1>
-          <TierCard />
+
+          {tierList.map((tierItem, index) => (
+            <TierCard
+              tier={tierItem.tier}
+              heroId={tierItem.id}
+              WR={tierItem.WR}
+              PR={tierItem.PR}
+              matches={tierItem.matches}
+            />
+          ))}
       </div>
       
     </div>
