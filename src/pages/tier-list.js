@@ -98,15 +98,44 @@ function TierList() {
               const heroMatches = winMonth.matchCount;
               const heroWR = winMonth.winCount/winMonth.matchCount;
               const heroPR = winMonth.matchCount/finalTotal;
+
+              //Tier List Formula
+              // Normalize WR and PR to a scale of 0 to 1
+              const normalizedWR = (heroWR - 0.3) / (0.7 - 0.3);
+              const normalizedPR = heroPR / 0.3;
+              const weightedWR = Math.pow((normalizedWR-0.5), 3);
+              const weightedPR = Math.pow(normalizedPR, 2); 
+              const score = (0.65*weightedWR + 0.35*weightedPR)*1000;
+              const tierChecker = () => {
+                if (score >= 100) {
+                  return 'S+';
+                } else if (score >= 70) {  
+                  return 'S';
+                } else if (score >= 50) {    
+                  return 'A';
+                } else if (score >= 20) {    
+                  return 'B';
+                } else if (score >= 0) {    
+                  return 'C';
+                } else return 'D';
+              }
+
+              const tier = tierChecker(score);
+
+
               const heroObj = {
                 id: heroId,
-                matches: heroMatches,
+                M: heroMatches,
                 WR: heroWR,
-                PR: heroPR
+                PR: heroPR,
+                tier: tier,
+                score: score
               }
               tierList.push(heroObj);
             }
           });
+
+          tierList.sort((a, b) => b.score - a.score);
 
           setTierList(tierList);
 
@@ -117,7 +146,9 @@ function TierList() {
     }
   }, [data]);
 
-  console.log(tierList)
+  console.log(currentRank, currentRole)
+
+  
 
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
@@ -161,16 +192,22 @@ function TierList() {
             <div className="px-8">Matches</div>
             <div className="px-24">Hero Counter</div>
           </h1>
-
-          {tierList.map((tierItem, index) => (
-            <TierCard
-              tier={tierItem.tier}
-              heroId={tierItem.id}
-              WR={tierItem.WR}
-              PR={tierItem.PR}
-              matches={tierItem.matches}
-            />
-          ))}
+          {
+            tierList
+                .filter(tierItem => {return tierItem.PR >= 0.01;})
+                .map((tierItem, index) => (
+                  <TierCard
+                    tier={tierItem.tier}
+                    heroId={tierItem.id}
+                    WR={tierItem.WR}
+                    PR={tierItem.PR}
+                    matches={tierItem.M}
+                  />
+                ))
+          }
+          
+          
+          
       </div>
       
     </div>
