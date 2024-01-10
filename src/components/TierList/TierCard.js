@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'
 
 import heroNames from '../../../dotaconstants/build/heroes.json';
 
@@ -24,10 +25,12 @@ function TierCard({ tier, heroId, WR, PR, matches }){
     return(
         <div className="flex space-x-1">
             <div className="px-8 rounded-md bg-gray-600">{tier}</div>
-            <div className="px-32 rounded-md bg-gray-600 flex">
-                <img src={img} alt={heroName} />
-                {heroName}
-            </div>
+            <Link href={`/hero/${heroId}`}>
+                <div className="px-32 rounded-md bg-gray-600 flex">
+                    <img src={img} alt={heroName} />
+                    {heroName}
+                </div>
+            </Link>
             <div className="px-8 rounded-md bg-gray-600">{(WR*100).toFixed(2)}%</div>
             <div className="px-8 rounded-md bg-gray-600">{(PR*100).toFixed(2)}%</div>
             <div className="px-8 rounded-md bg-gray-600">{displayMatches}</div>
