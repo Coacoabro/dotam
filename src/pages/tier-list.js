@@ -3,6 +3,18 @@ import { useQuery, gql } from '@apollo/client';
 
 import TierCard from '../components/TierList/TierCard'
 
+function standardDeviation(arr) {
+  const n = arr.length;
+  const mean = arr.reduce((a, b) => a + b) / n;
+  const deviation = Math.sqrt(arr.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n);
+  return deviation
+}
+
+function mean(arr) {
+  return arr.reduce((a, b) => a + b) / arr.length;
+}
+
+
 function TierList() {
 
   const Role = [
@@ -69,7 +81,9 @@ function TierList() {
     if (data) {
 
       let highestMonth = 0;
-      let total = 0;
+      let totalMatches = 0;
+      let arrayWR = [];
+      let arrayPR = [];
 
       if (infoChange) {
 
@@ -81,17 +95,25 @@ function TierList() {
 
         data.heroStats.winMonth.forEach((winMonth) => {
           if (winMonth.month === highestMonth) {
-            total += winMonth.matchCount;
+            totalMatches += winMonth.matchCount;
+            arrayWR.push(winMonth.winCount/winMonth.matchCount);
           }
         });
 
-        let finalTotal = total/10;
+        let finalTotal = totalMatches/10;
         if (currentRole) {
           finalTotal *= 5;
         }
 
         if (finalTotal !== 0) {
           let tierList = [];
+
+          data.heroStats.winMonth.forEach((winMonth) => {
+            if (winMonth.month === highestMonth) {
+              arrayPR.push(winMonth.matchCount/finalTotal)
+            }
+          });
+
           data.heroStats.winMonth.forEach((winMonth) => {
             if (winMonth.month === highestMonth) {
               const heroId = winMonth.heroId;
@@ -100,35 +122,24 @@ function TierList() {
               const heroPR = winMonth.matchCount/finalTotal;
 
               //Tier List Formula
-              // Normalize WR and PR to a scale of 0 to 1
-              const normalizedWR = (heroWR - 0.3) / (0.7 - 0.3);
-              const normalizedPR = heroPR / 0.3;
-              const weightedWR = Math.pow((normalizedWR-0.5), 3);
-              const weightedPR = Math.pow(normalizedPR, 2); 
-              const score = (0.65*weightedWR + 0.35*weightedPR)*1000;
-              const tierChecker = () => {
-                if (score >= 100) {
-                  return 'S+';
-                } else if (score >= 70) {  
-                  return 'S';
-                } else if (score >= 50) {    
-                  return 'A';
-                } else if (score >= 20) {    
-                  return 'B';
-                } else if (score >= 0) {    
-                  return 'C';
-                } else return 'D';
+              //Standard Deviation to find Z-Score
+              const sdWR = standardDeviation(arrayWR)
+              const sdPR = standardDeviation(arrayPR)
+              const zScoreWR = (heroWR - mean(arrayWR)) / sdWR;
+              const zScorePR = (heroPR - mean(arrayPR)) / sdPR;
+
+              let score;
+              if (zScoreWR < 0) {
+                score = zScoreWR - zScorePR;
+              } else {
+                score = zScoreWR + zScorePR;
               }
-
-              const tier = tierChecker(score);
-
 
               const heroObj = {
                 id: heroId,
                 M: heroMatches,
                 WR: heroWR,
                 PR: heroPR,
-                tier: tier,
                 score: score
               }
               tierList.push(heroObj);
@@ -192,12 +203,24 @@ function TierList() {
             <div className="px-8">Matches</div>
             <div className="px-24">Hero Counter</div>
           </h1>
-          {
+          <div>
+          { 
+            currentRole === "" ?
+            tierList.map((tierItem, index) => (
+              <TierCard
+                score={tierItem.score}
+                heroId={tierItem.id}
+                WR={tierItem.WR}
+                PR={tierItem.PR}
+                matches={tierItem.M}
+              />
+            ))
+            :
             tierList
                 .filter(tierItem => {return tierItem.PR >= 0.01;})
                 .map((tierItem, index) => (
                   <TierCard
-                    tier={tierItem.tier}
+                    score={tierItem.score}
                     heroId={tierItem.id}
                     WR={tierItem.WR}
                     PR={tierItem.PR}
@@ -205,6 +228,8 @@ function TierList() {
                   />
                 ))
           }
+          </div>
+          
           
           
           
