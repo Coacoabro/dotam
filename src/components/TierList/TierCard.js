@@ -3,8 +3,34 @@ import Link from 'next/link'
 
 import heroNames from '../../../dotaconstants/build/heroes.json';
 
+function TierCalc(score) {
+    let t
+    if(score > 3) {
+        t = 'S+'
+    }
+    else if (score >= 2) {
+        t = 'S'
+    }
+    else if (score >= 1) {
+        t = 'A'
+    }
+    else if (score >= 0) {
+        t = 'B'
+    }
+    else if (score >= -1) {
+        t = 'C'
+    }
+    else if (score >= -2) {
+        t = 'D'
+    }
+    else {
+        t = 'F'
+    }
+    return t
+}
 
-function TierCard({ tier, heroId, WR, PR, matches }){
+
+function TierCard({ score, heroId, WR, PR, matches }){
 
     const [heroObj, setHeroObj] = useState(null);
     const [heroMatches, setHeroMatches] = useState(null);
@@ -19,6 +45,8 @@ function TierCard({ tier, heroId, WR, PR, matches }){
     const heroName = heroObj ? heroObj.localized_name : '';
     const dotaImg = heroObj ? heroObj.img : '';
     const img = 'https://cdn.cloudflare.steamstatic.com/' + dotaImg;
+
+    const tier = TierCalc(score)
     
     
 
