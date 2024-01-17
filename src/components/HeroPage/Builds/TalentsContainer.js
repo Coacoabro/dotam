@@ -4,6 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 const TalentsContainer = (heroID, rank, role) => {
 
   const [infoChange, setInfoChange] = useState(true);  
+  const [talentID, setTalentID] = useState(0);
 
   useEffect(() => {
     setInfoChange(true);
