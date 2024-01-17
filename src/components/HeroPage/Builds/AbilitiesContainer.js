@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeroAbilities = () => {
+const AbilitiesContainer = (heroID, rank, role) => {
 
   return(
     <div>
@@ -10,4 +10,4 @@ const HeroAbilities = () => {
   );
 };
 
-export default HeroAbilities;
+export default AbilitiesContainer;

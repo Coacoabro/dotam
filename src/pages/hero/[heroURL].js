@@ -91,7 +91,7 @@ function HeroPage() {
         
         
         <div className="p-1">
-          <VariableHeroInfo hero={heroName}/>
+          <VariableHeroInfo hero={heroData.id} rank={currentRank} role={currentRole} />
         </div>
       </div>
     );
