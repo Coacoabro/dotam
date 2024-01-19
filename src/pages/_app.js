@@ -31,9 +31,24 @@ const authLink = setContext((_, { headers }) => {
   }
 });
 
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        heroStats: {
+          merge(existing, incoming) {
+            // Define how to merge the existing and incoming data
+            return { ...existing, ...incoming };
+          },
+        },
+      },
+    },
+  },
+});
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: cache,
 });
 
 function MyApp({ Component, pageProps }) {

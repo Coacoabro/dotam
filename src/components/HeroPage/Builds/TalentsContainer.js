@@ -1,45 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import client from '../../../pages/_app';
 
-const TalentsContainer = (heroID, rank, role) => {
+const TalentsContainer = ({heroID, rank, role}) => {
 
-  const [infoChange, setInfoChange] = useState(true);  
-  const [talentID, setTalentID] = useState(0);
+  const [infoChange, setInfoChange] = useState(true); 
 
   useEffect(() => {
     setInfoChange(true);
   }, [rank, role]);
 
+
   const TALENT_STATS = gql`
           query{
-              heroStats {
-              talent(
-                  ${role ? `positionIds: ${role}` : ''}
-                  ${rank ? `bracketIds: ${rank}` : ''}
-              ) {
-                abilityId
-                matchCount
-                winCount
+              constants {
+                abilities {
+                  language {
+                    displayName
+                  }
+                  id
+                  isTalent
+                }
               }
+              heroStats {
+                talent(
+                    heroId: ${heroID}
+                    ${role ? `positionIds: ${role}` : ''}
+                    ${rank ? `bracketIds: ${rank}` : ''}
+                ) {
+                  abilityId
+                  matchCount
+                  winsAverage
+                }
               }
           }
       `;
 
-  const TALENT_INFO = gql`
-          query{
-              heroStats {
-              constants {
-                ability(id: ${talentID}) {
-                  name
-                  language {
-                    displayName
-                  }
-                }
-              }
-            }
-            
-          }
-      `;
+  const { data } = useQuery(TALENT_STATS);
+
+  useEffect(() => {
+    if(data){
+      console.log(data);
+    }
+
+  }, [data]);
 
   return(
     <div>
