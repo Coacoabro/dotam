@@ -126,7 +126,6 @@ function RatesContainer({ heroId , rank, role }) {
                             const sdPR = standardDeviation(arrayPR)
                             const zScoreWR = ((winMonth.winCount / winMonth.matchCount) - mean(arrayWR)) / sdWR;
                             const zScorePR = ((winMonth.matchCount / finalTotal) - mean(arrayPR)) / sdPR;
-                            console.log(zScoreWR, zScorePR)
     
                             let score;
                             if (zScoreWR < 0) {

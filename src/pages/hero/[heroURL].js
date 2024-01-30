@@ -52,6 +52,7 @@ function HeroPage() {
   else {
     
     const heroName = heroData.localized_name
+    const heroID = heroData.id
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
     return (
@@ -91,7 +92,7 @@ function HeroPage() {
         
         
         <div className="p-1">
-          <VariableHeroInfo hero={heroData.id} rank={currentRank} role={currentRole} />
+          <VariableHeroInfo heroID={heroData.id} rank={currentRank} role={currentRole} />
         </div>
       </div>
     );
