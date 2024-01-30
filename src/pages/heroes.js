@@ -24,7 +24,6 @@ function HeroList() {
   return (
     <div className="px-4 max-w-6xl mx-auto" >
       <div className="text-xl text-center py-2">Dota 2 Heroes List</div>
-      <div className="text-md text-center py-2">All of these heroes suck</div>
       
       <div className="grid grid-cols-2 gap-5">
         <div>
