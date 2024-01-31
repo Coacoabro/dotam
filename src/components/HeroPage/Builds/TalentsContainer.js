@@ -11,39 +11,7 @@ const TalentsContainer = ({heroID, rank, role}) => {
   }, [rank, role]);
 
 
-  const TALENT_STATS = gql`
-          query{
-              constants {
-                abilities {
-                  language {
-                    displayName
-                  }
-                  id
-                  isTalent
-                }
-              }
-              heroStats {
-                talent(
-                    heroId: ${heroID}
-                    ${role ? `positionIds: ${role}` : ''}
-                    ${rank ? `bracketIds: ${rank}` : ''}
-                ) {
-                  abilityId
-                  matchCount
-                  winsAverage
-                }
-              }
-          }
-      `;
-
-  const { data } = useQuery(TALENT_STATS);
-
-  useEffect(() => {
-    if(data){
-      console.log(data);
-    }
-
-  }, [data]);
+  
 
   return(
     <div>
