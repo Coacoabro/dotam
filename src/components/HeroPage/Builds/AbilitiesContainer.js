@@ -36,7 +36,7 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
                         position
                         abilities {
                           abilityId
-                          time
+                          level
                           abilityType {
                             name
                             isTalent
@@ -70,26 +70,28 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
   useEffect(() => {
     if(data){
       let abilityOrderList = []
-      let itemOrderList = []
-
-      console.log(data)
 
       data.heroStats.guide[0].guides.forEach((guides) => {
         guides.match.players.forEach((players) => {
+          let i = 0
+          abilityOrderList[i] = []
           if(players.heroId === heroID) {
-            let abilityOrder = []
-            let i = 1
+            abilityOrderList[i][0] = []
+            abilityOrderList[i][0].push(players.level)
+            let j = 1
             players.abilities.forEach((abilities) => {
-              abilityOrder.push({"Level": i, "Ability": abilities.abilityId})
-              i += 1
+              abilityOrderList[i][j] = []
+              abilityOrderList[i][j].push(abilities.abilityId)
+              j += 1
             })
-            abilityOrderList.push(abilityOrder)
+            i += 1
           }
         })
-        
       })
 
-      console.log(abilityOrderList)
+      console.log(abilityOrderList[1][2])
+
+    
     }
 
 
