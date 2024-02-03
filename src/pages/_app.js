@@ -4,6 +4,7 @@ import { setContext } from '@apollo/client/link/context';
 import "../styles/tailwind.css";
 import { useEffect } from "react";
 import Layout from '../components/Layout'
+require('dotenv').config()
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
@@ -18,7 +19,7 @@ const errorLink = onError(({ graphqlErrors, networkError }) => {
   }
 });
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWJqZWN0IjoiZWNmMWMxNTktMzk5Yy00N2UzLWEyMTktNzZkNjA5MDNmMGE5IiwiU3RlYW1JZCI6Ijk2MTcwMTk2IiwibmJmIjoxNzAyNDM3NzczLCJleHAiOjE3MzM5NzM3NzMsImlhdCI6MTcwMjQzNzc3MywiaXNzIjoiaHR0cHM6Ly9hcGkuc3RyYXR6LmNvbSJ9.JKQ92J9j9QTh5HPtD8sxCSGkbOViKKuCtuBCD2QN0Yk';
+const token = process.env.NEXT_PUBLIC_REACT_APP_TOKEN;
 
 const httpLink = createHttpLink({ uri: 'https://api.stratz.com/graphql' });
 
