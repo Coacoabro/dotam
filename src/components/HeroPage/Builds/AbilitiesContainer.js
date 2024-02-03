@@ -67,6 +67,7 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
 
   const { data } = useQuery(BUILD_STATS);
 
+  /*
   useEffect(() => {
     if(data){
       let abilityOrderList = []
@@ -88,14 +89,11 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
           }
         })
       })
-
-      
-
-    
     }
 
 
   },[data]);
+  */
 
   return(
     <div>
