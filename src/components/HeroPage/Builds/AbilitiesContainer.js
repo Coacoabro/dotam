@@ -4,7 +4,7 @@ import client from '../../../pages/_app';
 
 const AbilitiesContainer = ({heroID, rank, role}) => {
 
-
+/*
   const BUILD_STATS = gql`
           query{
               constants {
@@ -65,9 +65,12 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
           }
       `;
 
+  
+
+  
   const { data } = useQuery(BUILD_STATS);
 
-  /*
+
   useEffect(() => {
     if(data){
       let abilityOrderList = []
