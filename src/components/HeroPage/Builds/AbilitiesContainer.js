@@ -89,7 +89,7 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
         })
       })
 
-      console.log(abilityOrderList[1][2])
+      
 
     
     }
