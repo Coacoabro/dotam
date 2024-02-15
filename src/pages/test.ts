@@ -1,25 +1,27 @@
 import { prisma } from '../../lib/prisma'
-import { User } from '@prisma/client'
+import { HeroRates } from '@prisma/client'
 import { GetServerSideProps } from 'next'
 
 type Props = {
-  user: User
+  hero: HeroRates
 }
 
-export default function Page(props: Props) {
-  return <main>Hello, {props.user.name}</main>
+export default function Test(props: Props) {
+  return 
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const user = await prisma.user.findFirst({
+  const hero = await prisma.heroRates.findFirst({
     where: {
-      email: 'test@test.com'
+      id: 1
     }
   })
 
+  console.log(hero)
+
   return {
     props: {
-      user
+      hero
     }
   }
 }
