@@ -9,3 +9,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model HeroRates {
+  id      Int     @id @default(autoincrement())
+  hero    String  @unique
+  matches Int
+  wins    Int
+}
