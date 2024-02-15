@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery, gql } from "@apollo/client";
 
-import StaticHeroInfo from '@/components/HeroPage/StaticHeroInfo'
-import VariableHeroInfo from '@/components/HeroPage/VariableHeroInfo';
-import RatesContainer from '@/components/HeroPage/RatesContainer';
+import StaticHeroInfo from '../../components/HeroPage/StaticHeroInfo'
+import VariableHeroInfo from '../../components/HeroPage/VariableHeroInfo';
+import RatesContainer from '../../components/HeroPage/RatesContainer';
 
 
 import heroNames from '../../../dotaconstants/build/heroes.json';
@@ -88,11 +88,11 @@ function HeroPage() {
           </div>
         </div>
 
-        <RatesContainer heroId = {heroData.id} rank={currentRank} role={currentRole} />
+        <RatesContainer heroId = {heroID} rank={currentRank} role={currentRole} />
         
         
         <div className="p-1">
-          <VariableHeroInfo heroID={heroData.id} rank={currentRank} role={currentRole} />
+          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} />
         </div>
       </div>
     );

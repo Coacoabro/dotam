@@ -8,7 +8,6 @@ function BuildsInfo({heroID, rank, role}) {
         <div className="bg-gray-500 p-3">
             <div className="flex">
                 <div className="p-2 border rounded-md"><AbilitiesContainer heroID={heroID} rank={rank} role={role} /></div>
-                <div className="p-2 border rounded-md"><TalentsContainer heroID={heroID} rank={rank} role={role} /></div>
             </div>
         </div>
     )

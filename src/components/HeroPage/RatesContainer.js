@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import RateCard from '@/components/HeroPage/RateCard';
+import RateCard from '../HeroPage/RateCard';
 import { useQuery, gql } from '@apollo/client';
 
 function standardDeviation(arr) {
