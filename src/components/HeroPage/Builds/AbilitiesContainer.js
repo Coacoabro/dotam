@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import client from '../../../pages/_app';
 
+import basicAbilities from '../StaticHeroInfo'
+
 
 const AbilitiesContainer = ({heroID, rank, role}) => {
 
+  console.log(basicAbilities)
+  
+
   const abilityBuild = [
-    ['1', '2', '3', '4', '5'],
     ['Q', null, null, null, null],
     [null, 'W', null, null, null],
     [null, null, 'E', null, null],
@@ -21,11 +25,12 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
   
 
   return (
-    <div className="grid grid-cols-12">
+    <div className="grid grid-cols-24">
+      
       {abilityBuild.map((row, rowIndex) => (
         <div key={`row-${rowIndex}`}>
           {row.map((ability, colIndex) => (
-            <div key={`ability-${rowIndex}-${colIndex}`} className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
+            <div key={`ability-${rowIndex}-${colIndex+1}`} className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
               {ability || ' '}
             </div>
           ))}
