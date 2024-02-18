@@ -217,7 +217,7 @@ function TierList() {
             ))
             :
             tierList
-                .filter(tierItem => {return tierItem.PR >= 0.01;})
+                .filter(tierItem => {return tierItem.PR >= 0.005;})
                 .map((tierItem, index) => (
                   <TierCard
                     score={tierItem.score}
