@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         '24': 'repeat(24,minmax(0, 1fr))',
+        '17': 'repeat(17,minmax(0, 1fr))',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
