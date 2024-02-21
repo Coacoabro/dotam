@@ -7,7 +7,9 @@ type Props = {
 }
 
 export default function Test(props: Props) {
-  return 
+  return (
+    
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -16,8 +18,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       id: 1
     }
   })
-
-  console.log(hero)
 
   return {
     props: {
