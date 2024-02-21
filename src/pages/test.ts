@@ -15,7 +15,7 @@ export default function Test(props: Props) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const hero = await prisma.heroRates.findFirst({
     where: {
-      id: 1
+      id: 2
     }
   })
 

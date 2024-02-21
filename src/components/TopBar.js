@@ -2,26 +2,36 @@ import React, { useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
 
+import SearchBar from './SearchBar'
+
 import Logo from "../../public/Io.webp"
 
 
 function TopBar() {
-    return (
-      <nav className="bg-gray-700 text-white py-4 flex">
 
-        <div className="p-2">
-            <Link href="/">
-                <Image src={Logo} alt="Logo" className="w-12 h-12" />
-            </Link>
+    return (
+      <nav className="bg-gray-700 text-white p-2 flex items-center justify-between">
+        <div className="flex items-center">
+            <div className="p-2 space-x-8">
+                <Link href="/">
+                    <Image src={Logo} alt="Logo" className="w-12 h-12" />
+                </Link>
+            </div>
+            
+            <div className="p-2 flex space-x-12">
+                <Link href="/heroes">
+                    Heroes
+                </Link>
+                <Link href="/tier-list">
+                    Tier List
+                </Link>
+            </div>
         </div>
         
-        <div className="p-2 flex space-x-12">
-            <Link href="/heroes">
-                Heroes
-            </Link>
-            <Link href="/tier-list">
-                Tier List
-            </Link>
+
+        <div className="p-2 items-center flex space-x-2">
+            <label>Search</label>
+            <SearchBar />
         </div>
 
       </nav>
