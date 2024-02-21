@@ -37,6 +37,7 @@ function HeroCard({ hero }) {
             loop
             muted
             className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md"
+            disablePictureInPicture
           >
             <source src={heroVideo} type="video/webm" />
           </video>

@@ -7,9 +7,7 @@ type Props = {
 }
 
 export default function Test(props: Props) {
-  return (
-    
-  )
+  return
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
