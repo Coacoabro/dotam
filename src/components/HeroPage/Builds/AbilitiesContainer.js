@@ -53,7 +53,7 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
           {abilityBuild.map((row) => (
             <div className="grid grid-rows-5 gap-2">
               {row.map((ability) => (
-                <div className="w-10 h-10 border rounded-sm flex items-center justify-center">
+                <div className={`w-10 h-10 rounded-sm flex items-center bold justify-center ${ability ? 'bg-gray-200' : 'bg-gray-400'}`}>
                   {ability || ' '}
                 </div>
               ))}
