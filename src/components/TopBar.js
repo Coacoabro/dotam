@@ -14,7 +14,7 @@ function TopBar() {
         <div className="flex items-center">
             <div className="p-2 space-x-8">
                 <Link href="/">
-                    <Image src={Logo} alt="Logo" className="w-12 h-12" />
+                    <Image src={Logo} alt="Logo" className="w-12 h-12 rounded-md" />
                 </Link>
             </div>
             

@@ -59,7 +59,7 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
 
   return (
     <div className="text-center">
-      <h1>Ability Order</h1>
+      <h1>ABILITY ORDER</h1>
       <h2>Taken from Immortal+ players and averaged them out</h2>
       <div className="flex">
 

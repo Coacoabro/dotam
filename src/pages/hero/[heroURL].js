@@ -62,29 +62,35 @@ function HeroPage() {
           <StaticHeroInfo heroData={heroData}/>
         </div>
         <div className="flex justify-between px-10">
-          <div className="p-2 flex space-x-2 rounded-md">
-            {Role.map((role, index) => (
-              <button 
-                key={index} 
-                className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
-                onClick={() => handleRoleClick(role.role)}
-                title={role.name}
-              >
-                <img src={role.icon} alt={role.name} />
-              </button>
-            ))}
+          <div className='text-center p-2'>
+            <div className='text-white bold text-xl'></div>
+            <div className="p-2 flex space-x-2">
+              {Role.map((role, index) => (
+                <button 
+                  key={index} 
+                  className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
+                  onClick={() => handleRoleClick(role.role)}
+                  title={role.name}
+                >
+                  <img src={role.icon} alt={role.name} />
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="p-2 flex space-x-2 rounded-md">
-            {Rank.map((rank, index) => (
-              <button 
-                key={index} 
-                className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
-                onClick={() => handleRankClick(rank.rank)}
-                title={rank.name}
-              >
-                <img src={rank.icon} alt={rank.name}/>
-              </button>
-            ))}
+          <div className='text-center p-2'>
+            <div className='text-white bold text-xl'></div>
+            <div className="p-2 flex space-x-2 rounded-md">
+              {Rank.map((rank, index) => (
+                <button 
+                  key={index} 
+                  className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
+                  onClick={() => handleRankClick(rank.rank)}
+                  title={rank.name}
+                >
+                  <img src={rank.icon} alt={rank.name}/>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
