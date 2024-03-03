@@ -9,6 +9,7 @@ import TalentCard from './TalentCard'
 import AghsCard from './AghsCard'
 
 function StaticHeroInfo({heroData}) {
+
     const hero = heroData.name
     const Abilities = heroAbilities[hero].abilities
     const scepterList = aghsDesc
