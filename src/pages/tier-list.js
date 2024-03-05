@@ -163,8 +163,8 @@ function TierList() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
-      <div className="text-xl text-center py-2">Dota 2 Tier List</div>
-      <div className="text-md text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
+      <div className="text-xl text-white text-center py-2">Dota 2 Tier List</div>
+      <div className="text-md text-white text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
       <div className="flex space-x-20 px-10">
         <div className="p-2 flex space-x-2 rounded-md">
             {Role.map((role, index) => (
@@ -195,37 +195,41 @@ function TierList() {
         </div>
       </div>
       <div className="p-2 space-y-3 rounded-md bg-gray-700">
-          <h1 className="flex">
-            <div className="px-8">Tier</div>
-            <div className="px-36">Hero</div>
-            <div className="px-8">Win Rate</div>
-            <div className="px-8">Pick Rate</div>
-            <div className="px-8">Matches</div>
-            <div className="px-24">Hero Counter</div>
+          <h1 className="flex text-white text-2xl underline">
+            <div className="px-5">TIER</div>
+            <div className="px-40">HERO</div>
+            <div className="px-10">WR</div>
+            <div className="px-12">PR</div>
+            <div className="px-6">MATCHES</div>
+            <div className="px-10">MATCHUPS</div>
           </h1>
-          <div>
+          <div className="space-y-2">
           { 
             currentRole === "" ?
             tierList.map((tierItem, index) => (
-              <TierCard
-                score={tierItem.score}
-                heroId={tierItem.id}
-                WR={tierItem.WR}
-                PR={tierItem.PR}
-                matches={tierItem.M}
-              />
+              <div className={index % 2 === 0 ? 'bg-gray-800 rounded-md' : ''}>
+                <TierCard
+                  score={tierItem.score}
+                  heroId={tierItem.id}
+                  WR={tierItem.WR}
+                  PR={tierItem.PR}
+                  matches={tierItem.M}
+                />
+              </div>
             ))
             :
             tierList
                 .filter(tierItem => {return tierItem.PR >= 0.005;})
                 .map((tierItem, index) => (
-                  <TierCard
-                    score={tierItem.score}
-                    heroId={tierItem.id}
-                    WR={tierItem.WR}
-                    PR={tierItem.PR}
-                    matches={tierItem.M}
-                  />
+                  <div className={index % 2 === 0 ? 'bg-gray-800 rounded-md' : ''}>
+                    <TierCard
+                      score={tierItem.score}
+                      heroId={tierItem.id}
+                      WR={tierItem.WR}
+                      PR={tierItem.PR}
+                      matches={tierItem.M}
+                    />
+                  </div>
                 ))
           }
           </div>

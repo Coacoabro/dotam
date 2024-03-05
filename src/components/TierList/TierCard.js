@@ -51,18 +51,18 @@ function TierCard({ score, heroId, WR, PR, matches }){
     
 
     return(
-        <div className="flex space-x-1">
-            <div className="px-8 rounded-md justify-center">{tier}</div>
+        <div className="flex space-x-1 text-white items-center">
+            <div className="rounded-md text-xl text-center w-36">{tier}</div>
             <Link href={`/hero/${heroId}`}>
-                <div className="p-2 rounded-md flex space-x-3">
-                    <div className="w-32 h-24"><img src={img} alt={heroName} /></div>
-                    <div className="text-2xl justify-end">{heroName}</div>
+                <div className="rounded-md flex space-x-3 w-96 items-center">
+                    <div className="w-32"><img src={img} alt={heroName} /></div>
+                    <div className="text-2xl">{heroName}</div>
                 </div>
             </Link>
-            <div className="px-8 rounded-md justify-center text-xl">{(WR*100).toFixed(2)}%</div>
-            <div className="px-8 rounded-md justify-center text-xl">{(PR*100).toFixed(2)}%</div>
-            <div className="px-8 rounded-md justify-center text-lg">{heroMatches}</div>
-            <div className="px-24 rounded-md justify-center">Stuff</div>
+            <div className="w-48 rounded-md text-center text-xl">{(WR*100).toFixed(2)}%</div>
+            <div className="w-48 rounded-md text-center text-xl">{(PR*100).toFixed(2)}%</div>
+            <div className="w-52 rounded-md text-center text-lg">{heroMatches}</div>
+            <div className="px-24 rounded-md text-center">Stuff</div>
         </div>
     )
 }

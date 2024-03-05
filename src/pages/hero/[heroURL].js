@@ -58,7 +58,7 @@ function HeroPage() {
     return (
       <div className="p-4 max-w-6xl mx-auto">
         <div className="flex p-3">
-          <img src={img} alt={heroName} />
+          <img className="w-64 h-36" src={img} alt={heroName} />
           <StaticHeroInfo heroData={heroData}/>
         </div>
         <div className="flex justify-between px-10">
