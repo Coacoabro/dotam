@@ -17,11 +17,11 @@ function HeroPage() {
 
   const Role = [
     {role: "", name: "All", icon: "../icons8-product-90.png"},
-    {role: "POSITION_1", name: "Safe-Lane", icon: "../Safe-Lane.png"},
-    {role: "POSITION_2", name: "Mid-Lane", icon: "../Mid-Lane.png"},
-    {role: "POSITION_3", name: "Off-Lane", icon: "../Off-Lane.png"},
-    {role: "POSITION_4", name: "Soft-Support", icon: "../Soft-Support.png"},
-    {role: "POSITION_5", name: "Hard-Support", icon: "../Hard-Support.png"},
+    {role: "POSITION_1", name: "Safe", icon: "../Safe-Lane.png"},
+    {role: "POSITION_2", name: "Mid", icon: "../Mid-Lane.png"},
+    {role: "POSITION_3", name: "Off", icon: "../Off-Lane.png"},
+    {role: "POSITION_4", name: "Soft", icon: "../Soft-Support.png"},
+    {role: "POSITION_5", name: "Hard", icon: "../Hard-Support.png"},
   ]
 
   const Rank = [
@@ -45,6 +45,11 @@ function HeroPage() {
     setCurrentRank(rank);
   };  
 
+  const [showRoleInfo, setShowRoleInfo] = useState(false);
+  const handleRoleInfoClick = () => {
+    router.push('basics')
+  }
+
   if (!heroData) {
     return;
   }
@@ -62,17 +67,31 @@ function HeroPage() {
           <StaticHeroInfo heroData={heroData}/>
         </div>
         <div className="flex justify-between px-10">
-          <div className='text-center p-2'>
-            <div className='text-white bold text-xl'></div>
-            <div className="p-2 flex space-x-2">
+          <div className='text-center p-2 flex items-center'>
+            <button 
+              className='text-white bold text-xl space-x-2'
+              onMouseEnter={() => setShowRoleInfo(true)}
+              onMouseLeave={() => setShowRoleInfo(false)}
+              onClick={handleRoleInfoClick}
+            >
+              ⓘ
+            </button>
+            {showRoleInfo && (
+              <div className="absolute -mb-16 bg-gray-700 text-white p-2 rounded-md text-left">
+                Hero Role Info
+              </div>
+            )}
+
+            <div className="p-2 flex space-x-2 text-white">
               {Role.map((role, index) => (
                 <button 
                   key={index} 
-                  className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
+                  className={`w-10 h-10 border rounded-md hover:bg-blue-200 ${role.role === currentRole ? 'bg-blue-300' : ''} `}
                   onClick={() => handleRoleClick(role.role)}
                   title={role.name}
                 >
                   <img src={role.icon} alt={role.name} />
+                  {role.name}
                 </button>
               ))}
             </div>
@@ -83,7 +102,7 @@ function HeroPage() {
               {Rank.map((rank, index) => (
                 <button 
                   key={index} 
-                  className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
+                  className={`w-10 h-10 rounded-md border hover:bg-blue-200 ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
                   onClick={() => handleRankClick(rank.rank)}
                   title={rank.name}
                 >

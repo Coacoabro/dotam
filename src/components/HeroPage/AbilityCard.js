@@ -33,7 +33,7 @@ function AbilityCard({ ability }) {
             transform: 'translateX(-50%)',
             width: '300px', // Adjust width as needed
             height: 'auto', // Let the height expand according to content
-        }}
+            }}
         >
             <div className="text-lg">{abilityInfo.dname}</div>
             {abilityInfo.desc}

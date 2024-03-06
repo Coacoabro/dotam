@@ -25,6 +25,9 @@ function TopBar() {
                 <Link href="/tier-list">
                     Tier List
                 </Link>
+                <Link href="/basics">
+                    Dota 2 Basics
+                </Link>
             </div>
         </div>
         
