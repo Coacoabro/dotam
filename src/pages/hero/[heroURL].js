@@ -9,11 +9,38 @@ import RatesContainer from '../../components/HeroPage/RatesContainer';
 
 import heroNames from '../../../dotaconstants/build/heroes.json';
 
-function HeroPage() {
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+export async function getServerSideProps(context) {
+
+  const heroId = context.query.heroURL;
+
+  const client = await pool.connect();
+  const res1 = await client.query('SELECT * FROM heroes WHERE hero_id = $1', [heroId]);
+  const res2 = await client.query('SELECT * FROM rates WHERE hero_id = $1', [heroId]);
+  client.release();
+
+  return {
+    props: {
+      hero: res1.rows,
+      rates: res2.rows
+    }
+  };
+}
+
+
+function HeroPage({ hero, rates }) {
 
   const router = useRouter();
-  const heroID = router.query.heroURL;
-  const heroData = heroNames[heroID]
+  
+  const heroData = hero[0]
 
   const Role = [
     {role: "", name: "All", icon: "../icons8-product-90.png"},
@@ -61,7 +88,7 @@ function HeroPage() {
   else {
     
     const heroName = heroData.localized_name
-    const heroID = heroData.id
+    const heroID = heroData.hero_id
 
     const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
     return (
@@ -129,7 +156,7 @@ function HeroPage() {
           </div>
         </div>
 
-        <RatesContainer heroId = {heroID} rank={currentRank} role={currentRole} />
+        <RatesContainer rates = {rates} rank={currentRank} role={currentRole} />
         
         
         <div className="p-1">
