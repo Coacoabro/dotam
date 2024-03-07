@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { useQuery, gql } from '@apollo/client';
 
 import TierCard from '../components/TierList/TierCard'
@@ -17,13 +18,15 @@ function mean(arr) {
 
 function TierList() {
 
+  const router = useRouter();
+
   const Role = [
     {role: "", name: "All", icon: "../icons8-product-90.png"},
-    {role: "POSITION_1", name: "Safe-Lane", icon: "../Safe-Lane.png"},
-    {role: "POSITION_2", name: "Mid-Lane", icon: "../Mid-Lane.png"},
-    {role: "POSITION_3", name: "Off-Lane", icon: "../Off-Lane.png"},
-    {role: "POSITION_4", name: "Soft-Support", icon: "../Soft-Support.png"},
-    {role: "POSITION_5", name: "Hard-Support", icon: "../Hard-Support.png"},
+    {role: "POSITION_1", name: "Safe", icon: "../Safe-Lane.png"},
+    {role: "POSITION_2", name: "Mid", icon: "../Mid-Lane.png"},
+    {role: "POSITION_3", name: "Off", icon: "../Off-Lane.png"},
+    {role: "POSITION_4", name: "Soft", icon: "../Soft-Support.png"},
+    {role: "POSITION_5", name: "Hard", icon: "../Hard-Support.png"},
   ]
 
   const Rank = [
@@ -157,7 +160,14 @@ function TierList() {
     }
   }, [data]);
 
-  console.log(currentRank, currentRole)
+  const [showRoleInfo, setShowRoleInfo] = useState(false);
+  const handleRoleInfoClick = () => {
+    router.push('basics')
+  }
+  const [showRankInfo, setShowRankInfo] = useState(false);
+  const handleRankInfoClick = () => {
+    router.push('/basics')
+  }
 
   
 
@@ -165,30 +175,61 @@ function TierList() {
     <div className="max-w-6xl mx-auto px-4 space-y-4">
       <div className="text-xl text-white text-center py-2">Dota 2 Tier List</div>
       <div className="text-md text-white text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
-      <div className="flex space-x-20 px-10">
-        <div className="p-2 flex space-x-2 rounded-md">
-            {Role.map((role, index) => (
-              <button 
-                key={index} 
-                className={`w-10 h-10 rounded-md border ${role.role === currentRole ? 'bg-blue-300' : ''} `}
-                onClick={() => handleRoleClick(role.role)}
-                title={role.name}
-              >
-                <img src={role.icon} alt={role.name} />
-              </button>
-            ))}
+      <div className="flex space-x-20 px-10 text-white">
+        <div class="flex">
+          <button 
+            className='text-white bold text-xl space-x-2'
+            onMouseEnter={() => setShowRoleInfo(true)}
+            onMouseLeave={() => setShowRoleInfo(false)}
+            onClick={handleRoleInfoClick}
+          >
+            ⓘ
+          </button>
+          {showRoleInfo && (
+            <div className="absolute mt-10 bg-gray-700 text-white p-2 rounded-md text-left">
+              Hero Role Info
+            </div>
+          )}
+          <div className="p-2 flex space-x-2 rounded-md">
+              {Role.map((role, index) => (
+                <button 
+                  key={index} 
+                  className={`w-10 h-10 border rounded-md hover:bg-blue-200 ${role.role === currentRole ? 'bg-blue-300' : ''} `}
+                  onClick={() => handleRoleClick(role.role)}
+                  title={role.name}
+                >
+                  <img src={role.icon} alt={role.name} />
+                  {role.name}
+                </button>
+              ))}
           </div>
+        </div>
+        <div class="flex">
+          <button 
+            className='text-white bold text-xl space-x-2'
+            onMouseEnter={() => setShowRankInfo(true)}
+            onMouseLeave={() => setShowRankInfo(false)}
+            onClick={handleRankInfoClick}
+          >
+            ⓘ
+          </button>
+          {showRankInfo && (
+            <div className="absolute mt-10 bg-gray-700 text-white p-2 rounded-md text-left">
+              Hero Rank Info
+            </div>
+          )}
           <div className="p-2 flex space-x-2 rounded-md">
             {Rank.map((rank, index) => (
               <button 
                 key={index} 
-                className={`w-10 h-10 rounded-md border ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
+                className={`w-10 h-10 border rounded-md hover:bg-blue-200 ${rank.rank === currentRank ? 'bg-blue-300' : ''} `} 
                 onClick={() => handleRankClick(rank.rank)}
                 title={rank.name}
               >
                 <img src={rank.icon} alt={rank.name}/>
               </button>
             ))}
+          </div>
         </div>
         <div className="rounded-md p-2">
           <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>

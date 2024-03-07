@@ -47,7 +47,11 @@ function HeroPage() {
 
   const [showRoleInfo, setShowRoleInfo] = useState(false);
   const handleRoleInfoClick = () => {
-    router.push('basics')
+    router.push('/basics')
+  }
+  const [showRankInfo, setShowRankInfo] = useState(false);
+  const handleRankInfoClick = () => {
+    router.push('/basics')
   }
 
   if (!heroData) {
@@ -77,7 +81,7 @@ function HeroPage() {
               ⓘ
             </button>
             {showRoleInfo && (
-              <div className="absolute -mb-16 bg-gray-700 text-white p-2 rounded-md text-left">
+              <div className="absolute mt-16 bg-gray-700 text-white p-2 rounded-md text-left">
                 Hero Role Info
               </div>
             )}
@@ -96,8 +100,20 @@ function HeroPage() {
               ))}
             </div>
           </div>
-          <div className='text-center p-2'>
-            <div className='text-white bold text-xl'></div>
+          <div className='text-center p-2 flex'>
+            <button 
+              className='text-white bold text-xl space-x-2'
+              onMouseEnter={() => setShowRankInfo(true)}
+              onMouseLeave={() => setShowRankInfo(false)}
+              onClick={handleRankInfoClick}
+            >
+              ⓘ
+            </button>
+            {showRankInfo && (
+              <div className="absolute mt-10 bg-gray-700 text-white p-2 rounded-md text-left">
+                Hero Rank Info
+              </div>
+            )}
             <div className="p-2 flex space-x-2 rounded-md">
               {Rank.map((rank, index) => (
                 <button 
