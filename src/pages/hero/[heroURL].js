@@ -1,13 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-import { useQuery, gql } from "@apollo/client";
 
 import StaticHeroInfo from '../../components/HeroPage/StaticHeroInfo'
 import VariableHeroInfo from '../../components/HeroPage/VariableHeroInfo';
 import RatesContainer from '../../components/HeroPage/RatesContainer';
-
-
-import heroNames from '../../../dotaconstants/build/heroes.json';
 
 import { Pool } from 'pg';
 

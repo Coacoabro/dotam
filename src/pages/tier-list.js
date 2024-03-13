@@ -1,24 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useQuery, gql } from '@apollo/client';
 
 import TierCard from '../components/TierList/TierCard'
 
-function standardDeviation(arr) {
-  const n = arr.length;
-  const mean = arr.reduce((a, b) => a + b) / n;
-  const deviation = Math.sqrt(arr.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n);
-  return deviation
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
+export async function getServerSideProps(context) {
+
+  const heroId = context.query.heroURL;
+
+  const client = await pool.connect();
+  const res1 = await client.query('SELECT * FROM heroes');
+  const res2 = await client.query('SELECT * FROM rates');
+  client.release();
+
+  return {
+    props: {
+      heroes: res1.rows,
+      rates: res2.rows
+    }
+  };
 }
 
-function mean(arr) {
-  return arr.reduce((a, b) => a + b) / arr.length;
-}
-
-
-function TierList() {
+function TierList({ heroes, rates }) {
 
   const router = useRouter();
+
 
   const Role = [
     {role: "", name: "All", icon: "../icons8-product-90.png"},
@@ -42,134 +56,57 @@ function TierList() {
   ]
 
   const [currentRole, setCurrentRole] = useState("");
-
   const handleRoleClick = (role) => {
     setCurrentRole(role);
   };
 
   const [currentRank, setCurrentRank] = useState("");
-
   const handleRankClick = (rank) => {
     setCurrentRank(rank);
   };
 
-  const [tierList, setTierList] = useState([{}]);
-
-  const [infoChange, setInfoChange] = useState(true);   
-
-  useEffect(() => {
-      setInfoChange(true);
-  }, [currentRank, currentRole]);
-
-  const HERO_STATS = gql`
-            query{
-                heroStats {
-                winMonth(
-                    gameModeIds: ALL_PICK_RANKED
-                    ${currentRole ? `positionIds: ${currentRole}` : ''}
-                    ${currentRank ? `bracketIds: ${currentRank}` : ''}
-                ) {
-                    month
-                    winCount
-                    matchCount
-                    heroId
-                }
-                }
-            }
-        `;
-
-  const { data } = useQuery(HERO_STATS);
-  
-  useEffect(() => {
-    if (data) {
-
-      let highestMonth = 0;
-      let totalMatches = 0;
-      let arrayWR = [];
-      let arrayPR = [];
-
-      if (infoChange) {
-
-        data.heroStats.winMonth.forEach((winMonth) => {
-          if (winMonth.month > highestMonth) {
-            highestMonth = winMonth.month;
-          }
-        });
-
-        data.heroStats.winMonth.forEach((winMonth) => {
-          if (winMonth.month === highestMonth) {
-            totalMatches += winMonth.matchCount;
-            arrayWR.push(winMonth.winCount/winMonth.matchCount);
-          }
-        });
-
-        let finalTotal = totalMatches/10;
-        if (currentRole) {
-          finalTotal *= 5;
-        }
-
-        if (finalTotal !== 0) {
-          let tierList = [];
-
-          data.heroStats.winMonth.forEach((winMonth) => {
-            if (winMonth.month === highestMonth) {
-              arrayPR.push(winMonth.matchCount/finalTotal)
-            }
-          });
-
-          data.heroStats.winMonth.forEach((winMonth) => {
-            if (winMonth.month === highestMonth) {
-              const heroId = winMonth.heroId;
-              const heroMatches = winMonth.matchCount;
-              const heroWR = winMonth.winCount/winMonth.matchCount;
-              const heroPR = winMonth.matchCount/finalTotal;
-
-              //Tier List Formula
-              //Standard Deviation to find Z-Score
-              const sdWR = standardDeviation(arrayWR)
-              const sdPR = standardDeviation(arrayPR)
-              const zScoreWR = (heroWR - mean(arrayWR)) / sdWR;
-              const zScorePR = (heroPR - mean(arrayPR)) / sdPR;
-
-              let score;
-              if (zScoreWR < 0) {
-                score = zScoreWR - zScorePR;
-              } else {
-                score = zScoreWR + zScorePR;
-              }
-
-              const heroObj = {
-                id: heroId,
-                M: heroMatches,
-                WR: heroWR,
-                PR: heroPR,
-                score: score
-              }
-              tierList.push(heroObj);
-            }
-          });
-
-          tierList.sort((a, b) => b.score - a.score);
-
-          setTierList(tierList);
-
-        }
-
-      }
-
+  const [currentSort, setCurrentSort] = useState("tier_num");
+  const [sortBy, setSortBy] = useState("f2l");
+  const handleSortClick = (sort) => {
+    setCurrentSort(sort);
+    if (sortBy === "f2l") {
+      setSortBy("l2f")
+    } else if (sortBy === "l2f") {
+      setSortBy("f2l")
     }
-  }, [data]);
+  };
+
+  const [tierList, setTierList] = useState([{}]);
 
   const [showRoleInfo, setShowRoleInfo] = useState(false);
   const handleRoleInfoClick = () => {
-    router.push('basics')
+    router.push('/basics')
   }
   const [showRankInfo, setShowRankInfo] = useState(false);
   const handleRankInfoClick = () => {
     router.push('/basics')
   }
 
-  
+  useEffect(() => {
+    let heroesByRR = [];
+
+    if (currentRole) {
+      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.pickrate >= 0.0005)
+    }
+    else {
+      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole)
+    }
+
+    if (sortBy === "f2l") {
+      setTierList(heroesByRR.sort((a, b) => b[currentSort] - a[currentSort]))
+    }
+    else if (sortBy === "l2f") {
+      setTierList(heroesByRR.sort((a, b) => a[currentSort] - b[currentSort]))
+    }
+    
+
+  }, [rates, currentRank, currentRole, currentSort, sortBy]);
+
 
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
@@ -235,43 +172,29 @@ function TierList() {
           <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>
         </div>
       </div>
+
       <div className="p-2 space-y-3 rounded-md bg-gray-700">
           <h1 className="flex text-white text-2xl underline">
-            <div className="px-5">TIER</div>
-            <div className="px-40">HERO</div>
-            <div className="px-10">WR</div>
-            <div className="px-12">PR</div>
-            <div className="px-6">MATCHES</div>
-            <div className="px-10">MATCHUPS</div>
+            <button className="px-5" onClick={() => handleSortClick("tier_num")}>TIER</button>
+            <button className="px-40" onClick={() => handleSortClick("hero_id")}>HERO</button>
+            <button className="px-10" onClick={() => handleSortClick("winrate")}>WR</button>
+            <button className="px-12" onClick={() => handleSortClick("pickrate")}>PR</button>
+            <button className="px-6" onClick={() => handleSortClick("matches")}>MATCHES</button>
+            <button className="px-10" onClick={() => handleSortClick("tier_num")}>MATCHUPS</button>
           </h1>
           <div className="space-y-2">
           { 
-            currentRole === "" ?
             tierList.map((tierItem, index) => (
               <div className={index % 2 === 0 ? 'bg-gray-800 rounded-md' : ''}>
                 <TierCard
-                  score={tierItem.score}
-                  heroId={tierItem.id}
-                  WR={tierItem.WR}
-                  PR={tierItem.PR}
-                  matches={tierItem.M}
+                  tier_str={tierItem.tier_str}
+                  hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
+                  WR={tierItem.winrate}
+                  PR={tierItem.pickrate}
+                  matches={tierItem.matches}
                 />
               </div>
             ))
-            :
-            tierList
-                .filter(tierItem => {return tierItem.PR >= 0.005;})
-                .map((tierItem, index) => (
-                  <div className={index % 2 === 0 ? 'bg-gray-800 rounded-md' : ''}>
-                    <TierCard
-                      score={tierItem.score}
-                      heroId={tierItem.id}
-                      WR={tierItem.WR}
-                      PR={tierItem.PR}
-                      matches={tierItem.M}
-                    />
-                  </div>
-                ))
           }
           </div>
           

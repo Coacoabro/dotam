@@ -55,6 +55,29 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
     [null, null, null, null, 'T'],
     [null, null, 'E', null, null],
   ];
+
+  const BUILD_TEST = gql`
+      query{
+        heroStats {
+          guide(heroId: 1, take: 100) {
+            guides {
+              matchId
+              itemIds
+              neutralItemIds
+            }
+          }
+        }
+      }
+    `;
+
+  const { data } = useQuery(BUILD_TEST);
+
+  useEffect(() => {
+    if (data) {
+      console.log(data)
+    }
+  }, [data])
+    
   
 
   return (
