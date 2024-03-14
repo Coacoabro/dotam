@@ -3,7 +3,7 @@ import React from 'react'
 function Basics() {
     return(
         <div class="text-white">
-            Heh, you're trash
+            Work in progress
         </div>
     );
 }
