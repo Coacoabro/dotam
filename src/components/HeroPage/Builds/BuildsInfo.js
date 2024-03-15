@@ -14,8 +14,7 @@ function BuildsInfo({heroID, rank, role}) {
             </div>
 
             <div className="p-2 border rounded-md text-center">
-                ITEMS
-                <div><ItemsContainer /></div>
+                <ItemsContainer />
             </div>
         </div>
     )

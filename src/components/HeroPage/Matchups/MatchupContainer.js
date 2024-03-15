@@ -4,7 +4,7 @@ import Matchup from './Matchup'
 
 function MatchupContainer( {vs, heroes} ) {
     return(
-        <div>
+        <div className="bg-gray-600 p-3 rounded-md">
             {vs}
             <Matchup hero="hero"/>
         </div>

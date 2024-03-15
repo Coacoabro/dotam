@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 
-import ItemOrder from './ItemOrderContainer'
-import StartingItems from './StartingItems'
-import Boots from './Boots'
+import NeutralItems from './NeutralItems';
+import StartingItems from '../Builds/StartingItems';
+import Boots from '../Builds/Boots';
 
 function ItemsInfo() {
 
     return(
-        <div className="bg-gray-500 p-3 space-y-5">
-            <div className="flex justify-evenly px-2 space-x-8">
+        <div className="bg-gray-500 p-3">
+            <div className="flex justify-evenly">
                 <StartingItems />
-                <Boots />                
+                <Boots />
             </div>
-            <div className="flex justify-between px-4">
-                <ItemOrder className="bg-gray-700" order='1ST' items='List'/>
-                <ItemOrder order='2ND' items='List'/>
-                <ItemOrder order='3RD' items='List'/>
-                <ItemOrder order='4TH' items='List'/>
-                <ItemOrder order='5TH' items='List'/>
+            
+            <div className="flex justify-evenly text-center">
+                <NeutralItems tier="1" />
+                <NeutralItems tier="2" />
+                <NeutralItems tier="3" />
+                <NeutralItems tier="4" />
+                <NeutralItems tier="5" />
             </div>
+            
         </div>
-    );
+    )
 
 }
 

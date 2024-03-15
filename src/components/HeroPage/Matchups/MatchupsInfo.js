@@ -4,11 +4,11 @@ import MatchupContainer from './MatchupContainer';
 function MatchupsInfo() {
 
     return(
-        <div className="bg-gray-500 p-3 flex justify-evenly">
-            <MatchupContainer vs="best-against" heroes="list"/>
-            <MatchupContainer vs="worst-against" heroes="list"/>
-            <MatchupContainer vs="best-with" heroes="list"/>
-            <MatchupContainer vs="worst-with" heroes="list"/>
+        <div className="bg-gray-500 p-3 flex justify-evenly text-white">
+            <MatchupContainer vs="Best Against" heroes="list"/>
+            <MatchupContainer vs="Worst Against" heroes="list"/>
+            <MatchupContainer vs="Best With" heroes="list"/>
+            <MatchupContainer vs="Worst With" heroes="list"/>
         </div>
         
     );
