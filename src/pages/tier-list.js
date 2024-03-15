@@ -112,7 +112,7 @@ function TierList({ heroes, rates }) {
     <div className="max-w-6xl mx-auto px-4 space-y-4">
       <div className="text-xl text-white text-center py-2">Dota 2 Tier List</div>
       <div className="text-md text-white text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
-      <div className="flex space-x-20 px-10 text-white">
+      <div className="flex justify-evenly text-white">
         <div class="flex">
           <button 
             className='text-white bold text-xl space-x-2'
