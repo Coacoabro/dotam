@@ -17,15 +17,7 @@ function ItemBuildsContainer() {
                 <ItemOrder order='3RD' items='List'/>
                 <ItemOrder order='4TH' items='List'/>
                 <ItemOrder order='5TH' items='List'/>
-            </div>
-            <div className="flex justify-evenly">
-                <NeutralItems items="list" tier="1" />
-                <NeutralItems items="list" tier="2" />
-                <NeutralItems items="list" tier="3" />
-                <NeutralItems items="list" tier="4" />
-                <NeutralItems items="list" tier="5" />
-            </div>
-            
+            </div>            
         </div>
     )
 }

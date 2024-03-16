@@ -7,12 +7,13 @@ import Boots from '../Builds/Boots';
 function ItemsInfo() {
 
     return(
-        <div className="bg-gray-500 p-3">
+        <div className="bg-gray-500 p-3 space-y-5">
             <div className="flex justify-evenly">
                 <StartingItems />
                 <Boots />
             </div>
             
+            <h1 className="text-center text-xl underline text-white">NEUTRAL ITEMS</h1>
             <div className="flex justify-evenly text-center">
                 <NeutralItems tier="1" />
                 <NeutralItems tier="2" />

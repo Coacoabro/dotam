@@ -34,7 +34,6 @@ function HeroCard({ hero }) {
         {hovered && (
           <img
             src={heroVideo}
-            alt={hero.name}
             className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md"
           />
         )}
