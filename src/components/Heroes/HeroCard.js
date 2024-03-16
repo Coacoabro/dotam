@@ -7,7 +7,7 @@ function HeroCard({ hero }) {
   //const heroURL = hero.localized_name.replace(/ /g, '_'); Used for when I want to have the name be in the URL. Do later
 
   const heroImage = '/hero_thumbnail/' + hero.name + '.jpg';
-  const heroVideo = '/hero_animation/' + hero.name + '.webm';
+  const heroVideo = '/hero_animation_gif/' + hero.name + '.gif';
 
   return (
 
@@ -32,15 +32,11 @@ function HeroCard({ hero }) {
           className="w-24 h-32 object-cover transition-transform duration-300 p-1"
         />
         {hovered && (
-          <video
-            autoPlay
-            loop
-            muted
+          <img
+            src={heroVideo}
+            alt={hero.name}
             className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md"
-            disablePictureInPicture
-          >
-            <source src={heroVideo} type="video/webm" />
-          </video>
+          />
         )}
       </div>
     </Link>
