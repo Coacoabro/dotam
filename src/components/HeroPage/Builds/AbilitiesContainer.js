@@ -62,8 +62,6 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
           guide(heroId: 1, take: 100) {
             guides {
               matchId
-              itemIds
-              neutralItemIds
             }
           }
         }

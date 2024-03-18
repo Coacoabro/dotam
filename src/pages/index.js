@@ -24,7 +24,7 @@ function Home({ data }) {
   return(
     <div className="static h-screen flex justify-center">
       <div>
-        <img src="../dota2background.jpg" alt="background" class="blur-sm w-screen" />
+        <img src="../dota2background.jpg" alt="background" className="blur-sm w-screen" />
         <div className="absolute">
           
         </div>
