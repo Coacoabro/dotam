@@ -36,6 +36,7 @@ function StaticHeroInfo({heroData}) {
             basicAbilities.push(ability)
         }
     })
+    console.log(basicAbilities)
 
     return(
         <div>
