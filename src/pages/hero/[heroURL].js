@@ -35,6 +35,10 @@ export async function getServerSideProps(context) {
 function HeroPage({ hero, rates }) {
 
   const router = useRouter();
+
+  const highestPickRateRole = rates
+    .filter(rate => rate.role !== "" && rate.rank == "")
+    .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
   
   const heroData = hero[0]
 
@@ -59,7 +63,7 @@ function HeroPage({ hero, rates }) {
     {rank: "IMMORTAL", name: "Immortal", icon: "../dota_ranks/Immortal.png"},
   ]
 
-  const [currentRole, setCurrentRole] = useState("");
+  const [currentRole, setCurrentRole] = useState(highestPickRateRole.role);
   const handleRoleClick = (role) => {
     setCurrentRole(role);
   };
