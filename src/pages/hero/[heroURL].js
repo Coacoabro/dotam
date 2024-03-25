@@ -21,18 +21,20 @@ export async function getServerSideProps(context) {
   const client = await pool.connect();
   const res1 = await client.query('SELECT * FROM heroes WHERE hero_id = $1', [heroId]);
   const res2 = await client.query('SELECT * FROM rates WHERE hero_id = $1', [heroId]);
+  const res3 = await client.query('SELECT * FROM builds WHERE hero_id = $1', [heroId]);
   client.release();
 
   return {
     props: {
       hero: res1.rows,
-      rates: res2.rows
+      rates: res2.rows,
+      builds: res3.rows
     }
   };
 }
 
 
-function HeroPage({ hero, rates }) {
+function HeroPage({ hero, rates, builds }) {
 
   const router = useRouter();
 
@@ -160,7 +162,7 @@ function HeroPage({ hero, rates }) {
         
         
         <div className="p-1">
-          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} />
+          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds}/>
         </div>
       </div>
     );

@@ -5,7 +5,11 @@ import TalentsContainer from './TalentsContainer';
 import ItemsContainer from './ItemsContainer';
 
 
-function BuildsInfo({heroID, rank, role}) {
+function BuildsInfo({heroID, rank, role, builds}) {
+
+    const items = builds[0].items
+    console.log(items)
+
     return(
         <div className="bg-gray-500 p-3 space-y-5">
             <div className="flex">
@@ -14,7 +18,7 @@ function BuildsInfo({heroID, rank, role}) {
             </div>
 
             <div className="p-2 border rounded-md text-center">
-                <ItemsContainer />
+                <ItemsContainer items={items}/>
             </div>
         </div>
     )

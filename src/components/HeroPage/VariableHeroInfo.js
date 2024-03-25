@@ -5,14 +5,14 @@ import AbilitiesInfo from './AbilitiesInfo';
 import MatchupsInfo from './Matchups/MatchupsInfo'
 import TopTabBar from './TopTabBar';
 
-function VariableHeroInfo({heroID, rank, role}) {
+function VariableHeroInfo({heroID, rank, role, builds}) {
 
   const [activeTab, setActiveTab] = useState(0);
   let Content;
 
   switch (activeTab) {
     case 0:
-      Content = <BuildsInfo heroID={heroID} rank={rank} role={role} />;
+      Content = <BuildsInfo heroID={heroID} rank={rank} role={role} builds={builds} />;
       break;
     case 1:
       Content = <ItemsInfo heroID={heroID} rank={rank} role={role} />;
@@ -27,6 +27,8 @@ function VariableHeroInfo({heroID, rank, role}) {
     default:
       Content = null;
   }
+
+  
 
   return (
     <div>
