@@ -4,6 +4,9 @@ import psycopg2
 import json
 import requests
 
+database_url = os.environ.get('DATABASE_URL')
+graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
+
 def standardDeviation(arr):
     n = len(arr)
     mean = sum(arr) / n
@@ -28,9 +31,9 @@ def tierCalc(tier_num):
         return 'F'
 
 url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
-headers = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdWJqZWN0IjoiZWNmMWMxNTktMzk5Yy00N2UzLWEyMTktNzZkNjA5MDNmMGE5IiwiU3RlYW1JZCI6Ijk2MTcwMTk2IiwibmJmIjoxNzAyNDM3NzczLCJleHAiOjE3MzM5NzM3NzMsImlhdCI6MTcwMjQzNzc3MywiaXNzIjoiaHR0cHM6Ly9hcGkuc3RyYXR6LmNvbSJ9.JKQ92J9j9QTh5HPtD8sxCSGkbOViKKuCtuBCD2QN0Yk'}
+headers = {'Authorization': f'Bearer {graphql_token}'} 
 
-conn = psycopg2.connect(dbname="postgres", user="postgres", password="hotcoacoa", host="hero-stats.cd8guscwwyir.us-east-1.rds.amazonaws.com", port="5432")
+conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
 currentRole = ''
