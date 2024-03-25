@@ -3,6 +3,11 @@
 import psycopg2
 import json
 import requests
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
