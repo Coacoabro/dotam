@@ -8,7 +8,6 @@ import ItemsContainer from './ItemsContainer';
 function BuildsInfo({heroID, rank, role, builds}) {
 
     const items = builds[0].items
-    console.log(items)
 
     return(
         <div className="bg-gray-500 p-3 space-y-5">
