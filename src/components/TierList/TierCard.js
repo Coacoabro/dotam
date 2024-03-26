@@ -8,7 +8,7 @@ function TierCard({ tier_str, hero, WR, PR, matches }){
 
     else{
         const heroName = hero.localized_name;
-        const img = 'https://cdn.cloudflare.steamstatic.com/' + hero.img; 
+        const img = 'https://cdn.cloudflare.steamstatic.com' + hero.img; 
         
 
         return(

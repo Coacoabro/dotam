@@ -92,7 +92,7 @@ function HeroPage({ hero, rates, builds }) {
     const heroName = heroData.localized_name
     const heroID = heroData.hero_id
 
-    const img = 'https://cdn.cloudflare.steamstatic.com/' + heroData.img
+    const img = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     return (
       <div className="p-4 max-w-6xl mx-auto">
         <div className="flex p-3">

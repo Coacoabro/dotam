@@ -13,7 +13,7 @@ load_dotenv()
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
 
-def most_common_items(item_list):
+def most_common_items(item_list, most_common):
     counter = Counter(item_list)
     three_most_common = counter.most_common(3)
     total_items = len(item_list)
@@ -51,7 +51,7 @@ for hero_id in hero_ids:
             guide(
                 {'heroId: ' + str(hero_id)}
             ) {{
-                guides(take: 10) {{
+                guides(take: 100) {{
                     matchId
                     steamAccountId
                 }}
@@ -167,11 +167,11 @@ for hero_id in hero_ids:
     # Make sure to have the list check the highest percentage of the before items and not take them into account for the next items
 
     commonFirst = most_common_items(firstItems)
-    commonSecond = most_common_items(secondItems)
-    commonThird = most_common_items(thirdItems)
-    commonFourth = most_common_items(fourthItems)
-    commonFifth = most_common_items(fifthItems)
-    commonSixth = most_common_items(sixthItems)
+    commonSecond = most_common_items(secondItems, commonFirst[0]['Item'])
+    commonThird = most_common_items(thirdItems, commonSecond[0]['Item'])
+    commonFourth = most_common_items(fourthItems, commonThird[0]['Item'])
+    commonFifth = most_common_items(fifthItems, commonFourth[0]['Item'])
+    commonSixth = most_common_items(sixthItems, commonFifth[0]['Item'])
 
     finalItems = json.dumps({
         'First': commonFirst,
