@@ -13,7 +13,7 @@ load_dotenv()
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
 
-def most_common_items(item_list, previous_item):
+def most_common_items(item_list):
     counter = Counter(item_list)
     three_most_common = counter.most_common(3)
     total_items = len(item_list)
@@ -40,7 +40,10 @@ Support = [30, 40, 42, 43, 45, 188, 257, 286]
 
 data = {}
 
-for hero_id in hero_ids:
+first_half = hero_ids[:len(hero_ids)//2]
+second_half = hero_ids[len(hero_ids)//2:]
+
+for hero_id in second_half:
 
     itemBuilds = [[]]
     startingItems = [[]]
@@ -53,7 +56,7 @@ for hero_id in hero_ids:
             guide(
                 {'heroId: ' + str(hero_id)}
             ) {{
-                guides(take: 100) {{
+                guides(take: 20) {{
                     matchId
                     steamAccountId
                 }}
@@ -175,11 +178,11 @@ for hero_id in hero_ids:
     # Make sure to have the list check the highest percentage of the before items and not take them into account for the next items
 
     commonFirst = most_common_items(firstItems)
-    commonSecond = most_common_items(secondItems, commonFirst[0]['Item'])
-    commonThird = most_common_items(thirdItems, commonSecond[0]['Item'])
-    commonFourth = most_common_items(fourthItems, commonThird[0]['Item'])
-    commonFifth = most_common_items(fifthItems, commonFourth[0]['Item'])
-    commonSixth = most_common_items(sixthItems, commonFifth[0]['Item'])
+    commonSecond = most_common_items(secondItems)
+    commonThird = most_common_items(thirdItems)
+    commonFourth = most_common_items(fourthItems)
+    commonFifth = most_common_items(fifthItems)
+    commonSixth = most_common_items(sixthItems)
 
     finalItems = json.dumps({
         'First': commonFirst,
@@ -190,11 +193,12 @@ for hero_id in hero_ids:
         'Sixth': commonSixth
     })
 
-    finalBoots = Counter(bootsProgression).most_common(1)
-    finalStarting = Counter(startingItems).most_common(1)
-    finalAbilities = Counter(abilityOrder).most_common(1)
+    # finalBoots = json.dumps(Counter(bootsProgression).most_common(1))
+    # finalStarting = json.dumps(Counter(startingItems).most_common(1))
+    # finalAbilities = json.dumps(Counter(abilityOrder).most_common(1))
 
-    cur.execute("INSERT INTO builds (hero_id, items, starting, boots, abilities) VALUES (%s, %s, %s, %s);", (hero_id, finalItems, finalStarting, finalBoots, finalAbilities))
+    # cur.execute("INSERT INTO builds (hero_id, items, starting, boots, abilities) VALUES (%s, %s, %s, %s);", (hero_id, finalItems, finalStarting, finalBoots, finalAbilities))
+    cur.execute("INSERT INTO builds (hero_id, items) VALUES (%s, %s);", (hero_id, finalItems))
         
 
 conn.commit() # Commit the transaction
