@@ -13,7 +13,7 @@ load_dotenv()
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
 
-def most_common_items(item_list, most_common):
+def most_common_items(item_list, previous_item):
     counter = Counter(item_list)
     three_most_common = counter.most_common(3)
     total_items = len(item_list)
@@ -36,6 +36,7 @@ cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
 Boots = [29, 48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
+Support = [30, 40, 42, 43, 45, 188, 257, 286]
 
 data = {}
 
@@ -44,6 +45,7 @@ for hero_id in hero_ids:
     itemBuilds = [[]]
     startingItems = [[]]
     bootsProgression = [[]]
+    abilityOrder = [[]]
 
     queryGuides = f"""
         query{{
@@ -107,6 +109,7 @@ for hero_id in hero_ids:
                         ]
         
         purchaseEvents = dataGuide['data']['match']['players'][0]['playbackData']['purchaseEvents']
+        abilityEvents = dataGuide['data']['match']['players'][0]['playbackData']['abilityLearnEvents']
 
         startingItems.append([])
         for event in purchaseEvents:
@@ -118,13 +121,18 @@ for hero_id in hero_ids:
         bootsProgression.append([])
 
         for event in purchaseEvents:
-            if event['itemId'] not in itemBuilds[i]:
+            if event['itemId'] not in itemBuilds[i] and event['itemId'] not in Support:
                 if event['itemId'] in Boots and len(itemBuilds[i]) < 6:
                     bootsProgression[i].append(event['itemId'])
                     if event['itemId'] != 29:
                         itemBuilds[i].append((event['itemId']))
                 elif event['itemId'] in finishedItems and len(itemBuilds[i]) < 6 and event['time'] > 0:
                     itemBuilds[i].append((event['itemId']))
+
+        abilityOrder.append([])
+        for event in abilityEvents:
+            if event['levelObtained'] < 17:
+                abilityOrder[i].append({'Ability': event['abilityId'], 'Level': event['levelObtained']})
 
         i += 1
 
@@ -182,7 +190,11 @@ for hero_id in hero_ids:
         'Sixth': commonSixth
     })
 
-    cur.execute("INSERT INTO builds (hero_id, items) VALUES (%s, %s);", (hero_id, finalItems))
+    finalBoots = Counter(bootsProgression).most_common(1)
+    finalStarting = Counter(startingItems).most_common(1)
+    finalAbilities = Counter(abilityOrder).most_common(1)
+
+    cur.execute("INSERT INTO builds (hero_id, items, starting, boots, abilities) VALUES (%s, %s, %s, %s);", (hero_id, finalItems, finalStarting, finalBoots, finalAbilities))
         
 
 conn.commit() # Commit the transaction
