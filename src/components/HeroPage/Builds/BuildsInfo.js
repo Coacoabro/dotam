@@ -5,7 +5,7 @@ import TalentsContainer from './TalentsContainer';
 import ItemsContainer from './ItemsContainer';
 
 
-function BuildsInfo({heroID, rank, role, builds}) {
+function BuildsInfo({heroID, builds}) {
 
     const items = builds[0].items
     const abilities = builds[0].abilities

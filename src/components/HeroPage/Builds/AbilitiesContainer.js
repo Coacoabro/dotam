@@ -38,30 +38,28 @@ const AbilitiesContainer = ({heroID, abilities}) => {
       }
   })
 
-
-
-  const leveledAbilities = basicAbilities.filter(value => abilities.includes(value));
-
   const abilitiesConverted = abilities.map(id => abilityIds[id] || 'Unknown');
 
+  const leveledAbilities = basicAbilities.filter(value => abilitiesConverted.includes(value));
 
+  
   const abilityBuild = []
   
   abilitiesConverted.forEach(name => {
     if (name === leveledAbilities[0]){
-      abilityBuild.append(['Q', null, null, null, null])
+      abilityBuild.push(['Q', null, null, null, null])
     }
     else if (name === leveledAbilities[1]){
-      abilityBuild.append([null, 'W', null, null, null])
+      abilityBuild.push([null, 'W', null, null, null])
     }
     else if (name === leveledAbilities[2]){
-      abilityBuild.append([null, null, 'E', null, null])
+      abilityBuild.push([null, null, 'E', null, null])
     }
     else if (name === leveledAbilities[3]){
-      abilityBuild.append([null, null, null, 'R', null])
+      abilityBuild.push([null, null, null, 'R', null])
     }
     else {
-      [null, null, null, null, 'T']
+      abilityBuild.push([null, null, null, null, 'T'])
     }
   })
 

@@ -48,7 +48,7 @@ second_half = hero_ids[len(hero_ids)//2:]
 take = 100
 
 #for hero_id in second_half:
-hero_id = 1
+hero_id = 4
 
 itemBuilds = [[]]
 lateItems = [[]]
@@ -202,11 +202,9 @@ finalItems = json.dumps({
     'Late': mostCommonLate
 })
 
-print(commonAbilityBuild)
-
-# cur.execute("INSERT INTO builds (hero_id, items, abilities) VALUES (%s, %s, %s);", (hero_id, finalItems, commonAbilityBuild))
+cur.execute("INSERT INTO builds (hero_id, items, abilities) VALUES (%s, %s, %s);", (hero_id, finalItems, list(commonAbilityBuild)))
         
 
-# conn.commit() # Commit the transaction
+conn.commit() # Commit the transaction
 
-# conn.close() # Close communication with the database
+conn.close() # Close communication with the database

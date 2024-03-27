@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import NeutralItems from './NeutralItems';
 import StartingItems from '../Builds/StartingItems';
-import Boots from '../Builds/Boots';
+import Boots from '../Builds/Extra';
 
 function ItemsInfo() {
 
