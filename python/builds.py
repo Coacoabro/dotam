@@ -45,119 +45,119 @@ data = {}
 first_half = hero_ids[:len(hero_ids)//2]
 second_half = hero_ids[len(hero_ids)//2:]
 
-take = 100
+take = 10
 
-#for hero_id in second_half:
-hero_id = 4
+for hero_id in second_half:
 
-itemBuilds = [[]]
-lateItems = [[]]
-startingItems = [[]]
-extraItems = [[]]
-bootsProgression = [[]]
-abilityOrder = [[]]
 
-queryGuides = f"""
-    query{{
-        heroStats {{
-        guide(
-            {'heroId: ' + str(hero_id)}
-        ) {{
-            guides({'take: ' + str(take)}) {{
-                matchId
-                steamAccountId
+    itemBuilds = [[]]
+    lateItems = [[]]
+    startingItems = [[]]
+    extraItems = [[]]
+    bootsProgression = [[]]
+    abilityOrder = [[]]
+
+    queryGuides = f"""
+        query{{
+            heroStats {{
+            guide(
+                {'heroId: ' + str(hero_id)}
+            ) {{
+                guides({'take: ' + str(take)}) {{
+                    matchId
+                    steamAccountId
+                }}
+            }}
             }}
         }}
-        }}
-    }}
-    """
-responseGuides = requests.post(url, json={'query': queryGuides}, headers=headers)
-dataGuides = json.loads(responseGuides.text)
+        """
+    responseGuides = requests.post(url, json={'query': queryGuides}, headers=headers)
+    dataGuides = json.loads(responseGuides.text)
 
-i = 0
+    i = 0
 
-for guide in dataGuides['data']['heroStats']['guide'][0]['guides']:
-    queryGuide = f"""
-        query{{
-            match(id: {guide['matchId']}) {{
-                players(steamAccountId: {guide['steamAccountId']}) {{
-                    item0Id
-                    item1Id
-                    item2Id
-                    item3Id
-                    item4Id
-                    item5Id
-                    backpack0Id
-                    backpack1Id
-                    backpack2Id
-                    playbackData {{
-                        purchaseEvents {{
-                            itemId
-                            time
-                        }}
-                        abilityLearnEvents {{
-                            abilityId
-                            levelObtained
+    for guide in dataGuides['data']['heroStats']['guide'][0]['guides']:
+        queryGuide = f"""
+            query{{
+                match(id: {guide['matchId']}) {{
+                    players(steamAccountId: {guide['steamAccountId']}) {{
+                        item0Id
+                        item1Id
+                        item2Id
+                        item3Id
+                        item4Id
+                        item5Id
+                        backpack0Id
+                        backpack1Id
+                        backpack2Id
+                        playbackData {{
+                            purchaseEvents {{
+                                itemId
+                                time
+                            }}
+                            abilityLearnEvents {{
+                                abilityId
+                                levelObtained
+                            }}
                         }}
                     }}
                 }}
             }}
-        }}
-        """
-    responseGuide = requests.post(url, json={'query': queryGuide}, headers=headers, timeout=600)
-    dataGuide = json.loads(responseGuide.text)
+            """
+        responseGuide = requests.post(url, json={'query': queryGuide}, headers=headers, timeout=600)
+        dataGuide = json.loads(responseGuide.text)
 
-    finishedItems = [dataGuide['data']['match']['players'][0]['item0Id'], 
-                        dataGuide['data']['match']['players'][0]['item1Id'], 
-                        dataGuide['data']['match']['players'][0]['item2Id'], 
-                        dataGuide['data']['match']['players'][0]['item3Id'], 
-                        dataGuide['data']['match']['players'][0]['item4Id'], 
-                        dataGuide['data']['match']['players'][0]['item5Id'],
-                        dataGuide['data']['match']['players'][0]['backpack0Id'],
-                        dataGuide['data']['match']['players'][0]['backpack1Id'],
-                        dataGuide['data']['match']['players'][0]['backpack2Id']
-                    ]
-    
-    purchaseEvents = dataGuide['data']['match']['players'][0]['playbackData']['purchaseEvents']
-    abilityEvents = dataGuide['data']['match']['players'][0]['playbackData']['abilityLearnEvents']
+        finishedItems = [dataGuide['data']['match']['players'][0]['item0Id'], 
+                            dataGuide['data']['match']['players'][0]['item1Id'], 
+                            dataGuide['data']['match']['players'][0]['item2Id'], 
+                            dataGuide['data']['match']['players'][0]['item3Id'], 
+                            dataGuide['data']['match']['players'][0]['item4Id'], 
+                            dataGuide['data']['match']['players'][0]['item5Id'],
+                            dataGuide['data']['match']['players'][0]['backpack0Id'],
+                            dataGuide['data']['match']['players'][0]['backpack1Id'],
+                            dataGuide['data']['match']['players'][0]['backpack2Id']
+                        ]
+        
+        purchaseEvents = dataGuide['data']['match']['players'][0]['playbackData']['purchaseEvents']
+        abilityEvents = dataGuide['data']['match']['players'][0]['playbackData']['abilityLearnEvents']
 
-    startingItems.append([])
-    for event in purchaseEvents:
-        if event['time'] < 0:
-            startingItems[i].append(event['itemId'])
+        startingItems.append([])
+        for event in purchaseEvents:
+            if event['time'] < 0:
+                startingItems[i].append(event['itemId'])
 
 
-    itemBuilds.append([])
-    extraItems.append([])
-    bootsProgression.append([])
+        itemBuilds.append([])
+        extraItems.append([])
+        bootsProgression.append([])
 
-    for event in purchaseEvents:
-        if event['itemId'] and event['itemId'] not in itemBuilds[i] and event['itemId'] not in startingItems[i]:
-            if len(itemBuilds[i]) < 3:
-                if event['itemId'] in Support or event['itemId'] in Consumable or event['itemId'] in Early:
-                    extraItems.append((event['itemId']))
-                else:
-                    if event['itemId'] in Boots:
-                        bootsProgression[i].append(event['itemId'])
-                        if event['itemId'] != 29:
+        for event in purchaseEvents:
+            if event['itemId'] and event['itemId'] not in itemBuilds[i] and event['itemId'] not in startingItems[i]:
+                if len(itemBuilds[i]) < 3:
+                    if event['itemId'] in Support or event['itemId'] in Consumable or event['itemId'] in Early:
+                        extraItems.append((event['itemId']))
+                    else:
+                        if event['itemId'] in Boots:
+                            bootsProgression[i].append(event['itemId'])
+                            if event['itemId'] != 29:
+                                itemBuilds[i].append((event['itemId']))
+                        elif event['itemId'] in finishedItems and event['time'] > 0:
                             itemBuilds[i].append((event['itemId']))
-                    elif event['itemId'] in finishedItems and event['time'] > 0:
-                        itemBuilds[i].append((event['itemId']))
-            else:
-                if event['itemId'] not in Support and event['itemId'] not in Consumable:
-                    if event['itemId'] in Boots:
-                        bootsProgression[i].append(event['itemId'])
-                        if event['itemId'] != 29:
-                            lateItems.append((event['itemId']))
-                    elif event['itemId'] in finishedItems and event['time'] > 0:
-                        lateItems.append((event['itemId'])) 
+                else:
+                    if event['itemId'] not in Support and event['itemId'] not in Consumable:
+                        if event['itemId'] in Boots:
+                            bootsProgression[i].append(event['itemId'])
+                            if event['itemId'] != 29:
+                                lateItems.append((event['itemId']))
+                        elif event['itemId'] in finishedItems and event['time'] > 0:
+                            lateItems.append((event['itemId'])) 
 
-    abilityOrder.append([])
-    for event in abilityEvents:
-        if event['levelObtained'] < 17:
-            abilityOrder[i].append(event['abilityId'])
+        abilityOrder.append([])
+        for event in abilityEvents:
+            if event['levelObtained'] < 17:
+                abilityOrder[i].append(event['abilityId'])
 
-    i += 1
+        i += 1
 
 
 commonBuild = Counter(map(tuple, itemBuilds)).most_common(3)
