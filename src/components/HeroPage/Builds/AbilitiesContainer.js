@@ -4,6 +4,7 @@ import client from '../../../pages/_app';
 
 import heroAbilities from '../../../../dotaconstants/build/hero_abilities.json'
 import abilityDesc from '../../../../dotaconstants/build/abilities.json'
+import abilityIds from '../../../../dotaconstants/build/ability_ids.json'
 import aghsDesc from '../../../../dotaconstants/build/aghs_desc.json'
 import heroNames from '../../../../dotaconstants/build/heroes.json'
 
@@ -37,26 +38,33 @@ const AbilitiesContainer = ({heroID, abilities}) => {
       }
   })
 
-  
 
-  const abilityBuild = [
-    ['Q', null, null, null, null],
-    [null, 'W', null, null, null],
-    ['Q', null, null, null, null],
-    [null, null, 'E', null, null],
-    ['Q', null, null, null, null],
-    [null, null, null, 'R', null],
-    [null, 'W', null, null, null],
-    [null, 'W', null, null, null],
-    [null, 'W', null, null, null],
-    [null, null, null, null, 'T'],
-    ['Q', null, null, null, null],
-    [null, null, null, 'R', null],
-    [null, null, 'E', null, null],
-    [null, null, 'E', null, null],
-    [null, null, null, null, 'T'],
-    [null, null, 'E', null, null],
-  ];
+
+  const leveledAbilities = basicAbilities.filter(value => abilities.includes(value));
+
+  const abilitiesConverted = abilities.map(id => abilityIds[id] || 'Unknown');
+
+
+  const abilityBuild = []
+  
+  abilitiesConverted.forEach(name => {
+    if (name === leveledAbilities[0]){
+      abilityBuild.append(['Q', null, null, null, null])
+    }
+    else if (name === leveledAbilities[1]){
+      abilityBuild.append([null, 'W', null, null, null])
+    }
+    else if (name === leveledAbilities[2]){
+      abilityBuild.append([null, null, 'E', null, null])
+    }
+    else if (name === leveledAbilities[3]){
+      abilityBuild.append([null, null, null, 'R', null])
+    }
+    else {
+      [null, null, null, null, 'T']
+    }
+  })
+
     
   
 
@@ -68,7 +76,7 @@ const AbilitiesContainer = ({heroID, abilities}) => {
 
         <div className="grid grid-cols-17 gap-2 text-center p-2">
           <div className="grid grid-rosw-5 gap-2">
-            {basicAbilities.map((ability) => (
+            {leveledAbilities.map((ability) => (
               <div className="w-10 h-10 rounded-sm flex items-center justify-center">
                 <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} />
               </div>
