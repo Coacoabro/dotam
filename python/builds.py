@@ -47,7 +47,7 @@ second_half = hero_ids[len(hero_ids)//2:]
 
 take = 10
 
-for hero_id in second_half:
+for hero_id in first_half:
 
 
     itemBuilds = [[]]
@@ -160,51 +160,58 @@ for hero_id in second_half:
         i += 1
 
 
-commonBuild = Counter(map(tuple, itemBuilds)).most_common(3)
-commonStarting = Counter(map(tuple, startingItems)).most_common(1)
-commonExtra = Counter(list(filter(bool, extraItems))).most_common(6)
-commonLate = Counter(list(filter(bool, lateItems))).most_common(8)
+    commonBuild = Counter(map(tuple, itemBuilds)).most_common(3)
+    commonStarting = Counter(map(tuple, startingItems)).most_common(1)
+    commonExtra = Counter(list(filter(bool, extraItems))).most_common(6)
+    commonLate = Counter(list(filter(bool, lateItems))).most_common(8)
 
-abilitiesCount = Counter(map(tuple, abilityOrder)).most_common(1)
-commonAbilityBuild, abilityCount = abilitiesCount[0]
+    abilitiesCount = Counter(map(tuple, abilityOrder)).most_common(1)
+    commonAbilityBuild, abilityCount = abilitiesCount[0]
 
-firstBuild, firstCount = commonBuild[0]
-secondBuild, secondCount = commonBuild[1]
-thirdBuild, thirdCount = commonBuild[2]
+    
+    firstBuild, firstCount = commonBuild[0]
+    if len(commonBuild) > 1:
+        secondBuild, secondCount = commonBuild[1]
+    else:
+        secondBuild, secondCount = (None, 0)
+    if len(commonBuild) > 2:
+        thirdBuild, thirdCount = commonBuild[2]
+    else:
+        thirdBuild, thirdCount = (None, 0)
 
-commonStartingItems, startingCount = commonStarting[0]
+    commonStartingItems, startingCount = commonStarting[0]
 
-mostCommonExtras = []
-for i, (item, count) in enumerate(commonExtra, start=1):
-    percentage = (count / take) * 100
-    if percentage > 10:
-        most_common_dict = {
-            'Item': item, 'Percentage': f"{percentage:.2f}%"
-        }
-        mostCommonExtras.append(most_common_dict)
+    mostCommonExtras = []
+    for i, (item, count) in enumerate(commonExtra, start=1):
+        percentage = (count / take) * 100
+        if percentage > 10:
+            most_common_dict = {
+                'Item': item, 'Percentage': f"{percentage:.2f}%"
+            }
+            mostCommonExtras.append(most_common_dict)
 
-mostCommonLate = []
-for i, (item, count) in enumerate(commonLate, start=1):
-    percentage = (count / take) * 100
-    if percentage > 10:
-        most_common_dict = {
-            'Item': item, 'Percentage': f"{percentage:.2f}%"
-        }
-        mostCommonLate.append(most_common_dict)
+    mostCommonLate = []
+    for i, (item, count) in enumerate(commonLate, start=1):
+        percentage = (count / take) * 100
+        if percentage > 10:
+            most_common_dict = {
+                'Item': item, 'Percentage': f"{percentage:.2f}%"
+            }
+            mostCommonLate.append(most_common_dict)
 
 
-finalItems = json.dumps({
-    'First': {'Build': firstBuild, 'Percentage': f"{(firstCount*100)/take:.2f}%"},
-    'Second': {'Build': secondBuild, 'Percentage': f"{(secondCount*100)/take:.2f}%"},
-    'Third': {'Build': thirdBuild, 'Percentage': f"{(thirdCount*100)/take:.2f}%"},
-    'Starting': commonStartingItems,
-    'Extra': mostCommonExtras,
-    'Late': mostCommonLate
-})
+    finalItems = json.dumps({
+        'First': {'Build': firstBuild, 'Percentage': f"{(firstCount*100)/take:.2f}%"},
+        'Second': {'Build': secondBuild, 'Percentage': f"{(secondCount*100)/take:.2f}%"},
+        'Third': {'Build': thirdBuild, 'Percentage': f"{(thirdCount*100)/take:.2f}%"},
+        'Starting': commonStartingItems,
+        'Extra': mostCommonExtras,
+        'Late': mostCommonLate
+    })
 
-cur.execute("INSERT INTO builds (hero_id, items, abilities) VALUES (%s, %s, %s);", (hero_id, finalItems, list(commonAbilityBuild)))
+    cur.execute("INSERT INTO builds (hero_id, items, abilities) VALUES (%s, %s, %s);", (hero_id, finalItems, list(commonAbilityBuild)))
         
 
-conn.commit() # Commit the transaction
+    conn.commit() # Commit the transaction
 
 conn.close() # Close communication with the database
