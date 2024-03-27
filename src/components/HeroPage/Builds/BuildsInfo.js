@@ -8,12 +8,13 @@ import ItemsContainer from './ItemsContainer';
 function BuildsInfo({heroID, rank, role, builds}) {
 
     const items = builds[0].items
+    const abilities = builds[0].abilities
 
     return(
         <div className="bg-gray-500 p-3 space-y-5">
             <div className="flex">
-                <div className="p-2 border rounded-md"><AbilitiesContainer heroID={heroID} rank={rank} role={role} /></div>
-                <div className="p-2 border rounded-md"><TalentsContainer heroID={heroID} rank={rank} role={role} /></div>
+                <div className="p-2 border rounded-md"><AbilitiesContainer heroID={heroID} abilities={abilities} /></div>
+                <div className="p-2 border rounded-md"><TalentsContainer heroID={heroID}/></div>
             </div>
 
             <div className="p-2 border rounded-md text-center">

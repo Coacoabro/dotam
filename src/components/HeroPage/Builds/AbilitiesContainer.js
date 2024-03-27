@@ -8,7 +8,7 @@ import aghsDesc from '../../../../dotaconstants/build/aghs_desc.json'
 import heroNames from '../../../../dotaconstants/build/heroes.json'
 
 
-const AbilitiesContainer = ({heroID, rank, role}) => {
+const AbilitiesContainer = ({heroID, abilities}) => {
 
   const hero = heroNames[heroID].name
   const Abilities = heroAbilities[hero].abilities
@@ -36,6 +36,8 @@ const AbilitiesContainer = ({heroID, rank, role}) => {
           basicAbilities.push(ability)
       }
   })
+
+  
 
   const abilityBuild = [
     ['Q', null, null, null, null],
