@@ -7,9 +7,10 @@ import abilityDesc from '../../../../dotaconstants/build/abilities.json'
 import abilityIds from '../../../../dotaconstants/build/ability_ids.json'
 import aghsDesc from '../../../../dotaconstants/build/aghs_desc.json'
 import heroNames from '../../../../dotaconstants/build/heroes.json'
+import TalentsContainer from './TalentsContainer';
 
 
-const AbilitiesContainer = ({heroID, abilities}) => {
+const AbilitiesContainer = ({heroID, abilities, onData}) => {
 
   const hero = heroNames[heroID].name
   const Abilities = heroAbilities[hero].abilities
@@ -42,6 +43,8 @@ const AbilitiesContainer = ({heroID, abilities}) => {
 
   const leveledAbilities = basicAbilities.filter(value => abilitiesConverted.includes(value));
 
+  const talentsArray = []
+
   
   const abilityBuild = []
   
@@ -60,16 +63,24 @@ const AbilitiesContainer = ({heroID, abilities}) => {
     }
     else {
       abilityBuild.push([null, null, null, null, 'T'])
+      talentsArray.push(name)
     }
-  })
+  })    
+
+  const [dataSent, setDataSent] = useState(false)
+  
+  if (!dataSent) {
+    onData(talentsArray)
+    setDataSent(true)
+  }
+  
 
     
   
 
   return (
     <div className="text-center">
-      <h1>ABILITY ORDER</h1>
-      <h2>Taken from Immortal+ players and averaged them out</h2>
+      <h1 className="text-xl text-white underline">ABILITY ORDER</h1>
       <div className="flex">
 
         <div className="grid grid-cols-17 gap-2 text-center p-2">

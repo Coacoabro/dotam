@@ -38,7 +38,7 @@ hero_ids = [row[0] for row in cur.fetchall()]
 Boots = [29, 48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
 Support = [30, 40, 42, 43, 45, 188, 257, 286]
 Consumable = [38, 39, 44, 216, 241, 4204, 4205, 4026]
-Early = [36, 73, 75, 77, 178, 569, 596]
+Early = [34, 36, 73, 75, 77, 178, 569, 596]
 
 data = {}
 
@@ -47,7 +47,7 @@ second_half = hero_ids[len(hero_ids)//2:]
 
 take = 10
 
-for hero_id in first_half:
+for hero_id in second_half:
 
 
     itemBuilds = [[]]
@@ -154,8 +154,7 @@ for hero_id in first_half:
 
         abilityOrder.append([])
         for event in abilityEvents:
-            if event['levelObtained'] < 17:
-                abilityOrder[i].append(event['abilityId'])
+            abilityOrder[i].append(event['abilityId'])
 
         i += 1
 
