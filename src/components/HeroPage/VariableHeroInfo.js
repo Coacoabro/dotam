@@ -31,11 +31,9 @@ function VariableHeroInfo({heroID, rank, role, builds}) {
   
 
   return (
-    <div>
-      <div className="p-1">
-        <TopTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
-        <div>{Content}</div>
-      </div>
+    <div className="p-1">
+      <TopTabBar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <div>{Content}</div>
     </div>
   );
 }

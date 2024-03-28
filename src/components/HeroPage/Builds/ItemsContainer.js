@@ -16,13 +16,13 @@ function ItemBuildsContainer({items}) {
                 <Extra items={items["Extra"]}/>
             </div>
             <div className="space-y-3">
-                <div className='underline text-xl text-white'>BUILDS</div>
+                <div className='underline text-xl text-white'>CORE ITEMS</div>
                 <ItemOrder order='1ST' items={items["First"]}/>
                 <ItemOrder order='2ND' items={items["Second"]}/>
                 <ItemOrder order='3RD' items={items["Third"]}/>
             </div>
             <div>
-                <div className='underline text-xl text-white'>LATE</div>
+                <div className='underline text-xl text-white'>LATE ITEMS</div>
                 <div className="rounded-md p-2 bg-gray-600 text-white space-y-2">
                     {items["Late"].map((item) => (
                         <div className="flex space-x-2">
