@@ -26,10 +26,20 @@ const SearchBar = () => {
         event.preventDefault();
         if (selectedSuggestionIndex !== -1) {
           const hero = suggestions[selectedSuggestionIndex];
-          setSearchTerm(hero.name);
+          setSearchTerm(hero.name);v
           setShowSuggestions(false);
           // Navigate to hero page using Next.js router
           window.location.href = `/hero/${hero.id}`;
+        }
+        else {
+          // If no suggestion is selected, navigate to the first suggestion
+          if (suggestions.length > 0) {
+            const hero = suggestions[0];
+            setSearchTerm(hero.name);
+            setShowSuggestions(false);
+            // Navigate to hero page using Next.js router
+            window.location.href = `/hero/${hero.id}`;
+          }
         }
       }
     };

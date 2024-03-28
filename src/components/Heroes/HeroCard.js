@@ -28,7 +28,6 @@ function HeroCard({ hero }) {
         </div>
         <img
           src={heroImage}
-          alt={hero.name}
           className="w-24 h-32 object-cover transition-transform duration-300 p-1"
         />
         {hovered && (
