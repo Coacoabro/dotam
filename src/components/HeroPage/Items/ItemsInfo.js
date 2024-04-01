@@ -8,10 +8,7 @@ function ItemsInfo() {
 
     return(
         <div className="bg-gray-500 p-3 space-y-5">
-            <div className="flex justify-evenly">
-                <StartingItems />
-                <Boots />
-            </div>
+            <div>Items</div>
             
             <h1 className="text-center text-xl underline text-white">NEUTRAL ITEMS</h1>
             <div className="flex justify-evenly text-center">
