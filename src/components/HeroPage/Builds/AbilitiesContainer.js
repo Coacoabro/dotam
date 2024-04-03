@@ -43,6 +43,8 @@ const AbilitiesContainer = ({heroID, abilities, onData}) => {
 
   const leveledAbilities = basicAbilities.filter(value => abilitiesConverted.includes(value));
 
+  console.log(leveledAbilities)
+
   const talentsArray = []
 
   
