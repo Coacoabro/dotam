@@ -22,6 +22,8 @@ cur = conn.cursor() # Open a cursor to perform database operations
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
+cur.execute("CREATE TABLE abilities")
+
 constquery = """
     query {
         constants {
@@ -122,5 +124,7 @@ for hero_id in hero_ids:
     max1.sort(key=lambda x: x['matchCount'], reverse=True)
     max2.sort(key=lambda x: x['matchCount'], reverse=True)
     max3.sort(key=lambda x: x['matchCount'], reverse=True)
+
+    
 
     
