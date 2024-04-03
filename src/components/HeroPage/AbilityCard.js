@@ -17,7 +17,7 @@ function AbilityCard({ ability }) {
     };
   
     return (
-      <div className="relative p-1 h-20 w-20 shadow-2xl">
+      <div className="relative p-1 h-20 w-20">
         <img
           src={'https://cdn.cloudflare.steamstatic.com' + abilityInfo.img}
           alt={abilityInfo.dname}

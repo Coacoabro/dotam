@@ -51,21 +51,23 @@ const AbilitiesContainer = ({heroID, abilities, onData}) => {
   const abilityBuild = []
   
   abilitiesConverted.forEach(name => {
-    if (name === leveledAbilities[0]){
-      abilityBuild.push(['Q', null, null, null, null])
-    }
-    else if (name === leveledAbilities[1]){
-      abilityBuild.push([null, 'W', null, null, null])
-    }
-    else if (name === leveledAbilities[2]){
-      abilityBuild.push([null, null, 'E', null, null])
-    }
-    else if (name === leveledAbilities[3]){
-      abilityBuild.push([null, null, null, 'R', null])
-    }
-    else {
-      abilityBuild.push([null, null, null, null, 'T'])
-      talentsArray.push(name)
+    if (abilityBuild.length < 16){
+      if (name === leveledAbilities[0]){
+        abilityBuild.push(['Q', null, null, null, null])
+      }
+      else if (name === leveledAbilities[1]){
+        abilityBuild.push([null, 'W', null, null, null])
+      }
+      else if (name === leveledAbilities[2]){
+        abilityBuild.push([null, null, 'E', null, null])
+      }
+      else if (name === leveledAbilities[3]){
+        abilityBuild.push([null, null, null, 'R', null])
+      }
+      else {
+        abilityBuild.push([null, null, null, null, 'T'])
+        talentsArray.push(name)
+      }
     }
   })    
 

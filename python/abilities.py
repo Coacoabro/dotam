@@ -84,11 +84,9 @@ for hero_id in hero_ids:
     max2 = []
     max3 = []
 
-    totalMatches = 0
 
-
-    for ability in abilityMinLevel:
-        if ability['abilityId'] in abilities:
+    for ability in abilityMaxLevel:
+        if ability['abilityId'] in abilities and ability['matchCount'] > 100:
             if ability['abilityId'] != ability1 and ability1 == 0:
                 ability1 = ability['abilityId']
             elif ability['abilityId'] != ability2 and ability2 == 0 and ability['abilityId'] != ability1:
@@ -98,35 +96,31 @@ for hero_id in hero_ids:
             else:
                 continue
 
-            if ability['abilityId'] == ability1:
-                totalMatches += ability['matchCount']
 
 
 
     for ability in abilityMaxLevel:
-        if (ability['matchCount']/totalMatches) > 0.25:
-            if ability['abilityId'] == ability1:
-                min1.append({'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': ability['winCount']/ability['matchCount']*100})
-            elif ability['abilityId'] == ability2:
-                min2.append({'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': ability['winCount']/ability['matchCount']*100})
-            elif ability['abilityId'] == ability3:
-                min3.append({'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': ability['winCount']/ability['matchCount']*100})
+        if ability['abilityId'] == ability1:
+            max1.append({'ability': ability['abilityId'], 'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': round(ability['winCount']/ability['matchCount']*100, 2)})
+        elif ability['abilityId'] == ability2:
+            max2.append({'ability': ability['abilityId'], 'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': round(ability['winCount']/ability['matchCount']*100, 2)})
+        elif ability['abilityId'] == ability3:
+            max3.append({'ability': ability['abilityId'], 'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': round(ability['winCount']/ability['matchCount']*100, 2)})
 
 
     for ability in abilityMinLevel:
-        if (ability['matchCount']/totalMatches) > 0.25:
-            if ability['abilityId'] == ability1:
-                max1.append({'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': ability['winCount']/ability['matchCount']*100})
-            elif ability['abilityId'] == ability2:
-                max2.append({'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': ability['winCount']/ability['matchCount']*100})
-            elif ability['abilityId'] == ability3:
-                max3.append({'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': ability['winCount']/ability['matchCount']*100})
+        if ability['abilityId'] == ability1:
+            min1.append({'ability': ability['abilityId'], 'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': round(ability['winCount']/ability['matchCount']*100, 2)})
+        elif ability['abilityId'] == ability2:
+            min2.append({'ability': ability['abilityId'], 'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': round(ability['winCount']/ability['matchCount']*100, 2)})
+        elif ability['abilityId'] == ability3:
+            min3.append({'ability': ability['abilityId'], 'level': ability['level'], 'winCount': ability['winCount'], 'matchCount': ability['matchCount'], 'winRate': round(ability['winCount']/ability['matchCount']*100, 2)})
 
-    print(f"Hero: {hero_id}")
-    print(f"Total Matches: {totalMatches}")
-    print(f"Min Level Ability 1: {min1}")
-    print(f"Min Level Ability 2: {min2}")
-    print(f"Min Level Ability 3: {min3}")
-    print(f"Max Level Ability 1: {max1}")
-    print(f"Max Level Ability 2: {max2}")
-    print(f"Max Level Ability 3: {max3}")
+    min1.sort(key=lambda x: x['matchCount'], reverse=True)
+    min2.sort(key=lambda x: x['matchCount'], reverse=True)
+    min3.sort(key=lambda x: x['matchCount'], reverse=True)
+    max1.sort(key=lambda x: x['matchCount'], reverse=True)
+    max2.sort(key=lambda x: x['matchCount'], reverse=True)
+    max3.sort(key=lambda x: x['matchCount'], reverse=True)
+
+    

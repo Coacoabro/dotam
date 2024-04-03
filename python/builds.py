@@ -45,7 +45,7 @@ data = {}
 first_half = hero_ids[:len(hero_ids)//2]
 second_half = hero_ids[len(hero_ids)//2:]
 
-take = 10
+take = 25
 
 for hero_id in second_half:
 
