@@ -167,9 +167,6 @@ const AbilitiesContainer = ({heroID, abilities, onData}) => {
   abilityBuild[14] = 0
   //Level 16
   abilityBuild[15] = finalLevels[2].Ability
-
-
-  console.log(abilityBuild)
   
 
 

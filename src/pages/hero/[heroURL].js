@@ -38,8 +38,6 @@ export async function getServerSideProps(context) {
 
 function HeroPage({ hero, rates, builds, abilities }) {
 
-  console.log(abilities[0])
-
   const router = useRouter();
 
   const highestPickRateRole = rates
