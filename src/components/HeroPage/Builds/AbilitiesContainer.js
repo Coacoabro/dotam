@@ -155,7 +155,7 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
   //Level 12
   abilityBuild[11] = ultimateAbility
   //Level 13
-
+  abilityBuild[12] = finalLevels[2].Ability
   //Level 14
   abilityBuild[13] = finalLevels[2].Ability
   //Level 15
@@ -170,7 +170,7 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
 
   
   abilityBuild.forEach(name => {
-    if (finishedAbilityBuild.length < 16){
+    if (finishedAbilityBuild.length < 17){
       if (name === abilitiesConverted[0]){
         finishedAbilityBuild.push(['Q', null, null, null, null])
       }
@@ -189,7 +189,7 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
     }
   })    
   
-
+  const levels = Array.from({length: 16}, (_, index) => index +1)
   
 
   return (
@@ -198,25 +198,29 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
       <div className="flex">
 
         <div className="grid grid-cols-17 gap-2 text-center p-2">
-          <div className="grid grid-rosw-5 gap-2">
+          <div className="grid grid-rows-5 gap-2">
             {abilitiesConverted.map((ability) => (
-              <div className="w-10 h-10 rounded-sm flex items-center justify-center">
+              <div className="w-8 h-8 rounded-sm flex items-center justify-center">
                 <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} />
               </div>
             ))}
-            <div className="w-10 h-10 rounded-sm flex items-center justify-center">
+            <div className="w-8 h-8 rounded-sm flex items-center justify-center">
               <img src='https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg'/>
             </div>
           </div>
           {finishedAbilityBuild.map((row) => (
             <div className="grid grid-rows-5 gap-2">
               {row.map((ability) => (
-                <div className={`w-10 h-10 rounded-sm flex items-center bold justify-center ${ability ? 'bg-gray-200' : 'bg-gray-400'}`}>
+                <div className={`w-8 h-8 rounded-sm flex items-center bold justify-center ${ability ? 'bg-gray-200' : 'bg-gray-400'}`}>
                   {ability || ' '}
                 </div>
               ))}
             </div>
           ))}
+          <div> </div>
+          {levels.map(level => (
+                <div className="w-8 h-8 text-down text-white">{level}</div>
+              ))}
         </div>
       </div>      
     </div>

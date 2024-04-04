@@ -47,7 +47,7 @@ function TalentCard({hero}) {
                         height: 'auto',
                     }}
                     >
-                    <div className="grid grid-rows-4 text-sm gap-1 p-1">
+                    <div className="grid grid-rows-4 text-sm gap-1 p-1 h-60">
                         {rightTalentNames.map((talent) => (
                         <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
