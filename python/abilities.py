@@ -8,6 +8,10 @@ import psycopg2
 import json
 import requests
 
+with open('./dotaconstants/build/ability_ids.json') as f:
+    ability_ids_json = json.load(f)
+
+
 load_dotenv()
 
 database_url = os.environ.get('DATABASE_URL')
@@ -63,6 +67,11 @@ for hero_id in hero_ids:
                     winCount
                     matchCount
                 }}
+                talent(heroId: {hero_id}) {{
+                    abilityId
+                    winCount
+                    matchCount
+                }}
             }}
         }}
     """
@@ -72,6 +81,7 @@ for hero_id in hero_ids:
 
     abilityMaxLevel = data['data']['heroStats']['abilityMaxLevel']
     abilityMinLevel = data['data']['heroStats']['abilityMinLevel']
+    talents = data['data']['heroStats']['talent']
 
     ability1 = 0
     ability2 = 0
@@ -85,6 +95,8 @@ for hero_id in hero_ids:
     max2 = []
     max3 = []
 
+    finalTalents = []*8
+
 
     for ability in abilityMaxLevel:
         if ability['abilityId'] in abilities and ability['matchCount'] > 100:
@@ -96,9 +108,6 @@ for hero_id in hero_ids:
                 ability3 = ability['abilityId']
             else:
                 continue
-
-
-
 
     for ability in abilityMaxLevel:
         if ability['abilityId'] == ability1:
@@ -131,7 +140,16 @@ for hero_id in hero_ids:
     max2 = json.dumps(max2[:2])
     max3 = json.dumps(max3[:2])
 
-    cur.execute("INSERT INTO abilities (hero_id, min1, min2, min3, max1, max2, max3) VALUES (%s, %s, %s, %s, %s, %s, %s);", (hero_id, min1, min2, min3, max1, max2, max3))
+    for talent in talents:
+        if talent['abilityId'] != 730:
+            ability_id = str(talent['abilityId'])
+            abilityName = ability_ids_json[ability_id]
+            finalTalents.append({'Ability': abilityName, 'Matches': talent['matchCount'], 'Wins': talent['winCount'], 'WinRate': round(talent['winCount']/talent['matchCount']*100, 2)})
+    
+    finalTalents = json.dumps(finalTalents)
+
+
+    cur.execute("INSERT INTO abilities (hero_id, min1, min2, min3, max1, max2, max3, talents) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);", (hero_id, min1, min2, min3, max1, max2, max3, finalTalents))
 
     conn.commit() # Commit the transaction
 
