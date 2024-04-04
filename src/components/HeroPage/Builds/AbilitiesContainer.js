@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery, gql } from '@apollo/client';
-import client from '../../../pages/_app';
 
 import heroAbilities from '../../../../dotaconstants/build/hero_abilities.json'
 import abilityDesc from '../../../../dotaconstants/build/abilities.json'
 import abilityIds from '../../../../dotaconstants/build/ability_ids.json'
 import aghsDesc from '../../../../dotaconstants/build/aghs_desc.json'
-import heroNames from '../../../../dotaconstants/build/heroes.json'
-import TalentsContainer from './TalentsContainer';
 
 
-const AbilitiesContainer = ({heroID, abilities, onData}) => {
+const AbilitiesContainer = ({hero, abilities, onData}) => {
 
-  const hero = heroNames[heroID].name
   const Abilities = heroAbilities[hero].abilities
   const scepterList = aghsDesc
     .filter(scepterAbility => scepterAbility.scepter_new_skill === true)
@@ -170,17 +165,9 @@ const AbilitiesContainer = ({heroID, abilities, onData}) => {
   
 
 
-
-
-
   const finishedAbilityBuild = []
 
 
-
-  
-
-
-  const talentsArray = []
   
   abilityBuild.forEach(name => {
     if (finishedAbilityBuild.length < 16){
@@ -198,17 +185,9 @@ const AbilitiesContainer = ({heroID, abilities, onData}) => {
       }
       else {
         finishedAbilityBuild.push([null, null, null, null, 'T'])
-        talentsArray.push(name)
       }
     }
   })    
-
-  const [dataSent, setDataSent] = useState(false)
-  
-  if (!dataSent) {
-    onData(talentsArray)
-    setDataSent(true)
-  }
   
 
   
