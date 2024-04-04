@@ -5,10 +5,10 @@ import TalentsContainer from './TalentsContainer';
 import ItemsContainer from './ItemsContainer';
 
 
-function BuildsInfo({heroID, builds}) {
+function BuildsInfo({heroID, builds, abilities}) {
 
     const items = builds[0].items
-    const abilities = builds[0].abilities
+    const abilities_builds = builds[0].abilities
 
     const[talentData, setTalentData] = useState([])
 

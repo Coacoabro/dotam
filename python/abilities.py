@@ -22,7 +22,6 @@ cur = conn.cursor() # Open a cursor to perform database operations
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
-cur.execute("CREATE TABLE abilities")
 
 constquery = """
     query {
@@ -124,6 +123,19 @@ for hero_id in hero_ids:
     max1.sort(key=lambda x: x['matchCount'], reverse=True)
     max2.sort(key=lambda x: x['matchCount'], reverse=True)
     max3.sort(key=lambda x: x['matchCount'], reverse=True)
+
+    min1 = json.dumps(min1[:2])
+    min2 = json.dumps(min2[:2])
+    min3 = json.dumps(min3[:2])
+    max1 = json.dumps(max1[:2])
+    max2 = json.dumps(max2[:2])
+    max3 = json.dumps(max3[:2])
+
+    cur.execute("INSERT INTO abilities (hero_id, min1, min2, min3, max1, max2, max3) VALUES (%s, %s, %s, %s, %s, %s, %s);", (hero_id, min1, min2, min3, max1, max2, max3))
+
+    conn.commit() # Commit the transaction
+
+conn.close() # Close communication with the database
 
     
 

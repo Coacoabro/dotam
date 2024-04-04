@@ -9,7 +9,7 @@ const TalentsContainer = ({talents}) => {
   const talentArray = []
 
   talents.forEach((talent) => {
-    talentArray.push(abilityDesc[talent].dname)
+    talent ? talentArray.push(abilityDesc[talent].dname) : '?'
   })
 
   return(
