@@ -5,7 +5,7 @@ const Layout = ({children}) => {
   return (
     <div className="layout">
       <Head>
-        <title>Dotam.gg</title>
+        <title>DotaM</title>
       </Head>
       <TopBar />
       <main>{children}</main>
