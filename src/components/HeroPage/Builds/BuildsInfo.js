@@ -21,7 +21,7 @@ function BuildsInfo({heroID, builds, abilities}) {
             <div>
                 <h1 className="text-center underline text-2xl text-white">BUILDS</h1>
             </div>
-            <div className="flex">
+            <div className="flex justify-evenly">
                 <div className="p-2 rounded-md"><AbilitiesContainer hero={heroName} abilities={abilities} /></div>
                 <div className="p-2 rounded-md"><TalentsContainer hero={heroName} talents={talentData}/></div>
             </div>

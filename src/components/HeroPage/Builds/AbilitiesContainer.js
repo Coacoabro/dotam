@@ -45,6 +45,7 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
   const minAbilities = [abilities['min1'], abilities['min2'], abilities['min3']]
   const maxAbilities = [abilities['max1'], abilities['max2'], abilities['max3']]
 
+
   let maxMatchCount = 0
   let min1stMost = {}
   let min2ndMost = {}
@@ -79,7 +80,7 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
       }
     })
   })
-
+  maxMatchCount = 0
   maxAbilities.forEach(abilitiesArray => {
     abilitiesArray.forEach(obj => {
       if (obj.matchCount > maxMatchCount) {
@@ -106,7 +107,6 @@ const AbilitiesContainer = ({hero, abilities, onData}) => {
       }
     })
   })
-
 
   const firstLevels = [min1stMost, min2ndMost, min3rdMost]
   firstLevels.sort((a, b) => a.Level -b.Level)
