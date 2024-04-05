@@ -22,6 +22,23 @@ cur = conn.cursor() # Open a cursor to perform database operations
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
+constquery = """
+    query {
+        constants {
+            items {
+                id
+                stat {
+                    cost
+                }
+            }
+        }
+    }
+"""
+
+constresponse = requests.post(url, headers=headers, json={'query': constquery})
+constdata = json.loads(constresponse.text)
+itemsData = constdata['data']['constants']['items']
+
 for hero_id in hero_ids:
     query = f"""
         query {{
@@ -53,3 +70,39 @@ for hero_id in hero_ids:
             }}
         }}
     """
+
+    response = requests.post(url, headers=headers, json={'query': query})
+    data = json.loads(response.text)
+
+    boots = data['data']['heroStats']['itemBootPurchase']
+    startingItems = data['data']['heroStats']['itemStartingPurchase']
+    neutralItems = data['data']['heroStats']['itemNeutral']
+
+    startingGold = 600
+
+    startingItems = [item for item in startingItems if not item.get('wasGiven', False)]
+    startingItems.sort(key=lambda item: item['matchCount'], reverse=True)
+
+    startingFinal = []
+
+    itemsData_dict = {item['id']: item for item in itemsData}
+
+    for item in startingItems:
+
+        startingGold -= itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
+        if startingGold > 0:
+            startingFinal.append(item['itemId'])
+        else:
+            startingGold += itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
+            while startingGold > 0 and len(startingFinal) < 7:
+                startingGold -= 50
+                if startingGold > 0:
+                    startingFinal.append(16)
+                else:
+                    break
+    
+    print(startingFinal)
+
+
+
+    
