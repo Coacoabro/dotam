@@ -38,6 +38,7 @@ constquery = """
 constresponse = requests.post(url, headers=headers, json={'query': constquery})
 constdata = json.loads(constresponse.text)
 itemsData = constdata['data']['constants']['items']
+itemsData_dict = {item['id']: item for item in itemsData}
 
 for hero_id in hero_ids:
     query = f"""
@@ -60,8 +61,6 @@ for hero_id in hero_ids:
                     equippedMatchCount
                     equippedMatchWinCount
                     item {{
-                            displayName
-                            image
                             stat {{
                                 neutralItemTier
                         }}
@@ -78,30 +77,54 @@ for hero_id in hero_ids:
     startingItems = data['data']['heroStats']['itemStartingPurchase']
     neutralItems = data['data']['heroStats']['itemNeutral']
 
-    startingGold = 600
+    boots.sort(key=lambda item: item['matchCount'], reverse=True)
+    bootsEarly = []
+    bootsLate = []
 
+    for item in boots:
+        if item['timeAverage'] < 1200 and item['itemId'] != 29:
+            bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount']})
+        if item['timeAverage'] > 1200 and item['itemId'] != 29:
+            bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount']})
+
+
+    startingGold = 600
     startingItems = [item for item in startingItems if not item.get('wasGiven', False)]
     startingItems.sort(key=lambda item: item['matchCount'], reverse=True)
-
     startingFinal = []
-
-    itemsData_dict = {item['id']: item for item in itemsData}
 
     for item in startingItems:
 
         startingGold -= itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
-        if startingGold > 0:
+        if startingGold > 0 and len(startingFinal) < 6:
             startingFinal.append(item['itemId'])
         else:
             startingGold += itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
-            while startingGold > 0 and len(startingFinal) < 7:
-                startingGold -= 50
-                if startingGold > 0:
-                    startingFinal.append(16)
-                else:
-                    break
+            startingGold -= 50
+            if startingGold > 0 and len(startingFinal) < 6:
+                startingFinal.append(16)
+            else:
+                break
     
-    print(startingFinal)
+    neutralItems.sort(key=lambda item: item['equippedMatchCount'], reverse=True)
+    tierArray = [[] for _ in range(5)]
+    tierArray[0] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_1']
+    tierArray[1] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_2']
+    tierArray[2] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_3']
+    tierArray[3] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_4']
+    tierArray[4] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_5']
+
+    neutralFinal = {}
+
+    for i, array in enumerate(tierArray):
+        neutralFinal[f'Tier {i+1}'] = []
+        for item in array:
+            if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 20:
+                neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount']})
+    
+    
+
+            
 
 
 

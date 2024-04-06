@@ -7,7 +7,7 @@ import Boots from '../Builds/Extra';
 function ItemsInfo() {
 
     return(
-        <div className="bg-gray-500 p-3 space-y-5">
+        <div className="bg-gray-500 p-3 space-y-5 rounded-tr-md rounded-b-md">
             <div>Items</div>
             
             <h1 className="text-center text-xl underline text-white">NEUTRAL ITEMS</h1>

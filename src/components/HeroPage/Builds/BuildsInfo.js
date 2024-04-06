@@ -17,7 +17,7 @@ function BuildsInfo({heroID, builds, abilities}) {
 
     
     return(
-        <div className="bg-gray-500 p-3 space-y-5 rounded-md">
+        <div className="bg-gray-500 p-3 space-y-5 rounded-tr-md rounded-b-md">
             <div>
                 <h1 className="text-center underline text-2xl text-white">BUILDS</h1>
             </div>

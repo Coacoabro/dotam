@@ -22,28 +22,40 @@ cur = conn.cursor() # Open a cursor to perform database operations
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
-ranks = [] #You're gonna need to create the typical rank and role split
-roles = []
+ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
 
 for hero_id in hero_ids:
-    query = f"""
-        query{{
-            heroStats {{
-                heroVsHeroMatchup(heroId: {hero_id}, bracketBasicIds: {ranks}, positionIds: {roles}) {{
-                    advantage {{
-                        vs {{
-                            heroId2
-                            winRateHeroId2
-                            matchCount
-                        }}
-                        with {{
-                            heroId2
-                            winCount
-                            matchCount
+    for rank in ranks:
+        query = f"""
+            query{{
+                heroStats {{
+                    heroVsHeroMatchup(
+                        {'heroId: ' + str(hero_id)}
+                        {'bracketBasicIds: ' + rank if rank else ''}
+                    ) {{
+                        advantage {{
+                            vs {{
+                                heroId2
+                                winCount
+                                matchCount
+                            }}
+                            with {{
+                                heroId2
+                                winCount
+                                matchCount
+                            }}
                         }}
                     }}
                 }}
             }}
-        }}
-    """
+        """
+
+        response = requests.post(url, headers=headers, json={'query': query})
+        data = json.loads(response.text)
+
+        matchupsVs = data['data']['heroStats']['heroVsHeroMatchup']['advantage'][0]['vs']
+        matchupsWith = data['data']['heroStats']['heroVsHeroMatchup']['advantage'][0]['with']
+
+        
+
