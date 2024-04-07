@@ -164,7 +164,7 @@ function HeroPage({ hero, rates, builds, abilities }) {
         
         
         <div className="p-1">
-          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds} abilities={abilities[0]} />
+          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds} abilities={abilities} />
         </div>
       </div>
     );
