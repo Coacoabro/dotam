@@ -5,6 +5,11 @@ import TierCard from '../components/TierList/TierCard'
 
 import { Pool } from 'pg';
 
+export const metadata = {
+  title: 'DotaM - Tier List',
+  description: 'Tier list of Dota 2 heroes based on current statistical data from almost all games played within the current patch',
+}
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {

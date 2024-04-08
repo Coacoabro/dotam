@@ -5,7 +5,14 @@ import StaticHeroInfo from '../../components/HeroPage/StaticHeroInfo'
 import VariableHeroInfo from '../../components/HeroPage/VariableHeroInfo';
 import RatesContainer from '../../components/HeroPage/RatesContainer';
 
+import heroName from '../../../dotaconstants/build/heroes.json'
+
 import { Pool } from 'pg';
+
+export const metadata = {
+  title: 'DotaM - ' + heroName[heroURL].localized_name + ' Hero Page',
+  description: 'Hero page for ' + heroName[heroURL].localized_name + ' with detailed information on abilities, talents, items, and more',
+}
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,

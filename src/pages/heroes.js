@@ -1,6 +1,11 @@
 import React from 'react';
 import heroData from '../../dotaconstants/build/heroes.json';
 import HeroTable from '../components/Heroes/HeroTable';
+ 
+export const metadata = {
+  title: 'DotaM - Heroes List',
+  description: 'List of all Dota 2 heroes with their primary attribute and roles.',
+}
 
 function HeroList() {
   const sortedHeroData = Object.values(heroData)
@@ -23,7 +28,7 @@ function HeroList() {
   
   return (
     <div className="px-4 max-w-6xl mx-auto space-y-4" >
-      <div className="text-3xl text-center py-2 text-white underline">DOTA 2 HEROES LIST</div>
+      <div className="text-3xl text-center py-2 text-white underline">DOTA 2 HEROES</div>
       
       <div className="grid grid-cols-2 gap-5">
         <div>

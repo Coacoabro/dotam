@@ -6,7 +6,6 @@ const Layout = ({children}) => {
     <div className="layout">
       <Head>
         <title>DotaM</title>
-        <meta name="description" content="Testing right now to see if anything changed" />
       </Head>
       <TopBar />
       <main>{children}</main>
