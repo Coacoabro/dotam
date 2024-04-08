@@ -21,6 +21,7 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
+hero_ids = hero_ids[67:]
 
 constquery = """
     query {
