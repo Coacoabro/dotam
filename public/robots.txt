@@ -3,3 +3,5 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /secrets/
 Allow: /public/
+
+Sitemap: https://www.dotam.gg/sitemap.xml
