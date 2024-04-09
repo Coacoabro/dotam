@@ -30,6 +30,7 @@ export async function getServerSideProps(context) {
   const res2 = await client.query('SELECT * FROM rates WHERE hero_id = $1', [heroId]);
   const res3 = await client.query('SELECT * FROM builds WHERE hero_id = $1', [heroId]);
   const res4 = await client.query('SELECT * FROM abilities WHERE hero_id = $1', [heroId]);
+  const res5 = await client.query('SELECT * FROM items WHERE hero_id = $1', [heroId]);
   client.release();
 
   return {
@@ -37,13 +38,14 @@ export async function getServerSideProps(context) {
       hero: res1.rows,
       rates: res2.rows,
       builds: res3.rows,
-      abilities: res4.rows
+      abilities: res4.rows,
+      items: res5.rows
     }
   };
 }
 
 
-function HeroPage({ hero, rates, builds, abilities }) {
+function HeroPage({ hero, rates, builds, abilities, items }) {
 
   const router = useRouter();
 
@@ -171,7 +173,7 @@ function HeroPage({ hero, rates, builds, abilities }) {
         
         
         <div className="p-1">
-          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds} abilities={abilities} />
+          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds} abilities={abilities} items={items} />
         </div>
       </div>
     );

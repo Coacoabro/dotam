@@ -20,7 +20,6 @@ function AbilityCard({ ability }) {
       <div className="relative p-1 h-20 w-20">
         <img
           src={'https://cdn.cloudflare.steamstatic.com' + abilityInfo.img}
-          alt={abilityInfo.dname}
           onMouseEnter={showTooltip}
           onMouseLeave={hideTooltip}
         />

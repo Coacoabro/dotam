@@ -7,9 +7,11 @@ function StartingItems({items}) {
 
     const startingItems = []
 
-    items.forEach(item => {
-        startingItems.push(item_ids[item])
-    })
+    if (items) {
+        items.forEach(item => {
+            startingItems.push(item_ids[item])
+        })
+    }
 
     return(
         <div>

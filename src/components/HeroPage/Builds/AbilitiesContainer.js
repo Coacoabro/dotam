@@ -36,12 +36,10 @@ const AbilitiesContainer = ({hero, abilities}) => {
       }
   })
   const ultimateAbility = basicAbilities[basicAbilities.length - 1] 
-  console.log(basicAbilities)
   const abilitiesConverted = basicAbilities.filter(value => abilities.map(id => abilityIds[id] || 'Unknown').includes(value))
   abilitiesConverted.push(ultimateAbility)
   const finishedAbilities = []
 
-  console.log(abilities)
   abilities.forEach((ability) => {
     if (finishedAbilities.length < 17){
       if(ability > 0) {
