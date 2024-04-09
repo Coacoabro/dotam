@@ -56,5 +56,17 @@ for hero_id in hero_ids:
         matchupsVs = data['data']['heroStats']['heroVsHeroMatchup']['advantage'][0]['vs']
         matchupsWith = data['data']['heroStats']['heroVsHeroMatchup']['advantage'][0]['with']
 
+        vsFinal = []
+        withFinal = []
+
+        for matchup in matchupsVs:
+            vsFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2), 'Matches': matchup['matchCount']})
+        vsGood = vsFinal.sort(key=lambda x: x['WR'], reverse=True)
+        vsBad = vsFinal.sort(key=lambda x: x['WR'], reverse=False)
+        for matchup in matchupsWith:
+            withFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2)})
+        withGood = withFinal.sort(key=lambda x: x['WR'], reverse=True)
+        withBad = withFinal.sort(key=lambda x: x['WR'], reverse=False)
+
         
 

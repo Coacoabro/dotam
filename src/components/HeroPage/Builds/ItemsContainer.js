@@ -11,7 +11,7 @@ function ItemBuildsContainer({build, boots, starting}) {
 
     return(
         <div className="flex justify-evenly px-2 space-x-8">
-            <div>
+            <div className="space-y-2">
                 <StartingItems items={starting} />
                 <Extra items={build["Extra"]} boots={boots}/>
             </div>

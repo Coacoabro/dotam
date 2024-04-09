@@ -10,8 +10,6 @@ function ItemsInfo({heroID, items}) {
     useEffect(() => {
         if(items){setNeutrals(items.neutrals)}
     },[items])
-
-    console.log(neutrals)
     
 
     return(
