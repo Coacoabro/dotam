@@ -5,13 +5,14 @@ import AbilitiesInfo from './AbilitiesInfo';
 import MatchupsInfo from './Matchups/MatchupsInfo'
 import TopTabBar from './TopTabBar';
 
-function VariableHeroInfo({heroID, rank, role, builds, abilities, items}) {
+function VariableHeroInfo({heroID, rank, role, builds, abilities, items, matchups}) {
 
   const itemBuilds = builds[0].items
 
   const [currAbilities, setCurrAbilities] = useState([])
   const [currTalents, setCurrTalents] = useState([])
   const [currItems, setCurrItems] = useState([])
+  const [currMatchups, setCurrMatchups] = useState([])
 
   const rankList = {
       '': '',
@@ -29,11 +30,13 @@ function VariableHeroInfo({heroID, rank, role, builds, abilities, items}) {
 
   useEffect(() => {
       let filteredAbilities = abilities.find(r => r.role === role && r.hero_id === heroID)
-      let filteredItems = items ? items.find(r => r.role === role && r.rank === trueRank && r.hero_id === heroID) : null
+      let filteredItems = items.find(r => r.role === role && r.rank === trueRank && r.hero_id === heroID)
+      let filteredMatchups = matchups.find(r => r.rank === trueRank && r.hero_id === heroID)
       setCurrAbilities(filteredAbilities.build)
       setCurrTalents(filteredAbilities.talents)
       setCurrItems(filteredItems)
-  }, [heroID, role, abilities, items, trueRank])
+      setCurrMatchups(filteredMatchups)
+  }, [heroID, role, abilities, items, trueRank, matchups])
 
   const [activeTab, setActiveTab] = useState(0);
   let Content;
@@ -49,7 +52,7 @@ function VariableHeroInfo({heroID, rank, role, builds, abilities, items}) {
       Content = <AbilitiesInfo heroID={heroID} rank={rank} role={role} />;
       break;
     case 3:
-      Content = <MatchupsInfo heroID={heroID} rank={rank} role={role} />;
+      Content = <MatchupsInfo heroID={heroID} matchups={currMatchups} />;
       break;
     
     default:

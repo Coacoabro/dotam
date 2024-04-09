@@ -21,6 +21,7 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
+hero_ids = hero_ids[91:]
 
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
@@ -61,12 +62,19 @@ for hero_id in hero_ids:
 
         for matchup in matchupsVs:
             vsFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2), 'Matches': matchup['matchCount']})
-        vsGood = vsFinal.sort(key=lambda x: x['WR'], reverse=True)
-        vsBad = vsFinal.sort(key=lambda x: x['WR'], reverse=False)
+        
+        vsFinal.sort(key=lambda x: x['WR'], reverse=True)
+
         for matchup in matchupsWith:
-            withFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2)})
-        withGood = withFinal.sort(key=lambda x: x['WR'], reverse=True)
-        withBad = withFinal.sort(key=lambda x: x['WR'], reverse=False)
+            withFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2), 'Matches': matchup['matchCount']})
+        
+        withFinal.sort(key=lambda x: x['WR'], reverse=True)
+
+        cur.execute("INSERT INTO matchups (hero_id, rank, herovs, herowith) VALUES (%s, %s, %s, %s);", (hero_id, rank, json.dumps(vsFinal), json.dumps(withFinal)))
+
+        conn.commit() # Commit the transaction
+
+conn.close()
 
         
 

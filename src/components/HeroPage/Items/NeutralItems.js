@@ -29,9 +29,9 @@ function NeutralItems({tier, neutrals}) {
             <div className="grid grid-cols-1 gap-2">
                 <div>ITEM MATCHES</div>
                 {neutralList.map((item) => (
-                    <div className="flex space-x-1 justify-evenly">
+                    <div className="flex space-x-1 justify-between items-center">
                         <div className="relative">
-                            <img className="w-10" src={item.Item ? "https://cdn.cloudflare.steamstatic.com" + itemConstants[item_ids[item.Item]].img  : null}                    
+                            <img className="w-16" src={item.Item ? "https://cdn.cloudflare.steamstatic.com" + itemConstants[item_ids[item.Item]].img  : null}                    
                                 onMouseEnter={showTooltip}
                                 onMouseLeave={hideTooltip}
                             />

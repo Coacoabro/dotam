@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function Matchup({hero}) {
     return(
         <div>
-            {hero}
+            Hero
         </div>
     )
 }
