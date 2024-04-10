@@ -176,7 +176,7 @@ function TierList({ heroes, rates, matchups }) {
           </div>
         </div>
         <div className="rounded-md p-2">
-          <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.34e</button>
+          <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.35d</button>
         </div>
       </div>
 

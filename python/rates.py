@@ -94,7 +94,7 @@ for currentRole in Roles:
             if item['month'] == highest_month:
 
                 hero_id = item['heroId']
-                patch = '7.34c'
+                patch = '7.35d'
                 matches = item['matchCount']
                 wincount = item['winCount']
                 winrate = wincount / matches
@@ -121,15 +121,6 @@ for currentRole in Roles:
                 """, (hero_id, patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
 
         conn.commit() # Commit the transaction
-
-
-
-
-
-
-
-
-
 
 
 # cur.execute("SELECT * FROM datatest;")
