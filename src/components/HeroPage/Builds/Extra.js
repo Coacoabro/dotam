@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import item_ids from '../../../../dotaconstants/build/item_ids.json'
-import itemConstants from '../../../../dotaconstants/build/items.json'
+import Item from '../../Item'
 
 function Extra({items, boots}) {
 
@@ -41,24 +40,27 @@ function Extra({items, boots}) {
     return(
         <div>
             <div className='underline text-xl text-white'>BOOTS</div>
-            <div className='text-white'>EARLY</div>
-            <div className="grid grid-cols-2 gap-2 rounded-md p-2 bg-gray-600 text-white">
-                {earlyFinal.map((item, index) => (
-                    <div className="flex space-x-1">
-                        <img className="w-8"src={item.Item ? "https://cdn.cloudflare.steamstatic.com" + itemConstants[item_ids[item.Item]].img  : null}/>
-                        <div>{item ? item.Percentage : null}%</div>
-                    </div>
-                ))}
+            <div className="flex space-x-2">
+                <div className="rounded-md p-2 bg-gray-600 text-white space-y-3">
+                    <div className='text-white'>EARLY</div>
+                    {earlyFinal.map((item, index) => (
+                        <div className="flex">
+                            <Item id={item.Item} width="12"/>
+                            <div>{item? item.Percentage + '%' : null}</div>
+                        </div>
+                    ))}
+                </div>
+                <div className="rounded-md p-2 bg-gray-600 text-white space-y-3">
+                    <div className='text-white'>LATE</div>
+                    {lateFinal.map((item, index) => (
+                        <div className="flex">
+                            <Item id={item.Item} width="12"/>
+                            <div>{item ? item.Percentage : null}%</div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className='text-white'>LATE</div>
-            <div className="grid grid-cols-2 gap-2 rounded-md p-2 bg-gray-600 text-white">
-                {lateFinal.map((item, index) => (
-                    <div className="flex space-x-1">
-                        <img className="w-8"src={item.Item ? "https://cdn.cloudflare.steamstatic.com" + itemConstants[item_ids[item.Item]].img  : null}/>
-                        <div>{item ? item.Percentage : null}%</div>
-                    </div>
-                ))}
-            </div>
+            
         </div>
     )
 }

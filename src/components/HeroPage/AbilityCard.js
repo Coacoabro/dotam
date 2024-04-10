@@ -4,8 +4,9 @@ import heroAbilities from '../../../dotaconstants/build/hero_abilities.json'
 import Abilities from '../../../dotaconstants/build/abilities.json'
 
 function AbilityCard({ ability }) {
+
     const abilityInfo = Abilities[ability];
-  
+    
     const showTooltip = (event) => {
       const tooltip = event.target.nextElementSibling;
       tooltip.style.visibility = 'visible';

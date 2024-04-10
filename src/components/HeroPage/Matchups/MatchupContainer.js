@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import Matchup from './Matchup'
+import Link from 'next/link'
 
 import heroName from '../../../../dotaconstants/build/heroes.json'
 
@@ -17,7 +16,13 @@ function MatchupContainer( {vs, heroes} ) {
                 {heroes.map((hero) => {
                     return (
                         <div className="flex justify-between bg-gray-700 px-3 py-1 rounded-md items-center space-x-2">
-                            <img className="w-16" src={`https://cdn.cloudflare.steamstatic.com${heroName[hero.Hero].img}`} />
+                            <Link href={`/hero/${hero.Hero}`}>
+                                <img   
+                                    className="w-16" 
+                                    src={`https://cdn.cloudflare.steamstatic.com${heroName[hero.Hero].img}`}
+                                    title={heroName[hero.Hero].localized_name} 
+                                />
+                            </Link>
                             <div>{hero.WR}%</div>
                             <div>{hero.Matches}</div>
                         </div>

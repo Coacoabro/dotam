@@ -24,17 +24,19 @@ export async function getServerSideProps(context) {
   const client = await pool.connect();
   const res1 = await client.query('SELECT * FROM heroes');
   const res2 = await client.query('SELECT * FROM rates');
+  const res3 = await client.query('SELECT hero_id, rank, herovs FROM matchups');
   client.release();
 
   return {
     props: {
       heroes: res1.rows,
-      rates: res2.rows
+      rates: res2.rows,
+      matchups: res3.rows
     }
   };
 }
 
-function TierList({ heroes, rates }) {
+function TierList({ heroes, rates, matchups }) {
 
   const router = useRouter();
 
@@ -82,6 +84,7 @@ function TierList({ heroes, rates }) {
   };
 
   const [tierList, setTierList] = useState([{}]);
+  const [counters, setCounters] = useState([])
 
   const [showRoleInfo, setShowRoleInfo] = useState(false);
   const handleRoleInfoClick = () => {
@@ -95,12 +98,11 @@ function TierList({ heroes, rates }) {
   useEffect(() => {
     let heroesByRR = [];
 
+    setCounters(matchups.filter(r => r.rank === currentRank))  
+
     if (currentRole) {
       heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.pickrate >= 0.0005)
-    }
-    else {
-      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole)
-    }
+    } else {heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole)}
 
     if (sortBy === "f2l") {
       setTierList(heroesByRR.sort((a, b) => b[currentSort] - a[currentSort]))
@@ -110,7 +112,7 @@ function TierList({ heroes, rates }) {
     }
     
 
-  }, [rates, currentRank, currentRole, currentSort, sortBy]);
+  }, [rates, matchups, currentRank, currentRole, currentSort, sortBy]);
 
 
   return (
@@ -185,7 +187,7 @@ function TierList({ heroes, rates }) {
             <button className="px-10" onClick={() => handleSortClick("winrate")}>WR</button>
             <button className="px-12" onClick={() => handleSortClick("pickrate")}>PR</button>
             <button className="px-6" onClick={() => handleSortClick("matches")}>MATCHES</button>
-            <button className="px-10" onClick={() => handleSortClick("tier_num")}>MATCHUPS</button>
+            <button className="px-10" onClick={() => handleSortClick("tier_num")}>COUNTERS</button>
           </h1>
           <div className="space-y-2">
           { 
@@ -197,6 +199,7 @@ function TierList({ heroes, rates }) {
                   WR={tierItem.winrate}
                   PR={tierItem.pickrate}
                   matches={tierItem.matches}
+                  counters={counters.find(obj => obj.hero_id === tierItem.hero_id)}
                 />
               </div>
             ))

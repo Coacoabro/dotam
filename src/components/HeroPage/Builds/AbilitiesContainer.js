@@ -5,6 +5,8 @@ import abilityDesc from '../../../../dotaconstants/build/abilities.json'
 import abilityIds from '../../../../dotaconstants/build/ability_ids.json'
 import aghsDesc from '../../../../dotaconstants/build/aghs_desc.json'
 
+import AbilityCard from '../AbilityCard'
+
 
 const AbilitiesContainer = ({hero, abilities}) => {
 
@@ -77,7 +79,7 @@ const AbilitiesContainer = ({hero, abilities}) => {
           <div className="grid grid-rows-5 gap-2">
             {abilitiesConverted ? abilitiesConverted.map((ability) => (
               <div className="w-8 h-8 rounded-sm flex items-center justify-center">
-                <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} />
+                <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} title={abilityDesc[ability].dname} />
               </div>
             )) : <div className="w-8 h-8 rounded-sm flex items-center justify-center"> </div>}
             <div className="w-8 h-8 rounded-sm flex items-center justify-center">

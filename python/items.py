@@ -137,7 +137,7 @@ for hero_id in hero_ids:
             for i, array in enumerate(tierArray):
                 neutralFinal[f'Tier {i+1}'] = []
                 for item in array:
-                    if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 20:
+                    if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 0:
                         neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount']})
 
             cur.execute("INSERT INTO items (hero_id, rank, role, starting, boots, neutrals) VALUES (%s, %s, %s, %s, %s, %s);", (hero_id, rank, role, startingFinal, json.dumps(bootsFinal), json.dumps(neutralFinal)))

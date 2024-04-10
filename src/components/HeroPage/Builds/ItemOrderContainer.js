@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import item_ids from '../../../../dotaconstants/build/item_ids.json'
-import itemConstants from '../../../../dotaconstants/build/items.json'
+import Item from '../../Item'
 
 function ItemOrder({order, items}) {
 
@@ -13,7 +12,7 @@ function ItemOrder({order, items}) {
             <div>{order}</div>
             <div className="grid grid-cols-3 gap-2 text-center">
                 {build.map((item) => (
-                    <img className="w-12"src={item ? "https://cdn.cloudflare.steamstatic.com" + itemConstants[item_ids[item]].img  : null}/>
+                    <Item id={item} width="12" />
                 ))}
             </div>
             <div>{percentage}</div>
