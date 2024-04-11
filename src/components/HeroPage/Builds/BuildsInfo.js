@@ -19,7 +19,7 @@ function BuildsInfo({heroID, builds, abilities, talents, items}) {
             </div>
 
             <div className="p-2 rounded-md text-center">
-                <ItemsContainer build={builds} boots={items.boots} starting={items.starting} neutrals={items.neutrals}/>
+                <ItemsContainer build={builds} boots={items.boots} starting={items.starting} main={items.main} neutrals={items.neutrals}/>
             </div>
         </div>
     )

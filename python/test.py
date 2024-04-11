@@ -32,64 +32,66 @@ Early = [34, 36, 73, 75, 77, 178, 244, 569, 596]
 
 hero_id = 17
 
-# for hero_id in hero_ids:
-query = f"""
-    query{{
-        heroStats {{
-            itemFullPurchase(
-                {'heroId: ' + str(hero_id)}
-            ) {{
-                itemId
-                matchCount
-                time
-                winCount
+for hero_id in hero_ids:
+    query = f"""
+        query{{
+            heroStats {{
+                itemFullPurchase(
+                    {'heroId: ' + str(hero_id)}
+                ) {{
+                    itemId
+                    matchCount
+                    time
+                    winCount
+                }}
             }}
         }}
-    }}
-"""
+    """
 
-response = requests.post(url, headers=headers, json={'query': query})
-data = json.loads(response.text)
+    response = requests.post(url, headers=headers, json={'query': query})
+    data = json.loads(response.text)
 
-allItems = data['data']['heroStats']['itemFullPurchase']
+    allItems = data['data']['heroStats']['itemFullPurchase']
 
-organizedItems = {}
+    organizedItems = {}
 
-for item in allItems:
-    itemId = item['itemId']
-    if itemId not in Consumable:
-        if itemId not in organizedItems:
-            organizedItems[itemId] = [{'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']}]
+    for item in allItems:
+        itemId = item['itemId']
+        if itemId not in Consumable:
+            if itemId not in organizedItems:
+                organizedItems[itemId] = [{'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']}]
+            else:
+                organizedItems[itemId].append({'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']})
+
+    finalItems = []
+        
+    for itemId, itemsList in organizedItems.items():
+        if itemId in Early:
+            isEarly = True
         else:
-            organizedItems[itemId].append({'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']})
+            isEarly = False
+        totalMatches = 0
+        totalWins = 0
+        avgTime = 0
+        count = 0
+        for obj in itemsList:
+            totalMatches += obj['Matches']
+            totalWins += obj['Wins']
+            avgTime += obj['Time']
+            count += 1
+        avgTime /= count
+        avgTime = round(avgTime, 2)
+        finalItems.append({'Item' : itemId, 'Matches': totalMatches, 'Time': avgTime, 'Wins': totalWins, 'WR': round((totalWins/totalMatches)*100, 2), 'Early': isEarly})
 
-finalItems = []
-    
-for itemId, itemsList in organizedItems.items():
-    if itemId in Early:
-        isEarly = True
-    else:
-        isEarly = False
-    totalMatches = 0
-    totalWins = 0
-    avgTime = 0
-    count = 0
-    for obj in itemsList:
-        totalMatches += obj['Matches']
-        totalWins += obj['Wins']
-        avgTime += obj['Time']
-        count += 1
-    avgTime /= count
-    avgTime = round(avgTime, 2)
-    finalItems.append({'Item' : itemId, 'Matches': totalMatches, 'Time': avgTime, 'Wins': totalWins, 'WR': round((totalWins/totalMatches)*100, 2), 'Early': isEarly})
+    finalItems_sorted = sorted(finalItems, key=lambda item: item['Matches'], reverse=True)
+    earlyItems = [itemData for itemData in finalItems_sorted if itemData['Early'] == True]
+    coreItems = [itemData for itemData in finalItems_sorted if itemData['Time'] <= 30 and itemData['Early'] == False]
+    lateItems = [itemData for itemData in finalItems_sorted if itemData['Time'] > 30 and itemData['Early'] == False]
 
-finalItems_sorted = sorted(finalItems, key=lambda item: item['Matches'], reverse=True)
-filteredItemsList = [itemData for itemData in finalItems_sorted if itemData['Early'] == False]
-# itemData['Time'] >= 30 and 
-
-print(hero_id)
-for item in filteredItemsList:
-    print(item)
+    print(hero_id)
+    print('Early: ', earlyItems)
+    print('Core: ', coreItems)
+    print('Late: ', lateItems)
     
 
 
