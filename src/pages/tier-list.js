@@ -180,35 +180,45 @@ function TierList({ heroes, rates, matchups }) {
         </div>
       </div>
 
-      <div className="p-2 space-y-3 rounded-md bg-gray-700">
-          <h1 className="flex text-white text-2xl underline">
-            <button className="px-5" onClick={() => handleSortClick("tier_num")}>TIER</button>
-            <button className="px-40" onClick={() => handleSortClick("hero_id")}>HERO</button>
-            <button className="px-10" onClick={() => handleSortClick("winrate")}>WR</button>
-            <button className="px-12" onClick={() => handleSortClick("pickrate")}>PR</button>
-            <button className="px-6" onClick={() => handleSortClick("matches")}>MATCHES</button>
-            <button className="px-10" onClick={() => handleSortClick("tier_num")}>COUNTERS</button>
-          </h1>
-          <div className="space-y-2">
-          { 
-            tierList.map((tierItem, index) => (
-              <div className={index % 2 === 0 ? 'bg-gray-800 rounded-md' : ''}>
+      <div className="overflow-x-auto rounded-md bg-gray-700">
+        <table className="table-auto w-full">
+          <thead>
+            <tr className="bg-gray-800 text-white text-xl text-center">
+              <th className="px-6 py-2">
+                <button onClick={() => handleSortClick("tier_num")}>TIER⇅</button>
+              </th>
+              <th className="px-30 py-2">
+                <button onClick={() => handleSortClick("hero_id")}>HERO⇅</button>
+              </th>
+              <th className="px-10 py-2">
+                <button onClick={() => handleSortClick("winrate")}>WR⇅</button>
+              </th>
+              <th className="px-12 py-2">
+                <button onClick={() => handleSortClick("pickrate")}>PR⇅</button>
+              </th>
+              <th className="px-6 py-2">
+                <button onClick={() => handleSortClick("matches")}>MATCHES⇅</button>
+              </th>
+              <th className="px-10 py-2">
+                <button onClick={() => handleSortClick("tier_num")}>COUNTERS⇅</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody className="text-white text-center">
+            {tierList.map((tierItem, index) => {
+              return (
                 <TierCard
-                  tier_str={tierItem.tier_str}
-                  hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
-                  WR={tierItem.winrate}
-                  PR={tierItem.pickrate}
-                  matches={tierItem.matches}
-                  counters={counters.find(obj => obj.hero_id === tierItem.hero_id)}
-                />
-              </div>
-            ))
-          }
-          </div>
-          
-          
-          
-          
+                    tier_str={tierItem.tier_str}
+                    hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
+                    WR={tierItem.winrate}
+                    PR={tierItem.pickrate}
+                    matches={tierItem.matches}
+                    counters={counters.find(obj => obj.hero_id === tierItem.hero_id)}
+                    index={index}
+                  />
+            )})}
+          </tbody>
+        </table>
       </div>
       
     </div>

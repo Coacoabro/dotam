@@ -4,34 +4,24 @@ import Item from '../../Item'
 
 function Extra({items, boots}) {
 
-    const [earlyBoots, setEarlyBoots] = useState([])
-    const [lateBoots, setLateBoots] = useState([])
-
     const earlyFinal = []
     const lateFinal = []
 
-    useEffect(() => {
-        if(boots){
-            setEarlyBoots(boots.Early)
-            setLateBoots(boots.Late)
-        }
-    }, [boots])
-
     let totalMatches = 0
 
-    earlyBoots.forEach((obj) => {
+    boots.Early.forEach((obj) => {
         totalMatches += obj.Matches
     })
-    earlyBoots.forEach((obj) => {
+    boots.Early.forEach((obj) => {
         if (obj.Matches/totalMatches > 0.01) {
             earlyFinal.push({'Item': obj.Item, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
         }
     })
     totalMatches = 0
-    lateBoots.forEach((obj) => {
+    boots.Late.forEach((obj) => {
         totalMatches += obj.Matches
     })
-    lateBoots.forEach((obj) => {
+    boots.Late.forEach((obj) => {
         if (obj.Matches/totalMatches > 0.01) {
             lateFinal.push({'Item': obj.Item, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
         }
