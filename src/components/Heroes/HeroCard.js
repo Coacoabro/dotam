@@ -31,7 +31,7 @@ function HeroCard({ hero }) {
           className="w-24 h-32 object-cover transition-transform duration-300 p-1"
         />
         {hovered && (
-          <video className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md" autoPlay loop>
+          <video className="absolute inset-0 w-full h-full object-cover rounded-md shadow-md" autoPlay loop disablePictureInPicture>
             <source src={heroVideo} type="video/webm" />
           </video>
         )}
