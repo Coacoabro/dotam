@@ -14,7 +14,7 @@ function RatesContainer({ rates, rank, role }) {
 
         if (rate) {
             setHeroWinRate((rate.winrate * 100).toFixed(2));
-            setHeroPickRate((rate.pickrate * 1000).toFixed(2));
+            setHeroPickRate((rate.pickrate * 100).toFixed(2));
             setHeroMatches(rate.matches.toLocaleString());
             setHeroTier(rate.tier_str);
         }
