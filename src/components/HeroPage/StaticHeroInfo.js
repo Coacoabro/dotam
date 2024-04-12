@@ -39,7 +39,7 @@ function StaticHeroInfo({heroData}) {
 
     return(
         <div>
-            <div className="text-4xl text-white p-2">
+            <div className="text-xl md:text-4xl text-white p-2">
                 {heroData.localized_name}
             </div>
             

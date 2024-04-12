@@ -52,7 +52,7 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
     if(loaded) {
         return(
             <div className="space-y-8">
-                <div className="flex justify-evenly px-2 space-x-8">
+                <div className="md:flex md:justify-evenly px-2 space-x-8 space-y-2">
                     <div className="space-y-2">
                         <StartingItems items={starting} />
                         <Extra boots={boots}/>

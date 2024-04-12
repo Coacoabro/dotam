@@ -6,7 +6,7 @@ function ItemOrder({early, core, late}) {
 
     
     return(
-        <div className="rounded-md p-2 bg-gray-700 text-white text-lg space-y-3 w-64">
+        <div className="rounded-md p-2 bg-gray-700 text-white text-lg space-y-3 md:w-64">
             <div>
                 <h1>EARLY</h1>
                 <div className="flex flex-wrap justify-evenly space-x-2 space-y-1">

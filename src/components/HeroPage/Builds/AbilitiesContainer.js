@@ -78,18 +78,18 @@ const AbilitiesContainer = ({hero, abilities}) => {
         <div className="grid grid-cols-17 gap-2 text-center p-2">
           <div className="grid grid-rows-5 gap-2">
             {abilitiesConverted ? abilitiesConverted.map((ability) => (
-              <div className="w-8 h-8 rounded-sm flex items-center justify-center">
+              <div className="w-4 h-4 md:w-8 md:h-8 rounded-sm flex items-center justify-center">
                 <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} title={abilityDesc[ability].dname} />
               </div>
-            )) : <div className="w-8 h-8 rounded-sm flex items-center justify-center"> </div>}
-            <div className="w-8 h-8 rounded-sm flex items-center justify-center">
+            )) : <div className="w-4 h-4 md:w-8 md:h-8 rounded-sm flex items-center justify-center"> </div>}
+            <div className="w-4 h-4 md:w-8 md:h-8 rounded-sm flex items-center justify-center">
               <img src='https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg'/>
             </div>
           </div>
           {finishedAbilities.map((row) => (
             <div className="grid grid-rows-5 gap-2">
               {row.map((ability) => (
-                <div className={`w-8 h-8 rounded-sm flex items-center bold justify-center ${ability ? 'bg-gray-200' : 'bg-gray-400'}`}>
+                <div className={`w-4 h-4 md:w-8 md:h-8 rounded-sm flex md:text-md text-sm items-center bold justify-center ${ability ? 'bg-gray-200' : 'bg-gray-400'}`}>
                   {ability || ' '}
                 </div>
               ))}
@@ -97,7 +97,7 @@ const AbilitiesContainer = ({hero, abilities}) => {
           ))}
           <div> </div>
           {levels.map(level => (
-                <div className="w-8 h-8 text-down text-white">{level}</div>
+                <div className="w-4 h-4 md:w-8 md:h-8 text-down text-white text-xs md:text-md">{level}</div>
               ))}
         </div>
       </div>      

@@ -36,7 +36,7 @@ function TalentCard({hero}) {
             <img
                 src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg"
                 alt="Talent Tree"
-                className="p-1 h-20 w-20"
+                className="p-1 h-10 w-10 md:h-20 md:w-20"
             />
             {showTooltip && (
                 <div 

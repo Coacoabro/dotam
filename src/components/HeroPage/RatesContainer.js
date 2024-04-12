@@ -25,7 +25,7 @@ function RatesContainer({ rates, rank, role }) {
 
     
     return (
-        <div className="flex px-20 py-5 justify-between">
+        <div className="flex md:px-20 py-5 justify-between">
 
             <div className="w-24 h-24 rounded-md bg-gray-700">
                 <div className="text-center text-2xl text-white py-2">{heroTier}</div>

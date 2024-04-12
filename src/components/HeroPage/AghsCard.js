@@ -39,13 +39,13 @@ function AghsCard({hero}) {
       };
     
       return (
-        <div className="flex relative p-1 h-20 w-20">
+        <div className="flex relative p-1 h-10 md:h-20 md:w-20">
             <div>
                 <div className="mr-4 p-1">
                     <img
                     src="https://www.opendota.com/assets/images/dota2/scepter_0.png"
                     alt="Scepter"
-                    className="w-10 h-10"
+                    className="w-5 h-5 md:w-10 md:h-10"
                     onMouseEnter={() => handleHover('Scepter')}
                     onMouseLeave={() => handleHover('')}
                     />
@@ -54,7 +54,7 @@ function AghsCard({hero}) {
                     <img
                     src="https://www.opendota.com/assets/images/dota2/shard_0.png"
                     alt="Shard"
-                    className="w-12 h-7"
+                    className="w-7 h-4 md:w-12 md:h-7"
                     onMouseEnter={() => handleHover('Shard')}
                     onMouseLeave={() => handleHover('')}
                     />

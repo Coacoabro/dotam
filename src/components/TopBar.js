@@ -40,8 +40,8 @@ function TopBar() {
     };
 
     return (
-        <nav className="bg-gray-700 text-white p-2 flex items-center justify-between">
-            <div className="p-2 space-x-2 flex items-center">
+        <nav className="bg-gray-700 text-white p-2 flex items-center justify-between space-x-10">
+            <div className="p-2 flex items-center">
                 <Link href="/">
                     <Image src={Logo} alt="Logo" className="w-12 h-12 rounded-md" />
                 </Link>
