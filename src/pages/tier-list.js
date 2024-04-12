@@ -117,12 +117,11 @@ function TierList({ heroes, rates, matchups }) {
 
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
-      <div className="text-xl text-white text-center py-2">Dota 2 Tier List</div>
-      <div className="text-md text-white text-center py-2">This tier list is based on current statistical data from almost all games played within the current patch</div>
+      <div className="text-3xl text-white uppercase text-center py-2">Dota 2 Tier List</div>
       <div className="flex justify-evenly text-white">
         <div class="flex">
           <button 
-            className='text-white bold text-xl space-x-2'
+            className='text-black bold text-xl space-x-2'
             onMouseEnter={() => setShowRoleInfo(true)}
             onMouseLeave={() => setShowRoleInfo(false)}
             onClick={handleRoleInfoClick}
@@ -130,7 +129,7 @@ function TierList({ heroes, rates, matchups }) {
             ⓘ
           </button>
           {showRoleInfo && (
-            <div className="absolute mt-10 bg-gray-700 text-white p-2 rounded-md text-left">
+            <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
               Hero Role Info
             </div>
           )}
@@ -138,19 +137,18 @@ function TierList({ heroes, rates, matchups }) {
               {Role.map((role, index) => (
                 <button 
                   key={index} 
-                  className={`w-10 h-10 border rounded-md hover:bg-blue-200 ${role.role === currentRole ? 'bg-blue-300' : ''} `}
+                  className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
                   onClick={() => handleRoleClick(role.role)}
                   title={role.name}
                 >
                   <img src={role.icon} alt={role.name} />
-                  {role.name}
                 </button>
               ))}
           </div>
         </div>
         <div class="flex items-center space-x-3">
           <button 
-            className='text-white bold text-xl space-x-2'
+            className='text-black bold text-xl space-x-2'
             onMouseEnter={() => setShowRankInfo(true)}
             onMouseLeave={() => setShowRankInfo(false)}
             onClick={handleRankInfoClick}
@@ -158,7 +156,7 @@ function TierList({ heroes, rates, matchups }) {
             ⓘ
           </button>
           {showRankInfo && (
-            <div className="absolute mt-10 bg-gray-700 text-white p-2 rounded-md text-left">
+            <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
               Hero Rank Info
             </div>
           )}
@@ -181,9 +179,6 @@ function TierList({ heroes, rates, matchups }) {
             </select>
           </form>
 
-        </div>
-        <div className="rounded-md p-2">
-          <button className="w-10 h-10 rounded-md border text-white text-xs p-1">7.35d</button>
         </div>
       </div>
 

@@ -28,7 +28,7 @@ function HeroList() {
   
   return (
     <div className="px-4 max-w-6xl mx-auto space-y-4" >
-      <div className="text-3xl text-center py-2 text-white underline">DOTA 2 HEROES</div>
+      <div className="text-3xl text-center py-2 text-white">DOTA 2 HEROES</div>
       
       <div className="grid grid-cols-2 gap-5">
         <div>

@@ -3,7 +3,7 @@ import HeroCard from './HeroCard'
 
 function HeroTable({heroes, attr, img}) {
   return (
-    <div className="p-4">
+    <div className="p-4 bg-gray-800 rounded-md">
 
       <div className="flex justify-left items-center h-full text-3xl text-white">
 
@@ -12,7 +12,7 @@ function HeroTable({heroes, attr, img}) {
 
       </div>
 
-      <div className="flex flex-wrap">
+      <div className="grid grid-cols-2 justify-between lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
 
         {heroes.map(hero => (
           <div>
