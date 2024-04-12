@@ -121,7 +121,7 @@ function TierList({ heroes, rates, matchups }) {
   return (
     <div className="max-w-6xl mx-auto px-4 space-y-4">
       <div className="text-3xl text-white uppercase text-center py-2">Dota 2 Tier List</div>
-      <div className="flex justify-evenly text-white">
+      <div className="md:flex md:justify-evenly text-white">
         <div class="flex">
           <button 
             className='text-black text-xl space-x-2'
