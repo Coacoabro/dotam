@@ -156,9 +156,8 @@ for currentRank in Ranks:
 
                     tier_str = tierCalc(tier_num)
 
-                    print(hero_id, round((winrate*100), 2), round((pickrate*100), 2), tier_str)
                 else:
-                    tier_num = ''
+                    tier_num = 0
                     tier_str = '?'
 
                 cur.execute("""

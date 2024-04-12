@@ -101,8 +101,8 @@ function TierList({ heroes, rates, matchups }) {
     setCounters(matchups.filter(r => r.rank === currentRank))  
 
     if (currentRole) {
-      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.pickrate >= 0.0005)
-    } else {heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole)}
+      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.pickrate >= 0.005)
+    } else {heroesByRR = rates.filter(r => r.rank === currentRank && r.pickrate >= 0.005)}
 
     if (sortBy === "f2l") {
       setTierList(heroesByRR.sort((a, b) => b[currentSort] - a[currentSort]))

@@ -33,7 +33,7 @@ const TierCard = ({ tier_str, hero, WR, PR, matches, counters, index }) => {
         </Link>
       </td>
       <td className="px-8 py-3">{(WR * 100).toFixed(2)}%</td>
-      <td className="px-8 py-3">{(PR * 1000).toFixed(2)}%</td>
+      <td className="px-8 py-3">{(PR * 100).toFixed(2)}%</td>
       <td className="px-6 py-3">{matches.toLocaleString()}</td>
       <td className="px-4 py-3">
         <div className="flex items-center justify-center space-x-2">
