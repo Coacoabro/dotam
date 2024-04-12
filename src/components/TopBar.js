@@ -53,7 +53,7 @@ function TopBar() {
                         </svg>
                     </button>
                     {/* Mobile menu dropdown */}
-                    <div className={`absolute w-36 top-full left-0 mobile-menu ${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`} ref={mobileMenuRef}>
+                    <div className={`absolute w-36 top-full left-0 mobile-menu z-10 ${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`} ref={mobileMenuRef}>
                         <div className="rounded-lg bg-gray-500 ">
                             <div className="py-1">
                                 <Link href="/heroes" onClick={handleLinkClick} className="block px-4 py-2 text-sm text-white hover:bg-gray-700">Heroes</Link>

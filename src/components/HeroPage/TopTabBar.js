@@ -16,7 +16,7 @@ function TopTabBar({activeTab, setActiveTab}) {
           >
             Builds
           </div>
-          <div
+          {/*<div
             className={`cursor-pointer px-4 py-2 rounded-t-md ${
               activeTab === 1 ? 'bg-gray-500 text-white' : 'bg-gray-400 text-gray-700'
             }`}
@@ -31,7 +31,7 @@ function TopTabBar({activeTab, setActiveTab}) {
             onClick={() => handleTabClick(2)}
           >
             Abilities
-          </div>
+          </div>*/}
           <div
             className={`cursor-pointer px-4 py-2 rounded-t-md ${
               activeTab === 3 ? 'bg-gray-500 text-white' : 'bg-gray-400 text-gray-700'
