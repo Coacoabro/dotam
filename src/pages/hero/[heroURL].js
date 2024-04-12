@@ -133,7 +133,7 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
                 {Role.map((role, index) => (
                   <button 
                     key={index} 
-                    className={`w-10 h-10 rounded-md hover:bg-gray-300 ${role.role === currentRole ? 'bg-gray-500' : 'bg-gray-800'} `}
+                    className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
                     onClick={() => handleRoleClick(role.role)}
                     title={role.name}
                   >

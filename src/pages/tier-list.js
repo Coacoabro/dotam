@@ -74,13 +74,16 @@ function TierList({ heroes, rates, matchups }) {
 
   const [currentSort, setCurrentSort] = useState("tier_num");
   const [sortBy, setSortBy] = useState("f2l");
-  const handleSortClick = (sort) => {
-    setCurrentSort(sort);
-    if (sortBy === "f2l") {
-      setSortBy("l2f")
-    } else if (sortBy === "l2f") {
-      setSortBy("f2l")
+  const handleSortClick = (sort, currentSort) => {
+    if (sort == currentSort) {
+      if (sortBy === "f2l") {
+        setSortBy("l2f")
+      } else if (sortBy === "l2f") {
+        setSortBy("f2l")
+      }
     }
+    else {setCurrentSort(sort)}
+    
   };
 
   const [tierList, setTierList] = useState([{}]);
@@ -186,25 +189,25 @@ function TierList({ heroes, rates, matchups }) {
           <thead>
             <tr className="bg-gray-800 text-white text-xl text-center">
               <th className="px-6 py-2">
-                <button onClick={() => handleSortClick("tier_num")}>TIER⇅</button>
+                <button onClick={() => handleSortClick("tier_num", currentSort)}>TIER⇅</button>
               </th>
               <th className=" py-2">
-                <button onClick={() => handleSortClick("hero_id")}>HERO⇅</button>
+                <button onClick={() => handleSortClick("hero_id", currentSort)}>HERO⇅</button>
               </th>
               <th className="px-1 py-2">
                 ROLE
               </th>
               <th className="px-8 py-2">
-                <button onClick={() => handleSortClick("winrate")}>WR⇅</button>
+                <button onClick={() => handleSortClick("winrate", currentSort)}>WR⇅</button>
               </th>
               <th className="px-10 py-2">
-                <button onClick={() => handleSortClick("pickrate")}>PR⇅</button>
+                <button onClick={() => handleSortClick("pickrate", currentSort)}>PR⇅</button>
               </th>
               <th className="px-6 py-2">
-                <button onClick={() => handleSortClick("matches")}>MATCHES⇅</button>
+                <button onClick={() => handleSortClick("matches", currentSort)}>MATCHES⇅</button>
               </th>
               <th className="px-10 py-2">
-                <button onClick={() => handleSortClick("tier_num")}>COUNTERS⇅</button>
+                <button onClick={() => handleSortClick("tier_num", currentSort)}>COUNTERS⇅</button>
               </th>
             </tr>
           </thead>
