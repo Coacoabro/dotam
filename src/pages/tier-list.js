@@ -43,11 +43,11 @@ function TierList({ heroes, rates, matchups }) {
 
   const Role = [
     {role: "", name: "All", icon: "../icons8-product-90.png"},
-    {role: "POSITION_1", name: "Safe", icon: "../Safe-Lane.png"},
-    {role: "POSITION_2", name: "Mid", icon: "../Mid-Lane.png"},
-    {role: "POSITION_3", name: "Off", icon: "../Off-Lane.png"},
-    {role: "POSITION_4", name: "Soft", icon: "../Soft-Support.png"},
-    {role: "POSITION_5", name: "Hard", icon: "../Hard-Support.png"},
+    {role: "POSITION_1", name: "Safe Lane", icon: "../Safe-Lane.png"},
+    {role: "POSITION_2", name: "Mid Lane", icon: "../Mid-Lane.png"},
+    {role: "POSITION_3", name: "Off Lane", icon: "../Off-Lane.png"},
+    {role: "POSITION_4", name: "Soft Support", icon: "../Soft-Support.png"},
+    {role: "POSITION_5", name: "Hard Support", icon: "../Hard-Support.png"},
   ]
 
   const Rank = [
@@ -121,7 +121,7 @@ function TierList({ heroes, rates, matchups }) {
       <div className="flex justify-evenly text-white">
         <div class="flex">
           <button 
-            className='text-black bold text-xl space-x-2'
+            className='text-black text-xl space-x-2'
             onMouseEnter={() => setShowRoleInfo(true)}
             onMouseLeave={() => setShowRoleInfo(false)}
             onClick={handleRoleInfoClick}
@@ -148,7 +148,7 @@ function TierList({ heroes, rates, matchups }) {
         </div>
         <div class="flex items-center space-x-3">
           <button 
-            className='text-black bold text-xl space-x-2'
+            className='text-black text-xl space-x-2'
             onMouseEnter={() => setShowRankInfo(true)}
             onMouseLeave={() => setShowRankInfo(false)}
             onClick={handleRankInfoClick}
@@ -163,8 +163,7 @@ function TierList({ heroes, rates, matchups }) {
                     
           <form class="max-w-sm mx-auto w-36">
             <select 
-              id="countries" 
-              class="bg-gray-800 text-white text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              class="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
               value={currentRank}  
               onChange={(e) => handleRankClick(e.target.value)}
             >
@@ -189,13 +188,16 @@ function TierList({ heroes, rates, matchups }) {
               <th className="px-6 py-2">
                 <button onClick={() => handleSortClick("tier_num")}>TIER⇅</button>
               </th>
-              <th className="px-30 py-2">
+              <th className=" py-2">
                 <button onClick={() => handleSortClick("hero_id")}>HERO⇅</button>
               </th>
-              <th className="px-10 py-2">
+              <th className="px-1 py-2">
+                ROLE
+              </th>
+              <th className="px-8 py-2">
                 <button onClick={() => handleSortClick("winrate")}>WR⇅</button>
               </th>
-              <th className="px-12 py-2">
+              <th className="px-10 py-2">
                 <button onClick={() => handleSortClick("pickrate")}>PR⇅</button>
               </th>
               <th className="px-6 py-2">
@@ -212,6 +214,7 @@ function TierList({ heroes, rates, matchups }) {
                 <TierCard
                     tier_str={tierItem.tier_str}
                     hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
+                    role={tierItem.role}
                     WR={tierItem.winrate}
                     PR={tierItem.pickrate}
                     matches={tierItem.matches}

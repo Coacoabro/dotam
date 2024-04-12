@@ -6,7 +6,7 @@ import heroName from '../../../../dotaconstants/build/heroes.json'
 function MatchupContainer( {vs, heroes} ) {  
     return(
         <div className="bg-gray-600 p-3 rounded-md text-center">
-            <div className="text-xl underline">{vs}</div>
+            <div className="text-xl">{vs}</div>
             <div className="flex justify-evenly">
                 <h1>Hero</h1>
                 <h1>WR</h1>

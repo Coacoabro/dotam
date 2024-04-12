@@ -38,7 +38,7 @@ function Item({id, width, side}) {
                 }}
             >
                 <div>
-                    <div className="text-sm underline">
+                    <div className="text-lg">
                         {itemName}
                     </div>
                     

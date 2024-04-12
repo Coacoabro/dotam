@@ -28,24 +28,24 @@ function Extra({items, boots}) {
     })
 
     return(
-        <div>
-            <div className='underline text-xl text-white'>BOOTS</div>
-            <div className="flex space-x-2">
-                <div className="rounded-md p-2 bg-gray-600 text-white space-y-3">
+        <div className='text-white bg-gray-700 rounded-md'>
+            <div className='text-xl'>BOOTS</div>
+            <div className="flex space-x-2 justify-evenly">
+                <div className="rounded-md p-2 text-white space-y-3">
                     <div className='text-white'>EARLY</div>
                     {earlyFinal.map((item, index) => (
-                        <div className="flex">
+                        <div className="text-xs">
                             <Item id={item.Item} width="12"/>
-                            <div>{item? item.Percentage + '%' : null}</div>
+                            {item.Percentage}%
                         </div>
                     ))}
                 </div>
-                <div className="rounded-md p-2 bg-gray-600 text-white space-y-3">
+                <div className="rounded-md p-2 text-white space-y-3">
                     <div className='text-white'>LATE</div>
                     {lateFinal.map((item, index) => (
-                        <div className="flex">
+                        <div className="text-xs">
                             <Item id={item.Item} width="12"/>
-                            <div>{item ? item.Percentage : null}%</div>
+                            {item.Percentage}%
                         </div>
                     ))}
                 </div>

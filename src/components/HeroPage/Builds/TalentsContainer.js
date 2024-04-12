@@ -34,9 +34,9 @@ const TalentsContainer = ({hero, talents}) => {
   }
 
   return(
-    <div className="text-center text-white space-y-2">
-      <h1 className="text-xl underline">TALENTS</h1>
-      <div className="flex justify-between">
+    <div className="text-center text-white space-y-2 bg-gray-700 p-2 rounded-md">
+      <h1 className="text-xl">TALENTS</h1>
+      <div className="flex justify-between rounded-md px-2">
         <h1>LEVEL</h1>
         <h2>TALENT</h2>
         <h3>PICK RATE</h3>

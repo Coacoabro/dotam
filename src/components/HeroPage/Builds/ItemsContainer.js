@@ -58,20 +58,20 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                         <Extra boots={boots}/>
                     </div>
                     <div>
-                        <h1 className="text-center text-xl text-white underline">ITEM BUILD</h1>
                         <ItemOrder early={early} core={core} late={late} />
                     </div>
-                </div>
-                <div className="space-y-1">
-                    <h1 className="text-center text-xl text-white underline">NEUTRAL ITEMS</h1>
-                    <div className="flex justify-evenly text-center">
-                        <NeutralItems tier="1" neutrals={neutralArray["Tier 1"]} />
-                        <NeutralItems tier="2" neutrals={neutralArray["Tier 2"]} />
-                        <NeutralItems tier="3" neutrals={neutralArray["Tier 3"]} /> 
-                        <NeutralItems tier="4" neutrals={neutralArray["Tier 4"]} />
-                        <NeutralItems tier="5" neutrals={neutralArray["Tier 5"]} />
+                    <div className="space-y-1 bg-gray-700 rounded-md p-1">
+                        <h1 className="text-center text-xl text-white">NEUTRAL ITEMS</h1>
+                        <div className="flex justify-evenly text-center">
+                            <NeutralItems tier="1" neutrals={neutralArray["Tier 1"]} />
+                            <NeutralItems tier="2" neutrals={neutralArray["Tier 2"]} />
+                            <NeutralItems tier="3" neutrals={neutralArray["Tier 3"]} /> 
+                            <NeutralItems tier="4" neutrals={neutralArray["Tier 4"]} />
+                            <NeutralItems tier="5" neutrals={neutralArray["Tier 5"]} />
+                        </div>
                     </div>
                 </div>
+                
             </div>
         )
     }

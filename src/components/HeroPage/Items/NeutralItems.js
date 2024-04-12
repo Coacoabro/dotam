@@ -26,12 +26,11 @@ function NeutralItems({tier, neutrals}) {
     },[neutrals])
 
     return(
-        <div className='bg-gray-600 text-white p-3 rounded-md'>
-            <div className="underline">TIER {tier}</div>
-            <div className="grid grid-cols-1 gap-2">
-                <div>ITEM MATCHES</div>
+        <div className={`bg-gray-700 space-y-3 text-white p-2 rounded-md`}>
+            <h1 className="text-center text-xl">TIER {tier}</h1>
+            <div className="grid grid-cols-1 gap-2 place-items-center">
                 {neutralList.map((item) => (
-                    <div className="flex space-x-1 justify-between items-center">
+                    <div>
                         <Item id={item.Item} width="12" />
                         <div>{item ? item.Matches : null}</div>
                     </div>

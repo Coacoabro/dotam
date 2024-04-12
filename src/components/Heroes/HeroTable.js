@@ -12,7 +12,7 @@ function HeroTable({heroes, attr, img}) {
 
       </div>
 
-      <div className="grid grid-cols-2 justify-between lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
+      <div className="grid grid-cols-2 place-items-center lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
 
         {heroes.map(hero => (
           <div>

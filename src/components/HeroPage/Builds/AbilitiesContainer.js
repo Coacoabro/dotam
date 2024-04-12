@@ -71,8 +71,8 @@ const AbilitiesContainer = ({hero, abilities}) => {
   
 
   return (
-    <div className="text-center">
-      <h1 className="text-xl text-white underline">ABILITY ORDER</h1>
+    <div className="text-center bg-gray-700 rounded-md p-2">
+      <h1 className="text-xl text-white">ABILITY ORDER</h1>
       <div className="flex">
 
         <div className="grid grid-cols-17 gap-2 text-center p-2">
