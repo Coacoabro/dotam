@@ -1,13 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+import {useRouter} from 'next/router';
 
 import dota2Heroes from './dota2heroes.json'
 
 
 const SearchBar = () => {
+
+  const router = useRouter();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
+
+  const searchBarRef = useRef(null);
+
+  const handleBlur = (event) => {
+    if (!searchBarRef.current.contains(event.relatedTarget)) {
+      setShowSuggestions(false);
+    }
+  };
 
   useEffect(() => {
     // Handle keyboard navigation through suggestions
@@ -26,7 +39,7 @@ const SearchBar = () => {
         event.preventDefault();
         if (selectedSuggestionIndex !== -1) {
           const hero = suggestions[selectedSuggestionIndex];
-          setSearchTerm(hero.name);v
+          setSearchTerm(hero.name);
           setShowSuggestions(false);
           // Navigate to hero page using Next.js router
           window.location.href = `/hero/${hero.id}`;
@@ -72,15 +85,16 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={searchBarRef}>
       <input
         type="text"
         value={searchTerm}
         onChange={handleChange}
+        onBlur={handleBlur}
         placeholder="Search Dota 2 heroes..."
-        className="border border-gray-300 text-black rounded-md px-3 py-1 focus:outline-none focus:border-blue-500"
+        className={`border border-gray-300 text-black rounded-md ${router.pathname === '/' ? 'px-64 py-3' : 'px-3 py-1'} focus:outline-none focus:border-blue-500`}
       />
-      {showSuggestions && suggestions.length > 0 && (
+      {searchTerm && showSuggestions && suggestions.length > 0 && (
         <ul className="absolute z-10 bg-white border border-gray-300 rounded-md shadow-md mt-1 w-full text-black">
           {suggestions.map((hero, index) => (
             <li

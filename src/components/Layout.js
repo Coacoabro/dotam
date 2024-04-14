@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import TopBar from './TopBar';
+import BottomBar from './BottomBar';
 
 const Layout = ({children}) => {
   return (
@@ -13,7 +14,6 @@ const Layout = ({children}) => {
       </Head>
       <TopBar />
       <main>{children}</main>
-      
     </div>
   );
 };

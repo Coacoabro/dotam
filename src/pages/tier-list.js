@@ -192,7 +192,7 @@ function TierList({ heroes, rates, matchups }) {
                 <button onClick={() => handleSortClick("tier_num", currentSort)}>TIER⇅</button>
               </th>
               <th className=" py-2">
-                <button onClick={() => handleSortClick("hero_id", currentSort)}>HERO⇅</button>
+                HERO
               </th>
               <th className="px-1 py-2">
                 ROLE

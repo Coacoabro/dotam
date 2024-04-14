@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {useRouter} from 'next/router';
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -8,6 +9,8 @@ import Logo from "../../public/Io.webp"
 
 
 function TopBar() {
+
+    const router = useRouter();
     
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -64,9 +67,11 @@ function TopBar() {
                     </div>
                 </div>
             </div>
-            <div className="hidden md:flex">
-                <SearchBar />
-            </div>
+            {router.pathname !== '/' && (
+                <div className="hidden md:flex">
+                    <SearchBar />
+                </div>
+            )}
             <div className="flex items-center">                               
                 {/* Desktop menu */}
                 <div className="hidden md:flex space-x-8">
@@ -81,10 +86,11 @@ function TopBar() {
                     </Link>
                 </div>
             </div>
-            <div className="flex md:hidden">
-                <SearchBar />
-            </div>
-
+            {router.pathname !== '/' && (
+                <div className="flex md:hidden">
+                    <SearchBar />
+                </div>
+            )}
             
         </nav>
 
