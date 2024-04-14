@@ -41,16 +41,13 @@ headers = {'Authorization': f'Bearer {graphql_token}'}
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-cur.execute("SELECT * from rates WHERE patch = '7.35d';");
-rates = cur.fetchall()
-
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL']
 
 
 for currentRank in Ranks:
 
-    total_matches = sum(item[2] for item in rates if item[7] == currentRank)
+    total_matches = 0
 
     wrArray = []
     prArray = []
@@ -59,12 +56,12 @@ for currentRank in Ranks:
         query = f"""
             query{{
                 heroStats {{
-                winDay(
+                winMonth(
                     gameModeIds: ALL_PICK_RANKED
                     {'positionIds: ' + currentRole if currentRole else ''}
                     {'bracketIds: ' + currentRank if currentRank else ''}
                 ) {{
-                    day
+                    month
                     winCount
                     matchCount
                     heroId
@@ -76,10 +73,10 @@ for currentRank in Ranks:
         response = requests.post(url, json={'query': query}, headers=headers)
         data = json.loads(response.text)
 
-        highest_day = max([item['day'] for item in data['data']['heroStats']['winDay']])
+        highest_month = max([item['month'] for item in data['data']['heroStats']['winMonth']])
 
-        for item in data['data']['heroStats']['winDay']:
-            if item['day'] == highest_day:
+        for item in data['data']['heroStats']['winMonth']:
+            if item['month'] == highest_month:
                 total_matches += item['matchCount']
 
     total_matches /= 10
@@ -88,12 +85,12 @@ for currentRank in Ranks:
         query = f"""
             query{{
                 heroStats {{
-                winDay(
+                winMonth(
                     gameModeIds: ALL_PICK_RANKED
                     {'positionIds: ' + currentRole if currentRole else ''}
                     {'bracketIds: ' + currentRank if currentRank else ''}
                 ) {{
-                    day
+                    month
                     winCount
                     matchCount
                     heroId
@@ -107,14 +104,10 @@ for currentRank in Ranks:
 
         
 
-        for item in data['data']['heroStats']['winDay']:
-            if item['day'] == highest_day:
-                for rate in rates:
-                    if rate[6] == currentRole and rate[7] == currentRank and rate[0] == item['heroId']:
-                        matches = rate[2] + item['matchCount']
-                        wins = rate[3] + item['winCount']
-                PR = matches / total_matches
-                WR =  wins / matches
+        for item in data['data']['heroStats']['winMonth']:
+            if item['month'] == highest_month:
+                PR = item['matchCount'] / total_matches
+                WR = item['winCount'] / item['matchCount']
                 if(PR > 0.005):
                     wrArray.append(WR)
                     prArray.append(PR)
@@ -123,12 +116,12 @@ for currentRank in Ranks:
         query = f"""
             query{{
                 heroStats {{
-                winDay(
+                winMonth(
                     gameModeIds: ALL_PICK_RANKED
                     {'positionIds: ' + currentRole if currentRole else ''}
                     {'bracketIds: ' + currentRank if currentRank else ''}
                 ) {{
-                    day
+                    month
                     winCount
                     matchCount
                     heroId
@@ -140,15 +133,13 @@ for currentRank in Ranks:
         response = requests.post(url, json={'query': query}, headers=headers)
         data = json.loads(response.text)
 
-        for item in data['data']['heroStats']['winDay']:
-            if item['day'] == highest_day:
+        for item in data['data']['heroStats']['winMonth']:
+            if item['month'] == highest_month:
 
                 hero_id = item['heroId']
                 patch = '7.35d'
-                for rate in rates:
-                    if rate[6] == currentRole and rate[7] == currentRank and rate[0] == hero_id:
-                        matches = item['matchCount'] + rate[2]
-                        wincount = item['winCount'] + rate[3]
+                matches = item['matchCount']
+                wincount = item['winCount']
                 winrate = wincount / matches
                 pickrate = matches / total_matches
 
@@ -170,18 +161,10 @@ for currentRank in Ranks:
                     tier_str = '?'
 
                 cur.execute("""
-                    INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (hero_id, rank, role)
-                    DO UPDATE SET 
-                        patch = EXCLUDED.patch,
-                        matches = EXCLUDED.matches,
-                        wincount = EXCLUDED.wincount,
-                        winrate = EXCLUDED.winrate,
-                        pickrate = EXCLUDED.pickrate,
-                        tier_num = EXCLUDED.tier_num,
-                        tier_str = EXCLUDED.tier_str
+                INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 """, (hero_id, patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
+        
         conn.commit() # Commit the transaction
 
 
