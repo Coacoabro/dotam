@@ -18,7 +18,10 @@ const SearchBar = () => {
 
   const handleBlur = (event) => {
     if (!searchBarRef.current.contains(event.relatedTarget)) {
-      setShowSuggestions(false);
+      setTimeout(() => {
+        setShowSuggestions(false);
+      }, 100);
+      
     }
   };
 
