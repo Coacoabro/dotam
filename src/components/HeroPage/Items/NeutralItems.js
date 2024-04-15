@@ -30,7 +30,7 @@ function NeutralItems({tier, neutrals}) {
             <h1 className="text-center text-xl">TIER {tier}</h1>
             <div className="grid grid-cols-1 gap-2 place-items-center">
                 {neutralList.map((item) => (
-                    <div>
+                    <div className="bg-gray-800 rounded-md p-2">
                         <Item id={item.Item} width="12" />
                         <div>{item ? item.Matches : null}</div>
                     </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import itemIds from '../../dotaconstants/build/item_ids.json'
 import itemConstants from '../../dotaconstants/build/items.json'
 
-function Item({id, width, side}) {
+function Item({id, width, side, wr, time, matches}) {
 
     const item = itemIds[id]
     const itemName = itemConstants[item].dname
@@ -11,21 +11,26 @@ function Item({id, width, side}) {
     const itemDesc = itemConstants[item].hint ? itemConstants[item].hint[0] : "Basic Stats"
 
     const showTooltip = (event) => {
-        const tooltip = event.target.nextElementSibling;
+        const tooltip = event.currentTarget.nextElementSibling;
         tooltip.style.visibility = 'visible';
     };
 
     const hideTooltip = (event) => {
-        const tooltip = event.target.nextElementSibling;
+        const tooltip = event.currentTarget.nextElementSibling;
         tooltip.style.visibility = 'hidden';
     };
 
     return(
         <div className="relative">
-            <img className={`w-${width}`} src={itemImg}                    
+            <div className="text-sm bg-gray-800 py-1 px-2 rounded-md"
                 onMouseEnter={showTooltip}
                 onMouseLeave={hideTooltip}
-            />
+            >
+                <h1 className="text-xs">{matches ? matches.toLocaleString() : null}</h1>
+                <img className={`w-${width}`} src={itemImg}/>
+                <h2 className="text-xs">{wr ? wr + '%' : null}</h2>
+            </div>
+            
             <div
                 className={`absolute bg-black text-white p-1 rounded-md text-xs whitespace-pre-line z-10`}
                 style={{
@@ -47,6 +52,7 @@ function Item({id, width, side}) {
                     </div>
                 </div>
             </div>
+            
         </div>
     )
     

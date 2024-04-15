@@ -14,7 +14,7 @@ function Extra({items, boots}) {
     })
     boots.Early.forEach((obj) => {
         if (obj.Matches/totalMatches > 0.01) {
-            earlyFinal.push({'Item': obj.Item, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
+            earlyFinal.push({'Item': obj.Item, 'Matches': obj.Matches, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
         }
     })
     totalMatches = 0
@@ -23,7 +23,7 @@ function Extra({items, boots}) {
     })
     boots.Late.forEach((obj) => {
         if (obj.Matches/totalMatches > 0.01) {
-            lateFinal.push({'Item': obj.Item, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
+            lateFinal.push({'Item': obj.Item, 'Matches': obj.Matches, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
         }
     })
 
@@ -35,8 +35,7 @@ function Extra({items, boots}) {
                     <div className='text-white'>EARLY</div>
                     {earlyFinal.map((item, index) => (
                         <div className="text-xs">
-                            <Item id={item.Item} width="12"/>
-                            {item.Percentage}%
+                            <Item id={item.Item} width="12" matches={item.Matches} />
                         </div>
                     ))}
                 </div>
@@ -44,8 +43,7 @@ function Extra({items, boots}) {
                     <div className='text-white'>LATE</div>
                     {lateFinal.map((item, index) => (
                         <div className="text-xs">
-                            <Item id={item.Item} width="12"/>
-                            {item.Percentage}%
+                            <Item id={item.Item} width="12" matches={item.Matches} />
                         </div>
                     ))}
                 </div>

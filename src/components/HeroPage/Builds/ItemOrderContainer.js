@@ -6,28 +6,20 @@ function ItemOrder({early, core, late}) {
 
     
     return(
-        <div className="rounded-md p-2 bg-gray-700 text-white text-lg space-y-3 md:w-64">
+        <div className="rounded-md py-2 px-4 bg-gray-700 text-white text-lg space-y-3 md:w-64">
             <div>
                 <h1>EARLY</h1>
-                <div className="flex flex-wrap justify-evenly space-x-2 space-y-1">
+                <div className="grid grid-cols-3 gap-3">
                     {Array.isArray(early) ? early.map((item) => (
-                        <Item id={item.Item} width="12" />
+                        <Item id={item.Item} width="12" wr={item.WR} matches={item.Matches} time={item.Time} />
                     )) : "Not enough data"}
                 </div>
             </div>
             <div>
                 <h1>CORE</h1>
-                <div className="flex flex-wrap justify-evenly space-x-2 space-y-1">
+                <div className="grid grid-cols-3 gap-3">
                     {Array.isArray(core) ? core.map((item) => (
-                        <Item id={item.Item} width="12" />
-                    )) : "Not enough data"}
-                </div>
-            </div>
-            <div>
-                <h1>LATE</h1>
-                <div className="flex flex-wrap justify-evenly space-x-2 space-y-1">
-                    {Array.isArray(late) ? late.map((item) => (
-                        <Item id={item.Item} width="12" />
+                        <Item id={item.Item} width="12" wr={item.WR} matches={item.Matches} time={item.Time} />
                     )) : "Not enough data"}
                 </div>
             </div>
