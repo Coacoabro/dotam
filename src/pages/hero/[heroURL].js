@@ -58,7 +58,6 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
   const heroData = hero[0]
 
   const Role = [
-    {role: "", name: "All", icon: "../icons8-product-90.png"},
     {role: "POSITION_1", name: "Safe Lane", icon: "../Safe-Lane.png"},
     {role: "POSITION_2", name: "Mid Lane", icon: "../Mid-Lane.png"},
     {role: "POSITION_3", name: "Off Lane", icon: "../Off-Lane.png"},

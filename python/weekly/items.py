@@ -21,7 +21,7 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
-hero_ids = hero_ids[66:]
+# hero_ids = hero_ids[73:]
 
 constquery = """
     query {
@@ -45,7 +45,7 @@ roles = ['', 'POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
 Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
-Early = [34, 36, 73, 75, 77, 178, 181, 244, 569, 596]
+Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
 
 for hero_id in hero_ids:
     for role in roles:
