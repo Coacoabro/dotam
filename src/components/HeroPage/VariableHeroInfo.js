@@ -7,8 +7,6 @@ import TopTabBar from './TopTabBar';
 
 function VariableHeroInfo({heroID, rank, role, builds, abilities, items, matchups}) {
 
-  const itemBuilds = builds[0].items
-
   const [currAbilities, setCurrAbilities] = useState([])
   const [currTalents, setCurrTalents] = useState([])
   const [currItems, setCurrItems] = useState([])
@@ -43,7 +41,7 @@ function VariableHeroInfo({heroID, rank, role, builds, abilities, items, matchup
 
   switch (activeTab) {
     case 0:
-      Content = <BuildsInfo heroID={heroID} builds={itemBuilds} abilities={currAbilities} talents={currTalents} items={currItems}/>;
+      Content = <BuildsInfo heroID={heroID} abilities={currAbilities} talents={currTalents} items={currItems}/>;
       break;
     case 1:
       Content = <ItemsInfo heroID={heroID} items={currItems} />;
