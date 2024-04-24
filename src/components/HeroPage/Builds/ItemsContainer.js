@@ -49,7 +49,7 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
             setLoaded(true)
         }
     },[neutrals, main])
-
+    
     if(loaded) {
         return(
             <div className="space-y-8">
