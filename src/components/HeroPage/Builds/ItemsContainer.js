@@ -58,16 +58,23 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                         <StartingItems items={starting} />
                         <Extra boots={boots}/>
                     </div>
-                    <div>
-                        <ItemOrder early={early} core={core} late={late} />
+                    <div className="text-white">
+                        {/* <ItemOrder early={early} core={core} /> */}
+                        <h1 className="text-xl">CORE</h1>
+                        <ItemTable items={core} />
                     </div>
-                    <div className='text-white bg-gray-700 px-4 py-1 rounded-md md:w-64'>
+                    {/* <div className='text-white bg-gray-700 px-4 py-1 rounded-md md:w-64'>
                         <h1 className='text-lg'>LATE</h1>
                         <div className="grid grid-cols-2 gap-2">
                             {Array.isArray(late) ? late.map((item) => (
                                 <Item id={item.Item} width="12" wr={item.WR} matches={item.Matches} time={item.Time} pr={item.PR} />
                             )) : "Not enough data"}
                         </div>
+                    </div> */}
+                    <div className="text-white">
+                        {/* <ItemOrder early={early} core={core} /> */}
+                        <h1 className="text-xl">LATE</h1>
+                        <ItemTable items={late} />
                     </div>
                     
                 </div>
@@ -83,7 +90,6 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                         </div>
                     </div>
                 </div>
-                <ItemTable items={core} />
             </div>
         )
     }
