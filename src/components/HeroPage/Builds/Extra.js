@@ -13,8 +13,8 @@ function Extra({items, boots}) {
         totalMatches += obj.Matches
     })
     boots.Early.forEach((obj) => {
-        if (obj.Matches/totalMatches > 0.01) {
-            earlyFinal.push({'Item': obj.Item, 'Matches': obj.Matches, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
+        if (obj.Matches/totalMatches > 0.025) {
+            earlyFinal.push({'Item': obj.Item, 'Matches': obj.Matches, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2), 'Time': (obj.Time/60).toFixed(0)})
         }
     })
     totalMatches = 0
@@ -22,8 +22,8 @@ function Extra({items, boots}) {
         totalMatches += obj.Matches
     })
     boots.Late.forEach((obj) => {
-        if (obj.Matches/totalMatches > 0.01) {
-            lateFinal.push({'Item': obj.Item, 'Matches': obj.Matches, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2)})
+        if (obj.Matches/totalMatches > 0.025) {
+            lateFinal.push({'Item': obj.Item, 'Matches': obj.Matches, 'Percentage': (obj.Matches/totalMatches*100).toFixed(2), 'Time': (obj.Time/60).toFixed(0)})
         }
     })
 
@@ -35,7 +35,7 @@ function Extra({items, boots}) {
                     <div className='text-white'>EARLY</div>
                     {earlyFinal.map((item, index) => (
                         <div className="text-xs">
-                            <Item id={item.Item} width="12" matches={item.Matches} />
+                            <Item id={item.Item} width="12" matches={item.Matches} pr={item.Percentage} time={item.Time} />
                         </div>
                     ))}
                 </div>
@@ -43,7 +43,7 @@ function Extra({items, boots}) {
                     <div className='text-white'>LATE</div>
                     {lateFinal.map((item, index) => (
                         <div className="text-xs">
-                            <Item id={item.Item} width="12" matches={item.Matches} />
+                            <Item id={item.Item} width="12" matches={item.Matches} pr={item.Percentage} time={item.Time} />
                         </div>
                     ))}
                 </div>

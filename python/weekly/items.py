@@ -21,7 +21,12 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
-# hero_ids = hero_ids[73:]
+hero_ids = hero_ids[107:]
+# hero_ids = hero_ids[:len(hero_ids)//3]
+# hero_ids = hero_ids[len(hero_ids)//3:2*len(hero_ids)//3]
+# hero_ids = hero_ids[2*len(hero_ids)//3:]
+
+
 
 constquery = """
     query {
@@ -109,90 +114,102 @@ for hero_id in hero_ids:
             neutralItems = data['data']['heroStats']['itemNeutral']
             allItems = data['data']['heroStats']['itemFullPurchase']
 
-            boots.sort(key=lambda item: item['matchCount'], reverse=True)
-            bootsEarly = []
-            bootsLate = []
+            
+            if boots:
+                boots.sort(key=lambda item: item['matchCount'], reverse=True)
+                bootsEarly = []
+                bootsLate = []
 
-            for item in boots:
-                if item['timeAverage'] < 1200 and item['itemId'] != 29:
-                    bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount']})
-                if item['timeAverage'] > 1200 and item['itemId'] != 29:
-                    bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount']})
+                for item in boots:
+                    if item['timeAverage'] < 1200 and item['itemId'] != 29:
+                        bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round(item['timeAverage'], 1)})
+                    if item['timeAverage'] > 1200 and item['itemId'] != 29:
+                        bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round(item['timeAverage'], 1)})
 
-            bootsFinal = {'Early': bootsEarly[:4], 'Late': bootsLate[:3]}
+                bootsFinal = {'Early': bootsEarly[:4], 'Late': bootsLate[:3]}
 
-            startingGold = 600
-            startingItems = [item for item in startingItems if not item.get('wasGiven', False)]
-            startingItems.sort(key=lambda item: item['matchCount'], reverse=True)
-            startingFinal = []
+            if startingItems:
+                startingGold = 600
+                startingItems = [item for item in startingItems if not item.get('wasGiven', False)]
+                startingItems.sort(key=lambda item: item['matchCount'], reverse=True)
+                maxMatches = startingItems[0]['matchCount']
+                startingFinal = []
 
-            for item in startingItems:
+                for item in startingItems:
 
-                startingGold -= itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
-                if startingGold > 0 and len(startingFinal) < 6:
-                    startingFinal.append(item['itemId'])
-                else:
-                    startingGold += itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
-                    startingGold -= 50
+                    startingGold -= itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
                     if startingGold > 0 and len(startingFinal) < 6:
-                        startingFinal.append(16)
+                        startingFinal.append(item['itemId'])
                     else:
-                        break
+                        startingGold += itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
+                        startingGold -= 50
+                        if startingGold > 0 and len(startingFinal) < 6:
+                            startingFinal.append(16)
+                        else:
+                            break
             
             organizedItems = {}
 
-            for item in allItems:
-                itemId = item['itemId']
-                if itemId not in Consumable:
-                    if itemId not in organizedItems:
-                        organizedItems[itemId] = [{'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']}]
+            if allItems:
+
+                for item in allItems:
+                    itemId = item['itemId']
+                    if itemId not in Consumable:
+                        if itemId not in organizedItems:
+                            organizedItems[itemId] = [{'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']}]
+                        else:
+                            organizedItems[itemId].append({'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']})
+
+                finalItems = []
+                    
+                for itemId, itemsList in organizedItems.items():
+                    if itemId in Early:
+                        isEarly = True
                     else:
-                        organizedItems[itemId].append({'Matches': item['matchCount'], 'Time': item['time'], 'Wins': item['winCount']})
+                        isEarly = False
+                    totalMatches = 0
+                    totalWins = 0
+                    avgTime = 0
+                    count = 0
+                    for obj in itemsList:
+                        totalMatches += obj['Matches']
+                        totalWins += obj['Wins']
+                        avgTime += obj['Time']
+                        count += 1
+                    avgTime /= count
+                    avgTime = round(avgTime, 1)
+                    finalItems.append({'Item' : itemId, 'Matches': totalMatches, 'Time': avgTime, 'Wins': totalWins, 'PR': 0,'WR': round((totalWins/totalMatches)*100, 2), 'Early': isEarly})
 
-            finalItems = []
+                finalItems_sorted = sorted(finalItems, key=lambda item: item['Matches'], reverse=True)
+
                 
-            for itemId, itemsList in organizedItems.items():
-                if itemId in Early:
-                    isEarly = True
-                else:
-                    isEarly = False
-                totalMatches = 0
-                totalWins = 0
-                avgTime = 0
-                count = 0
-                for obj in itemsList:
-                    totalMatches += obj['Matches']
-                    totalWins += obj['Wins']
-                    avgTime += obj['Time']
-                    count += 1
-                avgTime /= count
-                avgTime = round(avgTime, 2)
-                finalItems.append({'Item' : itemId, 'Matches': totalMatches, 'Time': avgTime, 'Wins': totalWins, 'WR': round((totalWins/totalMatches)*100, 2), 'Early': isEarly})
+                for item in finalItems_sorted:
+                    item['PR'] = round((item['Matches']/maxMatches)*100, 2)
 
-            finalItems_sorted = sorted(finalItems, key=lambda item: item['Matches'], reverse=True)
+                earlyItems = [itemData for itemData in finalItems_sorted if itemData['Early'] == True]
+                coreItems = [itemData for itemData in finalItems_sorted if itemData['Time'] <= 30 and itemData['Early'] == False]
+                lateItems = [itemData for itemData in finalItems_sorted if itemData['Time'] > 30 and itemData['Early'] == False]
 
-            earlyItems = [itemData for itemData in finalItems_sorted if itemData['Early'] == True]
-            coreItems = [itemData for itemData in finalItems_sorted if itemData['Time'] <= 30 and itemData['Early'] == False]
-            lateItems = [itemData for itemData in finalItems_sorted if itemData['Time'] > 30 and itemData['Early'] == False]
+                mainItems = {'Early': earlyItems, 'Core': coreItems, 'Late': lateItems}
 
-            mainItems = {'Early': earlyItems, 'Core': coreItems, 'Late': lateItems}
+            
+            if neutralItems:
 
+                neutralItems.sort(key=lambda item: item['equippedMatchCount'], reverse=True)
+                tierArray = [[] for _ in range(5)]
+                tierArray[0] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_1']
+                tierArray[1] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_2']
+                tierArray[2] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_3']
+                tierArray[3] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_4']
+                tierArray[4] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_5']
 
-            neutralItems.sort(key=lambda item: item['equippedMatchCount'], reverse=True)
-            tierArray = [[] for _ in range(5)]
-            tierArray[0] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_1']
-            tierArray[1] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_2']
-            tierArray[2] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_3']
-            tierArray[3] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_4']
-            tierArray[4] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_5']
+                neutralFinal = {}
 
-            neutralFinal = {}
-
-            for i, array in enumerate(tierArray):
-                neutralFinal[f'Tier {i+1}'] = []
-                for item in array:
-                    if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 0:
-                        neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount']})
+                for i, array in enumerate(tierArray):
+                    neutralFinal[f'Tier {i+1}'] = []
+                    for item in array:
+                        if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 0:
+                            neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount']})
 
             cur.execute("INSERT INTO items (hero_id, rank, role, starting, main, boots, neutrals) VALUES (%s, %s, %s, %s, %s, %s, %s);", (hero_id, rank, role, startingFinal, json.dumps(mainItems), json.dumps(bootsFinal), json.dumps(neutralFinal)))
 

@@ -8,6 +8,7 @@ import Extra from './Extra'
 
 import item_ids from '../../../../dotaconstants/build/item_ids.json'
 import itemConstants from '../../../../dotaconstants/build/items.json'
+import ItemTable from '../../ItemTable';
 
 function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
 
@@ -60,11 +61,11 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                     <div>
                         <ItemOrder early={early} core={core} late={late} />
                     </div>
-                    <div className='text-white bg-gray-700 px-4 rounded-md md:w-64'>
+                    <div className='text-white bg-gray-700 px-4 py-1 rounded-md md:w-64'>
                         <h1 className='text-lg'>LATE</h1>
-                        <div className="grid grid-cols-3 gap-3">
+                        <div className="grid grid-cols-2 gap-2">
                             {Array.isArray(late) ? late.map((item) => (
-                                <Item id={item.Item} width="12" wr={item.WR} matches={item.Matches} time={item.Time} />
+                                <Item id={item.Item} width="12" wr={item.WR} matches={item.Matches} time={item.Time} pr={item.PR} />
                             )) : "Not enough data"}
                         </div>
                     </div>
@@ -82,6 +83,7 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                         </div>
                     </div>
                 </div>
+                <ItemTable items={core} />
             </div>
         )
     }

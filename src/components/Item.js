@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import itemIds from '../../dotaconstants/build/item_ids.json'
 import itemConstants from '../../dotaconstants/build/items.json'
 
-function Item({id, width, side, wr, time, matches}) {
+function Item({id, width, side, wr, time, matches, pr}) {
 
     const item = itemIds[id]
     const itemName = itemConstants[item].dname
@@ -22,17 +22,19 @@ function Item({id, width, side, wr, time, matches}) {
 
     return(
         <div className="relative">
-            <div className="text-sm bg-gray-800 py-1 px-2 rounded-md"
+            <div className={`text-sm py-1 space-y-1 px-2 rounded-md ${wr || pr ? `w-24` : null} flex flex-col items-center justify-center relative`}
                 onMouseEnter={showTooltip}
                 onMouseLeave={hideTooltip}
             >
-                <h1 className="text-xs">{matches ? matches.toLocaleString() : null}</h1>
+                {/*<h1 className="text-xs">{time ? '~ ' + time + ' min': null}</h1>
                 <img className={`w-${width}`} src={itemImg}/>
-                <h2 className="text-xs">{wr ? wr + '%' : null}</h2>
+                <h3 className="text-xs">{pr ? 'PR: ' + pr + '%' : null}</h3>
+                <h3 className="text-xs">{wr ? 'WR: ' + wr + '%' : null}</h3>*/}
+                <img className={`w-${width}`} src={itemImg}/>
             </div>
             
             <div
-                className={`absolute bg-black text-white p-1 rounded-md text-xs whitespace-pre-line z-10`}
+                className={`absolute bg-black text-white p-2 rounded-md text-xs whitespace-pre-line z-10`}
                 style={{
                 visibility: 'hidden',
                 top: '50%', // Adjust the position of the tooltip
@@ -43,11 +45,11 @@ function Item({id, width, side, wr, time, matches}) {
                 }}
             >
                 <div>
-                    <div className="text-lg">
+                    <div className="text-lg text-center">
                         {itemName}
                     </div>
                     
-                    <div className="text-xs">
+                    <div className="text-xs text-left">
                         {itemDesc}
                     </div>
                 </div>
