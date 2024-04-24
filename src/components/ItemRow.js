@@ -14,8 +14,10 @@ function ItemRow({item, index}) {
                 <td>~{time} min</td>
                 <td><Item id={item.Item} /></td>
                 <td>{item.WR}%</td>
-                <td>{item.PR}%</td>
-                <td>{matches}</td>
+                <td>
+                    {item.PR}%
+                    <h1 className="text-xs">{matches}</h1>
+                </td>
             </tr>
         )
     }

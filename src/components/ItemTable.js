@@ -45,7 +45,7 @@ function ItemTable(items) {
 
 
     return(
-        <div className="overflow-auto max-h-60">
+        <div className="overflow-auto h-60">
             <table class="table-auto">
                 <thead className="sticky">
                     <tr className="bg-gray-700 text-white h-10">
@@ -58,9 +58,6 @@ function ItemTable(items) {
                         </th>
                         <th className="px-5">
                             <button className={`${currentSort == "PR" ? "underline" : null}`} onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
-                        </th>
-                        <th className="px-3">
-                            MATCHES
                         </th>
                     </tr>
                 </thead>
