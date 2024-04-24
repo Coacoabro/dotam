@@ -7,7 +7,7 @@ import ItemRow from './ItemRow';
 function ItemTable(items) {
 
     const [currentSort, setCurrentSort] = useState("Time");
-    const [sortBy, setSortBy] = useState("f2l");
+    const [sortBy, setSortBy] = useState("l2f");
     const [itemList, setItemList] = useState([{}]);
 
     const handleSortClick = (sort, currentSort) => {
