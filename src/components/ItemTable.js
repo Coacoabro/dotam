@@ -11,26 +11,34 @@ function ItemTable(items) {
     const [itemList, setItemList] = useState([{}]);
 
     const handleSortClick = (sort, currentSort) => {
-        if (sort == currentSort) {
+
+        console.log(sort, currentSort)
+
+        if (sort !== currentSort) 
+            {
+                setCurrentSort(sort)
+            }
+        else {
             if (sortBy === "f2l") {
                 setSortBy("l2f")
             } else if (sortBy === "l2f") {
                 setSortBy("f2l")
             }
         }
-        else {setCurrentSort(sort)}
     };
+
+    
+    
 
     useEffect(() => {
         let itemsByRR = [];
-
+    
         if (sortBy === "f2l") {
-            setItemList(itemsByRR = items.items.sort((a, b) => b[currentSort] - a[currentSort]))
+            setItemList(itemsByRR = [...items.items].sort((a, b) => b[currentSort] - a[currentSort]))
         }
         else if (sortBy === "l2f") {
-            setItemList(itemsByRR = items.items.sort((a, b) => a[currentSort] - b[currentSort]))
+            setItemList(itemsByRR = [...items.items].sort((a, b) => a[currentSort] - b[currentSort]))
         }
-        
     
     }, [currentSort, sortBy, items]);
 
@@ -52,7 +60,7 @@ function ItemTable(items) {
                             <button onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
                         </th>
                         <th className="px-2">
-                            <button onClick={() => handleSortClick("Matches", currentSort)}>MATCHES⇅</button>
+                            MATCHES
                         </th>
                     </tr>
                     {itemList.map((item, index) => (
