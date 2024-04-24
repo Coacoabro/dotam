@@ -50,14 +50,14 @@ function ItemTable(items) {
                 <thead className="sticky">
                     <tr className="bg-gray-700 text-white h-10">
                         <th className="px-3">
-                            <button onClick={() => handleSortClick("Time", currentSort)}>TIME⇅</button>
+                            <button className={`${currentSort == "Time" ? "underline" : null}`} onClick={() => handleSortClick("Time", currentSort)}>TIME⇅</button>
                         </th>
                         <th className="px-2 w-20">ITEM</th>
                         <th className="px-5">
-                            <button onClick={() => handleSortClick("WR", currentSort)}>WR⇅</button>
+                            <button className={`${currentSort == "WR" ? "underline" : null}`} onClick={() => handleSortClick("WR", currentSort)}>WR⇅</button>
                         </th>
                         <th className="px-5">
-                            <button onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
+                            <button className={`${currentSort == "PR" ? "underline" : null}`} onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
                         </th>
                         <th className="px-3">
                             MATCHES

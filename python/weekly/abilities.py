@@ -32,6 +32,7 @@ constquery = """
         constants {
             abilities {
                 id
+                name
                 isTalent
                 stat {
                     isUltimate
