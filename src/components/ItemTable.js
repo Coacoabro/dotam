@@ -6,8 +6,8 @@ import ItemRow from './ItemRow';
 
 function ItemTable(items) {
 
-    const [currentSort, setCurrentSort] = useState("Time");
-    const [sortBy, setSortBy] = useState("l2f");
+    const [currentSort, setCurrentSort] = useState("PR");
+    const [sortBy, setSortBy] = useState("f2l");
     const [itemList, setItemList] = useState([{}]);
 
     const handleSortClick = (sort, currentSort) => {
@@ -45,11 +45,11 @@ function ItemTable(items) {
 
 
     return(
-        <div>
+        <div className="overflow-auto max-h-60">
             <table class="table-auto">
-                <thead>
-                    <tr className="bg-gray-700 text-white">
-                        <th className="px-2">
+                <thead className="sticky">
+                    <tr className="bg-gray-700 text-white h-10">
+                        <th className="px-3">
                             <button onClick={() => handleSortClick("Time", currentSort)}>TIME⇅</button>
                         </th>
                         <th className="px-2 w-20">ITEM</th>
@@ -59,14 +59,16 @@ function ItemTable(items) {
                         <th className="px-5">
                             <button onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
                         </th>
-                        <th className="px-2">
+                        <th className="px-3">
                             MATCHES
                         </th>
                     </tr>
+                </thead>
+                <tbody>
                     {itemList.map((item, index) => (
                         <ItemRow item={item} index={index}/>
                     ))}
-                </thead>
+                </tbody>
             </table>
         </div>
     )

@@ -153,9 +153,9 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
                   Hero Rank Info
                 </div>
               )}
-              <form class="max-w-sm mx-auto w-36">
+              <form className="max-w-sm mx-auto w-36">
                 <select 
-                  class="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
+                  className="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
                   value={currentRank}  
                   onChange={(e) => handleRankClick(e.target.value)}
                 >

@@ -10,7 +10,7 @@ function ItemRow({item, index}) {
         const matches = item.Matches.toLocaleString()
 
         return(
-            <tr className={`${index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-700'} text-white`}>
+            <tr className={`${index % 2 === 0 ? 'bg-gray-800' : 'bg-gray-700'} text-white h-16`}>
                 <td>~{time} min</td>
                 <td><Item id={item.Item} /></td>
                 <td>{item.WR}%</td>

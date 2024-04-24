@@ -114,6 +114,8 @@ for hero_id in hero_ids:
             neutralItems = data['data']['heroStats']['itemNeutral']
             allItems = data['data']['heroStats']['itemFullPurchase']
 
+            maxMatches = 0 # Using brown boots. Not the best way to get all matches, but this is temporary
+
             
             if boots:
                 boots.sort(key=lambda item: item['matchCount'], reverse=True)
@@ -121,10 +123,14 @@ for hero_id in hero_ids:
                 bootsLate = []
 
                 for item in boots:
+                    if item['itemId'] == 29:
+                        maxMatches = item['matchCount']
+
+                for item in boots:
                     if item['timeAverage'] < 1200 and item['itemId'] != 29:
-                        bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round(item['timeAverage'], 1)})
+                        bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'PR': item['matchCount']/maxMatches, 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round((item['timeAverage'])/60, 0)})
                     if item['timeAverage'] > 1200 and item['itemId'] != 29:
-                        bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round(item['timeAverage'], 1)})
+                        bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'PR': item['matchCount']/maxMatches, 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round((item['timeAverage'])/60, 0)})
 
                 bootsFinal = {'Early': bootsEarly[:4], 'Late': bootsLate[:3]}
 
@@ -132,7 +138,6 @@ for hero_id in hero_ids:
                 startingGold = 600
                 startingItems = [item for item in startingItems if not item.get('wasGiven', False)]
                 startingItems.sort(key=lambda item: item['matchCount'], reverse=True)
-                maxMatches = startingItems[0]['matchCount']
                 startingFinal = []
 
                 for item in startingItems:

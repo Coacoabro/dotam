@@ -37,21 +37,20 @@ function Item({id, width, side, wr, time, matches, pr}) {
                 className={`absolute bg-black text-white p-2 rounded-md text-xs whitespace-pre-line z-10`}
                 style={{
                 visibility: 'hidden',
-                top: '50%', // Adjust the position of the tooltip
-                left: '-140%', // Position the tooltip centrally
+                top: '100%', // Adjust the position of the tooltip
+                left: '0%', // Position the tooltip centrally
                 transform: 'translateX(-50%)',
-                width: '150px',
                 height: 'auto', // Let the height expand according to content
                 }}
             >
                 <div>
-                    <div className="text-lg text-center">
+                    <div className="text-sm text-center">
                         {itemName}
                     </div>
                     
-                    <div className="text-xs text-left">
+                    {/* <div className="text-xs text-left">
                         {itemDesc}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             

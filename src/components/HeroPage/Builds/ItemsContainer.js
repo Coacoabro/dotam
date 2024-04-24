@@ -53,28 +53,31 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
     if(loaded) {
         return(
             <div className="space-y-8">
-                <div className="md:grid md:grid-cols-3 md:place-items-center px-2 space-x-8 space-y-2">
+                <div className='flex justify-evenly'>
                     <div className="space-y-2 md:w-64">
                         <StartingItems items={starting} />
-                        <Extra boots={boots}/>
                     </div>
-                    <div className="text-white">
-                        {/* <ItemOrder early={early} core={core} /> */}
-                        <h1 className="text-xl">CORE</h1>
+                    <div className="text-white bg-gray-600 p-2 rounded-md">
+                        <h1 className="text-xl">EARLY</h1>
+                        <h2 className='text-sm'>Items to help with the early game</h2>
+                        <ItemTable items={early} />
+                    </div>
+                </div>
+                
+                <div className="flex justify-evenly px-2 space-x-8 space-y-2">
+                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
+                        <h1 className="text-2xl">CORE</h1>
+                        <h2 className='text-lg'>Items before 30 min</h2>
                         <ItemTable items={core} />
+                        <h1 className="text-lg">BOOTS</h1>
+                        <ItemTable items={boots.Early}/>
                     </div>
-                    {/* <div className='text-white bg-gray-700 px-4 py-1 rounded-md md:w-64'>
-                        <h1 className='text-lg'>LATE</h1>
-                        <div className="grid grid-cols-2 gap-2">
-                            {Array.isArray(late) ? late.map((item) => (
-                                <Item id={item.Item} width="12" wr={item.WR} matches={item.Matches} time={item.Time} pr={item.PR} />
-                            )) : "Not enough data"}
-                        </div>
-                    </div> */}
-                    <div className="text-white">
-                        {/* <ItemOrder early={early} core={core} /> */}
-                        <h1 className="text-xl">LATE</h1>
+                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
+                        <h1 className="text-2xl">LATE</h1>
+                        <h2 className='text-lg'>Items after 30 min</h2>
                         <ItemTable items={late} />
+                        <h1 className="text-lg">BOOTS</h1>
+                        <ItemTable items={boots.Late}/>
                     </div>
                     
                 </div>
