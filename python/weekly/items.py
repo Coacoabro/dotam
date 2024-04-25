@@ -21,12 +21,11 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
-hero_ids = hero_ids[107:]
+hero_ids = hero_ids[106:]
 # hero_ids = hero_ids[:len(hero_ids)//3]
 # hero_ids = hero_ids[len(hero_ids)//3:2*len(hero_ids)//3]
 # hero_ids = hero_ids[2*len(hero_ids)//3:]
-
-
+# print(hero_ids)
 
 constquery = """
     query {
@@ -157,7 +156,7 @@ for hero_id in hero_ids:
             
             organizedItems = {}
 
-            if allItems:
+            if allItems and maxMatches > 0:
 
                 for item in allItems:
                     itemId = item['itemId']
