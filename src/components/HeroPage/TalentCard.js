@@ -43,12 +43,12 @@ function TalentCard({hero}) {
                     className="absolute flex bg-black text-white p-2 rounded-md text-xs whitespace-pre-line"
                     style={{
                         left: '50%',
-                        width: '500px',
+                        width: '425px',
                         height: 'auto',
                     }}
-                    >
-                    <div className="grid grid-rows-4 text-sm gap-1 p-1 h-60">
-                        {rightTalentNames.map((talent) => (
+                >
+                    <div className="grid grid-rows-4 text-sm gap-1 p-1 h-60 w-48 text-center">
+                        {leftTalentNames.map((talent) => (
                         <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
                     </div>
@@ -61,8 +61,8 @@ function TalentCard({hero}) {
                         ))}
                     </div>
                     {/* First and third columns with hero talent information */}
-                    <div className="grid grid-rows-4 text-sm gap-1 p-1">
-                        {leftTalentNames.map((talent) => (
+                    <div className="grid grid-rows-4 text-sm gap-1 p-1 h-60 w-48 text-center">
+                        {rightTalentNames.map((talent) => (
                         <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
                     </div>
