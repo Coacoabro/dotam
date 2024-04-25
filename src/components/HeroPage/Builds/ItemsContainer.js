@@ -12,13 +12,14 @@ import ItemTable from '../../ItemTable';
 
 function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
 
-    const allBoots = [...boots.Early, ...boots.Late];
+    
 
     const [loaded, setLoaded] = useState(false)
     const [neutralArray, setNeutralArray] = useState([])
     const [early, setEarly] = useState([])
     const [core, setCore] = useState([])
     const [late, setLate] = useState([])
+    const [allBoots, setAllBoots] = useState([])
 
     useEffect(() => {
         setLoaded(false)
@@ -48,9 +49,11 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                 );
             } else {setLate("Not enough data")}
 
+            setAllBoots([...boots.Early, ...boots.Late]);
+
             setLoaded(true)
         }
-    },[neutrals, main])
+    },[neutrals, main, boots])
     
     if(loaded) {
         return(

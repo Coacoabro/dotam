@@ -48,7 +48,7 @@ function ItemTable(items) {
         <div className="overflow-auto h-60">
             <table class="table-auto">
                 <thead className="sticky">
-                    <tr className="bg-gray-700 text-white h-10">
+                    <tr className="bg-gray-800 text-white h-10">
                         <th className="px-3">
                             <button className={`${currentSort == "Time" ? "underline" : null}`} onClick={() => handleSortClick("Time", currentSort)}>TIME⇅</button>
                         </th>
