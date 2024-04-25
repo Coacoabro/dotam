@@ -37,10 +37,11 @@ function Item({id, width, side, wr, time, matches, pr}) {
                 className={`absolute bg-black text-white p-2 rounded-md text-xs whitespace-pre-line z-10`}
                 style={{
                 visibility: 'hidden',
-                top: '100%', // Adjust the position of the tooltip
-                left: '0%', // Position the tooltip centrally
+                top: '-90%', // Adjust the position of the tooltip
+                left: '50%', // Position the tooltip centrally
                 transform: 'translateX(-50%)',
-                height: 'auto', // Let the height expand according to content
+                width: '100px',
+                height: '50px',
                 }}
             >
                 <div>

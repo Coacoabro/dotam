@@ -127,10 +127,12 @@ for hero_id in hero_ids:
                         maxMatches = item['matchCount']
 
                 for item in boots:
-                    if item['timeAverage'] < 1200 and item['itemId'] != 29:
-                        bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'PR': item['matchCount']/maxMatches, 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round((item['timeAverage'])/60, 0)})
-                    if item['timeAverage'] > 1200 and item['itemId'] != 29:
-                        bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'PR': item['matchCount']/maxMatches, 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round((item['timeAverage'])/60, 0)})
+                    pr = item['matchCount']/maxMatches
+                    if pr > 0.025 and item['itemId'] != 29:
+                        if item['timeAverage'] < 1200:
+                            bootsEarly.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'PR': round(pr*100, 2), 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round((item['timeAverage'])/60, 0)})
+                        if item['timeAverage'] > 1200:
+                            bootsLate.append({'Item': item['itemId'], 'Matches': item['matchCount'], 'PR': round(pr*100, 2), 'WR': round((item['winCount']/item['matchCount'])*100, 2), 'Time': round((item['timeAverage'])/60, 0)})
 
                 bootsFinal = {'Early': bootsEarly[:4], 'Late': bootsLate[:3]}
 
