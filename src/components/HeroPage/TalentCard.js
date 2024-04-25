@@ -48,7 +48,7 @@ function TalentCard({hero}) {
                     }}
                 >
                     <div className="grid grid-rows-4 text-sm gap-1 p-1 h-60 w-48 text-center">
-                        {leftTalentNames.map((talent) => (
+                        {rightTalentNames.map((talent) => (
                         <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
                     </div>
@@ -62,7 +62,7 @@ function TalentCard({hero}) {
                     </div>
                     {/* First and third columns with hero talent information */}
                     <div className="grid grid-rows-4 text-sm gap-1 p-1 h-60 w-48 text-center">
-                        {rightTalentNames.map((talent) => (
+                        {leftTalentNames.map((talent) => (
                         <div key={talent} className="border border-gray-300 p-1">{talent}</div>
                         ))}
                     </div>

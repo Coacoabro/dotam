@@ -70,13 +70,10 @@ function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
                            
                 <div className="flex justify-evenly px-2 space-x-8 space-y-2">
                     
-                    <div className='space-y-3 flex-cols justify-center items-center'>
-                        
-                        <div className="text-white bg-gray-600 p-2 rounded-md">
-                            <h1 className="text-xl">EARLY</h1>
-                            <h2 className='text-sm'>Items to help with the early game</h2>
-                            <ItemTable items={early} />
-                        </div>
+                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
+                        <h1 className="text-2xl">EARLY</h1>
+                        <h2 className='text-sm'>Items to help with the early game</h2>
+                        <ItemTable items={early} />
                     </div>
                     <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
                         <h1 className="text-2xl">CORE</h1>
