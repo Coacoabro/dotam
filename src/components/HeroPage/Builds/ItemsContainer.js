@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import Item from '../../Item'
-import ItemOrder from './ItemOrderContainer'
 import NeutralItems from '../Items/NeutralItems';
 import StartingItems from './StartingItems'
-import Extra from './Extra'
-
-import item_ids from '../../../../dotaconstants/build/item_ids.json'
-import itemConstants from '../../../../dotaconstants/build/items.json'
 import ItemTable from '../../ItemTable';
 
 function ItemBuildsContainer({build, boots, starting, main, neutrals}) {

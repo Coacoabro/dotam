@@ -215,7 +215,7 @@ for hero_id in hero_ids:
                     neutralFinal[f'Tier {i+1}'] = []
                     for item in array:
                         if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 0:
-                            neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount']})
+                            neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount'], 'Wins': item['equippedMatchWinCount'], 'PR': round((item['equippedMatchCount']/maxMatches)*100, 2), 'WR': round((item['equippedMatchWinCount']/item['equippedMatchCount'])*100, 2)})
 
             cur.execute("INSERT INTO items (hero_id, rank, role, starting, main, boots, neutrals) VALUES (%s, %s, %s, %s, %s, %s, %s);", (hero_id, rank, role, startingFinal, json.dumps(mainItems), json.dumps(bootsFinal), json.dumps(neutralFinal)))
 
