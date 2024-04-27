@@ -20,7 +20,7 @@ conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT * from rates WHERE rank = 'IMMORTAL' and pickrate > 0.0049;")
-
+immortal_heroes = cur.fetchall()
 
 
 # Steam's Web API
@@ -35,9 +35,54 @@ seq_num_start = 6121215528
 
 stored_matches = []
 
+Boots = [29, 48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
+Support = [30, 40, 42, 43, 45, 188, 257, 286]
+Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
+
+Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
+
+SupportFull = [37, 79, 90, 92, 102, 226, 231, 254, 269, 1128]
+FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 119, 121, 123, 125, 127, 131, 133, 135, 137, 139, 141, 143, 145, 147, 149, 151, 152, 154, 156, 158, 160, 162, 164, 166, 168, 170, 172, 174, 176, 180, 185, 190, 193, 194, 196, 201, 202, 203, 204, 206, 208, 210, 214, 220, 223, 225, 226, 229, 231, 232, 235, 236, 242, 247, 249, 250, 252, 254, 256, 259, 263, 267, 269, 271, 273, 277, 534, 596, 598, 600, 603, 604, 609, 610, 635, 931, 939, 1096, 1107, 1466, 1806, 1808]
+
+def matchDetails(match):
+
+    query = f"""
+            query{{
+                match(id: {match}) {{
+                didRadiantWin
+                    players {{
+                        heroId
+                        isRadiant
+                        position
+                        playbackData {{
+                            purchaseEvents {{
+                                itemId
+                                time
+                            }}
+                        }}
+                    }}
+                }}
+            }}
+        """
+    
+    response = requests.post(url, json={'query': query}, headers=headers)
+    data = json.loads(response.text)
+
+    didRadiantWin = data['data']['match']['didRadiantWin']
+    players = data['data']['match']['players']
+
+    for player in players:
+        for hero in immortal_heroes:
+            if hero[0] == player['heroId'] and hero[6] == player['position']:
+                if didRadiantWin == player['isRadiant']:
+                    print('Won')
+                itemEvents = player['playbackData']['purchaseEvents']
+
+
+
 while True:
     i = 0
-    while i < 1920:
+    while i < 864:
         response1 = requests.get(PUBLIC_MATCHES_URL)
         if response1.status_code == 200:
             match_id_start = response1.json()[0]['match_id']
@@ -47,7 +92,10 @@ while True:
             matches = response.json()
             for match in matches:
                 stored_matches.append(match['match_id'])
+                matchDetails(match)
             match_id_start = matches[-1]['match_id']
-        time.sleep(45)
+        if len(stored_matches) > 86400:
+            stored_matches = stored_matches[:43200]
+        
         i += 1
         
