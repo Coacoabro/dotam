@@ -13,14 +13,15 @@ load_dotenv()
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
 
-url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
-headers = {'Authorization': f'Bearer {graphql_token}'}
+stratz_url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
+stratz_headers = {'Authorization': f'Bearer {graphql_token}'}
 
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT * from rates WHERE rank = 'IMMORTAL' and pickrate > 0.0049;")
 immortal_heroes = cur.fetchall()
+
 
 
 # Steam's Web API
@@ -50,45 +51,73 @@ FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 1
               250, 252, 254, 256, 259, 263, 267, 269, 271, 273, 277, 534, 596, 598, 
               600, 603, 604, 609, 610, 635, 931, 939, 1096, 1107, 1466, 1806, 1808]
 
-def matchDetails(match):
+def matchDetails(match, builds):
+
+    global stratz_url
+    global stratz_headers
+    global stored_matches
+    global immortal_heroes
+    global Support
+    global Early
+    global SupportFull
+    global FullItems
+
 
     query = f"""
             query{{
                 match(id: {match}) {{
-                didRadiantWin
-                    players {{
-                        heroId
-                        isRadiant
-                        position
-                        playbackData {{
-                            purchaseEvents {{
-                                itemId
-                                time
+                    didRadiantWin
+                        players {{
+                            heroId
+                            isRadiant
+                            position
+                            playbackData {{
+                                purchaseEvents {{
+                                    itemId
+                                    time
+                                }}
                             }}
                         }}
                     }}
-                }}
             }}
         """
-    
-    response = requests.post(url, json={'query': query}, headers=headers)
+
+    response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=10)
     data = json.loads(response.text)
 
-    didRadiantWin = data['data']['match']['didRadiantWin']
-    players = data['data']['match']['players']
+    if match not in stored_matches:
 
-    for player in players:
-        for hero in immortal_heroes:
-            if hero[0] == player['heroId'] and hero[6] == player['position']:
-                if didRadiantWin == player['isRadiant']:
-                    print('Won')
-                itemEvents = player['playbackData']['purchaseEvents']
+        didRadiantWin = data['data']['match']['didRadiantWin']
+        players = data['data']['match']['players']
+
+        for player in players:
+            itemBuild = []
+            for hero in immortal_heroes:
+                if hero[0] == player['heroId'] and hero[6] == player['position']:
+                    heroId = hero[0]
+                    position = hero[6]
+                    win = 0
+                    if didRadiantWin == player['isRadiant']:
+                        win = 1
+                    for item in player['playbackData']['purchaseEvents']:
+                        if position == 'POSITION_4' or position == 'POSITION_5':
+                            if item['itemId'] in SupportFull or item['itemId'] in FullItems:
+                                itemBuild.append(item['itemId'])
+                        else:
+                            if item['itemId'] in FullItems:
+                                itemBuild.append(item['itemId'])
+                    print(heroId, position, itemBuild)
+            
+            stored_matches.append(match)
 
 
+# match_id_start = 7709069413
 
 while True:
     i = 0
-    while i < 864:
+    cur.execute("SELECT * from builds")
+    builds = cur.fetchall()
+    while i < 36:
         response1 = requests.get(PUBLIC_MATCHES_URL)
         if response1.status_code == 200:
             match_id_start = response1.json()[0]['match_id']
@@ -97,11 +126,11 @@ while True:
         if response.status_code == 200:
             matches = response.json()
             for match in matches:
-                stored_matches.append(match['match_id'])
-                matchDetails(match)
+                builds = matchDetails(match['match_id'], builds)
+                time.sleep(1)
             match_id_start = matches[-1]['match_id']
         if len(stored_matches) > 86400:
             stored_matches = stored_matches[:43200]
-        
         i += 1
         
+    
