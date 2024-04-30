@@ -62,6 +62,8 @@ def matchDetails(match, builds):
     global SupportFull
     global FullItems
 
+    Order = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Nineth', 'Tenth']
+
 
     query = f"""
             query{{
@@ -96,28 +98,36 @@ def matchDetails(match, builds):
             players = data['data']['match']['players']
 
             for player in players:
-                itemBuild = []
-                finalBuild = {}
                 for hero in immortal_heroes:
-                    if hero[0] == player['heroId'] and hero[6] == player['position']:
-                        heroId = hero[0]
-                        position = hero[6]
+                    heroId = hero[0]
+                    position = hero[6]
+                    
+                    if heroId == player['heroId'] and position == player['position']:
+                        isSupport = False
+                        if position == 'POSITION_4' or position == 'POSITION_5':
+                            isSupport = True
+
                         win = 0
+
                         if didRadiantWin == player['isRadiant']:
                             win = 1
+
+                        itemBuild = []
                         for item in player['playbackData']['purchaseEvents']:
-                            if position == 'POSITION_4' or position == 'POSITION_5':
+                            if isSupport == True:
                                 if item['itemId'] in SupportFull or item['itemId'] in FullItems:
                                     itemBuild.append(item['itemId'])
-                                if len(itemBuild) >= 2:
-                                    core = [itemBuild[0], itemBuild[1]]
-                                    late = itemBuild[2:]
                             else:
                                 if item['itemId'] in FullItems:
                                     itemBuild.append(item['itemId'])
-                                if len(itemBuild) >= 3:
-                                    core = [itemBuild[0], itemBuild[1], itemBuild[2]]
-                                    late = itemBuild[3:]
+
+                        if len(itemBuild) >= 2 and isSupport == True:
+                            core = itemBuild[:2]
+                        elif len(itemBuild) >= 3 and isSupport == False:
+                            core = itemBuild[:3]
+                        else:
+                            core = None
+                        
                         heroFound = False
                         for hero_role in builds:
                             if hero_role[0] == heroId and hero_role[1] == position:
@@ -131,27 +141,50 @@ def matchDetails(match, builds):
                                         break
                                 if not buildFound:
                                     hero_role[3].append({'Core': core, 'Wins': win, 'Matches': 1})
+                                
+                                n = 0
+                                amountOfItems = len(itemOrder)
+                                for gameItem in itemBuild:
+                                    itemOrder = Order[n]
+                                    n += 1
+                                    itemOrderFound = False
+                                    
+                                    for orderedItem in hero_role[4][itemOrder]:
+                                        if orderedItem['Item'] == gameItem:
+                                            orderedItem['Wins'] += win
+                                            orderedItem['Matches'] += 1
+                                            itemOrderFound = True
+                                            break
+                                    if not itemOrderFound:
+                                        hero_role[4][itemOrder].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+
                                 break
                         if not heroFound:
-                            builds.append([heroId, position, 'Early', [{'Core': core, 'Wins': win, 'Matches': 1}]])
-            
-                                
+                            FinalItems = {}
+                            i = 0
+                            for order in Order:
+                                if i < len(itemBuild):
+                                    FinalItems[order] = [{'Item': itemBuild[i], 'Wins': win, 'Matches': 1}]
+                                # else:
+                                #     FinalItems[order] = [{'Item': 0, 'Wins': 0, 'Matches': 0}]
+                                i += 1
+                            builds.append([heroId, position, 'Early', [{'Core': core, 'Wins': win, 'Matches': 1}], FinalItems])
 
                 stored_matches.append(match)
 
         return builds
 
 
-# match_id_start = 7709069413
+match_id_start = 7709069413
 
 while True:
     i = 0
     cur.execute("SELECT * from builds")
     builds = cur.fetchall()
     while i < 36:
-        response1 = requests.get(PUBLIC_MATCHES_URL)
-        if response1.status_code == 200:
-            match_id_start = response1.json()[0]['match_id']
+        # response1 = requests.get(PUBLIC_MATCHES_URL)
+        # if response1.status_code == 200:
+        #     match_id_start = response1.json()[0]['match_id']
         url = f'{PUBLIC_MATCHES_URL}?less_than_match_id={match_id_start}&min_rank=81'
         response = requests.get(url)
         if response.status_code == 200:
