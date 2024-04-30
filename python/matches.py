@@ -142,7 +142,7 @@ def matchDetails(match, builds):
                                 if not buildFound:
                                     hero_role[3].append({'Core': core, 'Wins': win, 'Matches': 1})
                                 
-                                n = 0
+                                n = 4
                                 amountOfItems = len(itemOrder)
                                 for gameItem in itemBuild:
                                     itemOrder = Order[n]
@@ -160,15 +160,12 @@ def matchDetails(match, builds):
 
                                 break
                         if not heroFound:
-                            FinalItems = {}
-                            i = 0
-                            for order in Order:
-                                if i < len(itemBuild):
-                                    FinalItems[order] = [{'Item': itemBuild[i], 'Wins': win, 'Matches': 1}]
-                                # else:
-                                #     FinalItems[order] = [{'Item': 0, 'Wins': 0, 'Matches': 0}]
-                                i += 1
-                            builds.append([heroId, position, 'Early', [{'Core': core, 'Wins': win, 'Matches': 1}], FinalItems])
+                            full_data = [heroId, position, 1, 'Early', [{'Core': core, 'Wins': win, 'Matches': 1}]]
+                            for item in itemBuild:
+                                full_data.append([{'Item': item, 'Wins': win, 'Matches': 1}])
+                            while len(full_data) < 15:
+                                full_data.append([])
+                            builds.append(full_data)
 
                 stored_matches.append(match)
 
