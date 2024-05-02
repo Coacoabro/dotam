@@ -45,29 +45,27 @@ function ItemTable(items) {
 
 
     return(
-        <div className="overflow-auto h-60">
-            <table class="table-auto">
-                <thead className="sticky">
-                    <tr className="bg-gray-800 text-white h-10">
-                        <th className="px-3">
-                            <button className={`${currentSort == "Time" ? "underline" : null}`} onClick={() => handleSortClick("Time", currentSort)}>TIME⇅</button>
-                        </th>
-                        <th className="px-2 w-20">ITEM</th>
-                        <th className="px-5">
-                            <button className={`${currentSort == "WR" ? "underline" : null}`} onClick={() => handleSortClick("WR", currentSort)}>WR⇅</button>
-                        </th>
-                        <th className="px-5">
-                            <button className={`${currentSort == "PR" ? "underline" : null}`} onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {itemList.map((item, index) => (
-                        <ItemRow item={item} index={index}/>
-                    ))}
-                </tbody>
-            </table>
-        </div>
+        <table class="table-auto">
+            <thead className="sticky">
+                <tr className="bg-gray-800 text-white h-10">
+                    <th className="px-3">
+                        <button className={`${currentSort == "Time" ? "underline" : null}`} onClick={() => handleSortClick("Time", currentSort)}>TIME⇅</button>
+                    </th>
+                    <th className="px-2 w-20">ITEM</th>
+                    <th className="px-5">
+                        <button className={`${currentSort == "WR" ? "underline" : null}`} onClick={() => handleSortClick("WR", currentSort)}>WR⇅</button>
+                    </th>
+                    <th className="px-5">
+                        <button className={`${currentSort == "PR" ? "underline" : null}`} onClick={() => handleSortClick("PR", currentSort)}>PR⇅</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {itemList.map((item, index) => (
+                    <ItemRow item={item} index={index}/>
+                ))}
+            </tbody>
+        </table>
     )
 }
 
