@@ -17,7 +17,7 @@ function StartingItems({items}) {
             <div className='text-xl text-white'>STARTING ITEMS</div>
             <div className="grid grid-cols-3 gap-2 rounded-md p-2 text-white place-items-center">
                 {startingItems.map((item) => (
-                    <Item id={item} width="16" />
+                    <Item id={item} width="12" />
                 ))}
             </div>
         </div>
