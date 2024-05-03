@@ -7,9 +7,10 @@ import ItemOrderTable from './ItemOrderTable'
 function ItemBuildsContainer({builds, items}) {
 
     if(builds) {
+
         const organizedBuilds = []
         const matches = builds[2]
-        
+
         if(builds[4] && builds[8]) {
             builds[4].forEach((build) => {
                 if(build.Matches/matches >= 0.0){
@@ -27,16 +28,16 @@ function ItemBuildsContainer({builds, items}) {
                     {
                         organizedBuilds[0].Core.length == 2 ? (
                             builds.slice(7).map((build, index) => (
-                                <ItemOrderTable items={build} order={(index + 3).toString()} />
-                            ))
-                        ) : builds.slice(8).map((build, index) => (
-                            <ItemOrderTable items={build} order={(index + 4).toString()} />
+                                <ItemOrderTable items={build} order={(index + 3).toString()} matches={matches} />
+                            )
+                        )) : builds.slice(8).map((build, index) => (
+                            <ItemOrderTable items={build} order={(index + 4).toString()} matches={matches} />
                         ))
                     }
                 </div>
             )
         }
-    } else {return(<div>No one plays this hero with this role</div>)}
+    } else {return(<div className="bg-gray-700 text-center text-white p-3 rounded-md text-xl">No one plays this hero with this role. Go to the Item Tab for more info</div>)}
     
 
     

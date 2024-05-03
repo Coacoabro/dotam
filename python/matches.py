@@ -133,12 +133,13 @@ def matchDetails(match, builds):
                             # Generating Core Items and Full Items Purchased Order
                             itemBuild = []
                             for item in purchasedItems:
-                                if isSupport == True:
-                                    if item['itemId'] in SupportFull or item['itemId'] in FullItems:
-                                        itemBuild.append(item['itemId'])
-                                else:
-                                    if item['itemId'] in FullItems:
-                                        itemBuild.append(item['itemId'])
+                                if item['itemId'] not in itemBuild:
+                                    if isSupport == True:
+                                        if item['itemId'] in SupportFull or item['itemId'] in FullItems:
+                                            itemBuild.append(item['itemId'])
+                                    else:
+                                        if item['itemId'] in FullItems:
+                                            itemBuild.append(item['itemId'])
 
                             if len(itemBuild) >= 2 and isSupport == True:
                                 core = itemBuild[:2]
@@ -223,16 +224,15 @@ def matchDetails(match, builds):
 i = 0
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
-while i < 1: # Make it 36 later
+while i < 5: # Make it 36 later
     response1 = requests.get(PUBLIC_MATCHES_URL)
     if response1.status_code == 200:
         match_id_start = response1.json()[0]['match_id']
-    url = f'{PUBLIC_MATCHES_URL}?less_than_match_id={match_id_start}&min_rank=81'
+    url = f'{PUBLIC_MATCHES_URL}?less_than_match_id={match_id_start}' # &min_rank=81
     response = requests.get(url)
     if response.status_code == 200:
         matches = response.json()
         for match in matches:
-            print(match)
             builds = matchDetails(match['match_id'], builds)
             # print('New Build:')
             # for build in builds:

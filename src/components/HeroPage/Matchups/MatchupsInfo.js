@@ -18,10 +18,8 @@ function MatchupsInfo( {heroID, matchups} ) {
 
     return(
         <div className="bg-gray-500 p-3 flex justify-evenly text-white rounded-tr-md rounded-b-md">
-            <MatchupContainer vs="BEST AGAINST" heroes={bestag} />
-            <MatchupContainer vs="WORST AGAINST" heroes={worstag} />
-            <MatchupContainer vs="BEST WITH" heroes={bestwi} />
-            <MatchupContainer vs="WORST WITH" heroes={worstwi} />
+            <MatchupContainer vs="AGAINST" heroes={bestag} />
+            <MatchupContainer vs="WITH" heroes={bestwi} />
         </div>
         
     );
