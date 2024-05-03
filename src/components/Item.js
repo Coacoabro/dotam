@@ -4,7 +4,7 @@ import itemIds from '../../dotaconstants/build/item_ids.json'
 import itemConstants from '../../dotaconstants/build/items.json'
 
 function Item({id, width, side, wr, time, matches, pr}) {
-
+    
     const item = itemIds[id]
     const itemName = itemConstants[item].dname
     const itemImg = "https://cdn.cloudflare.steamstatic.com" + itemConstants[item].img

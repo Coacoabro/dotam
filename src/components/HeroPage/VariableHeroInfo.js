@@ -5,10 +5,13 @@ import AbilitiesInfo from './AbilitiesInfo';
 import MatchupsInfo from './Matchups/MatchupsInfo'
 import TopTabBar from './TopTabBar';
 
+import tempBuilds from '../../../test.json'
+
 function VariableHeroInfo({heroID, rank, role, builds, abilities, items, matchups}) {
 
   const [currAbilities, setCurrAbilities] = useState([])
   const [currTalents, setCurrTalents] = useState([])
+  const [currBuilds, setCurrBuilds] = useState([])
   const [currItems, setCurrItems] = useState([])
   const [currMatchups, setCurrMatchups] = useState([])
 
@@ -30,18 +33,20 @@ function VariableHeroInfo({heroID, rank, role, builds, abilities, items, matchup
       let filteredAbilities = abilities.find(r => r.role === role && r.hero_id === heroID)
       let filteredItems = items.find(r => r.role === role && r.rank === trueRank && r.hero_id === heroID)
       let filteredMatchups = matchups.find(r => r.rank === trueRank && r.hero_id === heroID)
+      let filteredBuild = tempBuilds.find(r => r[1] === role && r[0] === heroID)
       setCurrAbilities(filteredAbilities.build)
       setCurrTalents(filteredAbilities.talents)
+      setCurrBuilds(filteredBuild)
       setCurrItems(filteredItems)
       setCurrMatchups(filteredMatchups)
-  }, [heroID, role, abilities, items, trueRank, matchups])
+  }, [heroID, role, abilities, items, trueRank, matchups, tempBuilds])
 
   const [activeTab, setActiveTab] = useState(0);
   let Content;
 
   switch (activeTab) {
     case 0:
-      Content = <BuildsInfo heroID={heroID} abilities={currAbilities} talents={currTalents} items={currItems}/>;
+      Content = <BuildsInfo heroID={heroID} abilities={currAbilities} talents={currTalents} builds={currBuilds} items={currItems}/>;
       break;
     case 1:
       Content = <ItemsInfo heroID={heroID} items={currItems} />;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import NeutralItems from './NeutralItems';
 import StartingItems from './StartingItems'
-import ItemTable from '../../ItemTable';
+import ItemTable from './ItemTable';
 
 function ItemsInfo({heroID, items}) {
 
