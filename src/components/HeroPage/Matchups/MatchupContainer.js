@@ -31,12 +31,12 @@ function MatchupContainer({ vs, heroes }) {
             setSortOrder("desc");
         }
         // Reset display count when sorting changes
-        setDisplayCount(5);
+        setDisplayCount(10);
     };
 
     const handleShowMore = () => {
-        // Increment display count by 5 when "Show More" button is clicked
-        setDisplayCount(prevCount => prevCount + 5);
+        // Increment display count by 20 when "Show More" button is clicked
+        setDisplayCount(prevCount => prevCount + 20);
     };
 
     return (
