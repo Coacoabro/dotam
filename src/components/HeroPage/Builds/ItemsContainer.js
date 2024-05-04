@@ -19,7 +19,7 @@ function ItemBuildsContainer({builds, items}) {
             })
     
             return(
-                <div className="flex justify-evenly items-center">
+                <div className="flex justify-evenly items-center text-white">
                     <div>
                         <StartingItems items={items.starting} />
                         Early Game Items here

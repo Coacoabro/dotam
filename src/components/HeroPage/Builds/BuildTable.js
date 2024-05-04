@@ -49,8 +49,9 @@ function BuildTable(builds) {
             </table>
             {displayCount < sortedBuilds.length ? (
                 <button className="text-white text-lg hover:underline" onClick={handleShowMore}>Show More</button>
-            ) : 
-                <button className="text-white text-lg hover:underline" onClick={handleShowLess}>Show Less</button>}
+            ) : sortedBuilds.length != 1 ? ( 
+                <button className="text-white text-lg hover:underline" onClick={handleShowLess}>Show Less</button>
+            ) : null}
         </div>
     );
     
