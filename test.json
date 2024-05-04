@@ -1,0 +1,7363 @@
+[
+    [
+        84,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 178,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    65,
+                    180
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    65
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 114,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        83,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    609
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        93,
+        "POSITION_1",
+        3,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 181,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 569,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    174,
+                    108
+                ],
+                "Wins": 2,
+                "Matches": 2
+            },
+            {
+                "Core": [
+                    63,
+                    252,
+                    152
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 3,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 174,
+                "Wins": 2,
+                "Matches": 2
+            },
+            {
+                "Item": 252,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 2,
+                "Matches": 2
+            },
+            {
+                "Item": 152,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 598,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        114,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 181,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 569,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    174,
+                    108
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 174,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        2,
+        "POSITION_3",
+        6,
+        [
+            {
+                "Item": 34,
+                "Matches": 4,
+                "Wins": 3,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 178,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    125,
+                    50,
+                    1
+                ],
+                "Wins": 3,
+                "Matches": 3
+            },
+            {
+                "Core": [
+                    125,
+                    1,
+                    50
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    125,
+                    1,
+                    127
+                ],
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    50,
+                    1,
+                    127
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 125,
+                "Wins": 4,
+                "Matches": 5
+            },
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 3,
+                "Matches": 3
+            },
+            {
+                "Item": 1,
+                "Wins": 2,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 3,
+                "Matches": 3
+            },
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 127,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 127,
+                "Wins": 4,
+                "Matches": 4
+            },
+            {
+                "Item": 125,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 190,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 119,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        26,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        21,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    259,
+                    223
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 223,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        109,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    236,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 236,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        58,
+        "POSITION_5",
+        2,
+        [
+            {
+                "Item": 240,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    185,
+                    63
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    63,
+                    236
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 185,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 236,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 102,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        13,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    534,
+                    63,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 534,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        12,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    1,
+                    609
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        74,
+        "POSITION_2",
+        2,
+        [
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    65,
+                    534,
+                    116
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    65,
+                    534,
+                    108
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 534,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 108,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1806,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 609,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        97,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 172,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        10,
+        "POSITION_1",
+        3,
+        [
+            {
+                "Item": 34,
+                "Matches": 3,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 3,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    170,
+                    147
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    63,
+                    81,
+                    170
+                ],
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    63,
+                    170,
+                    81
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 2,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 2,
+                "Matches": 2
+            },
+            {
+                "Item": 81,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 170,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 81,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 139,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1808,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 172,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        []
+    ],
+    [
+        60,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    252,
+                    609
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 252,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        123,
+        "POSITION_4",
+        3,
+        [
+            {
+                "Item": 240,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 3,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    1
+                ],
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    206
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 206,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 102,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 166,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1466,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        136,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    1128
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1128,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 229,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        54,
+        "POSITION_1",
+        2,
+        [
+            {
+                "Item": 181,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 569,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": true
+            },
+            {
+                "Item": 240,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    151,
+                    137
+                ],
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    50,
+                    168,
+                    609
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 151,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 168,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 137,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 112,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        17,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    98,
+                    259
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 98,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        23,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    98,
+                    108
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 98,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        31,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    1128,
+                    609
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1128,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 229,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        111,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    100
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    1107
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 100,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        8,
+        "POSITION_1",
+        2,
+        [
+            {
+                "Item": 75,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    166,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    50,
+                    166,
+                    172
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 172,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 170,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 158,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        22,
+        "POSITION_2",
+        3,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 3,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    1107,
+                    259
+                ],
+                "Wins": 1,
+                "Matches": 2
+            },
+            {
+                "Core": [
+                    180,
+                    1107,
+                    609
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 2,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 1,
+                "Matches": 2
+            },
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 277,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 247,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 236,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        []
+    ],
+    [
+        111,
+        "POSITION_5",
+        2,
+        [
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    1107
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        51,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": true
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    226
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    214,
+                    127
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 226,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 127,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 226,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        97,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    1,
+                    63,
+                    252
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 252,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 223,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        37,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        71,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 73,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": true
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    65
+                ],
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 152,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        110,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    92,
+                    190
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 92,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 190,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        33,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    1
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        35,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    172,
+                    166
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 172,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 158,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        63,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 596,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    596,
+                    123,
+                    63
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 596,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 123,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        87,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    92,
+                    267
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 92,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 267,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 254,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        95,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    145,
+                    116
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 145,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        121,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 37,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        3,
+        "POSITION_2",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    1107,
+                    232
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    63,
+                    1107,
+                    108
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 108,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 102,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        85,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    127
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 127,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        41,
+        "POSITION_1",
+        2,
+        [
+            {
+                "Item": 75,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    172,
+                    166
+                ],
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 172,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 158,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 141,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        []
+    ],
+    [
+        14,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    1
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        48,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    172,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 172,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1808,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        []
+    ],
+    [
+        50,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    79
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 79,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 231,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        30,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    609
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        69,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    65,
+                    190
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 190,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 119,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        1,
+        "POSITION_1",
+        3,
+        [
+            {
+                "Item": 75,
+                "Matches": 3,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    145,
+                    170
+                ],
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    145,
+                    63,
+                    170
+                ],
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 145,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 145,
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 0,
+                "Matches": 3
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        84,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    65
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        20,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": true
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    108
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        105,
+        "POSITION_5",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    180,
+                    259
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 259,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 79,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 37,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 176,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        18,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    172,
+                    252
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 172,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 252,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 141,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 939,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        []
+    ],
+    [
+        90,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    104,
+                    201
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 104,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 201,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 202,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 203,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 204,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 235,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        []
+    ],
+    [
+        78,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    65,
+                    137,
+                    267
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 137,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 267,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        70,
+        "POSITION_1",
+        3,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 181,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 569,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    145,
+                    1
+                ],
+                "Wins": 0,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    50,
+                    145,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    145,
+                    50,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 2
+            },
+            {
+                "Item": 145,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 145,
+                "Wins": 1,
+                "Matches": 2
+            },
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 2
+            },
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 162,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 143,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 154,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 125,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 208,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 143,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 174,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 125,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1096,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 208,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ]
+    ],
+    [
+        37,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    609
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        19,
+        "POSITION_4",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    63,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 100,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1808,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        114,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    166,
+                    206
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 206,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1466,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        102,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        25,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    152,
+                    149
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 152,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        3,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        75,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    102
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 102,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 206,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        21,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    108,
+                    135
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 135,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        106,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    166,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 598,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        61,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 178,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    98,
+                    1107
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 98,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1808,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        28,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    1,
+                    162
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 162,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 210,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        123,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    166
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        98,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    1,
+                    259
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 259,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        120,
+        "POSITION_2",
+        2,
+        [
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 240,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    174,
+                    108
+                ],
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 174,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 143,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        15,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 596,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    596,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 596,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        20,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        6,
+        "POSITION_1",
+        2,
+        [
+            {
+                "Item": 75,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    236,
+                    108
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    63,
+                    236,
+                    170
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 236,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 170,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 152,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 102,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 263,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        92,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": true
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    1107,
+                    185
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 185,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        40,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 181,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 569,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    102
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 102,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        112,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    65,
+                    63,
+                    1
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        27,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        57,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": true
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    1107,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        135,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    79
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 79,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        4,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    166,
+                    116
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        45,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        25,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        135,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 178,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 240,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    168,
+                    609
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 168,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        34,
+        "POSITION_2",
+        2,
+        [
+            {
+                "Item": 178,
+                "Matches": 2,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    1,
+                    190,
+                    119
+                ],
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 190,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 119,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 0,
+                "Matches": 2
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        30,
+        "POSITION_5",
+        2,
+        [
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254
+                ],
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 92,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        128,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    79
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 79,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 231,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        62,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    108,
+                    116
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 123,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 149,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1107,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1808,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        []
+    ],
+    [
+        23,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    127,
+                    108
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 127,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 121,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 190,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        40,
+        "POSITION_5",
+        2,
+        [
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    92
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    92,
+                    180
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 92,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 92,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 267,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 102,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 100,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        29,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": true
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    81,
+                    190
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 81,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 190,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        26,
+        "POSITION_5",
+        2,
+        [
+            {
+                "Item": 244,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 244,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": true
+            }
+        ],
+        [
+            {
+                "Core": [
+                    214,
+                    1
+                ],
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 214,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        94,
+        "POSITION_1",
+        2,
+        [
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    170,
+                    147
+                ],
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 2,
+                "Matches": 2
+            }
+        ],
+        [
+            {
+                "Item": 174,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 139,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1096,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 160,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 133,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        50,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 77,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    254,
+                    231
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 254,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 231,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        14,
+        "POSITION_3",
+        2,
+        [
+            {
+                "Item": 73,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": true
+            },
+            {
+                "Item": 34,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 2,
+                "Wins": 2,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    1,
+                    232,
+                    127
+                ],
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Core": [
+                    50,
+                    1,
+                    108
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 50,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 127,
+                "Wins": 1,
+                "Matches": 1
+            },
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 190,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        104,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    1,
+                    162
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 162,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        44,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 240,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    168,
+                    116
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 168,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 116,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        86,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        49,
+        "POSITION_3",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 178,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    65,
+                    63,
+                    170
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 170,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 147,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        86,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 1,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 1,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        73,
+        "POSITION_1",
+        1,
+        [
+            {
+                "Item": 178,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    50,
+                    65,
+                    166
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 50,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 1,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        83,
+        "POSITION_4",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 181,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    108
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        53,
+        "POSITION_2",
+        1,
+        [
+            {
+                "Item": 34,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 73,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 75,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            },
+            {
+                "Item": 36,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    63,
+                    65,
+                    98
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 63,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 65,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 98,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 166,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 108,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    [
+        79,
+        "POSITION_5",
+        1,
+        [
+            {
+                "Item": 88,
+                "Matches": 1,
+                "Wins": 0,
+                "isSecondPurchase": false
+            }
+        ],
+        [
+            {
+                "Core": [
+                    180,
+                    232
+                ],
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 180,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 232,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 609,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [
+            {
+                "Item": 37,
+                "Wins": 0,
+                "Matches": 1
+            }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+]

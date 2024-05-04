@@ -62,6 +62,8 @@ def matchDetails(match, builds):
     global SupportFull
     global FullItems
 
+    Order = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Nineth', 'Tenth']
+
 
     query = f"""
             query{{
@@ -85,85 +87,172 @@ def matchDetails(match, builds):
     response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=10)
     data = json.loads(response.text)
 
-    checker = data['data']['match']['players'][0]['playbackData']
+    checker1 = data['data']['match']
     
-    if checker == None:
+    if checker1 == None:
         return builds
     else:
-        if match not in stored_matches:
+        checker2 = data['data']['match']['players'][0]['playbackData']
+        if checker2 == None:
+            return builds
+        else:
+            if match not in stored_matches:
 
-            didRadiantWin = data['data']['match']['didRadiantWin']
-            players = data['data']['match']['players']
+                didRadiantWin = data['data']['match']['didRadiantWin']
+                players = data['data']['match']['players']
 
-            for player in players:
-                itemBuild = []
-                finalBuild = {}
-                for hero in immortal_heroes:
-                    if hero[0] == player['heroId'] and hero[6] == player['position']:
+                for player in players:
+                    for hero in immortal_heroes:
                         heroId = hero[0]
                         position = hero[6]
-                        win = 0
-                        if didRadiantWin == player['isRadiant']:
-                            win = 1
-                        for item in player['playbackData']['purchaseEvents']:
+                        
+                        if heroId == player['heroId'] and position == player['position']:
+
+                            purchasedItems = player['playbackData']['purchaseEvents']
+
+                            isSupport = False
                             if position == 'POSITION_4' or position == 'POSITION_5':
-                                if item['itemId'] in SupportFull or item['itemId'] in FullItems:
-                                    itemBuild.append(item['itemId'])
-                                if len(itemBuild) >= 2:
-                                    core = [itemBuild[0], itemBuild[1]]
-                                    late = itemBuild[2:]
+                                isSupport = True
+
+                            win = 0
+                            if didRadiantWin == player['isRadiant']:
+                                win = 1
+
+                            # Early Game Items
+                            earlyItems = []
+                            tempItemArray = []
+                            for item in purchasedItems:
+                                item_id = item['itemId']
+                                if item['time'] < 900 and item_id in Early:
+                                    secondPurchase = False
+                                    if item_id in tempItemArray:
+                                        secondPurchase = True
+                                    tempItemArray.append(item_id)
+                                    earlyItems.append({'Item': item['itemId'], 'isSecondPurchase': secondPurchase})
+
+                            # Generating Core Items and Full Items Purchased Order
+                            itemBuild = []
+                            for item in purchasedItems:
+                                if item['itemId'] not in itemBuild:
+                                    if isSupport == True:
+                                        if item['itemId'] in SupportFull or item['itemId'] in FullItems:
+                                            itemBuild.append(item['itemId'])
+                                    else:
+                                        if item['itemId'] in FullItems:
+                                            itemBuild.append(item['itemId'])
+
+                            if len(itemBuild) >= 2 and isSupport == True:
+                                core = itemBuild[:2]
+                            elif len(itemBuild) >= 3 and isSupport == False:
+                                core = itemBuild[:3]
                             else:
-                                if item['itemId'] in FullItems:
-                                    itemBuild.append(item['itemId'])
-                                if len(itemBuild) >= 3:
-                                    core = [itemBuild[0], itemBuild[1], itemBuild[2]]
-                                    late = itemBuild[3:]
-                        heroFound = False
-                        for hero_role in builds:
-                            if hero_role[0] == heroId and hero_role[1] == position:
-                                heroFound = True
-                                buildFound = False
-                                for build in hero_role[3]:
-                                    if build['Core'] == core:
-                                        build['Wins'] += win
-                                        build['Matches'] += 1
-                                        buildFound = True
-                                        break
-                                if not buildFound:
-                                    hero_role[3].append({'Core': core, 'Wins': win, 'Matches': 1})
+                                core = None
                                 break
-                        if not heroFound:
-                            builds.append([heroId, position, 'Early', [{'Core': core, 'Wins': win, 'Matches': 1}]])
-            
-                                
+                            
+                            heroFound = False
+                            for hero_role in builds:
+                                if hero_role[0] == heroId and hero_role[1] == position:
+                                    hero_role[2] += 1 # Matches increased
+                                    heroFound = True
 
-                stored_matches.append(match)
+                                    
+                                    for earlyGameItem in earlyItems:
+                                        earlyFound = False
+                                        for earlyItem in hero_role[3]:
+                                            if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
+                                                earlyItem['Matches'] += 1
+                                                earlyItem['Wins'] += win
+                                                earlyFound = True
+                                                break
+                                        if not earlyFound:
+                                            hero_role[3].append({'Item': earlyGameItem['Item'], 'Matches': 1, 'Wins': win, 'isSecondPurchase': earlyGameItem['isSecondPurchase']})
 
-        return builds
+                                    buildFound = False
+                                    for build in hero_role[4]:
+                                        if build['Core'] == core:
+                                            build['Wins'] += win
+                                            build['Matches'] += 1
+                                            buildFound = True
+                                            break
+                                    if not buildFound:
+                                        hero_role[4].append({'Core': core, 'Wins': win, 'Matches': 1})
+                                    
+                                    n = 4
+                                    for gameItem in itemBuild:
+                                        n += 1
+                                        if n < 15:
+                                            itemOrderFound = False
+                                            for orderedItem in hero_role[n]:
+                                                if orderedItem['Item'] == gameItem:
+                                                    orderedItem['Wins'] += win
+                                                    orderedItem['Matches'] += 1
+                                                    itemOrderFound = True
+                                                    break
+                                            if not itemOrderFound:
+                                                hero_role[n].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+
+                                    break
+                            if not heroFound:
+
+                                # Early Game Items
+                                earlyItems = []
+                                tempItemArray = []
+                                for item in purchasedItems:
+                                    item_id = item['itemId']
+                                    if item['time'] <= 900 and item_id in Early:
+                                        secondPurchase = False
+                                        if item_id in tempItemArray:
+                                            secondPurchase = True
+                                        tempItemArray.append(item_id)
+                                        earlyItems.append({'Item': item['itemId'], 'Matches': 1, 'Wins': win, 'isSecondPurchase': secondPurchase})
+
+                                full_data = [heroId, position, 1, earlyItems, [{'Core': core, 'Wins': win, 'Matches': 1}]]
+                                for item in itemBuild:
+                                    full_data.append([{'Item': item, 'Wins': win, 'Matches': 1}])
+                                while len(full_data) < 15:
+                                    full_data.append([])
+                                builds.append(full_data)
+
+                    stored_matches.append(match)
+
+            return builds
 
 
 # match_id_start = 7709069413
 
-while True:
-    i = 0
-    cur.execute("SELECT * from builds")
-    builds = cur.fetchall()
-    while i < 36:
-        response1 = requests.get(PUBLIC_MATCHES_URL)
-        if response1.status_code == 200:
-            match_id_start = response1.json()[0]['match_id']
-        url = f'{PUBLIC_MATCHES_URL}?less_than_match_id={match_id_start}&min_rank=81'
-        response = requests.get(url)
-        if response.status_code == 200:
-            matches = response.json()
-            for match in matches:
-                builds = matchDetails(match['match_id'], builds)
-                print('New Build:')
-                print(builds)
-                time.sleep(1)
-            match_id_start = matches[-1]['match_id']
-        if len(stored_matches) > 86400:
-            stored_matches = stored_matches[:43200]
-        i += 1
+# while True:
+i = 0
+cur.execute("SELECT * from builds")
+builds = cur.fetchall()
+while i < 5: # Make it 36 later
+    response1 = requests.get(PUBLIC_MATCHES_URL)
+    if response1.status_code == 200:
+        match_id_start = response1.json()[0]['match_id']
+    url = f'{PUBLIC_MATCHES_URL}?less_than_match_id={match_id_start}' # &min_rank=81
+    response = requests.get(url)
+    if response.status_code == 200:
+        matches = response.json()
+        for match in matches:
+            builds = matchDetails(match['match_id'], builds)
+            # print('New Build:')
+            # for build in builds:
+            #     # if build[0] == 1:
+            #     print('Hero: ', build[0])
+            #     print('Position: ', build[1])
+            #     print('Matches: ', build[2])
+            #     print('Early: ', build[3])
+            #     print('Core: ', build[4])
+            #     print('3rd Item: ', build[7])
+            #     print('4th Item: ', build[8])
+            #     print('5th Item: ', build[9])
+            #     print('6th Item: ', build[10])
+            #     print('7th Item: ', build[11])
+            # time.sleep(1)
+        match_id_start = matches[-1]['match_id']
+    if len(stored_matches) > 86400:
+        stored_matches = stored_matches[:43200]
+    i += 1
+with open("test.json", "w") as json_file:
+    json.dump(builds, json_file, indent=4)
         
     

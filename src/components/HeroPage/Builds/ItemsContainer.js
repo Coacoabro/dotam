@@ -1,101 +1,45 @@
 import React, { useEffect, useState } from 'react';
 
-import NeutralItems from '../Items/NeutralItems';
-import StartingItems from './StartingItems'
-import ItemTable from '../../ItemTable';
+import BuildTable from './BuildTable'
+import StartingItems from '../Items/StartingItems'
+import ItemOrderTable from './ItemOrderTable'
 
-function ItemBuildsContainer({build, boots, starting, main, neutrals}) {
+function ItemBuildsContainer({builds, items}) {
 
+    if(builds) {
+
+        const organizedBuilds = []
+        const matches = builds[2]
+
+        if(builds[4] && builds[8]) {
+            builds[4].forEach((build) => {
+                if(build.Matches/matches >= 0.0){
+                    organizedBuilds.push({'Core': build.Core, 'PR': ((build.Matches/matches)*100).toFixed(2), 'WR': ((build.Wins/build.Matches)*100).toFixed(2), 'Matches': build.Matches})
+                }
+            })
     
-
-    const [loaded, setLoaded] = useState(false)
-    const [neutralArray, setNeutralArray] = useState([])
-    const [early, setEarly] = useState([])
-    const [core, setCore] = useState([])
-    const [late, setLate] = useState([])
-    const [allBoots, setAllBoots] = useState([])
-
-    useEffect(() => {
-        setLoaded(false)
-        if(neutrals && main) {
-            setNeutralArray(neutrals)
-            if(main.Early[0]){
-                let maxMatches = main.Early[0].Matches
-                setEarly(main.Early
-                    .filter(item => (item.Matches / maxMatches) >= 0.05)
-                    .sort((a, b) => a.Time - b.Time)
-                );
-            } else {setEarly("Not enough data")}
-            
-            if(main.Core[0]){
-                let maxMatches = main.Core[0].Matches
-                setCore(main.Core
-                    .filter(item => (item.Matches / maxMatches) >= 0.05)
-                    .sort((a, b) => a.Time - b.Time)
-                );
-            } else {setCore("Not enough data")}
-
-            if(main.Late[0]){
-                let maxMatches = main.Late[0].Matches
-                setLate(main.Late
-                    .filter(item => (item.Matches / maxMatches) >= 0.05)
-                    .sort((a, b) => a.Time - b.Time)
-                );
-            } else {setLate("Not enough data")}
-
-            setAllBoots([...boots.Early, ...boots.Late]);
-
-            setLoaded(true)
+            return(
+                <div className="flex justify-evenly items-center text-white">
+                    <div>
+                        <StartingItems items={items.starting} />
+                        Early Game Items here
+                    </div>
+                    <BuildTable builds={organizedBuilds} />
+                    {
+                        organizedBuilds[0].Core.length == 2 ? (
+                            builds.slice(7).map((build, index) => (
+                                <ItemOrderTable items={build} order={(index + 3).toString()} matches={matches} />
+                            )
+                        )) : builds.slice(8).map((build, index) => (
+                            <ItemOrderTable items={build} order={(index + 4).toString()} matches={matches} />
+                        ))
+                    }
+                </div>
+            )
         }
-    },[neutrals, main, boots])
+    } else {return(<div className="bg-gray-700 text-center text-white p-3 rounded-md text-xl">No one plays this hero with this role. Go to the Item Tab for more info</div>)}
     
-    if(loaded) {
-        return(
-            <div className="space-y-8">  
-                <div className="flex justify-evenly">
-                    <div className="space-y-2 md:w-64">
-                        <StartingItems items={starting} />
-                    </div>   
-                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
-                        <h1 className="text-lg">BOOTS</h1>
-                        <ItemTable items={allBoots}/>
-                    </div>
-                </div>
-                           
-                <div className="flex justify-evenly px-2 space-x-8 space-y-2">
-                    
-                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
-                        <h1 className="text-2xl">EARLY</h1>
-                        <h2 className='text-sm'>Items to help with the early game</h2>
-                        <ItemTable items={early} />
-                    </div>
-                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
-                        <h1 className="text-2xl">CORE</h1>
-                        <h2 className='text-sm'>Items before 30 min</h2>
-                        <ItemTable items={core} />
-                    </div>
-                    <div className="text-white bg-gray-600 p-2 space-y-2 rounded-md">
-                        <h1 className="text-2xl">LATE</h1>
-                        <h2 className='text-sm'>Items after 30 min</h2>
-                        <ItemTable items={late} />
-                    </div>
-                    
-                </div>
-                <div className='rounded-md p-2 space-y-2'>
-                    <h1 className="text-center text-xl text-white">NEUTRAL ITEMS</h1>
-                    <div className="flex justify-center space-y-1">
-                        <div className="flex justify-evenly text-center space-x-2">
-                            <NeutralItems tier="1" neutrals={neutralArray["Tier 1"]} />
-                            <NeutralItems tier="2" neutrals={neutralArray["Tier 2"]} />
-                            <NeutralItems tier="3" neutrals={neutralArray["Tier 3"]} /> 
-                            <NeutralItems tier="4" neutrals={neutralArray["Tier 4"]} />
-                            <NeutralItems tier="5" neutrals={neutralArray["Tier 5"]} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+
     
 }
 
