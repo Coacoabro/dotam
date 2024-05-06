@@ -49,7 +49,7 @@ FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 1
               174, 176, 180, 185, 190, 193, 194, 196, 201, 202, 203, 204, 206, 208, 
               210, 214, 220, 223, 225, 226, 229, 231, 232, 235, 236, 242, 247, 249, 
               250, 252, 254, 256, 259, 263, 267, 269, 271, 273, 277, 534, 596, 598, 
-              600, 603, 604, 609, 610, 635, 931, 939, 1096, 1107, 1466, 1806, 1808]
+              600, 603, 604, 609, 610, 635, 931, 939, 1097, 1107, 1466, 1806, 1808]
 
 def matchDetails(match, builds):
 
@@ -84,7 +84,7 @@ def matchDetails(match, builds):
             }}
         """
 
-    response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=10)
+    response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=60)
     data = json.loads(response.text)
 
     checker1 = data['data']['match']
@@ -224,7 +224,7 @@ def matchDetails(match, builds):
 i = 0
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
-while i < 4: # 4 x 100 matches x 9 seconds per match = 3600 seconds = 1 hour
+while i < 18: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
     response1 = requests.get(PUBLIC_MATCHES_URL)
     if response1.status_code == 200:
         match_id_start = response1.json()[0]['match_id']
@@ -234,12 +234,12 @@ while i < 4: # 4 x 100 matches x 9 seconds per match = 3600 seconds = 1 hour
         matches = response.json()
         for match in matches:
             builds = matchDetails(match['match_id'], builds)
-            time.sleep(9)
+            # time.sleep(2)
         match_id_start = matches[-1]['match_id']
     if len(stored_matches) > 86400:
         stored_matches = stored_matches[:43200]
     i += 1
-with open("test.json", "w") as json_file:
+with open("test2.json", "w") as json_file:
     json.dump(builds, json_file, indent=4)
         
     
