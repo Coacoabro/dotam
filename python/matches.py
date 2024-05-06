@@ -224,7 +224,7 @@ def matchDetails(match, builds):
 i = 0
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
-while i < 5: # Make it 36 later
+while i < 4: # 4 x 100 matches x 9 seconds per match = 3600 seconds = 1 hour
     response1 = requests.get(PUBLIC_MATCHES_URL)
     if response1.status_code == 200:
         match_id_start = response1.json()[0]['match_id']
@@ -234,20 +234,7 @@ while i < 5: # Make it 36 later
         matches = response.json()
         for match in matches:
             builds = matchDetails(match['match_id'], builds)
-            # print('New Build:')
-            # for build in builds:
-            #     # if build[0] == 1:
-            #     print('Hero: ', build[0])
-            #     print('Position: ', build[1])
-            #     print('Matches: ', build[2])
-            #     print('Early: ', build[3])
-            #     print('Core: ', build[4])
-            #     print('3rd Item: ', build[7])
-            #     print('4th Item: ', build[8])
-            #     print('5th Item: ', build[9])
-            #     print('6th Item: ', build[10])
-            #     print('7th Item: ', build[11])
-            # time.sleep(1)
+            time.sleep(9)
         match_id_start = matches[-1]['match_id']
     if len(stored_matches) > 86400:
         stored_matches = stored_matches[:43200]

@@ -28,6 +28,9 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
+# hero_ids = hero_ids[:len(hero_ids)//3]
+# hero_ids = hero_ids[len(hero_ids)//3:2*len(hero_ids)//3]
+# hero_ids = hero_ids[2*len(hero_ids)//3:]
 
 
 constquery = """
@@ -205,6 +208,11 @@ for hero_id in hero_ids:
             
             abilityBuild = [None]*16
 
+            isInvoker = False
+
+            if hero_id == 74:
+                isInvoker = True
+
             # Level 1
             abilityBuild[0] = firstLevels[0]['Ability']
             # Level 2
@@ -226,29 +234,53 @@ for hero_id in hero_ids:
             # Level 5
             abilityBuild[4] = finalLevels[0]['Ability']
             # Level 6 (Ultimate)
-            abilityBuild[5] = -1
+            if isInvoker:
+                abilityBuild[5] = finalLevels[1]['Ability']
+            else:
+                abilityBuild[5] = -1
             # Level 7
             abilityBuild[6] = finalLevels[0]['Ability']
             # Level 8
-            if finalLevels[0]['Level'] != 7:
-                abilityBuild[7] = finalLevels[0]['Ability']
-            else: abilityBuild[7] = finalLevels[1]['Ability']
+            if isInvoker:
+                abilityBuild[7] = finalLevels[1]['Ability']
+            else:
+                if finalLevels[0]['Level'] != 7:
+                    abilityBuild[7] = finalLevels[0]['Ability']
+                else: abilityBuild[7] = finalLevels[1]['Ability']
             # Level 9
-            abilityBuild[8] = finalLevels[1]['Ability']
+            if isInvoker:
+                abilityBuild[8] = finalLevels[0]['Ability']
+            else:
+                abilityBuild[8] = finalLevels[1]['Ability']
             # Level 10 (Talent)
             abilityBuild[9] = 0
             # Level 11
-            abilityBuild[10] = finalLevels[1]['Ability']
+            if isInvoker:
+                abilityBuild[10] = finalLevels[0]['Ability']
+            else:
+                abilityBuild[10] = finalLevels[1]['Ability']
             # Level 12 (Ultimate)
-            abilityBuild[11] = -1
+            if isInvoker:
+                abilityBuild[11] = finalLevels[1]['Ability']
+            else:
+                abilityBuild[11] = -1
             # Level 13
-            abilityBuild[12] = finalLevels[2]['Ability']
+            if isInvoker:
+                abilityBuild[12] = finalLevels[0]['Ability']
+            else:
+                abilityBuild[12] = finalLevels[2]['Ability']
             # Level 14
-            abilityBuild[13] = finalLevels[2]['Ability']
+            if isInvoker:
+                abilityBuild[13] = finalLevels[1]['Ability']
+            else:
+                abilityBuild[13] = finalLevels[2]['Ability']
             # Level 15 (Talent)
             abilityBuild[14] = 0
             # Level 16
-            abilityBuild[15] = finalLevels[2]['Ability']            
+            if isInvoker:
+                abilityBuild[15] = finalLevels[1]['Ability']
+            else:
+                abilityBuild[15] = finalLevels[2]['Ability']            
 
             for talent in talents:
                 if talent['abilityId'] != 730:
