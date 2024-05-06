@@ -8,7 +8,7 @@ function BuildRow({build, pr, wr, matches}) {
     
     return(
         <tr className={`bg-gray-700 text-white h-16 items-center`}>
-            <td className="flex">
+            <td className="flex h-9">
                 <Item id={build[0]} width={16} />
                 <Item id={build[1]} width={16} />
                 <Item id={build[2]} width={16} />

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 import BuildTable from './BuildTable'
+import Early from './Early'
 import StartingItems from '../Items/StartingItems'
 import ItemOrderTable from './ItemOrderTable'
 
 function ItemBuildsContainer({builds, items}) {
 
     if(builds) {
-
+        
         const organizedBuilds = []
         const matches = builds[2]
 
@@ -20,9 +21,9 @@ function ItemBuildsContainer({builds, items}) {
     
             return(
                 <div className="flex justify-evenly items-center text-white">
-                    <div>
+                    <div className="space-y-3">
                         <StartingItems items={items.starting} />
-                        Early Game Items here
+                        <Early items={builds[3]} matches={matches} />
                     </div>
                     <BuildTable builds={organizedBuilds} />
                     {

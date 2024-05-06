@@ -49,10 +49,16 @@ roles = ['', 'POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
 Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
+Support = [30, 40, 42, 43, 45, 188, 257, 286]
 Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
 
 for hero_id in hero_ids:
     for role in roles:
+
+        isSupport = False
+        if role == 'POSITION_4' or role == 'POSITION_5':
+            isSupport = True
+            
         for rank in ranks:
             query = f"""
                 query {{
@@ -142,10 +148,12 @@ for hero_id in hero_ids:
                 startingFinal = []
 
                 for item in startingItems:
-
                     startingGold -= itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
                     if startingGold > 0 and len(startingFinal) < 6:
-                        startingFinal.append(item['itemId'])
+                        if isSupport:
+                            startingFinal.append(item['itemId'])
+                        elif item['itemId'] not in Support:
+                            startingFinal.append(item['itemId'])
                     else:
                         startingGold += itemsData_dict.get(item['itemId'], {}).get('stat', {}).get('cost')
                         startingGold -= 50
@@ -153,6 +161,7 @@ for hero_id in hero_ids:
                             startingFinal.append(16)
                         else:
                             break
+                            
             
             organizedItems = {}
 

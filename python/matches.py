@@ -40,7 +40,7 @@ Boots = [29, 48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
 Support = [30, 40, 42, 43, 45, 188, 257, 286]
 Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
 
-Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
+Early = [29, 34, 36, 41, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
 
 SupportFull = [37, 79, 90, 92, 102, 226, 231, 254, 269, 1128]
 FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114,
@@ -224,7 +224,15 @@ def matchDetails(match, builds):
 i = 0
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
-while i < 18: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
+
+# with open("test2.json", "w") as json_file:
+#     json.dump(builds, json_file, indent=4)    
+
+n = 0
+for n in range(len(builds)):
+    builds[n] = list(builds[n])
+
+while i < 1: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
     response1 = requests.get(PUBLIC_MATCHES_URL)
     if response1.status_code == 200:
         match_id_start = response1.json()[0]['match_id']
@@ -239,7 +247,38 @@ while i < 18: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
     if len(stored_matches) > 86400:
         stored_matches = stored_matches[:43200]
     i += 1
-with open("test2.json", "w") as json_file:
-    json.dump(builds, json_file, indent=4)
-        
+
+
+
+for build in builds:
+    cur.execute("""
+        SELECT 1 FROM builds WHERE hero_id = %s AND role = %s
+    """, (build[0], build[1]))
+    if cur.fetchone():
+        cur.execute("""
+            UPDATE builds
+            SET total_matches = %s,
+                early = %s,
+                core = %s,
+                item01 = %s,
+                item02 = %s,
+                item03 = %s,
+                item04 = %s,
+                item05 = %s,
+                item06 = %s,
+                item07 = %s,
+                item08 = %s,
+                item09 = %s,
+                item10 = %s
+            WHERE hero_id = %s AND role = %s        
+            """, (build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), build[0], build[1]))
+    else:
+        cur.execute("""
+                INSERT INTO builds (hero_id, role, total_matches, early, core, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (build[0], build[1], build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]))
+        )
+conn.commit()
+
+    
     
