@@ -37,9 +37,14 @@ const AbilitiesContainer = ({hero, abilities}) => {
           basicAbilities.push(ability)
       }
   })
-  const ultimateAbility = basicAbilities[basicAbilities.length - 1] 
-  const abilitiesConverted = basicAbilities.filter(value => abilities.map(id => abilityIds[id] || 'Unknown').includes(value))
-  abilitiesConverted.push(ultimateAbility)
+
+  let abilitiesConverted = []
+  if(basicAbilities.length != 4){
+    const ultimateAbility = basicAbilities[basicAbilities.length - 1] 
+    abilitiesConverted = basicAbilities.filter(value => abilities.map(id => abilityIds[id] || 'Unknown').includes(value))
+    abilitiesConverted.push(ultimateAbility)
+  } else {abilitiesConverted = basicAbilities}
+  
   const finishedAbilities = []
 
   abilities.forEach((ability) => {

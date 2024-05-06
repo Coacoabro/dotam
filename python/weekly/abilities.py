@@ -11,6 +11,9 @@ import requests
 with open('./dotaconstants/build/ability_ids.json') as f:
     ability_ids_json = json.load(f)
 
+with open('./dotaconstants/build/abilities.json') as f:
+    abilities_json = json.load(f)
+
 
 load_dotenv()
 
@@ -48,8 +51,10 @@ constdata = json.loads(constresponse.text)
 abilityData = constdata['data']['constants']['abilities']
 
 for ability in abilityData:
-         if ability['isTalent'] is not None and ability['stat'] is not None:
-            if ability['isTalent'] == False and ability['stat']['isUltimate'] == False:
+    if ability['isTalent'] is not None and ability['stat'] is not None:
+        abilityName = ability_ids_json[str(ability['id'])]
+        if ability['isTalent'] == False and ability['stat']['isUltimate'] == False and abilityName != 'default_attack' and abilityName != 'attribute_bonus':
+            if 'Hidden' not in abilities_json[abilityName]['behavior']:
                 abilities.append(ability['id'])
 
 roles = ['', 'POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
@@ -101,6 +106,7 @@ for hero_id in hero_ids:
 
         for ability in abilityMinLevel:
             if ability['abilityId'] in abilities and ability['matchCount'] > 100:
+
                 if ability['abilityId'] != ability1 and ability1 == 0:
                     ability1 = ability['abilityId']
                 elif ability['abilityId'] != ability2 and ability2 == 0 and ability['abilityId'] != ability1:
