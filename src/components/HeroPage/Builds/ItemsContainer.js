@@ -10,10 +10,10 @@ function ItemBuildsContainer({builds, items}) {
     if(builds) {
         
         const organizedBuilds = []
-        const matches = builds[2]
+        const matches = builds.total_matches
 
-        if(builds[4] && builds[8]) {
-            builds[4].forEach((build) => {
+        if(builds.core && builds.item04) {
+            builds.core.forEach((build) => {
                 if(build.Matches/matches >= 0.0){
                     organizedBuilds.push({'Core': build.Core, 'PR': ((build.Matches/matches)*100).toFixed(2), 'WR': ((build.Wins/build.Matches)*100).toFixed(2), 'Matches': build.Matches})
                 }
@@ -23,18 +23,18 @@ function ItemBuildsContainer({builds, items}) {
                 <div className="flex justify-evenly items-center text-white">
                     <div className="space-y-3">
                         <StartingItems items={items.starting} />
-                        <Early items={builds[3]} matches={matches} />
+                        <Early items={builds.early} matches={matches} />
                     </div>
                     <BuildTable builds={organizedBuilds} />
-                    {
-                        organizedBuilds[0].Core.length == 2 ? (
-                            builds.slice(7).map((build, index) => (
-                                <ItemOrderTable items={build} order={(index + 3).toString()} matches={matches} />
-                            )
-                        )) : builds.slice(8).map((build, index) => (
-                            <ItemOrderTable items={build} order={(index + 4).toString()} matches={matches} />
+                    {organizedBuilds[0].Core.length === 2 ? (
+                        Object.keys(builds).slice(7).map((key, index) => (
+                            <ItemOrderTable items={builds[key]} order={(index + 3).toString()} matches={matches} />
                         ))
-                    }
+                    ) : (
+                        Object.keys(builds).slice(8).map((key, index) => (
+                            <ItemOrderTable items={builds[key]} order={(index + 4).toString()} matches={matches} />
+                        ))
+                    )}
                 </div>
             )
         }

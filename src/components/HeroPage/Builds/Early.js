@@ -4,8 +4,6 @@ import Item from '../../Item'
 
 function Early({items, matches}) {
 
-    console.log(items, matches)
-
     const earlyFinal = []
 
     items.map((item) => {
@@ -21,7 +19,7 @@ function Early({items, matches}) {
             <div className="flex space-x-2 justify-evenly">
                 <div className="rounded-md p-2 text-white space-y-3">
                     {/* <h1 className='text-white'>Buy these every game</h1> */}
-                    <div className="flex flex-wrap justify-between">
+                    <div className="flex flex-wrap justify-evenly">
                         {earlyFinal.map((item) => (
                             <div className="text-xs">
                                 <Item id={item.Item} width={12} />

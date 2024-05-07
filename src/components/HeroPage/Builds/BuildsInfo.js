@@ -7,7 +7,7 @@ import ItemsContainer from './ItemsContainer';
 import heroes from '../../../../dotaconstants/build/heroes.json'
 
 
-function BuildsInfo({heroID, builds, abilities, talents, items}) {
+function BuildsInfo({heroID, builds, temp, abilities, talents, items}) {
 
     const heroName = heroes[heroID].name
 
