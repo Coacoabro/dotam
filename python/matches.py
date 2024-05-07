@@ -218,8 +218,6 @@ def matchDetails(match, builds):
             return builds
 
 
-# match_id_start = 7709069413
-
 # while True:
 i = 0
 cur.execute("SELECT * from builds")
@@ -232,7 +230,7 @@ n = 0
 for n in range(len(builds)):
     builds[n] = list(builds[n])
 
-while i < 1: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
+while i < 3: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
     response1 = requests.get(PUBLIC_MATCHES_URL)
     if response1.status_code == 200:
         match_id_start = response1.json()[0]['match_id']

@@ -3,6 +3,7 @@
 from collections import Counter
 from dotenv import load_dotenv
 
+import time
 import os
 import psycopg2
 import json
@@ -21,10 +22,11 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
-hero_ids = hero_ids[106:]
-# hero_ids = hero_ids[:len(hero_ids)//3]
-# hero_ids = hero_ids[len(hero_ids)//3:2*len(hero_ids)//3]
-# hero_ids = hero_ids[2*len(hero_ids)//3:]
+# hero_ids = hero_ids[106:]
+hero_ids = hero_ids[:len(hero_ids)//4]
+# hero_ids = hero_ids[len(hero_ids)//4:len(hero_ids)//2]
+# hero_ids = hero_ids[len(hero_ids)//2 : 3*len(hero_ids)//4]
+# hero_ids = hero_ids[3*len(hero_ids)//4:]
 # print(hero_ids)
 
 constquery = """
@@ -52,7 +54,10 @@ Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
 Support = [30, 40, 42, 43, 45, 188, 257, 286]
 Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
 
+cur.execute("TRUNCATE TABLE items")
+
 for hero_id in hero_ids:
+    
     for role in roles:
 
         isSupport = False
@@ -111,7 +116,7 @@ for hero_id in hero_ids:
                 }}
             """
 
-            response = requests.post(url, headers=headers, json={'query': query}, timeout=(10, 600))
+            response = requests.post(url, headers=headers, json={'query': query}, timeout=(600))
             data = json.loads(response.text)
 
             boots = data['data']['heroStats']['itemBootPurchase']
