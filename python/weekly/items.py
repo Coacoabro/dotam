@@ -22,12 +22,13 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
-# hero_ids = hero_ids[106:]
-hero_ids = hero_ids[:len(hero_ids)//4]
-# hero_ids = hero_ids[len(hero_ids)//4:len(hero_ids)//2]
+hero_ids = hero_ids[97:]
+# hero_ids = hero_ids[:len(hero_ids)//4]
+# # hero_ids = hero_ids[len(hero_ids)//4:len(hero_ids)//2]
 # hero_ids = hero_ids[len(hero_ids)//2 : 3*len(hero_ids)//4]
 # hero_ids = hero_ids[3*len(hero_ids)//4:]
 # print(hero_ids)
+
 
 constquery = """
     query {
@@ -54,7 +55,7 @@ Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
 Support = [30, 40, 42, 43, 45, 188, 257, 286]
 Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
 
-cur.execute("TRUNCATE TABLE items")
+# cur.execute("TRUNCATE TABLE items")
 
 for hero_id in hero_ids:
     
@@ -213,23 +214,23 @@ for hero_id in hero_ids:
                 mainItems = {'Early': earlyItems, 'Core': coreItems, 'Late': lateItems}
 
             
-            if neutralItems:
+                if neutralItems:
 
-                neutralItems.sort(key=lambda item: item['equippedMatchCount'], reverse=True)
-                tierArray = [[] for _ in range(5)]
-                tierArray[0] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_1']
-                tierArray[1] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_2']
-                tierArray[2] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_3']
-                tierArray[3] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_4']
-                tierArray[4] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_5']
+                    neutralItems.sort(key=lambda item: item['equippedMatchCount'], reverse=True)
+                    tierArray = [[] for _ in range(5)]
+                    tierArray[0] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_1']
+                    tierArray[1] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_2']
+                    tierArray[2] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_3']
+                    tierArray[3] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_4']
+                    tierArray[4] = [item for item in neutralItems if item['item']['stat']['neutralItemTier'] == 'TIER_5']
 
-                neutralFinal = {}
+                    neutralFinal = {}
 
-                for i, array in enumerate(tierArray):
-                    neutralFinal[f'Tier {i+1}'] = []
-                    for item in array:
-                        if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 0:
-                            neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount'], 'Wins': item['equippedMatchWinCount'], 'PR': round((item['equippedMatchCount']/maxMatches)*100, 2), 'WR': round((item['equippedMatchWinCount']/item['equippedMatchCount'])*100, 2)})
+                    for i, array in enumerate(tierArray):
+                        neutralFinal[f'Tier {i+1}'] = []
+                        for item in array:
+                            if len(neutralFinal[f'Tier {i+1}']) < 5 and item['equippedMatchCount'] > 0:
+                                neutralFinal[f'Tier {i+1}'].append({'Item': item['itemId'], 'Matches': item['equippedMatchCount'], 'Wins': item['equippedMatchWinCount'], 'PR': round((item['equippedMatchCount']/maxMatches)*100, 2), 'WR': round((item['equippedMatchWinCount']/item['equippedMatchCount'])*100, 2)})
 
             cur.execute("INSERT INTO items (hero_id, rank, role, starting, main, boots, neutrals) VALUES (%s, %s, %s, %s, %s, %s, %s);", (hero_id, rank, role, startingFinal, json.dumps(mainItems), json.dumps(bootsFinal), json.dumps(neutralFinal)))
 
