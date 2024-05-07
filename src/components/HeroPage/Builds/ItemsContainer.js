@@ -20,7 +20,7 @@ function ItemBuildsContainer({builds, items}) {
             })
     
             return(
-                <div className="flex justify-evenly items-center text-white">
+                <div className="flex justify-evenly text-white">
                     <div className="space-y-3">
                         <StartingItems items={items.starting} />
                         <Early items={builds.early} matches={matches} />

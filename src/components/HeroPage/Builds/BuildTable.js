@@ -25,7 +25,14 @@ function BuildTable(builds) {
         setDisplayCount(1);
         setShowBuild(-1)
     };
-
+    const handleShowBuild = (index) => {
+        setShowBuild(index)
+        setDisplayCount(1)
+    }
+    // Saving this for later incase I want to decrease the sortedBuilds.length
+    // : sortedBuilds.length != 1 ? ( 
+    //     <button className="text-white text-lg hover:underline" onClick={handleShowLess}>Show Less</button>
+    // )
     return (
         <div>
             <table className="table-auto">
@@ -39,7 +46,7 @@ function BuildTable(builds) {
                 {showBuild < 0 ? (
                     <tbody>
                         {sortedBuilds.slice(0, displayCount).map((build, index) => (
-                            <tr className={`bg-gray-700 text-white items-center hover:bg-gray-600`} onClick={() => setShowBuild(index)}>
+                            <tr className={`bg-gray-700 text-white items-center hover:bg-gray-600`} onClick={() => handleShowBuild(index)}>
                                 <td className="flex px-1">
                                     <Item id={build.Core[0]} width={20} />
                                     <Item id={build.Core[1]} width={20} />
@@ -72,10 +79,8 @@ function BuildTable(builds) {
 
                 }
             </table>
-            {displayCount < sortedBuilds.length ? (
+            {displayCount < 3 ? (
                 <button className="text-white text-lg hover:underline" onClick={handleShowMore}>Show More</button>
-            ) : sortedBuilds.length != 1 ? ( 
-                <button className="text-white text-lg hover:underline" onClick={handleShowLess}>Show Less</button>
             ) : null}
         </div>
     );
