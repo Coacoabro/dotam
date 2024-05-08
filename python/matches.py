@@ -36,31 +36,27 @@ seq_num_start = 6121215528
 
 stored_matches = []
 
-Boots = [29, 48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
-Support = [30, 40, 42, 43, 45, 188, 257, 286]
-Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
-
-Early = [29, 34, 36, 41, 73, 75, 77, 88, 178, 181, 240, 244, 569]
-
-SupportFull = [37, 79, 90, 92, 102, 226, 231, 254, 269, 1128]
-FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114,
-              116, 119, 121, 123, 125, 127, 131, 133, 135, 137, 139, 141, 143, 145, 
-              147, 149, 151, 152, 154, 156, 158, 160, 162, 164, 166, 168, 170, 172, 
-              174, 176, 180, 185, 190, 193, 194, 196, 201, 202, 203, 204, 206, 208, 
-              210, 214, 220, 223, 225, 226, 229, 231, 232, 235, 236, 242, 247, 249, 
-              250, 252, 254, 256, 259, 263, 267, 269, 271, 273, 277, 534, 596, 598, 
-              600, 603, 604, 609, 610, 635, 931, 939, 1097, 1107, 1466, 1806, 1808]
-
 def matchDetails(match, builds):
 
     global stratz_url
     global stratz_headers
     global stored_matches
     global immortal_heroes
-    global Support
-    global Early
-    global SupportFull
-    global FullItems
+
+    Boots = [29, 48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
+    Support = [30, 40, 42, 43, 45, 188, 257, 286]
+    Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
+
+    Early = [29, 34, 36, 41, 73, 75, 77, 88, 178, 181, 240, 244, 569]
+
+    SupportFull = [37, 79, 90, 92, 102, 226, 231, 254, 269, 1128]
+    FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114,
+                116, 119, 121, 123, 125, 127, 131, 133, 135, 137, 139, 141, 143, 145, 
+                147, 149, 151, 152, 154, 156, 158, 160, 162, 164, 166, 168, 170, 172, 
+                174, 176, 180, 185, 190, 193, 194, 196, 201, 202, 203, 204, 206, 208, 
+                210, 214, 220, 223, 225, 226, 229, 231, 232, 235, 236, 242, 247, 249, 
+                250, 252, 254, 256, 259, 263, 267, 269, 271, 273, 277, 534, 596, 598, 
+                600, 603, 604, 609, 610, 635, 931, 939, 1097, 1107, 1466, 1806, 1808]
 
     Order = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth', 'Nineth', 'Tenth']
 
@@ -230,7 +226,7 @@ n = 0
 for n in range(len(builds)):
     builds[n] = list(builds[n])
 
-while i < 3: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
+while i < 90: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
     response1 = requests.get(PUBLIC_MATCHES_URL)
     if response1.status_code == 200:
         match_id_start = response1.json()[0]['match_id']
@@ -240,43 +236,40 @@ while i < 3: # 18 x 2 seconds x 100 matches = 3600 seconds = 1 hour
         matches = response.json()
         for match in matches:
             builds = matchDetails(match['match_id'], builds)
-            # time.sleep(2)
+            time.sleep(2)
         match_id_start = matches[-1]['match_id']
     if len(stored_matches) > 86400:
         stored_matches = stored_matches[:43200]
     i += 1
-
-
-
-for build in builds:
-    cur.execute("""
-        SELECT 1 FROM builds WHERE hero_id = %s AND role = %s
-    """, (build[0], build[1]))
-    if cur.fetchone():
+    for build in builds:
         cur.execute("""
-            UPDATE builds
-            SET total_matches = %s,
-                early = %s,
-                core = %s,
-                item01 = %s,
-                item02 = %s,
-                item03 = %s,
-                item04 = %s,
-                item05 = %s,
-                item06 = %s,
-                item07 = %s,
-                item08 = %s,
-                item09 = %s,
-                item10 = %s
-            WHERE hero_id = %s AND role = %s        
-            """, (build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), build[0], build[1]))
-    else:
-        cur.execute("""
-                INSERT INTO builds (hero_id, role, total_matches, early, core, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """, (build[0], build[1], build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]))
-        )
-conn.commit()
+            SELECT 1 FROM builds WHERE hero_id = %s AND role = %s
+        """, (build[0], build[1]))
+        if cur.fetchone():
+            cur.execute("""
+                UPDATE builds
+                SET total_matches = %s,
+                    early = %s,
+                    core = %s,
+                    item01 = %s,
+                    item02 = %s,
+                    item03 = %s,
+                    item04 = %s,
+                    item05 = %s,
+                    item06 = %s,
+                    item07 = %s,
+                    item08 = %s,
+                    item09 = %s,
+                    item10 = %s
+                WHERE hero_id = %s AND role = %s        
+                """, (build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), build[0], build[1]))
+        else:
+            cur.execute("""
+                    INSERT INTO builds (hero_id, role, total_matches, early, core, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) 
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, (build[0], build[1], build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]))
+            )
+    conn.commit()
 
     
     
