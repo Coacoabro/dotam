@@ -80,7 +80,7 @@ def matchDetails(match, builds):
             }}
         """
 
-    response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=60)
+    response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
     data = json.loads(response.text)
 
     checker1 = data['data']['match']
