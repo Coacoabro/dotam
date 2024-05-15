@@ -1,18 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
+import Head from 'next/head';
+
 import StaticHeroInfo from '../../components/HeroPage/StaticHeroInfo'
 import VariableHeroInfo from '../../components/HeroPage/VariableHeroInfo';
 import RatesContainer from '../../components/HeroPage/RatesContainer';
 
-import heroName from '../../../dotaconstants/build/heroes.json'
-
 import { Pool } from 'pg';
-
-export const metadata = {
-  title: 'DotaM - Hero Page',
-  description: 'Hero page with detailed information on abilities, talents, items, and more',
-}
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -106,79 +101,88 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
 
     const img = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     return (
-      <div className="p-4 max-w-7xl mx-auto">
-        <div>
-          <div className="flex p-3">
-            <img className="w-32 h-16 md:w-64 md:h-36" src={img} alt={heroName} />
-            <StaticHeroInfo heroData={heroData}/>
-          </div>
-          <div className="md:flex justify-evenly md:px-10">
-            <div className='text-center p-2 flex items-center'>
-              <button 
-                className='text-black text-xl space-x-2'
-                onMouseEnter={() => setShowRoleInfo(true)}
-                onMouseLeave={() => setShowRoleInfo(false)}
-                onClick={handleRoleInfoClick}
-              >
-                ⓘ
-              </button>
-              {showRoleInfo && (
-                <div className="absolute mt-16 bg-gray-800 text-white p-2 rounded-md text-left">
-                  Hero Role Info
-                </div>
-              )}
+      <div>
+        <Head>
+          <title>{heroName} Guide: Builds, Matchups, and Rates</title>
+          <meta name="description" 
+            content={`Highest win rate builds for ${heroName}. See where they fit in the meta through DotaM's tiering system.`} />
+          <meta name="keywords"
+            content={`${heroName}, builds, neutral, neutrals, matchups`} />
+        </Head>
+        <div className="p-4 max-w-7xl mx-auto">
+          <div>
+            <div className="flex p-3">
+              <img className="w-32 h-16 md:w-64 md:h-36" src={img} alt={heroName} />
+              <StaticHeroInfo heroData={heroData}/>
+            </div>
+            <div className="md:flex justify-evenly md:px-10">
+              <div className='text-center p-2 flex items-center'>
+                <button 
+                  className='text-black text-xl space-x-2'
+                  onMouseEnter={() => setShowRoleInfo(true)}
+                  onMouseLeave={() => setShowRoleInfo(false)}
+                  onClick={handleRoleInfoClick}
+                >
+                  ⓘ
+                </button>
+                {showRoleInfo && (
+                  <div className="absolute mt-16 bg-gray-800 text-white p-2 rounded-md text-left">
+                    Hero Role Info
+                  </div>
+                )}
 
-              <div className="p-2 flex space-x-2 text-white">
-                {Role.map((role, index) => (
-                  <button 
-                    key={index} 
-                    className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
-                    onClick={() => handleRoleClick(role.role)}
-                    title={role.name}
+                <div className="p-2 flex space-x-2 text-white">
+                  {Role.map((role, index) => (
+                    <button 
+                      key={index} 
+                      className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
+                      onClick={() => handleRoleClick(role.role)}
+                      title={role.name}
+                    >
+                      <img src={role.icon} alt={role.name} />
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className='text-center space-x-2 items-center p-2 flex'>
+                <button 
+                  className='text-black text-xl space-x-2'
+                  onMouseEnter={() => setShowRankInfo(true)}
+                  onMouseLeave={() => setShowRankInfo(false)}
+                  onClick={handleRankInfoClick}
+                >
+                  ⓘ
+                </button>
+                {showRankInfo && (
+                  <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
+                    Hero Rank Info
+                  </div>
+                )}
+                <form className="max-w-sm mx-auto w-36">
+                  <select 
+                    className="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
+                    value={currentRank}  
+                    onChange={(e) => handleRankClick(e.target.value)}
                   >
-                    <img src={role.icon} alt={role.name} />
-                  </button>
-                ))}
+                    {Rank.map((rank, index) => (
+                      <option
+                        key={index}
+                        value={rank.rank}
+                      >
+                        {rank.name}
+                      </option>
+                    ))}
+                  </select>
+                </form>
               </div>
             </div>
-            <div className='text-center space-x-2 items-center p-2 flex'>
-              <button 
-                className='text-black text-xl space-x-2'
-                onMouseEnter={() => setShowRankInfo(true)}
-                onMouseLeave={() => setShowRankInfo(false)}
-                onClick={handleRankInfoClick}
-              >
-                ⓘ
-              </button>
-              {showRankInfo && (
-                <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
-                  Hero Rank Info
-                </div>
-              )}
-              <form className="max-w-sm mx-auto w-36">
-                <select 
-                  className="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
-                  value={currentRank}  
-                  onChange={(e) => handleRankClick(e.target.value)}
-                >
-                  {Rank.map((rank, index) => (
-                    <option
-                      key={index}
-                      value={rank.rank}
-                    >
-                      {rank.name}
-                    </option>
-                  ))}
-                </select>
-              </form>
-            </div>
-          </div>
 
-          <RatesContainer rates = {rates} rank={currentRank} role={currentRole} />
-        </div>
-        
-        <div className="p-1">
-          <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds} abilities={abilities} items={items} matchups={matchups} />
+            <RatesContainer rates = {rates} rank={currentRank} role={currentRole} />
+          </div>
+          
+          <div className="p-1">
+            <VariableHeroInfo heroID={heroID} rank={currentRank} role={currentRole} builds={builds} abilities={abilities} items={items} matchups={matchups} />
+          </div>
         </div>
       </div>
     );

@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import TierCard from '../components/TierList/TierCard'
 
 import { Pool } from 'pg';
-
-export const metadata = {
-  title: 'DotaM - Tier List',
-  description: 'Tier list of Dota 2 heroes based on current statistical data from almost all games played within the current patch',
-}
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -119,118 +115,126 @@ function TierList({ heroes, rates, matchups }) {
 
 
   return (
-    <div className="max-w-6xl mx-auto px-4 space-y-4">
-      <div className="text-3xl text-white uppercase text-center py-2">Dota 2 Tier List</div>
-      <div className="md:flex md:justify-evenly text-white">
-        <div className="flex">
-          <button 
-            className='text-black text-xl space-x-2'
-            onMouseEnter={() => setShowRoleInfo(true)}
-            onMouseLeave={() => setShowRoleInfo(false)}
-            onClick={handleRoleInfoClick}
-          >
-            ⓘ
-          </button>
-          {showRoleInfo && (
-            <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
-              Hero Role Info
+    <div>
+      <Head>
+        <title>Dota 2 Tier Lists</title>
+        <meta name="description" 
+          content="Dota 2 tier list based on current win rates and pick rates from almost all games played within the current patch" />
+        <meta name="keywords"
+          content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg" />
+      </Head>
+      <div className="max-w-6xl mx-auto px-4 space-y-4">
+        <div className="text-3xl text-white uppercase text-center py-2">Dota 2 Tier List</div>
+        <div className="md:flex md:justify-evenly text-white">
+          <div className="flex">
+            <button 
+              className='text-black text-xl space-x-2'
+              onMouseEnter={() => setShowRoleInfo(true)}
+              onMouseLeave={() => setShowRoleInfo(false)}
+              onClick={handleRoleInfoClick}
+            >
+              ⓘ
+            </button>
+            {showRoleInfo && (
+              <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
+                Hero Role Info
+              </div>
+            )}
+            <div className="p-2 flex space-x-2 rounded-md">
+                {Role.map((role, index) => (
+                  <button 
+                    key={index} 
+                    className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
+                    onClick={() => handleRoleClick(role.role)}
+                    title={role.name}
+                  >
+                    <img src={role.icon} alt={role.name} />
+                  </button>
+                ))}
             </div>
-          )}
-          <div className="p-2 flex space-x-2 rounded-md">
-              {Role.map((role, index) => (
-                <button 
-                  key={index} 
-                  className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
-                  onClick={() => handleRoleClick(role.role)}
-                  title={role.name}
-                >
-                  <img src={role.icon} alt={role.name} />
-                </button>
-              ))}
+          </div>
+          <div class="flex items-center space-x-3">
+            <button 
+              className='text-black text-xl space-x-2'
+              onMouseEnter={() => setShowRankInfo(true)}
+              onMouseLeave={() => setShowRankInfo(false)}
+              onClick={handleRankInfoClick}
+            >
+              ⓘ
+            </button>
+            {showRankInfo && (
+              <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
+                Hero Rank Info
+              </div>
+            )}
+                      
+            <form class="max-w-sm mx-auto w-36">
+              <select 
+                class="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
+                value={currentRank}  
+                onChange={(e) => handleRankClick(e.target.value)}
+              >
+                {Rank.map((rank, index) => (
+                  <option
+                    key={index}
+                    value={rank.rank}
+                  >
+                    {rank.name}
+                  </option>
+                ))}
+              </select>
+            </form>
+
           </div>
         </div>
-        <div class="flex items-center space-x-3">
-          <button 
-            className='text-black text-xl space-x-2'
-            onMouseEnter={() => setShowRankInfo(true)}
-            onMouseLeave={() => setShowRankInfo(false)}
-            onClick={handleRankInfoClick}
-          >
-            ⓘ
-          </button>
-          {showRankInfo && (
-            <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
-              Hero Rank Info
-            </div>
-          )}
-                    
-          <form class="max-w-sm mx-auto w-36">
-            <select 
-              class="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
-              value={currentRank}  
-              onChange={(e) => handleRankClick(e.target.value)}
-            >
-              {Rank.map((rank, index) => (
-                <option
-                  key={index}
-                  value={rank.rank}
-                >
-                  {rank.name}
-                </option>
-              ))}
-            </select>
-          </form>
 
+        <div className="overflow-x-auto rounded-md bg-gray-700">
+          <table className="table-auto w-full">
+            <thead>
+              <tr className="bg-gray-800 text-white text-xl text-center">
+                <th className="px-6 py-2">
+                  <button onClick={() => handleSortClick("tier_num", currentSort)}>TIER⇅</button>
+                </th>
+                <th className=" py-2">
+                  HERO
+                </th>
+                <th className="px-1 py-2">
+                  ROLE
+                </th>
+                <th className="px-8 py-2">
+                  <button onClick={() => handleSortClick("winrate", currentSort)}>WR⇅</button>
+                </th>
+                <th className="px-10 py-2">
+                  <button onClick={() => handleSortClick("pickrate", currentSort)}>PR⇅</button>
+                </th>
+                <th className="px-6 py-2">
+                  <button onClick={() => handleSortClick("matches", currentSort)}>MATCHES⇅</button>
+                </th>
+                <th className="px-10 py-2">
+                  COUNTERS
+                </th>
+              </tr>
+            </thead>
+            <tbody className="text-white text-center">
+              {tierList.map((tierItem, index) => {
+                return (
+                  <TierCard
+                      tier_str={tierItem.tier_str}
+                      hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
+                      role={tierItem.role}
+                      WR={tierItem.winrate}
+                      PR={tierItem.pickrate}
+                      matches={tierItem.matches}
+                      counters={counters.find(obj => obj.hero_id === tierItem.hero_id)}
+                      index={index}
+                    />
+              )})}
+            </tbody>
+          </table>
         </div>
+        
       </div>
-
-      <div className="overflow-x-auto rounded-md bg-gray-700">
-        <table className="table-auto w-full">
-          <thead>
-            <tr className="bg-gray-800 text-white text-xl text-center">
-              <th className="px-6 py-2">
-                <button onClick={() => handleSortClick("tier_num", currentSort)}>TIER⇅</button>
-              </th>
-              <th className=" py-2">
-                HERO
-              </th>
-              <th className="px-1 py-2">
-                ROLE
-              </th>
-              <th className="px-8 py-2">
-                <button onClick={() => handleSortClick("winrate", currentSort)}>WR⇅</button>
-              </th>
-              <th className="px-10 py-2">
-                <button onClick={() => handleSortClick("pickrate", currentSort)}>PR⇅</button>
-              </th>
-              <th className="px-6 py-2">
-                <button onClick={() => handleSortClick("matches", currentSort)}>MATCHES⇅</button>
-              </th>
-              <th className="px-10 py-2">
-                COUNTERS
-              </th>
-            </tr>
-          </thead>
-          <tbody className="text-white text-center">
-            {tierList.map((tierItem, index) => {
-              return (
-                <TierCard
-                    tier_str={tierItem.tier_str}
-                    hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
-                    role={tierItem.role}
-                    WR={tierItem.winrate}
-                    PR={tierItem.pickrate}
-                    matches={tierItem.matches}
-                    counters={counters.find(obj => obj.hero_id === tierItem.hero_id)}
-                    index={index}
-                  />
-            )})}
-          </tbody>
-        </table>
-      </div>
-      
     </div>
-    
   );
 }
 

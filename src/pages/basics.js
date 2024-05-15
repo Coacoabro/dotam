@@ -1,14 +1,19 @@
 import React from 'react'
-
-export const metadata = {
-    title: 'DotaM - Basics',
-    description: 'Basics of Dota 2 for new players',
-  }
+import Head from 'next/head';
 
 function Basics() {
     return(
-        <div class="text-white">
-            Work in progress
+        <div>
+            <Head>
+            <title>Dota 2 Basics</title>
+            <meta name="description" 
+                content={`WORK IN PROGRESS. Get a deeper understanding of Dota 2.`} />
+            <meta name="keywords"
+                content="dota basics, dota explained" />
+            </Head>
+            <div class="text-white">
+                Work in progress
+            </div>
         </div>
     );
 }
