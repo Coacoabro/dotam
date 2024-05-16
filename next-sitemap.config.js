@@ -11,8 +11,8 @@ module.exports = {
     const otherPaths = [
         { loc: '/', lastmod: new Date().toISOString(), changefreq: 'daily', priority: 1.0 },
         { loc: '/basic', lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.4 },
-        { loc: '/heroes', lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.6 },
-        { loc: '/tier-list', lastmod: new Date().toISOString(), changefreq: 'yearly', priority: 0.8 },
+        { loc: '/heroes', lastmod: new Date().toISOString(), changefreq: 'yearly', priority: 0.6 },
+        { loc: '/tier-list', lastmod: new Date().toISOString(), changefreq: 'daily', priority: 0.8 },
       ];
 
     const heroPaths = heroData.map(hero => ({
