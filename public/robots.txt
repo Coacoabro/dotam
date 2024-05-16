@@ -1,7 +1,9 @@
+# *
 User-agent: *
-Disallow: /admin/
-Disallow: /private/
-Disallow: /secrets/
-Allow: /public/
+Allow: /
 
-Sitemap: https://www.dotam.gg/sitemap.xml
+# Host
+Host: https://dotam.gg
+
+# Sitemaps
+Sitemap: https://dotam.gg/sitemap.xml

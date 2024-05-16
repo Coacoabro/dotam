@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import {useRouter} from 'next/router';
 
-import dota2Heroes from './dota2heroes.json'
+import dota2Heroes from '../json/dota2heroes.json'
 
 
 const SearchBar = () => {
