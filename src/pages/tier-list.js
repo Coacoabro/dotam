@@ -122,9 +122,10 @@ function TierList({ heroes, rates, matchups }) {
           content="Dota 2 tier list based on current win rates and pick rates from almost all games played within the current patch" />
         <meta name="keywords"
           content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg" />
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <div className="max-w-6xl mx-auto px-4 space-y-4">
-        <div className="text-3xl text-white uppercase text-center py-2">Dota 2 Tier List</div>
+      <div className="max-w-6xl mx-auto px-4 space-y-4 text-white">
+        <div className="text-3xl uppercase text-center py-4">Dota 2 Tier List</div>
         <div className="md:flex md:justify-evenly text-white">
           <div className="flex">
             <button 

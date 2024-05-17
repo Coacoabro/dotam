@@ -29,9 +29,10 @@ function HeroList() {
         <title>List of All Heroes in Dota 2</title>
         <meta name="description" 
           content={`Organized by attribute, each hero is on display as if you were viewing them in your game client!`} />
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <div className="px-4 max-w-6xl mx-auto space-y-4" >
-        <div className="text-3xl text-center py-2 text-white">DOTA 2 HEROES</div>
+      <div className="px-4 max-w-6xl mx-auto space-y-4 text-white" >
+        <div className="text-3xl text-center py-4">DOTA 2 HEROES</div>
         
         <div className="grid grid-cols-2 gap-1 md:gap-5">
           <div>

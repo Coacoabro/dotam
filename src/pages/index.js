@@ -11,11 +11,13 @@ function Home({ data }) {
           content="Designed to make playing Dota 2 more accessible to beginners, veterans, and even League players!" />
         <meta name="keywords"
           content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg, builds, neutral, neutrals, matchups, dota basics, dota explained" />
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
       <div className="static h-screen flex justify-center">
         <div>
           {/*<img src="../dota2background.jpg" alt="background" className="blur-sm w-screen" />*/}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-y-6">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 space-y-28 flex flex-col items-center">
+            <div className='max-w-xl'><img src="../DotamLogoLight.png" /></div>
             <SearchBar />
           </div>
           {/*<div className='absolute bottom-1 left-1/4 -translate-x-1/2 -translate-y-1/2 space-y-2 bg-gray-700 px-4 py-2 rounded-md'>
@@ -30,7 +32,7 @@ function Home({ data }) {
                   OpenDota
                 </div>
               </div>
-    </div>*/}
+          </div>*/}
         </div>
       </div>
     </div>

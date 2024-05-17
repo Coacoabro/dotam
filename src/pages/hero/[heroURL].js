@@ -108,6 +108,7 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
             content={`Highest win rate builds for ${heroName}. See where they fit in the meta through DotaM's tiering system.`} />
           <meta name="keywords"
             content={`${heroName}, builds, neutral, neutrals, matchups`} />
+          <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
         </Head>
         <div className="p-4 max-w-7xl mx-auto">
           <div>

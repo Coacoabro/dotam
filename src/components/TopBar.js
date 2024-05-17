@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import SearchBar from './SearchBar'
 
-import Logo from "../../public/Io.webp"
+import Logo from "../../public/DotamLogoShortLight.png"
 
 
 function TopBar() {
@@ -43,10 +43,10 @@ function TopBar() {
     };
 
     return (
-        <nav className="bg-gray-700 text-white p-2 flex items-center justify-between">
+        <nav className="bg-gray-800 text-white p-2 flex items-center justify-between">
             <div className="p-2 flex items-center">
                 <Link href="/">
-                    <Image src={Logo} alt="Logo" className="w-12 h-12 rounded-md" />
+                    <Image src={Logo} alt="Logo" className="w-12 h-14" />
                 </Link>
                 {/* Mobile menu */}
                 <div className="relative md:hidden">

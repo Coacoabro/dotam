@@ -3,14 +3,24 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-    font-family: 'DotaFont';
-    src: url('/src/styles/fonts/OPTIwtcGoudy-Medium.otf') format('opentype');
-  }
+  font-family: 'DotaFont';
+  src: url('/src/styles/fonts/OPTIwtcGoudy-Medium.otf') format('opentype');
+}
 
 body {
     font-family: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif;
     @apply bg-gray-600;
   }
-  
 
+.dotam-dark-blue {
+  background-color: #1B1F57;
+}
+
+.dotam-light-blue {
+  background-color: #E7F7FF;
+}
+  
+.dotam-red {
+  background-color: #931B1E;
+}
 
