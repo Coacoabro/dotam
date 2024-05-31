@@ -20,17 +20,17 @@ def standardDeviation(arr):
     return variance ** 0.5
 
 def tierCalc(tier_num):
-    if tier_num >= 3:
+    if tier_num >= 2.5:
         return 'S+'
-    elif tier_num >= 2:
+    elif tier_num >= 1.5:
         return 'S'
-    elif tier_num >= 1:
+    elif tier_num >= 0.5:
         return 'A'
-    elif tier_num >= 0:
+    elif tier_num >= -0.5:
         return 'B'
-    elif tier_num >= -1:
+    elif tier_num >= -1.5:
         return 'C'
-    elif tier_num >= -2:
+    elif tier_num >= -2.5:
         return 'D'
     else:
         return 'F'
@@ -159,7 +159,7 @@ for currentRank in Ranks:
                     zScorePR = (pickrate - (sum(prArray) / len(prArray)) ) / sdPR
 
                     if zScoreWR < 0:
-                        tier_num = zScoreWR - zScorePR
+                        tier_num = zScoreWR - abs(zScorePR)
                     else:
                         tier_num = zScoreWR + zScorePR
 
