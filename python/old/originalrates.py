@@ -56,12 +56,12 @@ for currentRank in Ranks:
         query = f"""
             query{{
                 heroStats {{
-                winMonth(
+                winDay(
                     gameModeIds: ALL_PICK_RANKED
                     {'positionIds: ' + currentRole if currentRole else ''}
                     {'bracketIds: ' + currentRank if currentRank else ''}
                 ) {{
-                    month
+                    day
                     winCount
                     matchCount
                     heroId
@@ -73,10 +73,10 @@ for currentRank in Ranks:
         response = requests.post(url, json={'query': query}, headers=headers)
         data = json.loads(response.text)
 
-        highest_month = max([item['month'] for item in data['data']['heroStats']['winMonth']])
+        highest_day = max([item['day'] for item in data['data']['heroStats']['winDay']])
 
-        for item in data['data']['heroStats']['winMonth']:
-            if item['month'] == highest_month:
+        for item in data['data']['heroStats']['winDay']:
+            if item['day'] == highest_day:
                 total_matches += item['matchCount']
 
     total_matches /= 10
@@ -85,12 +85,12 @@ for currentRank in Ranks:
         query = f"""
             query{{
                 heroStats {{
-                winMonth(
+                winDay(
                     gameModeIds: ALL_PICK_RANKED
                     {'positionIds: ' + currentRole if currentRole else ''}
                     {'bracketIds: ' + currentRank if currentRank else ''}
                 ) {{
-                    month
+                    day
                     winCount
                     matchCount
                     heroId
@@ -104,8 +104,8 @@ for currentRank in Ranks:
 
         
 
-        for item in data['data']['heroStats']['winMonth']:
-            if item['month'] == highest_month:
+        for item in data['data']['heroStats']['winDay']:
+            if item['day'] == highest_day:
                 PR = item['matchCount'] / total_matches
                 WR = item['winCount'] / item['matchCount']
                 if(PR > 0.005):
@@ -116,12 +116,12 @@ for currentRank in Ranks:
         query = f"""
             query{{
                 heroStats {{
-                winMonth(
+                winDay(
                     gameModeIds: ALL_PICK_RANKED
                     {'positionIds: ' + currentRole if currentRole else ''}
                     {'bracketIds: ' + currentRank if currentRank else ''}
                 ) {{
-                    month
+                    day
                     winCount
                     matchCount
                     heroId
@@ -133,8 +133,8 @@ for currentRank in Ranks:
         response = requests.post(url, json={'query': query}, headers=headers)
         data = json.loads(response.text)
 
-        for item in data['data']['heroStats']['winMonth']:
-            if item['month'] == highest_month:
+        for item in data['data']['heroStats']['winDay']:
+            if item['day'] == highest_day:
 
                 hero_id = item['heroId']
                 patch = '7.35d'
