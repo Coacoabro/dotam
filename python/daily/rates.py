@@ -41,7 +41,7 @@ headers = {'Authorization': f'Bearer {graphql_token}'}
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-cur.execute("SELECT * from rates WHERE patch = '7.35d';");
+cur.execute("SELECT * from rates WHERE patch = '7.36a';");
 rates = cur.fetchall()
 
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
@@ -144,7 +144,7 @@ for currentRank in Ranks:
             if item['day'] == highest_day:
 
                 hero_id = item['heroId']
-                patch = '7.35d'
+                patch = '7.36a'
                 for rate in rates:
                     if rate[6] == currentRole and rate[7] == currentRank and rate[0] == hero_id:
                         matches = item['matchCount'] + rate[2]

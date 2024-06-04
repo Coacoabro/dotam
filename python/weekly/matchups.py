@@ -21,6 +21,8 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
+hero_ids = hero_ids[41:]
+
 
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
@@ -50,7 +52,7 @@ for hero_id in hero_ids:
             }}
         """
 
-        response = requests.post(url, headers=headers, json={'query': query})
+        response = requests.post(url, headers=headers, json={'query': query}, timeout=600)
         data = json.loads(response.text)
 
         matchupsVs = data['data']['heroStats']['heroVsHeroMatchup']['advantage'][0]['vs']
