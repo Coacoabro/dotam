@@ -100,6 +100,9 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
     const heroID = heroData.hero_id
 
     const img = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
+
+    const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
+
     return (
       <div>
         <Head>
@@ -113,8 +116,9 @@ function HeroPage({ hero, rates, builds, abilities, items, matchups }) {
         <div className="p-4 max-w-7xl mx-auto">
           <div>
             <div className="flex p-3">
-              <img className="w-32 h-16 md:w-64 md:h-36" src={img} alt={heroName} />
+              <img className="w-64 h-36" src={img} alt={heroName} />
               <StaticHeroInfo heroData={heroData}/>
+              {/* <img className="w-64 h-40 opacity-50" src={crop_img} alt={heroName} /> */}
             </div>
             <div className="md:flex justify-evenly md:px-10">
               <div className='text-center p-2 flex items-center'>
