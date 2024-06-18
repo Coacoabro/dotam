@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-current_patch = '7.36a'
+current_patch = '7.36b'
 
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
@@ -73,16 +73,24 @@ headers = {'Authorization': f'Bearer {graphql_token}'}
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
+cur.execute("SELECT hero_id from heroes;")
+hero_ids = [row[0] for row in cur.fetchall()]
+
 cur.execute("SELECT * FROM rates WHERE patch = %s", (current_patch,))
 rates = cur.fetchall()
+
+if not rates:
+    cur.execute("TRUNCATE TABLE rates;")
 
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL']
 
-
 for currentRank in Ranks:
 
-    total_matches = sum(item[2] for item in rates if item[7] == currentRank)
+    if rates:
+        total_matches = sum(item[2] for item in rates if item[7] == currentRank)
+    else:
+        total_matches = 0
 
     wrArray = []
     prArray = []
@@ -101,27 +109,39 @@ for currentRank in Ranks:
 
     for currentRole in Roles:
         role_data = data['data'][currentRole]
-        for item in role_data['winDay']:
-            for rate in rates:
-                if rate[6] == currentRole and rate[7] == currentRank and rate[0] == item['heroId']:
-                    matches = rate[2] + item['matchCount']
-                    wins = rate[3] + item['winCount']
+        for hero_id in hero_ids:
+            matches = 0
+            wins = 0
+            for item in role_data['winDay']:
+                if item['heroId'] == hero_id:
+                    matches += item['matchCount']
+                    wins += item['winCount']
+            if rates:
+                for rate in rates:
+                    if rate[6] == currentRole and rate[7] == currentRank and rate[0] == hero_id:
+                        matches += rate[2]
+                        wins += rate[3]
             PR = matches / total_matches
             WR =  wins / matches
             if(PR > 0.005):
                 wrArray.append(WR)
                 prArray.append(PR)
 
-
     for currentRole in Roles:
         role_data = data['data'][currentRole]
-        for item in role_data['winDay']:
-            hero_id = item['heroId']
-            day = item['day']
-            for rate in rates:
-                if rate[6] == currentRole and rate[7] == currentRank and rate[0] == hero_id:
-                    matches = item['matchCount'] + rate[2]
-                    wincount = item['winCount'] + rate[3]
+        for hero_id in hero_ids:
+            matches = 0
+            wincount = 0
+            for item in role_data['winDay']:
+                if item['heroId'] == hero_id:
+                    matches += item['matchCount']
+                    wincount += item['winCount']
+            if rates:
+                for rate in rates:
+                    if rate[6] == currentRole and rate[7] == currentRank and rate[0] == hero_id:
+                        matches += rate[2]
+                        wincount += rate[3]
+                    
             winrate = wincount / matches
             pickrate = matches / total_matches
 
@@ -142,19 +162,25 @@ for currentRank in Ranks:
                 tier_num = 0
                 tier_str = '?'
 
-            cur.execute("""
-                INSERT INTO patchrates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                ON CONFLICT (hero_id, rank, role)
-                DO UPDATE SET 
-                    patch = EXCLUDED.patch,
-                    matches = EXCLUDED.matches,
-                    wincount = EXCLUDED.wincount,
-                    winrate = EXCLUDED.winrate,
-                    pickrate = EXCLUDED.pickrate,
-                    tier_num = EXCLUDED.tier_num,
-                    tier_str = EXCLUDED.tier_str
-            """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
+            if rates:
+                cur.execute("""
+                    INSERT INTO patchrates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (hero_id, rank, role)
+                    DO UPDATE SET 
+                        patch = EXCLUDED.patch,
+                        matches = EXCLUDED.matches,
+                        wincount = EXCLUDED.wincount,
+                        winrate = EXCLUDED.winrate,
+                        pickrate = EXCLUDED.pickrate,
+                        tier_num = EXCLUDED.tier_num,
+                        tier_str = EXCLUDED.tier_str
+                """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
+            else:
+                cur.execute("""
+                    INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
 
             
         conn.commit() # Commit the transaction
