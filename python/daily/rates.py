@@ -18,7 +18,6 @@ def getQuery(rank):
 
     global Roles
 
-    # Construct the dynamic part of the query for roles
     roles_query = "\n".join([f"""
     {role}: heroStats {{
         winDay(
@@ -35,7 +34,6 @@ def getQuery(rank):
     }}
     """ for role in Roles])
 
-    # Combine everything into one query
     query = f"""
         query MyQuery {{
             {roles_query}

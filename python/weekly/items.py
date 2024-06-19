@@ -22,7 +22,7 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
-hero_ids = hero_ids[97:]
+# hero_ids = hero_ids[97:]
 # hero_ids = hero_ids[:len(hero_ids)//4]
 # # hero_ids = hero_ids[len(hero_ids)//4:len(hero_ids)//2]
 # hero_ids = hero_ids[len(hero_ids)//2 : 3*len(hero_ids)//4]
@@ -48,7 +48,7 @@ constdata = json.loads(constresponse.text)
 itemsData = constdata['data']['constants']['items']
 itemsData_dict = {item['id']: item for item in itemsData}
 
-roles = ['', 'POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
+roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
 Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
@@ -57,73 +57,91 @@ Early = [34, 36, 73, 75, 77, 88, 178, 181, 240, 244, 569, 596]
 
 # cur.execute("TRUNCATE TABLE items")
 
-for hero_id in hero_ids:
+def getQuery(rank):
+
+    global roles
+
+    queries = []
     
     for role in roles:
-
-        isSupport = False
-        if role == 'POSITION_4' or role == 'POSITION_5':
-            isSupport = True
-            
-        for rank in ranks:
-            query = f"""
-                query {{
-                    heroStats {{
-                        itemFullPurchase(
-                            {'heroId: ' + str(hero_id)}
-                            {'bracketBasicIds: ' + rank if rank else ''}
-                            {'positionIds: ' + role if role else ''}
-                        ) {{
-                            itemId
-                            matchCount
-                            time
-                            winCount
-                        }}
-                        itemBootPurchase(
-                            heroId: {hero_id}
-                            {'bracketBasicIds: ' + rank if rank else ''}
-                            {'positionIds: ' + role if role else ''}
-                        ) {{
-                            itemId
-                            timeAverage
-                            winCount
-                            matchCount
-                        }}
-                        itemStartingPurchase(
-                            heroId: {hero_id}
-                            {'bracketBasicIds: ' + rank if rank else ''}
-                            {'positionIds: ' + role if role else ''}
-                        ) {{
-                            itemId
-                            winCount
-                            matchCount
-                            wasGiven
-                        }}
-                        itemNeutral(
-                            heroId: {hero_id}
-                            {'bracketBasicIds: ' + rank if rank else ''}
-                            {'positionIds: ' + role if role else ''}
-                        ) {{
-                            itemId
-                            equippedMatchCount
-                            equippedMatchWinCount
-                            item {{
-                                    stat {{
-                                        neutralItemTier
-                                }}
-                            }}
+        role_query = f"""
+            {role}: heroStats {{
+                itemFullPurchase(
+                    {'heroId: ' + str(hero_id)}
+                    {'bracketBasicIds: ' + rank if rank else ''}
+                    {'positionIds: ' + role}
+                ) {{
+                    itemId
+                    matchCount
+                    time
+                    winCount
+                }}
+                itemBootPurchase(
+                    heroId: {hero_id}
+                    {'bracketBasicIds: ' + rank if rank else ''}
+                    {'positionIds: ' + role}
+                ) {{
+                    itemId
+                    timeAverage
+                    winCount
+                    matchCount
+                }}
+                itemStartingPurchase(
+                    heroId: {hero_id}
+                    {'bracketBasicIds: ' + rank if rank else ''}
+                    {'positionIds: ' + role}
+                ) {{
+                    itemId
+                    winCount
+                    matchCount
+                    wasGiven
+                }}
+                itemNeutral(
+                    heroId: {hero_id}
+                    {'bracketBasicIds: ' + rank if rank else ''}
+                    {'positionIds: ' + role}
+                ) {{
+                    itemId
+                    equippedMatchCount
+                    equippedMatchWinCount
+                    item {{
+                            stat {{
+                                neutralItemTier
                         }}
                     }}
                 }}
-            """
+            }}
+        """
+        queries.append(role_query)
+            
+    combined_queries = "\n".join(queries)
+        
+    query = f"""
+        query {{
+            {combined_queries}
+        }}
+    """
+    
+    return query
 
-            response = requests.post(url, headers=headers, json={'query': query}, timeout=(600))
-            data = json.loads(response.text)
+for hero_id in hero_ids:
+    
+    for rank in ranks:
 
-            boots = data['data']['heroStats']['itemBootPurchase']
-            startingItems = data['data']['heroStats']['itemStartingPurchase']
-            neutralItems = data['data']['heroStats']['itemNeutral']
-            allItems = data['data']['heroStats']['itemFullPurchase']
+        query = getQuery(rank)
+        response = requests.post(url, headers=headers, json={'query': query}, timeout=(600))
+        data = json.loads(response.text)
+            
+        for role in roles:
+
+            isSupport = False
+            if role == 'POSITION_4' or role == 'POSITION_5':
+                isSupport = True
+
+            boots = data['data'][role]['itemBootPurchase']
+            startingItems = data['data'][role]['itemStartingPurchase']
+            neutralItems = data['data'][role]['itemNeutral']
+            allItems = data['data'][role]['itemFullPurchase']
 
             maxMatches = 0 # Using brown boots. Not the best way to get all matches, but this is temporary
 
