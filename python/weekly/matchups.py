@@ -113,7 +113,7 @@ for rank in ranks:
                 
                 withFinal.sort(key=lambda x: x['WR'], reverse=True)
 
-                cur.execute("INSERT INTO matchups (hero_id, rank, herovs, herowith) VALUES (%s, %s, %s, %s);", (hero_id, rank, json.dumps(vsFinal), json.dumps(withFinal)))
+                cur.execute("INSERT INTO matchups (hero_id, rank, role herovs, herowith) VALUES (%s, %s, %s, %s, %s);", (hero_id, rank, role, json.dumps(vsFinal), json.dumps(withFinal)))
 
                 conn.commit() # Commit the transaction
 
