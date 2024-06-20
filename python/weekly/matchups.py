@@ -108,12 +108,11 @@ for rank in ranks:
                 vsFinal.sort(key=lambda x: x['WR'], reverse=True)
 
                 for matchup in matchupsWith:
-                    if matchup['heroId2'] in heroesByRR:
-                        withFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2), 'Matches': matchup['matchCount']})
+                    withFinal.append({'Hero': matchup['heroId2'], 'WR': round((matchup['winCount']/matchup['matchCount'])*100,2), 'Matches': matchup['matchCount']})
                 
                 withFinal.sort(key=lambda x: x['WR'], reverse=True)
 
-                cur.execute("INSERT INTO matchups (hero_id, rank, role herovs, herowith) VALUES (%s, %s, %s, %s, %s);", (hero_id, rank, role, json.dumps(vsFinal), json.dumps(withFinal)))
+                cur.execute("INSERT INTO matchups (hero_id, rank, role, herovs, herowith) VALUES (%s, %s, %s, %s, %s);", (hero_id, rank, role, json.dumps(vsFinal), json.dumps(withFinal)))
 
                 conn.commit() # Commit the transaction
 
