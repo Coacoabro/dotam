@@ -24,13 +24,12 @@ stratz_headers = {'Authorization': f'Bearer {graphql_token}'}
 PUBLIC_MATCHES_URL = 'https://api.opendota.com/api/publicMatches'
 
 # Steam's Web API
-# API_KEY = os.environ.get('DOTA_API_KEY')
+API_KEY = os.environ.get('DOTA_API_KEY')
 SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?start_at_match_seq_num='
 
 def getGQLquery(matches):
     fragment = """
         fragment MatchData on MatchType {
-            lobbyType
             actualRank
             endDateTime
             players {
