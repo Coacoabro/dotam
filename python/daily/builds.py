@@ -25,21 +25,23 @@ PUBLIC_MATCHES_URL = 'https://api.opendota.com/api/publicMatches'
 
 # Steam's Web API
 API_KEY = os.environ.get('DOTA_API_KEY')
-SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?start_at_match_seq_num='
+SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='
 
 def getGQLquery(matches):
+    # Everything with a # could go away if I find a clean way to grab data from Dota's web api
     fragment = """
         fragment MatchData on MatchType {
             actualRank
-            endDateTime
+            # didRadiantWin
             players {
-                heroId
+                # heroId
                 position
-                variant
-                abilities {
-                    abilityId
-                    time
-                }
+                # variant 
+                # abilities {
+                #     abilityId
+                #     time
+                #     isTalent
+                # }
                 stats {
                     itemPurchases {
                         itemId
@@ -64,10 +66,46 @@ def getGQLquery(matches):
 
     return data
 
+def getDotaSeq(seq_num):
+    
+    global SEQ_URL
 
-# Up to 25 matches at a time
-matches = [] 
+    DOTA_2_URL = SEQ_URL + seq_num
 
-matchesdata = getGQLquery(matches)
+    response = requests.get(DOTA_2_URL)
+    if response.status_code == 200:
+        matches = response.json()['result']['matches']
+    
+    for match in matches:
+        if match['lobby_type'] == 7 and match['game_mode'] == 22:
+            radiantWon = match['radiant_win']
+            match_id = match['match_id']
+            players = match['players']
+            i = 0
+            for player in players:
+                won = 0
+                if i < 5 and radiantWon:
+                    won = 1
+                elif i > 4 and not radiantWon:
+                    won = 1
+                i += 1
+                heroObj = {}
+                heroObj['id'] = player['hero_id']
+                heroObj['facet'] = player['hero_variant']
+                heroObj['won'] = won
+                print(heroObj)
 
-print(matchesdata)
+                    
+
+
+seq_num_start = '6572003877'
+getDotaSeq(seq_num_start)
+
+
+
+
+# matches = [] 
+
+# matchesdata = getGQLquery(matches)
+
+# print(matchesdata)

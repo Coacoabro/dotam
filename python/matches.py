@@ -26,8 +26,8 @@ immortal_heroes = cur.fetchall()
 
 # Steam's Web API
 API_KEY = os.environ.get('DOTA_API_KEY')
-SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?start_at_match_seq_num='
-MATCH_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1/?key=4392C8D826954FCC8251C025E2010342&match_id=7699115115'
+SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='
+MATCH_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v1/?key=' + API_KEY '&match_id='
 
 # OpenDota's API
 PUBLIC_MATCHES_URL = 'https://api.opendota.com/api/publicMatches'
