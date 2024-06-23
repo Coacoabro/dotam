@@ -66,7 +66,7 @@ def getGQLquery(matches):
 
     return data
 
-def getDotaSeq(seq_num):
+def getDotaSeq(seq_num, ranked_matches):
     
     global SEQ_URL
 
@@ -75,31 +75,40 @@ def getDotaSeq(seq_num):
     response = requests.get(DOTA_2_URL)
     if response.status_code == 200:
         matches = response.json()['result']['matches']
-    
-    for match in matches:
-        if match['lobby_type'] == 7 and match['game_mode'] == 22:
-            radiantWon = match['radiant_win']
-            match_id = match['match_id']
-            players = match['players']
-            i = 0
-            for player in players:
-                won = 0
-                if i < 5 and radiantWon:
-                    won = 1
-                elif i > 4 and not radiantWon:
-                    won = 1
-                i += 1
-                heroObj = {}
-                heroObj['id'] = player['hero_id']
-                heroObj['facet'] = player['hero_variant']
-                heroObj['won'] = won
-                print(heroObj)
+        seq_num = 0
+        for match in matches:
+            seq_num = match['match_seq_num']
+            if match['lobby_type'] == 7 and match['game_mode'] == 22:
+                ranked_match = {}
+                radiantWon = match['radiant_win']
+                ranked_match['match_id'] = match['match_id']
+                players = match['players']
+                i = 0
+                playersInfo = []
+                for player in players:
+                    won = 0
+                    if i < 5 and radiantWon:
+                        won = 1
+                    elif i > 4 and not radiantWon:
+                        won = 1
+                    i += 1
+                    heroObj = {}
+                    heroObj['id'] = player['hero_id']
+                    heroObj['facet'] = player['hero_variant']
+                    heroObj['won'] = won
+                    playersInfo.append(heroObj)
+                ranked_match['players'] = playersInfo
+                ranked_matches.append(ranked_match)
+                if len(ranked_matches) == 25:
+                    
+        print(ranked_matches)
 
                     
 
 
 seq_num_start = '6572003877'
-getDotaSeq(seq_num_start)
+ranked_matches = []
+getDotaSeq(seq_num_start, ranked_matches)
 
 
 
