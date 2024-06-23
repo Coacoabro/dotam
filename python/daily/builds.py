@@ -32,16 +32,8 @@ def getGQLquery(matches):
     fragment = """
         fragment MatchData on MatchType {
             actualRank
-            # didRadiantWin
             players {
-                # heroId
                 position
-                # variant 
-                # abilities {
-                #     abilityId
-                #     time
-                #     isTalent
-                # }
                 stats {
                     itemPurchases {
                         itemId
@@ -52,7 +44,7 @@ def getGQLquery(matches):
         }
     """
 
-    matches_query = "\n".join([f" match{i+1}: match(id: {match_id}) {{ ...MatchData }}" for i, match_id in enumerate(matches)])
+    matches_query = "\n".join([f"{'match_' + str(ranked_match['match_id'])}: match(id: {ranked_match['match_id']}) {{ ...MatchData }}" for ranked_match in ranked_matches])
 
     query = f"""
         query MyQuery {{
@@ -61,6 +53,7 @@ def getGQLquery(matches):
         {fragment}
     """
 
+    print(query)
     response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
     data = json.loads(response.text)
 
@@ -100,8 +93,8 @@ def getDotaSeq(seq_num, ranked_matches):
                 ranked_match['players'] = playersInfo
                 ranked_matches.append(ranked_match)
                 if len(ranked_matches) == 25:
-                    
-        print(ranked_matches)
+                    getGQLquery(ranked_matches)
+        
 
                     
 
