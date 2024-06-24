@@ -10,25 +10,21 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# My Amazon Database
-# database_url = os.environ.get('DATABASE_URL')
-# conn = psycopg2.connect(database_url)
-# cur = conn.cursor() # Open a cursor to perform database operations
-
-# Stratz API
-graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
-stratz_url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
-stratz_headers = {'Authorization': f'Bearer {graphql_token}'}
-
-# OpenDota's API
-PUBLIC_MATCHES_URL = 'https://api.opendota.com/api/publicMatches'
-
 # Steam's Web API
 API_KEY = os.environ.get('DOTA_API_KEY')
 SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='
 
-def getGQLquery(matches):
-    # Everything with a # could go away if I find a clean way to grab data from Dota's web api
+def getGQLquery(ranked_matches):
+    # Stratz API
+    graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
+    stratz_url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
+    stratz_headers = {'Authorization': f'Bearer {graphql_token}'}
+
+    # My Amazon Database
+    database_url = os.environ.get('DATABASE_URL')
+    conn = psycopg2.connect(database_url)
+    cur = conn.cursor() # Open a cursor to perform database operations
+
     fragment = """
         fragment MatchData on MatchType {
             actualRank
@@ -53,11 +49,16 @@ def getGQLquery(matches):
         {fragment}
     """
 
-    print(query)
     response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
     data = json.loads(response.text)
 
-    return data
+    for i in range(25):
+        match_id = ranked_matches[i]['match_id']
+        gqlmatch = data['data']['match_' + str(match_id)]
+        print(gqlmatch)
+
+
+    
 
 def getDotaSeq(seq_num, ranked_matches):
     
