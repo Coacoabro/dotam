@@ -39,6 +39,8 @@ def actualRank(rank):
 
 def getBuilds(ranked_matches, builds):
 
+    patch = '7.36b'
+
     # Stratz API
     graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
     stratz_url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
@@ -97,118 +99,28 @@ def getBuilds(ranked_matches, builds):
             rank = actualRank(gqlmatch['actualRank'])
             players = gqlmatch['players']
             for n, player in enumerate(players):
-                hero_id = ranked_match['players'][n]['id']
-                role = player['position']
-                facet = ranked_match['players'][n]['facet']
-                win = ranked_match['players'][n]['won']
-                abilityEvents = player['abilities']
-                abilities = []
-                talents = []
-                for ability in abilityEvents:
-                    if ability['abilityId'] != 730:
-                        if ability['isTalent']:
-                            talents.append(ability['abilityId'])
-                            abilities.append(-1)
-                        else:
-                            abilities.append(ability['abilityId'])
                 purchasedItems = player['stats']['itemPurchases']
+                if purchasedItems:
+                    hero_id = ranked_match['players'][n]['id']
+                    role = player['position']
+                    facet = ranked_match['players'][n]['facet']
+                    win = ranked_match['players'][n]['won']
+                    abilityEvents = player['abilities']
+                    abilities = []
+                    talents = []
+                    for ability in abilityEvents:
+                        if ability['abilityId'] != 730 and len(talents) < 4:
+                            if ability['isTalent']:
+                                talents.append(ability['abilityId'])
+                                abilities.append(-1)
+                            else:
+                                abilities.append(ability['abilityId'])
+                    isSupport = False
+                    if role == 'POSITION_4' or role == 'POSITION_5':
+                        isSupport = True
 
-                isSupport = False
-                if role == 'POSITION_4' or role == 'POSITION_5':
-                    isSupport = True
+                    
 
-                
-
-                # Starting and Early Game Items
-                startingItems = []
-                earlyItems = []
-                tempItemArray = []
-                for item in purchasedItems:
-                    item_id = item['itemId']
-                    if item['time'] < 0:
-                        startingItems.append(item_id)
-                    elif item['time'] < 900 and item_id in Early:
-                        secondPurchase = False
-                        if item_id in tempItemArray:
-                            secondPurchase = True
-                        tempItemArray.append(item_id)
-                        earlyItems.append({'Item': item['itemId'], 'isSecondPurchase': secondPurchase})
-                    else:
-                        break
-                
-
-                # Generating Core Items and Full Items Purchased Order
-                itemBuild = []
-                for item in purchasedItems:
-                    if item['itemId'] not in itemBuild:
-                        if isSupport == True:
-                            if item['itemId'] in SupportFull or item['itemId'] in FullItems:
-                                itemBuild.append(item['itemId'])
-                        else:
-                            if item['itemId'] in FullItems:
-                                itemBuild.append(item['itemId'])
-
-                if len(itemBuild) >= 2 and isSupport == True:
-                    core = itemBuild[:2]
-                elif len(itemBuild) >= 3 and isSupport == False:
-                    core = itemBuild[:3]
-                else:
-                    core = None
-                    break
-                
-                heroFound = False
-                for hero_build in builds:
-                    if hero_build[0] == hero_id and hero_build[1] == rank and hero_build[2] == role and hero_build[3] == facet:
-                        hero_build[4] += 1 # Matches increased
-                        heroFound = True
-
-                        startingFound = False
-                        for startingBuild in hero_build[7]:
-                            if sorted(startingBuild['Starting']) == sorted(startingItems):
-                                build['Wins'] += win
-                                build['Matches'] += 1
-                                startingFound = True
-                                break
-                        if not buildFound:
-                            hero_build[7].append({'Starting': startingItems, 'Wins': win, 'Matches': 1})
-
-                        for earlyGameItem in earlyItems:
-                            earlyFound = False
-                            for earlyItem in hero_build[8]:
-                                if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
-                                    earlyItem['Matches'] += 1
-                                    earlyItem['Wins'] += win
-                                    earlyFound = True
-                                    break
-                            if not earlyFound:
-                                hero_build[8].append({'Item': earlyGameItem['Item'], 'Matches': 1, 'Wins': win, 'isSecondPurchase': earlyGameItem['isSecondPurchase']})
-
-                        buildFound = False
-                        for build in hero_build[9]:
-                            if build['Core'] == core:
-                                build['Wins'] += win
-                                build['Matches'] += 1
-                                buildFound = True
-                                break
-                        if not buildFound:
-                            hero_build[9].append({'Core': core, 'Wins': win, 'Matches': 1})
-                        
-                        n = 9
-                        for gameItem in itemBuild:
-                            n += 1
-                            if n < 20:
-                                itemOrderFound = False
-                                for orderedItem in hero_build[n]:
-                                    if orderedItem['Item'] == gameItem:
-                                        orderedItem['Wins'] += win
-                                        orderedItem['Matches'] += 1
-                                        itemOrderFound = True
-                                        break
-                                if not itemOrderFound:
-                                    hero_build[n].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
-                        break
-
-                if not heroFound:
                     # Starting and Early Game Items
                     startingItems = []
                     earlyItems = []
@@ -217,29 +129,145 @@ def getBuilds(ranked_matches, builds):
                         item_id = item['itemId']
                         if item['time'] < 0:
                             startingItems.append(item_id)
-                        if item['time'] <= 900 and item_id in Early:
+                        elif item['time'] < 900 and item_id in Early:
                             secondPurchase = False
                             if item_id in tempItemArray:
                                 secondPurchase = True
                             tempItemArray.append(item_id)
-                            earlyItems.append({'Item': item['itemId'], 'Matches': 1, 'Wins': win, 'isSecondPurchase': secondPurchase})
-                    startingObj = {'Starting': startingItems, 'Wins': win, 'Matches': 1}
+                            earlyItems.append({'Item': item['itemId'], 'isSecondPurchase': secondPurchase})
+                        else:
+                            break
+                    
 
-                    full_data = [hero_id, rank, role, facet, 1, abilities, talents, startingObj, earlyItems, [{'Core': core, 'Wins': win, 'Matches': 1}]]
-                    for item in itemBuild:
-                        full_data.append([{'Item': item, 'Wins': win, 'Matches': 1}])
-                    while len(full_data) < 20:
-                        full_data.append([])
-                    builds.append(full_data)
+                    # Generating Core Items and Full Items Purchased Order
+                    itemBuild = []
+                    for item in purchasedItems:
+                        if item['itemId'] not in itemBuild:
+                            if isSupport == True:
+                                if item['itemId'] in SupportFull or item['itemId'] in FullItems:
+                                    itemBuild.append(item['itemId'])
+                            else:
+                                if item['itemId'] in FullItems:
+                                    itemBuild.append(item['itemId'])
+
+                    if len(itemBuild) >= 2 and isSupport == True:
+                        core = itemBuild[:2]
+                    elif len(itemBuild) >= 3 and isSupport == False:
+                        core = itemBuild[:3]
+                    else:
+                        core = None
+                        break
+                    
+                    heroFound = False
+                    for hero_build in builds:
+                        if hero_build[0] == hero_id and hero_build[1] == patch and hero_build[2] == rank and hero_build[3] == role and hero_build[4] == facet:
+                            hero_build[5] += 1 # Matches increased
+                            heroFound = True
+
+                            abilitiesFound = False
+                            for abilityBuild in hero_build[6]:
+                                if abilityBuild['Abilities'] == abilities:
+                                    abilityBuild['Wins'] += win
+                                    abilityBuild['Matches'] += 1
+                                    abilitiesFound = True
+                                    break
+                            if not abilitiesFound:
+                                hero_build[6].append({'Abilities': abilities, 'Wins': win, 'Matches': 1})
+                            
+                            for n, talent in enumerate(talents):
+                                talentFound = False
+                                for talentBuild in hero_build[7]:
+                                    if talentBuild['Talent'] == talent:
+                                        talentBuild['Wins'] += win
+                                        talentBuild['Matches'] += 1
+                                        talentFound = True
+                                        break
+                                if not talentFound:
+                                    hero_build[7].append({'Level': n+1, 'Talent': talent, 'Wins': win, 'Matches': 1})
+
+                            startingFound = False
+                            for startingBuild in hero_build[8]:
+                                if sorted(startingBuild['Starting']) == sorted(startingItems):
+                                    startingBuild['Wins'] += win
+                                    startingBuild['Matches'] += 1
+                                    startingFound = True
+                                    break
+                            if not startingFound:
+                                hero_build[8].append({'Starting': startingItems, 'Wins': win, 'Matches': 1})
+
+                            for earlyGameItem in earlyItems:
+                                earlyFound = False
+                                for earlyItem in hero_build[9]:
+                                    if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
+                                        earlyItem['Matches'] += 1
+                                        earlyItem['Wins'] += win
+                                        earlyFound = True
+                                        break
+                                if not earlyFound:
+                                    hero_build[9].append({'Item': earlyGameItem['Item'], 'Matches': 1, 'Wins': win, 'isSecondPurchase': earlyGameItem['isSecondPurchase']})
+
+                            buildFound = False
+                            for build in hero_build[10]:
+                                if build['Core'] == core:
+                                    build['Wins'] += win
+                                    build['Matches'] += 1
+                                    buildFound = True
+                                    break
+                            if not buildFound:
+                                hero_build[10].append({'Core': core, 'Wins': win, 'Matches': 1})
+                            
+                            n = 10
+                            for gameItem in itemBuild:
+                                n += 1
+                                if n < 21:
+                                    itemOrderFound = False
+                                    for orderedItem in hero_build[n]:
+                                        if orderedItem['Item'] == gameItem:
+                                            orderedItem['Wins'] += win
+                                            orderedItem['Matches'] += 1
+                                            itemOrderFound = True
+                                            break
+                                    if not itemOrderFound:
+                                        hero_build[n].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+                            break
+
+                    if not heroFound:
+                        # Starting and Early Game Items
+                        startingItems = []
+                        earlyItems = []
+                        tempItemArray = []
+                        talentArray = []
+                        for item in purchasedItems:
+                            item_id = item['itemId']
+                            if item['time'] < 0:
+                                startingItems.append(item_id)
+                            if item['time'] <= 900 and item_id in Early:
+                                secondPurchase = False
+                                if item_id in tempItemArray:
+                                    secondPurchase = True
+                                tempItemArray.append(item_id)
+                                earlyItems.append({'Item': item['itemId'], 'Matches': 1, 'Wins': win, 'isSecondPurchase': secondPurchase})
+                        startingObj = [{'Starting': startingItems, 'Wins': win, 'Matches': 1}]
+                        abilitiesObj = [{'Abilities': abilities, 'Wins': win, 'Matches': 1}]
+                        for n, talent in enumerate(talents):
+                            talentArray.append({'Level': n+1, 'Talent': talent, 'Wins': win, 'Matches': 1})
+                        
+
+                        full_data = [hero_id, patch, rank, role, facet, 1, abilitiesObj, talentArray, startingObj, earlyItems, [{'Core': core, 'Wins': win, 'Matches': 1}]]
+                        for item in itemBuild:
+                            full_data.append([{'Item': item, 'Wins': win, 'Matches': 1}])
+                        while len(full_data) < 21:
+                            full_data.append([])
+                        builds.append(full_data)
     return builds
 
 
-seq_num = 6572003877
+seq_num = 6576623346
 ranked_matches = []
 builds = []
 hourlyDump = 0 #This should get up to 400, then start the builds organization process
-
-while True:
+fiveHours = 0
+while fiveHours < 5:
 
     DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -278,14 +306,18 @@ while True:
         seq_num += 1
 
     if hourlyDump > 400:
+        print("Dumping Builds")
         for build in builds:
             cur.execute("""
-                SELECT 1 FROM builds WHERE hero_id = %s AND role = %s
-            """, (build[0], build[1]))
+                SELECT 1 FROM builds WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s
+            """, (build[0], build[1], build[2], build[3], build[4]))
             if cur.fetchone():
                 cur.execute("""
                     UPDATE builds
                     SET total_matches = %s,
+                        abilities = %s,
+                        talents = %s,
+                        starting = %s,
                         early = %s,
                         core = %s,
                         item01 = %s,
@@ -298,14 +330,15 @@ while True:
                         item08 = %s,
                         item09 = %s,
                         item10 = %s
-                    WHERE hero_id = %s AND role = %s        
-                    """, (build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), build[0], build[1]))
+                    WHERE hero_id = %s AND patch AND rank = %s AND role = %s  AND facet = %s      
+                    """, (build[5], json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), build[0], build[1], build[2], build[3]), build[4])
             else:
                 cur.execute("""
-                        INSERT INTO builds (hero_id, role, total_matches, early, core, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) 
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    """, (build[0], build[1], build[2], json.dumps(build[3]), json.dumps(build[4]), json.dumps(build[5]), json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]))
+                        INSERT INTO builds (hero_id, patch, rank, role, facet, total_matches, abilities, talents, starting, early, core, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10) 
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    """, (build[0], build[1], build[2], build[3], build[4], build[5], json.dumps(build[6]), json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]))
                 )
         conn.commit() 
         hourlyDump = 0
         builds = []
+        fiveHours += 1
