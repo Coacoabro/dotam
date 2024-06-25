@@ -263,7 +263,7 @@ def getBuilds(ranked_matches, builds):
     return builds
 
 
-seq_num = 6576623346
+seq_num = 6577462892
 ranked_matches = []
 builds = []
 hourlyDump = 0 #This should get up to 400, then start the builds organization process
