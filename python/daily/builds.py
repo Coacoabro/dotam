@@ -229,6 +229,7 @@ def getBuilds(ranked_matches, builds):
                                             break
                                     if not itemOrderFound:
                                         hero_build[n].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+                            
                             break
 
                     if not heroFound:
@@ -267,7 +268,7 @@ ranked_matches = []
 builds = []
 hourlyDump = 0 #This should get up to 400, then start the builds organization process
 fiveHours = 0
-while fiveHours < 5:
+while fiveHours < 3:
 
     DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -309,7 +310,9 @@ while fiveHours < 5:
         print("Dumping Builds")
         for build in builds:
             cur.execute("""
-                SELECT 1 FROM builds WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s
+                SELECT 1 FROM builds 
+                WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s
+                LIMIT 1
             """, (build[0], build[1], build[2], build[3], build[4]))
             if cur.fetchone():
                 cur.execute("""
