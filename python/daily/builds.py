@@ -39,7 +39,7 @@ def actualRank(rank):
 
 def getBuilds(ranked_matches, builds):
 
-    patch = '7.36b'
+    patch = '7.36c'
 
     # Stratz API
     graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
@@ -176,7 +176,9 @@ def getBuilds(ranked_matches, builds):
                             if not abilitiesFound:
                                 hero_build[7].append({'Abilities': abilities, 'Wins': win, 'Matches': 1})
                             
-                            for n, talent in enumerate(talents):
+                            talentNum = 0
+                            for talent in talents:
+                                talentNum += 1
                                 talentFound = False
                                 for talentBuild in hero_build[8]:
                                     if talentBuild['Talent'] == talent:
@@ -185,7 +187,8 @@ def getBuilds(ranked_matches, builds):
                                         talentFound = True
                                         break
                                 if not talentFound:
-                                    hero_build[8].append({'Level': n+1, 'Talent': talent, 'Wins': win, 'Matches': 1})
+                                    hero_build[8].append({'Level': talentNum+1, 'Talent': talent, 'Wins': win, 'Matches': 1})
+
 
                             startingFound = False
                             for startingBuild in hero_build[9]:
@@ -272,7 +275,7 @@ ranked_matches = []
 builds = []
 hourlyDump = 0 #This should get up to 400, then start the builds organization process
 fiveHours = 0
-while fiveHours < 3:
+while fiveHours < 1:
 
     DOTA_2_URL = SEQ_URL + str(seq_num)
 
