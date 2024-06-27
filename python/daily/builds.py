@@ -283,7 +283,7 @@ for x in range(len(builds)):
     builds[x] = list(builds[x])
 hourlyDump = 0 # This should get up to 400, then start the builds organization process
 fiveHours = 0
-while fiveHours < 1:
+while fiveHours < 5:
 
     DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -321,7 +321,7 @@ while fiveHours < 1:
     else:
         seq_num += 1
 
-    if hourlyDump > 25:
+    if hourlyDump > 400:
         print("Dumping Builds")
         for build in builds:
             cur.execute("""
