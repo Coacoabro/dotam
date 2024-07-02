@@ -463,7 +463,7 @@
         {
             "Name": "tinker_translocator",
             "Title": "Translocator",
-            "Desc": "When a Self-Defense Matrix barrier on Tinker is fully absorbed, he blinks in a random forward direction.<br><br>DISPEL TYPE: Strong Dispel",
+            "Desc": "When a Self-Defense Matrix barrier on Tinker is fully absorbed, he blinks in a random forward direction.<br><br>DISPEL TYPE: Basic Dispel",
             "Icon": "movement"
         }
     ],
@@ -701,7 +701,7 @@
         {
             "Name": "rattletrap_hookup",
             "Title": "Hookup",
-            "Desc": "When hitting an ally, Hookshot has a larger impact radius and partially refunds its cooldown.",
+            "Desc": "When hitting an ally, Hookshot has a larger impact radius, grants a defensive barrier, and partially refunds its cooldown.",
             "Icon": "cooldown"
         },
         {
@@ -743,7 +743,7 @@
         {
             "Name": "life_stealer_maxhp_gain",
             "Title": "Corpse Eater",
-            "Desc": "Lifestealer gains %bonus_hp% HP whenever he kills a unit.",
+            "Desc": "Lifestealer gains %bonus_hp_per_creep% HP whenever he kills a creep, and %bonus_hp_per_hero% whenever he kills a hero.",
             "Icon": "armor"
         },
         {
@@ -963,7 +963,7 @@
         {
             "Name": "ancient_apparition_exposure",
             "Title": "Exposure",
-            "Desc": "Cold Feet applies its Death Rime damage in an area around the target.",
+            "Desc": "Cold Feet applies in an AoE, depending on the current level of Ice Blast.",
             "Icon": "area_of_effect"
         }
     ],

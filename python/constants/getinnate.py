@@ -69,6 +69,7 @@ def get_facets():
 
 
 get_facets()
+get_innate()
         
     
 

@@ -53,7 +53,7 @@
     },
     "14": {
         "Name": "Flesh Heap",
-        "Desc": "Each time Pudge kills an enemy Hero, he permanently gains 1.4/1.6/1.8/2 bonus Strength."
+        "Desc": "Each time Pudge kills an enemy Hero, he permanently gains 1.1/1.4/1.7/2 bonus Strength."
     },
     "15": {
         "Name": "Unstable Current",
@@ -65,7 +65,7 @@
     },
     "17": {
         "Name": "Galvanized",
-        "Desc": "Storm Spirit gains a charge of 0.2 mana regeneration per kill. Loses 3 charges per death. Leveling Ball Lightning gives Storm Spirit 5 bonus charges. Additionally every time he gains a charge he also gains 0.1 Mana Regen permanently."
+        "Desc": "Storm Spirit gains a charge of 0.2 mana regeneration per kill. Loses 3 charges per death. Leveling Ball Lightning gives Storm Spirit 3 bonus charges. Additionally every time he gains a charge he also gains 0.1 Mana Regen permanently."
     },
     "18": {
         "Name": "Vanquisher",
@@ -377,7 +377,7 @@
     },
     "96": {
         "Name": "Rawhide",
-        "Desc": "Permanently gain 35 max health every 120s."
+        "Desc": "Permanently gain 30 max health every 120s."
     },
     "97": {
         "Name": "Solid Core",
