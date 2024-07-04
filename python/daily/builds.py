@@ -274,16 +274,20 @@ def getBuilds(ranked_matches, builds):
 
 
 # initializeBuilds() # Comment this if you need to do a fresh slate
-seq_num = 6577462892
+seq_num = 6587759078
 ranked_matches = []
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
 x = 0
 for x in range(len(builds)):
     builds[x] = list(builds[x])
-hourlyDump = 0 # This should get up to 400, then start the builds organization process
-fiveHours = 0
-while fiveHours < 5:
+
+dump = False
+hourlyDump = 0
+hour = 1800 # seconds
+start_time = time.time()
+
+while True:
 
     DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -321,8 +325,17 @@ while fiveHours < 5:
     else:
         seq_num += 1
 
-    if hourlyDump > 400:
-        print("Dumping Builds")
+    if hourlyDump >= 400:
+        remaining = hour - (time.time() - start_time)
+        if remaining > 0:
+            print("Waiting for another " + str(remaining) + " seconds")
+            time.sleep(remaining)
+            dump = True
+        else:
+            dump = True
+
+    if dump:
+        print("Dumping stuff")
         for build in builds:
             cur.execute("""
                 UPDATE builds
@@ -349,5 +362,7 @@ while fiveHours < 5:
                 )
         
         conn.commit() 
+        print("done")
         hourlyDump = 0
-        fiveHours += 1
+        start_time = time.time()
+        dump = False
