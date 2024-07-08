@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://dotam.gg
-
-# Sitemaps
-Sitemap: https://dotam.gg/sitemap.xml

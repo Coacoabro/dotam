@@ -1,0 +1,11 @@
+[
+    {"rank": "", "name": "All Ranks", "icon": ""},
+    {"rank": "IMMORTAL", "name": "Immortal", "icon": "/dota_ranks/Immortal.png"},
+    {"rank": "DIVINE", "name": "Divine", "icon": "/dota_ranks/Divine.png"},
+    {"rank": "ANCIENT", "name": "Ancient", "icon": "/dota_ranks/Ancient.png"},
+    {"rank": "LEGEND", "name": "Legend", "icon": "/dota_ranks/Legend.png"},
+    {"rank": "ARCHON", "name": "Archon", "icon": "/dota_ranks/Archon.png"},
+    {"rank": "CRUSADER", "name": "Crusader", "icon": "/dota_ranks/Crusader.png"},
+    {"rank": "GUARDIAN", "name": "Guardian", "icon": "/dota_ranks/Guardian.png"},
+    {"rank": "HERALD", "name": "Herald", "icon": "/dota_ranks/Herald.png"}
+]

@@ -1,0 +1,622 @@
+[
+  {
+    "url": "anti-mage",
+    "id": 1,
+    "name": "Anti-Mage"
+  },
+  {
+    "url": "axe",
+    "id": 2,
+    "name": "Axe"
+  },
+  {
+    "url": "bane",
+    "id": 3,
+    "name": "Bane"
+  },
+  {
+    "url": "bloodseeker",
+    "id": 4,
+    "name": "Bloodseeker"
+  },
+  {
+    "url": "crystalmaiden",
+    "id": 5,
+    "name": "Crystal Maiden"
+  },
+  {
+    "url": "drowranger",
+    "id": 6,
+    "name": "Drow Ranger"
+  },
+  {
+    "url": "earthshaker",
+    "id": 7,
+    "name": "Earthshaker"
+  },
+  {
+    "url": "juggernaut",
+    "id": 8,
+    "name": "Juggernaut"
+  },
+  {
+    "url": "mirana",
+    "id": 9,
+    "name": "Mirana"
+  },
+  {
+    "url": "morphling",
+    "id": 10,
+    "name": "Morphling"
+  },
+  {
+    "url": "shadowfiend",
+    "id": 11,
+    "name": "Shadow Fiend"
+  },
+  {
+    "url": "phantomlancer",
+    "id": 12,
+    "name": "Phantom Lancer"
+  },
+  {
+    "url": "puck",
+    "id": 13,
+    "name": "Puck"
+  },
+  {
+    "url": "pudge",
+    "id": 14,
+    "name": "Pudge"
+  },
+  {
+    "url": "razor",
+    "id": 15,
+    "name": "Razor"
+  },
+  {
+    "url": "sandking",
+    "id": 16,
+    "name": "Sand King"
+  },
+  {
+    "url": "stormspirit",
+    "id": 17,
+    "name": "Storm Spirit"
+  },
+  {
+    "url": "sven",
+    "id": 18,
+    "name": "Sven"
+  },
+  {
+    "url": "tiny",
+    "id": 19,
+    "name": "Tiny"
+  },
+  {
+    "url": "vengefulspirit",
+    "id": 20,
+    "name": "Vengeful Spirit"
+  },
+  {
+    "url": "windranger",
+    "id": 21,
+    "name": "Windranger"
+  },
+  {
+    "url": "zeus",
+    "id": 22,
+    "name": "Zeus"
+  },
+  {
+    "url": "kunkka",
+    "id": 23,
+    "name": "Kunkka"
+  },
+  {
+    "url": "lina",
+    "id": 25,
+    "name": "Lina"
+  },
+  {
+    "url": "lion",
+    "id": 26,
+    "name": "Lion"
+  },
+  {
+    "url": "shadowshaman",
+    "id": 27,
+    "name": "Shadow Shaman"
+  },
+  {
+    "url": "slardar",
+    "id": 28,
+    "name": "Slardar"
+  },
+  {
+    "url": "tidehunter",
+    "id": 29,
+    "name": "Tidehunter"
+  },
+  {
+    "url": "witchdoctor",
+    "id": 30,
+    "name": "Witch Doctor"
+  },
+  {
+    "url": "lich",
+    "id": 31,
+    "name": "Lich"
+  },
+  {
+    "url": "riki",
+    "id": 32,
+    "name": "Riki"
+  },
+  {
+    "url": "enigma",
+    "id": 33,
+    "name": "Enigma"
+  },
+  {
+    "url": "tinker",
+    "id": 34,
+    "name": "Tinker"
+  },
+  {
+    "url": "sniper",
+    "id": 35,
+    "name": "Sniper"
+  },
+  {
+    "url": "necrophos",
+    "id": 36,
+    "name": "Necrophos"
+  },
+  {
+    "url": "warlock",
+    "id": 37,
+    "name": "Warlock"
+  },
+  {
+    "url": "beastmaster",
+    "id": 38,
+    "name": "Beastmaster"
+  },
+  {
+    "url": "queenofpain",
+    "id": 39,
+    "name": "Queen of Pain"
+  },
+  {
+    "url": "venomancer",
+    "id": 40,
+    "name": "Venomancer"
+  },
+  {
+    "url": "facelessvoid",
+    "id": 41,
+    "name": "Faceless Void"
+  },
+  {
+    "url": "wraithking",
+    "id": 42,
+    "name": "Wraith King"
+  },
+  {
+    "url": "deathprophet",
+    "id": 43,
+    "name": "Death Prophet"
+  },
+  {
+    "url": "phantomassassin",
+    "id": 44,
+    "name": "Phantom Assassin"
+  },
+  {
+    "url": "pugna",
+    "id": 45,
+    "name": "Pugna"
+  },
+  {
+    "url": "templarassassin",
+    "id": 46,
+    "name": "Templar Assassin"
+  },
+  {
+    "url": "viper",
+    "id": 47,
+    "name": "Viper"
+  },
+  {
+    "url": "luna",
+    "id": 48,
+    "name": "Luna"
+  },
+  {
+    "url": "dragonknight",
+    "id": 49,
+    "name": "Dragon Knight"
+  },
+  {
+    "url": "dazzle",
+    "id": 50,
+    "name": "Dazzle"
+  },
+  {
+    "url": "clockwerk",
+    "id": 51,
+    "name": "Clockwerk"
+  },
+  {
+    "url": "leshrac",
+    "id": 52,
+    "name": "Leshrac"
+  },
+  {
+    "url": "naturesprophet",
+    "id": 53,
+    "name": "Nature's Prophet"
+  },
+  {
+    "url": "lifestealer",
+    "id": 54,
+    "name": "Lifestealer"
+  },
+  {
+    "url": "darkseer",
+    "id": 55,
+    "name": "Dark Seer"
+  },
+  {
+    "url": "clinkz",
+    "id": 56,
+    "name": "Clinkz"
+  },
+  {
+    "url": "omniknight",
+    "id": 57,
+    "name": "Omniknight"
+  },
+  {
+    "url": "enchantress",
+    "id": 58,
+    "name": "Enchantress"
+  },
+  {
+    "url": "huskar",
+    "id": 59,
+    "name": "Huskar"
+  },
+  {
+    "url": "nightstalker",
+    "id": 60,
+    "name": "Night Stalker"
+  },
+  {
+    "url": "broodmother",
+    "id": 61,
+    "name": "Broodmother"
+  },
+  {
+    "url": "bountyhunter",
+    "id": 62,
+    "name": "Bounty Hunter"
+  },
+  {
+    "url": "weaver",
+    "id": 63,
+    "name": "Weaver"
+  },
+  {
+    "url": "jakiro",
+    "id": 64,
+    "name": "Jakiro"
+  },
+  {
+    "url": "batrider",
+    "id": 65,
+    "name": "Batrider"
+  },
+  {
+    "url": "chen",
+    "id": 66,
+    "name": "Chen"
+  },
+  {
+    "url": "spectre",
+    "id": 67,
+    "name": "Spectre"
+  },
+  {
+    "url": "ancientapparition",
+    "id": 68,
+    "name": "Ancient Apparition"
+  },
+  {
+    "url": "doom",
+    "id": 69,
+    "name": "Doom"
+  },
+  {
+    "url": "ursa",
+    "id": 70,
+    "name": "Ursa"
+  },
+  {
+    "url": "spiritbreaker",
+    "id": 71,
+    "name": "Spirit Breaker"
+  },
+  {
+    "url": "gyrocopter",
+    "id": 72,
+    "name": "Gyrocopter"
+  },
+  {
+    "url": "alchemist",
+    "id": 73,
+    "name": "Alchemist"
+  },
+  {
+    "url": "invoker",
+    "id": 74,
+    "name": "Invoker"
+  },
+  {
+    "url": "silencer",
+    "id": 75,
+    "name": "Silencer"
+  },
+  {
+    "url": "outworlddestroyer",
+    "id": 76,
+    "name": "Outworld Destroyer"
+  },
+  {
+    "url": "lycan",
+    "id": 77,
+    "name": "Lycan"
+  },
+  {
+    "url": "brewmaster",
+    "id": 78,
+    "name": "Brewmaster"
+  },
+  {
+    "url": "shadowdemon",
+    "id": 79,
+    "name": "Shadow Demon"
+  },
+  {
+    "url": "lonedruid",
+    "id": 80,
+    "name": "Lone Druid"
+  },
+  {
+    "url": "chaosknight",
+    "id": 81,
+    "name": "Chaos Knight"
+  },
+  {
+    "url": "meepo",
+    "id": 82,
+    "name": "Meepo"
+  },
+  {
+    "url": "treantprotector",
+    "id": 83,
+    "name": "Treant Protector"
+  },
+  {
+    "url": "ogremagi",
+    "id": 84,
+    "name": "Ogre Magi"
+  },
+  {
+    "url": "undying",
+    "id": 85,
+    "name": "Undying"
+  },
+  {
+    "url": "rubick",
+    "id": 86,
+    "name": "Rubick"
+  },
+  {
+    "url": "disruptor",
+    "id": 87,
+    "name": "Disruptor"
+  },
+  {
+    "url": "nyxassassin",
+    "id": 88,
+    "name": "Nyx Assassin"
+  },
+  {
+    "url": "nagasiren",
+    "id": 89,
+    "name": "Naga Siren"
+  },
+  {
+    "url": "keeperofthelight",
+    "id": 90,
+    "name": "Keeper of the Light"
+  },
+  {
+    "url": "io",
+    "id": 91,
+    "name": "Io"
+  },
+  {
+    "url": "visage",
+    "id": 92,
+    "name": "Visage"
+  },
+  {
+    "url": "slark",
+    "id": 93,
+    "name": "Slark"
+  },
+  {
+    "url": "medusa",
+    "id": 94,
+    "name": "Medusa"
+  },
+  {
+    "url": "trollwarlord",
+    "id": 95,
+    "name": "Troll Warlord"
+  },
+  {
+    "url": "centaurwarrunner",
+    "id": 96,
+    "name": "Centaur Warrunner"
+  },
+  {
+    "url": "magnus",
+    "id": 97,
+    "name": "Magnus"
+  },
+  {
+    "url": "timbersaw",
+    "id": 98,
+    "name": "Timbersaw"
+  },
+  {
+    "url": "bristleback",
+    "id": 99,
+    "name": "Bristleback"
+  },
+  {
+    "url": "tusk",
+    "id": 100,
+    "name": "Tusk"
+  },
+  {
+    "url": "skywrathmage",
+    "id": 101,
+    "name": "Skywrath Mage"
+  },
+  {
+    "url": "abaddon",
+    "id": 102,
+    "name": "Abaddon"
+  },
+  {
+    "url": "eldertitan",
+    "id": 103,
+    "name": "Elder Titan"
+  },
+  {
+    "url": "legioncommander",
+    "id": 104,
+    "name": "Legion Commander"
+  },
+  {
+    "url": "techies",
+    "id": 105,
+    "name": "Techies"
+  },
+  {
+    "url": "emberspirit",
+    "id": 106,
+    "name": "Ember Spirit"
+  },
+  {
+    "url": "earthspirit",
+    "id": 107,
+    "name": "Earth Spirit"
+  },
+  {
+    "url": "underlord",
+    "id": 108,
+    "name": "Underlord"
+  },
+  {
+    "url": "terrorblade",
+    "id": 109,
+    "name": "Terrorblade"
+  },
+  {
+    "url": "phoenix",
+    "id": 110,
+    "name": "Phoenix"
+  },
+  {
+    "url": "oracle",
+    "id": 111,
+    "name": "Oracle"
+  },
+  {
+    "url": "winterwyvern",
+    "id": 112,
+    "name": "Winter Wyvern"
+  },
+  {
+    "url": "arcwarden",
+    "id": 113,
+    "name": "Arc Warden"
+  },
+  {
+    "url": "monkeyking",
+    "id": 114,
+    "name": "Monkey King"
+  },
+  {
+    "url": "darkwillow",
+    "id": 119,
+    "name": "Dark Willow"
+  },
+  {
+    "url": "pangolier",
+    "id": 120,
+    "name": "Pangolier"
+  },
+  {
+    "url": "grimstroke",
+    "id": 121,
+    "name": "Grimstroke"
+  },
+  {
+    "url": "hoodwink",
+    "id": 123,
+    "name": "Hoodwink"
+  },
+  {
+    "url": "voidspirit",
+    "id": 126,
+    "name": "Void Spirit"
+  },
+  {
+    "url": "snapfire",
+    "id": 128,
+    "name": "Snapfire"
+  },
+  {
+    "url": "mars",
+    "id": 129,
+    "name": "Mars"
+  },
+  {
+    "url": "dawnbreaker",
+    "id": 135,
+    "name": "Dawnbreaker"
+  },
+  {
+    "url": "marci",
+    "id": 136,
+    "name": "Marci"
+  },
+  {
+    "url": "primalbeast",
+    "id": 137,
+    "name": "Primal Beast"
+  },
+  {
+    "url": "muerta",
+    "id": 138,
+    "name": "Muerta"
+  }
+]

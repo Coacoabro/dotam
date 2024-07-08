@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import TierCard from '../components/TierList/TierCard'
+import Rank from '../components/Rank'
+import Role from '../components/Role'
+import Info from '../components/Info'
+
+import TierRow from '../components/TierList/TierRow'
 
 import { Pool } from 'pg';
 
@@ -15,12 +19,10 @@ const pool = new Pool({
 
 export async function getServerSideProps(context) {
 
-  const heroId = context.query.heroURL;
-
   const client = await pool.connect();
   const res1 = await client.query('SELECT * FROM heroes');
   const res2 = await client.query('SELECT * FROM rates');
-  const res3 = await client.query('SELECT hero_id, rank, herovs FROM matchups');
+  const res3 = await client.query('SELECT hero_id, rank, role, herovs FROM matchups');
   client.release();
 
   return {
@@ -32,41 +34,11 @@ export async function getServerSideProps(context) {
   };
 }
 
-function TierList({ heroes, rates, matchups }) {
+
+export default function TierList({ heroes, rates, matchups }) {
 
   const router = useRouter();
-
-
-  const Role = [
-    {role: "", name: "All", icon: "../icons8-product-90.png"},
-    {role: "POSITION_1", name: "Safe Lane", icon: "../Safe-Lane.png"},
-    {role: "POSITION_2", name: "Mid Lane", icon: "../Mid-Lane.png"},
-    {role: "POSITION_3", name: "Off Lane", icon: "../Off-Lane.png"},
-    {role: "POSITION_4", name: "Soft Support", icon: "../Soft-Support.png"},
-    {role: "POSITION_5", name: "Hard Support", icon: "../Hard-Support.png"},
-  ]
-
-  const Rank = [
-    {rank: "", name: "All", icon: "../icons8-competitive-64.png"},
-    {rank: "IMMORTAL", name: "Immortal", icon: "../dota_ranks/Immortal.png"},
-    {rank: "DIVINE", name: "Divine", icon: "../dota_ranks/Divine.png"},
-    {rank: "ANCIENT", name: "Ancient", icon: "../dota_ranks/Ancient.png"},
-    {rank: "LEGEND", name: "Legend", icon: "../dota_ranks/Legend.png"},
-    {rank: "ARCHON", name: "Archon", icon: "../dota_ranks/Archon.png"},
-    {rank: "CRUSADER", name: "Crusader", icon: "../dota_ranks/Crusader.png"},
-    {rank: "GUARDIAN", name: "Guardian", icon: "../dota_ranks/Guardian.png"},
-    {rank: "HERALD", name: "Herald", icon: "../dota_ranks/Herald.png"},
-  ]
-
-  const [currentRole, setCurrentRole] = useState("");
-  const handleRoleClick = (role) => {
-    setCurrentRole(role);
-  };
-
-  const [currentRank, setCurrentRank] = useState("");
-  const handleRankClick = (rank) => {
-    setCurrentRank(rank);
-  };
+  const { role, rank } = router.query  
 
   const [currentSort, setCurrentSort] = useState("tier_num");
   const [sortBy, setSortBy] = useState("f2l");
@@ -79,25 +51,26 @@ function TierList({ heroes, rates, matchups }) {
       }
     }
     else {setCurrentSort(sort)}
-    
   };
 
   const [tierList, setTierList] = useState([{}]);
   const [counters, setCounters] = useState([])
 
-  const [showRoleInfo, setShowRoleInfo] = useState(false);
-  const handleRoleInfoClick = () => {
-    router.push('/basics')
-  }
-  const [showRankInfo, setShowRankInfo] = useState(false);
-  const handleRankInfoClick = () => {
-    router.push('/basics')
-  }
-
   useEffect(() => {
+
     let heroesByRR = [];
 
-    setCounters(matchups.filter(r => r.rank === currentRank))  
+    let currentRole = ""
+    let currentRank = ""
+
+    if(role){
+      currentRole = role
+    }
+    if(rank){
+      currentRank = rank
+    }
+
+    setCounters(matchups.filter(r => r.rank.includes(currentRank)))  
 
     if (currentRole) {
       heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.pickrate >= 0.005)
@@ -109,13 +82,12 @@ function TierList({ heroes, rates, matchups }) {
     else if (sortBy === "l2f") {
       setTierList(heroesByRR.sort((a, b) => a[currentSort] - b[currentSort]))
     }
-    
 
-  }, [rates, matchups, currentRank, currentRole, currentSort, sortBy]);
-
+  }, [rates, matchups, rank, role, currentSort, sortBy]);
 
   return (
     <div>
+
       <Head>
         <title>Dota 2 Tier Lists</title>
         <meta name="description" 
@@ -124,77 +96,30 @@ function TierList({ heroes, rates, matchups }) {
           content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg" />
         <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <div className="max-w-6xl mx-auto px-4 space-y-4 text-white">
-        <div className="text-3xl uppercase text-center py-4">Dota 2 Tier List</div>
-        <div className="md:flex md:justify-evenly text-white">
-          <div className="flex">
-            <button 
-              className='text-black text-xl space-x-2'
-              onMouseEnter={() => setShowRoleInfo(true)}
-              onMouseLeave={() => setShowRoleInfo(false)}
-              onClick={handleRoleInfoClick}
-            >
-              ⓘ
-            </button>
-            {showRoleInfo && (
-              <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
-                Hero Role Info
-              </div>
-            )}
-            <div className="p-2 flex space-x-2 rounded-md">
-                {Role.map((role, index) => (
-                  <button 
-                    key={index} 
-                    className={`w-10 h-10 rounded-md hover:bg-blue-400 ${role.role === currentRole ? 'bg-blue-600' : 'bg-gray-800'} `}
-                    onClick={() => handleRoleClick(role.role)}
-                    title={role.name}
-                  >
-                    <img src={role.icon} alt={role.name} />
-                  </button>
-                ))}
-            </div>
-          </div>
-          <div class="flex items-center space-x-3">
-            <button 
-              className='text-black text-xl space-x-2'
-              onMouseEnter={() => setShowRankInfo(true)}
-              onMouseLeave={() => setShowRankInfo(false)}
-              onClick={handleRankInfoClick}
-            >
-              ⓘ
-            </button>
-            {showRankInfo && (
-              <div className="absolute mt-10 bg-gray-800 text-white p-2 rounded-md text-left">
-                Hero Rank Info
-              </div>
-            )}
-                      
-            <form class="max-w-sm mx-auto w-36">
-              <select 
-                class="bg-gray-800 text-white text-lg rounded-lg block w-full p-2.5"
-                value={currentRank}  
-                onChange={(e) => handleRankClick(e.target.value)}
-              >
-                {Rank.map((rank, index) => (
-                  <option
-                    key={index}
-                    value={rank.rank}
-                  >
-                    {rank.name}
-                  </option>
-                ))}
-              </select>
-            </form>
 
+      <div className="max-w-7xl mx-auto px-4 space-y-4 text-white pt-8">
+        <div className="text-3xl py-4 font-semibold">Dota 2 Tier List</div>
+        <div className="text-xl text-gray-300 py-1">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
+        <div className="py-2 md:flex md:justify-between text-white">
+          <div className="flex items-center space-x-2">
+            {/* <Info data="Role" /> */}
+            <Role />
+          </div>
+          <div class="flex items-center space-x-2">
+            {/* <Info data="Rank" /> */}
+            <Rank />
           </div>
         </div>
 
-        <div className="overflow-x-auto rounded-md bg-gray-700">
-          <table className="table-auto w-full">
+        <div className="overflow-x-auto bg-slate-950 rounded-lg shadow border border-slate-800">
+          <table className="table-auto w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight">
             <thead>
-              <tr className="bg-gray-800 text-white text-xl text-center">
+              <tr className="bg-slate-950 text-white text-lg text-center">
                 <th className="px-6 py-2">
-                  <button onClick={() => handleSortClick("tier_num", currentSort)}>TIER⇅</button>
+                  <button className='flex items-center space-x-1' onClick={() => handleSortClick("tier_num", currentSort)}>
+                    <div>TIER</div>
+                    <img src="UpDown.svg" />
+                  </button>
                 </th>
                 <th className=" py-2">
                   HERO
@@ -202,32 +127,41 @@ function TierList({ heroes, rates, matchups }) {
                 <th className="px-1 py-2">
                   ROLE
                 </th>
-                <th className="px-8 py-2">
-                  <button onClick={() => handleSortClick("winrate", currentSort)}>WR⇅</button>
+                <th className="px-6 py-2">
+                  <button className='flex items-center space-x-1' onClick={() => handleSortClick("winrate", currentSort)}>
+                    <div>WR</div>
+                    <img src="UpDown.svg" />
+                  </button>
                 </th>
                 <th className="px-10 py-2">
-                  <button onClick={() => handleSortClick("pickrate", currentSort)}>PR⇅</button>
-                </th>
-                <th className="px-6 py-2">
-                  <button onClick={() => handleSortClick("matches", currentSort)}>MATCHES⇅</button>
+                  <button className='flex items-center space-x-1' onClick={() => handleSortClick("pickrate", currentSort)}>
+                    <div>PR</div>
+                    <img src="UpDown.svg" />
+                  </button>
                 </th>
                 <th className="px-10 py-2">
                   COUNTERS
+                </th>
+                <th className="px-2 py-2">
+                  <button className='flex items-center space-x-1' onClick={() => handleSortClick("matches", currentSort)}>
+                    <div>MATCHES</div>
+                    <img src="UpDown.svg" />
+                  </button>
                 </th>
               </tr>
             </thead>
             <tbody className="text-white text-center">
               {tierList.map((tierItem, index) => {
                 return (
-                  <TierCard
+                  <TierRow
+                      index={index}
                       tier_str={tierItem.tier_str}
                       hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
                       role={tierItem.role}
                       WR={tierItem.winrate}
                       PR={tierItem.pickrate}
                       matches={tierItem.matches}
-                      counters={counters.find(obj => obj.hero_id === tierItem.hero_id)}
-                      index={index}
+                      counters={counters.find(obj => obj.hero_id === tierItem.hero_id && obj.role === tierItem.role)}
                     />
               )})}
             </tbody>
@@ -239,4 +173,3 @@ function TierList({ heroes, rates, matchups }) {
   );
 }
 
-export default TierList;

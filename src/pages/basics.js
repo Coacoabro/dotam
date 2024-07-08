@@ -1,22 +1,9 @@
-import React from 'react'
-import Head from 'next/head';
 
-function Basics() {
+
+export default function Basics() {
     return(
         <div>
-            <Head>
-            <title>Dota 2 Basics - DotaM</title>
-            <meta name="description" 
-                content={`WORK IN PROGRESS. Get a deeper understanding of Dota 2.`} />
-            <meta name="keywords"
-                content="dota basics, dota explained" />
-            <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-            </Head>
-            <div class="text-white">
-                Work in progress
-            </div>
+            <h1 className="absolute top-1/2 left-1/2">Still a work in progress</h1>
         </div>
-    );
+    )
 }
-
-export default Basics

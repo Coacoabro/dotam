@@ -1,11 +1,9 @@
-import React from 'react'
 
-function BottomBar() {
-    return (
-        <div className="text-white">
-            Hi from BottomBar component more stuff
+
+export default function BottomBar() {
+    return(
+        <div className="relative p-4 w-screen shadow-md bg-slate-700 bottom-0">
+            bottomasdfasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         </div>
     )
 }
-
-export default BottomBar

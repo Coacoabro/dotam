@@ -1,0 +1,8 @@
+[
+    {"role": "", "name": "All", "icon": ""},
+    {"role": "POSITION_1", "name": "Safe Lane", "icon": "/dota_roles/Safe-Lane.png", "selected": "/dota_roles/bSafe-Lane.png"},
+    {"role": "POSITION_2", "name": "Mid Lane", "icon": "/dota_roles/Mid-Lane.png", "selected": "/dota_roles/bMid-Lane.png"},
+    {"role": "POSITION_3", "name": "Off Lane", "icon": "/dota_roles/Off-Lane.png", "selected": "/dota_roles/bOff-Lane.png"},
+    {"role": "POSITION_4", "name": "Soft Support", "icon": "/dota_roles/Soft-Support.png", "selected": "/dota_roles/bSoft-Support.png"},
+    {"role": "POSITION_5", "name": "Hard Support", "icon": "/dota_roles/Hard-Support.png", "selected": "/dota_roles/bHard-Support.png"}
+]
