@@ -15,31 +15,18 @@ export default function Core({items, matches, isCarry}) {
         })
     }, [items])
 
-    console.log(isCarry)
-
     return(
-        <div className='space-y-3'>
-            <div className='flex items-end gap-2.5'>
+        <div className='rounded-lg border border-slate-800 space-y-3'>
+            <div className='flex items-end gap-2.5 px-5 pt-3'>
                 <h1 className='text-xl font-bold'>Core Items</h1>
-                <h2 className='opacity-50'>Best main items to initally purchase</h2>
+                <h2 className='opacity-50'>First main items to purchase</h2>
             </div>
-            <div className='rounded-lg border border-slate-800'>
-                <table className="table-auto w-full text-slate-200 leading-tight font-medium rounded-lg bg-slate-900 text-center">
-                    <thead>
-                        <tr>
-                            <th className="bg-slate-950 rounded-tl-lg py-2 border-b border-slate-800">1ST</th>
-                            <th className="bg-slate-950 py-2 border-b border-slate-800">2ND</th>
-                            {isCarry ? <th className="bg-slate-950 py-2 border-b border-slate-800">3RD</th> : null}
-                            <th className="bg-slate-800 py-2">WR</th>
-                            <th className="bg-slate-800 rounded-tr-lg py-2">MATCHES</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cores ? cores.map((core) => (
-                            <CoreItems core={core} matches={matches} isCarry={isCarry} />
-                        )) : null}
-                    </tbody>
-                </table>
+            <div className='bg-slate-900 px-5 py-3 space-y-2 rounded-b-lg'>
+                <CoreItems core={cores[0]} matches={matches} isCarry={isCarry} />
+                <div className='bg-slate-800 h-[2px] w-full' />
+                <CoreItems core={cores[1]} matches={matches} isCarry={isCarry} />
+                <div className='bg-slate-800 h-[2px] w-full' />
+                <CoreItems core={cores[2]} matches={matches} isCarry={isCarry} />
             </div>
         </div>
     )

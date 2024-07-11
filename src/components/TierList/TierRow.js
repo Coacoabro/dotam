@@ -73,26 +73,27 @@ export default function TierRow({ tier_str, role, hero, WR, PR, matches, counter
 
     return (
         <tr className={`text-white font-normal ${index % 2 === 1 ? 'bg-slate-800' : 'bg-slate-900'}`}>
-            <td className={`px-6 py-2 ${tierColor[tier_str]} text-lg font-medium`}>{tier_str}</td>
-            <td className="px-1 py-2">
+            <td className={`${tierColor[tier_str]} text-xl font-medium`}>{tier_str}</td>
+            <td className="py-2">
                 <Link href={`/hero/${heroURL}`}>
-                <div className="flex items-center text-left space-x-4 hover:underline">
-                    <div className="w-20">
-                    <img src={img} />
+                    <div className="flex items-center text-left space-x-4 hover:underline">
+                        <div className="w-20">
+                        <img src={img} />
+                        </div>
+                        <div className="font-normal text-xl">{heroName}</div>
                     </div>
-                    <div className="font-normal">{heroName}</div>
-                </div>
                 </Link>
             </td>
-            <td className="px-4 py-2 justify-items-center"><img className="w-8" src={roleImage} title={roleName} /></td>
-            <td className={`px-4 py-2 font-medium ${wrColor}`}>{(WR * 100).toFixed(2)}%</td>
-            <td className={`px-4 py-2`}>{(PR * 100).toFixed(2)}%</td>
-            <td className="px-2 py-2">
-                <div className="flex items-center justify-center space-x-2">
+            <td className=""><img className="w-8" src={roleImage} title={roleName} /></td>
+            <td className={`font-medium text-lg ${wrColor}`}>{(WR * 100).toFixed(2)}%</td>
+            <td className={`text-lg`}>{(PR * 100).toFixed(2)}%</td>
+            <td className="text-lg">{matches.toLocaleString()}</td>
+            <td className="">
+                <div className="flex items-center justify-evenly">
                 {fiveCounters.map(hero => (
                     <Link href={`/hero/${dota2heroes.find(r => r.id == hero)?.url}`}>                        
                         <img
-                            className="w-8 h-full rounded-full"
+                            className="w-10 h-full rounded-full"
                             src={hero ? `https://dhpoqm1ofsbx7.cloudfront.net/hero_thumbnail/${heroConstants[hero].name}` + '.jpg' : null}
                             title={heroConstants[hero].localized_name}
                         />
@@ -100,7 +101,6 @@ export default function TierRow({ tier_str, role, hero, WR, PR, matches, counter
                 ))}
                 </div>
             </td>
-            <td className="px-4 py-3">{matches.toLocaleString()}</td>
         </tr>
     );
 }

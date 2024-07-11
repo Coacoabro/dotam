@@ -152,7 +152,7 @@ def getBuilds(ranked_matches, builds):
                     startingItems = []
                     for staritem in purchasedItems:
                         item_id = staritem['itemId']
-                        if staritem['time'] < 0:
+                        if staritem['time'] < 0 and len(startingItems) < 6:
                             startingItems.append(item_id)
                     
                     # Early Game Items

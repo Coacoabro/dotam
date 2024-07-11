@@ -19,7 +19,7 @@ export default function NthItem({order, items}){
         <div className='rounded-lg border border-slate-800'>
             <div className='font-medium text-center py-2 text-lg'>{order}{order == 3 ? "RD" : "TH"}</div>
             <div className='w-full h-[1px] bg-slate-800' />
-            <div className='bg-slate-900 py-3 space-y-2 px-8'>
+            <div className='bg-slate-900 py-3 space-y-2 px-8 rounded-b-lg'>
                 {nthItems.map((item, index) => (
                     <ItemCard item={item} index={index} />
                 ))}
