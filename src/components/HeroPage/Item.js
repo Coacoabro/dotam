@@ -18,6 +18,7 @@ export default function ItemCard({id}) {
         }
     
         const itemDesc = []
+        console.log(item)
         
         if (item.abilities) {
             item.abilities.map((ability) => {
