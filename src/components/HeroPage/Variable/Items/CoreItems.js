@@ -19,7 +19,7 @@ export default function CoreItems({core, matches, isCarry}) {
                         <Item id={items[2]} />
                     </div>
                     <div>
-                        <div className='flex items-end gap-1'>
+                        <div className='flex items-center gap-1'>
                             <h1 className='text-lg'>{wr}%</h1>
                             <h2 className='text-sm opacity-50'>WR</h2>
                         </div>
@@ -37,7 +37,7 @@ export default function CoreItems({core, matches, isCarry}) {
                         <Item id={items[1]} />
                     </div>
                     <div>
-                        <div className='flex items-end gap-1'>
+                        <div className='flex items-center gap-1'>
                             <h1 className='text-lg'>{wr}%</h1>
                             <h2 className='text-sm opacity-50'>WR</h2>
                         </div>

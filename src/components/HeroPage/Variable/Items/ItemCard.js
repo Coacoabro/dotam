@@ -19,7 +19,7 @@ export default function ItemCard({item, index}) {
                 </div>
                 
                 <div>
-                    <div className='flex items-end gap-1'>
+                    <div className='flex items-center gap-1'>
                         <h1 className='text-lg'>{wr}%</h1>
                         <h2 className='opacity-50 text-sm'>WR</h2>
                     </div>
