@@ -62,6 +62,7 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
+    const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
 
     return(
       <div>
@@ -80,6 +81,9 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
             <div className="py-7 px-2 z-30">
               <StaticInfo hero={heroData} />
             </div>
+            {/* <div className="absolute right-0 mt-72 w-[500px] opacity-25">
+              <video src={hero_vid} type="video/webm" loop autoPlay disablePictureInPicture className='object-cover w-full'/>
+            </div> */}
             <div className="absolute right-0 mt-24 h-72 opacity-25">
               <img src={crop_img} className="object-cover w-full h-full" />
             </div>

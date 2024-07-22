@@ -41,7 +41,7 @@ export default function Home() {
             <Head>
                 <title>DotaM: Dota 2 Builds Tier Lists and Basics</title>
                 <meta name="description" 
-                    content="DotaM is designed to make playing Dota 2 more accessible to beginners, veterans, and even League players!" />
+                    content="DotaM looks at the current Dota 2 Meta and showcases it in a clean accessible way!" />
                 <meta name="keywords"
                     content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg, builds, neutral, neutrals, matchups, dota basics, dota explained" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />

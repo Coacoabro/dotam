@@ -22,7 +22,7 @@ export default function Heroes() {
   const universalHeroes = Object.values(sortedHeroData).filter(hero => hero.primary_attr === 'all');
   
   return (
-    <div className='py-10 space-y-10'>
+    <div className='py-10 space-y-10 z-0'>
         <SearchBar />
         <div className="px-4 z-0 max-w-6xl mx-auto space-y-4 text-white">        
             <div className="grid grid-cols-2 gap-1 md:gap-5">

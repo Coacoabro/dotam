@@ -112,7 +112,7 @@ export default function SearchBar( {scrollY, topBar} ) {
         </div>
       </div>
       <button 
-        className={`${topBar ? 'w-[70px] text-sm' : 'w-[94px]'} h-[44px] px-5 py-[9px] bg-gray-900 z-50 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}
+        className={`${topBar ? 'w-[70px] text-sm' : 'w-[94px]'} h-[44px] px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}
         onClick={() => goToHero()}
       >
         Search

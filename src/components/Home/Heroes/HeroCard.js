@@ -46,24 +46,17 @@ export default function HeroCard({ hero }) {
         onMouseLeave={handleMouseLeave}
       >
         <div className="absolute inset-0 flex items-end overflow-hidden">
-          <div
-            className={`${
-              hovered ? 'translate-y-0' : 'translate-y-full'
-            } transition-transform duration-300 ease-in-out text-white text-2xs bottom-0 left-0 px-2 py-1 z-20`}
-          >
+          <div className={`${hovered ? 'translate-y-0' : 'translate-y-full'} transition-transform duration-300 text-2xs ease-in-out text-white bottom-0 left-0 px-2 py-1 z-20`}>
             {hero.localized_name}
           </div>
         </div>
-        {/* <img
-          src={heroImage}
-          className="object-cover transition-transform duration-300 p-1"
-          style={{width: '81px', height: '108px'}}
-        />
+        <img src={heroImage} className={`${hovered ? 'rounded-lg' : ''} object-cover transition-transform duration-300 p-1 w-[81px] h-[108px]`} />
+        {/* 
         {hovered && 
           <video className={`absolute inset-0 w-full h-full object-cover rounded-md shadow-md`} onLoadedData={handleLoadedData} autoPlay loop disablePictureInPicture>
             <source src={heroVideo} type="video/webm" />
           </video>
-        } */}
+        }
         <video
           ref={videoRef}
           className='object-cover rounded-lg shadow-md w-[81px] h-[108px] p-1'
@@ -73,6 +66,7 @@ export default function HeroCard({ hero }) {
         >
           <source src={heroVideo} type="video/webm" />
         </video>
+         */}
       </div>
     </Link>
   );
