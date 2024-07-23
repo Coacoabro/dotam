@@ -48,7 +48,4 @@ export default function CoreItems({core, matches, isCarry}) {
         }
     
     }
-
-    
-    
 }
