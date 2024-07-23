@@ -46,7 +46,7 @@ export default function HeroCard({ hero }) {
         onMouseLeave={handleMouseLeave}
       >
         <div className="absolute inset-0 flex items-end overflow-hidden">
-          <div className={`${hovered ? 'translate-y-0' : 'translate-y-full'} transition-transform duration-300 text-2xs ease-in-out text-white bottom-0 left-0 px-2 py-1 z-20`}>
+          <div className={`${hovered ? 'translate-y-0' : 'translate-y-full'} transition-transform duration-300 text-xs ease-in-out text-white bottom-0 left-0 px-2 py-1 z-20`}>
             {hero.localized_name}
           </div>
         </div>

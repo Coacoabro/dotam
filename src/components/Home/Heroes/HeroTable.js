@@ -9,12 +9,12 @@ function HeroTable({heroes, attr, img}) {
         className="flex justify-left items-center h-full text-xl text-white gap-2 inline-flex"
       >
         <img className="w-8" src={img} />
-        <div className="sm:block hidden">
+        <div className="">
           {attr}
         </div>
       </div>
 
-      <div className="grid grid-cols-3 place-items-center lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4">
+      <div className="grid grid-cols-3 place-items-center lg:grid-cols-6 sm:grid-cols-4">
         {heroes.map(hero => (
           <div>
             <HeroCard key={hero.id} hero={hero} />
