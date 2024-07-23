@@ -47,22 +47,22 @@ export default function Home() {
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
             </Head>
 
-            <div className="flex top-[20vh] justify-center items-center relative z-10" >
+            <div className="flex top-[10vh] sm:top-[20vh] justify-center items-center relative z-10" >
                 <Hero />
             </div>
 
-            <div id="heroes" className="flex top-[27.5vh] justify-center items-center relative py-4 space-x-1 sm:text-2xl">
+            <div id="heroes" className="flex top-[17.5vh] sm:top-[27.5vh] justify-center items-center relative py-4 space-x-1 sm:text-2xl">
                 <div>Data powered by</div>
                 <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.stratz.com" target="_blank"> <img src="/StratzLogo.svg" className='w-8 h-8'/>Stratz</a>
                 {/* <div>and</div>
                 <a className="font-bold flex space-x-1 items-center text-indigo-200" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a> */}
             </div>
 
-            <div  className={`transition-all mx-auto top-[30vh] max-w-6xl z-40 relative ${!scrollY == 0 || router.asPath.includes('#') ? 'pt-12' : 'pt-4'}`}>
+            <div  className={`transition-all mx-auto top-[20vh] sm:top-[30vh] max-w-6xl z-40 relative ${!scrollY == 0 || router.asPath.includes('#') ? 'pt-12' : 'pt-4'}`}>
                 <SearchBar scrollY={scrollY} />
             </div>
 
-            <div className={`relative top-[35vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 ${scrollY !== 0 || router.asPath.includes('#') ? 'blur-none opacity-100' : 'blur opacity-25'}`}>
+            <div className={`relative top-[25vh] sm:top-[35vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 ${scrollY !== 0 || router.asPath.includes('#') ? 'blur-none opacity-100' : 'blur opacity-25'}`}>
                 <Heroes />
             </div>
         </div>
