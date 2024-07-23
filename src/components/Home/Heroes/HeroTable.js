@@ -3,12 +3,12 @@ import HeroCard from './HeroCard'
 
 function HeroTable({heroes, attr, img}) {
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-4">
+    <div className="bg-slate-900 border border-slate-800 rounded-3xl py-4 px-2 sm:px-4">
 
       <div 
-        className="flex justify-left items-center h-full text-xl text-white gap-2 inline-flex"
+        className="flex justify-left items-center h-full sm:text-xl text-white gap-2 inline-flex"
       >
-        <img className="w-8" src={img} />
+        <img className="w-6 sm:w-8" src={img} />
         <div className="">
           {attr}
         </div>
