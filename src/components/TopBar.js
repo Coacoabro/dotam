@@ -10,16 +10,16 @@ export default function TopBar() {
 
     return(
         <div className='z-50 fixed w-screen shadow-md bg-[#020617]'>
-            <div className={`flex h-24 w-screen items-center ${path == '/' || path == '/heroes' ? 'px-28' : 'px-14'}`}>
+            <div className={`flex h-24 w-screen items-center ${path == '/' || path == '/heroes' ? 'px-12 sm:px-20 lg:px-28' : 'px-4 sm:px-8 lg:px-14'}`}>
                 <div className='absolute flex items-center space-x-14 left-100'>
                     <Link href='/'><img src="/DotamLogoShortLight.png" className="w-16" /></Link>
                 </div>
                 
                 <div className={`${path == '/' || path == '/heroes' ? 'hidden' : 'absolute left-1/4 translate-x-1/2'}`}><SearchBar topBar={true} /></div>
-                <div className='absolute flex items-center space-x-10 right-10'>
+                <div className='absolute flex items-center space-x-3 sm:space-x-6 lg:space-x-10 right-8 sm:right-12 lg:right-24'>
                     <Link href="/heroes" className={`px-3 py-1 rounded-md ${path == '/heroes' ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Heroes</Link>
                     <Link href="/tier-list" className={`px-3 py-1 rounded-md ${path.includes('tier-list') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Tier List</Link>
-                    <Link href="/basics" className={`px-3 py-1 rounded-md ${path.includes('basic') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Learn Dota 2</Link>
+                    <Link href="/basics" className={`px-3 py-1 rounded-md ${path.includes('basic') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Basics</Link>
                     <button className='rounded-md hover:bg-slate-700 p-2'><img src="/cogwheel.png" className="w-5 h-5" /></button>
                 </div>
             </div>
