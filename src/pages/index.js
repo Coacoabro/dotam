@@ -51,7 +51,7 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div id="heroes" className="flex top-[10vh] sm:top-[27.5vh] justify-center items-center relative py-4 space-x-1 sm:text-2xl">
+            <div id="heroes" className="flex top-[10vh] sm:top-[27.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
                 <div>Data powered by</div>
                 <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.stratz.com" target="_blank"> <img src="/StratzLogo.svg" className='w-8 h-8'/>Stratz</a>
                 {/* <div>and</div>
