@@ -21,9 +21,7 @@ module.exports = {
         '16': '4rem',   // You can adjust the value as needed
       },
     },
-    fontSize: {
-        '2xs': ['10px', '15px'],
-    }
+    
   },
   plugins: [],
 }
