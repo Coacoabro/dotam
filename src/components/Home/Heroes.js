@@ -26,7 +26,7 @@ export default function Heroes() {
       <div 
         className="px-8 sm:px-12 lg:px-4 z-0 lg:max-w-6xl lg:mx-auto space-y-4 text-white"
       >        
-        <div className="grid grid-cols-2 gap-[15px] sm:gap-[25px]">
+        <div className="grid sm:grid-cols-2 gap-[15px] sm:gap-[25px]">
           <div>
             <HeroTable heroes={strengthHeroes} attr="Strength" img="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"/>
           </div>

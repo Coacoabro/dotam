@@ -83,8 +83,8 @@ export default function SearchBar( {scrollY, topBar} ) {
   };
 
   return (
-    <div ref={searchBarRef} className={`${scrollY == 0 ? 'w-[550px] sm:w-[800px] lg:w-[1200px]' : topBar ? 'w-[300px]' : 'w-[550px] sm:w-700px lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
-      <div className="flex-1 h-[44px] px-3 py-[12px] flex items-center">
+    <div ref={searchBarRef} className={`${scrollY == 0 ? 'w-[300px] sm:w-[800px] lg:w-[1200px]' : topBar ? 'w-[300px]' : 'w-[300px] sm:w-700px lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
+      <div className="flex-1 h-[25px] sm:h-[44px] px-3 py-[12px] flex items-center">
         <img src="/Search.png" alt="Search Icon" className="w-4 h-4" />
         <div>
           <input
@@ -96,7 +96,7 @@ export default function SearchBar( {scrollY, topBar} ) {
             className={`${scrollY == 0 ? 'lg:w-[1050px]' : topBar ? 'lg:w-[175px]' :  'lg:w-[650px]'} text-slate-200 text-[15px] font-medium leading-5 bg-transparent border-none outline-none flex-1 tracking-wide px-2`}
           />
           {searchTerm && showSuggestions && suggestions.length > 0 && (
-            <ul className={`absolute z-0 bg-white border border-gray-900 rounded-md shadow-md mt-4 text-black ${scrollY == 0 ? 'w-[1000px]' : topBar ? 'w-[250px]' : 'w-[600px]'}`}>
+            <ul className={`absolute z-0 bg-white border border-gray-900 rounded-md shadow-md mt-4 text-black ${scrollY == 0 ? 'w-[200px] sm:w-[600px] lg:w-[1000px]' : topBar ? 'w-[250px]' : 'w-[200px] sm:w-500px lg:w-[600px]'}`}>
               {suggestions.map((hero, index) => (
                 <li
                   key={hero.id}
@@ -112,7 +112,7 @@ export default function SearchBar( {scrollY, topBar} ) {
         </div>
       </div>
       <button 
-        className={`${topBar ? 'w-[70px] text-sm' : 'w-[94px]'} h-[44px] px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}
+        className={`${topBar ? 'w-[70px] text-sm' : 'w-[60px] text-xs sm:text-md sm:w-[94px]'} h-[44px] px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}
         onClick={() => goToHero()}
       >
         Search
