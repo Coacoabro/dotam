@@ -96,14 +96,14 @@ export default function SearchBar( {scrollY, topBar} ) {
             className={`${scrollY == 0 ? 'lg:w-[1050px]' : topBar ? 'lg:w-[175px]' :  'lg:w-[650px]'} text-slate-200 text-[15px] font-medium leading-5 bg-transparent border-none outline-none flex-1 tracking-wide px-2`}
           />
           {searchTerm && showSuggestions && suggestions.length > 0 && (
-            <ul className={`absolute z-0 bg-white border border-gray-900 rounded-md shadow-md mt-4 text-black ${scrollY == 0 ? 'w-[200px] sm:w-[600px] lg:w-[1000px]' : topBar ? 'w-[250px]' : 'w-[200px] sm:w-500px lg:w-[600px]'}`}>
+            <ul className={`absolute z-0 bg-white border border-gray-900 rounded-md shadow-md mt-2 sm:mt-4 text-black ${scrollY == 0 ? 'w-[200px] sm:w-[600px] lg:w-[1000px]' : topBar ? 'w-[250px]' : 'w-[200px] sm:w-500px lg:w-[600px]'}`}>
               {suggestions.map((hero, index) => (
                 <li
                   key={hero.id}
                   onClick={() => handleSuggestionClick(hero)}
-                  className={`px-3 py-2 gap-2 flex items-center text-white cursor-pointer z-50 border border-slate-700 bg-slate-800 hover:bg-slate-900 ${index === selectedSuggestionIndex ? 'bg-blue-100' : ''}`}
+                  className={`px-2 py-1 sm:px-3 sm:py-2 gap-2 flex items-center text-white text-sm sm:text-md cursor-pointer z-50 border border-slate-700 hover:bg-slate-900 ${index === selectedSuggestionIndex ? 'bg-slate-900' : 'bg-slate-800'}`}
                 >
-                  <img src={'https://cdn.cloudflare.steamstatic.com' + heroData[hero.id].img} className="h-10" />
+                  <img src={'https://cdn.cloudflare.steamstatic.com' + heroData[hero.id].img} className="h-6 sm:h-10" />
                   {hero.name}
                 </li>
               ))}

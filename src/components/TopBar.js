@@ -6,13 +6,9 @@ import SearchBar from './SearchBar'
 export default function TopBar() {
 
     const router = useRouter()
-
     const path = router.asPath
 
     const [dropDown, setDropDown] = useState(false)
-    const [searchBar, setSearchBar] = useState(false)
-
-
 
     return(
         <div className='z-50 fixed w-screen shadow-md bg-[#020617]'>
@@ -29,10 +25,10 @@ export default function TopBar() {
                     {/* <button className='rounded-md hover:bg-slate-700 p-2'><img src="/cogwheel.png" className="w-5 h-5" /></button> */}
                 </div>
                 <div className='absolute overflow-hidden transition-all duration-1000 delay-100 ease-in-out right-8 flex gap-2 sm:hidden'>
-                    <button onClick={() => setDropDown(!dropDown)}><img className='w-8 h-8' src="burger-menu.svg" /></button>
+                    <button onClick={() => setDropDown(!dropDown)}><img className='w-8 h-8' src="/burger-menu.svg" /></button>
                 </div>
             </div>
-            <div className={`flex flex-col text-xl text-center overflow-hidden transition-all duration-1000 delay-100 ease-in-out ${dropDown ? 'max-h-72' : 'max-h-0'}`}>
+            <div className={`flex flex-col text-lg text-center overflow-hidden transition-all duration-1000 delay-100 ease-in-out ${dropDown ? 'max-h-72' : 'max-h-0'}`}>
                 <div className={`py-6`}><SearchBar /></div>
                 <Link href="/heroes" onClick={() => setDropDown(!dropDown)} className={`px-6 py-4 ${path == '/heroes' ? 'bg-slate-600 text-slate-200 font-bold' : null} hover:bg-slate-500`}>Heroes</Link>
                 <Link href="/tier-list" onClick={() => setDropDown(!dropDown)} className={`px-6 py-4 ${path.includes('tier-list') ? 'bg-slate-600 text-slate-200 font-bold' : null} hover:bg-slate-500`}>Tier List</Link>

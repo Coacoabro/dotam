@@ -22,27 +22,28 @@ const pool = new Pool({
 export async function getServerSideProps(context) {
 
   const hero = dota2heroes.find(hero => hero.url === context.query.hero)
+  if(hero){
+    const client = await pool.connect();
+    const res1 = await client.query('SELECT * FROM heroes WHERE hero_id = $1', [hero.id]);
+    const res2 = await client.query('SELECT * FROM rates WHERE hero_id = $1', [hero.id]);
+    const res3 = await client.query('SELECT * FROM builds WHERE hero_id = $1', [hero.id]);
+    const res4 = await client.query('SELECT * FROM abilities WHERE hero_id = $1', [hero.id]);
+    const res5 = await client.query('SELECT * FROM items WHERE hero_id = $1', [hero.id]);
+    const res6 = await client.query('SELECT * FROM matchups WHERE hero_id = $1', [hero.id]);
+    client.release();
 
-  const client = await pool.connect();
-  const res1 = await client.query('SELECT * FROM heroes WHERE hero_id = $1', [hero.id]);
-  const res2 = await client.query('SELECT * FROM rates WHERE hero_id = $1', [hero.id]);
-  const res3 = await client.query('SELECT * FROM builds WHERE hero_id = $1', [hero.id]);
-  const res4 = await client.query('SELECT * FROM abilities WHERE hero_id = $1', [hero.id]);
-  const res5 = await client.query('SELECT * FROM items WHERE hero_id = $1', [hero.id]);
-  const res6 = await client.query('SELECT * FROM matchups WHERE hero_id = $1', [hero.id]);
-  client.release();
-
-  return {
-      props: {
-        hero: hero,
-        info: res1.rows,
-        rates: res2.rows,
-        builds: res3.rows,
-        abilities: res4.rows,
-        items: res5.rows,
-        matchups: res6.rows
-      }
-  };
+    return {
+        props: {
+          hero: hero,
+          info: res1.rows,
+          rates: res2.rows,
+          builds: res3.rows,
+          abilities: res4.rows,
+          items: res5.rows,
+          matchups: res6.rows
+        }
+    };
+}
 }
 
 export default function HeroPage({ hero, info, rates, builds, abilities, items, matchups }) {
