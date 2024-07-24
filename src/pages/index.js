@@ -58,7 +58,7 @@ export default function Home() {
                 <a className="font-bold flex space-x-1 items-center text-indigo-200" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a> */}
             </div>
 
-            <div  className={`transition-all mx-auto top-[10vh] sm:top-[30vh] max-w-6xl z-40 relative ${!scrollY == 0 || router.asPath.includes('#') ? 'pt-12' : 'pt-4'}`}>
+            <div  className={`transition-all mx-auto top-[10vh] sm:top-[30vh] max-w-6xl z-40 relative ${!scrollY == 0 ? 'pt-4 sm:pt-12' : 'pt-4'}`}>
                 <SearchBar scrollY={scrollY} />
             </div>
 

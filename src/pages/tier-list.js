@@ -117,7 +117,7 @@ export default function TierList({ heroes, rates, matchups }) {
               <tr className="bg-slate-950 text-white text-xl text-center">
                 <th className="py-2 px-3 text-center">
                   <button onClick={() => handleSortClick("tier_num", currentSort)}>
-                    <div className='flex items-center gap-1'>TIER <img src="UpDown.svg" /></div>
+                    <div className='flex items-center'>TIER <img src="UpDown.svg" className='w-6 h-6' /></div>
                   </button>
                 </th>
                 <th>
@@ -128,17 +128,17 @@ export default function TierList({ heroes, rates, matchups }) {
                 </th>
                 <th>
                   <button onClick={() => handleSortClick("winrate", currentSort)}>
-                    <div className='flex items-center gap-1'>WR <img src="UpDown.svg" /></div>
+                    <div className='flex items-center'>WR <img src="UpDown.svg" className='w-6 h-6' /></div>
                   </button>
                 </th>
                 <th>
                   <button onClick={() => handleSortClick("pickrate", currentSort)}>
-                    <div className='flex items-center gap-1'>PR <img src="UpDown.svg" /></div>
+                    <div className='flex items-center'>PR <img src="UpDown.svg" className='w-6 h-6' /></div>
                   </button>
                 </th>
                 <th>
                   <button onClick={() => handleSortClick("matches", currentSort)}>
-                    <div className='flex items-center gap-1'>MATCHES <img src="UpDown.svg" /></div>
+                    <div className='flex items-center'>MATCHES <img src="UpDown.svg" className='w-6 h-6' /></div>
                   </button>
                 </th>
                 <th>

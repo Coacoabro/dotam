@@ -13,9 +13,13 @@ export default function CoreItems({core, matches, isCarry}) {
                 <div className='flex items-end justify-evenly'>
                     <div className='flex gap-2.5 items-center'>
                         <Item id={items[0]} />
-                        🡢
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
                         <Item id={items[1]} />
-                        🡢
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
                         <Item id={items[2]} />
                     </div>
                     <div>
@@ -33,7 +37,9 @@ export default function CoreItems({core, matches, isCarry}) {
                 <div className='flex items-end justify-evenly'>
                     <div className='flex gap-2.5 items-center'>
                         <Item id={items[0]} />
-                        🡢
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
                         <Item id={items[1]} />
                     </div>
                     <div>
