@@ -16,13 +16,11 @@ export default function TopBar() {
                 <div className='absolute flex items-center left-100 gap-4'>
                     <Link href='/' onClick={() => setDropDown(false)}><img src="/DotamLogoShortLight.png" className="w-12 sm:w-16" /></Link>
                 </div>
-                
-                <div className={`${path == '/' || path == '/heroes' ? 'hidden' : 'hidden absolute left-1/4 translate-x-1/2'}`}><SearchBar topBar={true} /></div>
-                <div className={`hidden sm:block absolute flex text-xs sm:text-lg items-center space-x-1 sm:space-x-6 lg:space-x-10 right-4 sm:right-12 lg:right-24`}>
+                <div className={`hidden sm:inline-flex absolute text-xs sm:text-lg items-center space-x-1 sm:space-x-4 lg:space-x-10 sm:right-16 lg:right-24`}>
                     <Link href="/heroes" className={`px-3 py-1 rounded-md ${path == '/heroes' ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Heroes</Link>
                     <Link href="/tier-list" className={`px-3 py-1 rounded-md ${path.includes('tier-list') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Tier List</Link>
                     <Link href="/basics" className={`px-3 py-1 rounded-md ${path.includes('basic') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Basics</Link>
-                    {/* <button className='rounded-md hover:bg-slate-700 p-2'><img src="/cogwheel.png" className="w-5 h-5" /></button> */}
+                    <div className={`${path == '/' || path == '/heroes' ? 'hidden': ''}`}><SearchBar topBar={true} /></div>
                 </div>
                 <div className='absolute overflow-hidden transition-all duration-1000 delay-100 ease-in-out right-8 flex gap-2 sm:hidden'>
                     <button onClick={() => setDropDown(!dropDown)}><img className='w-8 h-8' src="/burger-menu.svg" /></button>
