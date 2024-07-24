@@ -33,7 +33,7 @@ export default function TopBar() {
                 </div>
             </div>
             <div className={`flex flex-col text-xl text-center overflow-hidden transition-all duration-1000 delay-100 ease-in-out ${dropDown ? 'max-h-72' : 'max-h-0'}`}>
-                <div className={`${path == '/heroes' ? 'hidden' : ''} py-2`}><SearchBar /></div>
+                <div className={`py-6`}><SearchBar /></div>
                 <Link href="/heroes" onClick={() => setDropDown(!dropDown)} className={`px-6 py-4 ${path == '/heroes' ? 'bg-slate-600 text-slate-200 font-bold' : null} hover:bg-slate-500`}>Heroes</Link>
                 <Link href="/tier-list" onClick={() => setDropDown(!dropDown)} className={`px-6 py-4 ${path.includes('tier-list') ? 'bg-slate-600 text-slate-200 font-bold' : null} hover:bg-slate-500`}>Tier List</Link>
                 <Link href="/basics" onClick={() => setDropDown(!dropDown)} className={`px-6 py-4 ${path.includes('basic') ? 'bg-slate-600 text-slate-200 font-bold' : null} hover:bg-slate-500`}>Basics</Link>
