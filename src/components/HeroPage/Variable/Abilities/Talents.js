@@ -64,7 +64,7 @@ export default function Talents({hero, talents}) {
                                         {level}
                                     </span>
                                 </div>
-                                <div className={`w-40 h-12 p-1 rounded-md text-center ${bestTalents.includes(rightTalents[index]) ? 'bg-slate-800  text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
+                                <div className={`w-40 h-12 p-1 rounded-md text-center ${bestTalents.includes(rightTalents[index]) ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
                                     {rightTalents[index]}
                                 </div>
                             </div>
