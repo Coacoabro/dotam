@@ -79,7 +79,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         })
 
     }, [role, rank, abilities, matchups, builds, facetNum])
-    
+        
     return(
         <div className='space-y-4'>
             <div>
@@ -151,22 +151,33 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                     </div>
                 </div>
             </div>
-            <div className='flex w-full gap-2'>
-                <div className='w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
-                <div className='w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
-            </div>
-            <div className='flex w-full gap-2'>
-                <ItemsContainer build={currBuild} />
-            </div>
+            {currBuild ?
+                <div className='flex w-full gap-2'>
+                    <div className='w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
+                    <div className='w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
+                </div>
+                :
+                <div className='flex w-full gap-2'>
+                    <div className='w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'>Not enough Ability data</div>
+                    <div className='w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'>Not enough Talent data</div>
+                </div>
+            }
+            {currBuild ?
+                <div className='flex w-full gap-2'>
+                    <ItemsContainer build={currBuild} />
+                </div>
+                :
+                <div>Not enough Item data</div>
+            }
             {currMatchups[0] ? 
-            <div className='w-full flex p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800'>
-                <div className='w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
-                <div className='w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
-            </div> : 
-            <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800'>
-                <h1 className='text-center text-slate-200'>No matchups available for this role</h1>
-            </div>
-                }
+                <div className='w-full flex p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800'>
+                    <div className='w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
+                    <div className='w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
+                </div> : 
+                <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800'>
+                    <h1 className='text-center text-slate-200'>No matchups available for this role</h1>
+                </div>
+            }
         </div>
     )
 }

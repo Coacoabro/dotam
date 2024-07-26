@@ -8,72 +8,74 @@ export default function Talents({hero, talents}) {
 
     const Talents = []
 
+    if(talents){
 
-    talents.forEach((talent) => {
-        const tempTalent = abilityIds[talent.Talent]
-        if(tempTalent) {
-            talent.Talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
-        }
-    })
+        talents.forEach((talent) => {
+            const tempTalent = abilityIds[talent.Talent]
+            if(tempTalent) {
+                talent.Talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+            }
+        })
 
-    const talentOrder = heroAbilities[heroName].talents
+        const talentOrder = heroAbilities[heroName].talents
 
-    talentOrder.forEach((talent) => {
-        Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
-    })
+        talentOrder.forEach((talent) => {
+            Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
+        })
 
-    const leftTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
-    const rightTalents = [Talents[7], Talents[5], Talents[3], Talents[1]]
+        const leftTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
+        const rightTalents = [Talents[7], Talents[5], Talents[3], Talents[1]]
 
-    const bestTalents = Array(4)
-    const prArray = Array(4)
+        const bestTalents = Array(4)
+        const prArray = Array(4)
 
-    for (let i=3; i>-1; i--) {
-        let leftTalent = talents.find((obj) => obj.Talent == leftTalents[i])
-        let rightTalent = talents.find((obj) => obj.Talent == rightTalents[i])
-        if(leftTalent && rightTalent) {
-            if (leftTalent.Matches > rightTalent.Matches) {
-                bestTalents[i] = leftTalents[i];
-            } else {
-                bestTalents[i] = rightTalents[i];
+        for (let i=3; i>-1; i--) {
+            let leftTalent = talents.find((obj) => obj.Talent == leftTalents[i])
+            let rightTalent = talents.find((obj) => obj.Talent == rightTalents[i])
+            if(leftTalent && rightTalent) {
+                if (leftTalent.Matches > rightTalent.Matches) {
+                    bestTalents[i] = leftTalents[i];
+                } else {
+                    bestTalents[i] = rightTalents[i];
+                }
             }
         }
-    }
-    
-    const levels = [25, 20, 15, 10]
+        
+        const levels = [25, 20, 15, 10]
 
 
-    return(
-        <div className='space-y-4'>
-            <div className="flex items-center gap-2.5">
-                <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg" className='h-8 w-8' />
-                <div className="flex items-end gap-2">
-                    <h1 className='text-xl font-bold '>Talents</h1>
-                    <h2 className='text-gray-300 opacity-50'>Best talents for {hero.localized_name}</h2>
+        return(
+            <div className='space-y-4'>
+                <div className="flex items-center gap-2.5">
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg" className='h-8 w-8' />
+                    <div className="flex items-end gap-2">
+                        <h1 className='text-xl font-bold '>Talents</h1>
+                        <h2 className='text-gray-300 opacity-50'>Best talents for {hero.localized_name}</h2>
+                    </div>
                 </div>
-            </div>
-            <div className="flex flex-col text-xs items-center space-y-3 px-6 py-5 bg-slate-950 text-left rounded-lg border-slate-600">
-                    {levels.map((level, index) => (
-                        <div className='space-y-3'>
-                            <div className="flex items-center space-x-3 px-4">
-                                <div className={`w-40 h-12 p-1 rounded-md text-center ${bestTalents.includes(leftTalents[index]) ? 'bg-slate-800  text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
-                                    {leftTalents[index]}
+                <div className="flex flex-col text-xs items-center space-y-3 px-6 py-5 bg-slate-950 text-left rounded-lg border-slate-600">
+                        {levels.map((level, index) => (
+                            <div className='space-y-3'>
+                                <div className="flex items-center space-x-3 px-4">
+                                    <div className={`w-40 h-12 p-1 rounded-md text-center ${bestTalents.includes(leftTalents[index]) ? 'bg-slate-800  text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
+                                        {leftTalents[index]}
+                                    </div>
+                                    <div className="relative flex items-center justify-center w-10 h-10 bg-slate-800 rounded-full shadow-md">
+                                        <span className="text-slate-200 text-lg text-center font-bold">
+                                            {level}
+                                        </span>
+                                    </div>
+                                    <div className={`w-40 h-12 p-1 rounded-md text-center ${bestTalents.includes(rightTalents[index]) ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
+                                        {rightTalents[index]}
+                                    </div>
                                 </div>
-                                <div className="relative flex items-center justify-center w-10 h-10 bg-slate-800 rounded-full shadow-md">
-                                    <span className="text-slate-200 text-lg text-center font-bold">
-                                        {level}
-                                    </span>
-                                </div>
-                                <div className={`w-40 h-12 p-1 rounded-md text-center ${bestTalents.includes(rightTalents[index]) ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
-                                    {rightTalents[index]}
-                                </div>
+                                {index < 0 ? (
+                                    <div className="h-[2px] w-10/12 bg-slate-700 flex justify-center mx-auto" />
+                                ) : null}
                             </div>
-                            {index < 0 ? (
-                                <div className="h-[2px] w-10/12 bg-slate-700 flex justify-center mx-auto" />
-                            ) : null}
-                        </div>
-                    ))}
-                </div>
-        </div>
-    )
+                        ))}
+                    </div>
+            </div>
+        )
+    }
 }
