@@ -55,7 +55,7 @@ export default function ItemCard({id}) {
             <div>
                 <img src={itemImg} className='w-16' onMouseEnter={showTooltip} onMouseLeave={hideTooltip} />
                 <div className='absolute z-50 -mx-16 mt-3 w-[400px]' style={{visibility: 'hidden'}}>
-                    <div className='flex bg-[#22253F] items-center gap-2.5 py-2 px-5 rounded-t-lg border-slate-600 border-t border-l border-r'>
+                    <div className='flex bg-slate-800 items-center gap-2.5 py-2 px-5 rounded-t-lg border-slate-600 border-t border-l border-r'>
                         <img src={itemImg} className='w-16 h-full' />
                         <div>
                             <h1 className='text-2xl font-bold'>{item.dname}</h1>
@@ -65,7 +65,7 @@ export default function ItemCard({id}) {
                             </h2>
                         </div>
                     </div>
-                    <div className='bg-[#0B0D1C] py-3 px-5 text-left space-y-3 border-r border-l border-b border-slate-700 rounded-b-lg'>
+                    <div className='bg-slate-950 py-3 px-5 text-left space-y-3 border-r border-l border-b border-slate-700 rounded-b-lg'>
                         {item.abilities ? item.abilities[0] ? 
                             <div className='space-y-3'>
                                 {item.abilities.map((ability) => (

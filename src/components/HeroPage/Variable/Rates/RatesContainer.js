@@ -6,7 +6,15 @@ export default function RatesContainer({ rates, initRole }) {
 
     const router = useRouter()
 
-    const tierColor = {"S+": "text-yellow-400", "S": "text-indigo-600", "A": "text-indigo-300", "B": "text-white", "C": "text-red-100", "D": "text-red-300", "F": "text-red-700"}
+    const tierColor = {
+        "S+": "text-[#F4B856]", 
+        "S": "text-[#7879DE]", 
+        "A": "text-[#ABDEED]", 
+        "B": "text-slate-200", 
+        "C": "text-[#FCA5A5]", 
+        "D": "text-[#F46E58]", 
+        "F": "text-[#E8624C]"
+    }
 
     
     const [heroWinRate, setHeroWinRate] = useState(0);

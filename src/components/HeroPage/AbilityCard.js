@@ -72,7 +72,7 @@ export default function AbilityCard({ ability, hero, type, path }) {
               width: '400px', // Adjust width as needed
           }}
       >
-          <div className="text-2xl flex font-bold rounded-t-lg py-2 px-5 bg-[#3B3F53] items-center gap-2 border-slate-600 shadow border-t border-l border-r">
+          <div className="text-2xl flex font-bold rounded-t-lg py-2 px-5 bg-slate-800 items-center gap-2 border-slate-600 shadow border-t border-l border-r">
             <img src={'https://cdn.cloudflare.steamstatic.com' + abilityInfo.img} className="w-12 h-12 rounded-md" />
             {abilityInfo.dname}
           </div>

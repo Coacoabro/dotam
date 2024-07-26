@@ -12,27 +12,36 @@ export default function TierRow({ tier_str, role, hero, WR, PR, matches, counter
     const [roleName, setRoleName] = useState('');
     const [hovered, setHovered] = useState(false);
 
-    const tierColor = {"S+": "text-yellow-400", "S": "text-indigo-600", "A": "text-indigo-300", "B": "text-white", "C": "text-red-100", "D": "text-red-300", "F": "text-red-700"}
+    const tierColor = {
+        "S+": "text-[#F4B856]", 
+        "S": "text-[#7879DE]", 
+        "A": "text-[#ABDEED]", 
+        "B": "text-slate-200", 
+        "C": "text-[#FCA5A5]", 
+        "D": "text-[#F46E58]", 
+        "F": "text-[#E8624C]"
+    }
+    
     const [wrColor, setWRColor] = useState("text-slate-200")
 
     useEffect(() => {
         if(WR > 0.55) {
-            setWRColor("text-yellow-400")
+            setWRColor("text-[#F4B856]")
         }
         else if (WR > 0.525) {
-            setWRColor("text-indigo-600")
+            setWRColor("text-[#7879DE]")
         }
-        else if (WR > 0.505) {
-            setWRColor("text-indigo-300")
+        else if (WR > 0.515) {
+            setWRColor("text-[#ABDEED]")
         }
-        else if (WR > 0.495) {
+        else if (WR > 0.485) {
             setWRColor("text-slate-200")
         }
         else if (WR > 0.475) {
-            setWRColor("text-red-300")
+            setWRColor("text-[#FCA5A5]")
         }
         else{
-            setWRColor("text-red-700")
+            setWRColor("text-[#F46E58]")
         }
 
 

@@ -7,29 +7,29 @@ export default function RateCard({type, rate}) {
     useEffect(() => {
         if(type == "Win Rate"){
             if(rate > 55) {
-                setColor("text-yellow-400")
+                setColor("text-[#F4B856]")
             }
             else if (rate > 52.5) {
-                setColor("text-indigo-600")
+                setColor("text-[#7879DE]")
             }
-            else if (rate > 50.5) {
-                setColor("text-indigo-300")
+            else if (rate > 51.5) {
+                setColor("text-[#ABDEED]")
             }
-            else if (rate > 49.5) {
+            else if (rate > 48.5) {
                 setColor("text-slate-200")
             }
             else if (rate > 47.5) {
-                setColor("text-red-300")
+                setColor("text-[#FCA5A5]")
             }
             else{
-                setColor("text-red-700")
+                setColor("text-[#F46E58]")
             }
         }
     }, [type, rate])
 
     return(
         <div>
-            <div className={`text-center text-lg md:text-2xl ${color} py-2`}>{rate}{ type === "Matches" ? "" : "%" } </div>
+            <div className={`text-center text-lg font-medium md:text-2xl ${color} py-2`}>{rate}{ type === "Matches" ? "" : "%" } </div>
             <div className="text-center text-sm md:text-md align-bottom text-white">{type}</div>
         </div>
         
