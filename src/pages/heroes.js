@@ -14,10 +14,10 @@ export default function HeroesPage() {
           content="Dota 2, all heroes, dota hero, all dota 2 heroes" />
         <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <div className='sm:py-10 space-y-4 sm:space-y-10 z-0 px-1'>
+      <div className='sm:py-10 space-y-4 sm:space-y-10 px-1'>
         <div className="text-xl sm:text-3xl sm:text-center font-semibold px-3">Dota 2 All Heroes</div>
-        <div className='hidden sm:block'><SearchBar /></div>
-        <Heroes />
+        <div className='hidden sm:block z-50'><SearchBar /></div>
+        <div className='z-0'><Heroes /></div>
       </div>
     </div>
   );
