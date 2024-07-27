@@ -98,14 +98,14 @@ export default function TierList({ heroes, rates, matchups }) {
       </Head>
 
       <div className="max-w-7xl mx-auto px-1 sm:px-4 sm:space-y-4 text-white sm:pt-8">
-        <div className="text-xl sm:text-3xl py-4 font-semibold">Dota 2 Tier List</div>
-        <div className="text-sm sm:text-xl text-gray-300 py-1 opacity-50">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
-        <div className="py-2 flex justify-between text-white">
-          <div className="flex items-center space-x-2">
+        <div className="text-xl sm:text-3xl px-2 sm:px-0 py-2 sm:py-4 font-semibold">Dota 2 Tier List</div>
+        <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
+        <div className="py-2 justify-between text-white space-y-2 sm:flex">
+          <div className="flex items-center justify-center space-x-2">
             {/* <Info data="Role" /> */}
             <Role />
           </div>
-          <div class="flex items-center space-x-2">
+          <div class="flex items-center justify-center space-x-2">
             {/* <Info data="Rank" /> */}
             <Rank />
           </div>
