@@ -83,20 +83,22 @@ export default function TierRow({ tier_str, role, hero, WR, PR, matches, counter
     return (
         <tr className={`text-white font-normal ${index % 2 === 1 ? 'bg-slate-800' : 'bg-slate-900'}`}>
             <td className={`${tierColor[tier_str]} text-sm sm:text-xl font-medium`}>{tier_str}</td>
-            <td className="py-1 sm:py-2">
+            <td className="py-1 py-2">
                 <Link href={`/hero/${heroURL}`}>
-                    <div className="w-40 sm:w-72 flex items-center text-left space-x-1 sm:space-x-4 hover:underline">
-                        <div className="w-12 sm:w-20" >
-                        <img src={img} />
+                    <div className="w-48 sm:w-72 flex items-center text-left space-x-2 sm:space-x-4 hover:underline">
+                        <div className="w-14 sm:w-20" >
+                            <img src={img} />
                         </div>
-                        <div className="font-normal text-xs sm:text-xl whitespace-nowrap truncate">{heroName}</div>
+                        <div className="font-normal text-sm sm:text-xl whitespace-nowrap truncate">
+                            {heroName}
+                        </div>
                     </div>
                 </Link>
             </td>
             <td className="px-4 sm:px-2" ><img className="w-5 sm:w-8" src={roleImage} title={roleName} /></td>
-            <td className={`font-medium text-xs sm:text-lg ${wrColor}`}>{(WR * 100).toFixed(2)}%</td>
-            <td className={`text-xs sm:text-lg`}>{(PR * 100).toFixed(2)}%</td>
-            <td className="text-xs sm:text-lg">{matches.toLocaleString()}</td>
+            <td className={`px-2 sm:px-0 font-medium text-sm sm:text-lg ${wrColor}`}>{(WR * 100).toFixed(2)}%</td>
+            <td className={`px-2 sm:px-0 text-sm sm:text-lg`}>{(PR * 100).toFixed(2)}%</td>
+            <td className="text-sm sm:text-lg">{matches.toLocaleString()}</td>
             <td>
                 <div className="hidden lg:flex items-center justify-evenly">
                 {fiveCounters.map(hero => (

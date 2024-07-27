@@ -24,7 +24,7 @@ export default function Role( {initRole} ) {
             {router.asPath.includes('tier-list') ? json.map((role) => (
                 <button 
                     onClick={() => handleClick(role.role)} 
-                    className={`text-sm font-bold items-center flex justify-center w-8 sm:w-12 h-6 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-indigo-300 text-black' : 'text-white border border-slate-700'}`}
+                    className={`text-sm font-bold items-center flex justify-center w-9 sm:w-12 h-6 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-indigo-300 text-black' : 'text-white border border-slate-700'}`}
                 >
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>
@@ -37,7 +37,7 @@ export default function Role( {initRole} ) {
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>
             ))
-        }
+            }
         </div>
     )
 }
