@@ -18,7 +18,7 @@ export default function Innate({ id }) {
 
 
     return(
-        <div className="relative p-1 h-10 w-10 hover:scale-110 md:h-16 md:w-16">
+        <div className="relative sm:p-1 h-8 w-8 hover:scale-110 sm:h-16 sm:w-16">
             <img
                 src="https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png"
                 alt="Innate"

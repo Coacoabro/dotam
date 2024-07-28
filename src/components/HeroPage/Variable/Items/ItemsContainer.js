@@ -9,9 +9,6 @@ import Late from './Late'
 
 export default function ItemsContainer({build}) {
 
-
-    console.log(build)
-
     const [isCarry, setIsCarry] = useState(true)
 
     useEffect(() => {

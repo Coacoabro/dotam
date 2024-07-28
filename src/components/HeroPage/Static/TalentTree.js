@@ -25,7 +25,7 @@ export default function TalentTree({ talents }) {
             <img
                 src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg"
                 alt="Talent Tree"
-                className="p-1 h-10 w-10 hover:scale-110 md:h-16 md:w-16"
+                className="relative sm:p-1 h-8 w-8 hover:scale-110 sm:h-16 sm:w-16"
                 onMouseEnter={showTooltip}
                 onMouseLeave={hideTooltip}
             />

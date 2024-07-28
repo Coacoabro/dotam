@@ -82,7 +82,8 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         
     return(
         <div className='space-y-4'>
-            <div>
+            <div>  
+                <div className='pb-4 sm:hidden'><RatesContainer rates={rates} initRole={initRole} /></div>
                 <div className='flex gap-2 items-end'>
                     <div className={`${facet3 ? 'w-[400px]' : 'w-80'} flex z-10 text-sm gap-2`}>
                         <div>
@@ -133,7 +134,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                             </div>
                         ) : null}
                     </div>
-                    <div className='pb-4'><RatesContainer rates={rates} initRole={initRole} /></div>
+                    <div className='pb-4 hidden sm:block'><RatesContainer rates={rates} initRole={initRole} /></div>
                     {}
                 </div>
                 <div className='flex items-center justify-between py-6 px-5 bg-slate-900 border border-slate-800 rounded-b-lg rounded-tr-lg'>

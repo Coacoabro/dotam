@@ -50,15 +50,15 @@ export default function AbilityCard({ ability, hero, type, path }) {
   };
 
   return (
-    <button onClick={() => window.open(abilityVideo, '_blank')} className={`relative hover:scale-110 ${path ? 'h-10 w-10' : 'h-16 w-16'}`}>
+    <button onClick={() => window.open(abilityVideo, '_blank')} className={`relative hover:scale-110 ${path ? 'h-10 w-10' : 'w-8 h-8 sm:h-16 sm:w-16'}`}>
       {type == "Shard" ? (
-        <img src={shardImg} className="h-14 w-14 absolute pointer-events-none" />
+        <img src={shardImg} className="w-8 h-8 sm:h-14 sm:w-14 absolute pointer-events-none" />
       ) : type == "Scepter" ? (
-        <img src={scepterImg} className="h-14 w-14 absolute pointer-events-none" />
+        <img src={scepterImg} className="w-8 h-8 sm:h-14 sm:w-14 absolute pointer-events-none" />
       ) : null}
       <img
         src={'https://cdn.cloudflare.steamstatic.com' + abilityInfo.img}
-        className={`${path ? 'h-10 w-10' : 'w-14 h-14'} rounded-md z-0`}
+        className={`${path ? 'h-10 w-10' : 'w-8 h-8 sm:w-14 sm:h-14'} rounded-md z-0`}
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
       />

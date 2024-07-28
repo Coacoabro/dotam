@@ -55,20 +55,17 @@ export default function StaticInfo({hero}) {
     basicAbilities.push(heroInitiUltimate)
 
     return(
-        <div className="relative z-10 space-y-4">
-            <div className="text-5xl font-bold">{hero.localized_name}</div>
-            <div className="flex items-center space-x-2">
-                <TalentTree talents={heroAbilities[heroName].talents} />
-                <Innate id={hero.hero_id} />
-                <div className='py-1 h-14 w-[2px] bg-gray-600' />
-                <div className="flex items-center">
-                {basicAbilities.map(ability => (
-                    <AbilityCard ability={ability} hero={heroName} />
-                ))}
-                </div>
-                <div className='py-1 h-14 w-[2px] bg-gray-600' />
-                <Aghanims hero={heroName} scepter={scepter} shard={shard} />
+        <div className="relative flex items-center space-x-2 sm:px-0 px-3">
+            <TalentTree talents={heroAbilities[heroName].talents} />
+            <Innate id={hero.hero_id} />
+            <div className='py-1 h-8 sm:h-14 w-[1px] sm:w-[2px] bg-gray-600' />
+            <div className="flex items-center space-x-1 sm:space-x-0 ">
+            {basicAbilities.map(ability => (
+                <AbilityCard ability={ability} hero={heroName} />
+            ))}
             </div>
+            <div className='py-1 h-8 sm:h-14 w-[1px] sm:w-[2px] bg-gray-600' />
+            <Aghanims hero={heroName} scepter={scepter} shard={shard} />
         </div>
     )
 }
