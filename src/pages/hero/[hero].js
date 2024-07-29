@@ -79,17 +79,21 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
         <div className="px-2 sm:pt-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
           <div className="px-2 flex relative items-end sm:items-center gap-1 sm:gap-4">
             <img src={portrait} className="h-14 sm:h-32" />
-            <div className="sm:py-7 sm:px-2 z-30 flex-col space-y-2">
+            <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20">
               <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
               <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
             </div>
-            <div className="hidden absolute sm:flex right-0 mt-24 h-72 opacity-25">
+            <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25">
               <img src={crop_img} className="object-cover w-full h-full" />
             </div>
           </div>
-          <div className="sm:hidden"><StaticInfo hero={heroData} /></div>
+          <div className="sm:hidden absolute h-36 right-0 top-12 opacity-25">
+            <img src={crop_img} className="object-cover w-full h-full" />
+          </div>
+          <div className="absolute sm:hidden z-10"><StaticInfo hero={heroData} /></div>
+          
 
-          <div className="mx-auto max-w-7xl z-20 relative">
+          <div className="sm:mx-auto sm:max-w-7xl relative z-0">
             <VariableInfo hero={heroData} rates={rates} initRole={initialRole} abilities={abilities} builds={builds} matchups={matchups} />
           </div>
         </div>
