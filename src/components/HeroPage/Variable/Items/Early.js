@@ -18,13 +18,13 @@ export default function Early({items}) {
     return(
         <div className="space-y-3 rounded-lg border border-slate-800">
             <div className='flex items-end gap-2.5 px-5 pt-3'>
-                <div className='text-xl font-bold'>Early Items</div>
-                <div className='opacity-50'>Best items to get early on</div>
+                <div className='text-lg sm:text-xl font-bold'>Early Items</div>
+                <div className='hidden sm:block opacity-50'>Best items to get early on</div>
             </div>
 
             <div className='pt-4 px-4 pb-2 gap-2 bg-slate-900 rounded-b-lg'>
                 {early ?
-                    <div className="grid grid-cols-2 gap-2 place-items-center">
+                    <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 gap-2 place-items-center">
                         {early.map((item, index) => (
                             <ItemCard item={item} index={index} />
                         ))}

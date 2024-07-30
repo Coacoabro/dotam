@@ -37,17 +37,17 @@ export default function CoreItems({core, matches, isCarry}) {
                 <div className='flex items-end justify-evenly'>
                     <div className='flex gap-2.5 items-center'>
                         <Item id={items[0]} />
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-6 sm:h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
                         <Item id={items[1]} />
                     </div>
                     <div>
                         <div className='flex items-center gap-1'>
-                            <h1 className='text-lg'>{wr}%</h1>
-                            <h2 className='text-sm opacity-50'>WR</h2>
+                            <h1 className='text-base sm:text-lg'>{wr}%</h1>
+                            <h2 className='text-xs sm:text-sm opacity-50'>WR</h2>
                         </div>
-                        <div className='opacity-50'>({dispMatches} Matches)</div>
+                        <div className='text-xs sm:text-sm opacity-50'>({dispMatches} Matches)</div>
                     </div>
                 </div>
             )
