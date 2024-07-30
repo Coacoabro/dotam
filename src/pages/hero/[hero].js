@@ -90,9 +90,9 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
           <div className="sm:hidden absolute h-36 right-0 top-12 opacity-25">
             <img src={crop_img} className="object-cover w-full h-full" />
           </div>
-          <div className="absolute sm:hidden z-10"><StaticInfo hero={heroData} /></div>
-          
-
+          <div className="absolute sm:hidden z-10">
+            <StaticInfo hero={heroData} />
+          </div>
           <div className="sm:mx-auto sm:max-w-7xl relative z-0">
             <VariableInfo hero={heroData} rates={rates} initRole={initialRole} abilities={abilities} builds={builds} matchups={matchups} />
           </div>

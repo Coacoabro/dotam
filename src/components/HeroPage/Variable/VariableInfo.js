@@ -81,9 +81,11 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
     }, [role, rank, abilities, matchups, builds, facetNum])
         
     return(
-        <div className='mt-10 sm:mt-0 space-y-4'>
+        <div className='mt-12 sm:mt-0 space-y-4'>
             <div>  
-                <div className='pb-4 sm:hidden'><RatesContainer rates={rates} initRole={initRole} /></div>
+                <div className='pb-4 sm:hidden'>
+                    <RatesContainer rates={rates} initRole={initRole} />
+                </div>
                 <div className='flex gap-2 items-end'>
                     <div className={`${facet3 ? 'w-[400px]' : 'w-80'} flex z-10 text-sm gap-2`}>
                         <div>
