@@ -18,7 +18,7 @@ export default function Core({items, matches, isCarry}) {
     return(
         <div className='rounded-lg border border-slate-800 space-y-3'>
             <div className='flex items-end gap-2.5 px-5 pt-3'>
-                <h1 className='text-lg sm:text-xl font-bold'>Core Items</h1>
+                <h1 className='text-lg sm:text-xl font-bold w-full sm:w-max text-center sm:text-start'>Core Items</h1>
                 <h2 className='hidden sm:block opacity-50'>First main items to purchase</h2>
             </div>
             <div className='bg-slate-900 px-5 py-3 space-y-2 rounded-b-lg'>

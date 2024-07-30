@@ -12,18 +12,18 @@ export default function ItemCard({item, index}) {
     return(
         <div className='flex gap-3 items-end'>
             {/* {index >= 0 ? <div className='text-lg font-bold'>{index + 1}.</div> : null} */}
-            <div className='flex gap-2.5 items-center'>
+            <div className='flex sm:gap-2.5 items-start'>
                 <div className='w-16'>
                     <Item id={itemId} />
-                    <div className='absolute -mt-5 w-full ml-8'>{item.isSecondPurchase ? <div>2nd</div> : null}</div>
+                    <div className='absolute -mt-6 ml-5 sm:-mt-5 w-full sm:ml-8'>{item.isSecondPurchase ? <div>2nd</div> : null}</div>
                 </div>
                 
                 <div>
                     <div className='flex items-center gap-1'>
-                        <h1 className='text-lg'>{wr}%</h1>
-                        <h2 className='opacity-50 text-sm'>WR</h2>
+                        <h1 className='text-base sm:text-lg'>{wr}%</h1>
+                        <h2 className='opacity-50 text-xs sm:text-sm'>WR</h2>
                     </div>
-                    <div className='opacity-50 text-sm'>
+                    <div className='opacity-50 text-xs sm:text-sm'>
                         ({matches} Matches)
                     </div>
                 </div>

@@ -10,8 +10,8 @@ export default function CoreItems({core, matches, isCarry}) {
     
         if(isCarry){
             return(
-                <div className='flex items-center gap-4'>
-                    <div className='flex gap-2.5 items-center px-2'>
+                <div className='flex items-center gap-3 sm:gap-4'>
+                    <div className='flex sm:gap-2.5 items-center sm:px-2'>
                         <Item id={items[0]} />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -24,10 +24,10 @@ export default function CoreItems({core, matches, isCarry}) {
                     </div>
                     <div>
                         <div className='flex items-center gap-1'>
-                            <h1 className='text-lg'>{wr}%</h1>
-                            <h2 className='text-sm opacity-50'>WR</h2>
+                            <h1 className='text-base sm:text-lg'>{wr}%</h1>
+                            <h2 className='text-xs sm:text-sm opacity-50'>WR</h2>
                         </div>
-                        <div className='opacity-50'>({dispMatches} Matches)</div>
+                        <div className='text-2xs sm:text-sm opacity-50'>({dispMatches} Matches)</div>
                     </div>
                 </div>
             )
