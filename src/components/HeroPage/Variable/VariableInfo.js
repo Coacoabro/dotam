@@ -79,8 +79,6 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         })
 
     }, [role, rank, abilities, matchups, builds, facetNum])
-
-    console.log(facetRates, facetNum)
         
     return(
         <div className='mt-12 sm:mt-0 space-y-4'>
@@ -104,40 +102,44 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                     </div>
                     <div className='pb-4 hidden sm:block'><RatesContainer rates={rates} initRole={initRole} /></div>
                 </div>
-                <div className='space-y-2 sm:flex items-center justify-between py-6 px-5 bg-slate-900 border border-slate-800 rounded-b-lg rounded-tr-lg'>
-                    <div className='flex items-center text-slate-200'>
-                        <div className='w-64 sm:w-48'>
+                <div className='sm:h-24 space-y-2 sm:flex items-center justify-between py-2 sm:py-6 px-5 bg-slate-900 border border-slate-800 rounded-b-lg rounded-tr-lg'>
+                    <div className='flex items-center text-slate-200 justify-between px-2'>
+                        <div className='sm:px-2 sm:w-48'>
                             <div className='flex items-center gap-1 text-base sm:text-lg'>
                                 {facetRates.find((obj) => obj.Facet == facetNum)?.WR}%
                                 <h1 className='text-xs sm:text-sm opacity-75'>WR</h1>
                             </div>
                             <div className='text-xs sm:text-sm opacity-75'>({facetRates.find((obj) => obj.Facet == facetNum)?.Matches} Matches)</div>
                         </div>
-                        <div className='space-y-1'>
+                        <div className='hidden sm:block sm:h-16 w-[1px] bg-slate-600'/>
+                        <div className='sm:px-2 space-y-1'>
                             <h1 className='text-slate-200 font-bold flex items-center gap-1 text-sm sm:text-base'>
                                 <img src={iconLink + currFacet.Icon + '.png'} className="w-4 h-4 sm:w-6 sm:h-6 rounded-md" />
                                 {currFacet.Title}
                             </h1>
-                            <h2 className='text-xs sm:text-sm text-slate-200/50'>{currFacet.Desc.replace(/\{[^}]*\}/g, '?')}</h2>
+                            <h2 className='hidden sm:block text-sm text-slate-200/50'>{currFacet.Desc.replace(/\{[^}]*\}/g, '?')}</h2>
                         </div>
                     </div>
-                    
-                    <div className='space-y-2 sm:space-y-0 sm:flex gap-3 z-50 items-center'>
+                    <div className='hidden sm:block sm:h-16 w-[1px] bg-slate-600'/>
+                    <div className='space-y-2 sm:space-y-0 hidden sm:flex gap-3 z-50 items-center sm:px-2'>
                         <div className='flex justify-center'><Role initRole={initRole} /></div>
-                        <div className='hidden sm:block h-10 w-[1px] bg-slate-600'/>
+                        <div className='hidden sm:block sm:h-16 w-[1px] bg-slate-600'/>
                         <div className='flex justify-center'><Rank /></div>
                     </div>
                 </div>
+                <div className='sm:hidden flex justify-center py-2'><Role initRole={initRole} /></div>
+                <div className='sm:hidden flex justify-center py-1'><Rank initRole={initRole} /></div>
+                
             </div>
             {currBuild ?
-                <div className='flex w-full gap-2'>
-                    <div className='w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
-                    <div className='w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
+                <div className='sm:flex w-full gap-2'>
+                    <div className='sm:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
+                    <div className='sm:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
                 </div>
                 :
-                <div className='flex w-full gap-2'>
-                    <div className='w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'>Not enough Ability data</div>
-                    <div className='w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'>Not enough Talent data</div>
+                <div className='sm:flex w-full gap-2'>
+                    <div className='sm:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'>Not enough Ability data</div>
+                    <div className='sm:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'>Not enough Talent data</div>
                 </div>
             }
             {currBuild ?
@@ -148,9 +150,9 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 <div>Not enough Item data</div>
             }
             {currMatchups[0] ? 
-                <div className='w-full flex p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800'>
-                    <div className='w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
-                    <div className='w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
+                <div className='sm:w-full sm:flex p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2'>
+                    <div className='sm:w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
+                    <div className='sm:w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
                 </div> : 
                 <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800'>
                     <h1 className='text-center text-slate-200'>No matchups available for this role</h1>
