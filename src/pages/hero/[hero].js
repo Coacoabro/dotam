@@ -87,7 +87,7 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
               <img src={crop_img} className="object-cover w-full h-full" />
             </div>
           </div>
-          <div className="sm:hidden absolute h-36 right-0 top-12 opacity-25">
+          <div className="sm:hidden absolute h-36 right-0 top-14 opacity-25">
             <img src={crop_img} className="object-cover w-full h-full" />
           </div>
           <div className="absolute sm:hidden z-10">

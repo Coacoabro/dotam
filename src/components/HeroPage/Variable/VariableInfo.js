@@ -79,6 +79,8 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         })
 
     }, [role, rank, abilities, matchups, builds, facetNum])
+
+    console.log(facetRates, facetNum)
         
     return(
         <div className='mt-12 sm:mt-0 space-y-4'>
@@ -86,71 +88,44 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 <div className='pb-4 sm:hidden'>
                     <RatesContainer rates={rates} initRole={initRole} />
                 </div>
-                <div className='flex gap-2 items-end'>
-                    <div className={`${facet3 ? 'w-[400px]' : 'w-80'} flex z-10 text-sm gap-2`}>
-                        <div>
-                            <button 
-                                className={`${buttonClass} ${currFacet == facet1 ? 'bg-slate-900' : 'bg-slate-950'}`}
-                                onClick={() => setFacetNum(1)}
-                            >
-                                <div className='flex items-end text-slate-300 gap-2'>
-                                    <img src={iconLink + facet1.Icon + '.png'} className="w-8 h-8 rounded-md" />
-                                    <div className='flex items-end text-lg gap-1'>
-                                        <p className='font-bold'>{facetRates.find((obj) => obj.Facet == 1)?.WR}%</p>
-                                        <p className='text-sm opacity-75'>WR</p>
-                                    </div>
-                                </div>
-                                <div className='text-slate-300 text-xs'>({facetRates.find((obj) => obj.Facet == 1)?.Matches} Matches)</div>
-                            </button>
-                        </div>
-                        <div>
-                            <button 
-                                className={`${buttonClass} ${currFacet == facet2 ? 'bg-slate-900' : 'bg-slate-950'}`}
-                                onClick={() => setFacetNum(2)}
-                            >
-                                <div className='flex items-end text-slate-300 gap-2'>
-                                    <img src={iconLink + facet2.Icon + '.png'} className="w-8 h-8 rounded-md" />
-                                    <div className='flex items-end text-lg gap-1'>
-                                        <p className='font-bold'>{facetRates.find((obj) => obj.Facet == 2)?.WR}%</p>
-                                        <p className='text-sm opacity-75'>WR</p>
-                                    </div>
-                                </div>
-                                <div className='text-slate-300 text-xs'>({facetRates.find((obj) => obj.Facet == 2)?.Matches} Matches)</div>
-                            </button>
-                        </div>
+                <div className='flex gap-16 items-end'>
+                    <div className={`flex z-10 text-sm gap-6`}>
+                        <button className={`${buttonClass} ${currFacet == facet1 ? 'bg-slate-900' : 'bg-slate-950'}`} onClick={() => setFacetNum(1)}>
+                                <img src={iconLink + facet1.Icon + '.png'} className="w-6 h-6 sm:w-9 sm:h-9 rounded-md" />
+                        </button>
+                        <button className={`${buttonClass} ${currFacet == facet2 ? 'bg-slate-900' : 'bg-slate-950'}`} onClick={() => setFacetNum(2)}>
+                                <img src={iconLink + facet2.Icon + '.png'} className="w-6 h-6 sm:w-9 sm:h-9 rounded-md" />
+                        </button>
                         {facet3 ? (
-                            <div>
-                                <button 
-                                    className={`${buttonClass}`}
-                                    onClick={() => setFacetNum(3)}
-                                >
-                                    <div className='flex items-end text-slate-300 gap-2'>
-                                        <img src={iconLink + facet3.Icon + '.png'} className="w-8 h-8 rounded-md" />
-                                        <div className='flex items-end text-lg gap-1'>
-                                            <p className='font-bold'>{facetRates.find((obj) => obj.Facet == 3)?.WR}%</p>
-                                            <p className='text-sm opacity-75'>WR</p>
-                                        </div>
-                                    </div>
-                                    <div className='text-slate-300 text-xs'>({facetRates.find((obj) => obj.Facet == 3)?.Matches} Matches)</div>
-                                </button>
-                            </div>
+                            <button className={`${buttonClass}  ${currFacet == facet3 ? 'bg-slate-900' : 'bg-slate-950'}`} onClick={() => setFacetNum(3)}>
+                                <img src={iconLink + facet3.Icon + '.png'} className="w-6 h-6 sm:w-9 sm:h-9 rounded-md" />
+                            </button>
                         ) : null}
                     </div>
                     <div className='pb-4 hidden sm:block'><RatesContainer rates={rates} initRole={initRole} /></div>
-                    {}
                 </div>
-                <div className='flex items-center justify-between py-6 px-5 bg-slate-900 border border-slate-800 rounded-b-lg rounded-tr-lg'>
-                    <div className='text-slate-400 gap-2'>
-                        <h1 className='text-slate-200 font-bold flex items-center gap-1'>
-                            <img src={iconLink + currFacet.Icon + '.png'} className="w-6 h-6 rounded-md" />
-                            {currFacet.Title}
-                        </h1>
-                        <h2 className='text-sm'>{currFacet.Desc.replace(/\{[^}]*\}/g, '?')}</h2>
+                <div className='space-y-2 sm:flex items-center justify-between py-6 px-5 bg-slate-900 border border-slate-800 rounded-b-lg rounded-tr-lg'>
+                    <div className='flex items-center text-slate-200'>
+                        <div className='w-64 sm:w-48'>
+                            <div className='flex items-center gap-1 text-base sm:text-lg'>
+                                {facetRates.find((obj) => obj.Facet == facetNum)?.WR}%
+                                <h1 className='text-xs sm:text-sm opacity-75'>WR</h1>
+                            </div>
+                            <div className='text-xs sm:text-sm opacity-75'>({facetRates.find((obj) => obj.Facet == facetNum)?.Matches} Matches)</div>
+                        </div>
+                        <div className='space-y-1'>
+                            <h1 className='text-slate-200 font-bold flex items-center gap-1 text-sm sm:text-base'>
+                                <img src={iconLink + currFacet.Icon + '.png'} className="w-4 h-4 sm:w-6 sm:h-6 rounded-md" />
+                                {currFacet.Title}
+                            </h1>
+                            <h2 className='text-xs sm:text-sm text-slate-200/50'>{currFacet.Desc.replace(/\{[^}]*\}/g, '?')}</h2>
+                        </div>
                     </div>
-                    <div className='flex gap-3 z-50 items-center'>
-                        <Role initRole={initRole} />
-                        <div className='h-10 w-[1px] bg-slate-600'/>
-                        <Rank />
+                    
+                    <div className='space-y-2 sm:space-y-0 sm:flex gap-3 z-50 items-center'>
+                        <div className='flex justify-center'><Role initRole={initRole} /></div>
+                        <div className='hidden sm:block h-10 w-[1px] bg-slate-600'/>
+                        <div className='flex justify-center'><Rank /></div>
                     </div>
                 </div>
             </div>
