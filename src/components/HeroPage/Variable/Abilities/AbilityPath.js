@@ -68,28 +68,29 @@ export default function AbilityPath({hero, abilities}) {
       
     
     return (
-
-        <div className="grid grid-cols-17 gap-2.5 text-center">
-            <div className="grid grid-rows-5 gap-2.5">
-            {basicAbilities ? basicAbilities.map((ability, index) => (
-                <div className={`w-10 h-10 flex items-center justify-center z-${(5-index)*10}`}>
-                    <AbilityCard ability={ability} hero={hero.name} path={true} />
-                    {/* <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} className='rounded-lg' title={abilityDesc[ability].dname} /> */}
+        <div className='overflow-x-scroll sm:overflow-x-hidden overflow-y-hidden'>
+            <div className="min-w-[640px] grid grid-cols-17 sm:gap-2.5 text-center">
+                <div className="grid grid-rows-5 gap-1 sm:gap-2.5">
+                {basicAbilities ? basicAbilities.map((ability, index) => (
+                    <div className={`sm:w-10 sm:h-10 flex items-center justify-center z-${(5-index)*10}`}>
+                        <AbilityCard ability={ability} hero={hero.name} path={true} />
+                        {/* <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} className='rounded-lg' title={abilityDesc[ability].dname} /> */}
+                    </div>
+                )) : <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center"> </div>}
+                <div className="w-5 h-5 md:w-10 md:h-10 rounded-sm flex items-center justify-center">
+                    <img src='https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg'/>
                 </div>
-            )) : <div className="w-4 h-4 md:w-10 md:h-10 rounded-lg flex items-center justify-center"> </div>}
-            <div className="w-4 h-4 md:w-10 md:h-10 rounded-sm flex items-center justify-center">
-                <img src='https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg'/>
-            </div>
-            </div>
-            {finishedAbilities.map((row) => (
-            <div className="grid grid-rows-5 gap-2.5">
-                {row.map((ability) => (
-                <div className={`w-4 h-4 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center ${ability ? 'bg-slate-800 border border-slate-700' : 'bg-slate-950'}`}>
-                    {ability || ''}
+                </div>
+                {finishedAbilities.map((row) => (
+                <div className="grid grid-rows-5 sm:gap-2.5">
+                    {row.map((ability) => (
+                    <div className={`w-7 h-7 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center ${ability ? 'bg-slate-800 border border-slate-700' : 'bg-slate-950'}`}>
+                        {ability || ''}
+                    </div>
+                    ))}
                 </div>
                 ))}
             </div>
-            ))}
         </div>
     
     );

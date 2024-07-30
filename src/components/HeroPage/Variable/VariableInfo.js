@@ -132,7 +132,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 
             </div>
             {currBuild ?
-                <div className='sm:flex w-full gap-2'>
+                <div className='sm:flex w-full gap-2 space-y-2 sm:space-y-0'>
                     <div className='sm:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
                     <div className='sm:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
                 </div>
@@ -150,7 +150,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 <div>Not enough Item data</div>
             }
             {currMatchups[0] ? 
-                <div className='sm:w-full sm:flex p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2'>
+                <div className='sm:w-full sm:flex sm:items-end p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2'>
                     <div className='sm:w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
                     <div className='sm:w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
                 </div> : 

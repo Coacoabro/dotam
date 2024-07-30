@@ -10,20 +10,20 @@ export default function Matchup({matchup}){
     const heroURL = dota2heroes.find((hero) => hero.id == matchup.Hero)?.url
 
     return(
-        <div className='h-44 space-y-5 py-2.5 bg-slate-950 rounded-lg border border-slate-800 text-indigo-300 w-full flex-col'>
-            <div className='text-center text-sm font-bold space-y-2'>
-                <h1 className='h-9'>{heroName}</h1>
+        <div className='h-40 sm:h-44 w-24 sm:w-28 space-y-2 py-2.5 px-2 sm:px-0 bg-slate-950 rounded-lg border border-slate-800 text-indigo-300 flex-col'>
+            <div className='text-center text-xs sm:text-sm font-bold sm:space-y-2'>
+                <h1 className='whitespace-nowrap truncate'>{heroName}</h1>
                 <Link href={'/hero/' + heroURL}>
-                    <img className="w-12 h-full mx-auto rounded-full" src={heroImage} />
+                    <img className="py-2 w-9 sm:w-12 h-full mx-auto rounded-full" src={heroImage} />
                 </Link>
             </div>
             <div className='space-y-1 '>
-                <div className='h-[1px] w-1/2 bg-slate-400 mx-auto' />
+                <div className='h-[1px] w-2/3 sm:w-1/2 bg-slate-400 mx-auto' />
                 <div className='flex space-x-1 items-end justify-center'>
-                    <h1 className='text-slate-200 font-normal'>{matchup.WR}%</h1>
-                    <h2 className='text-xs opacity-75'>WR</h2>
+                    <h1 className='text-xs sm:text-base text-slate-200 font-normal'>{matchup.WR}%</h1>
+                    <h2 className='text-2xs sm:text-xs opacity-75'>WR</h2>
                 </div>
-                <div className='text-xs flex justify-center opacity-75'>{matchup.Matches.toLocaleString()} Matches</div>
+                <div className='text-2xs sm:text-xs flex justify-center opacity-75 text-center'>{matchup.Matches.toLocaleString()} Matches</div>
             </div>
         </div>
     )
