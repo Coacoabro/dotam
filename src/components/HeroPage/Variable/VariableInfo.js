@@ -132,14 +132,14 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 
             </div>
             {currBuild ?
-                <div className='sm:flex w-full gap-2 space-y-2 sm:space-y-0'>
-                    <div className='sm:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
-                    <div className='sm:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
+                <div className='lg:flex w-full gap-2 space-y-2 lg:space-y-0'>
+                    <div className='lg:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={hero} abilities={currBuild.abilities} /></div>
+                    <div className='sm:w-1/2 sm:mx-auto lg:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={hero} talents={currBuild.talents} /></div>
                 </div>
                 :
-                <div className='sm:flex w-full gap-2'>
-                    <div className='sm:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'>Not enough Ability data</div>
-                    <div className='sm:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'>Not enough Talent data</div>
+                <div className='lg:flex w-full gap-2'>
+                    <div className='lg:w-2/3 p-5 bg-slate-900 rounded-lg border border-slate-800'>Not enough Ability data</div>
+                    <div className='lg:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'>Not enough Talent data</div>
                 </div>
             }
             {currBuild ?
@@ -150,9 +150,9 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 <div>Not enough Item data</div>
             }
             {currMatchups[0] ? 
-                <div className='sm:w-full sm:flex sm:items-end p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2'>
-                    <div className='sm:w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
-                    <div className='sm:w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
+                <div className='sm:w-4/5 sm:mx-auto lg:w-full lg:flex lg:items-end p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2'>
+                    <div className='lg:w-1/2'><Matchups type='against' matchups={currMatchups[0].herovs} hero={hero} /></div>
+                    <div className='lg:w-1/2'><Matchups type='with' matchups={currMatchups[0].herowith} hero={hero} /></div>
                 </div> : 
                 <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800'>
                     <h1 className='text-center text-slate-200'>No matchups available for this role</h1>

@@ -23,14 +23,16 @@ export default function ItemsContainer({build}) {
 
     return(
         <div className='w-full space-y-2'>
-            <div className="sm:flex justify-between items-start gap-2.5 space-y-2 sm:space-y-0">
-                <div className='h-full sm:w-3/12 px-12 sm:px-0'><Starting items={build.starting} /></div>
-                <div className='px-10 sm:px-0 sm:w-4/12'><Early items={build.early} /></div>
-                {/* <div className='sm:w-1/2'><Boots items={build.boots} /></div> */}
-                <div className={`${isCarry ? "sm:w-5/12" : "sm:w-4/12"}`}>
+            <div className="sm:flex sm:justify-evenly lg:justify-between items-start gap-2.5 space-y-2 lg:space-y-0">
+                <div className='h-full lg:w-3/12 px-12 lg:px-0'><Starting items={build.starting} /></div>
+                <div className='px-10 sm:px-0 lg:w-4/12'><Early items={build.early} /></div>
+                <div className={`${isCarry ? "lg:w-5/12" : "lg:w-4/12"} sm:hidden lg:block`}>
                     <Core items={build.core} matches={build.total_matches} isCarry={isCarry} />
                 </div>
             </div>
+            <div className={`${isCarry ? "lg:w-5/12" : "lg:w-4/12"} hidden sm:block lg:hidden w-1/2 mx-auto`}>
+                    <Core items={build.core} matches={build.total_matches} isCarry={isCarry} />
+                </div>
             <div className='w-full px-10 sm:px-0'>
                 <Late items={build} isCarry={isCarry} />
             </div>
