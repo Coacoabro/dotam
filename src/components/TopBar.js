@@ -12,7 +12,7 @@ export default function TopBar() {
     const [expandSearch, setExpandSearch] = useState(false)
 
     return(
-        <div className='z-30 fixed w-screen shadow-md bg-[#020617]'>
+        <div className='z-30 fixed w-screen shadow-md bg-slate-950'>
             <div className={`flex h-16 sm:h-24 w-screen items-center ${path == '/' || path == '/heroes' ? 'px-4 sm:px-20 lg:px-28' : 'px-4 sm:px-8 lg:px-14'}`}>
                 <div className='absolute flex items-center left-100 gap-4'>
                     <Link href='/' onClick={() => setDropDown(false)}><img src="/DotamLogoShortLight.png" className="w-12 sm:w-16" /></Link>
