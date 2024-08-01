@@ -10,7 +10,7 @@ export default function BottomBar() {
         <div className={`${path == '/' ? 'top-[35vh]' : null} ${path == '/basics' ? 'hidden' : ''} bottom-0 relative w-screen shadow-md bg-slate-900 `}>
             <div className='h-[1px] w-screen bg-slate-700' />
             <div className={`p-4 `}>
-                <div className='flex items-center justify-between max-w-5xl mx-auto py-2 sm:py-5'>
+                <div className='flex items-center justify-between max-w-5xl mx-auto py-2 sm:py-5 sm:px-8 lg:px-0'>
                     <div className='space-y-2'>
                         <img src="/DotamLogoLight.png" className='w-32 sm:w-72'/>
                         <div className='text-xs sm:text-base w-32 sm:w-max'>© 2024 DotaM, LLC. All rights reserved.</div>
