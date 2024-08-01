@@ -49,7 +49,7 @@ export default function ItemCard({ id }) {
                     <img src={itemImg} className='w-12 sm:w-16' onMouseEnter={showTooltip} onMouseLeave={hideTooltip} />
                 </button>
                 {toolTip && (
-                    <div className='fixed inset-0 flex justify-center items-center z-50' style={{ visibility: toolTip ? 'visible' : 'hidden' }}>
+                    <div className='fixed sm:absolute sm:w-[400px] sm:top-[90%] sm:left-1/2 sm:-translate-x-1/2 sm:transform top-100 left-8 flex items-center justify-center z-50' style={{ visibility: toolTip ? 'visible' : 'hidden' }}>
                         <div className='relative -mx-16 mt-3 w-[320px] sm:w-[400px]'>
                             <div className='flex bg-slate-800 items-center gap-2.5 py-2 px-5 rounded-t-lg border-slate-600 border-t border-l border-r'>
                                 <img src={itemImg} className='w-12 sm:w-16 h-full' />

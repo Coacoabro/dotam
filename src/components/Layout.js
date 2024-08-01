@@ -10,8 +10,8 @@ export default function Layout({children}) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <header className='z-10'><TopBar /></header>
-      <main className='pt-24'>{children}</main>
-      <footer className='bottom-0 pt-4'><BottomBar /></footer>
+      <main className='pt-24 z-20'>{children}</main>
+      <footer className='bottom-0 pt-4 z-0'><BottomBar /></footer>
       <Analytics />
     </div>
   );
