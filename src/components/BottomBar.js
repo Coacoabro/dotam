@@ -7,24 +7,28 @@ export default function BottomBar() {
 
 
     return(
-        <div className={`${path == '/' ? 'top-[35vh]' : null} ${path == '/basics' ? 'hidden' : ''} relative p-4 w-screen shadow-md bg-slate-900 bottom-0 border border-t-slate-700`}>
-            <div className='flex items-center justify-between max-w-5xl mx-auto py-2 sm:py-5'>
-                <div className='space-y-2'>
-                    <img src="/DotamLogoLight.png" className='w-32 sm:w-72'/>
-                    <div className='text-xs sm:text-base w-32 sm:w-max'>© 2024 DotaM, LLC. All rights reserved.</div>
-                </div>
-                <div className='space-y-2 text-xs sm:text-base'>
-                    <h1 className='text-sm sm:text-lg'>Dota 2 Data Provided by:</h1>
-                    <a href="https://www.stratz.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline'>
-                        <img src="/StratzLogo.svg" className='w-6 h-6'/> 
-                        Stratz
-                    </a>
-                    <a href="https://www.opendota.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline'>
-                        <img src="/OpenDotaLogo.svg" className='w-6 h-6'/>
-                        OpenDota
-                    </a>
+        <div className={`${path == '/' ? 'top-[35vh]' : null} ${path == '/basics' ? 'hidden' : ''} bottom-0 relative w-screen shadow-md bg-slate-900 `}>
+            <div className='h-[1px] w-screen bg-slate-700' />
+            <div className={`p-4 `}>
+                <div className='flex items-center justify-between max-w-5xl mx-auto py-2 sm:py-5'>
+                    <div className='space-y-2'>
+                        <img src="/DotamLogoLight.png" className='w-32 sm:w-72'/>
+                        <div className='text-xs sm:text-base w-32 sm:w-max'>© 2024 DotaM, LLC. All rights reserved.</div>
+                    </div>
+                    <div className='space-y-2 text-xs sm:text-base'>
+                        <h1 className='text-sm sm:text-lg'>Dota 2 Data Provided by:</h1>
+                        <a href="https://www.stratz.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline'>
+                            <img src="/StratzLogo.svg" className='w-6 h-6'/> 
+                            Stratz
+                        </a>
+                        <a href="https://www.opendota.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline'>
+                            <img src="/OpenDotaLogo.svg" className='w-6 h-6'/>
+                            OpenDota
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+        
     )
 }

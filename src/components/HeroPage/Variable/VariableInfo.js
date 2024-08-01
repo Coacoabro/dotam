@@ -104,17 +104,17 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 <div className='flex gap-8 items-end'>
                     <div className={`flex z-10 text-sm w-full lg:w-96`}>
                         <button className={`${buttonClass} ${currFacet == facet1 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 1 ? 'w-3/5' : 'w-1/5'} rounded-tl-lg`} onClick={() => setFacetNum(1)}>
-                                {bestFacet == 1 ? <div className='font-bold text-base underline text-cyan-300'>Best Facet</div> : null}
+                                {bestFacet == 1 ? <div className='font-bold text-base sm:text-lg lg:text-xl underline text-cyan-300'>Best Facet</div> : null}
                                 <img src={iconLink + facet1.Icon + '.png'} className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:p-1" />
                                 
                         </button>
                         <button className={`${buttonClass} ${currFacet == facet2 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 2 ? 'w-3/5' : 'w-1/5'} ${facet3 ? '' : 'rounded-tr-lg'}`} onClick={() => setFacetNum(2)}>
-                                {bestFacet == 2 ? <div className='font-bold text-base underline text-cyan-300'>Best Facet</div> : null}
+                                {bestFacet == 2 ? <div className='font-bold text-base sm:text-lg lg:text-xl underline text-cyan-300'>Best Facet</div> : null}
                                 <img src={iconLink + facet2.Icon + '.png'} className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:p-1" />
                         </button>
                         {facet3 ? (
                             <button className={`${buttonClass}  ${currFacet == facet3 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 3 ? 'w-3/5' : 'w-1/5'} rounded-tr-lg`} onClick={() => setFacetNum(3)}>
-                                {bestFacet == 3 ? <div className='font-bold text-base underline text-cyan-300'>Best Facet</div> : null}
+                                {bestFacet == 3 ? <div className='font-bold text-base sm:text-lg lg:text-xl underline text-cyan-300'>Best Facet</div> : null}
                                 <img src={iconLink + facet3.Icon + '.png'} className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:p-1" />
                             </button>
                         ) : null}
