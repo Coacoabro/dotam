@@ -12,7 +12,7 @@ export default function TopBar() {
     const [expandSearch, setExpandSearch] = useState(false)
 
     return(
-        <div className='z-30 fixed w-screen shadow-md bg-slate-950'>
+        <div className='z-50 fixed w-screen shadow-md bg-slate-950'>
             <div className={`flex h-16 sm:h-24 w-screen items-center ${path == '/' || path == '/heroes' ? 'px-4 sm:px-20 lg:px-28' : 'px-4 sm:px-8 lg:px-14'}`}>
                 <div className='absolute flex items-center left-100 gap-4'>
                     <Link href='/' onClick={() => setDropDown(false)}><img src="/DotamLogoShortLight.png" className="w-12 sm:w-16" /></Link>
@@ -21,6 +21,7 @@ export default function TopBar() {
                     <Link href="/heroes" className={`px-3 py-1 rounded-md ${path == '/heroes' ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Heroes</Link>
                     <Link href="/tier-list" className={`px-3 py-1 rounded-md ${path.includes('tier-list') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Tier List</Link>
                     <Link href="/basics" className={`px-3 py-1 rounded-md ${path.includes('basic') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Basics</Link>
+                    {path == '/' || path == '/heroes' ? null : <div className='z-50 flex'><SearchTopBar /></div>}
                 </div>
                 <div className='absolute gap-2.5 transition-all duration-1000 delay-100 ease-in-out right-2 sm:right-8 flex sm:hidden'>
                     <div className='z-50 flex'><SearchTopBar /></div>

@@ -23,7 +23,7 @@ export default function ItemsContainer({build}) {
 
     return(
         <div className='w-full space-y-2'>
-            <div className="sm:flex sm:justify-evenly lg:justify-between items-start gap-2.5 space-y-2 lg:space-y-0">
+            <div className="sm:flex sm:justify-evenly lg:justify-between items-start sm:items-center lg:items-start gap-2.5 space-y-2 lg:space-y-0">
                 <div className='h-full lg:w-3/12 px-12 lg:px-0'><Starting items={build.starting} /></div>
                 <div className='px-10 sm:px-0 lg:w-4/12'><Early items={build.early} /></div>
                 <div className={`${isCarry ? "lg:w-5/12" : "lg:w-4/12"} sm:hidden lg:block`}>
@@ -33,7 +33,7 @@ export default function ItemsContainer({build}) {
             <div className={`${isCarry ? "lg:w-5/12" : "lg:w-4/12"} hidden sm:block lg:hidden w-1/2 mx-auto`}>
                     <Core items={build.core} matches={build.total_matches} isCarry={isCarry} />
                 </div>
-            <div className='w-full px-10 sm:px-0'>
+            <div className='w-full sm:w-3/4 sm:mx-auto lg:w-full '>
                 <Late items={build} isCarry={isCarry} />
             </div>
         </div>

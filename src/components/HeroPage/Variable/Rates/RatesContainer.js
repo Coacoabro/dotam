@@ -49,20 +49,20 @@ export default function RatesContainer({ rates, initRole }) {
     return (
         <div className="flex mx-2 py-2 sm:py-0 sm:mx-4 gap-1 text-slate-200 space-x-1">
 
-            <div className="w-14 h-16 sm:w-20 sm:h-20 rounded-md bg-slate-800 border-2 border-slate-900">
+            <div className="w-14 h-16 sm:w-20 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
                 <div className={`text-center text-xl md:text-2xl ${color} py-1 sm:py-2`}>{heroTier}</div>
-                <div className="text-center text-sm md:text-md align-bottom text-slate-200/50">Tier</div>
+                <div className="text-center text-sm md:text-md align-bottom text-cyan-300">Tier</div>
             </div>
 
-            <div className="w-20 sm:w-28 sm:h-20 rounded-md bg-slate-800 border-2 border-slate-900">
+            <div className="w-20 sm:w-28 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
                 <RateCard type="Win Rate" rate={heroWinRate} />
             </div>
 
-            <div className="w-20 sm:w-28 sm:h-20 rounded-md bg-slate-800 border-2 border-slate-900">
+            <div className="w-20 sm:w-28 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
                 <RateCard type="Pick Rate" rate={heroPickRate} />
             </div>
 
-            <div className="w-28 sm:w-36 sm:h-20 rounded-md bg-slate-800 border-2 border-slate-900">
+            <div className="w-28 sm:w-36 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
                 <RateCard type="Matches" rate={heroMatches} />
             </div>
             

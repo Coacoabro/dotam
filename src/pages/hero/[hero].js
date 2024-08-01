@@ -76,7 +76,7 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
           <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
         </Head>
 
-        <div className="px-2 sm:pt-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
+        <div className="px-4 sm:pt-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
           <div className="px-2 flex relative items-end sm:items-center gap-1 sm:gap-4">
             <img src={portrait} className="h-14 sm:h-32" />
             <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20">

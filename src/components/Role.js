@@ -24,7 +24,7 @@ export default function Role( {initRole} ) {
             {router.asPath.includes('tier-list') ? json.map((role) => (
                 <button 
                     onClick={() => handleClick(role.role)} 
-                    className={`text-sm font-bold items-center flex justify-center w-10 sm:w-12 h-7 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-indigo-300 text-black' : 'text-white border border-slate-700'}`}
+                    className={`text-sm font-bold items-center flex justify-center w-10 sm:w-12 h-7 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700'}`}
                 >
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>
@@ -32,7 +32,7 @@ export default function Role( {initRole} ) {
             json.filter((r) => r.role !== "").map((role) => (
                 <button 
                     onClick={() => handleClick(role.role)} 
-                    className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-indigo-300 text-black' : 'text-white border border-slate-700'}`}
+                    className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700'}`}
                 >
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>

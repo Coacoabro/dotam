@@ -30,7 +30,7 @@ export default function RateCard({type, rate}) {
     return(
         <div className='sm:space-y-0'>
             <div className={`text-center text-lg font-medium md:text-2xl ${color} py-1 sm:py-2`}>{rate}{ type === "Matches" ? "" : "%" } </div>
-            <div className="text-center text-sm md:text-md align-bottom text-slate-200/50">{type}</div>
+            <div className="text-center text-sm md:text-md align-bottom text-cyan-300">{type}</div>
         </div>
         
     );

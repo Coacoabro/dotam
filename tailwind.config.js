@@ -22,6 +22,8 @@ module.exports = {
         'slate-950': '#0B0D1C',
         'slate-900': '#1A1C31',
         'slate-800': '#22253F',
+        'cyan-300': '#a8c9f4',
+        'cyan-200': '#E2E8F6',
       },
     },
   },

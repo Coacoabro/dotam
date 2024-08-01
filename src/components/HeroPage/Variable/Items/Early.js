@@ -17,9 +17,9 @@ export default function Early({items}) {
 
     return(
         <div className="space-y-3 rounded-lg border border-slate-800">
-            <div className='flex items-end gap-2.5 px-5 pt-3 '>
-                <div className='text-lg sm:text-xl font-bold  w-full sm:w-max text-center sm:text-start'>Early Items</div>
-                <div className='hidden sm:block opacity-50'>Best items to get early on</div>
+            <div className='sm:flex items-end gap-2.5 px-5 pt-3 '>
+                <div className='text-lg sm:text-xl font-bold '>Early Items</div>
+                <div className='opacity-50'>Best items to get early on</div>
             </div>
 
             <div className='pt-4 px-4 pb-2 gap-2 bg-slate-900 rounded-b-lg'>

@@ -34,17 +34,17 @@ export default function Abilities({hero, abilities}) {
 
 
         return(
-            <div className='space-y-5'>
-                <div className='flex justify-between'>
-                    <div className="flex items-end gap-2.5">
+            <div className='space-y-2 sm:space-y-5'>
+                <div className='sm:flex justify-between space-y-1'>
+                    <div className="sm:flex items-end gap-2.5 space-y-1">
                         <p className="text-lg sm:text-xl font-bold">Ability Path</p>
-                        <h1 className="hidden sm:block text-gray-300 opacity-50">Best ability order for {hero.localized_name}</h1>
+                        <h1 className="text-gray-300/50">Best ability order for {hero.localized_name}</h1>
                     </div>
                     {currAbilities ? 
-                        <div className='flex items-center gap-1'>
-                            <h1 className="text-base sm:text-lg font-bold">{currAbilities.WR}%</h1>
-                            <h2 className="text-sm sm:text-base">WR</h2>
-                            <h3 className="text-xs sm:text-basetext-gray-300 opacity-50">({currAbilities.Matches} Matches)</h3>
+                        <div className='flex items-center text-base sm:text-lg'>
+                            <h1 className=" font-bold">{currAbilities.WR}</h1>
+                            <h2 className="font-medium">% WR</h2>
+                            <h3 className="px-2 text-xs sm:text-base text-cyan-300">({currAbilities.Matches} Matches)</h3>
                         </div>
                     : null }
                 </div>
