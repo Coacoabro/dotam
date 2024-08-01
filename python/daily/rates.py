@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-current_patch = '7.36b'
+current_patch = '7.37'
 
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')

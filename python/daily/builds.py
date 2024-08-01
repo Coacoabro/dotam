@@ -19,7 +19,7 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.36c'
+patch = '7.37'
 
 def initializeBuilds():
     global cur
