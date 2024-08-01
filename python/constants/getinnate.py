@@ -41,7 +41,7 @@ def get_innate():
                         innate_json[i] = {"Name": ability["name_loc"], "Desc": ability_desc}
 
 
-    with open('./src/json/hero_innate.json', 'w') as f:
+    with open('./json/hero_innate.json', 'w') as f:
         json.dump(innate_json, f)
 
 
@@ -64,7 +64,7 @@ def get_facets():
                     hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet["description_loc"], "Icon": facet["icon"]} )
                 facets_json[i] = hero_facets
 
-    with open('./src/json/hero_facets.json', 'w') as f:
+    with open('./json/hero_facets.json', 'w') as f:
         json.dump(facets_json, f)
 
 

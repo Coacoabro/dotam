@@ -65,7 +65,7 @@
         {
             "Name": "crystal_maiden_cold_comfort",
             "Title": "Cold Comfort",
-            "Desc": "Crystal Maiden restores her allies' Mana when casting spells.",
+            "Desc": "Crystal Maiden restores her allies' Mana when casting spells. Increases innate Mana Regen Amplification.",
             "Icon": "mana"
         }
     ],
@@ -93,7 +93,7 @@
         {
             "Name": "earthshaker_slugger",
             "Title": "Slugger",
-            "Desc": "Enemies killed with Enchant Totem are sent flying, dealing damage to enemies they hit.",
+            "Desc": "Enemies killed with Enchant Totem or Earthshaker's other abilities are sent flying, dealing damage to enemies they hit.",
             "Icon": "movement"
         }
     ],
@@ -143,7 +143,7 @@
         {
             "Name": "nevermore_lasting_presence",
             "Title": "Lasting Presence",
-            "Desc": "Presence of the Dark Lord temporarily reduces more armor after nearby enemy heroes are killed.",
+            "Desc": "Presence of the Dark Lord temporarily reduces more armor after nearby enemy heroes are killed. Every hero kill increases Necromastery's max souls by {s:bonus_max_soul_increase_on_hero_kill} until Shadow Fiend dies.",
             "Icon": "armor_broken"
         },
         {
@@ -199,7 +199,7 @@
         {
             "Name": "razor_thunderhead",
             "Title": "Thunderhead",
-            "Desc": "Storm Surge lightning hits all units within Eye of the Storm's area of effect when it is active.",
+            "Desc": "Storm Surge lightning strikes more often and hits all units within Eye of the Storm's area of effect when it is active.",
             "Icon": "barrier"
         },
         {
@@ -281,10 +281,10 @@
     ],
     "21": [
         {
-            "Name": "windrunner_tailwind",
-            "Title": "Tailwind",
-            "Desc": "Windrun grants additional bonus movement speed to Windranger and nearby allies.",
-            "Icon": "speed"
+            "Name": "windrunner_focusfire",
+            "Title": "Focus Fire",
+            "Desc": "Focus Fire rapidly attacks a single target.",
+            "Icon": "focus_fire"
         },
         {
             "Name": "windrunner_whirlwind",
@@ -317,7 +317,7 @@
         {
             "Name": "kunkka_grog",
             "Title": "Grog Blossom",
-            "Desc": "When X Marks the Spot returns its target, nearby allies gain Ghostship's Damage Delay buff.",
+            "Desc": "When X Marks the Spot returns its target, nearby allies gain Ghostship's improved Admiral's Rum buff.",
             "Icon": "armor"
         }
     ],
@@ -339,7 +339,7 @@
         {
             "Name": "lion_essence_eater",
             "Title": "Essence Eater",
-            "Desc": "Mana Drain deals damage equal to {s:bonus_damage_pct}% of mana stolen.",
+            "Desc": "Mana Drain mana per second increased and damage equal to {s:bonus_damage_pct}% of mana stolen.",
             "Icon": "nuke"
         },
         {
@@ -553,15 +553,15 @@
     ],
     "41": [
         {
-            "Name": "faceless_void_temporal_impunity",
-            "Title": "Temporal Impunity",
-            "Desc": "Prevents all damage for a short duration after casting Time Walk.",
-            "Icon": "armor"
+            "Name": "faceless_void_chronosphere",
+            "Title": "Chronosphere",
+            "Desc": "Faceless Void can cast <b color='white'>Chronosphere</b>, trapping enemies in a sphere.",
+            "Icon": "area_of_effect"
         },
         {
             "Name": "faceless_void_time_zone",
             "Title": "Time Zone",
-            "Desc": "Chronosphere is replaced by an effect that dramatically slows down enemies and speeds up allies in an area.",
+            "Desc": "Faceless Void can cast <b color='white'>Time Zone</b>, dramatically slowing down enemies and speeding up allies in an area.",
             "Icon": "chrono_cube"
         }
     ],
@@ -589,8 +589,14 @@
         {
             "Name": "death_prophet_ghosts",
             "Title": "Spirit Collector",
-            "Desc": "Other heroes' deaths empower your next Exorcism.",
+            "Desc": "Hero deaths empower your next Exorcism.",
             "Icon": "spirit"
+        },
+        {
+            "Name": "death_prophet_delayed_damage",
+            "Title": "Mourning Ritual",
+            "Desc": "Death Prophet delays a percentage of incoming damage, taking the damage in even intervals over a short duration.",
+            "Icon": "healing"
         }
     ],
     "44": [
@@ -617,7 +623,7 @@
         {
             "Name": "pugna_rewards_of_ruin",
             "Title": "Rewards of Ruin",
-            "Desc": "Pugna receives {s:bonus_tower_scale}% spell amplification per destroyed enemy tower.",
+            "Desc": "Pugna receives {s:bonus_tower_scale}% spell amplification per destroyed tower.",
             "Icon": "siege"
         }
     ],
@@ -625,8 +631,8 @@
         {
             "Name": "templar_assassin_voidblades",
             "Title": "Voidblades",
-            "Desc": "Enemies hit by Psi Blades split damage are slowed.",
-            "Icon": "slow"
+            "Desc": "Attacking a target with Meld also applies the bonus damage and debuff to enemies hits by the Psi Blades spill",
+            "Icon": "ricochet"
         },
         {
             "Name": "templar_assassin_refractor",
@@ -651,9 +657,9 @@
     ],
     "48": [
         {
-            "Name": "luna_lunar_orbit",
-            "Title": "Lunar Orbit",
-            "Desc": "Rotating Glaives absorb damage.",
+            "Name": "luna_moonshield",
+            "Title": "Moonshield",
+            "Desc": "Lunar Orbit provide damage reduction while active.",
             "Icon": "armor"
         },
         {
@@ -735,21 +741,21 @@
         {
             "Name": "furion_ironwood_treant",
             "Title": "Ironwood Treant",
-            "Desc": "Nature's Call creates only {s:bonus_max_treants} Treant that has more health, more damage, and is Reinforced.",
+            "Desc": "Nature's Call creates only {s:bonus_max_treants} Treant that has more health, more damage, increased vision, increased movement speed, and is Reinforced.",
             "Icon": "siege"
         }
     ],
     "54": [
         {
-            "Name": "life_stealer_maxhp_gain",
-            "Title": "Corpse Eater",
-            "Desc": "Lifestealer gains %bonus_hp_per_creep% HP whenever he kills a creep, and %bonus_hp_per_hero% whenever he kills a hero.",
-            "Icon": "armor"
+            "Name": "life_stealer_rage",
+            "Title": "Rage",
+            "Desc": "Lifestealer can cast <b color='white'>Rage</b>, becoming Debuff Immune and increasing magic resistance.",
+            "Icon": "lifestealer_rage"
         },
         {
             "Name": "life_stealer_rage_dispell",
             "Title": "Unfettered",
-            "Desc": "Rage gets replaced by an ability allowing Lifestealer to dispel himself and become more resilient even when stunned.",
+            "Desc": "Lifestealer can cast <b color='white'>Unfettered</b> to dispel himself and become more resilient. Can cast while stunned.",
             "Icon": "broken_chain"
         }
     ],
@@ -821,6 +827,12 @@
             "Title": "Nothl Transfusion",
             "Desc": "Life Break also heals friendly units in a radius around the target.",
             "Icon": "healing"
+        },
+        {
+            "Name": "huskar_nothl_conflagration",
+            "Title": "Incendiary",
+            "Desc": "Burning Spears also burns enemies for a percentage of their max health. Costs Max Health instead of Current Health. Reduces burn duration.",
+            "Icon": "damage"
         }
     ],
     "60": [
@@ -979,6 +991,12 @@
             "Title": "Devil's Bargain",
             "Desc": "Doom can sell items for %bonus_item_sellback_percent%%% of their value, but his buyback costs are increased by %bonus_buyback_penalty%%%.",
             "Icon": "gold"
+        },
+        {
+            "Name": "doom_bringer_impending_doom",
+            "Title": "Impending Doom",
+            "Desc": "Every {s:bonus_upgrade_interval} minutes, Doom's duration is increased by {s:bonus_upgrade_amount}s. Doom DPS decreased.",
+            "Icon": "cooldown"
         }
     ],
     "70": [
@@ -991,7 +1009,7 @@
         {
             "Name": "ursa_debuff_reduce",
             "Title": "Bear Down",
-            "Desc": "Debuffs inflicted by Ursa last %debuff_amp%%% longer.",
+            "Desc": "Debuffs inflicted by Ursa last longer.",
             "Icon": "cooldown"
         }
     ],
@@ -1084,13 +1102,19 @@
             "Name": "lycan_pack_leader",
             "Title": "Pack Leader",
             "Desc": "Enemy heroes killed by Lycan or his units extend Shapeshift duration.",
-            "Icon": "wolf"
+            "Icon": "summons"
         },
         {
             "Name": "lycan_spirit_wolves",
             "Title": "Spirit Wolves",
             "Desc": "Summon Wolves creates invulnerable non-attacking wolves that buff Lycan's health and attack damage.",
             "Icon": "spirit"
+        },
+        {
+            "Name": "lycan_alpha_wolves",
+            "Title": "Alpha Wolves",
+            "Desc": "Increases the max level of Summon Wolves while lowering the max level of Howl and Feral Impulse.",
+            "Icon": "wolf"
         }
     ],
     "78": [
@@ -1131,8 +1155,14 @@
         {
             "Name": "lone_druid_unbearable",
             "Title": "Unbearable",
-            "Desc": "True Form transforms the Spirit Bear instead of Lone Druid.",
+            "Desc": "True Form transforms the Spirit Bear instead of Lone Druid. Increases the distance from Lone Druid at which the Spirit Bear can attack.",
             "Icon": "overshadow"
+        },
+        {
+            "Name": "lone_druid_bear_necessities",
+            "Title": "Bear Necessities",
+            "Desc": "Lone Druid's items are more powerful and his inventory is smaller.",
+            "Icon": "item"
         }
     ],
     "81": [
@@ -1145,7 +1175,7 @@
         {
             "Name": "chaos_knight_irrationality",
             "Title": "Irrationality",
-            "Desc": "Reality Rift has equal chances of applying Break, Disarm, or Nothing for {s:bonus_additional_debuff_duration_percent}% of the base debuff duration in addition to its normal effects.",
+            "Desc": "Reality Rift has equal chances of applying Break, Disarm, or Silence for {s:bonus_additional_debuff_duration_percent}% of the base debuff duration in addition to its normal effects.",
             "Icon": "rng"
         }
     ],
@@ -1237,7 +1267,7 @@
         {
             "Name": "nyx_assassin_burn_mana",
             "Title": "Mana Burn",
-            "Desc": "Nyx's damage from spells and items burns enemies' mana.",
+            "Desc": "Nyx Assassin's ability damage burns enemies' mana.",
             "Icon": "nuke"
         },
         {
@@ -1301,6 +1331,12 @@
             "Title": "Faithful Followers",
             "Desc": "Familiars automatically move with Visage and attack his targets.",
             "Icon": "summons"
+        },
+        {
+            "Name": "visage_gold_assumption",
+            "Title": "Death Toll",
+            "Desc": "Soul Assumption kills give up to {s:bonus_gold_max_tooltip} bonus gold.",
+            "Icon": "gold"
         }
     ],
     "93": [
@@ -1325,10 +1361,10 @@
             "Icon": "snake"
         },
         {
-            "Name": "medusa_mana_pact",
-            "Title": "Mana Pact",
-            "Desc": "Medusa can gain attack speed at the cost of mana over time.",
-            "Icon": "mana"
+            "Name": "medusa_slow_attacks",
+            "Title": "Venomous Volley",
+            "Desc": "Every %attack_count% attacks, Medusa applies poison to her arrow that briefly reduces movement speed, attack speed, and cast speed.",
+            "Icon": "slow"
         }
     ],
     "95": [
@@ -1361,15 +1397,15 @@
     ],
     "97": [
         {
-            "Name": "magnataur_run_through",
-            "Title": "Run Through",
-            "Desc": "Skewer deals bonus damage when pushing enemies through trees and cliffs.",
-            "Icon": "movement"
+            "Name": "magnataur_reverse_polarity",
+            "Title": "Reverse Polarity",
+            "Desc": "Reverse Polarity pulls all nearby enemies in.",
+            "Icon": "vortex_in"
         },
         {
             "Name": "magnataur_reverse_reverse_polarity",
             "Title": "Reverse Reverse Polarity",
-            "Desc": "Reverse Polarity pushes enemies away all around Magnus instead of pulling enemies that are in front of him.",
+            "Desc": "Reverse Polarity pushes enemies away all around Magnus.",
             "Icon": "vortex_out"
         }
     ],
@@ -1399,6 +1435,12 @@
             "Title": "Snot Rocket",
             "Desc": "Bristleback now fires Viscous Nasal Goo instead of Quills when damaged. Viscous Nasal Goo effects are stronger.",
             "Icon": "snot"
+        },
+        {
+            "Name": "bristleback_seeing_red",
+            "Title": "Seeing Red",
+            "Desc": "Warpath can be activated to gain extra bonuses. While Seeing Red, Bristleback's vision is limited and he does not share vision with his allies.",
+            "Icon": "no_vision"
         }
     ],
     "100": [
@@ -1475,7 +1517,7 @@
         {
             "Name": "techies_atk_range",
             "Title": "Squee's Scope",
-            "Desc": "Techies gains %attack_range_tooltip% attack range for each point of attack speed.",
+            "Desc": "Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed.",
             "Icon": "range"
         },
         {
@@ -1517,6 +1559,12 @@
             "Title": "Stepping Stone",
             "Desc": "Stone Remnant has a {s:bonus_AbilityCooldown}s cooldown instead of Charges and Remnants don't get destroyed by Rolling Boulder.",
             "Icon": "cooldown"
+        },
+        {
+            "Name": "earth_spirit_ready_to_roll",
+            "Title": "Ready to Roll",
+            "Desc": "Rolling Boulder can roll over allied heroes for additional bonuses.",
+            "Icon": "spinning"
         }
     ],
     "108": [
@@ -1607,7 +1655,7 @@
         {
             "Name": "monkey_king_wukongs_faithful",
             "Title": "Wukong's Faithful",
-            "Desc": "Monkey King's soldiers do not disperse unless he spends more than {s:bonus_leadership_time_buffer} seconds outside the area.",
+            "Desc": "Monkey King's soldiers last longer and do not disperse unless he spends more than {s:bonus_leadership_time_buffer} seconds outside the area.",
             "Icon": "summons"
         },
         {
@@ -1677,14 +1725,14 @@
         {
             "Name": "void_spirit_sanctuary",
             "Title": "Sanctuary",
-            "Desc": "Resonant Pulse creates an all damage barrier.",
+            "Desc": "Resonant Pulse creates a larger all damage barrier instead of a physical barrier.",
             "Icon": "armor"
         },
         {
-            "Name": "void_spirit_phys_barrier",
-            "Title": "Symmetry",
-            "Desc": "Void Spirit gains a physical damage barrier when dealing magic damage to enemy heroes.",
-            "Icon": "nuke"
+            "Name": "void_spirit_aether_artifice",
+            "Title": "Call of the Void",
+            "Desc": "Upon exiting Dissimilate, Aether Remnants are created at the {s:bonus_aether_remnant_count} portals furthest from Void Spirit.",
+            "Icon": "illusion"
         }
     ],
     "127": [],
@@ -1754,7 +1802,7 @@
         {
             "Name": "primal_beast_ferocity",
             "Title": "Ferocity",
-            "Desc": "When activated, Uproar provides {s:bonus_roared_bonus_aoe_pct}% increased area of effect per stack.",
+            "Desc": "Each hit Pulverize hit increases the AoE bonuses of Primal Beast's abilities and items.",
             "Icon": "area_of_effect"
         }
     ],
@@ -1768,7 +1816,7 @@
         {
             "Name": "muerta_ofrenda",
             "Title": "Ofrenda",
-            "Desc": "Muerta can place an Ofrenda on the map to respawn there instead of the fountain.",
+            "Desc": "Muerta can place a beneficial Ofrenda on the map to respawn there instead of the fountain.",
             "Icon": "teleport"
         }
     ]
