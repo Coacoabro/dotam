@@ -11,7 +11,7 @@ export default function Layout({children}) {
       </Head>
       <header className='z-10'><TopBar /></header>
       <main className='pt-24 z-20'>{children}</main>
-      <footer className='bottom-0 pt-12 sm:pt-56 z-0'><BottomBar /></footer>
+      <footer className='bottom-0 pt-12 lg:pt-56 z-0'><BottomBar /></footer>
       <Analytics />
     </div>
   );

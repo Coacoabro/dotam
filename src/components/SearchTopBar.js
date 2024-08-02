@@ -100,7 +100,7 @@ export default function SearchBar() {
                     className={`w-[175px] sm:w-[245px] lg:w-[387.5px] text-slate-200 text-sm font-medium leading-5 bg-transparent border-none outline-none flex-1 tracking-wide px-2`}
                 />
                 {searchTerm && showSuggestions && suggestions.length > 0 && (
-                    <ul className={`absolute border border-gray-900 rounded-md shadow-md mt-2 sm:mt-4 text-black w-[175px]`}>
+                    <ul className={`absolute border border-gray-900 rounded-md shadow-md mt-2 sm:mt-4 text-black w-[175px] sm:w-[250px] lg:w-[400px]`}>
                     {suggestions.map((hero, index) => (
                         <li
                         key={hero.id}

@@ -20,8 +20,8 @@ export default function Rank() {
   }
 
   return(
-      <div className='relative'>
-        <button onClick={() => setIsOpen(!isOpen)} className='sm:text-lg h-8 w-32 sm:w-44 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
+      <div className='relative z-50'>
+        <button onClick={() => setIsOpen(!isOpen)} className='bg-slate-900 sm:text-lg h-8 w-32 sm:w-44 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
           <div className='flex items-center'>
             {currIcon ? <img src={currIcon} className="w-4 h-4 sm:w-6 sm:h-6 mr-1 sm:mr-2" /> : null}
             {currName}
