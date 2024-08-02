@@ -85,7 +85,7 @@ export default function AbilityCard({ ability, hero, type, path }) {
               <img src={'https://cdn.cloudflare.steamstatic.com' + abilityInfo.img} className="w-8 h-8 sm:w-12 sm:h-12 rounded-md" />
               {abilityInfo.dname}
             </div>
-            <div className="text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-indigo-300 text-left border-slate-600 shadow border-l border-r">{abilityDesc}</div>
+            <div className="text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 text-left border-slate-600 shadow border-l border-r">{abilityDesc}</div>
             <video ref={videoRef} className="rounded-b-lg" src={abilityVideo} type='video/webm' autoPlay muted loop disablePictureInPicture />
           </div>
         </div>

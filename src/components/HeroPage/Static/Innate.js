@@ -47,8 +47,8 @@ export default function Innate({ id }) {
                             {innate.Name}
                         </div>
                         {description.length > 1 ? description.map((paragraph, index) => (
-                            <p key={index} className={`text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-indigo-300 ${description.length == (index+1) ? 'rounded-b-lg border-b' : null} border-l border-r border-slate-600`}>{paragraph}</p>
-                        )) : <p className="text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-indigo-300 rounded-b-lg border-b border-l border-r border-slate-600">{description}</p>}
+                            <p key={index} className={`text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 ${description.length == (index+1) ? 'rounded-b-lg border-b' : null} border-l border-r border-slate-600`}>{paragraph}</p>
+                        )) : <p className="text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 rounded-b-lg border-b border-l border-r border-slate-600">{description}</p>}
                     </div>
                 </div>
             )}

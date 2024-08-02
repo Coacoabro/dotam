@@ -51,11 +51,11 @@ export default function TalentTree({ talents }) {
                             <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg" className='h-8 w-8 sm:h-12 sm:w-12' />
                             Talents
                         </div>
-                        <div className="flex flex-col items-center space-y-3 px-6 py-5 bg-slate-950 text-indigo-300 text-left rounded-b-lg border-b border-l border-r border-slate-600">
+                        <div className="flex flex-col items-center space-y-3 px-6 py-5 bg-slate-950 text-cyan-300 text-left rounded-b-lg border-b border-l border-r border-slate-600">
                             {levels.map((level, index) => (
                                 <div key={index} className='space-y-3'>
                                     <div className="text-xs sm:text-base flex items-center space-x-2 sm:space-x-8 px-4">
-                                        <div className="w-28 sm:w-36 text-center text-indigo-300">
+                                        <div className="w-28 sm:w-36 text-center text-cyan-300">
                                             {leftTalents[index]}
                                         </div>
                                         <div className="relative flex items-center justify-center w-8 h-8 sm:w-14 sm:h-14 bg-slate-700 rounded-full shadow-md">
@@ -63,7 +63,7 @@ export default function TalentTree({ talents }) {
                                                 {level}
                                             </span>
                                         </div>
-                                        <div className="w-28 sm:w-36 text-center text-indigo-300">
+                                        <div className="w-28 sm:w-36 text-center text-cyan-300">
                                             {rightTalents[index]}
                                         </div>
                                     </div>

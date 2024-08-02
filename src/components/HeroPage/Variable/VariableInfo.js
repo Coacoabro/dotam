@@ -49,6 +49,19 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
     const [facetNum, setFacetNum] = useState(bestFacet)
     const [facetRates, setFacetRates] = useState([])
 
+    const [facetShow, setFacetShow] = useState(false)
+    const [hoverFacet, setHoverFacet] = useState(null)
+
+    const showFacetInfo = (num) => {
+        setFacetShow(true)
+        setHoverFacet(num)
+    }
+
+    const hideFacetInfo = () =>{
+        setFacetShow(false)
+        setHoverFacet(null)
+    }
+
     //CHANGE LATER WITH FACET UPDATE
     useEffect(() => {
 
@@ -95,6 +108,8 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         })
 
     }, [role, rank, abilities, matchups, builds, facetNum])
+
+    console.log(hoverFacet)
         
     return(
         <div className='mt-12 sm:mt-0 space-y-4'>
@@ -108,17 +123,32 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 </div>
                 <div className='flex gap-8 items-end'>
                     <div className={`flex z-10 text-sm w-full lg:w-96`}>
-                        <button className={`${buttonClass} ${currFacet == facet1 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 1 ? 'w-3/5' : 'w-1/5'} rounded-tl-lg`} onClick={() => setFacetNum(1)}>
+                        <button 
+                            className={`${buttonClass} ${currFacet == facet1 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 1 ? 'w-3/5' : 'w-1/5'} rounded-tl-lg`} 
+                            onClick={() => setFacetNum(1)} 
+                            onMouseEnter={() => showFacetInfo(facet1)}
+                            onMouseLeave={() => hideFacetInfo()}
+                        >
                                 {bestFacet == 1 ? <div className='font-bold text-base sm:text-lg lg:text-xl underline text-cyan-300'>Best Facet</div> : null}
                                 <img src={iconLink + facet1.Icon + '.png'} className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:p-1" />
                                 
                         </button>
-                        <button className={`${buttonClass} ${currFacet == facet2 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 2 ? 'w-3/5' : 'w-1/5'} ${facet3 ? '' : 'rounded-tr-lg'}`} onClick={() => setFacetNum(2)}>
+                        <button 
+                            className={`${buttonClass} ${currFacet == facet2 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 2 ? 'w-3/5' : 'w-1/5'} ${facet3 ? '' : 'rounded-tr-lg'}`} 
+                            onClick={() => setFacetNum(2)}
+                            onMouseEnter={() => showFacetInfo(facet2)}
+                            onMouseLeave={() => hideFacetInfo()}
+                        >
                                 {bestFacet == 2 ? <div className='font-bold text-base sm:text-lg lg:text-xl underline text-cyan-300'>Best Facet</div> : null}
                                 <img src={iconLink + facet2.Icon + '.png'} className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:p-1" />
                         </button>
                         {facet3 ? (
-                            <button className={`${buttonClass}  ${currFacet == facet3 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 3 ? 'w-3/5' : 'w-1/5'} rounded-tr-lg`} onClick={() => setFacetNum(3)}>
+                            <button 
+                                className={`${buttonClass}  ${currFacet == facet3 ? 'bg-slate-900' : 'bg-slate-900/50'} ${bestFacet == 3 ? 'w-3/5' : 'w-1/5'} rounded-tr-lg`} 
+                                onClick={() => setFacetNum(3)}
+                                onMouseEnter={() => showFacetInfo(facet3)}
+                                onMouseLeave={() => hideFacetInfo()}
+                            >
                                 {bestFacet == 3 ? <div className='font-bold text-base sm:text-lg lg:text-xl underline text-cyan-300'>Best Facet</div> : null}
                                 <img src={iconLink + facet3.Icon + '.png'} className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:p-1" />
                             </button>
@@ -129,8 +159,24 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                     </div>
                     
                 </div>
-                <div className={`space-y-2 py-2 bg-slate-900 border border-slate-800 rounded-b-lg ${facet3 ? 'sm:rounded-tr-lg' : 'rounded-tr-lg'}`}>
-                    <div className='sm:flex items-center justify-between text-slate-200 px-4 sm:px-10 py-2 sm:w-full space-y-2'>
+
+                {facetShow &&
+                    <div className='absolute lg:-ml-16 py-2 z-50'>
+                        <div className="text-white border-slate-900 shadow whitespace-pre-line z-40 w-[300px] sm:w-[400px]">
+                            <div className="text-lg sm:text-2xl flex font-bold rounded-t-lg py-2 px-3 sm:py-2 sm:px-5 bg-slate-800 items-center gap-2 border-slate-600 shadow border-t border-l border-r">
+                            <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-6 sm:w-10 sm:h-10 rounded-md sm:p-1" />
+                                {hoverFacet.Title}
+                            </div>
+                            <p className={`text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 border-l border-r border-b border-slate-600 rounded-b-lg`}>
+                                {hoverFacet.Desc.replace(/\{[^}]*\}/g, '?')}
+                            </p>
+                        </div>
+                    </div>
+                }
+
+                <div className={`lg:flex lg:items-center lg:justify-between space-y-2 py-2 bg-slate-900 border border-slate-800 rounded-b-lg ${facet3 ? 'sm:rounded-tr-lg' : 'rounded-tr-lg'}`}>
+                    
+                     <div className='sm:hidden items-center justify-between text-slate-200 px-4 sm:px-10 py-2 sm:w-full space-y-2'>
                         <div className='sm:px-2 space-y-1 sm:w-3/5'>
                             <h1 className='text-slate-200 font-bold flex items-center gap-2.5 text-base'>
                                 <img src={iconLink + currFacet.Icon + '.png'} className="w-5 h-5 sm:w-6 sm:h-6 rounded-md" />
@@ -145,15 +191,29 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                             </div>
                             <div className='text-xs sm:text-sm text-cyan-300'>({facetRates.find((obj) => obj.Facet == facetNum)?.Matches} Matches)</div>
                         </div>
-                    </div>    
-                    <div className="w-full h-[1px] bg-slate-700/50" />
-                    <div className='flex flex-col sm:flex-row items-center justify-center sm:justify-between sm:px-12 py-1 gap-2'>
+                    </div>   
+                    
+                    <div className="sm:hidden w-full h-[1px] bg-slate-700/50" />
+
+                    <div className='flex flex-col sm:flex-row items-center sm:px-12 py-1 gap-3'>
                         <Role initRole={initRole} />
-                        <div className='hidden sm:flex gap-2'>
+                        <div className='h-12 w-[2px] bg-slate-700 hidden sm:block' />
+                        <div className='hidden items-center sm:flex gap-2 z-0'>
                             <Rank />
+                            <div className='h-12 w-[2px] bg-slate-700 hidden sm:block' />
                             <Patches />
                         </div>
-                    </div>                
+                    </div>  
+
+                    <div className='hidden sm:flex items-center gap-1.5 px-8'>
+                        <div className='flex items-center text-base sm:text-lg font-bold'>
+                            {facetRates.find((obj) => obj.Facet == facetNum)?.WR}
+                            <h1 className='font-medium'>% WR</h1>
+                        </div>
+                        <div className='text-xs sm:text-sm text-cyan-300'>({facetRates.find((obj) => obj.Facet == facetNum)?.Matches} Matches)</div>
+                    </div>
+                                 
+                     
                 </div>
                 
             </div>
