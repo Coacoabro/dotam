@@ -278,7 +278,13 @@ def getBuilds(ranked_matches, builds):
 
 
 # initializeBuilds() # Comment this if you need to do a fresh slate
-seq_num = 6627276160
+
+file_path = './python/daily/seq_num.json'
+
+with open(file_path, 'r') as file:
+    data = json.load(file)
+    seq_num = data['seq_num']
+
 ranked_matches = []
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
@@ -367,6 +373,8 @@ while True:
                 )
             conn.commit() 
         print("Done. Last sequence num: ", seq_num)
+        with open('seq_num.json', 'w') as file:
+            json.dump({"seq_num": seq_num}, file)
         hourlyDump = 0
         start_time = time.time()
         dump = False
