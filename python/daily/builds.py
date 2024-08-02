@@ -274,7 +274,7 @@ def getBuilds(ranked_matches, builds):
 
 
 # initializeBuilds() # Comment this if you need to do a fresh slate
-seq_num = 6609163121
+seq_num = 6627244089
 ranked_matches = []
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
@@ -370,5 +370,7 @@ while True:
             start_time = time.time()
             dump = False
     
-    error:
+    except Exception:
+        print(seq_num)
+        break
         
