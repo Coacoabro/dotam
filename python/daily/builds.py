@@ -29,6 +29,7 @@ def initializeBuilds():
     Facets = [1, 2, 3]
     cur.execute("SELECT hero_id from heroes;")
     hero_ids = [row[0] for row in cur.fetchall()]
+    print("Initialization Started")
     cur.execute("TRUNCATE TABLE builds")
     for hero_id in hero_ids:
         for rank in Ranks:
@@ -39,6 +40,9 @@ def initializeBuilds():
                         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     """, (hero_id, patch, rank, role, facet, 0, 0, json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]))
                     )
+                    conn.commit() 
+    conn.close()
+    print("Initialization Finished")
 
 def actualRank(rank):
     if rank >= 80:
@@ -274,7 +278,7 @@ def getBuilds(ranked_matches, builds):
 
 
 # initializeBuilds() # Comment this if you need to do a fresh slate
-seq_num = 6627244089
+seq_num = 6627276160
 ranked_matches = []
 cur.execute("SELECT * from builds")
 builds = cur.fetchall()
@@ -284,93 +288,88 @@ for x in range(len(builds)):
 
 dump = False
 hourlyDump = 0
-hour = 3600 # seconds
+# hour = 3600 # seconds
 start_time = time.time()
 
 while True:
 
-    try:
+    DOTA_2_URL = SEQ_URL + str(seq_num)
 
-        DOTA_2_URL = SEQ_URL + str(seq_num)
+    response = requests.get(DOTA_2_URL)
 
-        response = requests.get(DOTA_2_URL)
+    if response.status_code == 200:
+        matches = response.json()['result']['matches']
+        for match in matches:
+            seq_num = match['match_seq_num']
+            if match['lobby_type'] == 7 and match['game_mode'] == 22:
+                ranked_match = {}
+                radiantWon = match['radiant_win']
+                ranked_match['match_id'] = match['match_id']
+                players = match['players']
+                i = 0
+                playersInfo = []
+                for player in players:
+                    won = 0
+                    if i < 5 and radiantWon:
+                        won = 1
+                    elif i > 4 and not radiantWon:
+                        won = 1
+                    i += 1
+                    heroObj = {}
+                    heroObj['id'] = player['hero_id']
+                    heroObj['facet'] = player['hero_variant']
+                    heroObj['won'] = won
+                    playersInfo.append(heroObj)
+                ranked_match['players'] = playersInfo
+                ranked_matches.append(ranked_match)
+                if len(ranked_matches) == 25:
+                    hourlyDump += 1
+                    print(hourlyDump)
+                    builds = getBuilds(ranked_matches, builds)
+                    ranked_matches = []
+    else:
+        seq_num += 1
 
-        if response.status_code == 200:
-            matches = response.json()['result']['matches']
-            for match in matches:
-                seq_num = match['match_seq_num']
-                if match['lobby_type'] == 7 and match['game_mode'] == 22:
-                    ranked_match = {}
-                    radiantWon = match['radiant_win']
-                    ranked_match['match_id'] = match['match_id']
-                    players = match['players']
-                    i = 0
-                    playersInfo = []
-                    for player in players:
-                        won = 0
-                        if i < 5 and radiantWon:
-                            won = 1
-                        elif i > 4 and not radiantWon:
-                            won = 1
-                        i += 1
-                        heroObj = {}
-                        heroObj['id'] = player['hero_id']
-                        heroObj['facet'] = player['hero_variant']
-                        heroObj['won'] = won
-                        playersInfo.append(heroObj)
-                    ranked_match['players'] = playersInfo
-                    ranked_matches.append(ranked_match)
-                    if len(ranked_matches) == 25:
-                        hourlyDump += 1
-                        print(hourlyDump)
-                        builds = getBuilds(ranked_matches, builds)
-                        ranked_matches = []
-        else:
-            seq_num += 1
+    if hourlyDump >= 400:
+        # remaining = hour - (time.time() - start_time)
+        # if remaining > 0:
+        #     print("Waiting for another " + str(remaining) + " seconds")
+        #     time.sleep(remaining)
+        #     dump = True
+        # else:
+        dump = True
 
-        if hourlyDump >= 400:
-            remaining = hour - (time.time() - start_time)
-            if remaining > 0:
-                print("Waiting for another " + str(remaining) + " seconds")
-                time.sleep(remaining)
-                dump = True
-            else:
-                dump = True
-
-        if dump:
-            print("Dumping stuff")
-            for build in builds:
-                cur.execute("""
-                    UPDATE builds
-                    SET total_matches = %s,
-                        total_wins = %s,
-                        abilities = %s,
-                        talents = %s,
-                        starting = %s,
-                        early = %s,
-                        core = %s,
-                        item01 = %s,
-                        item02 = %s,
-                        item03 = %s,
-                        item04 = %s,
-                        item05 = %s,
-                        item06 = %s,
-                        item07 = %s,
-                        item08 = %s,
-                        item09 = %s,
-                        item10 = %s,
-                        boots = %s
-                    WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
-                    """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
-                    )
-            
+    if dump:
+        print("Dumping stuff. Last sequence num is ", seq_num)
+        for build in builds:
+            cur.execute("""
+                UPDATE builds
+                SET total_matches = %s,
+                    total_wins = %s,
+                    abilities = %s,
+                    talents = %s,
+                    starting = %s,
+                    early = %s,
+                    core = %s,
+                    item01 = %s,
+                    item02 = %s,
+                    item03 = %s,
+                    item04 = %s,
+                    item05 = %s,
+                    item06 = %s,
+                    item07 = %s,
+                    item08 = %s,
+                    item09 = %s,
+                    item10 = %s,
+                    boots = %s
+                WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
+                """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
+                )
             conn.commit() 
-            print("done")
-            hourlyDump = 0
-            start_time = time.time()
-            dump = False
-    
-    except Exception:
-        print(seq_num)
+        print("Done. Last sequence num: ", seq_num)
+        hourlyDump = 0
+        start_time = time.time()
+        dump = False
+        conn.close()
         break
         
