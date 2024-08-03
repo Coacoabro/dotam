@@ -336,7 +336,7 @@ while True:
     else:
         seq_num += 1
 
-    if hourlyDump >= 400:
+    if hourlyDump >= 800:
         # remaining = hour - (time.time() - start_time)
         # if remaining > 0:
         #     print("Waiting for another " + str(remaining) + " seconds")
@@ -373,7 +373,7 @@ while True:
                 )
             conn.commit() 
         print("Done. Last sequence num: ", seq_num)
-        with open('seq_num.json', 'w') as file:
+        with open(file_path, 'w') as file:
             json.dump({"seq_num": seq_num}, file)
         hourlyDump = 0
         start_time = time.time()
