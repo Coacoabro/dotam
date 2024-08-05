@@ -301,7 +301,7 @@ while True:
 
     DOTA_2_URL = SEQ_URL + str(seq_num)
 
-    response = requests.get(DOTA_2_URL, timeout=60)
+    response = requests.get(DOTA_2_URL, timeout=600)
 
     if response.status_code == 200:
         matches = response.json()['result']['matches']

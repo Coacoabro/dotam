@@ -62,23 +62,22 @@ export default function ItemCard({ id }) {
                                 </div>
                             </div>
                             <div className='bg-slate-950 py-3 px-5 text-left space-y-3 border-r border-l border-b border-slate-700 rounded-b-lg'>
-                                {item.abilities ? item.abilities[0] ? 
-                                    <div className='space-y-3'>
-                                        {item.abilities.map((ability, index) => (
-                                            <div key={index} className='p-2 space-y-2'>
-                                                <div className="flex gap-2 items-center justify-between">
-                                                    <h1 className='text-lg sm:text-xl font-bold'>{ability.title}</h1>
-                                                    <h2 className='text-sm sm:text-base opacity-50 uppercase'>{ability.type}</h2>
-                                                </div>
-                                                <div className='text-base sm:text-lg'>{ability.description}</div>
+                                <div className='space-y-3'>
+                                    {item.abilities ? item.abilities[0] ? item.abilities.map((ability, index) => (
+                                        <div key={index} className='p-2 space-y-2'>
+                                            <div className="flex gap-2 items-center justify-between">
+                                                <h1 className='text-lg sm:text-xl font-bold'>{ability.title}</h1>
+                                                <h2 className='text-sm sm:text-base opacity-50 uppercase'>{ability.type}</h2>
                                             </div>
-                                        ))}
-                                    </div>
-                                :
-                                    <div className='text-lg'>Basic Attribute Bonuses</div>
-                                :
-                                    <div className='text-lg'>Basic Attribute Bonuses</div>
-                                }
+                                            <div className='text-base sm:text-lg'>{ability.description}</div>
+                                        </div>
+                                    )) : null :null}
+                                    {item.attrib ? item.attrib.map((attr) => (
+                                        <div className='text-lg text-cyan-300'>
+                                            {attr.display ? attr.display.replace("{value}", attr.value) : null}
+                                        </div>
+                                    )) : null}
+                                </div>
                                 {components.length > 0 ? 
                                     <div className='space-y-3'>
                                         <div className='sm:w-[350px] h-[1px] bg-slate-700' />
