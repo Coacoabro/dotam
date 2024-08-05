@@ -108,8 +108,6 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         })
 
     }, [role, rank, abilities, matchups, builds, facetNum])
-
-    console.log(hoverFacet)
         
     return(
         <div className='mt-12 sm:mt-0 space-y-4'>
@@ -161,7 +159,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 </div>
 
                 {facetShow &&
-                    <div className='absolute py-2 z-50'>
+                    <div className='hidden sm:block absolute py-2 z-50'>
                         <div className="text-white border-slate-900 shadow whitespace-pre-line z-40 w-[300px] sm:w-[400px]">
                             <div className="text-lg sm:text-2xl flex font-bold rounded-t-lg py-2 px-3 sm:py-2 sm:px-5 bg-slate-800 items-center gap-2 border-slate-600 shadow border-t border-l border-r">
                             <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-6 sm:w-10 sm:h-10 rounded-md sm:p-1" />
