@@ -4,7 +4,9 @@ import Abilities from '../../../../dotaconstants/build/abilities.json';
 export default function TalentTree({ talents }) {
     const Talents = [];
     talents.forEach((talent) => {
-        Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'));
+        if(Abilities[talent.name].dname){
+            Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
+        }
     });
     const leftTalents = [Talents[6], Talents[4], Talents[2], Talents[0]];
     const rightTalents = [Talents[7], Talents[5], Talents[3], Talents[1]];

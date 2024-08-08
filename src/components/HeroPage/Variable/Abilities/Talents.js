@@ -13,14 +13,16 @@ export default function Talents({hero, talents}) {
         talents.forEach((talent) => {
             const tempTalent = abilityIds[talent.Talent]
             if(tempTalent) {
-                talent.Talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                if(Abilities[tempTalent].dname){
+                    talent.Talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                }
             }
         })
 
         const talentOrder = heroAbilities[heroName].talents
 
         talentOrder.forEach((talent) => {
-            Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
+            if(Abilities[talent.name].dname){Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))}
         })
 
         const leftTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
