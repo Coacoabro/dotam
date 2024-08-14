@@ -12,6 +12,8 @@ export default function HeroesPage() {
           content="All heroes in Dota 2 listed by attribute" />
         <meta name="keywords"
           content="Dota 2, all heroes, dota hero, all dota 2 heroes" />
+        <meta name="google-adsense-account"
+          content="ca-pub-2521697717608899" />
         <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
       <div className='sm:py-10 space-y-4 sm:space-y-10 px-1'>

@@ -94,6 +94,8 @@ export default function TierList({ heroes, rates, matchups }) {
           content="Dota 2 tier list based on current win rates and pick rates from almost all games played within the current patch" />
         <meta name="keywords"
           content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg" />
+        <meta name="google-adsense-account"
+          content="ca-pub-2521697717608899" />
         <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
 

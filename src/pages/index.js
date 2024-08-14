@@ -44,6 +44,8 @@ export default function Home() {
                     content="DotaM looks at the current Dota 2 Meta and showcases it in a clean accessible way!" />
                 <meta name="keywords"
                     content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg, builds, neutral, neutrals, matchups, dota basics, dota explained" />
+                <meta name="google-adsense-account"
+                    content="ca-pub-2521697717608899" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
             </Head>
 
