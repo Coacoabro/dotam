@@ -39,7 +39,9 @@ export async function getServerSideProps(context) {
 export default function TierList({ heroes, rates, matchups }) {
 
   const router = useRouter();
-  const { role, rank, patch } = router.query  
+  const { role, rank, patch } = router.query 
+  
+  const initPatch = "7.37"
 
   const [currentSort, setCurrentSort] = useState("tier_num");
   const [sortBy, setSortBy] = useState("f2l");
@@ -63,7 +65,7 @@ export default function TierList({ heroes, rates, matchups }) {
 
     let currentRole = ""
     let currentRank = ""
-    let currentPatch = "7.37"
+    let currentPatch = initPatch
 
     if(role){
       currentRole = role
@@ -71,9 +73,11 @@ export default function TierList({ heroes, rates, matchups }) {
     if(rank){
       currentRank = rank
     }
-    if(patch != currentPatch){
-      currentPatch = patch
+    if(patch != currentPatch && patch !== ""){
+      currentPatch = patch || initPatch
     }
+
+    console.log(currentPatch)
 
     setCounters(matchups.filter(r => r.rank.includes(currentRank)))  
 
@@ -88,7 +92,7 @@ export default function TierList({ heroes, rates, matchups }) {
       setTierList(heroesByRR.sort((a, b) => a[currentSort] - b[currentSort]))
     }
 
-  }, [rates, matchups, rank, role, patch, currentSort, sortBy]);
+  }, [rates, matchups, rank, role, patch, initPatch, currentSort, sortBy]);
 
   return (
     <div>
