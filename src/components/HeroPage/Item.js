@@ -70,7 +70,7 @@ export default function ItemCard({ id }) {
                                                 <h2 className='text-sm sm:text-base opacity-50 uppercase'>{ability.type}</h2>
                                             </div>
                                             <div className='py-2 text-base sm:text-lg text-cyan-300'>{ability.description}</div>
-                                            {index == item.abilities.length - 1 && item.attrib[0].display ? <div className='sm:w-[350px] h-[1px] bg-slate-700' /> : null}
+                                            {index == item.abilities.length - 1 ? <div className='sm:w-[350px] h-[1px] bg-slate-700' /> : null}
                                         </div>
                                     )) : null :null}
                                     {item.attrib ? item.attrib.map((attr) => (
