@@ -7,6 +7,8 @@ import Role from '../components/Role'
 import Patches from '../components/Patches'
 import Info from '../components/Info'
 
+import patches_json from '../../json/Patches.json'
+
 import TierRow from '../components/TierList/TierRow'
 
 import { Pool } from 'pg';
@@ -41,7 +43,7 @@ export default function TierList({ heroes, rates, matchups }) {
   const router = useRouter();
   const { role, rank, patch } = router.query 
   
-  const initPatch = "7.37"
+  const initPatch = patches_json[0].Patch
 
   const [currentSort, setCurrentSort] = useState("tier_num");
   const [sortBy, setSortBy] = useState("f2l");
