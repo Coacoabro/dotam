@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-current_patch = '7.37'
+current_patch = '7.37b'
 
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
@@ -74,14 +74,18 @@ cur = conn.cursor() # Open a cursor to perform database operations
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
+# This is how you delete all items from a specific thing you want: cur.execute("DELETE FROM rates WHERE patch = %s", ('7.37b',))
+
 cur.execute("SELECT * FROM rates WHERE patch = %s", (current_patch,))
 rates = cur.fetchall()
 
-if not rates:
-    cur.execute("TRUNCATE TABLE rates;")
+# if not rates:
+#     cur.execute("TRUNCATE TABLE rates;")
 
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL']
+
+print(rates)
 
 for currentRank in Ranks:
 
@@ -162,11 +166,10 @@ for currentRank in Ranks:
 
             if rates:
                 cur.execute("""
-                    INSERT INTO patchrates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
+                    INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (hero_id, rank, role)
+                    ON CONFLICT (hero_id, patch, rank, role)
                     DO UPDATE SET 
-                        patch = EXCLUDED.patch,
                         matches = EXCLUDED.matches,
                         wincount = EXCLUDED.wincount,
                         winrate = EXCLUDED.winrate,

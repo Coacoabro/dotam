@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 import Rank from '../components/Rank'
 import Role from '../components/Role'
+import Patches from '../components/Patches'
 import Info from '../components/Info'
 
 import TierRow from '../components/TierList/TierRow'
@@ -38,7 +39,7 @@ export async function getServerSideProps(context) {
 export default function TierList({ heroes, rates, matchups }) {
 
   const router = useRouter();
-  const { role, rank } = router.query  
+  const { role, rank, patch } = router.query  
 
   const [currentSort, setCurrentSort] = useState("tier_num");
   const [sortBy, setSortBy] = useState("f2l");
@@ -62,6 +63,7 @@ export default function TierList({ heroes, rates, matchups }) {
 
     let currentRole = ""
     let currentRank = ""
+    let currentPatch = "7.37"
 
     if(role){
       currentRole = role
@@ -69,12 +71,15 @@ export default function TierList({ heroes, rates, matchups }) {
     if(rank){
       currentRank = rank
     }
+    if(patch != currentPatch){
+      currentPatch = patch
+    }
 
     setCounters(matchups.filter(r => r.rank.includes(currentRank)))  
 
     if (currentRole) {
-      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.pickrate >= 0.005)
-    } else {heroesByRR = rates.filter(r => r.rank === currentRank && r.pickrate >= 0.005)}
+      heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.patch === currentPatch && r.pickrate >= 0.005)
+    } else {heroesByRR = rates.filter(r => r.rank === currentRank && r.patch === currentPatch && r.pickrate >= 0.005)}
     
     if (sortBy === "f2l") {
       setTierList(heroesByRR.sort((a, b) => b[currentSort] - a[currentSort]))
@@ -83,7 +88,7 @@ export default function TierList({ heroes, rates, matchups }) {
       setTierList(heroesByRR.sort((a, b) => a[currentSort] - b[currentSort]))
     }
 
-  }, [rates, matchups, rank, role, currentSort, sortBy]);
+  }, [rates, matchups, rank, role, patch, currentSort, sortBy]);
 
   return (
     <div>
@@ -104,11 +109,10 @@ export default function TierList({ heroes, rates, matchups }) {
         <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
         <div className="py-2 justify-between text-white space-y-2 sm:flex">
           <div className="flex items-center justify-center space-x-2">
-            {/* <Info data="Role" /> */}
             <Role />
           </div>
           <div class="flex items-center justify-center space-x-2">
-            {/* <Info data="Rank" /> */}
+            <Patches />
             <Rank />
           </div>
         </div>

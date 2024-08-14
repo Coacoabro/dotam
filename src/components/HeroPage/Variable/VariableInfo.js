@@ -16,7 +16,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
 
     const router = useRouter()
 
-    const { role, rank } = router.query
+    const { role, rank, patch } = router.query
 
     const [bestFacet, setBestFacet] = useState(() => {
         let most = 0
@@ -32,7 +32,6 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
         return best
     })
 
-    const [currAbilities, setCurrAbilities] = useState(abilities.find((obj) => obj.role == initRole))
     const [currMatchups, setCurrMatchups] = useState(matchups.filter((obj) => obj.role == initRole && obj.rank == ""))
 
     const buttonClass = "p-4 gap-2 border-t border-l border-r border-slate-800 border-b-0 flex items-end justify-evenly"
@@ -67,10 +66,11 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
 
         const currRole = role || initRole
         const currRank = rank || ""
+        const currPatch = patch || "7.37"
 
         setCurrFacet(heroFacets[facetNum-1])
 
-        setCurrBuild(builds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.facet == facetNum))
+        setCurrBuild(builds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == facetNum))
 
         setCurrMatchups(matchups.filter((obj) => obj.role == currRole && (rank ? obj.rank.includes(rank) : obj.rank == "")))
 
@@ -78,7 +78,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
                 let most = 0
                 let best = 0
                 builds.forEach((obj) => {
-                    if(obj.role == currRole && obj.rank == currRank){
+                    if(obj.role == currRole && obj.rank == currRank && obj.patch == currPatch){
                         if(obj.total_matches > most){
                             most = obj.total_matches
                             best = obj.facet
@@ -89,16 +89,10 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
             }
         )
 
-        abilities.forEach((obj) => {
-            if(obj.role == currRole) {
-                setCurrAbilities(obj)
-            }
-        })
-
         setFacetRates(() => {
             rates = []
             builds.forEach((obj) => {
-                if(obj.role == currRole && obj.rank == currRank){
+                if(obj.role == currRole && obj.rank == currRank && obj.patch == currPatch){
                     if(obj.total_matches > 0){
                         rates.push({'Facet': obj.facet, 'Matches': obj.total_matches.toLocaleString(), 'WR': ((obj.total_wins/obj.total_matches)*100).toFixed(1)})
                     }
@@ -107,7 +101,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
             return rates
         })
 
-    }, [role, rank, abilities, matchups, builds, facetNum])
+    }, [role, rank, patch, matchups, builds, facetNum])
         
     return(
         <div className='mt-12 sm:mt-0 space-y-4'>
