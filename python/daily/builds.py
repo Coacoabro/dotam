@@ -20,7 +20,7 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.37'
+patch = '7.37b'
 
 def initializeBuilds():
     global cur
@@ -31,7 +31,6 @@ def initializeBuilds():
     cur.execute("SELECT hero_id from heroes;")
     hero_ids = [row[0] for row in cur.fetchall()]
     print("Initialization Started")
-    cur.execute("TRUNCATE TABLE builds")
     for hero_id in hero_ids:
         for rank in Ranks:
             for role in Roles:
@@ -287,7 +286,7 @@ with open(file_path, 'r') as file:
     seq_num = data['seq_num']
 
 ranked_matches = []
-cur.execute("SELECT * from builds")
+cur.execute("SELECT * from builds WHERE patch = %s", (patch,))
 builds = cur.fetchall()
 x = 0
 for x in range(len(builds)):

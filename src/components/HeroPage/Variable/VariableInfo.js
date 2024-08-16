@@ -66,7 +66,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
 
         const currRole = role || initRole
         const currRank = rank || ""
-        const currPatch = patch || "7.37"
+        const currPatch = patch || "7.37b"
 
         setCurrFacet(heroFacets[facetNum-1])
 
