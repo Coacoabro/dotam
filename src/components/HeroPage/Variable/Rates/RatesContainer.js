@@ -26,11 +26,12 @@ export default function RatesContainer({ rates, initRole }) {
 
     useEffect(() => {
 
-        let { rank, role } = router.query
+        let { rank, role, patch } = router.query
         if (!role) {role = initRole}
         if (!rank) {rank = ""}
+        if (!patch) {patch = "7.37b"}
 
-        const rate = rates.find(r => r.rank === rank && r.role === role)
+        const rate = rates.find(r => r.rank === rank && r.role === role && r.patch === patch)
 
         if (rate) {
             setHeroWinRate((rate.winrate * 100).toFixed(2));
