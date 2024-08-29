@@ -26,7 +26,7 @@ def initializeBuilds():
     global cur
     global patch
     Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
-    Ranks = ['', 'HERALD', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL']
+    Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
     Facets = [1, 2, 3]
     cur.execute("SELECT hero_id from heroes;")
     hero_ids = [row[0] for row in cur.fetchall()]
@@ -46,21 +46,21 @@ def initializeBuilds():
 
 def actualRank(rank):
     if rank >= 80:
-        return "IMMORTAL"
+        return ["IMMORTAL", "HIGH"]
     elif rank >= 70:
-        return "DIVINE"
+        return ["DIVINE", "HIGH"]
     elif rank >= 60:
-        return "ANCIENT"
+        return ["ANCIENT", "MID"]
     elif rank >= 50:
-        return "LEGEND"
+        return ["LEGEND", "MID"]
     elif rank >= 40:
-        return "ARCHON"
+        return ["ARCHON", "MID"]
     elif rank >= 30:
-        return "CRUSADER"
+        return ["CRUSADER", "LOW"]
     elif rank >= 20:
-        return "GUARDIAN"
+        return ["GUARDIAN", "LOW"]
     else:
-        return "HERALD"                
+        return ["HERALD", "LOW"]                
 
 def getBuilds(ranked_matches, builds):
 
@@ -191,7 +191,7 @@ def getBuilds(ranked_matches, builds):
                         break
                     
                     for hero_build in builds:
-                        if hero_build[0] == hero_id and hero_build[1] == patch and (hero_build[2] == rank or hero_build[2] == "") and hero_build[3] == role and hero_build[4] == facet:
+                        if hero_build[0] == hero_id and hero_build[1] == patch and (hero_build[2] == rank[0] or hero_build[2] == rank[1] or hero_build[2] == "") and hero_build[3] == role and hero_build[4] == facet:
                             
                             hero_build[5] += 1 # Matches increased
                             hero_build[6] += win
