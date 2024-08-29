@@ -20,7 +20,7 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.37b'
+patch = '7.37c'
 
 def initializeBuilds():
     global cur
@@ -277,7 +277,7 @@ def getBuilds(ranked_matches, builds):
     return builds
 
 
-# initializeBuilds() # Comment this if you need to do a fresh slate
+initializeBuilds() # Comment this if you need to do a fresh slate
 
 file_path = './python/daily/seq_num.json'
 
