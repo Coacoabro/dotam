@@ -20,7 +20,7 @@ const fetchHeroData = async (hero, type) => {
     return response.json();
 };
 
-export default function Builds({ hero, initRole, heroData, heroBuilds }) {
+export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds }) {
 
     const router = useRouter()
 
@@ -30,19 +30,7 @@ export default function Builds({ hero, initRole, heroData, heroBuilds }) {
 
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
-    const [bestFacet, setBestFacet] = useState(() => {
-        let most = 0
-        let best = 0
-        heroBuilds.forEach((obj) => {
-            if(obj.role == initRole && obj.rank == ""){
-                if(obj.total_matches > most){
-                    most = obj.total_matches
-                    best = obj.facet
-                }
-            }
-        })
-        return best
-    })
+    const [bestFacet, setBestFacet] = useState(initFacet)
 
     const heroFacets = facets[hero.id]
     const facet1 = facets[hero.id][0]

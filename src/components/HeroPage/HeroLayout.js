@@ -6,7 +6,7 @@ import Link from 'next/link'
 import IoLoading from '../IoLoading';
 import LoadingWheel from '../LoadingWheel';
 import StaticInfo from '../HeroPage/Static/StaticInfo'
-import OptionsContainer from './OptionsTab/OptionsContainer';
+import OptionsContainer from './OptionsContainer';
 import RatesContainer from './Variable/Rates/RatesContainer';
 
 const fetchHeroData = async (hero, type) => {
@@ -23,8 +23,8 @@ export default function HeroLayout({ children, hero }) {
   const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
 
-  if(infoLoading || ratesLoading){
-    return(<IoLoading />)
+  if(infoLoading || ratesLoading || buildsLoading){
+    return(<LoadingWheel />)
   }
   else {
 
@@ -37,6 +37,20 @@ export default function HeroLayout({ children, hero }) {
       .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
     
     const initRole = highestPickRateRole.role
+
+    const initFacet = (() => {
+      let most = 0;
+      let best = 0;
+      heroBuilds.forEach((obj) => {
+        if (obj.role === initRole && obj.rank === "") {
+          if (obj.total_matches > most) {
+            most = obj.total_matches;
+            best = obj.facet;
+          }
+        }
+      });
+      return best;
+    })();
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
@@ -75,20 +89,17 @@ export default function HeroLayout({ children, hero }) {
           </div>
         </div>
 
-        <div className='py-3 z-10'>
-          <OptionsContainer hero={hero} initRole={initRole} />
+        <div className='py-3 z-0'>
+          <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
         </div>
         
 
-        {heroBuilds ? (
-          <main>
-            {React.Children.map(children, child =>
-              React.cloneElement(child, { initRole, heroData, heroBuilds })
-            )}
-          </main>
-        ) : (
-          <LoadingWheel />
-        )}
+        
+        <main>
+          {React.Children.map(children, child =>
+            React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds })
+          )}
+        </main>
 
       </div>
     )

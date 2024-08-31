@@ -42,8 +42,6 @@ export default function Layout({children}) {
     };
   }, [router, currHero]);
 
-  console.log(currHero)
-
   return (
         <div className="layout">
           <Head>

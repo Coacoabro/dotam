@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 
-import Role from '../../Role'
-import Rank from '../../Rank'
-import Patches from '../../Patches'
-import Facets from '../../Facets';
+import Role from '../Role'
+import Rank from '../Rank'
+import Patches from '../Patches'
+import Facets from '../Facets';
 
-export default function OptionsContainer({ hero, initRole}) {
+export default function OptionsContainer({ hero, initRole, initFacet}) {
 
     const router = useRouter()
 
@@ -15,14 +15,14 @@ export default function OptionsContainer({ hero, initRole}) {
         <div className='py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800'>
             <div className='px-3 flex gap-2 text-lg items-center'>
                 <div>Facets: </div>
-                <Facets />
-                <div className='h-9 w-[2px] bg-slate-600'/>
+                <Facets initFacet={initFacet} id={hero.id} />
+                <div className='h-9 w-[1px] bg-slate-600'/>
                 <div>Roles: </div>
                 <Role initRole={initRole} />
-                <div className='h-9 w-[2px] bg-slate-600'/>
+                <div className='h-9 w-[1px] bg-slate-600'/>
                 <div>Ranks: </div>
                 <Rank />
-                <div className='h-9 w-[2px] bg-slate-600'/>
+                <div className='h-9 w-[1px] bg-slate-600'/>
                 <div>Patch: </div>
                 <Patches />
             </div>
