@@ -277,7 +277,7 @@ def getBuilds(ranked_matches, builds):
     return builds
 
 
-initializeBuilds() # Comment this if you need to do a fresh slate
+# initializeBuilds() # Comment this if you need to do a fresh slate
 
 file_path = './python/daily/seq_num.json'
 

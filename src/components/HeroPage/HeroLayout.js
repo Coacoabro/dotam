@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import Link from 'next/link'
 
 import IoLoading from '../IoLoading';
+import LoadingWheel from '../LoadingWheel';
 import StaticInfo from '../HeroPage/Static/StaticInfo'
-import OptionsContainer from './OptionsContainer';
+import OptionsContainer from './OptionsTab/OptionsContainer';
 import RatesContainer from './Variable/Rates/RatesContainer';
 
 const fetchHeroData = async (hero, type) => {
@@ -53,7 +54,7 @@ export default function HeroLayout({ children, hero }) {
             <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
           </div>
 
-          <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25">
+          <div className="hidden sm:flex absolute right-0 mt-20 h-72 opacity-25 z-0">
             <img src={crop_img} className="object-cover w-full h-full" />
           </div>
 
@@ -70,16 +71,14 @@ export default function HeroLayout({ children, hero }) {
         <div className='flex space-x-3'>
           <RatesContainer rates={heroRates} initRole={initRole} />
           <div className='w-64'>
-            Highest win rate for {heroName}. Builds and more info blah blah blah
+            Highest win rate for {heroName}. Builds and more info
           </div>
         </div>
 
-        <div className='flex space-x-2'>
-          <Link href={`/hero/${hero.url}/builds`}>Builds</Link>
-          <Link href={`/hero/${hero.url}/items`}>Items</Link>
+        <div className='py-3 z-10'>
+          <OptionsContainer hero={hero} initRole={initRole} />
         </div>
-
-        <OptionsContainer initRole={initRole} />
+        
 
         {heroBuilds ? (
           <main>
@@ -88,7 +87,7 @@ export default function HeroLayout({ children, hero }) {
             )}
           </main>
         ) : (
-          <div>Loading</div>
+          <LoadingWheel />
         )}
 
       </div>

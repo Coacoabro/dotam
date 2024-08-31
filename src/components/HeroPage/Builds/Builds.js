@@ -6,10 +6,11 @@ import Link from 'next/link'
 import { globalPatch } from '../../../../config';
 import facets from '../../../../json/hero_facets.json'
 
-import Abilities from '../Variable/Abilities/Abilities'
-import Talents from '../Variable/Abilities/Talents'
-import Matchups from '../Variable/Matchups/Matchups'
-import ItemsContainer from '../Variable/Items/ItemsContainer';
+import Abilities from './Abilities/Abilities'
+import Talents from './Abilities/Talents'
+import Matchups from './Matchups/Matchups'
+import ItemsContainer from './Items/ItemsContainer';
+import IoLoading from '../../IoLoading';
 
 const fetchHeroData = async (hero, type) => {
     const response = await fetch(`/api/${hero}?type=${type}`);
@@ -104,12 +105,10 @@ export default function Builds({ hero, initRole, heroData, heroBuilds }) {
             return rates
         })
 
-    }, [role, rank, patch, heroBuilds, facetNum])
-
-    
+    }, [role, rank, patch, heroBuilds, facetNum])    
 
     return(
-        <div>
+        <div className='space-y-4'>
             {currBuild ?
                 <div className='lg:flex w-full gap-2 space-y-2 lg:space-y-0'>
                     <div className='sm:w-11/12 mx-auto lg:w-2/3 py-2 sm:py-5 px-3  bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={heroData} abilities={currBuild.abilities} /></div>
