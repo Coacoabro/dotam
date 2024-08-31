@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { globalPatch } from '../../../../../config'
 import RateCard from './RateCard';
 
 export default function RatesContainer({ rates, initRole }) {
@@ -29,7 +30,7 @@ export default function RatesContainer({ rates, initRole }) {
         let { rank, role, patch } = router.query
         if (!role) {role = initRole}
         if (!rank) {rank = ""}
-        if (!patch) {patch = "7.37b"}
+        if (!patch) {patch = globalPatch}
 
         const rate = rates.find(r => r.rank === rank && r.role === role && r.patch === patch)
 

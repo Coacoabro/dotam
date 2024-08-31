@@ -39,7 +39,7 @@ export default function HeroCard({ hero }) {
 
   return (
 
-    <Link href={`/hero/${heroURL}`}>
+    <Link href={`/hero/${heroURL}/builds`}>
       <div
         className="relative rounded-md transition-transform duration-300 hover:scale-150 hover:z-10"
         onMouseEnter={handleMouseEnter}

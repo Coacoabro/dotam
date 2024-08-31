@@ -11,15 +11,24 @@ import TopBar from './TopBar';
 export default function Layout({children}) {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [currHero, setCurrHero] = useState(false)
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = () => {
-      setIsLoading(true);
+
+    if(router.pathname.includes('/hero/')){
+      setCurrHero(true)
+    }
+
+    const handleStart = (url) => {
+      if(!currHero || (currHero && !url.includes('/hero/'))){
+        setIsLoading(true)
+      }
     };
 
     const handleComplete = () => {
       setIsLoading(false);
+      setCurrHero(false)
     };
 
     router.events.on('routeChangeStart', handleStart);
@@ -31,7 +40,9 @@ export default function Layout({children}) {
       router.events.off('routeChangeComplete', handleComplete);
       router.events.off('routeChangeError', handleComplete);
     };
-  }, [router]);
+  }, [router, currHero]);
+
+  console.log(currHero)
 
   return (
         <div className="layout">

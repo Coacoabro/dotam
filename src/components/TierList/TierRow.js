@@ -84,7 +84,7 @@ export default function TierRow({ tier_str, role, hero, WR, PR, matches, counter
         <tr className={`text-white font-normal ${index % 2 === 1 ? 'bg-slate-800' : 'bg-slate-900'}`}>
             <td className={`${tierColor[tier_str]} text-sm sm:text-xl font-medium`}>{tier_str}</td>
             <td className="py-1 py-2">
-                <Link href={`/hero/${heroURL}`}>
+                <Link href={`/hero/${heroURL}/builds`}>
                     <div className="w-48 sm:w-72 flex items-center text-left space-x-2 sm:space-x-4 hover:underline">
                         <div className="w-14 sm:w-20" >
                             <img src={img} />

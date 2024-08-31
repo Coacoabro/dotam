@@ -1,12 +1,17 @@
 import "../styles/globals.css"
+import { QueryClient, QueryClientProvider } from "react-query"
 import Layout from "../components/Layout"
 
 //require('dotenv').config()
 
-export default function Dotam({ Component, pageProps }) {
+const queryClient = new QueryClient()
+
+export default function DotaM({ Component, pageProps }) {
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <QueryClientProvider client={queryClient}>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </QueryClientProvider>
     )
 }

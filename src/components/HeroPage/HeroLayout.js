@@ -1,46 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link'
 
+import IoLoading from '../IoLoading';
 import StaticInfo from '../HeroPage/Static/StaticInfo'
+import OptionsContainer from './OptionsContainer';
 import RatesContainer from './Variable/Rates/RatesContainer';
 
-export default function HeroLayout({ hero, info, rates }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-      const handleStart = () => {
-      setIsLoading(true);
-      };
-
-      const handleComplete = () => {
-      setIsLoading(false);
-      };
-
-      router.events.on('routeChangeStart', handleStart);
-      router.events.on('routeChangeComplete', handleComplete);
-      router.events.on('routeChangeError', handleComplete);
-
-      return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleComplete);
-      };
-  }, [router]);
-
-  const heroData = info[0]
-  const heroName = hero.name
-
-  const highestPickRateRole = rates
-    .filter(rate => rate.role !== "" && rate.rank == "")
-    .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
-  
-  const initialRole = highestPickRateRole.role
-
-  if(isLoading) {
-    return(<div>Loading...</div>)
+const fetchHeroData = async (hero, type) => {
+  const response = await fetch(`/api/${hero}?type=${type}`);
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
   }
-  else if(heroData){
+  return response.json();
+};
+
+export default function HeroLayout({ children, hero }) {
+
+  const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
+  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
+
+  if(infoLoading || ratesLoading){
+    return(<IoLoading />)
+  }
+  else {
+
+    const heroData = heroInfo[0]
+  
+    const heroName = hero.name
+
+    const highestPickRateRole = heroRates
+      .filter(rate => rate.role !== "" && rate.rank == "")
+      .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
+    
+    const initRole = highestPickRateRole.role
+
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
     const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
@@ -71,11 +67,31 @@ export default function HeroLayout({ hero, info, rates }) {
           <StaticInfo hero={heroData} />
         </div>
 
-        <RatesContainer rates={rates}  />
+        <div className='flex space-x-3'>
+          <RatesContainer rates={heroRates} initRole={initRole} />
+          <div className='w-64'>
+            Highest win rate for {heroName}. Builds and more info blah blah blah
+          </div>
+        </div>
+
+        <div className='flex space-x-2'>
+          <Link href={`/hero/${hero.url}/builds`}>Builds</Link>
+          <Link href={`/hero/${hero.url}/items`}>Items</Link>
+        </div>
+
+        <OptionsContainer initRole={initRole} />
+
+        {heroBuilds ? (
+          <main>
+            {React.Children.map(children, child =>
+              React.cloneElement(child, { initRole, heroData, heroBuilds })
+            )}
+          </main>
+        ) : (
+          <div>Loading</div>
+        )}
 
       </div>
     )
   }
-  else{null}
-
 }

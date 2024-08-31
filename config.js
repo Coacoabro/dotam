@@ -1,0 +1,1 @@
+export const globalPatch = '7.37c'

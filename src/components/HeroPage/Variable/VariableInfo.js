@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { globalPatch } from '../../../../config'
+
 
 import Patches from '../../Patches'
 import Rank from '../../Rank'
@@ -66,7 +68,7 @@ export default function VariableInfo({ hero, rates, initRole, abilities, builds,
 
         const currRole = role || initRole
         const currRank = rank || ""
-        const currPatch = patch || "7.37b"
+        const currPatch = patch || globalPatch
 
         setCurrFacet(heroFacets[facetNum-1])
 

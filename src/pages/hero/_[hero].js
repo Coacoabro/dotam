@@ -39,7 +39,7 @@ export async function getServerSideProps(context) {
           matchups: res6.rows
         }
     };
-}
+  }
 }
 
 export default function HeroPage({ hero, info, rates, builds, abilities, items, matchups }) {
@@ -94,7 +94,6 @@ export default function HeroPage({ hero, info, rates, builds, abilities, items, 
           </div>
         </div>
         
-
       </div>
     )
   }
