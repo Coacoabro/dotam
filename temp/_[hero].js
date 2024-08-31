@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import RatesContainer from '../../components/HeroPage/Variable/Rates/RatesContainer';
-import StaticInfo from '../../components/HeroPage/Static/StaticInfo'
-import VariableInfo from '../../components/HeroPage/Variable/VariableInfo'
-import Rank from '../../components/Rank'
-import Role from '../../components/Role'
+import RatesContainer from '../src/components/HeroPage/Variable/Rates/RatesContainer';
+import StaticInfo from '../src/components/HeroPage/Static/StaticInfo'
+import VariableInfo from '../src/components/HeroPage/Variable/VariableInfo'
+import Rank from '../src/components/Rank'
+import Role from '../src/components/Role'
 
-import dota2heroes from '../../../json/dota2heroes.json'
+import dota2heroes from '../json/dota2heroes.json'
 
 import { Pool } from 'pg';
 
