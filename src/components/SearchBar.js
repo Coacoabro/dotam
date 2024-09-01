@@ -27,14 +27,14 @@ export default function SearchBar( {scrollY, topBar} ) {
       const hero = suggestions[selectedSuggestionIndex];
       setSearchTerm(hero.name);
       setShowSuggestions(false);
-      window.location.href = `/hero/${hero.url}`;
+      window.location.href = `/hero/${hero.url}/builds`;
     } 
     else {
       if (suggestions.length > 0) {
         const hero = suggestions[0];
         setSearchTerm(hero.name);
         setShowSuggestions(false);
-        window.location.href = `/hero/${hero.url}`;
+        window.location.href = `/hero/${hero.url}/builds`;
       }
     }
   }
@@ -79,7 +79,7 @@ export default function SearchBar( {scrollY, topBar} ) {
   const handleSuggestionClick = (hero) => {
     setSearchTerm(hero.name);
     setShowSuggestions(false);
-    window.location.href = `/hero/${hero.url}`;
+    window.location.href = `/hero/${hero.url}/builds`;
   };
 
   return (
