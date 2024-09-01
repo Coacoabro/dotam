@@ -57,7 +57,7 @@ export default function HeroLayout({ children, hero }) {
     const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
 
     return(
-      <div className="px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
+      <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
 
         <div className="px-2 flex relative items-end sm:items-center gap-1 sm:gap-4">
 
@@ -74,17 +74,17 @@ export default function HeroLayout({ children, hero }) {
 
         </div>
 
-        <div className="sm:hidden absolute h-36 right-0 top-14 opacity-25">
+        <div className="sm:hidden absolute h-36 right-0 top-16 opacity-25">
           <img src={crop_img} className="object-cover w-full h-full" />
         </div>
 
-        <div className="absolute sm:hidden z-10">
+        <div className="block sm:hidden z-10">
           <StaticInfo hero={heroData} />
         </div>
 
         <div className='flex space-x-3'>
           <RatesContainer rates={heroRates} initRole={initRole} />
-          <div className='w-64'>
+          <div className='w-64 hidden sm:block'>
             Highest win rate for {heroName}. Builds and more info
           </div>
         </div>

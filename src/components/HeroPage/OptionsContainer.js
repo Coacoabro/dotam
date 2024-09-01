@@ -12,8 +12,10 @@ export default function OptionsContainer({ hero, initRole, initFacet}) {
     const router = useRouter()
 
     return (
-        <div className='py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800'>
-            <div className='px-3 flex gap-2 text-lg items-center'>
+        <div className='pb-3 sm:py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
+
+            {/* Desktop Screen */}
+            <div className='px-3 gap-2 text-lg items-center hidden sm:flex'>
                 <div>Facets: </div>
                 <Facets initFacet={initFacet} id={hero.id} />
                 <div className='h-9 w-[1px] bg-slate-600'/>
@@ -26,8 +28,25 @@ export default function OptionsContainer({ hero, initRole, initFacet}) {
                 <div>Patch: </div>
                 <Patches />
             </div>
+
+
+            {/* Mobile Screen */}
+            <div className='sm:hidden flex justify-evenly'>
+                <Facets initFacet={initFacet} id={hero.id} />
+                <Rank />
+                <Patches />
+            </div>
+
+            <div className='w-full bg-slate-600/50 h-[1px] sm:hidden'/>
+
+            <div className='mx-auto sm:hidden flex justify-center'>
+                <Role initRole={initRole} />
+            </div>
+
+            {/* Both Mobile and Desktop */}
             <div className='w-full bg-slate-600/50 h-[1px]'/>
-            <div className='px-3 flex space-x-8 text-lg'>
+
+            <div className='px-3 flex space-x-8 text-sm sm:text-lg justify-center sm:justify-start'>
                 <Link href={`/hero/${hero.url}/builds`} className={`${router.pathname.includes('builds') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Builds</Link>
                 <Link href={`/hero/${hero.url}/items`} className={`${router.pathname.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
                 <Link href={`/hero/${hero.url}/abilities`} className={`${router.pathname.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
