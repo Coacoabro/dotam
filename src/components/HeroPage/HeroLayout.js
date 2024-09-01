@@ -2,6 +2,7 @@ import { useQuery } from 'react-query';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
+import { globalPatch } from '../../../config';
 
 import IoLoading from '../IoLoading';
 import LoadingWheel from '../LoadingWheel';
@@ -19,9 +20,14 @@ const fetchHeroData = async (hero, type) => {
 
 export default function HeroLayout({ children, hero }) {
 
+  const router = useRouter()
+  const {rank, role, patch, facet} = router.query
+
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
   const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
+
+  const [currBuild, setCurrBuild] = useState([])
 
   if(infoLoading || ratesLoading || buildsLoading){
     return(<LoadingWheel />)
@@ -52,9 +58,20 @@ export default function HeroLayout({ children, hero }) {
       return best;
     })();
 
+    useEffect(() => {
+
+      const currRole = role || initRole
+      const currRank = rank || ""
+      const currPatch = patch || globalPatch
+  
+      setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == facet))
+    }, [role, rank, facet, patch, heroBuilds])
+
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
     const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
+
+    console.log(currBuild)
 
     return(
       <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
@@ -90,7 +107,7 @@ export default function HeroLayout({ children, hero }) {
         </div>
 
         <div className='py-3 z-0'>
-          <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
+          <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} build={currBuild} />
         </div>
         
 

@@ -7,7 +7,7 @@ import Rank from '../Rank'
 import Patches from '../Patches'
 import Facets from '../Facets';
 
-export default function OptionsContainer({ hero, initRole, initFacet}) {
+export default function OptionsContainer({ hero, initRole, initFacet, build}) {
 
     const router = useRouter()
 
@@ -51,6 +51,9 @@ export default function OptionsContainer({ hero, initRole, initFacet}) {
                 <Link href={`/hero/${hero.url}/items`} className={`${router.pathname.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
                 <Link href={`/hero/${hero.url}/abilities`} className={`${router.pathname.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
                 <Link href={`/hero/${hero.url}/matchups`} className={`${router.pathname.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
+            </div>
+            <div>
+                {((build.total_wins / build.total_matches)*100).toLocaleString(0)}
             </div>
         </div>
     )
