@@ -41,9 +41,7 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
 
         setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
 
-    }, [role, rank, patch, facet, heroBuilds])    
-
-    console.log(currBuild)
+    }, [role, rank, patch, facet, heroBuilds])
 
     return(
         <div className='space-y-4'>

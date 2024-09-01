@@ -6,10 +6,28 @@ import Role from '../Role'
 import Rank from '../Rank'
 import Patches from '../Patches'
 import Facets from '../Facets';
+import { globalPatch } from '../../../config';
 
-export default function OptionsContainer({ hero, initRole, initFacet, build}) {
+export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds}) {
 
     const router = useRouter()
+
+    const {role, rank, patch, facet} = router.query
+
+    const [currBuild, setCurrBuild] = useState('')
+
+    useEffect(() => {
+
+        const currRole = role || initRole
+        const currRank = rank || ""
+        const currPatch = patch || globalPatch
+        const currFacet = facet || initFacet
+        
+        if(heroBuilds){
+            setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
+        }
+        
+    }, [role, rank, facet, patch, heroBuilds])
 
     return (
         <div className='pb-3 sm:py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
@@ -53,10 +71,10 @@ export default function OptionsContainer({ hero, initRole, initFacet, build}) {
                     <Link href={`/hero/${hero.url}/abilities`} className={`${router.pathname.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
                     <Link href={`/hero/${hero.url}/matchups`} className={`${router.pathname.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
                 </div>
-                {build &&
+                {currBuild &&
                     <div className='px-3 text-lg text-right flex gap-1 items-center'>
-                        <div>{((build.total_wins / build.total_matches)*100).toFixed(2)}% WR</div>
-                        <div className='text-sm text-cyan-300'>({build.total_matches.toLocaleString()} Matches)</div>
+                        <div className='font-bold'>{((currBuild.total_wins / currBuild.total_matches)*100).toFixed(2)}% WR</div>
+                        <div className='text-sm text-cyan-300'>({currBuild.total_matches.toLocaleString()} Matches)</div>
                     </div>
                 }
             </div>
