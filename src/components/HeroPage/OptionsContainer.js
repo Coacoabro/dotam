@@ -31,7 +31,7 @@ export default function OptionsContainer({ hero, initRole, initFacet}) {
 
 
             {/* Mobile Screen */}
-            <div className='sm:hidden flex justify-evenly'>
+            <div className='sm:hidden flex justify-evenly items-center'>
                 <Facets initFacet={initFacet} id={hero.id} />
                 <Rank />
                 <Patches />

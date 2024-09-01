@@ -43,39 +43,39 @@ export default function Facets( {id, initFacet} ) {
     })()    
 
     return(
-        <div className="rounded-lg border border-slate-700 flex items-center">
+        <div className="rounded-lg border border-slate-700 flex items-center h-6 sm:h-10">
 
             <button 
                 onClick={() => handleClick("1")} 
-                className={`flex px-2 py-1 sm:px-3 sm:py-2 h-6 sm:h-10 ${initFacet == 1 ? 'w-16 sm:w-24' : 'w-10 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-l-lg ${currFacet == 1 ? 'bg-cyan-300 text-black' : ''} `}
+                className={`flex px-2 py-1 sm:px-3 sm:py-2 h-6 sm:h-10 ${initFacet == 1 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-l-lg ${currFacet == 1 ? 'bg-cyan-300 text-black' : ''} `}
                 onMouseEnter={() => showFacetInfo(facet1)}
                 onMouseLeave={() => hideFacetInfo()}
             >
                 {initFacet == 1 ? (<div className='underline font-bold'>Best</div>) : null}
-                <img src={iconLink + facet1.Icon + '.png'} className={`${currFacet == 1 ? 'brightness-0' : ''}`} />
+                <img src={iconLink + facet1.Icon + '.png'} className={`${currFacet == 1 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
             </button>
 
             <div className='bg-slate-600 w-[1px] h-6 sm:h-10' />
             
             <button 
                 onClick={() => handleClick("2")} 
-                className={`flex px-2 py-1 sm:px-3 sm:py-2 h-6 sm:h-10 ${initFacet == 2 ? 'w-16 sm:w-24' : 'w-10 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 ${currFacet == 2 ? 'bg-cyan-300 text-black' : ''} ${facet3 ? '' : 'rounded-r-lg'}`}
+                className={`flex px-2 py-1 sm:px-3 sm:py-2 h-6 sm:h-10 ${initFacet == 2 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 ${currFacet == 2 ? 'bg-cyan-300 text-black' : ''} ${facet3 ? '' : 'rounded-r-lg'}`}
                 onMouseEnter={() => showFacetInfo(facet2)}
                 onMouseLeave={() => hideFacetInfo()}
             >
                 {initFacet == 2 ? (<div className='underline font-bold'>Best</div>) : null}
-                <img src={iconLink + facet2.Icon + '.png'} className={`${currFacet == 2 ? 'brightness-0' : ''}`} />
+                <img src={iconLink + facet2.Icon + '.png'} className={`${currFacet == 2 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
             </button>
 
             {facet3 ? (
                 <button 
                     onClick={() => handleClick("3")}
-                    className={`flex px-2 py-1 sm:px-3 sm:py-2 h-6 sm:h-10 ${initFacet == 3 ? 'w-16 sm:w-24' : 'w-10 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-r-lg ${currFacet == 3 ? 'bg-cyan-300 text-black' : ''} `}
+                    className={`flex px-2 py-1 sm:px-3 sm:py-2 h-6 sm:h-10 ${initFacet == 3 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-r-lg ${currFacet == 3 ? 'bg-cyan-300 text-black' : ''} `}
                     onMouseEnter={() => showFacetInfo(facet3)}
                     onMouseLeave={() => hideFacetInfo()}
                 >
                     {initFacet == 3 ? (<div className='underline font-bold'>Best</div>) : null}
-                    <img src={iconLink + facet3.Icon + '.png'} className={`${currFacet == 3 ? 'brightness-0' : ''}`} />
+                    <img src={iconLink + facet3.Icon + '.png'} className={`${currFacet == 3 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
                 </button>
             ) : null}
 
