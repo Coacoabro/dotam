@@ -52,7 +52,7 @@ export default function Facets( {id, initFacet} ) {
                 onMouseLeave={() => hideFacetInfo()}
             >
                 {initFacet == 1 ? (<div className='underline font-bold'>Best</div>) : null}
-                <img src={iconLink + facet1.Icon + '.png'} className={`${currFacet == 1 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-8`} />
+                <img src={iconLink + facet1.Icon + '.png'} className={`${currFacet == 1 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
             </button>
 
             <div className='bg-slate-600 w-[1px] h-8 sm:h-10' />
@@ -64,7 +64,7 @@ export default function Facets( {id, initFacet} ) {
                 onMouseLeave={() => hideFacetInfo()}
             >
                 {initFacet == 2 ? (<div className='underline font-bold'>Best</div>) : null}
-                <img src={iconLink + facet2.Icon + '.png'} className={`${currFacet == 2 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-8`} />
+                <img src={iconLink + facet2.Icon + '.png'} className={`${currFacet == 2 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
             </button>
 
             {facet3 ? (
@@ -75,7 +75,7 @@ export default function Facets( {id, initFacet} ) {
                     onMouseLeave={() => hideFacetInfo()}
                 >
                     {initFacet == 3 ? (<div className='underline font-bold'>Best</div>) : null}
-                    <img src={iconLink + facet3.Icon + '.png'} className={`${currFacet == 3 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-8`} />
+                    <img src={iconLink + facet3.Icon + '.png'} className={`${currFacet == 3 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
                 </button>
             ) : null}
 

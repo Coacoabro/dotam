@@ -24,76 +24,26 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
 
     const router = useRouter()
 
-    const { role, rank, patch } = router.query
+    const { role, rank, patch, facet } = router.query
 
     const buttonClass = "p-4 gap-2 border-t border-l border-r border-slate-800 border-b-0 flex items-end justify-evenly"
 
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
-    const [bestFacet, setBestFacet] = useState(initFacet)
+    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == globalPatch))
 
-    const heroFacets = facets[hero.id]
-    const facet1 = facets[hero.id][0]
-    const facet2 = facets[hero.id][1]
-    const facet3 = facets[hero.id][2]    
-
-    const [currFacet, setCurrFacet] = useState(heroFacets[bestFacet-1])
-    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == bestFacet))
-    const [facetNum, setFacetNum] = useState(bestFacet)
-    const [facetRates, setFacetRates] = useState([])
-
-    const [facetShow, setFacetShow] = useState(false)
-    const [hoverFacet, setHoverFacet] = useState(null)
-
-    const showFacetInfo = (num) => {
-        setFacetShow(true)
-        setHoverFacet(num)
-    }
-
-    const hideFacetInfo = () =>{
-        setFacetShow(false)
-        setHoverFacet(null)
-    }
-
-    //CHANGE LATER WITH FACET UPDATE
     useEffect(() => {
 
         const currRole = role || initRole
         const currRank = rank || ""
         const currPatch = patch || globalPatch
+        const currFacet = facet || initFacet
 
-        setCurrFacet(heroFacets[facetNum-1])
+        setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
 
-        setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == facetNum))
+    }, [role, rank, patch, facet, heroBuilds])    
 
-        setBestFacet(() => {
-                let most = 0
-                let best = 0
-                heroBuilds.forEach((obj) => {
-                    if(obj.role == currRole && obj.rank == currRank && obj.patch == currPatch){
-                        if(obj.total_matches > most){
-                            most = obj.total_matches
-                            best = obj.facet
-                        }
-                    }
-                })
-                return best
-            }
-        )
-
-        setFacetRates(() => {
-            let rates = []
-            heroBuilds.forEach((obj) => {
-                if(obj.role == currRole && obj.rank == currRank && obj.patch == currPatch){
-                    if(obj.total_matches > 0){
-                        rates.push({'Facet': obj.facet, 'Matches': obj.total_matches.toLocaleString(), 'WR': ((obj.total_wins/obj.total_matches)*100).toFixed(1)})
-                    }
-                }
-            })
-            return rates
-        })
-
-    }, [role, rank, patch, heroBuilds, facetNum])    
+    console.log(currBuild)
 
     return(
         <div className='space-y-4'>
