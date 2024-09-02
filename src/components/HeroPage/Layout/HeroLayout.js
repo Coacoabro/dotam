@@ -2,13 +2,13 @@ import { useQuery } from 'react-query';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
-import { globalPatch } from '../../../config';
+import { globalPatch } from '../../../../config';
 
-import IoLoading from '../IoLoading';
-import LoadingWheel from '../LoadingWheel';
-import StaticInfo from '../HeroPage/Static/StaticInfo'
+import IoLoading from '../../IoLoading';
+import LoadingWheel from '../../LoadingWheel';
+import StaticInfo from '../Layout/Static/StaticInfo'
 import OptionsContainer from './OptionsContainer';
-import RatesContainer from './Variable/Rates/RatesContainer';
+import RatesContainer from './Rates/RatesContainer';
 
 const fetchHeroData = async (hero, type) => {
   const response = await fetch(`/api/${hero}?type=${type}`);

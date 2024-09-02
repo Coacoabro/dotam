@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 
-import { globalPatch } from '../../../../config';
-import facets from '../../../../json/hero_facets.json'
+import { globalPatch } from '../../../../../config';
+import facets from '../../../../../json/hero_facets.json'
 
 import Abilities from './Abilities/Abilities'
 import Talents from './Abilities/Talents'
 import Matchups from './Matchups/Matchups'
 import ItemsContainer from './Items/ItemsContainer';
-import IoLoading from '../../IoLoading';
+import IoLoading from '../../../IoLoading';
 
 const fetchHeroData = async (hero, type) => {
     const response = await fetch(`/api/${hero}?type=${type}`);

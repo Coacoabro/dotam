@@ -2,14 +2,14 @@ import { useState } from 'react'
 
 import Innate from "./Innate"
 import TalentTree from "./TalentTree"
-import AbilityCard from "../AbilityCard"
+import AbilityCard from "../../AbilityCard"
 import Aghanims from "./Aghanims"
 
-import heroAbilities from '../../../../dotaconstants/build/hero_abilities.json'
-import abilityDesc from '../../../../dotaconstants/build/abilities.json'
-import aghsDesc from '../../../../dotaconstants/build/aghs_desc.json'
-import my_hero_abilities from '../../../../json/hero_abilities.json'
-import abilityIds from '../../../../dotaconstants/build/ability_ids.json'
+import heroAbilities from '../../../../../dotaconstants/build/hero_abilities.json'
+import abilityDesc from '../../../../../dotaconstants/build/abilities.json'
+import aghsDesc from '../../../../../dotaconstants/build/aghs_desc.json'
+import my_hero_abilities from '../../../../../json/hero_abilities.json'
+import abilityIds from '../../../../../dotaconstants/build/ability_ids.json'
 
 export default function StaticInfo({hero}) {
 

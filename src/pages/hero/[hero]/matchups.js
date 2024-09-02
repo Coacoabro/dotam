@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import Router, { useRouter } from 'next/router';
 import Head from 'next/head';
 
-import HeroLayout from '../../../components/HeroPage/HeroLayout.js'
-import Matchups from '../../../components/HeroPage/Matchups/Matchups.js';
+import HeroLayout from '../../../components/HeroPage/Layout/HeroLayout.js'
+import Matchups from '../../../components/HeroPage/Pages/Matchups/Matchups.js';
 
 import dota2heroes from '../../../../json/dota2heroes.json'
 

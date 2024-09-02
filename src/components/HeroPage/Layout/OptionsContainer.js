@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 
-import Role from '../Role'
-import Rank from '../Rank'
-import Patches from '../Patches'
-import Facets from '../Facets';
-import { globalPatch } from '../../../config';
+import Role from '../../Role'
+import Rank from '../../Rank'
+import Patches from '../../Patches'
+import Facets from '../../Facets';
+import { globalPatch } from '../../../../config';
 
 export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds}) {
 

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { globalPatch } from '../../../../config'
+import { globalPatch } from '../config'
 
 
-import Patches from '../../Patches'
-import Rank from '../../Rank'
-import Role from '../../Role'
-import RatesContainer from './Rates/RatesContainer'
-import Facet from './Facet'
+import Patches from '../src/components/Patches'
+import Rank from '../src/components/Rank'
+import Role from '../src/components/Role'
+import RatesContainer from '../src/components/HeroPage/Variable/Rates/RatesContainer'
+import Facet from '../src/components/HeroPage/Variable/Facet'
 import Abilities from './Abilities/Abilities'
 import Talents from './Abilities/Talents'
 import Matchups from './Matchups/Matchups'
-import facets from '../../../../json/hero_facets.json'
+import facets from '../json/hero_facets.json'
 import ItemsContainer from './Items/ItemsContainer';
 
 export default function VariableInfo({ hero, rates, initRole, abilities, builds, matchups }) {

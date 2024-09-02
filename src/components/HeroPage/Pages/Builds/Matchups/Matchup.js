@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import Heroes from '../../../../../dotaconstants/build/heroes.json'
-import dota2heroes from '../../../../../json/dota2heroes.json'
+import Heroes from '../../../../../../dotaconstants/build/heroes.json'
+import dota2heroes from '../../../../../../json/dota2heroes.json'
 
 export default function Matchup({matchup}){
 

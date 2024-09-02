@@ -1,6 +1,6 @@
-import Abilities from '../../../../../dotaconstants/build/abilities.json'
-import heroAbilities from '../../../../../dotaconstants/build/hero_abilities.json'
-import abilityIds from '../../../../../dotaconstants/build/ability_ids.json'
+import Abilities from '../../../../../../dotaconstants/build/abilities.json'
+import heroAbilities from '../../../../../../dotaconstants/build/hero_abilities.json'
+import abilityIds from '../../../../../../dotaconstants/build/ability_ids.json'
 
 export default function Talents({hero, talents}) {
 

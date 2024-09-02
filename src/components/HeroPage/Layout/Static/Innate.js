@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import innates from '../../../../json/hero_innate.json';
+import innates from '../../../../../json/hero_innate.json';
 
 export default function Innate({ id }) {
     const innate = innates[id];

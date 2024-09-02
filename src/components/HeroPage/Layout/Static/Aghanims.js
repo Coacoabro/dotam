@@ -1,4 +1,4 @@
-import AbilityCard from '../AbilityCard'
+import AbilityCard from '../../AbilityCard'
 
 export default function Aghanims({ hero, scepter, shard }) {
 

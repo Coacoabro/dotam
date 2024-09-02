@@ -1,9 +1,9 @@
-import hero_abilities from '../../../../../json/hero_abilities'
-import heroAbilities from '../../../../../dotaconstants/build/hero_abilities.json'
-import abilityDesc from '../../../../../dotaconstants/build/abilities.json'
-import abilityIds from '../../../../../dotaconstants/build/ability_ids.json'
+import hero_abilities from '../../../../../../json/hero_abilities'
+import heroAbilities from '../../../../../../dotaconstants/build/hero_abilities.json'
+import abilityDesc from '../../../../../../dotaconstants/build/abilities.json'
+import abilityIds from '../../../../../../dotaconstants/build/ability_ids.json'
 
-import AbilityCard from '../../AbilityCard'
+import AbilityCard from '../../../AbilityCard'
 
 export default function AbilityPath({hero, abilities}) {
 

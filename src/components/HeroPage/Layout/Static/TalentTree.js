@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Abilities from '../../../../dotaconstants/build/abilities.json';
+import Abilities from '../../../../../dotaconstants/build/abilities.json';
 
 export default function TalentTree({ talents }) {
     const Talents = [];
