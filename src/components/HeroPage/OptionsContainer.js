@@ -64,7 +64,14 @@ export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds
             {/* Both Mobile and Desktop */}
             <div className='w-full bg-slate-600/50 h-[1px]'/>
 
-            <div className='flex justify-between'>
+            <div className='px-3 flex sm:hidden space-x-8 text-sm justify-center'>
+                <Link href={`/hero/${hero.url}/builds`} className={`${router.pathname.includes('builds') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Builds</Link>
+                <Link href={`/hero/${hero.url}/items`} className={`${router.pathname.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
+                <Link href={`/hero/${hero.url}/abilities`} className={`${router.pathname.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
+                <Link href={`/hero/${hero.url}/matchups`} className={`${router.pathname.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
+            </div>
+
+            <div className='hidden sm:flex justify-between'>
                 <div className='px-3 flex space-x-8 text-sm sm:text-lg justify-center sm:justify-start'>
                     <Link href={`/hero/${hero.url}/builds`} className={`${router.pathname.includes('builds') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Builds</Link>
                     <Link href={`/hero/${hero.url}/items`} className={`${router.pathname.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
@@ -72,7 +79,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds
                     <Link href={`/hero/${hero.url}/matchups`} className={`${router.pathname.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
                 </div>
                 {currBuild &&
-                    <div className='hidden px-3 text-lg text-right sm:flex gap-1 items-center'>
+                    <div className='px-3 text-lg text-right flex gap-1 items-center'>
                         <div className='font-bold'>{((currBuild.total_wins / currBuild.total_matches)*100).toFixed(2)}% WR</div>
                         <div className='text-sm text-cyan-300'>({currBuild.total_matches.toLocaleString()} Matches)</div>
                     </div>
