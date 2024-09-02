@@ -28,7 +28,7 @@ export default function HeroLayout({ children, hero }) {
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
 
   if(infoLoading || ratesLoading || buildsLoading){
-    return(<LoadingWheel />)
+    return(<IoLoading />)
   }
   else {
 

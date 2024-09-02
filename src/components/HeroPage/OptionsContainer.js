@@ -72,7 +72,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds
                     <Link href={`/hero/${hero.url}/matchups`} className={`${router.pathname.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
                 </div>
                 {currBuild &&
-                    <div className='px-3 text-lg text-right flex gap-1 items-center'>
+                    <div className='hidden px-3 text-lg text-right sm:flex gap-1 items-center'>
                         <div className='font-bold'>{((currBuild.total_wins / currBuild.total_matches)*100).toFixed(2)}% WR</div>
                         <div className='text-sm text-cyan-300'>({currBuild.total_matches.toLocaleString()} Matches)</div>
                     </div>
