@@ -9,6 +9,7 @@ import LoadingWheel from '../../LoadingWheel';
 import StaticInfo from '../Layout/Static/StaticInfo'
 import OptionsContainer from './OptionsContainer';
 import RatesContainer from './Rates/RatesContainer';
+import BottomBar from '../../BottomBar';
 
 const fetchHeroData = async (hero, type) => {
   const response = await fetch(`/api/${hero}?type=${type}`);
@@ -104,6 +105,10 @@ export default function HeroLayout({ children, hero }) {
             React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds })
           )}
         </main>
+
+        <div className='absolute left-0 pt-12 lg:pt-56 z-0'>
+          <BottomBar />
+        </div>
 
       </div>
     )
