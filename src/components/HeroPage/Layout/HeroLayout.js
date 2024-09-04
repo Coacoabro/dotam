@@ -28,13 +28,13 @@ export default function HeroLayout({ children, hero }) {
   const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
 
-  if(infoLoading || ratesLoading || buildsLoading){
-    return(<IoLoading />)
+  if(infoLoading || ratesLoading){
+    <IoLoading />
   }
-  else {
+  else{
 
     const heroData = heroInfo[0]
-  
+
     const heroName = hero.name
 
     const highestPickRateRole = heroRates
@@ -46,15 +46,17 @@ export default function HeroLayout({ children, hero }) {
     const initFacet = (() => {
       let most = 0;
       let best = 0;
-      heroBuilds.forEach((obj) => {
-        if (obj.role === initRole && obj.rank === "") {
-          if (obj.total_matches > most) {
-            most = obj.total_matches;
-            best = obj.facet;
+      if(heroBuilds){
+        heroBuilds.forEach((obj) => {
+          if (obj.role === initRole && obj.rank === "") {
+            if (obj.total_matches > most) {
+              most = obj.total_matches;
+              best = obj.facet;
+            }
           }
-        }
-      });
-      return best;
+        });
+        return best;
+      }
     })();
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
@@ -87,28 +89,32 @@ export default function HeroLayout({ children, hero }) {
           <StaticInfo hero={heroData} />
         </div>
 
-        <div className='flex space-x-3'>
-          <RatesContainer rates={heroRates} initRole={initRole} />
-          <div className='w-64 hidden sm:block'>
-            Highest win rate for {heroName}. Builds and more info
-          </div>
-        </div>
+        {buildsLoading ? (<LoadingWheel />) : (
+          <>
+            <div className='flex space-x-3'>
+              <RatesContainer rates={heroRates} initRole={initRole} />
+              <div className='w-64 hidden sm:block'>
+                Highest win rate for {heroName}. Builds and more info
+              </div>
+            </div>
 
-        <div className='py-3 z-0'>
-          <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} />
-        </div>
-        
+            <div className='py-3 z-0'>
+              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} />
+            </div>
+            
 
-        
-        <main>
-          {React.Children.map(children, child =>
-            React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds })
-          )}
-        </main>
+            
+            <main>
+              {React.Children.map(children, child =>
+                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds })
+              )}
+            </main>
 
-        <div className='absolute left-0 pt-12 lg:pt-56 z-0'>
-          <BottomBar />
-        </div>
+            <div className='absolute left-0 pt-12 lg:pt-56 z-0'>
+              <BottomBar />
+            </div>
+          </>
+        )}
 
       </div>
     )
