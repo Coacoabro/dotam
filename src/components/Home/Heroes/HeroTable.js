@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import HeroCard from './HeroCard'
 
-function HeroTable({heroes, attr, img}) {
+function HeroTable({heroes, search, attr, img}) {
+
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-3xl py-4 px-2 sm:px-4">
 
@@ -17,7 +18,7 @@ function HeroTable({heroes, attr, img}) {
       <div className="grid grid-cols-5 place-items-center sm:grid-cols-9">
         {heroes.map(hero => (
           <div>
-            <HeroCard key={hero.id} hero={hero} />
+            <HeroCard key={hero.id} hero={hero} search={search} />
           </div>
         ))}
       </div>
