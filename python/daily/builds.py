@@ -22,28 +22,6 @@ cur = conn.cursor() # Open a cursor to perform database operations
 
 patch = '7.37c'
 
-def initializeBuilds():
-    global cur
-    global patch
-    Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
-    Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
-    Facets = [1, 2, 3]
-    cur.execute("SELECT hero_id from heroes;")
-    hero_ids = [row[0] for row in cur.fetchall()]
-    print("Initialization Started")
-    for hero_id in hero_ids:
-        for rank in Ranks:
-            for role in Roles:
-                for facet in Facets:
-                    cur.execute("""
-                        INSERT INTO builds (hero_id, patch, rank, role, facet, total_matches, total_wins, abilities, talents, starting, early, core, item01, item02, item03, item04, item05, item06, item07, item08, item09, item10, boots) 
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    """, (hero_id, patch, rank, role, facet, 0, 0, json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]))
-                    )
-                    conn.commit() 
-    conn.close()
-    print("Initialization Finished")
-
 def actualRank(rank):
     if rank >= 80:
         return ["IMMORTAL", "HIGH"]
@@ -275,9 +253,6 @@ def getBuilds(ranked_matches, builds):
                                         hero_build[m].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
 
     return builds
-
-
-# initializeBuilds() # Comment this if you need to do a fresh slate
 
 file_path = './python/daily/seq_num.json'
 

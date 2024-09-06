@@ -339,7 +339,7 @@
         {
             "Name": "lion_essence_eater",
             "Title": "Essence Eater",
-            "Desc": "Mana Drain mana per second increased and damage equal to {s:bonus_damage_pct}% of mana stolen.",
+            "Desc": "Mana Drain deals damage equal to {s:bonus_damage_pct}% of mana stolen.",
             "Icon": "nuke"
         },
         {
@@ -1762,6 +1762,14 @@
             "Title": "Blood Sport",
             "Desc": "Enemies inside the Arena of Blood don't have vision outside the arena.",
             "Icon": "no_vision"
+        }
+    ],
+    "131": [
+        {
+            "Name": "ringmaster_default",
+            "Title": "Center Stage",
+            "Desc": "Ringmaster is still new to the spotlight. This facet doesn't do anything... yet.",
+            "Icon": "item"
         }
     ],
     "135": [

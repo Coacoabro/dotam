@@ -600,6 +600,11 @@
     "name": "Mars"
   },
   {
+    "url": "ringmaster",
+    "id": 131,
+    "name": "Ringmaster"
+  },
+  {
     "url": "dawnbreaker",
     "id": 135,
     "name": "Dawnbreaker"
