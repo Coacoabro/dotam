@@ -14,7 +14,7 @@ function HeroTable({heroes, attr, img}) {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 place-items-center lg:grid-cols-6 sm:grid-cols-4">
+      <div className="grid grid-cols-5 place-items-center sm:grid-cols-9">
         {heroes.map(hero => (
           <div>
             <HeroCard key={hero.id} hero={hero} />
