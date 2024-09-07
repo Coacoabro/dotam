@@ -47,7 +47,7 @@ export default function Layout({children}) {
           ) 
           : 
           (<main className='pt-24 z-20'>{children}</main>)}
-          <footer className={`${isLoading || router.pathname.includes('/hero/') ? 'hidden' : ''} pt-12 lg:pt-56 z-0`}><BottomBar /></footer>
+          <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' ? 'hidden' : ''} pt-12 lg:pt-56 z-0`}><BottomBar /></footer>
           <Analytics />
     </div>
   );

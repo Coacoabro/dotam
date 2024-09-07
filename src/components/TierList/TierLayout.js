@@ -1,9 +1,26 @@
+import { useQuery } from 'react-query';
+
+import LoadingWheel from '../components/LoadingWheel';
+
 import Head from "next/head";
 import Patches from "../Patches";
 import Rank from "../Rank";
 import Role from "../Role";
+import BottomBar from '../BottomBar';
+
+const fetchTierData = async (hero, type) => {
+    const response = await fetch(`/api/tier-list`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+};
+  
 
 export default function TierLayout({children}) {
+
+    const { data, isLoading } = useQuery(['tierList'], fetchTierData)
+    
     return(
         <div>
 
@@ -30,8 +47,16 @@ export default function TierLayout({children}) {
                         <Rank />
                     </div>
                 </div>
-                
-                <main>{children}</main>
+                {isLoading ? (<LoadingWheel />) : (
+                    <>
+                        <main>
+                            {React.Children.map(children, child =>
+                            React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds })
+                            )}
+                        </main>
+                        <BottomBar />
+                    </>
+                )}
             </div>
             
         </div>

@@ -35,7 +35,7 @@ export default function Heroes({scrollY}) {
   
   return (
     <div className='space-y-12'>
-      <div><HeroSearch onSearch={handleSearch} /></div>
+      <div><HeroSearch onSearch={handleSearch} scrollY={scrollY} /></div>
       <div className={`transition-all duration-500 ease-in-out px-2 z-0 lg:max-w-6xl lg:mx-auto space-y-4 text-slate-200 ${(scrollY !== 0 && router.pathname == '/') || router.pathname == '/heroes' ? 'blur-none opacity-100' : 'blur opacity-25'}`}>        
         <div className="grid sm:grid-cols-2 gap-[10px] lg:gap-[25px]">
           <div>

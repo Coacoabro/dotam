@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-export default function HeroSearch({onSearch}) {
+export default function HeroSearch({onSearch, scrollY}) {
 
     const router = useRouter()
 
     const [inputValue, setInputValue] = useState('')
+    if(router.pathname = '/') {
+        const scrollY = 0
+    }
 
     const handleChange = (event) => {
         setInputValue(event.target.value)
         onSearch(event.target.value)
     }
-
-    console.log(scrollY)
     
     return(
         <div className={`${scrollY == 0 && !router.pathname.includes('/heroes') ? 'w-[300px] sm:w-[800px] lg:w-[1200px]' : 'w-[300px] sm:w-[700px] lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
