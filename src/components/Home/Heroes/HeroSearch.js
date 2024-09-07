@@ -6,17 +6,15 @@ export default function HeroSearch({onSearch, scrollY}) {
     const router = useRouter()
 
     const [inputValue, setInputValue] = useState('')
-    if(router.pathname = '/') {
-        const scrollY = 0
-    }
 
     const handleChange = (event) => {
         setInputValue(event.target.value)
         onSearch(event.target.value)
     }
+
     
     return(
-        <div className={`${scrollY == 0 && !router.pathname.includes('/heroes') ? 'w-[300px] sm:w-[800px] lg:w-[1200px]' : 'w-[300px] sm:w-[700px] lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
+        <div className={`${scrollY == 0 && !router.pathname.includes('/heroes') ? 'w-[300px] sm:w-[800px] lg:w-[1200px]' : router.pathname.includes('/tier-list') ? 'w-[400px]' : 'w-[300px] sm:w-[700px] lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
             <div className="flex-1 h-[25px] sm:h-[44px] px-3 py-[12px] flex items-center">
                 <img src="/Search.png" alt="Search Icon" className="w-4 h-4" />
                 <div>

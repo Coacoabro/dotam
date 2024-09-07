@@ -1,14 +1,14 @@
-import TierContainer from '../components/TierList/TierContainer';
-
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 
 import LoadingWheel from '../components/LoadingWheel';
-
+import TierContainer from '../components/TierList/TierContainer';
 import Head from "next/head";
 import Patches from '../components/Patches';
 import Rank from "../components/Rank";
 import Role from "../components/Role";
 import BottomBar from '../components/BottomBar';
+import HeroSearch from '../components/Home/Heroes/HeroSearch';
 
 const fetchTierData = async (hero, type) => {
     const response = await fetch(`/api/tier-list`);
@@ -20,9 +20,15 @@ const fetchTierData = async (hero, type) => {
 
 export default function TierList() {
 
+    const [searchTerm, setSearchTerm] = useState('')
+
+    const handleSearch = (term) => {
+      setSearchTerm(term)
+    }
+
     const { data, isLoading } = useQuery(['tierList'], fetchTierData)
 
-    console.log(isLoading)
+    console.log(searchTerm)
     
     return(
         <div>
@@ -43,16 +49,17 @@ export default function TierList() {
                 <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
                 <div className="py-2 justify-between text-white space-y-2 sm:flex">
                     <div className="flex items-center justify-center space-x-2">
-                        <Role />
+                        <HeroSearch onSearch={handleSearch} />
                     </div>
                     <div class="flex items-center justify-center space-x-2">
+                        <Role />
                         <Patches />
                         <Rank />
                     </div>
                 </div>
                 {isLoading ? (<LoadingWheel />) : (
                     <>
-                        <TierContainer heroes={data.heroes} rates={data.rates} matchups={data.matchups} />
+                        <TierContainer heroes={data.heroes} rates={data.rates} matchups={data.matchups} search={searchTerm} />
                         <div className='absolute left-0 pt-12 '><BottomBar /></div>
                     </>
                 )}

@@ -83,7 +83,7 @@ export default function SearchBar( {scrollY, topBar} ) {
   };
 
   return (
-    <div ref={searchBarRef} className={`${scrollY == 0 ? 'w-[300px] sm:w-[800px] lg:w-[1200px]' : topBar ? 'w-[425px] ' : 'w-[300px] sm:w-[700px] lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
+    <div ref={searchBarRef} className={`${scrollY == 0 ? 'w-[300px] sm:w-[800px] lg:w-[1200px]' : topBar ? 'w-[425px]' : 'w-[300px] sm:w-[700px] lg:w-[800px]'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] overflow-hidden border border-slate-700 flex items-center`}>
       <div className="flex-1 h-[25px] sm:h-[44px] px-3 py-[12px] flex items-center">
         <img src="/Search.png" alt="Search Icon" className="w-4 h-4" />
         <div>

@@ -5,9 +5,10 @@ import TierRow from "./TierRow";
 
 import patches_json from '../../../json/Patches.json'
 import LoadingWheel from '../LoadingWheel';
+import heroInfo from '../../../json/dota2heroes.json'
 
 
-export default function TierContainer( {heroes, rates, matchups} ) {
+export default function TierContainer( {heroes, rates, matchups, search} ) {
 
     
     const router = useRouter();
@@ -56,8 +57,24 @@ export default function TierContainer( {heroes, rates, matchups} ) {
         setCounters(matchups.filter(r => r.rank.includes(currentRank)))  
 
         if (currentRole) {
-        heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.patch === currentPatch && r.pickrate >= 0.005)
-        } else {heroesByRR = rates.filter(r => r.rank === currentRank && r.patch === currentPatch && r.pickrate >= 0.005)}
+            heroesByRR = rates.filter(r => r.rank === currentRank && r.role === currentRole && r.patch === currentPatch && r.pickrate >= 0.005)
+        } else {
+            heroesByRR = rates.filter(r => r.rank === currentRank && r.patch === currentPatch && r.pickrate >= 0.005)
+        }
+
+        if (search && heroInfo) {
+            let filteredHeroes = []
+            heroesByRR.map((hero) => {
+                heroInfo.map((obj) => {
+                    if(hero.hero_id == obj.id){
+                        if(obj.name.toLowerCase().includes(search.toLowerCase())){
+                            filteredHeroes.push(hero)
+                        }
+                    }
+                })
+            })
+            heroesByRR = filteredHeroes
+        }
         
         if (sortBy === "f2l") {
         setTierList(heroesByRR.sort((a, b) => b[currentSort] - a[currentSort]))
@@ -68,7 +85,9 @@ export default function TierContainer( {heroes, rates, matchups} ) {
 
         setIsLoading(false)
 
-    }, [rates, matchups, rank, role, patch, initPatch, currentSort, sortBy]);
+    }, [rates, matchups, rank, role, patch, initPatch, currentSort, sortBy, search]);
+
+    console.log(tierList)
 
     return(
         <div className="overflow-x-auto bg-slate-950 rounded-lg shadow border border-slate-800">
@@ -107,22 +126,18 @@ export default function TierContainer( {heroes, rates, matchups} ) {
                     </tr>
                 </thead>
                 <tbody className="text-white text-center">
-                {isLoading ? (<LoadingWheel />) : (
-                    <>
-                        {tierList.map((tierItem, index) => (
-                            <TierRow
-                                index={index}
-                                tier_str={tierItem.tier_str}
-                                hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
-                                role={tierItem.role}
-                                WR={tierItem.winrate}
-                                PR={tierItem.pickrate}
-                                matches={tierItem.matches}
-                                counters={counters.find(obj => obj.hero_id === tierItem.hero_id && obj.role === tierItem.role)}
-                            />
-                        ))}
-                    </>
-                )}
+                    {tierList.map((tierItem, index) => (
+                        <TierRow
+                            index={index}
+                            tier_str={tierItem.tier_str}
+                            hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
+                            role={tierItem.role}
+                            WR={tierItem.winrate}
+                            PR={tierItem.pickrate}
+                            matches={tierItem.matches}
+                            counters={counters.find(obj => obj.hero_id === tierItem.hero_id && obj.role === tierItem.role)}
+                        />
+                    ))}
               </tbody>
             </table>
         </div>
