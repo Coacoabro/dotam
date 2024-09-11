@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import time
+import math
 import psycopg2
 import json
 import requests
@@ -20,7 +21,7 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.37c'
+patch = '7.37d'
 
 def actualRank(rank):
     if rank >= 80:
@@ -110,7 +111,6 @@ def getBuilds(ranked_matches, builds):
                     abilityEvents = player['abilities']
                     abilities = []
                     talents = []
-                    boots = []
 
                     for ability in abilityEvents:
                         if ability['abilityId'] != 730 and len(talents) < 4:
@@ -125,11 +125,6 @@ def getBuilds(ranked_matches, builds):
                     if role == 'POSITION_4' or role == 'POSITION_5':
                         isSupport = True
 
-                    for item in purchasedItems:
-                        item_id = item['itemId']
-                        if item_id in Boots:
-                            boots.append(item_id)
-
                     # Starting Game Items
                     startingItems = []
                     for staritem in purchasedItems:
@@ -142,12 +137,13 @@ def getBuilds(ranked_matches, builds):
                     tempItemArray = []
                     for earlitem in purchasedItems:
                         item_id = earlitem['itemId']
-                        if earlitem['time'] < 900 and item_id in Early:
+                        if earlitem['time'] < 840 and item_id in Early:
                             secondPurchase = False
                             if item_id in tempItemArray:
                                 secondPurchase = True
                             tempItemArray.append(item_id)
-                            earlyItems.append({'Item': item_id, 'isSecondPurchase': secondPurchase})
+                            roundedTime = math.ceil(earlitem['time']/2)*2 
+                            earlyItems.append({'Item': item_id, 'isSecondPurchase': secondPurchase, 'Timing': roundedTime})
 
                     # Generating Core Items and Full Items Purchased Order
                     itemBuild = []
@@ -195,18 +191,6 @@ def getBuilds(ranked_matches, builds):
                                 if not talentFound:
                                     hero_build[8].append({'Talent': talent, 'Wins': win, 'Matches': 1})
 
-                            
-                            for boot in boots:
-                                bootsFound = False
-                                for bootBuild in hero_build[22]:
-                                    if bootBuild['Boots'] == boot:
-                                        bootBuild['Matches'] += 1
-                                        bootBuild['Wins'] += win
-                                        bootsFound = True
-                                        break
-                                if not bootsFound:
-                                    hero_build[22].append({'Boots': boot, 'Wins': win, 'Matches': 1})
-
                             startingFound = False
                             for startingBuild in hero_build[9]:
                                 if sorted(startingBuild['Starting']) == sorted(startingItems):
@@ -223,34 +207,52 @@ def getBuilds(ranked_matches, builds):
                                     if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
                                         earlyItem['Matches'] += 1
                                         earlyItem['Wins'] += win
+                                        timingFound = False
+                                        for earlyTiming in earlyItem['Timing']:
+                                            if earlyTiming['Time'] == earlyGameItem['Time']:
+                                                earlyTiming['Matches'] += 1
+                                                earlyTiming['Wins'] += win
+                                                timingFound = True
+                                                break
+                                        if not timingFound:
+                                            earlyItem['Timing'].append({'Time': earlyGameItem['Time'], 'Wins': win, 'Matches': 1})
                                         earlyFound = True
                                         break
                                 if not earlyFound:
-                                    hero_build[10].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
+                                    hero_build[10].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1, 'Timing': [{'Time': earlyGameItem['Time'], 'Wins': win, 'Matches': 1}]})
 
                             buildFound = False
                             for build in hero_build[11]:
                                 if build['Core'] == core:
                                     build['Wins'] += win
                                     build['Matches'] += 1
+                                    m = 4
+                                    if m < 11:
+                                        for gameItem in itemBuild:
+                                            lateFound = False
+                                            for lateItem in build['Core']['Late'][str(m) + 'th']:
+                                                if gameItem == lateItem['Item']:
+                                                    lateItem['Wins'] += win
+                                                    lateItem['Matches'] += 1
+                                                    lateFound = True
+                                                    break
+                                            if not lateFound:
+                                                build['Core']['Late'][str(m) + 'th'].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+                                            m += 1
+
                                     buildFound = True
                                     break
                             if not buildFound:
-                                hero_build[11].append({'Core': core, 'Wins': win, 'Matches': 1})
-                            
-                            m = 11
-                            for gameItem in itemBuild:
-                                m += 1
-                                if m < 22:
-                                    itemOrderFound = False
-                                    for orderedItem in hero_build[m]:
-                                        if orderedItem['Item'] == gameItem:
-                                            orderedItem['Wins'] += win
-                                            orderedItem['Matches'] += 1
-                                            itemOrderFound = True
-                                            break
-                                    if not itemOrderFound:
-                                        hero_build[m].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+                                lateGameItems = {}
+                                m = 4
+                                for _ in range(7):
+                                    if itemBuild:
+                                        gameItem = itemBuild.pop(0)
+                                        lateGameItems[str(m) + 'th'] = [{'Item': gameItem, 'Wins': win, 'Matches': 1}]
+                                    else:
+                                        lateGameItems[str(m) + 'th'] = []
+                                    m += 1
+                                hero_build[11].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
 
     return builds
 
