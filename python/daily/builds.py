@@ -137,13 +137,12 @@ def getBuilds(ranked_matches, builds):
                     tempItemArray = []
                     for earlitem in purchasedItems:
                         item_id = earlitem['itemId']
-                        if earlitem['time'] < 840 and item_id in Early:
+                        if earlitem['time'] < 900 and item_id in Early:
                             secondPurchase = False
                             if item_id in tempItemArray:
                                 secondPurchase = True
                             tempItemArray.append(item_id)
-                            roundedTime = math.ceil(earlitem['time']/2)*2 
-                            earlyItems.append({'Item': item_id, 'isSecondPurchase': secondPurchase, 'Timing': roundedTime})
+                            earlyItems.append({'Item': item_id, 'isSecondPurchase': secondPurchase})
 
                     # Generating Core Items and Full Items Purchased Order
                     itemBuild = []
@@ -207,52 +206,45 @@ def getBuilds(ranked_matches, builds):
                                     if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
                                         earlyItem['Matches'] += 1
                                         earlyItem['Wins'] += win
-                                        timingFound = False
-                                        for earlyTiming in earlyItem['Timing']:
-                                            if earlyTiming['Time'] == earlyGameItem['Time']:
-                                                earlyTiming['Matches'] += 1
-                                                earlyTiming['Wins'] += win
-                                                timingFound = True
-                                                break
-                                        if not timingFound:
-                                            earlyItem['Timing'].append({'Time': earlyGameItem['Time'], 'Wins': win, 'Matches': 1})
                                         earlyFound = True
                                         break
                                 if not earlyFound:
-                                    hero_build[10].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1, 'Timing': [{'Time': earlyGameItem['Time'], 'Wins': win, 'Matches': 1}]})
+                                    hero_build[10].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
 
                             buildFound = False
                             for build in hero_build[11]:
                                 if build['Core'] == core:
                                     build['Wins'] += win
                                     build['Matches'] += 1
-                                    m = 4
-                                    if m < 11:
-                                        for gameItem in itemBuild:
-                                            lateFound = False
-                                            for lateItem in build['Core']['Late'][str(m) + 'th']:
-                                                if gameItem == lateItem['Item']:
-                                                    lateItem['Wins'] += win
-                                                    lateItem['Matches'] += 1
-                                                    lateFound = True
-                                                    break
-                                            if not lateFound:
-                                                build['Core']['Late'][str(m) + 'th'].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
-                                            m += 1
-
+                                    m = 3 if isSupport else 4
+                                    if m < (m+7):
+                                        for index, gameItem in enumerate(itemBuild[m:], start=m):
+                                            if index < 7:
+                                                lateFound = False
+                                                for lateItem in build['Late'][str(m)]:
+                                                    if gameItem == lateItem['Item']:
+                                                        lateItem['Wins'] += win
+                                                        lateItem['Matches'] += 1
+                                                        lateFound = True
+                                                        break
+                                                if not lateFound:
+                                                    build['Late'][str(m)].append({'Item': gameItem, 'Wins': win, 'Matches': 1})
+                                                m += 1
                                     buildFound = True
                                     break
                             if not buildFound:
                                 lateGameItems = {}
-                                m = 4
+                                m = 3 if isSupport else 4
                                 for _ in range(7):
                                     if itemBuild:
                                         gameItem = itemBuild.pop(0)
-                                        lateGameItems[str(m) + 'th'] = [{'Item': gameItem, 'Wins': win, 'Matches': 1}]
+                                        lateGameItems[str(m)] = [{'Item': gameItem, 'Wins': win, 'Matches': 1}]
                                     else:
-                                        lateGameItems[str(m) + 'th'] = []
+                                        lateGameItems[str(m)] = []
                                     m += 1
                                 hero_build[11].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+
+                            print(hero_build)
 
     return builds
 
@@ -277,7 +269,7 @@ start_time = time.time()
 
 while True:
 
-    try:
+    # try:
 
         DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -366,39 +358,39 @@ while True:
             conn.close()
             break
     
-    except Exception as e:
-        print("Error is: ", e)
-        print("Dumping stuff. Last sequence num is ", seq_num)
-        print("It stopped after the Hour Counter was at ", hourCounter)
-        for build in builds:
-            cur.execute("""
-                UPDATE builds
-                SET total_matches = %s,
-                    total_wins = %s,
-                    abilities = %s,
-                    talents = %s,
-                    starting = %s,
-                    early = %s,
-                    core = %s,
-                    item01 = %s,
-                    item02 = %s,
-                    item03 = %s,
-                    item04 = %s,
-                    item05 = %s,
-                    item06 = %s,
-                    item07 = %s,
-                    item08 = %s,
-                    item09 = %s,
-                    item10 = %s,
-                    boots = %s
-                WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
-                """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
-                )
-            conn.commit() 
-        print("Done. Last sequence num: ", seq_num)
-        with open(file_path, 'w') as file:
-            json.dump({"seq_num": seq_num}, file)
-        dump = False
-        conn.close()
-        break
+    # except Exception as e:
+    #     print("Error is: ", e)
+    #     print("Dumping stuff. Last sequence num is ", seq_num)
+    #     print("It stopped after the Hour Counter was at ", hourCounter)
+    #     for build in builds:
+    #         cur.execute("""
+    #             UPDATE builds
+    #             SET total_matches = %s,
+    #                 total_wins = %s,
+    #                 abilities = %s,
+    #                 talents = %s,
+    #                 starting = %s,
+    #                 early = %s,
+    #                 core = %s,
+    #                 item01 = %s,
+    #                 item02 = %s,
+    #                 item03 = %s,
+    #                 item04 = %s,
+    #                 item05 = %s,
+    #                 item06 = %s,
+    #                 item07 = %s,
+    #                 item08 = %s,
+    #                 item09 = %s,
+    #                 item10 = %s,
+    #                 boots = %s
+    #             WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
+    #             """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
+    #             )
+    #         conn.commit() 
+    #     print("Done. Last sequence num: ", seq_num)
+    #     with open(file_path, 'w') as file:
+    #         json.dump({"seq_num": seq_num}, file)
+    #     dump = False
+    #     conn.close()
+    #     break
         
