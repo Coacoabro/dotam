@@ -55,7 +55,7 @@ export default function ItemCard({ id }) {
                                 <img src={itemImg} className='w-12 sm:w-16 h-full' />
                                 <div>
                                     <h1 className='text-xl sm:text-2xl font-bold'>{item.dname}</h1>
-                                    <h2 className='flex gap-1 items-center text-sm sm:text-base'>
+                                    <h2 className='flex gap-1 items-center text-sm sm:text-base text-gold-400'>
                                         <img src='/gold.png' className='w-4 sm:w-5 h-full' />
                                         {item.cost}
                                     </h2>

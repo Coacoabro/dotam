@@ -27,6 +27,7 @@ export default function HeroLayout({ children, hero }) {
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
   const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
+  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.url, 'matchups'], () => fetchHeroData(hero.url, 'matchups'), {staleTime: 3600000});
 
   if(infoLoading || ratesLoading){
     <IoLoading />
@@ -106,7 +107,7 @@ export default function HeroLayout({ children, hero }) {
             
             <main>
               {React.Children.map(children, child =>
-                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds })
+                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
               )}
             </main>
 
