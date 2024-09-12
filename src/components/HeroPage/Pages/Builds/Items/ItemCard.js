@@ -24,7 +24,7 @@ export default function ItemCard({item, index}) {
                         <h2 className='opacity-50 text-xs sm:text-sm'>WR</h2>
                     </div>
                     <div className='opacity-50 text-xs sm:text-sm'>
-                        ({matches} Matches)
+                        {matches} Matches
                     </div>
                 </div>
             </div>

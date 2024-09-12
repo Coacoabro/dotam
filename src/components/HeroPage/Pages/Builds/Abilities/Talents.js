@@ -57,27 +57,27 @@ export default function Talents({hero, talents}) {
                 </div>
                 <div className='text-gray-300/50 sm:hidden px-3'>Best talents for {hero.localized_name}</div>
                 <div className="flex flex-col text-2xs sm:text-xs items-center space-y-1 sm:space-y-3 sm:px-6 py-2 sm:py-5 bg-slate-950 text-left rounded-lg border-slate-600">
-                        {levels.map((level, index) => (
-                            <div className='space-y-3'>
-                                <div className="flex items-center space-x-1 sm:space-x-3 px-2 sm:px-4">
-                                    <div className={`w-32 sm:w-40 h-12 p-1 rounded-md text-center flex justify-center items-center ${bestTalents.includes(leftTalents[index]) ? 'bg-slate-800  text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
-                                        {leftTalents[index]}
-                                    </div>
-                                    <div className="relative flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 bg-slate-800 rounded-full shadow-md">
-                                        <span className="text-slate-200 text-sm sm:text-lg text-center font-bold">
-                                            {level}
-                                        </span>
-                                    </div>
-                                    <div className={`w-32 sm:w-40 h-12 p-1 rounded-md text-center flex justify-center items-center ${bestTalents.includes(rightTalents[index]) ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
-                                        {rightTalents[index]}
-                                    </div>
+                    {levels.map((level, index) => (
+                        <div className='space-y-3'>
+                            <div className="flex items-center space-x-1 sm:space-x-3 px-2 sm:px-4">
+                                <div className={`w-32 sm:w-40 h-12 p-1 rounded-md text-center flex justify-center items-center ${bestTalents.includes(leftTalents[index]) ? 'bg-slate-800  text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
+                                    {leftTalents[index]}
                                 </div>
-                                {index < 0 ? (
-                                    <div className="h-[2px] w-10/12 bg-slate-700 flex justify-center mx-auto" />
-                                ) : null}
+                                <div className="relative flex items-center justify-center w-8 sm:w-10 h-8 sm:h-10 bg-slate-800 rounded-full shadow-md">
+                                    <span className="text-slate-200 text-sm sm:text-lg text-center font-bold">
+                                        {level}
+                                    </span>
+                                </div>
+                                <div className={`w-32 sm:w-40 h-12 p-1 rounded-md text-center flex justify-center items-center ${bestTalents.includes(rightTalents[index]) ? 'bg-slate-800 text-slate-300 border border-slate-700' : 'text-slate-300/50'}`}>
+                                    {rightTalents[index]}
+                                </div>
                             </div>
-                        ))}
-                    </div>
+                            {index < 0 ? (
+                                <div className="h-[2px] w-10/12 bg-slate-700 flex justify-center mx-auto" />
+                            ) : null}
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     }

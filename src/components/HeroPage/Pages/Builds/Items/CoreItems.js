@@ -27,7 +27,7 @@ export default function CoreItems({core, matches, isCarry}) {
                             <h1 className='text-base sm:text-lg'>{wr}%</h1>
                             <h2 className='text-xs sm:text-sm opacity-50'>WR</h2>
                         </div>
-                        <div className='text-2xs sm:text-sm opacity-50'>({dispMatches} Matches)</div>
+                        <div className='text-2xs sm:text-sm opacity-50'>{dispMatches} Matches</div>
                     </div>
                 </div>
             )
@@ -47,7 +47,7 @@ export default function CoreItems({core, matches, isCarry}) {
                             <h1 className='text-base sm:text-lg'>{wr}%</h1>
                             <h2 className='text-xs sm:text-sm opacity-50'>WR</h2>
                         </div>
-                        <div className='text-xs sm:text-sm opacity-50'>({dispMatches} Matches)</div>
+                        <div className='text-xs sm:text-sm opacity-50'>{dispMatches} Matches</div>
                     </div>
                 </div>
             )

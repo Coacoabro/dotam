@@ -20,7 +20,7 @@ const fetchHeroData = async (hero, type) => {
     return response.json();
 };
 
-export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds }) {
+export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups }) {
 
     const router = useRouter()
 
@@ -44,7 +44,7 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
     }, [role, rank, patch, facet, heroBuilds])
 
     return(
-        <div className='space-y-4'>
+        <div className='space-y-4 flex-col justify-center'>
             {currBuild ?
                 <div className='lg:flex w-full gap-2 space-y-2 lg:space-y-0'>
                     <div className='sm:w-11/12 mx-auto lg:w-2/3 py-2 sm:py-5 px-3  bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={heroData} abilities={currBuild.abilities} /></div>
@@ -63,6 +63,21 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
                 :
                 <div>Not enough Item data</div>
             }
+            {heroMatchups[0] ? 
+                <div className='sm:w-4/5 sm:mx-auto lg:w-full lg:flex lg:items-end px-5 py-2 lg:p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2 sm:space-y-0'>
+                    <div className='lg:w-1/2'><Matchups type='against' matchups={heroMatchups[0].herovs} hero={heroData} /></div>
+                    <div className='lg:w-1/2'><Matchups type='with' matchups={heroMatchups[0].herowith} hero={heroData} /></div>
+                </div> : 
+                <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800'>
+                    <h1 className='text-center text-slate-200'>No matchups available for this role</h1>
+                </div>
+            }
+            <button className='flex justify-center'>
+                <div>Open Matchups</div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-6 sm:h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button> 
         </div>
     )
 }
