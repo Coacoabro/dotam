@@ -244,8 +244,6 @@ def getBuilds(ranked_matches, builds):
                                     m += 1
                                 hero_build[11].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
 
-                            print(hero_build)
-
     return builds
 
 file_path = './python/daily/seq_num.json'

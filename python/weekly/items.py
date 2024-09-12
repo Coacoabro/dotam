@@ -105,8 +105,8 @@ def getQuery(rank):
                     equippedMatchCount
                     equippedMatchWinCount
                     item {{
-                            stat {{
-                                neutralItemTier
+                        stat {{
+                            neutralItemTier
                         }}
                     }}
                 }}

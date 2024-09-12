@@ -42,7 +42,7 @@ def getQuery():
         rank_query = f"""
             {rank if rank else 'All'}: heroStats {{
                     matchUp(
-                        take: 124
+                        take: 125
                         {'bracketBasicIds: ' + rank if rank else ''}
                     ) {{
                         heroId
