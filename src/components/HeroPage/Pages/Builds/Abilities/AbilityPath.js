@@ -12,12 +12,14 @@ export default function AbilityPath({hero, abilities}) {
 
     const initBasicAbilities = []
     const basicAbilities = []
-
-    const heroInitAbilities = hero_abilities[hero.hero_id].slice(0, 3);
-    const heroInitiUltimate = abilityIds[hero_abilities[hero.hero_id][3]];
+    const basicAbilityLength = hero_abilities[hero.hero_id].length - 1
+    const heroInitAbilities = hero_abilities[hero.hero_id].slice(0, basicAbilityLength);
+    const heroInitiUltimate = abilityIds[hero_abilities[hero.hero_id].at(-1)];
     
     heroInitAbilities.forEach((ability) => {
-        initBasicAbilities.push(abilityIds[ability])
+        if(abilities.includes(ability)){
+            initBasicAbilities.push(abilityIds[ability])
+        }
     })
 
     Abilities.forEach((ability) => {
@@ -28,7 +30,7 @@ export default function AbilityPath({hero, abilities}) {
 
     if(basicAbilities.length < 3) {
         heroInitAbilities.forEach((ability) => {
-            if (!basicAbilities.includes(abilityIds[ability])) {
+            if (!basicAbilities.includes(abilityIds[ability]) && abilities.includes(ability)) {
                 basicAbilities.push(abilityIds[ability])
             }
         })
@@ -63,9 +65,7 @@ export default function AbilityPath({hero, abilities}) {
     })
     
       
-    const levels = Array.from({length: 16}, (_, index) => index +1)
-    
-      
+    const levels = Array.from({length: 16}, (_, index) => index +1)      
     
     return (
         <div className='overflow-x-scroll sm:overflow-visible'>
