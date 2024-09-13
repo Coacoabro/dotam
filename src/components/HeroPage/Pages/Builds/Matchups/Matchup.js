@@ -13,7 +13,7 @@ export default function Matchup({matchup}){
         <div className='h-36 w-24 sm:w-28 py-2.5 px-2 sm:px-0 bg-slate-950 rounded-lg border border-slate-800 text-indigo-300 flex-col'>
             <div className='text-center text-xs sm:text-sm font-bold sm:space-y-2'>
                 <h1 className='whitespace-nowrap truncate'>{heroName}</h1>
-                <Link href={'/hero/' + heroURL}>
+                <Link href={'/hero/' + heroURL + '/builds'}>
                     <img className="py-2 w-9 sm:w-12 h-full mx-auto rounded-full" src={heroImage} />
                 </Link>
             </div>

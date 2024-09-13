@@ -84,7 +84,7 @@ export default function AbilityPath({hero, abilities}) {
                 {finishedAbilities.map((row) => (
                 <div className="grid grid-rows-5 sm:gap-2.5">
                     {row.map((ability) => (
-                    <div className={`w-7 h-7 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center ${ability ? 'bg-slate-800 border border-slate-700' : 'bg-slate-950'}`}>
+                    <div className={`w-7 h-7 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center ${ability ? 'bg-slate-800 border border-slate-700/50' : 'bg-slate-950'}`}>
                         {ability || ''}
                     </div>
                     ))}
