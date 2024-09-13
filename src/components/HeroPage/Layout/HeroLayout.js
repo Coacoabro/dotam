@@ -67,7 +67,7 @@ export default function HeroLayout({ children, hero }) {
     return(
       <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
 
-        <div className="px-2 flex relative items-end sm:items-center gap-1 sm:gap-4">
+        <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
 
           <img src={portrait} className="h-14 sm:h-32" />
 

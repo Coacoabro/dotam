@@ -49,7 +49,7 @@ export default function RatesContainer({ rates, initRole }) {
 
     
     return (
-        <div className="flex mx-2 py-2 sm:py-0 sm:mx-4 sm:gap-1 text-slate-200 space-x-1">
+        <div className="flex mx-6 sm:mx-0 py-2 sm:py-0 sm:gap-1 text-slate-200 space-x-1">
 
             <div className="w-14 h-16 sm:w-20 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
                 <div className={`text-center text-xl md:text-2xl ${color} py-1 sm:py-2`}>{heroTier}</div>
