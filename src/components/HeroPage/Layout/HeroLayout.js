@@ -111,7 +111,7 @@ export default function HeroLayout({ children, hero }) {
               )}
             </main>
 
-            <div className='absolute left-0 pt-12 lg:pt-56 z-0'>
+            <div className='absolute left-0 pt-12 lg:pt-36 z-0'>
               <BottomBar />
             </div>
           </>

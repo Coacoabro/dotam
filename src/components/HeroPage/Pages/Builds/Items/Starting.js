@@ -30,11 +30,11 @@ export default function Starting({items}) {
     }, [items])
 
     return(
-        <div className="space-y-3 border border-slate-800 rounded-lg">
+        <div className="bg-slate-900 space-y-3 border border-slate-800 rounded-lg">
             <div className='items-end gap-2.5 px-5 pt-3'>
                 <div className='text-lg sm:text-xl font-bold'>Starting Items</div>
             </div>
-            <div className='bg-slate-900 rounded-b-lg px-4 py-3'>
+            <div className='rounded-b-lg px-4 py-3'>
                 {starting ?
                     <div className="grid grid-cols-3 gap-2 place-items-center">
                         {starting.map((item, index) => (

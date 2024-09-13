@@ -16,10 +16,10 @@ export default function NthItem({order, items}){
     }, [items])
 
     return(
-        <div className='rounded-lg border border-slate-800'>
-            <div className='font-medium text-center py-2 text-lg'>{order}{order == 3 ? "RD" : "TH"}</div>
+        <div className='rounded-lg border border-slate-800 bg-slate-950 w-48'>
+            <div className=' font-medium text-center py-1 text-lg'>{order}{order == 3 ? "RD" : "TH"}</div>
             <div className='w-full h-[1px] bg-slate-800' />
-            <div className='bg-slate-900 py-3 space-y-2 sm:px-4 rounded-b-lg justify-center items-center flex flex-col'>
+            <div className='bg-slate-800 py-3 space-y-2 px-2 rounded-b-lg items-center'>
                 {nthItems.map((item, index) => (
                     <ItemCard item={item} index={index} />
                 ))}

@@ -12,11 +12,13 @@ export default function Layout({children}) {
 
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter();
+  const [route, setRoute] = useState(router.pathname.split('/')[1])
 
   useEffect(() => {
 
     const handleStart = (url) => {
-      if(!url.includes('=')){
+      if(!url.includes(route)){
+        setRoute(router.pathname.split('/')[1])
         setIsLoading(true)
       }
     };
