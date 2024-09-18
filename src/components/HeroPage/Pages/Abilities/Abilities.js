@@ -29,7 +29,7 @@ export default function Abilities({ initRole, initFacet, heroData, heroBuilds })
     return(
         <div className="space-y-4">
             <AbilityPath abilities={currBuild.abilities} />
-            <TalentOptions talents={currBuild.talents} />
+            <TalentOptions talents={currBuild.talents} hero={heroData} />
         </div>
     )
 

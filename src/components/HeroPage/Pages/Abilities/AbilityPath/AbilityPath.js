@@ -10,8 +10,8 @@ export default function AbilityPath(abilities) {
 
 
     return(
-        <div className="overflow-x-auto bg-slate-900 rounded-lg shadow border border-slate-800 pb-4 h-80">
-            <table className="table-auto w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-xl">
+        <div className="overflow-x-auto mx-auto custom-scrollbar bg-slate-900 rounded-lg shadow border border-slate-800 pb-4 h-80">
+            <table className="table-auto text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-xl">
                 <tr>
                     <th className="text-left px-8 py-3 w-2/3">
                         Ability Path Order
