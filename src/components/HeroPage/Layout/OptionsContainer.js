@@ -6,7 +6,13 @@ import Role from '../../Role'
 import Rank from '../../Rank'
 import Patches from '../../Patches'
 import Facets from '../../Facets';
-import { globalPatch } from '../../../../config';
+
+const current_patch = async () => {
+    const res = await fetch('/patch.json')
+    const data = await res.json()
+    return data.current_patch
+}
+
 
 export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds}) {
 
@@ -20,7 +26,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds
 
         const currRole = role || initRole
         const currRank = rank || ""
-        const currPatch = patch || globalPatch
+        const currPatch = patch || current_patch
         const currFacet = facet || initFacet
         
         if(heroBuilds){

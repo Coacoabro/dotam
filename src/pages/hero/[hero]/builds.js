@@ -8,17 +8,22 @@ import Builds from '../../../components/HeroPage/Pages/Builds/Builds.js'
 import dota2heroes from '../../../../json/dota2heroes.json'
 
 export async function getServerSideProps(context) {
+
     const hero = dota2heroes.find(hero => hero.url === context.query.hero)
+    const res = await fetch('patch.json')
+    const data = await res.json()
+
     if(hero){    
         return {
             props: {
-              hero: hero
+              hero: hero,
+              current_patch: data.current_patch
             }
         };
     }
 }
 
-export default function BuildsPage( {hero} ) {
+export default function BuildsPage( {hero, current_patch} ) {
 
     const heroName = hero.name
     

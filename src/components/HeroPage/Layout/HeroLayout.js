@@ -2,7 +2,6 @@ import { useQuery } from 'react-query';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
-import { globalPatch } from '../../../../config';
 
 import IoLoading from '../../IoLoading';
 import LoadingWheel from '../../LoadingWheel';
