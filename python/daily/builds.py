@@ -21,7 +21,8 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.37d'
+response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+patch = response.text()
 
 def actualRank(rank):
     if rank >= 80:
