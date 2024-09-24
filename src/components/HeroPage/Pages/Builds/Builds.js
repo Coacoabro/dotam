@@ -25,7 +25,7 @@ const fetchHeroData = async (hero, type) => {
     return response.json();
 };
 
-export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups }) {
+export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups, current_patch }) {
 
     const router = useRouter()
 

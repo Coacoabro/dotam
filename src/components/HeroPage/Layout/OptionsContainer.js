@@ -7,14 +7,7 @@ import Rank from '../../Rank'
 import Patches from '../../Patches'
 import Facets from '../../Facets';
 
-const current_patch = async () => {
-    const res = await fetch('/patch.json')
-    const data = await res.json()
-    return data.current_patch
-}
-
-
-export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds}) {
+export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds, current_patch}) {
 
     const router = useRouter()
 

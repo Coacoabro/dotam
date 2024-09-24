@@ -18,7 +18,7 @@ const fetchHeroData = async (hero, type) => {
   return response.json();
 };
 
-export default function HeroLayout({ children, hero }) {
+export default function HeroLayout({ children, hero, current_patch }) {
 
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
@@ -92,14 +92,14 @@ export default function HeroLayout({ children, hero }) {
         {buildsLoading ? (<LoadingWheel />) : (
           <>
             <div className='flex space-x-3'>
-              <RatesContainer rates={heroRates} initRole={initRole} />
+              <RatesContainer rates={heroRates} initRole={initRole} current_patch={current_patch} />
               <div className='w-64 hidden sm:block'>
                 Highest win rate for {heroName}. Builds and more info
               </div>
             </div>
 
             <div className='py-3 z-0'>
-              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} />
+              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} current_patch={current_patch} />
             </div>
             
 
