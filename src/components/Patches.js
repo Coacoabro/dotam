@@ -1,5 +1,4 @@
 import json from '../../json/Patches.json'
-import { globalPatch } from '../../config'
 import { useState } from 'react'
 import { useRouter } from 'next/router';
 

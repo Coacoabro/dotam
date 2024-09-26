@@ -6,9 +6,8 @@ import Role from '../../Role'
 import Rank from '../../Rank'
 import Patches from '../../Patches'
 import Facets from '../../Facets';
-import { globalPatch } from '../../../../config';
 
-export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds}) {
+export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds, current_patch}) {
 
     const router = useRouter()
 
@@ -20,7 +19,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds
 
         const currRole = role || initRole
         const currRank = rank || ""
-        const currPatch = patch || globalPatch
+        const currPatch = patch || current_patch
         const currFacet = facet || initFacet
         
         if(heroBuilds){

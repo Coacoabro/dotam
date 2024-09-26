@@ -9,8 +9,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-current_patch = '7.37b'
-
+response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+current_patch = response.text
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
 
@@ -79,13 +79,8 @@ hero_ids = [row[0] for row in cur.fetchall()]
 cur.execute("SELECT * FROM rates WHERE patch = %s", (current_patch,))
 rates = cur.fetchall()
 
-# if not rates:
-#     cur.execute("TRUNCATE TABLE rates;")
-
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL']
-
-print(rates)
 
 for currentRank in Ranks:
 
@@ -186,13 +181,4 @@ for currentRank in Ranks:
             
         conn.commit() # Commit the transaction
 
-
-
-        
-    
-
-
-# # cur.execute("SELECT * FROM datatest;")
-# # print(cur.fetchall())
-
-# conn.close() # Close communication with the database
+conn.close() # Close communication with the database

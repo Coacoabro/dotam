@@ -25,8 +25,8 @@ export default function Talents({hero, talents}) {
             if(Abilities[talent.name].dname){Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))}
         })
 
-        const leftTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
-        const rightTalents = [Talents[7], Talents[5], Talents[3], Talents[1]]
+        const rightTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
+        const leftTalents = [Talents[7], Talents[5], Talents[3], Talents[1]]
 
         const bestTalents = Array(4)
         const prArray = Array(4)

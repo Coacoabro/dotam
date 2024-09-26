@@ -45,6 +45,9 @@ itemsData_dict = {item['id']: item for item in itemsData}
 roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
 
+response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+patch = response.text()
+
 cur.execute("TRUNCATE TABLE items")
 
 def getQuery(rank):

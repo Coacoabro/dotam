@@ -22,7 +22,8 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.37c'
+res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+patch = res.text
 
 def actualRank(rank):
     if rank >= 80:
@@ -318,17 +319,17 @@ while True:
 
         if hourlyDump >= 800:
             dump = True
-        #     remaining = hour - (time.time() - start_time)
-        #     if remaining > 0:
-        #         print("Waiting for another " + str(remaining) + " seconds")
-        #         time.sleep(remaining)
-        #         hourCounter += 1
-        #         hourlyDump = 0
-        #         start_time = time.time()
-        #     else:
-        #         hourCounter += 1
-        #         hourlyDump = 0
-        #         start_time = time.time()
+            # remaining = hour - (time.time() - start_time)
+            # if remaining > 0:
+            #     print("Waiting for another " + str(remaining) + " seconds")
+            #     time.sleep(remaining)
+            #     hourCounter += 1
+            #     hourlyDump = 0
+            #     start_time = time.time()
+            # else:
+            #     hourCounter += 1
+            #     hourlyDump = 0
+            #     start_time = time.time()
         
         # if hourCounter >= 6:
         #     dump = True

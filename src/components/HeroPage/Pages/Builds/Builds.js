@@ -3,8 +3,13 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 
-import { globalPatch } from '../../../../../config';
 import facets from '../../../../../json/hero_facets.json'
+
+const current_patch = async () => {
+    const res = await fetch('/patch.json')
+    const data = await res.json()
+    return data.current_patch
+}
 
 import Abilities from './Abilities/Abilities'
 import Talents from './Abilities/Talents'
@@ -20,7 +25,7 @@ const fetchHeroData = async (hero, type) => {
     return response.json();
 };
 
-export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups }) {
+export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups, current_patch }) {
 
     const router = useRouter()
 
@@ -30,13 +35,13 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
 
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
-    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == globalPatch))
+    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == current_patch))
 
     useEffect(() => {
 
         const currRole = role || initRole
         const currRank = rank || ""
-        const currPatch = patch || globalPatch
+        const currPatch = patch || current_patch
         const currFacet = facet || initFacet
 
         setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))

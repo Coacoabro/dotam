@@ -87,42 +87,40 @@ export default function TierContainer( {heroes, rates, matchups, search} ) {
 
     }, [rates, matchups, rank, role, patch, initPatch, currentSort, sortBy, search]);
 
-    console.log(tierList)
-
     return(
         <div className="overflow-x-auto bg-slate-950 rounded-lg shadow border border-slate-800">
             <table className="table-auto w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight">
                 <thead>
                     <tr className="bg-slate-950 text-white text-sm sm:text-xl text-center">
-                    <th className="py-2 px-3 text-center">
-                        <button onClick={() => handleSortClick("tier_num", currentSort)}>
-                        <div className='flex items-center'>TIER <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
-                        </button>
-                    </th>
-                    <th>
-                        HERO
-                    </th>
-                    <th className="flex pt-2 px-2 sm:px-0">
-                        ROLE
-                    </th>
-                    <th className='px-4 sm:px-0'>
-                        <button onClick={() => handleSortClick("winrate", currentSort)}>
-                        <div className='flex items-center'>WR <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
-                        </button>
-                    </th>
-                    <th className='px-4 sm:px-0'>
-                        <button onClick={() => handleSortClick("pickrate", currentSort)}>
-                        <div className='flex items-center'>PR <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
-                        </button>
-                    </th>
-                    <th className='px-4 sm:px-0'>
-                        <button onClick={() => handleSortClick("matches", currentSort)}>
-                        <div className='flex items-center'>MATCHES <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
-                        </button>
-                    </th>
-                    <th className='px-2 hidden lg:flex justify-center'>
-                        COUNTERS
-                    </th>
+                        <th className="py-2 px-3 text-center">
+                            <button onClick={() => handleSortClick("tier_num", currentSort)}>
+                            <div className='flex items-center'>TIER <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                            </button>
+                        </th>
+                        <th>
+                            HERO
+                        </th>
+                        <th className="flex pt-2 px-2 sm:px-0">
+                            ROLE
+                        </th>
+                        <th className='px-4 sm:px-0'>
+                            <button onClick={() => handleSortClick("winrate", currentSort)}>
+                            <div className='flex items-center'>WR <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                            </button>
+                        </th>
+                        <th className='px-4 sm:px-0'>
+                            <button onClick={() => handleSortClick("pickrate", currentSort)}>
+                            <div className='flex items-center'>PR <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                            </button>
+                        </th>
+                        <th className='px-4 sm:px-0'>
+                            <button onClick={() => handleSortClick("matches", currentSort)}>
+                            <div className='flex items-center'>MATCHES <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                            </button>
+                        </th>
+                        <th className='px-2 hidden lg:flex justify-center'>
+                            COUNTERS
+                        </th>
                     </tr>
                 </thead>
                 <tbody className="text-white text-center">
