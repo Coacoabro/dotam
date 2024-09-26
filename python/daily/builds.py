@@ -6,6 +6,7 @@ import psycopg2
 import json
 import requests
 import os
+import sys
 
 from dotenv import load_dotenv
 
@@ -21,7 +22,7 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-patch = '7.37d'
+patch = '7.37c'
 
 def actualRank(rank):
     if rank >= 80:
@@ -63,6 +64,9 @@ def getBuilds(ranked_matches, builds):
                 210, 214, 220, 223, 225, 226, 229, 231, 232, 235, 236, 242, 247, 249, 
                 250, 252, 254, 256, 259, 263, 267, 269, 271, 273, 277, 534, 596, 598, 
                 600, 603, 604, 609, 610, 635, 931, 939, 1097, 1107, 1466, 1806, 1808] 
+    
+    
+    Swords = [162, 170, 259]
 
     fragment = """
         fragment MatchData on MatchType {
@@ -148,12 +152,17 @@ def getBuilds(ranked_matches, builds):
                     itemBuild = []
                     for item in purchasedItems:
                         if item['itemId'] not in itemBuild:
-                            if isSupport == True:
-                                if item['itemId'] in SupportFull or item['itemId'] in FullItems:
-                                    itemBuild.append(item['itemId'])
-                            else:
-                                if item['itemId'] in FullItems:
-                                    itemBuild.append(item['itemId'])
+                            isSecondSword = False
+                            if item['itemId'] in Swords:
+                                if itemBuild[-1] in Swords:
+                                    isSecondSword = True
+                            if isSecondSword == False:
+                                if isSupport == True:
+                                    if item['itemId'] in SupportFull or item['itemId'] in FullItems:
+                                        itemBuild.append(item['itemId'])
+                                else:
+                                    if item['itemId'] in FullItems:
+                                        itemBuild.append(item['itemId'])
 
                     if len(itemBuild) >= 2 and isSupport == True:
                         core = itemBuild[:2]
@@ -255,6 +264,7 @@ with open(file_path, 'r') as file:
 ranked_matches = []
 cur.execute("SELECT * from builds WHERE patch = %s", (patch,))
 builds = cur.fetchall()
+
 x = 0
 for x in range(len(builds)):
     builds[x] = list(builds[x])
@@ -267,7 +277,7 @@ start_time = time.time()
 
 while True:
 
-    # try:
+    try:
 
         DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -307,20 +317,21 @@ while True:
             seq_num += 1
 
         if hourlyDump >= 800:
-            remaining = hour - (time.time() - start_time)
-            if remaining > 0:
-                print("Waiting for another " + str(remaining) + " seconds")
-                time.sleep(remaining)
-                hourCounter += 1
-                hourlyDump = 0
-                start_time = time.time()
-            else:
-                hourCounter += 1
-                hourlyDump = 0
-                start_time = time.time()
-        
-        if hourCounter >= 6:
             dump = True
+        #     remaining = hour - (time.time() - start_time)
+        #     if remaining > 0:
+        #         print("Waiting for another " + str(remaining) + " seconds")
+        #         time.sleep(remaining)
+        #         hourCounter += 1
+        #         hourlyDump = 0
+        #         start_time = time.time()
+        #     else:
+        #         hourCounter += 1
+        #         hourlyDump = 0
+        #         start_time = time.time()
+        
+        # if hourCounter >= 6:
+        #     dump = True
 
         if dump:
             print("Dumping stuff. Last sequence num is ", seq_num)
@@ -356,39 +367,39 @@ while True:
             conn.close()
             break
     
-    # except Exception as e:
-    #     print("Error is: ", e)
-    #     print("Dumping stuff. Last sequence num is ", seq_num)
-    #     print("It stopped after the Hour Counter was at ", hourCounter)
-    #     for build in builds:
-    #         cur.execute("""
-    #             UPDATE builds
-    #             SET total_matches = %s,
-    #                 total_wins = %s,
-    #                 abilities = %s,
-    #                 talents = %s,
-    #                 starting = %s,
-    #                 early = %s,
-    #                 core = %s,
-    #                 item01 = %s,
-    #                 item02 = %s,
-    #                 item03 = %s,
-    #                 item04 = %s,
-    #                 item05 = %s,
-    #                 item06 = %s,
-    #                 item07 = %s,
-    #                 item08 = %s,
-    #                 item09 = %s,
-    #                 item10 = %s,
-    #                 boots = %s
-    #             WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
-    #             """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
-    #             )
-    #         conn.commit() 
-    #     print("Done. Last sequence num: ", seq_num)
-    #     with open(file_path, 'w') as file:
-    #         json.dump({"seq_num": seq_num}, file)
-    #     dump = False
-    #     conn.close()
-    #     break
+    except Exception as e:
+        print("Error is: ", e)
+        print("Dumping stuff. Last sequence num is ", seq_num)
+        print("It stopped after the Hour Counter was at ", hourCounter)
+        for build in builds:
+            cur.execute("""
+                UPDATE builds
+                SET total_matches = %s,
+                    total_wins = %s,
+                    abilities = %s,
+                    talents = %s,
+                    starting = %s,
+                    early = %s,
+                    core = %s,
+                    item01 = %s,
+                    item02 = %s,
+                    item03 = %s,
+                    item04 = %s,
+                    item05 = %s,
+                    item06 = %s,
+                    item07 = %s,
+                    item08 = %s,
+                    item09 = %s,
+                    item10 = %s,
+                    boots = %s
+                WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
+                """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
+                )
+            conn.commit() 
+        print("Done. Last sequence num: ", seq_num)
+        with open(file_path, 'w') as file:
+            json.dump({"seq_num": seq_num}, file)
+        dump = False
+        conn.close()
+        break
         
