@@ -7,6 +7,7 @@ import json
 import requests
 import os
 import sys
+import psutil
 
 from dotenv import load_dotenv
 
@@ -23,7 +24,8 @@ conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-patch = res.text
+# patch = res.text
+patch = '7.37d'
 
 def actualRank(rank):
     if rank >= 80:
@@ -265,6 +267,11 @@ with open(file_path, 'r') as file:
 ranked_matches = []
 cur.execute("SELECT * from builds WHERE patch = %s", (patch,))
 builds = cur.fetchall()
+
+process = psutil.Process()
+mem_info = process.memory_info()
+print(f"Resident Set Size: {mem_info.rss / 1024 ** 2:.2f} MB")
+print(f"Virtual Memory Size: {mem_info.vms / 1024 ** 2:.2f} MB")
 
 x = 0
 for x in range(len(builds)):
