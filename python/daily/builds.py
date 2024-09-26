@@ -21,8 +21,8 @@ database_url = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-patch = response.text
+res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+patch = res.text
 
 def actualRank(rank):
     if rank >= 80:
@@ -256,6 +256,7 @@ with open(file_path, 'r') as file:
 ranked_matches = []
 cur.execute("SELECT * from builds WHERE patch = %s", (patch,))
 builds = cur.fetchall()
+
 x = 0
 for x in range(len(builds)):
     builds[x] = list(builds[x])
