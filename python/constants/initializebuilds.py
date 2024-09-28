@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import time
 import psycopg2
 import json
 import requests
@@ -10,34 +9,57 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Steam's Web API
-API_KEY_1 = os.environ.get('DOTA_API_KEY')
-API_KEY = API_KEY_1
-SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='    
+#Change the table name for each new patch
+table = 'p7_37c'
 
 # My Amazon Database
 database_url = os.environ.get('DATABASE_URL')
+builds_database_url = os.environ.get('BUILDS_DATABASE_URL')
 conn = psycopg2.connect(database_url)
-cur = conn.cursor() # Open a cursor to perform database operations
+cur = conn.cursor()
 
-response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-patch = response.text
+cur.execute("SELECT hero_id from heroes;")
+hero_ids = [row[0] for row in cur.fetchall()]
+conn.close()
+
+print("Got the hero ids")
+
+conn = psycopg2.connect(builds_database_url)
+cur = conn.cursor()
+
+cur.execute(f"""
+    CREATE TABLE {table} (
+        hero_id INT,
+        rank VARCHAR(50),
+        role VARCHAR(50),
+        facet VARCHAR(50),
+        total_matches INT DEFAULT 0,
+        total_wins INT DEFAULT 0,
+        abilities JSONB DEFAULT '[]',
+        talents JSONB DEFAULT '[]',
+        starting JSONB DEFAULT '[]',
+        early JSONB DEFAULT '[]',
+        core JSONB DEFAULT '[]'
+    )
+""")
+conn.commit()
+
+print("Created the table")
 
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
 Facets = [1, 2, 3]
-cur.execute("SELECT hero_id from heroes;")
-hero_ids = [row[0] for row in cur.fetchall()]
+
 print("Initialization Started")
 for hero_id in hero_ids:
     for rank in Ranks:
         for role in Roles:
             for facet in Facets:
-                cur.execute("""
-                    INSERT INTO builds (hero_id, patch, rank, role, facet, total_matches, total_wins, abilities, talents, starting, early, core) 
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """, (hero_id, patch, rank, role, facet, 0, 0, json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]), json.dumps([]))
+                cur.execute(f"""
+                    INSERT INTO {table} (hero_id, rank, role, facet) 
+                    VALUES (%s, %s, %s, %s)
+                """, (hero_id, rank, role, facet)
                 )
-                conn.commit() 
+                conn.commit()
 conn.close()
 print("Initialization Finished")

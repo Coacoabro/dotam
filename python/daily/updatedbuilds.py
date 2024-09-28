@@ -17,7 +17,7 @@ API_KEY = API_KEY_1
 SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='    
 
 # My Amazon Database
-database_url = os.environ.get('DATABASE_URL')
+database_url = os.environ.get('BUILDS_DATABASE_URL')
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
@@ -261,12 +261,6 @@ with open(file_path, 'r') as file:
     seq_num = data['seq_num']
 
 ranked_matches = []
-
-# cur.execute("SELECT * from builds WHERE patch = %s", (patch,))
-# builds = cur.fetchall()
-# x = 0
-# for x in range(len(builds)):
-#     builds[x] = list(builds[x])
 
 # process = psutil.Process()
 # mem_info = process.memory_info()
