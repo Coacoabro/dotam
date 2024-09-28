@@ -4,9 +4,12 @@ import { useRouter } from 'next/router';
 
 export default function Patches() {
 
-    const [isOpen, setIsOpen] = useState(false)
-    const [currPatch, setCurrPatch] = useState(json[0].Patch)
     const router = useRouter()
+    const { patch } = router.query
+
+    const [isOpen, setIsOpen] = useState(false)
+    const [currPatch, setCurrPatch] = useState(patch || json[0].Patch)
+    
 
     const handleClick = (patch) => {
         router.push({

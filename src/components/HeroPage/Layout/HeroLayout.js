@@ -10,8 +10,8 @@ import OptionsContainer from './OptionsContainer';
 import RatesContainer from './Rates/RatesContainer';
 import BottomBar from '../../BottomBar';
 
-const fetchHeroData = async (hero, type) => {
-  const response = await fetch(`/api/${hero}?type=${type}`);
+const fetchHeroData = async (hero, type, patch) => {
+  const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -23,9 +23,17 @@ export default function HeroLayout({ children, hero, current_patch }) {
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
 
+  const [currPatch, setCurrPatch] = useState(patch || current_patch)
+
+  useEffect(() => {
+    if(patch){
+      setCurrPatch(patch)
+    }
+  }, [patch])
+
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
-  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds'], () => fetchHeroData(hero.url, 'builds'), {staleTime: 3600000});
+  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates', currPatch], () => fetchHeroData(hero.url, 'rates', currPatch), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', currPatch], () => fetchHeroData(hero.url, 'builds', currPatch), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.url, 'matchups'], () => fetchHeroData(hero.url, 'matchups'), {staleTime: 3600000});
 
   if(infoLoading || ratesLoading){
@@ -89,7 +97,7 @@ export default function HeroLayout({ children, hero, current_patch }) {
           <StaticInfo hero={heroData} />
         </div>
 
-        {buildsLoading ? (<LoadingWheel />) : (
+        {!heroBuilds ? (<LoadingWheel />) : (
           <>
             <div className='flex space-x-3'>
               <RatesContainer rates={heroRates} initRole={initRole} current_patch={current_patch} />

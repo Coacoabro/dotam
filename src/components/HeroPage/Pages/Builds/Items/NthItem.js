@@ -4,13 +4,13 @@ import ItemCard from './ItemCard'
 export default function NthItem({order, items}){
 
     const [nthItems, setNthItems] = useState(() => {
-        const temp = items.sort((a, b) => b.Matches - a.Matches).slice(0, 3);
+        const temp = items ? items.sort((a, b) => b.Matches - a.Matches).slice(0, 3) : null
         return temp
     })
     
     useEffect(() => {
         setNthItems(()=>{
-            const temp = items.sort((a, b) => b.Matches - a.Matches).slice(0, 3);
+            const temp = items ? items.sort((a, b) => b.Matches - a.Matches).slice(0, 3) : null
             return temp
         })
     }, [items])
@@ -20,9 +20,9 @@ export default function NthItem({order, items}){
             <div className=' font-medium text-center py-1 text-lg'>{order}{order == 3 ? "RD" : "TH"}</div>
             <div className='w-full h-[1px] bg-slate-800' />
             <div className='bg-slate-800 py-3 space-y-2 px-2 rounded-b-lg items-center'>
-                {nthItems.map((item, index) => (
+                {nthItems ? nthItems.map((item, index) => (
                     <ItemCard item={item} index={index} />
-                ))}
+                )) : null}
             </div>
         </div>
     )

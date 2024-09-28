@@ -1,5 +1,6 @@
 import { Pool } from 'pg';
 import dota2heroes from '../../../json/dota2heroes.json'
+import Patches from '../../../json/Patches.json'
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -9,8 +10,13 @@ const pool = new Pool({
 });
 
 export default async function handler(req, res) {
-  const { hero } = req.query;
-  const { type } = req.query;
+  const { hero } = req.query
+  const { type } = req.query
+  const { patch } = req.query
+
+  const findPatch = Patches.find(p => p.Patch === patch)
+  const current_patch = findPatch ? findPatch.dName : null
+  const buildsquery = `SELECT * FROM ${current_patch} WHERE hero_id = $1`
 
   try {
     const heroData = dota2heroes.find(h => h.url === hero);
@@ -28,6 +34,8 @@ export default async function handler(req, res) {
         break;
       case 'builds':
         result = await client.query('SELECT * FROM builds WHERE hero_id = $1', [heroData.id]);
+        // change result to this:
+        // result = await client.query(buildsquery, [heroData.id])
         break;
       case 'rates':
         result = await client.query('SELECT * FROM rates WHERE hero_id = $1', [heroData.id]);

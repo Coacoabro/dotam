@@ -1,5 +1,5 @@
 [
-    {"Patch": "7.37c"},
-    {"Patch": "7.37b"},
-    {"Patch": "7.37"}
+    {"Patch": "7.37c", "dName": "p7_37c"},
+    {"Patch": "7.37b", "dName": "p7_37b"},
+    {"Patch": "7.37", "dName": "p7_37"}
 ]
