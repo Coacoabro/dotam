@@ -12,18 +12,27 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Steam's Web API
-API_KEY_1 = os.environ.get('DOTA_API_KEY')
-API_KEY = API_KEY_1
+API_KEY = os.environ.get('DOTA_API_KEY')
 SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='    
 
 # My Amazon Database
-database_url = os.environ.get('BUILDS_DATABASE_URL')
+database_url = os.environ.get('DATABASE_URL')
+builds_database_url = os.environ.get('BUILDS_DATABASE_URL')
+
+# Getting all hero ids
 conn = psycopg2.connect(database_url)
-cur = conn.cursor() # Open a cursor to perform database operations
+cur = conn.cursor()
+cur.execute("SELECT hero_id from heroes;")
+hero_ids = [row[0] for row in cur.fetchall()]
+conn.close()
+
+conn = psycopg2.connect(builds_database_url)
+cur = conn.cursor()
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
 # patch = '7.37d'
+table = 'p7_37c'
 
 def actualRank(rank):
     if rank >= 80:
@@ -41,7 +50,7 @@ def actualRank(rank):
     elif rank >= 20:
         return ["GUARDIAN", "LOW"]
     else:
-        return ["HERALD", "LOW"]                
+        return ["HERALD", "LOW"]
 
 def getBuilds(ranked_matches, builds):
 
@@ -153,7 +162,7 @@ def getBuilds(ranked_matches, builds):
                         if item['itemId'] not in itemBuild:
                             isSecondSword = False
                             if item['itemId'] in Swords:
-                                if itemBuild[-1] in Swords:
+                                if itemBuild and itemBuild[-1] in Swords:
                                     isSecondSword = True
                             if isSecondSword == False:
                                 if isSupport == True:
@@ -171,56 +180,65 @@ def getBuilds(ranked_matches, builds):
                         core = None
                         break
                     
+                    rankBuildFound = False # Specific Rank Build
+                    lmhBuildFound = False # Low Mid High Build
+                    allBuildFound = False # "" Build
                     for hero_build in builds:
-                        if hero_build[0] == hero_id and hero_build[1] == patch and (hero_build[2] == rank[0] or hero_build[2] == rank[1] or hero_build[2] == "") and hero_build[3] == role and hero_build[4] == facet:
+                        if hero_build[0] == hero_id and (hero_build[1] == rank[0] or hero_build[1] == rank[1] or hero_build[1] == "") and hero_build[2] == role and hero_build[3] == facet:
+                            if hero_build[1] == rank[0]:
+                                rankBuildFound = True
+                            if hero_build[1] == rank[1]:
+                                lmhBuildFound = True
+                            if hero_build[1] == "":
+                                allBuildFound = True
                             
-                            hero_build[5] += 1 # Matches increased
-                            hero_build[6] += win
+                            hero_build[4] += 1 # Matches increased
+                            hero_build[5] += win
 
                             abilitiesFound = False
-                            for abilityBuild in hero_build[7]:
+                            for abilityBuild in hero_build[6]:
                                 if abilityBuild['Abilities'] == abilities:
                                     abilityBuild['Wins'] += win
                                     abilityBuild['Matches'] += 1
                                     abilitiesFound = True
                                     break
                             if not abilitiesFound:
-                                hero_build[7].append({'Abilities': abilities, 'Wins': win, 'Matches': 1})
+                                hero_build[6].append({'Abilities': abilities, 'Wins': win, 'Matches': 1})
                             
                             for talent in talents:
                                 talentFound = False
-                                for talentBuild in hero_build[8]:
+                                for talentBuild in hero_build[7]:
                                     if talentBuild['Talent'] == talent:
                                         talentBuild['Wins'] += win
                                         talentBuild['Matches'] += 1
                                         talentFound = True
                                         break
                                 if not talentFound:
-                                    hero_build[8].append({'Talent': talent, 'Wins': win, 'Matches': 1})
+                                    hero_build[7].append({'Talent': talent, 'Wins': win, 'Matches': 1})
 
                             startingFound = False
-                            for startingBuild in hero_build[9]:
+                            for startingBuild in hero_build[8]:
                                 if sorted(startingBuild['Starting']) == sorted(startingItems):
                                     startingBuild['Wins'] += win
                                     startingBuild['Matches'] += 1
                                     startingFound = True
                                     break
                             if not startingFound:
-                                hero_build[9].append({'Starting': startingItems, 'Wins': win, 'Matches': 1})
+                                hero_build[8].append({'Starting': startingItems, 'Wins': win, 'Matches': 1})
 
                             for earlyGameItem in earlyItems:
                                 earlyFound = False
-                                for earlyItem in hero_build[10]:
+                                for earlyItem in hero_build[9]:
                                     if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
                                         earlyItem['Matches'] += 1
                                         earlyItem['Wins'] += win
                                         earlyFound = True
                                         break
                                 if not earlyFound:
-                                    hero_build[10].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
+                                    hero_build[9].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
 
                             buildFound = False
-                            for build in hero_build[11]:
+                            for build in hero_build[10]:
                                 if build['Core'] == core:
                                     build['Wins'] += win
                                     build['Matches'] += 1
@@ -250,8 +268,46 @@ def getBuilds(ranked_matches, builds):
                                     else:
                                         lateGameItems[str(m)] = []
                                     m += 1
-                                hero_build[11].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+                                hero_build[10].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+                            
+                            break
+                    if not (rankBuildFound and lmhBuildFound and allBuildFound):
+                        finalTalents = []
+                        for finalTalent in talents:
+                            finalTalents.append({'Talent': finalTalent, 'Wins': win, 'Matches': 1})
+                        finalEarlyItems = []
+                        for tempEarlyItem in earlyItems:
+                            finalEarlyItems.append({'Item': tempEarlyItem['Item'], 'isSecondPurchase': tempEarlyItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
+                        finalCoreItems = []
+                        lateGameItems = {}
+                        m = 3 if isSupport else 4
+                        for _ in range(7):
+                            if itemBuild:
+                                gameItem = itemBuild.pop(0)
+                                lateGameItems[str(m)] = [{'Item': gameItem, 'Wins': win, 'Matches': 1}]
+                            else:
+                                lateGameItems[str(m)] = []
+                            m += 1
+                        finalCoreItems.append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
 
+                        if not rankBuildFound:
+                            tempBuild = [hero_id, rank[0], role, facet, 1, win, 
+                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
+                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
+                                        finalCoreItems]
+                            builds.append(tempBuild)
+                        if not lmhBuildFound:
+                            tempBuild = [hero_id, rank[1], role, facet, 1, win, 
+                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
+                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
+                                        finalCoreItems]
+                            builds.append(tempBuild)
+                        if not allBuildFound:
+                            tempBuild = [hero_id, "", role, facet, 1, win, 
+                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
+                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
+                                        finalCoreItems]
+                            builds.append(tempBuild)
     return builds
 
 file_path = './python/daily/seq_num.json'
@@ -272,89 +328,197 @@ builds = []
 
 while True:
 
-    try:
+    DOTA_2_URL = SEQ_URL + str(seq_num)
 
-        DOTA_2_URL = SEQ_URL + str(seq_num)
+    response = requests.get(DOTA_2_URL, timeout=600)
 
-        response = requests.get(DOTA_2_URL, timeout=600)
+    if response.status_code == 200:
+        matches = response.json()['result']['matches']
+        for match in matches:
+            seq_num = match['match_seq_num']
+            if match['lobby_type'] == 7 and match['game_mode'] == 22:
+                ranked_match = {}
+                radiantWon = match['radiant_win']
+                ranked_match['match_id'] = match['match_id']
+                players = match['players']
+                i = 0
+                playersInfo = []
+                for player in players:
+                    won = 0
+                    if i < 5 and radiantWon:
+                        won = 1
+                    elif i > 4 and not radiantWon:
+                        won = 1
+                    i += 1
+                    heroObj = {}
+                    heroObj['id'] = player['hero_id']
+                    heroObj['facet'] = player['hero_variant']
+                    heroObj['won'] = won
+                    playersInfo.append(heroObj)
+                ranked_match['players'] = playersInfo
+                ranked_matches.append(ranked_match)
+                if len(ranked_matches) == 25:
+                    hourlyDump += 1
+                    print(hourlyDump)
+                    builds = getBuilds(ranked_matches, builds)
+                    ranked_matches = []
+    else:
+        seq_num += 1
 
-        if response.status_code == 200:
-            matches = response.json()['result']['matches']
-            for match in matches:
-                seq_num = match['match_seq_num']
-                if match['lobby_type'] == 7 and match['game_mode'] == 22:
-                    ranked_match = {}
-                    radiantWon = match['radiant_win']
-                    ranked_match['match_id'] = match['match_id']
-                    players = match['players']
-                    i = 0
-                    playersInfo = []
-                    for player in players:
-                        won = 0
-                        if i < 5 and radiantWon:
-                            won = 1
-                        elif i > 4 and not radiantWon:
-                            won = 1
-                        i += 1
-                        heroObj = {}
-                        heroObj['id'] = player['hero_id']
-                        heroObj['facet'] = player['hero_variant']
-                        heroObj['won'] = won
-                        playersInfo.append(heroObj)
-                    ranked_match['players'] = playersInfo
-                    ranked_matches.append(ranked_match)
-                    if len(ranked_matches) == 25:
-                        hourlyDump += 1
-                        print(hourlyDump)
-                        builds = getBuilds(ranked_matches, builds)
-                        ranked_matches = []
-        else:
-            seq_num += 1
+    # Merging two arrays together one hero at a time. Hopefully reducing the size of the memory
 
-        if hourlyDump >= 800:
-            print("Dumping stuff. Last sequence num is ", seq_num)
-            for build in builds:
-                cur.execute("""
-                    UPDATE builds
-                    SET total_matches = %s,
-                        total_wins = %s,
-                        abilities = %s,
-                        talents = %s,
-                        starting = %s,
-                        early = %s,
-                        core = %s
-                    WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
-                    """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
-                    )
-                conn.commit() 
-            print("Done. Last sequence num: ", seq_num)
-            with open(file_path, 'w') as file:
-                json.dump({"seq_num": seq_num}, file)
-            dump = False
-            conn.close()
-            break
-    
-    except Exception as e:
-        print("Error is: ", e)
+    if hourlyDump >= 800:
         print("Dumping stuff. Last sequence num is ", seq_num)
+        
         for build in builds:
-            cur.execute("""
-                UPDATE builds
-                SET total_matches = %s,
-                    total_wins = %s,
-                    abilities = %s,
-                    talents = %s,
-                    starting = %s,
-                    early = %s,
-                    core = %s
-                WHERE hero_id = %s AND patch = %s AND rank = %s AND role = %s  AND facet = %s      
-                """, (build[5], build[6], json.dumps(build[7]), json.dumps(build[8]), json.dumps(build[9]), json.dumps(build[10]), json.dumps(build[11]), json.dumps(build[12]), json.dumps(build[13]), json.dumps(build[14]), json.dumps(build[15]), json.dumps(build[16]), json.dumps(build[17]), json.dumps(build[18]), json.dumps(build[19]), json.dumps(build[20]), json.dumps(build[21]), json.dumps(build[22]), build[0], build[1], build[2], build[3], build[4])
-                )
-            conn.commit() 
+            hero_id = build[0]
+            rank = build[1]
+            role = build[2]
+            facet = build[3]
+            total_matches = build[4]
+            total_wins = build[5]
+            abilities = json.dumps(build[6])
+            talents = json.dumps(build[7])
+            starting_items = json.dumps(build[8])
+            early_items = json.dumps(build[9])
+            core_items = json.dumps(build[10])
+
+            # SQL Query
+            sql = """
+            WITH existing_build AS (
+                SELECT abilities, talents, starting, early, core
+                FROM {table}
+                WHERE hero_id = %s AND rank = %s AND role = %s AND facet = %s
+            ),
+            updated_abilities AS (
+                SELECT CASE
+                    WHEN abilities IS NOT NULL THEN (
+                        SELECT jsonb_agg(
+                            CASE
+                                WHEN ability_obj->>'Abilities' = %s THEN
+                                    jsonb_set(
+                                        ability_obj, 
+                                        '{Matches}', ((ability_obj->>'Matches')::int + %s)::text::jsonb,
+                                        '{Wins}', ((ability_obj->>'Wins')::int + %s)::text::jsonb
+                                    )
+                                ELSE ability_obj
+                            END
+                        )
+                        FROM jsonb_each(abilities) AS ability_obj
+                    )
+                    ELSE
+                        jsonb_build_array(jsonb_build_object('Abilities', %s, 'Matches', %s, 'Wins', %s))
+                END AS new_abilities
+            ),
+            updated_talents AS (
+                SELECT CASE
+                    WHEN talents @> %s THEN
+                        jsonb_set(talents, '{Talents}', 
+                            jsonb_agg(
+                                jsonb_build_object(
+                                    'Talent', coalesce(talents->'Talent', '[]'::jsonb), 
+                                    'Matches', (coalesce(talents->'Matches', '0')::int + %s),
+                                    'Wins', (coalesce(talents->'Wins', '0')::int + %s)
+                                )
+                            )
+                        )
+                    ELSE
+                        jsonb_insert(
+                            talents, '{Talents}', 
+                            jsonb_build_object('Talent', %s, 'Matches', 1, 'Wins', %s)
+                        )
+                    END AS new_talents
+                FROM existing_build
+            ),
+            updated_starting AS (
+                SELECT CASE
+                    WHEN starting @> %s THEN
+                        jsonb_set(starting, '{Starting}', 
+                            jsonb_agg(
+                                jsonb_build_object(
+                                    'Starting', coalesce(starting->'Starting', '[]'::jsonb), 
+                                    'Matches', (coalesce(starting->'Matches', '0')::int + %s),
+                                    'Wins', (coalesce(starting->'Wins', '0')::int + %s)
+                                )
+                            )
+                        )
+                    ELSE
+                        jsonb_insert(
+                            starting, '{Starting}', 
+                            jsonb_build_object('Starting', %s, 'Matches', 1, 'Wins', %s)
+                        )
+                    END AS new_starting
+                FROM existing_build
+            ),
+            updated_early AS (
+                SELECT CASE
+                    WHEN early @> %s THEN
+                        jsonb_set(early, '{Early}', 
+                            jsonb_agg(
+                                jsonb_build_object(
+                                    'Item', coalesce(early->'Item', '[]'::jsonb), 
+                                    'Matches', (coalesce(early->'Matches', '0')::int + %s),
+                                    'Wins', (coalesce(early->'Wins', '0')::int + %s)
+                                )
+                            )
+                        )
+                    ELSE
+                        jsonb_insert(
+                            early, '{Early}', 
+                            jsonb_build_object('Item', %s, 'Matches', 1, 'Wins', %s)
+                        )
+                    END AS new_early
+                FROM existing_build
+            ),
+            updated_core AS (
+                SELECT CASE
+                    WHEN core @> %s THEN
+                        jsonb_set(core, '{Core}', 
+                            jsonb_agg(
+                                jsonb_build_object(
+                                    'Core', coalesce(core->'Core', '[]'::jsonb), 
+                                    'Matches', (coalesce(core->'Matches', '0')::int + %s),
+                                    'Wins', (coalesce(core->'Wins', '0')::int + %s)
+                                )
+                            )
+                        )
+                    ELSE
+                        jsonb_insert(
+                            core, '{Core}', 
+                            jsonb_build_object('Core', %s, 'Matches', 1, 'Wins', %s)
+                        )
+                    END AS new_core
+                FROM existing_build
+            )
+            UPDATE {table}
+            SET abilities = updated_abilities.new_abilities,
+                talents = updated_talents.new_talents,
+                starting = updated_starting.new_starting,
+                early = updated_early.new_early,
+                core = updated_core.new_core,
+                total_matches = total_matches + %s,   -- Increment total_matches
+                total_wins = total_wins + %s           -- Increment total_wins
+            FROM updated_abilities, updated_talents, updated_starting, updated_early, updated_core
+            WHERE hero_id = %s AND rank = %s AND role = %s AND facet = %s;
+            """
+
+            # Execute the SQL query
+            cur.execute(sql, (
+                hero_id, rank, role, facet,           # For checking existing build
+                abilities, total_matches, total_wins, abilities, total_wins,  # Abilities data
+                talents, total_matches, total_wins, talents, total_wins,      # Talents data
+                starting_items, total_matches, total_wins, starting_items, total_wins, # Starting items
+                early_items, total_matches, total_wins, early_items, total_wins,       # Early items
+                core_items, total_matches, total_wins, core_items, total_wins,         # Core items
+                total_matches, total_wins,           # Increment total_matches and total_wins
+                hero_id, rank, role, facet           # Final WHERE clause
+            ))
+
+            conn.commit()
+        
         print("Done. Last sequence num: ", seq_num)
         with open(file_path, 'w') as file:
             json.dump({"seq_num": seq_num}, file)
         dump = False
         conn.close()
         break
-        
