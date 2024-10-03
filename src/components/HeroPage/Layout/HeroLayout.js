@@ -10,6 +10,8 @@ import OptionsContainer from './OptionsContainer';
 import RatesContainer from './Rates/RatesContainer';
 import BottomBar from '../../BottomBar';
 
+import Patches from '../../../../json/Patches.json'
+
 const fetchHeroData = async (hero, type, patch) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}`);
   if (!response.ok) {
@@ -24,16 +26,20 @@ export default function HeroLayout({ children, hero, current_patch }) {
   const {rank, role, patch, facet} = router.query
 
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
+  const [dataPatch, setDataPatch] = useState(Patches.find(obj => obj.Patch === currPatch).dName)
+
+  // DO THE PATCH CONVERSION (p7_37d)
 
   useEffect(() => {
     if(patch){
+      setDataPatch(Patches.find(obj => obj.Patch === patch).dName)
       setCurrPatch(patch)
     }
   }, [patch])
 
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
-  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates', currPatch], () => fetchHeroData(hero.url, 'rates', currPatch), {staleTime: 3600000});
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', currPatch], () => fetchHeroData(hero.url, 'builds', currPatch), {staleTime: 3600000});
+  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates', dataPatch], () => fetchHeroData(hero.url, 'rates', dataPatch), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', dataPatch], () => fetchHeroData(hero.url, 'builds', dataPatch), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.url, 'matchups'], () => fetchHeroData(hero.url, 'matchups'), {staleTime: 3600000});
 
   if(infoLoading || ratesLoading){
