@@ -316,13 +316,13 @@ def getBuilds(ranked_matches, builds):
                                         builds.append(tempBuild)
     return builds
 
-file_path = './home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-with open('./home/ec2-user/dotam/python/daily/facet_nums.json', 'r') as file:
+with open('/home/ec2-user/dotam/python/daily/facet_nums.json', 'r') as file:
     facet_nums = json.load(file)
 
 ranked_matches = []
@@ -371,12 +371,12 @@ while True:
 
     if hourlyDump >= 400:
 
-        BATCH_SIZE = 10000
+        BATCH_SIZE = 5000
 
-        process = psutil.Process()
-        mem_info = process.memory_info()
-        print(f"Resident Set Size: {mem_info.rss / 1024 ** 2:.2f} MB")
-        print(f"Virtual Memory Size: {mem_info.vms / 1024 ** 2:.2f} MB")
+        # process = psutil.Process()
+        # mem_info = process.memory_info()
+        # print(f"Resident Set Size: {mem_info.rss / 1024 ** 2:.2f} MB")
+        # print(f"Virtual Memory Size: {mem_info.vms / 1024 ** 2:.2f} MB")
 
         print("Dumping stuff. Last sequence num is ", seq_num)
 
