@@ -10,7 +10,7 @@ for hero in hero_ids:
         buildFound = False
         for heroBuild in heroBuilds:
             if int(heroBuild[0]) == int(build[0]) and heroBuild[1] == build[1] and heroBuild[2] == build[2] and int(heroBuild[3]) == int(build[3]):
-
+                print("Found one")
                 # Total Matches
                 heroBuild[4] += build[4]
                 
