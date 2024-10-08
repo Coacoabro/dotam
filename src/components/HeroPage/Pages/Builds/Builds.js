@@ -48,6 +48,8 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
 
     }, [role, rank, patch, facet, heroBuilds])
 
+    console.log(currBuild)
+
     return(
         <div className='space-y-4 flex-col justify-center'>
             {currBuild ?
