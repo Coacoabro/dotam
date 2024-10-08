@@ -63,7 +63,7 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
             }
             {currBuild ?
                 <div className='flex w-full gap-2'>
-                    <ItemsContainer build={currBuild} hero={hero} />
+                    <ItemsContainer build={currBuild.items} hero={hero} role={currBuild.role} />
                 </div>
                 :
                 <div>Not enough Item data</div>

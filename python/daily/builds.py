@@ -10,6 +10,9 @@ import psutil
 from dotenv import load_dotenv
 from collections import Counter
 
+# UPDATES
+# Starting Items - Forgot to make sure they are sorted when comparing them
+
 
 load_dotenv()
 
@@ -234,7 +237,7 @@ def getBuilds(ranked_matches, builds):
                                                 startingFound = True
                                                 break
                                         if not startingFound:
-                                            hero_build[8].append({'Starting': startingItems, 'Wins': win, 'Matches': 1})
+                                            hero_build[8].append({'Starting': sorted(startingItems), 'Wins': win, 'Matches': 1})
 
                                         for earlyGameItem in earlyItems:
                                             earlyFound = False
@@ -316,13 +319,17 @@ def getBuilds(ranked_matches, builds):
                                         builds.append(tempBuild)
     return builds
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-with open('/home/ec2-user/dotam/python/daily/facet_nums.json', 'r') as file:
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
+
+with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
 
 ranked_matches = []
@@ -369,16 +376,23 @@ while True:
     else:
         seq_num += 1
 
-    if hourlyDump >= 400:
+    if hourlyDump >= 50:
 
-        BATCH_SIZE = 5000
+        testBuilds = sorted(builds, key=lambda build: build[4], reverse=True)
+        testBuild = testBuilds[0]
+        print("Total matches: ", testBuild[4])
+        print("Total wins: ", testBuild[5])
+        print("Talents: ", testBuild[7])
+        break
+
+        BATCH_SIZE = 15000
 
         # process = psutil.Process()
         # mem_info = process.memory_info()
         # print(f"Resident Set Size: {mem_info.rss / 1024 ** 2:.2f} MB")
         # print(f"Virtual Memory Size: {mem_info.vms / 1024 ** 2:.2f} MB")
 
-        print("Dumping stuff. Last sequence num is ", seq_num)
+        print("Dumping builds")
 
         total_data = []
         abilities_data = []
@@ -413,6 +427,8 @@ while True:
 
         build_ids = cur.fetchall()
 
+        print("Obtained all build ids")
+
         # print(len(build_ids), len(unique_identifiers))
 
         for build in builds:
@@ -441,7 +457,7 @@ while True:
                 for talent in talents
             ])
             starting_items_data.extend([
-                (build_id, start['Starting'], start['Wins'], start['Matches']) 
+                (build_id, sorted(start['Starting']), start['Wins'], start['Matches']) 
                 for start in starting_items
             ])
             early_items_data.extend([
@@ -552,7 +568,9 @@ while True:
                 late_items_data = []
 
         # IF WE HAVE LEFT OVER DATA
+        print("Finished looping through builds, dumping rest")
         if total_data:
+            print("Left over total")
             placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
             query = f"""
                 INSERT INTO main (build_id, total_matches, total_wins)
@@ -563,9 +581,11 @@ while True:
             params = [item for sublist in total_data for item in sublist]
             cur.execute(query, params)
             total_data = []
+            print("Total Data Complete")
 
         # Abilities
         if abilities_data:
+            print("Left over abilities")
             placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
             query = f"""
                 INSERT INTO abilities (build_id, abilities, wins, matches)
@@ -576,9 +596,11 @@ while True:
             params = [item for sublist in abilities_data for item in sublist]
             cur.execute(query, params)
             abilities_data = []
+            print("Abilities Data Complete")
 
         # Talents
         if talents_data:
+            print("Left over talents")
             placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
             query = f"""
                 INSERT INTO talents (build_id, talent, wins, matches)
@@ -589,9 +611,11 @@ while True:
             params = [item for sublist in talents_data for item in sublist]
             cur.execute(query, params)
             talents_data = []
+            print("Talent Data Complete")
         
         # Starting 
         if starting_items_data:
+            print("Left over starting")
             placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
             query = f"""
                 INSERT INTO starting (build_id, starting, wins, matches)
@@ -602,9 +626,11 @@ while True:
             params = [item for sublist in starting_items_data for item in sublist]
             cur.execute(query, params)
             starting_items_data = []
+            print("Starting Data Complete")
 
         # Early 
         if early_items_data:
+            print("Left over early")
             placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
             query = f"""
                 INSERT INTO early (build_id, item, secondpurchase, wins, matches)
@@ -615,9 +641,11 @@ while True:
             params = [item for sublist in early_items_data for item in sublist]
             cur.execute(query, params)
             early_items_data = []
+            print("Early Data Complete")
         
         # Core
         if core_items_data:
+            print("Left over core")
             core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
             core_query = f"""
                 INSERT INTO core (build_id, core, wins, matches)
@@ -627,8 +655,12 @@ while True:
             """
             core_params = [item for sublist in core_items_data for item in sublist]
             cur.execute(core_query, core_params)
-            core_items_data = [] 
+            core_items_data = []
+            print("Core Data Complete") 
 
+        # Late    
+        if late_items_data:
+            print("Left over late")
             late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
             late_query = f"""
                 INSERT INTO late (build_id, core_items, nth, item, wins, matches)
@@ -639,6 +671,7 @@ while True:
             late_params = [item for sublist in late_items_data for item in sublist]
             cur.execute(late_query, late_params)
             late_items_data = []
+            print("Late Data Complete")
         
         print("Done. Last sequence num: ", seq_num)
         with open(file_path, 'w') as file:

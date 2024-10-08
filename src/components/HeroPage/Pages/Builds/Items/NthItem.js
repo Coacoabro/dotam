@@ -3,16 +3,10 @@ import ItemCard from './ItemCard'
 
 export default function NthItem({order, items}){
 
-    const [nthItems, setNthItems] = useState(() => {
-        const temp = items ? items.sort((a, b) => b.Matches - a.Matches).slice(0, 3) : null
-        return temp
-    })
+    const [nthItems, setNthItems] = useState(items.slice(0, 3))
     
     useEffect(() => {
-        setNthItems(()=>{
-            const temp = items ? items.sort((a, b) => b.Matches - a.Matches).slice(0, 3) : null
-            return temp
-        })
+        setNthItems(items.slice(0, 3))
     }, [items])
 
     return(

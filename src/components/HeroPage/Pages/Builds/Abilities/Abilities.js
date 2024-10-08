@@ -5,33 +5,13 @@ export default function Abilities({hero, abilities}) {
 
     if(abilities){
 
-        const [currAbilities, setCurrAbilities] = useState(() => {
-            let build = null
-                let max = 0
-                abilities.forEach((obj) => {
-                    if(obj.Matches > max){
-                        max = obj.Matches
-                        build = {'Abilities': obj.Abilities, 'Matches': obj.Matches.toLocaleString(), 'WR': ((obj.Wins/obj.Matches)*100).toFixed(1)}
-                    }
-                })
-                return build
-        })
+        const [currAbilities, setCurrAbilities] = useState(abilities[0])
+        const [wr, setWR] = useState(((currAbilities.wins/currAbilities.matches)*100).toFixed(2))
 
         useEffect(() => {
-            setCurrAbilities(() => {
-                let build = null
-                let max = 0
-                abilities.forEach((obj) => {
-                    if(obj.Matches > max){
-                        max = obj.Matches
-                        build = {'Abilities': obj.Abilities, 'Matches': obj.Matches.toLocaleString(), 'WR': ((obj.Wins/obj.Matches)*100).toFixed(1)}
-                    }
-                })
-                return build
-            })
+            setCurrAbilities(abilities[0])
+            setWR(((currAbilities.wins/currAbilities.matches)*100).toFixed(2))
         }, [abilities])
-
-
 
         return(
             <div className='space-y-2 sm:space-y-5'>
@@ -42,13 +22,13 @@ export default function Abilities({hero, abilities}) {
                     </div>
                     {currAbilities ? 
                         <div className='flex items-center text-base sm:text-lg'>
-                            <h1 className=" font-bold">{currAbilities.WR}</h1>
+                            <h1 className=" font-bold">{wr}</h1>
                             <h2 className="font-medium">% WR</h2>
-                            <h3 className="px-2 text-xs sm:text-base text-cyan-300">({currAbilities.Matches} Matches)</h3>
+                            <h3 className="px-2 text-xs sm:text-base text-cyan-300">({currAbilities.matches} Matches)</h3>
                         </div>
                     : null }
                 </div>
-                {currAbilities ? <AbilityPath hero={hero} abilities={currAbilities.Abilities} /> : null }
+                {currAbilities ? <AbilityPath hero={hero} abilities={currAbilities.abilities} /> : null }
             </div>
         )
     }

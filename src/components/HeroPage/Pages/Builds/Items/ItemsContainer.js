@@ -9,19 +9,23 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 
-export default function ItemsContainer({build, hero}) {
+export default function ItemsContainer({build, hero, role}) {
 
-    const [isCarry, setIsCarry] = useState(true)
+    const [isCarry, setIsCarry] = useState(role == "POSITION_4" || role == "POSITION_5" ? false : true)
+    const [lateItems, setLateItems] = useState(build.core[0].late)
+
+    const handleLate = (data) => {
+        setLateItems(data)
+    }
 
     useEffect(() => {
-        if (build.role == "POSITION_4" || build.role == "POSITION_5") {
+        if (role == "POSITION_4" || role == "POSITION_5") {
             setIsCarry(false)
         }
         else {
             setIsCarry(true)
         }
-    }, [build])
-    
+    }, [build, role])    
 
     return(
         <div className='w-full space-y-4 sm:space-y-2'>
@@ -39,7 +43,7 @@ export default function ItemsContainer({build, hero}) {
                     <Early items={build.early} />
                 </div>
                 <div className={`hidden sm:w-2/5 lg:block`}>
-                    <Core items={build.core} matches={build.total_matches} isCarry={isCarry} />
+                    <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} />
                 </div>
             </div>
             <div className='sm:w-1/3 lg:hidden px-10 sm:px-0'>
@@ -49,7 +53,7 @@ export default function ItemsContainer({build, hero}) {
                 <Core items={build.core} matches={build.total_matches} isCarry={isCarry} />
             </div>
             <div className='w-full sm:w-3/4 sm:mx-auto lg:w-full '>
-                <Late items={build} isCarry={isCarry} />
+                <Late items={lateItems} isCarry={isCarry} />
             </div>
         </div>
     )

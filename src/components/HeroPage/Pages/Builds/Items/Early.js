@@ -3,16 +3,10 @@ import ItemCard from './ItemCard'
 
 export default function Early({items}) {
 
-    const [early, setEarly] = useState(() => {
-        const temp = items.sort((a, b) => b.Matches - a.Matches).slice(0, 6);
-        return temp
-    })
+    const [early, setEarly] = useState(items.slice(0, 6))
     
     useEffect(() => {
-        setEarly(()=>{
-            const temp = items.sort((a, b) => b.Matches - a.Matches).slice(0, 6);
-            return temp
-        })
+        setEarly(items.slice(0, 6))
     }, [items])
 
     return(

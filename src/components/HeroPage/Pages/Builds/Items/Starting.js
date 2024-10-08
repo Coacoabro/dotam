@@ -3,30 +3,10 @@ import Item from '../../../Item'
 
 export default function Starting({items}) {
 
-    const [starting, setStarting] = useState(() => {
-        let max = 0
-        let temp = null
-        items.forEach((obj) => {
-            if(obj.Matches > max){
-                max = obj.Matches
-                temp = obj.Starting
-            }
-        })
-        return temp
-    })
+    const [starting, setStarting] = useState(items[0].starting.length > 0 ? items[0].starting : items[1].starting)
     
     useEffect(() => {
-        setStarting(() => {
-            let max = 0
-            let temp = null
-            items.forEach((obj) => {
-                if(obj.Matches > max){
-                    max = obj.Matches
-                    temp = obj.Starting
-                }
-            })
-            return temp
-        })
+        setStarting(items[0].starting.length > 0 ? items[0].starting : items[1].starting)
     }, [items])
 
     return(

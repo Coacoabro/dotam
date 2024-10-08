@@ -11,13 +11,15 @@ export default function Talents({hero, talents}) {
     if(talents){
 
         talents.forEach((talent) => {
-            const tempTalent = abilityIds[talent.Talent]
+            const tempTalent = abilityIds[talent.talent]
             if(tempTalent) {
                 if(Abilities[tempTalent].dname){
-                    talent.Talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                    talent.talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
                 }
             }
         })
+
+        console.log(talents)
 
         const talentOrder = heroAbilities[heroName].talents
 
@@ -32,8 +34,8 @@ export default function Talents({hero, talents}) {
         const prArray = Array(4)
 
         for (let i=3; i>-1; i--) {
-            let leftTalent = talents.find((obj) => obj.Talent == leftTalents[i])
-            let rightTalent = talents.find((obj) => obj.Talent == rightTalents[i])
+            let leftTalent = talents.find((obj) => obj.talent == leftTalents[i])
+            let rightTalent = talents.find((obj) => obj.talent == rightTalents[i])
             if(leftTalent && rightTalent) {
                 if (leftTalent.Matches > rightTalent.Matches) {
                     bestTalents[i] = leftTalents[i];

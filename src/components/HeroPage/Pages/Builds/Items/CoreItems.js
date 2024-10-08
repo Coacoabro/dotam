@@ -1,12 +1,11 @@
 import Item from '../../../Item'
 
-export default function CoreItems({core, matches, isCarry}) {
+export default function CoreItems({core, isCarry}) {
 
     if(core){
-        const items = core.Core
-        const pr = ((core.Matches/matches)*100).toFixed(1)
-        const wr = ((core.Wins/core.Matches)*100).toFixed(1)
-        const dispMatches = core.Matches.toLocaleString()
+        const items = core.core
+        const wr = ((core.wins/core.matches)*100).toFixed(1)
+        const dispMatches = core.matches.toLocaleString()
     
         if(isCarry){
             return(

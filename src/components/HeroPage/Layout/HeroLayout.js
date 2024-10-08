@@ -26,20 +26,18 @@ export default function HeroLayout({ children, hero, current_patch }) {
   const {rank, role, patch, facet} = router.query
 
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
-  const [dataPatch, setDataPatch] = useState(Patches.find(obj => obj.Patch === currPatch).dName)
-
-  // DO THE PATCH CONVERSION (p7_37d)
 
   useEffect(() => {
     if(patch){
-      setDataPatch(Patches.find(obj => obj.Patch === patch).dName)
       setCurrPatch(patch)
     }
   }, [patch])
 
+
+
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
-  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates', dataPatch], () => fetchHeroData(hero.url, 'rates', dataPatch), {staleTime: 3600000});
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', dataPatch], () => fetchHeroData(hero.url, 'builds', dataPatch), {staleTime: 3600000});
+  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', currPatch], () => fetchHeroData(hero.url, 'builds', currPatch), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.url, 'matchups'], () => fetchHeroData(hero.url, 'matchups'), {staleTime: 3600000});
 
   if(infoLoading || ratesLoading){
@@ -103,14 +101,16 @@ export default function HeroLayout({ children, hero, current_patch }) {
           <StaticInfo hero={heroData} />
         </div>
 
-        {!heroBuilds ? (<LoadingWheel />) : (
+        <div className='flex space-x-3'>
+          <RatesContainer rates={heroRates} initRole={initRole} current_patch={current_patch} />
+          <div className='w-64 hidden sm:block'>
+            Highest win rate for {heroName}. Builds and more info
+          </div>
+        </div>
+
+        {buildsLoading ? (<LoadingWheel />) : (
           <>
-            <div className='flex space-x-3'>
-              <RatesContainer rates={heroRates} initRole={initRole} current_patch={current_patch} />
-              <div className='w-64 hidden sm:block'>
-                Highest win rate for {heroName}. Builds and more info
-              </div>
-            </div>
+            
 
             <div className='py-3 z-0'>
               <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} current_patch={current_patch} />

@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react'
 import CoreItems from './CoreItems'
 
-export default function Core({items, matches, isCarry}) {
+export default function Core({items, isCarry, sendLate}) {
 
-    const [cores, setCores] = useState(() => {
-        const temp = items.sort((a, b) => b.Matches - a.Matches).slice(0, 3);
-        return temp
-    })
-
+    const [cores, setCores] = useState(items.slice(0, 3))
     const [selectedCore, setSelectedCore] = useState(1)
+
+    const handleClick = (select) => {
+        setSelectedCore(select)
+        sendLate(cores[select].late)
+    }
     
     useEffect(() => {
-        setCores(()=>{
-            const temp = items.sort((a, b) => b.Matches - a.Matches).slice(0, 3);
-            return temp
-        })
+        setCores(items.slice(0, 3))
     }, [items])
 
     return(
@@ -26,23 +24,23 @@ export default function Core({items, matches, isCarry}) {
             <div className='p-3 rounded-b-lg'>
 
                 <button 
-                    className={`rounded-t-lg ${selectedCore == 1 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
-                    onClick={()=>setSelectedCore(1)}
+                    className={`rounded-t-lg ${selectedCore == 0 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
+                    onClick={()=>handleClick(0)}
                 >
-                    <CoreItems core={cores[0]} matches={matches} isCarry={isCarry} />
+                    <CoreItems core={cores[0]} isCarry={isCarry} />
                 </button>
 
                 <button 
-                    className={`${selectedCore == 2 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
-                    onClick={()=>setSelectedCore(2)}
+                    className={`${selectedCore == 1 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
+                    onClick={()=>handleClick(1)}
                 >
-                    <CoreItems core={cores[1]} matches={matches} isCarry={isCarry} />
+                    <CoreItems core={cores[1]} isCarry={isCarry} />
                 </button>
                 <button 
-                    className={`rounded-b-lg ${selectedCore == 3 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
-                    onClick={()=>setSelectedCore(3)}
+                    className={`rounded-b-lg ${selectedCore == 2 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
+                    onClick={()=>handleClick(2)}
                 >
-                    <CoreItems core={cores[2]} matches={matches} isCarry={isCarry} />
+                    <CoreItems core={cores[2]} isCarry={isCarry} />
                 </button>
             </div>
         </div>
