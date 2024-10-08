@@ -126,6 +126,7 @@ def getBuilds(ranked_matches, builds):
                     win = ranked_match['players'][n]['won']
 
                     if facet in facet_nums[str(hero_id)]:
+                        facet = facet_nums[str(hero_id)].index(facet) + 1
                         abilityEvents = player['abilities']
                         abilities = []
                         talents = []

@@ -79,7 +79,7 @@ export default async function handler(req, res) {
             items: {
               starting: startingItems.rows,
               early: earlyItems.rows,
-              core: coreFinal,
+              core: coreItems,
             }
           };
         }));
@@ -87,7 +87,9 @@ export default async function handler(req, res) {
         result = { builds: buildData };
         break;
       case 'rates':
-        result = await rates_client.query('SELECT * FROM rates WHERE hero_id = $1', [heroData.id]);
+        const rateData = await rates_client.query('SELECT * FROM rates WHERE hero_id = $1', [heroData.id]);
+        const mainData = await builds_client.query('SELECT * FROM main WHERE hero_id = $1', [heroData.id])
+        result = { rates: rateData.rows, main: mainData.rows }
         break;
       case 'matchups':
         result = await rates_client.query('SELECT * FROM matchups WHERE hero_id = $1', [heroData.id]);
@@ -99,6 +101,7 @@ export default async function handler(req, res) {
     builds_client.release()
     rates_client.release();
     if(type == 'builds'){res.status(200).json(result.builds)}
+    else if (type == 'rates'){res.status(200).json(result)}
     else{res.status(200).json(result.rows)}
   } catch (error) {
     console.error(error);
