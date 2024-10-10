@@ -34,68 +34,141 @@ export default async function handler(req, res) {
 
     switch (type) {
       case 'info':
-        result = await rates_client.query('SELECT * FROM heroes WHERE hero_id = $1', [heroData.id]);
+        result = await rates_client.query('SELECT * FROM heroes WHERE hero_id = $1', [heroData.id])
         break;
       case 'builds':
-        const main = await builds_client.query(`SELECT * FROM main WHERE hero_id = $1 AND patch = $2`, [heroData.id, patch]);
-        
-        const buildData = await Promise.all(main.rows.map(async build => {
-          const abilities = await builds_client.query('SELECT * FROM abilities WHERE build_id = $1 ORDER BY matches DESC LIMIT 10', [build.build_id]);
-          const talents = await builds_client.query('SELECT * FROM talents WHERE build_id = $1', [build.build_id]);
-          const startingItems = await builds_client.query('SELECT * FROM starting WHERE build_id = $1 ORDER BY matches DESC LIMIT 10', [build.build_id]);
-          const earlyItems = await builds_client.query('SELECT * FROM early WHERE build_id = $1 ORDER BY matches DESC LIMIT 10', [build.build_id]);
-          const coreItems = await builds_client.query('SELECT * FROM core WHERE build_id = $1 ORDER BY matches DESC LIMIT 10', [build.build_id]);
-          const coreFinal = []
-          for (let coreItem of coreItems.rows) {
-            let m = 3
-            coreItem.core.length == 3 ? m = 4 : null
-            const lateItemResult = await builds_client.query(
-              `SELECT * FROM (
-                  SELECT *, ROW_NUMBER() OVER (PARTITION BY nth ORDER BY matches DESC, wins DESC) AS rn
-                  FROM late
-                  WHERE build_id = $1 AND core_items = $2 AND nth IN (3, 4, 5, 6, 7, 8, 9)
+        const main = await builds_client.query(`SELECT * FROM main WHERE hero_id = $1 AND patch = $2`, [heroData.id, patch])
+        const buildIds = main.rows.map(build => build.build_id)
+
+        const [abilitiesData, talentsData, startingItemsData, earlyItemsData, coreItemsData] = await Promise.all([
+            builds_client.query(`
+              SELECT * FROM (
+                  SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id ORDER BY matches DESC) AS rn
+                  FROM abilities
+                  WHERE build_id = ANY($1::int[])
               ) AS ranked
               WHERE rn <= 10
-              ORDER BY nth, matches DESC`,
-              [build.build_id, coreItem.core])
-            
-            coreFinal.push({
-              core: coreItem.core,
-              wins: coreItem.wins,
-              matches: coreItem.matches,
-              late: lateItemResult.rows
-            })
-          }
+              ORDER BY build_id, rn;
+          `, [buildIds]),
+      
+          builds_client.query(`
+              SELECT * FROM talents
+              WHERE build_id = ANY($1::int[])
+              ORDER BY build_id;
+          `, [buildIds]),
+      
+          builds_client.query(`
+              SELECT * FROM (
+                  SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id ORDER BY matches DESC) AS rn
+                  FROM starting
+                  WHERE build_id = ANY($1::int[])
+              ) AS ranked
+              WHERE rn <= 10
+              ORDER BY build_id, rn;
+          `, [buildIds]),
+      
+          builds_client.query(`
+              SELECT * FROM (
+                  SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id ORDER BY matches DESC) AS rn
+                  FROM early
+                  WHERE build_id = ANY($1::int[])
+              ) AS ranked
+              WHERE rn <= 10
+              ORDER BY build_id, rn;
+          `, [buildIds]),
+      
+          builds_client.query(`
+              SELECT * FROM (
+                  SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id ORDER BY matches DESC) AS rn
+                  FROM core
+                  WHERE build_id = ANY($1::int[])
+              ) AS ranked
+              WHERE rn <= 10
+              ORDER BY build_id, rn;
+          `, [buildIds])
+        ])
 
+        const coreItemsByBuildId = coreItemsData.rows.reduce((acc, item) => {
+          if (!acc[item.build_id]) {
+            acc[item.build_id] = [];
+          }
+          const arrayItem = Array.from(item.core)
+          acc[item.build_id].push(arrayItem);
+          return acc;
+        }, {})
+
+        const coreItemsList = buildIds.map(build_id => coreItemsByBuildId[build_id] || [])
+
+        let queryParts = [];
+        let queryParams = [];
+
+        // Loop through each buildId and corresponding coreItemsList
+        buildIds.forEach((buildId, index) => {
+            const coreItemsArray = coreItemsList[index]; // Array of arrays for this buildId
+            coreItemsArray.forEach((coreItems, subIndex) => {
+                queryParts.push(`(build_id = $${queryParams.length + 1} AND core_items = $${queryParams.length + 2})`);
+                queryParams.push(buildId, coreItems); // Push buildId and exact coreItems array
+            });
+        });
+
+        // Combine the query parts with OR conditions to compare multiple core_items
+        const whereCondition = queryParts.join(' OR ');
+
+        const query = `
+            SELECT * FROM (
+                SELECT *, 
+                    ROW_NUMBER() OVER (
+                        PARTITION BY build_id, core_items, nth 
+                        ORDER BY matches DESC, wins DESC
+                    ) AS rn
+                FROM late
+                WHERE (${whereCondition})
+                AND nth IN (3, 4, 5, 6, 7, 8, 9)
+            ) AS ranked
+            WHERE rn <= 10
+            ORDER BY build_id, core_items, nth, matches DESC, wins DESC;
+        `;
+
+        const lateItemsData = await builds_client.query(query, queryParams);
+
+        coreItemsData.rows.forEach((coreItems) => {
+          const bId = coreItems.build_id
+          const citems = coreItems.core
+          const lateItems = lateItemsData.rows.filter(obj => obj.build_id == bId && String(obj.core_items) == String(citems))
+          coreItems['late'] = lateItems
+        })
+
+        const buildData = main.rows.map(build => {        
           return {
+            build_id: build.build_id,
             rank: build.rank,
             role: build.role,
             facet: build.facet,
             patch: build.patch,
             total_matches: build.total_matches,
             total_wins: build.total_wins,
-            abilities: abilities.rows,
-            talents: talents.rows,
+            abilities: abilitiesData.rows.filter(obj => obj.build_id == build.build_id) || [],
+            talents: talentsData.rows.filter(obj => obj.build_id == build.build_id) || [],
             items: {
-              starting: startingItems.rows,
-              early: earlyItems.rows,
-              core: coreItems,
+              starting: startingItemsData.rows.filter(obj => obj.build_id == build.build_id) || [],
+              early: earlyItemsData.rows.filter(obj => obj.build_id == build.build_id) || [],
+              core: coreItemsData.rows.filter(obj => obj.build_id == build.build_id) || []
             }
-          };
-        }));
+          }
+        })
 
-        result = { builds: buildData };
-        break;
+        result = { builds: buildData }
+        break
       case 'rates':
-        const rateData = await rates_client.query('SELECT * FROM rates WHERE hero_id = $1', [heroData.id]);
+        const rateData = await rates_client.query('SELECT * FROM rates WHERE hero_id = $1', [heroData.id])
         const mainData = await builds_client.query('SELECT * FROM main WHERE hero_id = $1', [heroData.id])
         result = { rates: rateData.rows, main: mainData.rows }
-        break;
+        break
       case 'matchups':
-        result = await rates_client.query('SELECT * FROM matchups WHERE hero_id = $1', [heroData.id]);
-        break;
+        result = await rates_client.query('SELECT * FROM matchups WHERE hero_id = $1', [heroData.id])
+        break
       default:
-        return res.status(400).json({ error: 'Invalid type parameter' });
+        return res.status(400).json({ error: 'Invalid type parameter' })
     }
 
     builds_client.release()

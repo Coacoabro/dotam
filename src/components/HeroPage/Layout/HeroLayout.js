@@ -26,39 +26,24 @@ export default function HeroLayout({ children, hero, current_patch }) {
   const {rank, role, patch, facet} = router.query
 
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
-  const [currRank, setCurrRank] = useState("")
-  const [currRole, setCurrRole] = useState("POSITION_1")
-  const [currFacet, setCurrFacet] = useState(1)
-  const [buildID, setBuildID] = useState("")
 
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', currPatch], () => fetchHeroData(hero.url, 'builds', currPatch), {staleTime: 3600000});
   const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.url, 'matchups'], () => fetchHeroData(hero.url, 'matchups'), {staleTime: 3600000});
 
   useEffect(() => {
     if(patch){setCurrPatch(patch)}
-    if(role){setCurrRole(role)}
-    if(rank){setCurrRank(rank)}
-    if(facet){setCurrFacet(facet)}
-
-    if(heroRates){
-      let build_id = heroRates.main.filter(obj => 
-        obj.role == currRole && obj.rank == currRank && obj.facet == currFacet && obj.patch == currPatch
-      )
-      setBuildID(build_id)
-    }
-    
-  }, [rank, role, facet, patch, heroRates])
+  }, [patch])
 
   if(infoLoading || ratesLoading){
     <IoLoading />
   }
   else{
 
-    console.log(buildID)
+    console.log(heroBuilds)
+    const buildFinder = heroRates.main
 
-    // const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', buildID], () => fetchHeroData(hero.url, 'builds', currPatch), {staleTime: 3600000});
-  
     const heroData = heroInfo[0]
 
     const heroName = hero.name
@@ -84,6 +69,8 @@ export default function HeroLayout({ children, hero, current_patch }) {
         return best;
       }
     })();
+
+    console.log(initFacet)
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
@@ -126,14 +113,14 @@ export default function HeroLayout({ children, hero, current_patch }) {
           <>
 
             <div className='py-3 z-0'>
-              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} current_patch={current_patch} />
+              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} buildFinder={buildFinder} current_patch={current_patch} />
             </div>
             
 
             
             <main>
               {React.Children.map(children, child =>
-                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
+                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, buildFinder, heroMatchups })
               )}
             </main>
 

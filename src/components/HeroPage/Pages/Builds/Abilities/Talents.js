@@ -34,7 +34,6 @@ export default function Talents({hero, talents}) {
         for (let i=3; i>-1; i--) {
             let leftTalent = talents.find((obj) => obj.talent == leftTalents[i])
             let rightTalent = talents.find((obj) => obj.talent == rightTalents[i])
-            console.log(leftTalent, rightTalent)
             if(leftTalent && rightTalent) {
                 if (leftTalent.matches > rightTalent.matches) {
                     bestTalents[i] = leftTalents[i];

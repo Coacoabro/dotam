@@ -18,6 +18,8 @@ export default function ItemsContainer({build, hero, role}) {
         setLateItems(data)
     }
 
+    console.log(build.build_id)
+
     useEffect(() => {
         if (role == "POSITION_4" || role == "POSITION_5") {
             setIsCarry(false)

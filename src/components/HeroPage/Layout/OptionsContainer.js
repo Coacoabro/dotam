@@ -7,7 +7,7 @@ import Rank from '../../Rank'
 import Patches from '../../Patches'
 import Facets from '../../Facets';
 
-export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds, current_patch}) {
+export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds, buildFinder, current_patch}) {
 
     const router = useRouter()
 
@@ -27,6 +27,8 @@ export default function OptionsContainer({ hero, initRole, initFacet, heroBuilds
         }
         
     }, [role, rank, facet, patch, heroBuilds])
+
+    console.log(currBuild)
 
     return (
         <div className='pb-3 sm:py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>

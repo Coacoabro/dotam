@@ -6,6 +6,7 @@ import json
 import requests
 import os
 import psutil
+import copy
 
 from dotenv import load_dotenv
 from collections import Counter
@@ -198,61 +199,78 @@ def getBuilds(ranked_matches, builds):
                                 allBuildFound = False # "" Build
                                 for hero_build in builds:
                                     if hero_build[0] == hero_id and (hero_build[1] == rank[0] or hero_build[1] == rank[1] or hero_build[1] == "") and hero_build[2] == role and hero_build[3] == facet:
-                                        
-                                        if hero_build[1] == rank[0]:
+                                        if hero_build[1] == rank[0] and not rankBuildFound:
+                                            hero_build[4] += 1
+                                            hero_build[5] += win
                                             rankBuildFound = True
-                                        if hero_build[1] == rank[1]:
+
+                                        elif hero_build[1] == rank[1] and not lmhBuildFound:
+                                            hero_build[4] += 1
+                                            hero_build[5] += win
                                             lmhBuildFound = True
-                                        if hero_build[1] == "":
+
+                                        elif hero_build[1] == "" and not allBuildFound:
+                                            hero_build[4] += 1
+                                            hero_build[5] += win
                                             allBuildFound = True
                                         
-                                        hero_build[4] += 1 # Matches increased
-                                        hero_build[5] += win
+                                        
+                                        
+                                        # print(f"{hero_build[0]} {hero_build[1]} {hero_build[2]} {hero_build[3]}: {hero_build[4]}")
 
                                         abilitiesFound = False
-                                        for abilityBuild in hero_build[6]:
+                                        currentAbilities = copy.deepcopy(hero_build[6])
+                                        for abilityBuild in currentAbilities:
                                             if abilityBuild['Abilities'] == abilities:
                                                 abilityBuild['Wins'] += win
                                                 abilityBuild['Matches'] += 1
                                                 abilitiesFound = True
+                                                hero_build[6] = currentAbilities
                                                 break
                                         if not abilitiesFound:
                                             hero_build[6].append({'Abilities': abilities, 'Wins': win, 'Matches': 1})
                                         
                                         for talent in talents:
                                             talentFound = False
-                                            for talentBuild in hero_build[7]:
+                                            currentTalents = copy.deepcopy(hero_build[7])
+                                            for talentBuild in currentTalents:
                                                 if talentBuild['Talent'] == talent:
                                                     talentBuild['Wins'] += win
                                                     talentBuild['Matches'] += 1
                                                     talentFound = True
+                                                    hero_build[7] = currentTalents
                                                     break
                                             if not talentFound:
                                                 hero_build[7].append({'Talent': talent, 'Wins': win, 'Matches': 1})
 
                                         startingFound = False
-                                        for startingBuild in hero_build[8]:
+                                        currentStarting = copy.deepcopy(hero_build[8])
+                                        for startingBuild in currentStarting:
                                             if sorted(startingBuild['Starting']) == sorted(startingItems):
                                                 startingBuild['Wins'] += win
                                                 startingBuild['Matches'] += 1
                                                 startingFound = True
+                                                hero_build[8] = currentStarting
                                                 break
                                         if not startingFound:
                                             hero_build[8].append({'Starting': sorted(startingItems), 'Wins': win, 'Matches': 1})
 
+                                        currentEarly = copy.deepcopy(hero_build[9])
                                         for earlyGameItem in earlyItems:
                                             earlyFound = False
-                                            for earlyItem in hero_build[9]:
+                                            for earlyItem in currentEarly:
                                                 if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
                                                     earlyItem['Matches'] += 1
                                                     earlyItem['Wins'] += win
                                                     earlyFound = True
+                                                    hero_build[9] = currentEarly
                                                     break
                                             if not earlyFound:
                                                 hero_build[9].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
 
                                         buildFound = False
-                                        for build in hero_build[10]:
+                                        currentCore = copy.deepcopy(hero_build[10])
+                                        for build in currentCore:
                                             if build['Core'] == core:
                                                 build['Wins'] += win
                                                 build['Matches'] += 1
@@ -270,6 +288,7 @@ def getBuilds(ranked_matches, builds):
                                                             if not lateFound:
                                                                 build['Late'].append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
                                                             m += 1
+                                                hero_build[10] = currentCore
                                                 buildFound = True
                                                 break
                                         if not buildFound:
@@ -281,7 +300,9 @@ def getBuilds(ranked_matches, builds):
                                                     lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
                                                 m += 1
                                             hero_build[10].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
-
+                                        
+                                        if rankBuildFound and lmhBuildFound and allBuildFound:
+                                            break
 
                                 if not (rankBuildFound and lmhBuildFound and allBuildFound):
                                     finalTalents = []
@@ -378,13 +399,6 @@ while True:
         seq_num += 1
 
     if hourlyDump >= 50:
-
-        testBuilds = sorted(builds, key=lambda build: build[4], reverse=True)
-        testBuild = testBuilds[0]
-        print("Total matches: ", testBuild[4])
-        print("Total wins: ", testBuild[5])
-        print("Talents: ", testBuild[7])
-        break
 
         BATCH_SIZE = 15000
 

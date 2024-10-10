@@ -4,12 +4,14 @@ import CoreItems from './CoreItems'
 export default function Core({items, isCarry, sendLate}) {
 
     const [cores, setCores] = useState(items.slice(0, 3))
-    const [selectedCore, setSelectedCore] = useState(1)
+    const [selectedCore, setSelectedCore] = useState(0)
 
     const handleClick = (select) => {
         setSelectedCore(select)
         sendLate(cores[select].late)
     }
+
+    console.log(cores)
     
     useEffect(() => {
         setCores(items.slice(0, 3))
