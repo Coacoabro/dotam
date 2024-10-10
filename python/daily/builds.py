@@ -398,7 +398,7 @@ while True:
     else:
         seq_num += 1
 
-    if hourlyDump >= 400:
+    if hourlyDump >= 200:
 
         BATCH_SIZE = 500
 
