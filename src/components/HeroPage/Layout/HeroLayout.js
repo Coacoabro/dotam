@@ -103,14 +103,11 @@ export default function HeroLayout({ children, hero, current_patch }) {
         <div className='flex space-x-3'>
           <RatesContainer rates={heroRates.rates} initRole={initRole} current_patch={current_patch} />
           <div className='w-64 hidden sm:block'>
-            <h1>Current Build WR:</h1>
-            {heroBuilds ? (
-              <h2>We don't know!</h2>
-            ) : (<div></div>)}
+            <h1>Builds for {hero.name}</h1>
           </div>
         </div>
 
-        <div className='py-3 z-0'>
+        <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
           <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
         </div>
 

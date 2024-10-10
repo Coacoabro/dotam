@@ -41,20 +41,20 @@ export default function ItemsContainer({build, hero, role}) {
                     </Link> 
                     <Starting items={build.starting} />
                 </div>
-                <div className='hidden sm:flex sm:w-1/3 px-10 sm:px-0'>
+                <div className='hidden sm:flex lg:w-1/3 px-10 sm:px-0'>
                     <Early items={build.early} />
                 </div>
-                <div className={`hidden sm:w-2/5 lg:block`}>
+                <div className={`hidden lg:w-2/5 lg:block`}>
                     <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} />
                 </div>
             </div>
-            <div className='sm:w-1/3 lg:hidden px-10 sm:px-0'>
+            <div className='sm:w-1/3 sm:hidden px-10 sm:px-0'>
                 <Early items={build.early} />
             </div>
-            <div className={`block lg:hidden sm:w-1/2 mx-auto`}>
-                <Core items={build.core} matches={build.total_matches} isCarry={isCarry} />
+            <div className={`block lg:hidden sm:w-3/5 mx-auto`}>
+                <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} />
             </div>
-            <div className='w-full sm:w-3/4 sm:mx-auto lg:w-full '>
+            <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full '>
                 <Late items={lateItems} isCarry={isCarry} />
             </div>
         </div>

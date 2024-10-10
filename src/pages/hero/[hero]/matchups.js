@@ -9,21 +9,25 @@ import dota2heroes from '../../../../json/dota2heroes.json'
 
 export async function getServerSideProps(context) {
     const hero = dota2heroes.find(hero => hero.url === context.query.hero)
+    const res = await fetch("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+    const patch = await res.text()
+
     if(hero){    
         return {
             props: {
-              hero: hero
+              hero: hero,
+              patch: patch
             }
         };
     }
 }
 
-export default function ItemsPage({ hero }) {
+export default function ItemsPage({ hero, patch }) {
 
     const heroName = hero.name
     
     return(
-        <HeroLayout hero={hero} >
+        <HeroLayout hero={hero} current_patch={patch} >
 
             <Head>
                 <title>{heroName} Guide: Builds, Matchups, and Rates</title>
@@ -34,7 +38,7 @@ export default function ItemsPage({ hero }) {
                 <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
             </Head>
 
-            <Matchups />
+            <Matchups current_patch={patch} />
 
         </HeroLayout>
     )

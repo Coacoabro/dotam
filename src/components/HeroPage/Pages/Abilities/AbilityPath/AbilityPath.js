@@ -4,6 +4,7 @@ import AbilityRow from "./AbilityRow";
 
 export default function AbilityPath(abilities) {
 
+    console.log(abilities)
 
     const allAbilities = abilities.abilities.sort((a, b) => b["Matches"] - a["Matches"])
     const topAbilities = allAbilities.slice(0, 10)
@@ -24,8 +25,8 @@ export default function AbilityPath(abilities) {
                     </th>
                 </tr>
                 <tbody className="text-lg">
-                    {topAbilities.map((obj, index) => (
-                        <AbilityRow order={index} abilityPath={obj.Abilities} matches={obj.Matches} wins={obj.Wins} />
+                    {abilities.abilities.map((obj, index) => (
+                        <AbilityRow order={index} abilityPath={obj.abilities} matches={obj.matches} wins={obj.wins} />
                     ))}
                 </tbody>
             </table>

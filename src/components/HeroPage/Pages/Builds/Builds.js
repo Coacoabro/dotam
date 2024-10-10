@@ -5,25 +5,12 @@ import Link from 'next/link'
 
 import facets from '../../../../../json/hero_facets.json'
 
-const current_patch = async () => {
-    const res = await fetch('/patch.json')
-    const data = await res.json()
-    return data.current_patch
-}
-
 import Abilities from './Abilities/Abilities'
 import Talents from './Abilities/Talents'
 import Matchups from './Matchups/Matchups'
 import ItemsContainer from './Items/ItemsContainer';
 import IoLoading from '../../../IoLoading';
 
-const fetchHeroData = async (hero, type) => {
-    const response = await fetch(`/api/${hero}?type=${type}`);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-};
 
 export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups, current_patch }) {
 

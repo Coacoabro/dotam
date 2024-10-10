@@ -12,32 +12,11 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
 
     const router = useRouter()
 
-    // Put these back if I want them: , heroBuilds, buildFinder, current_patch
-
-    // const {role, rank, patch, facet} = router.query
-
-    // const [currBuild, setCurrBuild] = useState('')
-
-    // useEffect(() => {
-
-    //     const currRole = role || initRole
-    //     const currRank = rank || ""
-    //     const currPatch = patch || current_patch
-    //     const currFacet = facet || initFacet
-        
-    //     if(heroBuilds){
-    //         setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
-    //     }
-        
-    // }, [role, rank, facet, patch, heroBuilds])
-
-    // console.log(hero)
-
     return (
         <div className='pb-3 sm:py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
 
             {/* Desktop Screen */}
-            <div className='px-3 gap-3 text-lg items-center hidden sm:flex'>
+            <div className='px-3 gap-3 text-lg items-center hidden lg:flex'>
                 <Pages hero={hero.url} />
                 <div className='h-9 w-[1px] bg-slate-600'/>
                 <div>Facets: </div>
@@ -55,22 +34,22 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
 
 
             {/* Mobile Screen */}
-            <div className='sm:hidden flex justify-evenly items-center'>
+            <div className='lg:hidden flex justify-evenly items-center'>
                 {initFacet ? <Facets initFacet={initFacet} id={hero.id} /> : null}
                 <Rank />
                 <Patches />
             </div>
 
-            <div className='w-full bg-slate-600/50 h-[1px] sm:hidden'/>
+            <div className='w-full bg-slate-600/50 h-[1px] lg:hidden'/>
 
-            <div className='mx-auto sm:hidden flex justify-center'>
+            <div className='mx-auto lg:hidden flex justify-center'>
                 <Role initRole={initRole} />
             </div>
 
             {/* Both Mobile and Desktop */}
-            <div className='sm:hidden w-full bg-slate-600/50 h-[1px]'/>
+            <div className='lg:hidden w-full bg-slate-600/50 h-[1px]'/>
 
-            <div className='px-3 flex sm:hidden space-x-8 text-sm justify-center'>
+            <div className='px-3 flex lg:hidden space-x-8 text-sm md:text-lg justify-center'>
                 <Link href={`/hero/${hero.url}/builds`} className={`${router.pathname.includes('builds') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Builds</Link>
                 <Link href={`/hero/${hero.url}/items`} className={`${router.pathname.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
                 <Link href={`/hero/${hero.url}/abilities`} className={`${router.pathname.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
