@@ -14,6 +14,7 @@ from collections import Counter
 # UPDATES
 # Starting Items - Forgot to make sure they are sorted when comparing them
 
+start_time = time.time()
 
 load_dotenv()
 
@@ -275,19 +276,18 @@ def getBuilds(ranked_matches, builds):
                                                 build['Wins'] += win
                                                 build['Matches'] += 1
                                                 m = 3 if isSupport else 4
-                                                if m < (m+7):
-                                                    for index, gameItem in enumerate(itemBuild[m:], start=m):
-                                                        if index < 7:
-                                                            lateFound = False
-                                                            for lateItem in build['Late']:
-                                                                if gameItem == lateItem['Item'] and m == lateItem['Nth']:
-                                                                    lateItem['Wins'] += win
-                                                                    lateItem['Matches'] += 1
-                                                                    lateFound = True
-                                                                    break
-                                                            if not lateFound:
-                                                                build['Late'].append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
-                                                            m += 1
+                                                for index in range(m, len(itemBuild)):
+                                                    gameItem = itemBuild[index]
+                                                    lateFound = False
+                                                    for lateItem in build['Late']:
+                                                        if gameItem == lateItem['Item'] and m == lateItem['Nth']:
+                                                            lateItem['Wins'] += win
+                                                            lateItem['Matches'] += 1
+                                                            lateFound = True
+                                                            break                                                        
+                                                    if not lateFound:
+                                                        build['Late'].append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
+                                                    m += 1
                                                 hero_build[10] = currentCore
                                                 buildFound = True
                                                 break
@@ -398,9 +398,9 @@ while True:
     else:
         seq_num += 1
 
-    if hourlyDump >= 50:
+    if hourlyDump >= 400:
 
-        BATCH_SIZE = 15000
+        BATCH_SIZE = 500
 
         # process = psutil.Process()
         # mem_info = process.memory_info()
@@ -693,4 +693,8 @@ while True:
             json.dump({"seq_num": seq_num}, file)
         conn.commit()
         conn.close()
+
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"That took {round((elapsed_time/60), 2)} minutes")
         break

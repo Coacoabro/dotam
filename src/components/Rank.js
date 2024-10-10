@@ -34,9 +34,9 @@ export default function Rank() {
                     {json.map((rank) => (
                         <div
                             onClick={() => handleClick(rank.rank, rank.name, rank.icon)}
-                            className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer"
+                            className={`sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer ${rank.rank == "" ? "rounded-t" : rank.rank == "HERALD" ? "rounded-b" : null}`}
                         >
-                            {rank.icon ? <img src={rank.icon} className="w-5 h-5 sm:w-6 sm:h-6 mr-2" /> : null}
+                            {rank.icon ? <img src={rank.icon} className={`w-5 h-5 sm:w-6 sm:h-6 mr-2`} /> : null}
                             {rank.name}
                         </div>
                     ))}

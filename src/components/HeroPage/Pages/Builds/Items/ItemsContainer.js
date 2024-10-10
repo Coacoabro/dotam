@@ -33,7 +33,7 @@ export default function ItemsContainer({build, hero, role}) {
         <div className='w-full space-y-4 sm:space-y-2'>
             <div className="sm:h-72 sm:flex lg:justify-between items-start sm:items-center lg:items-start gap-2.5 space-y-2 lg:space-y-0">
                 <div className='px-12 lg:px-0 space-y-4 sm:w-72'>
-                    <Link href={`/hero/${hero.url}/items`} className='flex items-center justify-between mx-auto rounded-lg border border-cyan-200/25 px-5 py-2'>
+                    <Link href={`/hero/${hero.url}/items`} className='flex items-center justify-between mx-auto rounded-lg border border-cyan-200/25 px-5 py-2 hover:bg-slate-700'>
                         <div>View More Items</div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

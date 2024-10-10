@@ -11,6 +11,7 @@ import RatesContainer from './Rates/RatesContainer';
 import BottomBar from '../../BottomBar';
 
 import Patches from '../../../../json/Patches.json'
+import MiniLoadingWheel from '../../MiniLoadingWheel';
 
 const fetchHeroData = async (hero, type, patch) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}`);
@@ -41,7 +42,6 @@ export default function HeroLayout({ children, hero, current_patch }) {
   }
   else{
 
-    console.log(heroBuilds)
     const buildFinder = heroRates.main
 
     const heroData = heroInfo[0]
@@ -69,8 +69,6 @@ export default function HeroLayout({ children, hero, current_patch }) {
         return best;
       }
     })();
-
-    console.log(initFacet)
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
     const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
@@ -105,18 +103,19 @@ export default function HeroLayout({ children, hero, current_patch }) {
         <div className='flex space-x-3'>
           <RatesContainer rates={heroRates.rates} initRole={initRole} current_patch={current_patch} />
           <div className='w-64 hidden sm:block'>
-            Highest win rate for {heroName}. Builds and more info
+            <h1>Current Build WR:</h1>
+            {heroBuilds ? (
+              <h2>We don't know!</h2>
+            ) : (<MiniLoadingWheel />)}
           </div>
         </div>
 
+        <div className='py-3 z-0'>
+          <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
+        </div>
+
         {buildsLoading ? (<LoadingWheel />) : (
-          <>
-
-            <div className='py-3 z-0'>
-              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} heroBuilds={heroBuilds} buildFinder={buildFinder} current_patch={current_patch} />
-            </div>
-            
-
+          <>       
             
             <main>
               {React.Children.map(children, child =>

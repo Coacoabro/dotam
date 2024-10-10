@@ -9,7 +9,7 @@ export default function Facets( {id, initFacet} ) {
 
     const { facet } = router.query
 
-    const [currFacet, setCurrFacet] = useState(facet || initFacet || "")
+    const [currFacet, setCurrFacet] = useState(facet || initFacet)
     const [facetShow, setFacetShow] = useState(false)
     const [hoverFacet, setHoverFacet] = useState(null)
 
