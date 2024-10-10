@@ -106,7 +106,7 @@ export default function HeroLayout({ children, hero, current_patch }) {
             <h1>Current Build WR:</h1>
             {heroBuilds ? (
               <h2>We don't know!</h2>
-            ) : (<MiniLoadingWheel />)}
+            ) : (<div></div>)}
           </div>
         </div>
 
