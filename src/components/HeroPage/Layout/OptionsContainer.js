@@ -13,23 +13,29 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
     const router = useRouter()
 
     return (
-        <div className='pb-3 sm:py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
+        <div className='pb-3 sm:py-3 lg:py-0 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
 
             {/* Desktop Screen */}
-            <div className='px-3 gap-2 text-lg items-center hidden lg:flex'>
-                <Pages hero={hero.url} />
-                <div className='h-9 w-[1px] bg-slate-600'/>
-                <div>Facets: </div>
-                {initFacet ? <Facets initFacet={initFacet} id={hero.id} /> : null}
-                <div className='h-9 w-[1px] bg-slate-600'/>
-                <div>Roles: </div>
-                <Role initRole={initRole} />
-                <div className='h-9 w-[1px] bg-slate-600'/>
-                <div>Ranks: </div>
-                <Rank />
-                <div className='h-9 w-[1px] bg-slate-600'/>
-                <div>Patch: </div>
-                <Patches />
+            <div className='px-3 text-lg items-center hidden lg:flex justify-evenly'>
+                <div className='flex gap-2 items-center'>
+                    Facets: 
+                    {initFacet ? <Facets initFacet={initFacet} id={hero.id} /> : null}
+                </div>
+                <div className='h-14 w-[1px] bg-slate-800'/>
+                <div className='flex gap-2 items-center'>
+                    Roles: 
+                    <Role initRole={initRole} />
+                </div>
+                <div className='h-14 w-[1px] bg-slate-800'/>
+                <div className='flex gap-2 items-center'>
+                    Ranks: 
+                    <Rank />
+                </div>
+                <div className='h-14 w-[1px] bg-slate-800'/>
+                <div className='flex gap-2 items-center'>
+                    Patch: 
+                    <Patches />
+                </div>
             </div>
 
 

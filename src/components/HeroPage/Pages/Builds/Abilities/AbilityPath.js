@@ -72,7 +72,7 @@ export default function AbilityPath({hero, abilities}) {
             <div className="min-w-[540px] grid grid-cols-17 sm:gap-2.5 text-center">
                 <div className="grid grid-rows-5 gap-1 sm:gap-2.5">
                 {basicAbilities ? basicAbilities.map((ability, index) => (
-                    <div className={`w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center z-${(4-index)*10}`}>
+                    <div className={`w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center z-[${(3-index)*5}]`}>
                         <AbilityCard ability={ability} hero={hero.name} path={true} />
                         {/* <img src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/${ability}.png`} className='rounded-lg' title={abilityDesc[ability].dname} /> */}
                     </div>

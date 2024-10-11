@@ -12,6 +12,7 @@ import BottomBar from '../../BottomBar';
 
 import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
+import Pages from '../../Pages';
 
 const fetchHeroData = async (hero, type, patch) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}`);
@@ -81,7 +82,7 @@ export default function HeroLayout({ children, hero, current_patch }) {
 
           <img src={portrait} className="h-14 sm:h-32" />
 
-          <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-50">
+          <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
             <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
             <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
           </div>
@@ -102,9 +103,10 @@ export default function HeroLayout({ children, hero, current_patch }) {
 
         <div className='flex space-x-3'>
           <RatesContainer rates={heroRates.rates} initRole={initRole} current_patch={current_patch} />
-          <div className='w-64 hidden sm:block'>
-            <h1>Builds for {hero.name}</h1>
-          </div>
+          {/* <div className='hidden sm:block'>
+            <h1 className='font-bold px-2 pb-2'>Specific Info:</h1>
+            <Pages hero={hero} />
+          </div> */}
         </div>
 
         <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
@@ -113,7 +115,6 @@ export default function HeroLayout({ children, hero, current_patch }) {
 
         {buildsLoading ? (<LoadingWheel />) : (
           <>       
-            
             <main>
               {React.Children.map(children, child =>
                 React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, buildFinder, heroMatchups })
