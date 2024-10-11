@@ -31,7 +31,7 @@ export default function Pages({ hero }) {
                         <Link href={`/hero/${hero}/builds`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-t">
                             Builds
                         </Link>
-                        <Link href={`/hero/${hero}/items`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
+                        {/* <Link href={`/hero/${hero}/items`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
                             Items
                         </Link>
                         <Link href={`/hero/${hero}/abilities`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
@@ -39,7 +39,7 @@ export default function Pages({ hero }) {
                         </Link>
                         <Link href={`/hero/${hero}/matchups`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-b">
                             Matchups
-                        </Link>
+                        </Link> */}
                     </div>
             )}
             
