@@ -81,7 +81,7 @@ export default function HeroLayout({ children, hero, current_patch }) {
 
           <img src={portrait} className="h-14 sm:h-32" />
 
-          <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20">
+          <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-50">
             <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
             <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
           </div>

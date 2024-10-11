@@ -18,7 +18,7 @@ export default function Pages({ hero }) {
     }, [router])
 
     return(
-        <div className='relative z-50'>
+        <div className='relative z-40'>
             <button onClick={() => setIsOpen(!isOpen)} className='bg-slate-900 sm:text-lg h-8 w-16 sm:w-32 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
             <div className='flex items-center'>
                 {currPage.charAt(0).toUpperCase() + currPage.slice(1)}
