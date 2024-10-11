@@ -86,9 +86,12 @@ export default function Facets( {id, initFacet} ) {
                         <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-8 sm:w-10 sm:h-10 rounded-md sm:p-1" />
                             {hoverFacet.Title}
                         </div>
-                        <p className={`text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 border-l border-r border-b border-slate-600 rounded-b-lg`}>
-                            {hoverFacet.Desc.replace(/\{[^}]*\}/g, '?')}
-                        </p>
+                        <p
+                            className={`text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 border-l border-r border-b border-slate-600 rounded-b-lg`}
+                            dangerouslySetInnerHTML={{
+                                __html: hoverFacet.Desc.replace(/\{[^}]*\}/g, '?'),
+                            }}
+                        ></p>
                     </div>
                 </div>
             }

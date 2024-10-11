@@ -73,7 +73,7 @@
         {
             "Name": "drow_ranger_high_ground",
             "Title": "Vantage Point",
-            "Desc": "Drow deals 20% more damage when attacking from high ground.",
+            "Desc": "Drow deals %damage_bonus%%% more damage when attacking from high ground.",
             "Icon": "damage"
         },
         {
@@ -205,7 +205,7 @@
         {
             "Name": "razor_spellamp",
             "Title": "Dynamo",
-            "Desc": "Razor gains 1% spell amplification for every 20 points of attack damage.",
+            "Desc": "Razor gains %spell_amp_mult%%% spell amplification for every %spell_amp_damage_divisor% points of attack damage.",
             "Icon": "nuke"
         }
     ],
@@ -443,7 +443,7 @@
         {
             "Name": "enigma_gravity",
             "Title": "Event Horizon",
-            "Desc": "Units in a 600 radius moving away from Enigma have a 9/11/13/15% movespeed penalty.",
+            "Desc": "Units in a %radius% radius moving away from Enigma have a %speed_bonus%%% movespeed penalty.",
             "Icon": "slow"
         },
         {
@@ -989,7 +989,7 @@
         {
             "Name": "doom_bringer_boost_selling",
             "Title": "Devil's Bargain",
-            "Desc": "Doom can sell items for 90% of their value, but his buyback costs are increased by 20%.",
+            "Desc": "Doom can sell items for %bonus_item_sellback_percent%%% of their value, but his buyback costs are increased by %bonus_buyback_penalty%%%.",
             "Icon": "gold"
         },
         {
@@ -1363,7 +1363,7 @@
         {
             "Name": "medusa_slow_attacks",
             "Title": "Venomous Volley",
-            "Desc": "Every 5 attacks, Medusa applies poison to her arrow that briefly reduces movement speed, attack speed, and cast speed.",
+            "Desc": "Every %attack_count% attacks, Medusa applies poison to her arrow that briefly reduces movement speed, attack speed, and cast speed.",
             "Icon": "slow"
         }
     ],
@@ -1517,7 +1517,7 @@
         {
             "Name": "techies_atk_range",
             "Title": "Squee's Scope",
-            "Desc": "Techies gains 1 attack range and attack projectile speed for each point of attack speed.",
+            "Desc": "Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed.",
             "Icon": "range"
         },
         {
@@ -1599,7 +1599,7 @@
         {
             "Name": "phoenix_facet_immolate",
             "Title": "Dying Light",
-            "Desc": "Phoenix deals 4.5% of his missing health as magic damage to all enemies in a 400 radius every second.",
+            "Desc": "Phoenix deals %damage_pct%%% of his missing health as magic damage to all enemies in a %radius% radius every second.",
             "Icon": "barrier"
         },
         {
@@ -1613,13 +1613,13 @@
         {
             "Name": "oracle_facet_dmg",
             "Title": "Clairvoyant Curse",
-            "Desc": "Spell amplification increased by 0.75% per hero level.",
+            "Desc": "Spell amplification increased by %spell_amplification%%% per hero level.",
             "Icon": "nuke"
         },
         {
             "Name": "oracle_facet_heal",
             "Title": "Clairvoyant Cure",
-            "Desc": "Heal amplification increased by 0.75% per hero level.",
+            "Desc": "Heal amplification increased by %heal_amplification%%% per hero level.",
             "Icon": "healing"
         }
     ],
@@ -1633,7 +1633,7 @@
         {
             "Name": "winter_wyvern_atk_range",
             "Title": "Dragon Sight",
-            "Desc": "Winter Wyvern gains bonus damage when her attack range is over 400.",
+            "Desc": "Winter Wyvern gains bonus damage when her attack range is over %attack_range_min%.",
             "Icon": "damage"
         }
     ],

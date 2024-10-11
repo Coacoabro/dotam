@@ -64,7 +64,29 @@ def get_facets():
                 n = 0
                 for facet in facets:
                     n += 1
-                    hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet["description_loc"], "Icon": facet["icon"]} )
+                    facet_desc = facet["description_loc"]
+                    percentPlaceholders = [placeholder.strip('%') for placeholder in facet_desc.split('%')[1::2]]
+                    for placeholder in percentPlaceholders:
+                        value = ''
+                        if placeholder == '':
+                            value = '%'
+                        else:
+                            for abilities in data["result"]["data"]["heroes"][0]['facet_abilities']:
+                                if len(abilities['abilities']) > 0:
+                                    special_values = abilities['abilities'][0]["special_values"]
+                                    for special_value in special_values:
+                                        if special_value["name"] == placeholder:
+                                            float_values = special_value["values_float"]
+                                            if len(float_values) > 1:
+                                                for float_value in float_values:
+                                                    value += str(float_value) + '/'
+                                                value = value[:-1]
+                                            else:
+                                                value = float_values[0]
+                        
+                        facet_desc = facet_desc.replace(f'%{placeholder}%', str(value))
+                                    
+                    hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet_desc, "Icon": facet["icon"]} )
                     facet_nums.append(n)
                 
                 facet_nums_json[i] = facet_nums
@@ -72,11 +94,11 @@ def get_facets():
 
     with open('./json/hero_facets.json', 'w') as f:
         json.dump(facets_json, f)
-    with open('./json/facet_nums.json', 'w') as f:
-        json.dump(facet_nums_json, f)
+    # with open('./json/facet_nums.json', 'w') as f:
+    #     json.dump(facet_nums_json, f)
 
 get_facets()
-get_innate()
+# get_innate()
         
     
 
