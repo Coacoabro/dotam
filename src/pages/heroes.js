@@ -16,7 +16,7 @@ export default function HeroesPage() {
           content="ca-pub-2521697717608899" />
         <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <div className='sm:py-10 space-y-4 sm:space-y-10 px-1'>
+      <div className='sm:py-10 space-y-4 sm:space-y-10'>
         <div className="text-xl sm:text-3xl sm:text-center font-semibold px-3">Dota 2 All Heroes</div>
         <div className='z-0'><Heroes /></div>
       </div>

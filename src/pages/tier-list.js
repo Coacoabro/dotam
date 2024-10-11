@@ -31,7 +31,7 @@ export default function TierList() {
     console.log(searchTerm)
     
     return(
-        <div>
+        <div className=''>
 
             <Head>
                 <title>Dota 2 Tier Lists</title>
@@ -58,12 +58,13 @@ export default function TierList() {
                     </div>
                 </div>
                 {isLoading ? (<LoadingWheel />) : (
-                    <>
-                        <TierContainer heroes={data.heroes} rates={data.rates} matchups={data.matchups} search={searchTerm} />
-                        <div className='absolute left-0 pt-12 '><BottomBar /></div>
-                    </>
+                    <TierContainer heroes={data.heroes} rates={data.rates} matchups={data.matchups} search={searchTerm} />
                 )}
             </div>
+
+            {data ? (
+                <div className='pt-12'><BottomBar /></div>
+            ) : null}
             
         </div>
     )

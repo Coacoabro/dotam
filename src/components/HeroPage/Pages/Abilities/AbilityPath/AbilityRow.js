@@ -2,6 +2,7 @@ import ability_ids from "../../../../../../dotaconstants/build/ability_ids"
 
 export default function AbilityRow( {order, abilityPath, matches, wins} ) {
 
+
     const wr = ((wins/matches)*100).toFixed(1)
     const wrColor = wr >= 51.5 ? 'text-[#ABDEED]' 
         : wr >= 48.5 ? 'text-slate-200'
