@@ -61,7 +61,7 @@ export default function HeroCard({ hero, search }) {
             {hero.localized_name}
           </div>
         </div>
-        <img src={heroImage} className={`${hovered ? 'rounded-lg' : ''} object-cover transition-transform duration-300 p-1 w-[60px] h-[80px]`} />
+        <img src={heroImage} className={`${hovered ? 'rounded-lg' : ''} transition-transform duration-300 p-1 w-[64px] h-[85px]`} />
         {/* 
         {hovered && 
           <video className={`absolute inset-0 w-full h-full object-cover rounded-md shadow-md`} onLoadedData={handleLoadedData} autoPlay loop disablePictureInPicture>
