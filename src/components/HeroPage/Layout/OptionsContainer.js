@@ -16,7 +16,7 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
         <div className='pb-3 sm:py-3 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
 
             {/* Desktop Screen */}
-            <div className='px-3 gap-3 text-lg items-center hidden lg:flex'>
+            <div className='px-3 gap-2 text-lg items-center hidden lg:flex'>
                 <Pages hero={hero.url} />
                 <div className='h-9 w-[1px] bg-slate-600'/>
                 <div>Facets: </div>
