@@ -10,8 +10,6 @@ export default function Core({items, isCarry, sendLate}) {
         setSelectedCore(select)
         sendLate(cores[select].late)
     }
-
-    console.log(cores)
     
     useEffect(() => {
         setCores(items.slice(0, 3))
