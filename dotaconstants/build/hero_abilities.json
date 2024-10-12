@@ -10,7 +10,7 @@
     ],
     "talents": [
       {
-        "name": "special_bonus_unique_antimage_4",
+        "name": "special_bonus_hp_regen_3",
         "level": 1
       },
       {
@@ -3247,7 +3247,7 @@
         "level": 2
       },
       {
-        "name": "special_bonus_attack_speed_80",
+        "name": "special_bonus_attack_speed_90",
         "level": 2
       },
       {
@@ -4272,7 +4272,7 @@
         "level": 2
       },
       {
-        "name": "special_bonus_unique_batrider_1",
+        "name": "special_bonus_unique_batrider_smoldering_resin_ticks",
         "level": 3
       },
       {
@@ -5292,9 +5292,10 @@
       "lone_druid_spirit_bear",
       "lone_druid_spirit_link",
       "lone_druid_savage_roar",
-      "lone_druid_gift_bearer",
       "generic_hidden",
-      "lone_druid_true_form"
+      "generic_hidden",
+      "lone_druid_true_form",
+      "lone_druid_gift_bearer"
     ],
     "talents": [
       {
@@ -6179,7 +6180,7 @@
         "color": "Yellow",
         "gradient_id": 0,
         "title": "Death Toll",
-        "description": "Soul Assumption kills give up to 105 140 175 210 bonus gold."
+        "description": "Soul Assumption kills give bonus gold. Visage can also recall his familiars."
       }
     ]
   },
@@ -7690,7 +7691,7 @@
         "color": "Red",
         "gradient_id": 2,
         "title": "Wukong's Faithful",
-        "description": "Monkey King's soldiers last longer and do not disperse unless he spends more than 3.0 seconds outside the area."
+        "description": "Monkey King's soldiers last longer and do not disperse unless he spends more than 4.0 seconds outside the area."
       },
       {
         "id": 1,
@@ -7699,7 +7700,7 @@
         "color": "Green",
         "gradient_id": 4,
         "title": "Simian Stride",
-        "description": "Tree Dance has no cooldown while Monkey King is above 90% health."
+        "description": "Tree Dance has no cooldown while Monkey King is above 95% health."
       }
     ]
   },

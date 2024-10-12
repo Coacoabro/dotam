@@ -3960,5 +3960,44 @@
     "label": "哇~哦！",
     "message": "哇~哦！",
     "sound_ext": "wav"
+  },
+  "686": {
+    "id": 686,
+    "name": "Guild_TI10_Spray_14",
+    "image": "sprays/ti10_jakiro_icon.png"
+  },
+  "687": {
+    "id": 687,
+    "name": "Guild_ti11_phantom_lancer",
+    "image": "sprays/ti11_phantom_lancer_icon.png"
+  },
+  "688": {
+    "id": 688,
+    "name": "Guild_TI9_Ursa_Funny_Bear",
+    "image": "sprays/ti9_ursa_funny_bear_icon.png"
+  },
+  "689": {
+    "id": 689,
+    "name": "Guild_Jia_You",
+    "all_chat": true,
+    "label": "加油！",
+    "message": "加油！",
+    "sound_ext": "wav"
+  },
+  "690": {
+    "id": 690,
+    "name": "Guild_Takaya_Haliava",
+    "all_chat": true,
+    "label": "Такая халява!",
+    "message": "Такая халява...Ха!",
+    "sound_ext": "wav"
+  },
+  "691": {
+    "id": 691,
+    "name": "Guild_Oh_My_God_What",
+    "all_chat": true,
+    "label": "Oh My God. What?",
+    "message": "Oh my god. What? Oh! Oh!",
+    "sound_ext": "wav"
   }
 }
