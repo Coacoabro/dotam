@@ -12,6 +12,7 @@ export default function Layout({children}) {
 
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter();
+  const path = router.asPath
   const [route, setRoute] = useState(router.pathname.split('/')[1])
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Layout({children}) {
   }, [router]);
 
   return (
-        <div className="layout">
+        <div className="layout overflow-x-hidden overflow-y-hidden">
           <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           </Head>
@@ -49,7 +50,7 @@ export default function Layout({children}) {
           ) 
           : 
           (<main className='pt-24 z-20'>{children}</main>)}
-          <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' ? 'hidden' : ''} pt-12 lg:pt-56 z-0`}><BottomBar /></footer>
+          <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list'  ? 'hidden' : ''} ${path == '/' ? 'pt-24 lg:pt-96' : 'pt-12 lg:pt-56'}  z-0`}><BottomBar /></footer>
           <Analytics />
     </div>
   );

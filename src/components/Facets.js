@@ -40,7 +40,19 @@ export default function Facets( {id, initFacet} ) {
           return json[id][2]
         }
         else{return null}
-    })()    
+    })()
+    const facet4 = (() => {
+        if (json[id].length > 3) {
+          return json[id][3]
+        }
+        else{return null}
+    })()
+    const facet5 = (() => {
+        if (json[id].length > 4) {
+          return json[id][4]
+        }
+        else{return null}
+    })()   
 
     return(
         <div className="rounded-lg border border-slate-700 flex items-center h-8 sm:h-10">
@@ -70,7 +82,7 @@ export default function Facets( {id, initFacet} ) {
             {facet3 ? (
                 <button 
                     onClick={() => handleClick("3")}
-                    className={`flex py-2 px-2 sm:px-3 h-8 sm:h-10 ${initFacet == 3 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-r-lg ${currFacet == 3 ? 'bg-cyan-300 text-black' : ''} `}
+                    className={`flex py-2 px-2 sm:px-3 h-8 sm:h-10 ${initFacet == 3 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 ${currFacet == 3 ? 'bg-cyan-300 text-black' : ''}  ${facet4 ? '' : 'rounded-r-lg'} `}
                     onMouseEnter={() => showFacetInfo(facet3)}
                     onMouseLeave={() => hideFacetInfo()}
                 >
@@ -79,8 +91,32 @@ export default function Facets( {id, initFacet} ) {
                 </button>
             ) : null}
 
+            {facet4 ? (
+                <button 
+                    onClick={() => handleClick("4")}
+                    className={`flex py-2 px-2 sm:px-3 h-8 sm:h-10 ${initFacet == 4 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 ${currFacet == 4 ? 'bg-cyan-300 text-black' : ''}  ${facet5 ? '' : 'rounded-r-lg'} `}
+                    onMouseEnter={() => showFacetInfo(facet4)}
+                    onMouseLeave={() => hideFacetInfo()}
+                >
+                    {initFacet == 4 ? (<div className='underline font-bold'>Best</div>) : null}
+                    <img src={iconLink + facet4.Icon + '.png'} className={`${currFacet == 4 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                </button>
+            ) : null}
+
+            {facet5 ? (
+                <button 
+                    onClick={() => handleClick("5")}
+                    className={`flex py-2 px-2 sm:px-3 h-8 sm:h-10 ${initFacet == 5 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-r-lg ${currFacet == 5 ? 'bg-cyan-300 text-black' : ''} `}
+                    onMouseEnter={() => showFacetInfo(facet5)}
+                    onMouseLeave={() => hideFacetInfo()}
+                >
+                    {initFacet == 5 ? (<div className='underline font-bold'>Best</div>) : null}
+                    <img src={iconLink + facet5.Icon + '.png'} className={`${currFacet == 5 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                </button>
+            ) : null}
+
             {facetShow &&
-                <div className='hidden sm:block absolute py-2 z-50 ml-52'>
+                <div className='hidden sm:block absolute py-2 z-50 mt-[270px]'>
                     <div className="text-white border-slate-900 shadow whitespace-pre-line z-40 w-[300px] sm:w-[400px]">
                         <div className="text-lg sm:text-2xl flex font-bold rounded-t-lg py-2 px-3 sm:py-2 sm:px-5 bg-slate-800 items-center gap-2 border-slate-600 shadow border-t border-l border-r">
                         <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-8 sm:w-10 sm:h-10 rounded-md sm:p-1" />

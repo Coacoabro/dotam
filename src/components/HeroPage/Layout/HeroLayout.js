@@ -76,7 +76,8 @@ export default function HeroLayout({ children, hero, current_patch }) {
     const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
 
     return(
-      <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
+      <div>
+        <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
 
         <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
 
@@ -120,14 +121,19 @@ export default function HeroLayout({ children, hero, current_patch }) {
                 React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, buildFinder, heroMatchups })
               )}
             </main>
-
-            <div className='absolute left-0 pt-12 lg:pt-36 z-0'>
-              <BottomBar />
-            </div>
           </>
         )}
 
+        </div>
+
+        {buildsLoading ? null : (
+          <div className='pt-12 lg:pt-36 z-0'>
+            <BottomBar />
+          </div>
+        )}
+
       </div>
+      
     )
   }
 }

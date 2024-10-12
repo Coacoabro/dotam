@@ -14,9 +14,9 @@ export default function BottomBar() {
 
 
     return(
-        <div className={`${path == '/' ? 'top-[35vh]' : null} ${path == '/basics' ? 'hidden' : ''} bottom-0 relative w-screen shadow-md bg-slate-900 `}>
-            <div className='h-[1px] w-screen bg-slate-700' />
-            <div className={`p-4 `}>
+        <div className={`${path == '/basics' ? 'hidden' : ''} bottom-0 relative overflow-x-hidden shadow-md bg-slate-900 `}>
+            <div className='h-[1px] bg-slate-700' />
+            <div className={`p-4`}>
                 <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between max-w-5xl mx-auto py-2 sm:py-5 px-8 lg:px-0 space-y-4'>
                     <div className='space-y-2'>
                         <img src="/DotamLogoLight.png" className='w-56 sm:w-72'/>

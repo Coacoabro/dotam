@@ -19,8 +19,8 @@ export default function StaticInfo({hero}) {
     const initBasicAbilities = []
     const basicAbilities = []
 
-    const heroInitAbilities = my_hero_abilities[hero.hero_id].slice(0, 3);
-    const heroInitiUltimate = abilityIds[my_hero_abilities[hero.hero_id][3]];
+    const heroInitAbilities = my_hero_abilities[hero.hero_id].slice(0, -1);
+    const heroInitiUltimate = abilityIds[my_hero_abilities[hero.hero_id].at(-1)];
     
     heroInitAbilities.forEach((ability) => {
         initBasicAbilities.push(abilityIds[ability])

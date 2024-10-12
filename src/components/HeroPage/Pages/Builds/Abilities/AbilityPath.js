@@ -7,6 +7,8 @@ import AbilityCard from '../../../AbilityCard'
 
 export default function AbilityPath({hero, abilities}) {
 
+    console.log(abilities)
+
     const heroName = hero.name
     const Abilities = heroAbilities[heroName].abilities
 
@@ -42,25 +44,33 @@ export default function AbilityPath({hero, abilities}) {
 
     abilities.forEach((ability, index) => {
         if (finishedAbilities.length < 17){
-          if(ability > 0) {
-            const name = abilityIds[ability]
-            
-            if (name === basicAbilities[0]){
-              finishedAbilities.push([index+1, null, null, null, null])
+            // Io tether break
+            if(ability == 5489) {
+                ability = 5485
             }
-            else if (name === basicAbilities[1]){
-              finishedAbilities.push([null, index+1, null, null, null])
+            // Faceless Void Chrono/Time Warp
+            if(ability == 1281) {
+                ability = 5185
             }
-            else if (name === basicAbilities[2]){
-              finishedAbilities.push([null, null, index+1, null, null])
+            if(ability > 0) {
+                const name = abilityIds[ability]
+                
+                if (name === basicAbilities[0]){
+                finishedAbilities.push([index+1, null, null, null, null])
+                }
+                else if (name === basicAbilities[1]){
+                finishedAbilities.push([null, index+1, null, null, null])
+                }
+                else if (name === basicAbilities[2]){
+                finishedAbilities.push([null, null, index+1, null, null])
+                }
+                else if (name === basicAbilities[3]){
+                    finishedAbilities.push([null, null, null, index+1, null])
+                }
             }
-            else if (name === basicAbilities[3]){
-                finishedAbilities.push([null, null, null, index+1, null])
+            else {
+                finishedAbilities.push([null, null, null, null, index+1])
             }
-          }
-          else {
-            finishedAbilities.push([null, null, null, null, index+1])
-          }
         }
     })
     
