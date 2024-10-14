@@ -27,7 +27,7 @@ export default function ItemsPage({ hero, patch }) {
     const heroName = hero.name
     
     return(
-        <HeroLayout hero={hero} current_patch={patch} >
+        <HeroLayout hero={hero} current_patch={patch} page='items' >
 
             <Head>
                 <title>{heroName} Guide: Builds, Matchups, and Rates</title>

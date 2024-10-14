@@ -26,9 +26,10 @@ export async function getServerSideProps(context) {
 export default function BuildsPage( { hero, patch } ) {
 
     const heroName = hero.name
+    const page = 'builds'
 
     return(
-        <HeroLayout hero={hero} current_patch={patch} >
+        <HeroLayout hero={hero} current_patch={patch} page={page} >
 
             <Head>
                 <title>{heroName} Guide: Builds, Matchups, and Rates</title>

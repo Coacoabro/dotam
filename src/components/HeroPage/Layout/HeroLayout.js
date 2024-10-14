@@ -14,15 +14,15 @@ import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
 import Pages from '../../Pages';
 
-const fetchHeroData = async (hero, type, patch) => {
-  const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}`);
+const fetchHeroData = async (hero, type, patch, page) => {
+  const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}&page=${page}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
   return response.json();
 };
 
-export default function HeroLayout({ children, hero, current_patch }) {
+export default function HeroLayout({ children, hero, current_patch, page }) {
 
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
@@ -30,12 +30,9 @@ export default function HeroLayout({ children, hero, current_patch }) {
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
 
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currPatch], () => fetchHeroData(hero.id, 'info', currPatch), {staleTime: 3600000});
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'builds', currPatch], () => fetchHeroData(hero.id, 'builds', currPatch), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currPatch, page], () => fetchHeroData(hero.id, 'page', currPatch, page), {staleTime: 3600000});
   const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.id, 'rates', currPatch], () => fetchHeroData(hero.id, 'rates', currPatch), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currPatch], () => fetchHeroData(hero.id, 'matchups', currPatch), {staleTime: 3600000});
-  // const heroInfo = info
-  // const heroBuilds = data
-  // const heroRates = rates
 
   useEffect(() => {
     if(patch){setCurrPatch(patch)}

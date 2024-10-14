@@ -3,6 +3,7 @@ import { useState } from "react"
 export default async function handler(req, res) {
   const { hero } = req.query
   const { type } = req.query
+  const { page } = req.query
   const { patch } = req.query
 
   try {
@@ -22,9 +23,9 @@ export default async function handler(req, res) {
         result = await rates_res.json()
         break
 
-      case 'builds':
-        const builds_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/builds.json`)
-        result = await builds_res.json()
+      case 'page':
+        const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/${page}.json`)
+        result = await page_res.json()
         break
 
       case 'matchups':
@@ -37,7 +38,7 @@ export default async function handler(req, res) {
     }
 
     res.status(200).json(result)
-    
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
