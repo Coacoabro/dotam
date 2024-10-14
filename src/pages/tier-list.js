@@ -27,8 +27,6 @@ export default function TierList() {
     }
 
     const { data, isLoading } = useQuery(['tierList'], fetchTierData)
-
-    console.log(data)
     
     return(
         <div className=''>

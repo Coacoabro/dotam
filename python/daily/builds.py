@@ -45,7 +45,7 @@ def actualRank(rank):
     elif rank >= 70:
         return ["DIVINE", "HIGH"]
     elif rank >= 60:
-        return ["ANCIENT", "MID"]
+        return ["ANCIENT", "HIGH"]
     elif rank >= 50:
         return ["LEGEND", "MID"]
     elif rank >= 40:

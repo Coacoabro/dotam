@@ -81,7 +81,11 @@ rates = cur.fetchall()
 
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL']
+Low = ['HERALD', 'GUARDIAN', 'CRUSADER']
+Mid = ['ARCHON', 'LEGEND']
+High = ['ANCIENT', 'DIVINE', 'IMMORTAL']
 
+combinedArray = []
 for currentRank in Ranks:
 
     if rates:
@@ -144,43 +148,73 @@ for currentRank in Ranks:
                 winrate = wincount / matches
                 pickrate = matches / total_matches
 
-                if pickrate >= 0.005:
-                    sdWR = standardDeviation(wrArray)
-                    sdPR = standardDeviation(prArray)
-                    zScoreWR = (winrate - (sum(wrArray) / len(wrArray)) ) / sdWR
-                    zScorePR = (pickrate - (sum(prArray) / len(prArray)) ) / sdPR
+                if currentRank != "":
+                    if currentRank in Low:
+                        combinedRank = 'LOW'
+                    if currentRank in Mid:
+                        combinedRank = 'MID'
+                    if currentRank in High:
+                        combinedRank = 'HIGH'
 
-                    if zScoreWR < 0:
-                        tier_num = zScoreWR - abs(zScorePR)
-                    else:
-                        tier_num = zScoreWR + zScorePR
+                    rateFound = False
+                    for combinedRate in combinedArray:
+                        if hero_id == combinedRate['hero_id'] and combinedRank == combinedRate['rank'] and currentRole == combinedRate['role']:
+                            combinedRate['matches'] += matches
+                            combinedRate['wincount'] += wincount
+                            rateFound = True
+                            break
+                    
+                    if not rateFound:
+                        newRate = {}
+                        newRate['hero_id'] = hero_id
+                        newRate['rank'] = combinedRank
+                        newRate['role'] = currentRole
+                        newRate['matches'] = matches
+                        newRate['wincount'] = wincount
+                        combinedArray.append(newRate)
+                        
+                
+                
 
-                    tier_str = tierCalc(tier_num)
+        #         if pickrate >= 0.005:
+        #             sdWR = standardDeviation(wrArray)
+        #             sdPR = standardDeviation(prArray)
+        #             zScoreWR = (winrate - (sum(wrArray) / len(wrArray)) ) / sdWR
+        #             zScorePR = (pickrate - (sum(prArray) / len(prArray)) ) / sdPR
 
-                else:
-                    tier_num = 0
-                    tier_str = '?'
+        #             if zScoreWR < 0:
+        #                 tier_num = zScoreWR - abs(zScorePR)
+        #             else:
+        #                 tier_num = zScoreWR + zScorePR
 
-                if rates:
-                    cur.execute("""
-                        INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                        ON CONFLICT (hero_id, patch, rank, role)
-                        DO UPDATE SET 
-                            matches = EXCLUDED.matches,
-                            wincount = EXCLUDED.wincount,
-                            winrate = EXCLUDED.winrate,
-                            pickrate = EXCLUDED.pickrate,
-                            tier_num = EXCLUDED.tier_num,
-                            tier_str = EXCLUDED.tier_str
-                    """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
-                else:
-                    cur.execute("""
-                        INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
+        #             tier_str = tierCalc(tier_num)
+
+        #         else:
+        #             tier_num = 0
+        #             tier_str = '?'
+
+        #         if rates:
+        #             cur.execute("""
+        #                 INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
+        #                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        #                 ON CONFLICT (hero_id, patch, rank, role)
+        #                 DO UPDATE SET 
+        #                     matches = EXCLUDED.matches,
+        #                     wincount = EXCLUDED.wincount,
+        #                     winrate = EXCLUDED.winrate,
+        #                     pickrate = EXCLUDED.pickrate,
+        #                     tier_num = EXCLUDED.tier_num,
+        #                     tier_str = EXCLUDED.tier_str
+        #             """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
+        #         else:
+        #             cur.execute("""
+        #                 INSERT INTO rates (hero_id, patch, matches, wincount, winrate, pickrate, role, rank, tier_num, tier_str) 
+        #                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        #             """, (hero_id, current_patch, matches, wincount, winrate, pickrate, currentRole, currentRank, tier_num, tier_str))
 
             
-        conn.commit() # Commit the transaction
+        # conn.commit() # Commit the transaction
+
+print(combinedArray)
 
 conn.close() # Close communication with the database
