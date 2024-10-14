@@ -1,0 +1,7 @@
+{
+  "hero_id": 1,
+  "name": "npc_dota_hero_antimage",
+  "localized_name": "Anti-Mage",
+  "img": "/apps/dota2/images/dota_react/heroes/antimage.png?",
+  "attr": "agi"
+}

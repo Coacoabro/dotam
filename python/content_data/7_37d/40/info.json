@@ -1,0 +1,7 @@
+{
+  "hero_id": 40,
+  "name": "npc_dota_hero_venomancer",
+  "localized_name": "Venomancer",
+  "img": "/apps/dota2/images/dota_react/heroes/venomancer.png?",
+  "attr": "all"
+}

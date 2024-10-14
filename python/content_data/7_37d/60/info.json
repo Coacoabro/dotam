@@ -1,0 +1,7 @@
+{
+  "hero_id": 60,
+  "name": "npc_dota_hero_night_stalker",
+  "localized_name": "Night Stalker",
+  "img": "/apps/dota2/images/dota_react/heroes/night_stalker.png?",
+  "attr": "str"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 15,
+  "name": "npc_dota_hero_razor",
+  "localized_name": "Razor",
+  "img": "/apps/dota2/images/dota_react/heroes/razor.png?",
+  "attr": "agi"
+}

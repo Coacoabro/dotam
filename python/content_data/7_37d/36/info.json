@@ -1,0 +1,7 @@
+{
+  "hero_id": 36,
+  "name": "npc_dota_hero_necrolyte",
+  "localized_name": "Necrophos",
+  "img": "/apps/dota2/images/dota_react/heroes/necrolyte.png?",
+  "attr": "int"
+}

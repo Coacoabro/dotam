@@ -1,0 +1,7 @@
+{
+  "hero_id": 21,
+  "name": "npc_dota_hero_windrunner",
+  "localized_name": "Windranger",
+  "img": "/apps/dota2/images/dota_react/heroes/windrunner.png?",
+  "attr": "all"
+}

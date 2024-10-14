@@ -29,27 +29,30 @@ export default function HeroLayout({ children, hero, current_patch }) {
 
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
 
-  const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.url, 'info'], () => fetchHeroData(hero.url, 'info'), {staleTime: 3600000});
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.url, 'builds', currPatch], () => fetchHeroData(hero.url, 'builds', currPatch), {staleTime: 3600000});
-  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.url, 'rates'], () => fetchHeroData(hero.url, 'rates'), {staleTime: 3600000});
-  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.url, 'matchups'], () => fetchHeroData(hero.url, 'matchups'), {staleTime: 3600000});
+  const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currPatch], () => fetchHeroData(hero.id, 'info', currPatch), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'builds', currPatch], () => fetchHeroData(hero.id, 'builds', currPatch), {staleTime: 3600000});
+  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.id, 'rates', currPatch], () => fetchHeroData(hero.id, 'rates', currPatch), {staleTime: 3600000});
+  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currPatch], () => fetchHeroData(hero.id, 'matchups', currPatch), {staleTime: 3600000});
+  // const heroInfo = info
+  // const heroBuilds = data
+  // const heroRates = rates
 
   useEffect(() => {
     if(patch){setCurrPatch(patch)}
   }, [patch])
 
-  if(infoLoading || ratesLoading){
+  if(ratesLoading || infoLoading || buildsLoading || matchupsLoading || matchupsLoading ){
     <IoLoading />
   }
   else{
 
-    const buildFinder = heroRates.main
+    console.log(heroRates, heroInfo, heroBuilds)
 
-    const heroData = heroInfo[0]
+    const heroData = heroInfo
 
     const heroName = hero.name
 
-    const highestPickRateRole = heroRates.rates
+    const highestPickRateRole = heroRates
       .filter(rate => rate.role !== "" && rate.rank == "")
       .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
     
@@ -58,17 +61,15 @@ export default function HeroLayout({ children, hero, current_patch }) {
     const initFacet = (() => {
       let most = 0;
       let best = 0;
-      if(heroBuilds){
-        heroBuilds.forEach((obj) => {
-          if (obj.role === initRole && obj.rank === "") {
-            if (obj.total_matches > most) {
-              most = obj.total_matches;
-              best = obj.facet;
-            }
+      heroBuilds.forEach((obj) => {
+        if (obj.role === initRole && obj.rank === "") {
+          if (obj.total_matches > most) {
+            most = obj.total_matches;
+            best = obj.facet;
           }
-        });
-        return best;
-      }
+        }
+      });
+      return best;
     })();
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
@@ -103,7 +104,7 @@ export default function HeroLayout({ children, hero, current_patch }) {
         </div>
 
         <div className='flex space-x-3'>
-          <RatesContainer rates={heroRates.rates} initRole={initRole} current_patch={current_patch} />
+          <RatesContainer rates={heroRates} initRole={initRole} current_patch={current_patch} />
           {/* <div className='hidden sm:block'>
             <h1 className='font-bold px-2 pb-2'>Specific Info:</h1>
             <Pages hero={hero} />
@@ -114,23 +115,17 @@ export default function HeroLayout({ children, hero, current_patch }) {
           <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
         </div>
 
-        {buildsLoading ? (<LoadingWheel />) : (
-          <>       
-            <main>
-              {React.Children.map(children, child =>
-                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, buildFinder, heroMatchups })
-              )}
-            </main>
-          </>
-        )}
+        <main>
+          {React.Children.map(children, child =>
+            React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
+          )}
+        </main>
 
         </div>
 
-        {buildsLoading ? null : (
-          <div className='pt-12 lg:pt-36 z-0'>
-            <BottomBar />
-          </div>
-        )}
+        <div className='pt-12 lg:pt-36 z-0'>
+          <BottomBar />
+        </div>
 
       </div>
       

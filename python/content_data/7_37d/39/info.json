@@ -1,0 +1,7 @@
+{
+  "hero_id": 39,
+  "name": "npc_dota_hero_queenofpain",
+  "localized_name": "Queen of Pain",
+  "img": "/apps/dota2/images/dota_react/heroes/queenofpain.png?",
+  "attr": "int"
+}

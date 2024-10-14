@@ -1,0 +1,7 @@
+{
+  "hero_id": 89,
+  "name": "npc_dota_hero_naga_siren",
+  "localized_name": "Naga Siren",
+  "img": "/apps/dota2/images/dota_react/heroes/naga_siren.png?",
+  "attr": "agi"
+}

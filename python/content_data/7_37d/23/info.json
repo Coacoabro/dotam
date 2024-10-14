@@ -1,0 +1,7 @@
+{
+  "hero_id": 23,
+  "name": "npc_dota_hero_kunkka",
+  "localized_name": "Kunkka",
+  "img": "/apps/dota2/images/dota_react/heroes/kunkka.png?",
+  "attr": "str"
+}

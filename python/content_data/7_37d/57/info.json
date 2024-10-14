@@ -1,0 +1,7 @@
+{
+  "hero_id": 57,
+  "name": "npc_dota_hero_omniknight",
+  "localized_name": "Omniknight",
+  "img": "/apps/dota2/images/dota_react/heroes/omniknight.png?",
+  "attr": "str"
+}

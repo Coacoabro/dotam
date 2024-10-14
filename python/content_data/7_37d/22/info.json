@@ -1,0 +1,7 @@
+{
+  "hero_id": 22,
+  "name": "npc_dota_hero_zuus",
+  "localized_name": "Zeus",
+  "img": "/apps/dota2/images/dota_react/heroes/zuus.png?",
+  "attr": "int"
+}

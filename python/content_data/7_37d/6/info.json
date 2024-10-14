@@ -1,0 +1,7 @@
+{
+  "hero_id": 6,
+  "name": "npc_dota_hero_drow_ranger",
+  "localized_name": "Drow Ranger",
+  "img": "/apps/dota2/images/dota_react/heroes/drow_ranger.png?",
+  "attr": "agi"
+}

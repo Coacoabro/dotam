@@ -10,8 +10,8 @@ import dota2heroes from '../../../../json/dota2heroes.json'
 export async function getServerSideProps(context) {
 
     const hero = dota2heroes.find(hero => hero.url === context.query.hero)
-    const res = await fetch("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-    const patch = await res.text()
+    const patch_res = await fetch("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+    const patch = await patch_res.text()
 
     if(hero){    
         return {
@@ -23,10 +23,10 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function BuildsPage( {hero, patch} ) {
+export default function BuildsPage( { hero, patch } ) {
 
     const heroName = hero.name
-    
+
     return(
         <HeroLayout hero={hero} current_patch={patch} >
 

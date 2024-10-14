@@ -1,0 +1,7 @@
+{
+  "hero_id": 96,
+  "name": "npc_dota_hero_centaur",
+  "localized_name": "Centaur Warrunner",
+  "img": "/apps/dota2/images/dota_react/heroes/centaur.png?",
+  "attr": "str"
+}

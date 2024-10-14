@@ -1,0 +1,7 @@
+{
+  "hero_id": 107,
+  "name": "npc_dota_hero_earth_spirit",
+  "localized_name": "Earth Spirit",
+  "img": "/apps/dota2/images/dota_react/heroes/earth_spirit.png?",
+  "attr": "str"
+}

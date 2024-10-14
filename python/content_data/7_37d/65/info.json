@@ -1,0 +1,7 @@
+{
+  "hero_id": 65,
+  "name": "npc_dota_hero_batrider",
+  "localized_name": "Batrider",
+  "img": "/apps/dota2/images/dota_react/heroes/batrider.png?",
+  "attr": "all"
+}

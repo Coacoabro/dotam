@@ -19,7 +19,7 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
             <div className='px-3 text-lg items-center hidden lg:flex justify-evenly'>
                 <div className='flex gap-2 items-center'>
                     Facets: 
-                    {initFacet ? <Facets initFacet={initFacet} id={hero.id} /> : null}
+                    <Facets initFacet={initFacet} id={hero.id} />
                 </div>
                 <div className='h-14 w-[1px] bg-slate-800'/>
                 <div className='flex gap-2 items-center'>
@@ -41,7 +41,7 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
 
             {/* Mobile Screen */}
             <div className='lg:hidden flex justify-evenly items-center'>
-                {initFacet ? <Facets initFacet={initFacet} id={hero.id} /> : null}
+                <Facets initFacet={initFacet} id={hero.id} />
                 <Rank />
                 <Patches />
             </div>

@@ -1,0 +1,7 @@
+{
+  "hero_id": 138,
+  "name": "npc_dota_hero_muerta",
+  "localized_name": "Muerta",
+  "img": "/apps/dota2/images/dota_react/heroes/muerta.png?",
+  "attr": "int"
+}

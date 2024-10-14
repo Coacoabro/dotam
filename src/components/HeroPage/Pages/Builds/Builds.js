@@ -24,6 +24,8 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
 
     const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == current_patch))
 
+    console.log(heroMatchups)
+
     useEffect(() => {
 
         const currRole = role || initRole

@@ -1,0 +1,7 @@
+{
+  "hero_id": 25,
+  "name": "npc_dota_hero_lina",
+  "localized_name": "Lina",
+  "img": "/apps/dota2/images/dota_react/heroes/lina.png?",
+  "attr": "int"
+}

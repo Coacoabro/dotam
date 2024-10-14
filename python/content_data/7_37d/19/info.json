@@ -1,0 +1,7 @@
+{
+  "hero_id": 19,
+  "name": "npc_dota_hero_tiny",
+  "localized_name": "Tiny",
+  "img": "/apps/dota2/images/dota_react/heroes/tiny.png?",
+  "attr": "str"
+}

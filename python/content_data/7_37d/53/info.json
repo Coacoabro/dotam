@@ -1,0 +1,7 @@
+{
+  "hero_id": 53,
+  "name": "npc_dota_hero_furion",
+  "localized_name": "Nature's Prophet",
+  "img": "/apps/dota2/images/dota_react/heroes/furion.png?",
+  "attr": "int"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 98,
+  "name": "npc_dota_hero_shredder",
+  "localized_name": "Timbersaw",
+  "img": "/apps/dota2/images/dota_react/heroes/shredder.png?",
+  "attr": "all"
+}

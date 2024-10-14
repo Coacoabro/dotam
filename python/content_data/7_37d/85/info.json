@@ -1,0 +1,7 @@
+{
+  "hero_id": 85,
+  "name": "npc_dota_hero_undying",
+  "localized_name": "Undying",
+  "img": "/apps/dota2/images/dota_react/heroes/undying.png?",
+  "attr": "str"
+}

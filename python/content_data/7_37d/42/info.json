@@ -1,0 +1,7 @@
+{
+  "hero_id": 42,
+  "name": "npc_dota_hero_skeleton_king",
+  "localized_name": "Wraith King",
+  "img": "/apps/dota2/images/dota_react/heroes/skeleton_king.png?",
+  "attr": "str"
+}

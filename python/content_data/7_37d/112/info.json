@@ -1,0 +1,7 @@
+{
+  "hero_id": 112,
+  "name": "npc_dota_hero_winter_wyvern",
+  "localized_name": "Winter Wyvern",
+  "img": "/apps/dota2/images/dota_react/heroes/winter_wyvern.png?",
+  "attr": "all"
+}

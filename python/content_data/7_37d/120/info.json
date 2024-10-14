@@ -1,0 +1,7 @@
+{
+  "hero_id": 120,
+  "name": "npc_dota_hero_pangolier",
+  "localized_name": "Pangolier",
+  "img": "/apps/dota2/images/dota_react/heroes/pangolier.png?",
+  "attr": "all"
+}

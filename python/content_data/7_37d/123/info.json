@@ -1,0 +1,7 @@
+{
+  "hero_id": 123,
+  "name": "npc_dota_hero_hoodwink",
+  "localized_name": "Hoodwink",
+  "img": "/apps/dota2/images/dota_react/heroes/hoodwink.png?",
+  "attr": "agi"
+}

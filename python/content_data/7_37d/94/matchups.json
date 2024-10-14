@@ -1,0 +1,10471 @@
+[
+  {
+    "hero_id": 94,
+    "rank": "",
+    "role": "POSITION_1",
+    "herovs": [
+      {
+        "Hero": 46,
+        "WR": 62.38,
+        "Matches": 2273
+      },
+      {
+        "Hero": 10,
+        "WR": 59.5,
+        "Matches": 4262
+      },
+      {
+        "Hero": 18,
+        "WR": 58.89,
+        "Matches": 2583
+      },
+      {
+        "Hero": 81,
+        "WR": 58.69,
+        "Matches": 3808
+      },
+      {
+        "Hero": 12,
+        "WR": 58.64,
+        "Matches": 3315
+      },
+      {
+        "Hero": 4,
+        "WR": 58.58,
+        "Matches": 2472
+      },
+      {
+        "Hero": 114,
+        "WR": 58.56,
+        "Matches": 6786
+      },
+      {
+        "Hero": 138,
+        "WR": 58.47,
+        "Matches": 2155
+      },
+      {
+        "Hero": 9,
+        "WR": 58.16,
+        "Matches": 11164
+      },
+      {
+        "Hero": 89,
+        "WR": 58.13,
+        "Matches": 1328
+      },
+      {
+        "Hero": 41,
+        "WR": 57.97,
+        "Matches": 6296
+      },
+      {
+        "Hero": 25,
+        "WR": 57.57,
+        "Matches": 11667
+      },
+      {
+        "Hero": 63,
+        "WR": 57.24,
+        "Matches": 7454
+      },
+      {
+        "Hero": 53,
+        "WR": 57.17,
+        "Matches": 9041
+      },
+      {
+        "Hero": 11,
+        "WR": 57.06,
+        "Matches": 11545
+      },
+      {
+        "Hero": 72,
+        "WR": 57.0,
+        "Matches": 3288
+      },
+      {
+        "Hero": 109,
+        "WR": 56.83,
+        "Matches": 1494
+      },
+      {
+        "Hero": 54,
+        "WR": 56.68,
+        "Matches": 3906
+      },
+      {
+        "Hero": 47,
+        "WR": 56.6,
+        "Matches": 7973
+      },
+      {
+        "Hero": 40,
+        "WR": 56.4,
+        "Matches": 6270
+      },
+      {
+        "Hero": 19,
+        "WR": 56.36,
+        "Matches": 5575
+      },
+      {
+        "Hero": 49,
+        "WR": 55.06,
+        "Matches": 10190
+      },
+      {
+        "Hero": 44,
+        "WR": 54.84,
+        "Matches": 16677
+      },
+      {
+        "Hero": 106,
+        "WR": 54.84,
+        "Matches": 3882
+      },
+      {
+        "Hero": 14,
+        "WR": 54.63,
+        "Matches": 22594
+      },
+      {
+        "Hero": 104,
+        "WR": 54.54,
+        "Matches": 13567
+      },
+      {
+        "Hero": 6,
+        "WR": 54.5,
+        "Matches": 9157
+      },
+      {
+        "Hero": 95,
+        "WR": 54.24,
+        "Matches": 2432
+      },
+      {
+        "Hero": 48,
+        "WR": 54.22,
+        "Matches": 17135
+      },
+      {
+        "Hero": 67,
+        "WR": 53.9,
+        "Matches": 8721
+      },
+      {
+        "Hero": 70,
+        "WR": 53.45,
+        "Matches": 6022
+      },
+      {
+        "Hero": 136,
+        "WR": 53.42,
+        "Matches": 4227
+      },
+      {
+        "Hero": 56,
+        "WR": 53.19,
+        "Matches": 3296
+      },
+      {
+        "Hero": 15,
+        "WR": 53.03,
+        "Matches": 5964
+      },
+      {
+        "Hero": 8,
+        "WR": 52.7,
+        "Matches": 12566
+      },
+      {
+        "Hero": 21,
+        "WR": 52.64,
+        "Matches": 15966
+      },
+      {
+        "Hero": 80,
+        "WR": 52.23,
+        "Matches": 5342
+      },
+      {
+        "Hero": 35,
+        "WR": 52.03,
+        "Matches": 18821
+      },
+      {
+        "Hero": 93,
+        "WR": 51.95,
+        "Matches": 9625
+      },
+      {
+        "Hero": 42,
+        "WR": 51.79,
+        "Matches": 10683
+      },
+      {
+        "Hero": 32,
+        "WR": 50.88,
+        "Matches": 5075
+      },
+      {
+        "Hero": 73,
+        "WR": 49.85,
+        "Matches": 4520
+      },
+      {
+        "Hero": 1,
+        "WR": 46.74,
+        "Matches": 15634
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 3,
+        "WR": 59.8,
+        "Matches": 1664
+      },
+      {
+        "Hero": 42,
+        "WR": 58.98,
+        "Matches": 7157
+      },
+      {
+        "Hero": 82,
+        "WR": 58.69,
+        "Matches": 702
+      },
+      {
+        "Hero": 103,
+        "WR": 58.13,
+        "Matches": 922
+      },
+      {
+        "Hero": 68,
+        "WR": 58.1,
+        "Matches": 5577
+      },
+      {
+        "Hero": 84,
+        "WR": 57.46,
+        "Matches": 13332
+      },
+      {
+        "Hero": 104,
+        "WR": 57.46,
+        "Matches": 11414
+      },
+      {
+        "Hero": 88,
+        "WR": 57.45,
+        "Matches": 7358
+      },
+      {
+        "Hero": 113,
+        "WR": 57.39,
+        "Matches": 1650
+      },
+      {
+        "Hero": 131,
+        "WR": 57.39,
+        "Matches": 11830
+      },
+      {
+        "Hero": 16,
+        "WR": 57.36,
+        "Matches": 13955
+      },
+      {
+        "Hero": 20,
+        "WR": 57.32,
+        "Matches": 6497
+      },
+      {
+        "Hero": 37,
+        "WR": 57.27,
+        "Matches": 7482
+      },
+      {
+        "Hero": 126,
+        "WR": 57.2,
+        "Matches": 3217
+      },
+      {
+        "Hero": 2,
+        "WR": 57.0,
+        "Matches": 13497
+      },
+      {
+        "Hero": 76,
+        "WR": 56.98,
+        "Matches": 4056
+      },
+      {
+        "Hero": 92,
+        "WR": 56.96,
+        "Matches": 2233
+      },
+      {
+        "Hero": 27,
+        "WR": 56.95,
+        "Matches": 8916
+      },
+      {
+        "Hero": 32,
+        "WR": 56.87,
+        "Matches": 3172
+      },
+      {
+        "Hero": 101,
+        "WR": 56.83,
+        "Matches": 5606
+      },
+      {
+        "Hero": 102,
+        "WR": 56.78,
+        "Matches": 6289
+      },
+      {
+        "Hero": 30,
+        "WR": 56.62,
+        "Matches": 14194
+      },
+      {
+        "Hero": 51,
+        "WR": 56.6,
+        "Matches": 5426
+      },
+      {
+        "Hero": 79,
+        "WR": 56.59,
+        "Matches": 3854
+      },
+      {
+        "Hero": 14,
+        "WR": 56.48,
+        "Matches": 21103
+      },
+      {
+        "Hero": 108,
+        "WR": 56.36,
+        "Matches": 6890
+      },
+      {
+        "Hero": 61,
+        "WR": 56.22,
+        "Matches": 1190
+      },
+      {
+        "Hero": 60,
+        "WR": 56.11,
+        "Matches": 4463
+      },
+      {
+        "Hero": 80,
+        "WR": 56.11,
+        "Matches": 3108
+      },
+      {
+        "Hero": 31,
+        "WR": 56.08,
+        "Matches": 7983
+      },
+      {
+        "Hero": 67,
+        "WR": 55.96,
+        "Matches": 2752
+      },
+      {
+        "Hero": 96,
+        "WR": 55.9,
+        "Matches": 9069
+      },
+      {
+        "Hero": 62,
+        "WR": 55.86,
+        "Matches": 4748
+      },
+      {
+        "Hero": 22,
+        "WR": 55.85,
+        "Matches": 10111
+      },
+      {
+        "Hero": 17,
+        "WR": 55.81,
+        "Matches": 5295
+      },
+      {
+        "Hero": 83,
+        "WR": 55.63,
+        "Matches": 5235
+      },
+      {
+        "Hero": 87,
+        "WR": 55.59,
+        "Matches": 5341
+      },
+      {
+        "Hero": 56,
+        "WR": 55.53,
+        "Matches": 2370
+      },
+      {
+        "Hero": 90,
+        "WR": 55.41,
+        "Matches": 1933
+      },
+      {
+        "Hero": 47,
+        "WR": 55.25,
+        "Matches": 5940
+      },
+      {
+        "Hero": 36,
+        "WR": 55.2,
+        "Matches": 7839
+      },
+      {
+        "Hero": 34,
+        "WR": 55.08,
+        "Matches": 2665
+      },
+      {
+        "Hero": 75,
+        "WR": 54.94,
+        "Matches": 8182
+      },
+      {
+        "Hero": 85,
+        "WR": 54.89,
+        "Matches": 6216
+      },
+      {
+        "Hero": 5,
+        "WR": 54.88,
+        "Matches": 9320
+      },
+      {
+        "Hero": 39,
+        "WR": 54.8,
+        "Matches": 11221
+      },
+      {
+        "Hero": 71,
+        "WR": 54.79,
+        "Matches": 8521
+      },
+      {
+        "Hero": 40,
+        "WR": 54.68,
+        "Matches": 5805
+      },
+      {
+        "Hero": 93,
+        "WR": 54.64,
+        "Matches": 3715
+      },
+      {
+        "Hero": 107,
+        "WR": 54.62,
+        "Matches": 2142
+      },
+      {
+        "Hero": 55,
+        "WR": 54.59,
+        "Matches": 1295
+      },
+      {
+        "Hero": 4,
+        "WR": 54.56,
+        "Matches": 1633
+      },
+      {
+        "Hero": 23,
+        "WR": 54.48,
+        "Matches": 5798
+      },
+      {
+        "Hero": 73,
+        "WR": 54.41,
+        "Matches": 2849
+      },
+      {
+        "Hero": 33,
+        "WR": 54.37,
+        "Matches": 1992
+      },
+      {
+        "Hero": 97,
+        "WR": 54.3,
+        "Matches": 5072
+      },
+      {
+        "Hero": 98,
+        "WR": 54.24,
+        "Matches": 6259
+      },
+      {
+        "Hero": 6,
+        "WR": 54.22,
+        "Matches": 2999
+      },
+      {
+        "Hero": 111,
+        "WR": 54.18,
+        "Matches": 2715
+      },
+      {
+        "Hero": 28,
+        "WR": 54.11,
+        "Matches": 4646
+      },
+      {
+        "Hero": 48,
+        "WR": 54.11,
+        "Matches": 3831
+      },
+      {
+        "Hero": 64,
+        "WR": 53.96,
+        "Matches": 10675
+      },
+      {
+        "Hero": 15,
+        "WR": 53.9,
+        "Matches": 4438
+      },
+      {
+        "Hero": 57,
+        "WR": 53.87,
+        "Matches": 3204
+      },
+      {
+        "Hero": 105,
+        "WR": 53.83,
+        "Matches": 5315
+      },
+      {
+        "Hero": 89,
+        "WR": 53.82,
+        "Matches": 838
+      },
+      {
+        "Hero": 63,
+        "WR": 53.7,
+        "Matches": 3775
+      },
+      {
+        "Hero": 74,
+        "WR": 53.6,
+        "Matches": 10931
+      },
+      {
+        "Hero": 78,
+        "WR": 53.57,
+        "Matches": 504
+      },
+      {
+        "Hero": 81,
+        "WR": 53.56,
+        "Matches": 2558
+      },
+      {
+        "Hero": 43,
+        "WR": 53.46,
+        "Matches": 1534
+      },
+      {
+        "Hero": 119,
+        "WR": 53.42,
+        "Matches": 4412
+      },
+      {
+        "Hero": 121,
+        "WR": 53.35,
+        "Matches": 2855
+      },
+      {
+        "Hero": 136,
+        "WR": 53.31,
+        "Matches": 3350
+      },
+      {
+        "Hero": 77,
+        "WR": 53.13,
+        "Matches": 1231
+      },
+      {
+        "Hero": 21,
+        "WR": 53.12,
+        "Matches": 8521
+      },
+      {
+        "Hero": 26,
+        "WR": 53.08,
+        "Matches": 19294
+      },
+      {
+        "Hero": 110,
+        "WR": 53.03,
+        "Matches": 3515
+      },
+      {
+        "Hero": 59,
+        "WR": 53.0,
+        "Matches": 2938
+      },
+      {
+        "Hero": 7,
+        "WR": 52.98,
+        "Matches": 11412
+      },
+      {
+        "Hero": 8,
+        "WR": 52.94,
+        "Matches": 4182
+      },
+      {
+        "Hero": 35,
+        "WR": 52.86,
+        "Matches": 16219
+      },
+      {
+        "Hero": 52,
+        "WR": 52.78,
+        "Matches": 1904
+      },
+      {
+        "Hero": 13,
+        "WR": 52.68,
+        "Matches": 6513
+      },
+      {
+        "Hero": 112,
+        "WR": 52.66,
+        "Matches": 2391
+      },
+      {
+        "Hero": 72,
+        "WR": 52.63,
+        "Matches": 2341
+      },
+      {
+        "Hero": 123,
+        "WR": 52.53,
+        "Matches": 7704
+      },
+      {
+        "Hero": 129,
+        "WR": 52.52,
+        "Matches": 6716
+      },
+      {
+        "Hero": 44,
+        "WR": 52.33,
+        "Matches": 5414
+      },
+      {
+        "Hero": 45,
+        "WR": 52.22,
+        "Matches": 2637
+      },
+      {
+        "Hero": 29,
+        "WR": 52.19,
+        "Matches": 3656
+      },
+      {
+        "Hero": 11,
+        "WR": 52.12,
+        "Matches": 7297
+      },
+      {
+        "Hero": 135,
+        "WR": 52.02,
+        "Matches": 2151
+      },
+      {
+        "Hero": 99,
+        "WR": 52.0,
+        "Matches": 6936
+      },
+      {
+        "Hero": 19,
+        "WR": 51.85,
+        "Matches": 5011
+      },
+      {
+        "Hero": 25,
+        "WR": 51.75,
+        "Matches": 8192
+      },
+      {
+        "Hero": 86,
+        "WR": 51.59,
+        "Matches": 14547
+      },
+      {
+        "Hero": 106,
+        "WR": 51.54,
+        "Matches": 3254
+      },
+      {
+        "Hero": 54,
+        "WR": 51.46,
+        "Matches": 1710
+      },
+      {
+        "Hero": 100,
+        "WR": 51.31,
+        "Matches": 6956
+      },
+      {
+        "Hero": 58,
+        "WR": 51.21,
+        "Matches": 3599
+      },
+      {
+        "Hero": 70,
+        "WR": 51.11,
+        "Matches": 2166
+      },
+      {
+        "Hero": 49,
+        "WR": 51.0,
+        "Matches": 7353
+      },
+      {
+        "Hero": 9,
+        "WR": 50.99,
+        "Matches": 9052
+      },
+      {
+        "Hero": 53,
+        "WR": 50.65,
+        "Matches": 7688
+      },
+      {
+        "Hero": 138,
+        "WR": 50.4,
+        "Matches": 1139
+      },
+      {
+        "Hero": 109,
+        "WR": 50.17,
+        "Matches": 586
+      },
+      {
+        "Hero": 128,
+        "WR": 49.86,
+        "Matches": 4807
+      },
+      {
+        "Hero": 69,
+        "WR": 49.79,
+        "Matches": 4493
+      },
+      {
+        "Hero": 137,
+        "WR": 49.61,
+        "Matches": 2288
+      },
+      {
+        "Hero": 1,
+        "WR": 49.55,
+        "Matches": 3003
+      },
+      {
+        "Hero": 38,
+        "WR": 49.21,
+        "Matches": 1146
+      },
+      {
+        "Hero": 41,
+        "WR": 48.84,
+        "Matches": 2506
+      },
+      {
+        "Hero": 12,
+        "WR": 48.38,
+        "Matches": 928
+      },
+      {
+        "Hero": 46,
+        "WR": 48.24,
+        "Matches": 1362
+      },
+      {
+        "Hero": 95,
+        "WR": 48.08,
+        "Matches": 884
+      },
+      {
+        "Hero": 114,
+        "WR": 47.96,
+        "Matches": 4226
+      },
+      {
+        "Hero": 50,
+        "WR": 47.74,
+        "Matches": 5105
+      },
+      {
+        "Hero": 91,
+        "WR": 47.59,
+        "Matches": 1618
+      },
+      {
+        "Hero": 120,
+        "WR": 46.81,
+        "Matches": 1459
+      },
+      {
+        "Hero": 65,
+        "WR": 46.6,
+        "Matches": 779
+      },
+      {
+        "Hero": 18,
+        "WR": 46.57,
+        "Matches": 1591
+      },
+      {
+        "Hero": 66,
+        "WR": 45.63,
+        "Matches": 263
+      },
+      {
+        "Hero": 10,
+        "WR": 45.22,
+        "Matches": 1402
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "",
+    "role": "POSITION_2",
+    "herovs": [
+      {
+        "Hero": 46,
+        "WR": 62.38,
+        "Matches": 2273
+      },
+      {
+        "Hero": 105,
+        "WR": 60.03,
+        "Matches": 5765
+      },
+      {
+        "Hero": 10,
+        "WR": 59.5,
+        "Matches": 4262
+      },
+      {
+        "Hero": 39,
+        "WR": 59.04,
+        "Matches": 12722
+      },
+      {
+        "Hero": 52,
+        "WR": 58.65,
+        "Matches": 2092
+      },
+      {
+        "Hero": 4,
+        "WR": 58.58,
+        "Matches": 2472
+      },
+      {
+        "Hero": 114,
+        "WR": 58.56,
+        "Matches": 6786
+      },
+      {
+        "Hero": 123,
+        "WR": 58.44,
+        "Matches": 7900
+      },
+      {
+        "Hero": 90,
+        "WR": 58.17,
+        "Matches": 1114
+      },
+      {
+        "Hero": 9,
+        "WR": 58.16,
+        "Matches": 11164
+      },
+      {
+        "Hero": 98,
+        "WR": 58.04,
+        "Matches": 6668
+      },
+      {
+        "Hero": 120,
+        "WR": 57.69,
+        "Matches": 1704
+      },
+      {
+        "Hero": 45,
+        "WR": 57.67,
+        "Matches": 2544
+      },
+      {
+        "Hero": 25,
+        "WR": 57.57,
+        "Matches": 11667
+      },
+      {
+        "Hero": 128,
+        "WR": 57.34,
+        "Matches": 5169
+      },
+      {
+        "Hero": 82,
+        "WR": 57.32,
+        "Matches": 909
+      },
+      {
+        "Hero": 137,
+        "WR": 57.3,
+        "Matches": 2520
+      },
+      {
+        "Hero": 63,
+        "WR": 57.24,
+        "Matches": 7454
+      },
+      {
+        "Hero": 53,
+        "WR": 57.17,
+        "Matches": 9041
+      },
+      {
+        "Hero": 11,
+        "WR": 57.06,
+        "Matches": 11545
+      },
+      {
+        "Hero": 97,
+        "WR": 56.97,
+        "Matches": 5552
+      },
+      {
+        "Hero": 13,
+        "WR": 56.88,
+        "Matches": 7052
+      },
+      {
+        "Hero": 17,
+        "WR": 56.74,
+        "Matches": 6310
+      },
+      {
+        "Hero": 86,
+        "WR": 56.69,
+        "Matches": 15065
+      },
+      {
+        "Hero": 47,
+        "WR": 56.6,
+        "Matches": 7973
+      },
+      {
+        "Hero": 59,
+        "WR": 56.58,
+        "Matches": 3763
+      },
+      {
+        "Hero": 40,
+        "WR": 56.4,
+        "Matches": 6270
+      },
+      {
+        "Hero": 19,
+        "WR": 56.36,
+        "Matches": 5575
+      },
+      {
+        "Hero": 101,
+        "WR": 56.26,
+        "Matches": 6209
+      },
+      {
+        "Hero": 22,
+        "WR": 56.11,
+        "Matches": 11660
+      },
+      {
+        "Hero": 76,
+        "WR": 55.93,
+        "Matches": 5198
+      },
+      {
+        "Hero": 43,
+        "WR": 55.9,
+        "Matches": 1846
+      },
+      {
+        "Hero": 50,
+        "WR": 55.59,
+        "Matches": 5794
+      },
+      {
+        "Hero": 7,
+        "WR": 55.53,
+        "Matches": 11676
+      },
+      {
+        "Hero": 110,
+        "WR": 55.4,
+        "Matches": 3762
+      },
+      {
+        "Hero": 49,
+        "WR": 55.06,
+        "Matches": 10190
+      },
+      {
+        "Hero": 44,
+        "WR": 54.84,
+        "Matches": 16677
+      },
+      {
+        "Hero": 106,
+        "WR": 54.84,
+        "Matches": 3882
+      },
+      {
+        "Hero": 92,
+        "WR": 54.75,
+        "Matches": 2665
+      },
+      {
+        "Hero": 14,
+        "WR": 54.63,
+        "Matches": 22594
+      },
+      {
+        "Hero": 26,
+        "WR": 54.6,
+        "Matches": 15794
+      },
+      {
+        "Hero": 104,
+        "WR": 54.54,
+        "Matches": 13567
+      },
+      {
+        "Hero": 6,
+        "WR": 54.5,
+        "Matches": 9157
+      },
+      {
+        "Hero": 71,
+        "WR": 54.43,
+        "Matches": 9216
+      },
+      {
+        "Hero": 119,
+        "WR": 54.33,
+        "Matches": 4644
+      },
+      {
+        "Hero": 20,
+        "WR": 54.31,
+        "Matches": 7118
+      },
+      {
+        "Hero": 107,
+        "WR": 54.31,
+        "Matches": 2215
+      },
+      {
+        "Hero": 48,
+        "WR": 54.22,
+        "Matches": 17135
+      },
+      {
+        "Hero": 64,
+        "WR": 53.53,
+        "Matches": 11010
+      },
+      {
+        "Hero": 36,
+        "WR": 53.43,
+        "Matches": 9348
+      },
+      {
+        "Hero": 136,
+        "WR": 53.42,
+        "Matches": 4227
+      },
+      {
+        "Hero": 68,
+        "WR": 53.31,
+        "Matches": 6492
+      },
+      {
+        "Hero": 126,
+        "WR": 53.27,
+        "Matches": 3512
+      },
+      {
+        "Hero": 113,
+        "WR": 53.26,
+        "Matches": 2272
+      },
+      {
+        "Hero": 56,
+        "WR": 53.19,
+        "Matches": 3296
+      },
+      {
+        "Hero": 75,
+        "WR": 53.09,
+        "Matches": 9461
+      },
+      {
+        "Hero": 15,
+        "WR": 53.03,
+        "Matches": 5964
+      },
+      {
+        "Hero": 62,
+        "WR": 52.86,
+        "Matches": 4860
+      },
+      {
+        "Hero": 88,
+        "WR": 52.85,
+        "Matches": 7151
+      },
+      {
+        "Hero": 21,
+        "WR": 52.64,
+        "Matches": 15966
+      },
+      {
+        "Hero": 84,
+        "WR": 52.5,
+        "Matches": 13281
+      },
+      {
+        "Hero": 77,
+        "WR": 52.45,
+        "Matches": 1409
+      },
+      {
+        "Hero": 80,
+        "WR": 52.23,
+        "Matches": 5342
+      },
+      {
+        "Hero": 34,
+        "WR": 52.09,
+        "Matches": 2826
+      },
+      {
+        "Hero": 35,
+        "WR": 52.03,
+        "Matches": 18821
+      },
+      {
+        "Hero": 61,
+        "WR": 51.99,
+        "Matches": 1658
+      },
+      {
+        "Hero": 93,
+        "WR": 51.95,
+        "Matches": 9625
+      },
+      {
+        "Hero": 74,
+        "WR": 51.51,
+        "Matches": 11559
+      },
+      {
+        "Hero": 32,
+        "WR": 50.88,
+        "Matches": 5075
+      },
+      {
+        "Hero": 23,
+        "WR": 50.5,
+        "Matches": 6151
+      },
+      {
+        "Hero": 73,
+        "WR": 49.85,
+        "Matches": 4520
+      },
+      {
+        "Hero": 16,
+        "WR": 48.53,
+        "Matches": 14172
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 3,
+        "WR": 59.8,
+        "Matches": 1664
+      },
+      {
+        "Hero": 42,
+        "WR": 58.98,
+        "Matches": 7157
+      },
+      {
+        "Hero": 82,
+        "WR": 58.69,
+        "Matches": 702
+      },
+      {
+        "Hero": 103,
+        "WR": 58.13,
+        "Matches": 922
+      },
+      {
+        "Hero": 68,
+        "WR": 58.1,
+        "Matches": 5577
+      },
+      {
+        "Hero": 84,
+        "WR": 57.46,
+        "Matches": 13332
+      },
+      {
+        "Hero": 104,
+        "WR": 57.46,
+        "Matches": 11414
+      },
+      {
+        "Hero": 88,
+        "WR": 57.45,
+        "Matches": 7358
+      },
+      {
+        "Hero": 113,
+        "WR": 57.39,
+        "Matches": 1650
+      },
+      {
+        "Hero": 131,
+        "WR": 57.39,
+        "Matches": 11830
+      },
+      {
+        "Hero": 16,
+        "WR": 57.36,
+        "Matches": 13955
+      },
+      {
+        "Hero": 20,
+        "WR": 57.32,
+        "Matches": 6497
+      },
+      {
+        "Hero": 37,
+        "WR": 57.27,
+        "Matches": 7482
+      },
+      {
+        "Hero": 126,
+        "WR": 57.2,
+        "Matches": 3217
+      },
+      {
+        "Hero": 2,
+        "WR": 57.0,
+        "Matches": 13497
+      },
+      {
+        "Hero": 76,
+        "WR": 56.98,
+        "Matches": 4056
+      },
+      {
+        "Hero": 92,
+        "WR": 56.96,
+        "Matches": 2233
+      },
+      {
+        "Hero": 27,
+        "WR": 56.95,
+        "Matches": 8916
+      },
+      {
+        "Hero": 32,
+        "WR": 56.87,
+        "Matches": 3172
+      },
+      {
+        "Hero": 101,
+        "WR": 56.83,
+        "Matches": 5606
+      },
+      {
+        "Hero": 102,
+        "WR": 56.78,
+        "Matches": 6289
+      },
+      {
+        "Hero": 30,
+        "WR": 56.62,
+        "Matches": 14194
+      },
+      {
+        "Hero": 51,
+        "WR": 56.6,
+        "Matches": 5426
+      },
+      {
+        "Hero": 79,
+        "WR": 56.59,
+        "Matches": 3854
+      },
+      {
+        "Hero": 14,
+        "WR": 56.48,
+        "Matches": 21103
+      },
+      {
+        "Hero": 108,
+        "WR": 56.36,
+        "Matches": 6890
+      },
+      {
+        "Hero": 61,
+        "WR": 56.22,
+        "Matches": 1190
+      },
+      {
+        "Hero": 60,
+        "WR": 56.11,
+        "Matches": 4463
+      },
+      {
+        "Hero": 80,
+        "WR": 56.11,
+        "Matches": 3108
+      },
+      {
+        "Hero": 31,
+        "WR": 56.08,
+        "Matches": 7983
+      },
+      {
+        "Hero": 67,
+        "WR": 55.96,
+        "Matches": 2752
+      },
+      {
+        "Hero": 96,
+        "WR": 55.9,
+        "Matches": 9069
+      },
+      {
+        "Hero": 62,
+        "WR": 55.86,
+        "Matches": 4748
+      },
+      {
+        "Hero": 22,
+        "WR": 55.85,
+        "Matches": 10111
+      },
+      {
+        "Hero": 17,
+        "WR": 55.81,
+        "Matches": 5295
+      },
+      {
+        "Hero": 83,
+        "WR": 55.63,
+        "Matches": 5235
+      },
+      {
+        "Hero": 87,
+        "WR": 55.59,
+        "Matches": 5341
+      },
+      {
+        "Hero": 56,
+        "WR": 55.53,
+        "Matches": 2370
+      },
+      {
+        "Hero": 90,
+        "WR": 55.41,
+        "Matches": 1933
+      },
+      {
+        "Hero": 47,
+        "WR": 55.25,
+        "Matches": 5940
+      },
+      {
+        "Hero": 36,
+        "WR": 55.2,
+        "Matches": 7839
+      },
+      {
+        "Hero": 34,
+        "WR": 55.08,
+        "Matches": 2665
+      },
+      {
+        "Hero": 75,
+        "WR": 54.94,
+        "Matches": 8182
+      },
+      {
+        "Hero": 85,
+        "WR": 54.89,
+        "Matches": 6216
+      },
+      {
+        "Hero": 5,
+        "WR": 54.88,
+        "Matches": 9320
+      },
+      {
+        "Hero": 39,
+        "WR": 54.8,
+        "Matches": 11221
+      },
+      {
+        "Hero": 71,
+        "WR": 54.79,
+        "Matches": 8521
+      },
+      {
+        "Hero": 40,
+        "WR": 54.68,
+        "Matches": 5805
+      },
+      {
+        "Hero": 93,
+        "WR": 54.64,
+        "Matches": 3715
+      },
+      {
+        "Hero": 107,
+        "WR": 54.62,
+        "Matches": 2142
+      },
+      {
+        "Hero": 55,
+        "WR": 54.59,
+        "Matches": 1295
+      },
+      {
+        "Hero": 4,
+        "WR": 54.56,
+        "Matches": 1633
+      },
+      {
+        "Hero": 23,
+        "WR": 54.48,
+        "Matches": 5798
+      },
+      {
+        "Hero": 73,
+        "WR": 54.41,
+        "Matches": 2849
+      },
+      {
+        "Hero": 33,
+        "WR": 54.37,
+        "Matches": 1992
+      },
+      {
+        "Hero": 97,
+        "WR": 54.3,
+        "Matches": 5072
+      },
+      {
+        "Hero": 98,
+        "WR": 54.24,
+        "Matches": 6259
+      },
+      {
+        "Hero": 6,
+        "WR": 54.22,
+        "Matches": 2999
+      },
+      {
+        "Hero": 111,
+        "WR": 54.18,
+        "Matches": 2715
+      },
+      {
+        "Hero": 28,
+        "WR": 54.11,
+        "Matches": 4646
+      },
+      {
+        "Hero": 48,
+        "WR": 54.11,
+        "Matches": 3831
+      },
+      {
+        "Hero": 64,
+        "WR": 53.96,
+        "Matches": 10675
+      },
+      {
+        "Hero": 15,
+        "WR": 53.9,
+        "Matches": 4438
+      },
+      {
+        "Hero": 57,
+        "WR": 53.87,
+        "Matches": 3204
+      },
+      {
+        "Hero": 105,
+        "WR": 53.83,
+        "Matches": 5315
+      },
+      {
+        "Hero": 89,
+        "WR": 53.82,
+        "Matches": 838
+      },
+      {
+        "Hero": 63,
+        "WR": 53.7,
+        "Matches": 3775
+      },
+      {
+        "Hero": 74,
+        "WR": 53.6,
+        "Matches": 10931
+      },
+      {
+        "Hero": 78,
+        "WR": 53.57,
+        "Matches": 504
+      },
+      {
+        "Hero": 81,
+        "WR": 53.56,
+        "Matches": 2558
+      },
+      {
+        "Hero": 43,
+        "WR": 53.46,
+        "Matches": 1534
+      },
+      {
+        "Hero": 119,
+        "WR": 53.42,
+        "Matches": 4412
+      },
+      {
+        "Hero": 121,
+        "WR": 53.35,
+        "Matches": 2855
+      },
+      {
+        "Hero": 136,
+        "WR": 53.31,
+        "Matches": 3350
+      },
+      {
+        "Hero": 77,
+        "WR": 53.13,
+        "Matches": 1231
+      },
+      {
+        "Hero": 21,
+        "WR": 53.12,
+        "Matches": 8521
+      },
+      {
+        "Hero": 26,
+        "WR": 53.08,
+        "Matches": 19294
+      },
+      {
+        "Hero": 110,
+        "WR": 53.03,
+        "Matches": 3515
+      },
+      {
+        "Hero": 59,
+        "WR": 53.0,
+        "Matches": 2938
+      },
+      {
+        "Hero": 7,
+        "WR": 52.98,
+        "Matches": 11412
+      },
+      {
+        "Hero": 8,
+        "WR": 52.94,
+        "Matches": 4182
+      },
+      {
+        "Hero": 35,
+        "WR": 52.86,
+        "Matches": 16219
+      },
+      {
+        "Hero": 52,
+        "WR": 52.78,
+        "Matches": 1904
+      },
+      {
+        "Hero": 13,
+        "WR": 52.68,
+        "Matches": 6513
+      },
+      {
+        "Hero": 112,
+        "WR": 52.66,
+        "Matches": 2391
+      },
+      {
+        "Hero": 72,
+        "WR": 52.63,
+        "Matches": 2341
+      },
+      {
+        "Hero": 123,
+        "WR": 52.53,
+        "Matches": 7704
+      },
+      {
+        "Hero": 129,
+        "WR": 52.52,
+        "Matches": 6716
+      },
+      {
+        "Hero": 44,
+        "WR": 52.33,
+        "Matches": 5414
+      },
+      {
+        "Hero": 45,
+        "WR": 52.22,
+        "Matches": 2637
+      },
+      {
+        "Hero": 29,
+        "WR": 52.19,
+        "Matches": 3656
+      },
+      {
+        "Hero": 11,
+        "WR": 52.12,
+        "Matches": 7297
+      },
+      {
+        "Hero": 135,
+        "WR": 52.02,
+        "Matches": 2151
+      },
+      {
+        "Hero": 99,
+        "WR": 52.0,
+        "Matches": 6936
+      },
+      {
+        "Hero": 19,
+        "WR": 51.85,
+        "Matches": 5011
+      },
+      {
+        "Hero": 25,
+        "WR": 51.75,
+        "Matches": 8192
+      },
+      {
+        "Hero": 86,
+        "WR": 51.59,
+        "Matches": 14547
+      },
+      {
+        "Hero": 106,
+        "WR": 51.54,
+        "Matches": 3254
+      },
+      {
+        "Hero": 54,
+        "WR": 51.46,
+        "Matches": 1710
+      },
+      {
+        "Hero": 100,
+        "WR": 51.31,
+        "Matches": 6956
+      },
+      {
+        "Hero": 58,
+        "WR": 51.21,
+        "Matches": 3599
+      },
+      {
+        "Hero": 70,
+        "WR": 51.11,
+        "Matches": 2166
+      },
+      {
+        "Hero": 49,
+        "WR": 51.0,
+        "Matches": 7353
+      },
+      {
+        "Hero": 9,
+        "WR": 50.99,
+        "Matches": 9052
+      },
+      {
+        "Hero": 53,
+        "WR": 50.65,
+        "Matches": 7688
+      },
+      {
+        "Hero": 138,
+        "WR": 50.4,
+        "Matches": 1139
+      },
+      {
+        "Hero": 109,
+        "WR": 50.17,
+        "Matches": 586
+      },
+      {
+        "Hero": 128,
+        "WR": 49.86,
+        "Matches": 4807
+      },
+      {
+        "Hero": 69,
+        "WR": 49.79,
+        "Matches": 4493
+      },
+      {
+        "Hero": 137,
+        "WR": 49.61,
+        "Matches": 2288
+      },
+      {
+        "Hero": 1,
+        "WR": 49.55,
+        "Matches": 3003
+      },
+      {
+        "Hero": 38,
+        "WR": 49.21,
+        "Matches": 1146
+      },
+      {
+        "Hero": 41,
+        "WR": 48.84,
+        "Matches": 2506
+      },
+      {
+        "Hero": 12,
+        "WR": 48.38,
+        "Matches": 928
+      },
+      {
+        "Hero": 46,
+        "WR": 48.24,
+        "Matches": 1362
+      },
+      {
+        "Hero": 95,
+        "WR": 48.08,
+        "Matches": 884
+      },
+      {
+        "Hero": 114,
+        "WR": 47.96,
+        "Matches": 4226
+      },
+      {
+        "Hero": 50,
+        "WR": 47.74,
+        "Matches": 5105
+      },
+      {
+        "Hero": 91,
+        "WR": 47.59,
+        "Matches": 1618
+      },
+      {
+        "Hero": 120,
+        "WR": 46.81,
+        "Matches": 1459
+      },
+      {
+        "Hero": 65,
+        "WR": 46.6,
+        "Matches": 779
+      },
+      {
+        "Hero": 18,
+        "WR": 46.57,
+        "Matches": 1591
+      },
+      {
+        "Hero": 66,
+        "WR": 45.63,
+        "Matches": 263
+      },
+      {
+        "Hero": 10,
+        "WR": 45.22,
+        "Matches": 1402
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "HERALD_GUARDIAN",
+    "role": "POSITION_1",
+    "herovs": [
+      {
+        "Hero": 46,
+        "WR": 68.67,
+        "Matches": 581
+      },
+      {
+        "Hero": 18,
+        "WR": 61.02,
+        "Matches": 826
+      },
+      {
+        "Hero": 114,
+        "WR": 60.21,
+        "Matches": 1498
+      },
+      {
+        "Hero": 10,
+        "WR": 60.15,
+        "Matches": 685
+      },
+      {
+        "Hero": 28,
+        "WR": 59.38,
+        "Matches": 1445
+      },
+      {
+        "Hero": 123,
+        "WR": 59.23,
+        "Matches": 1550
+      },
+      {
+        "Hero": 9,
+        "WR": 59.09,
+        "Matches": 2107
+      },
+      {
+        "Hero": 53,
+        "WR": 59.0,
+        "Matches": 2244
+      },
+      {
+        "Hero": 41,
+        "WR": 58.77,
+        "Matches": 1693
+      },
+      {
+        "Hero": 59,
+        "WR": 58.77,
+        "Matches": 1106
+      },
+      {
+        "Hero": 25,
+        "WR": 58.59,
+        "Matches": 2649
+      },
+      {
+        "Hero": 4,
+        "WR": 58.58,
+        "Matches": 845
+      },
+      {
+        "Hero": 11,
+        "WR": 58.28,
+        "Matches": 2253
+      },
+      {
+        "Hero": 54,
+        "WR": 57.97,
+        "Matches": 847
+      },
+      {
+        "Hero": 109,
+        "WR": 57.89,
+        "Matches": 418
+      },
+      {
+        "Hero": 138,
+        "WR": 57.83,
+        "Matches": 600
+      },
+      {
+        "Hero": 19,
+        "WR": 57.75,
+        "Matches": 1290
+      },
+      {
+        "Hero": 12,
+        "WR": 57.7,
+        "Matches": 1319
+      },
+      {
+        "Hero": 72,
+        "WR": 57.28,
+        "Matches": 728
+      },
+      {
+        "Hero": 89,
+        "WR": 57.27,
+        "Matches": 344
+      },
+      {
+        "Hero": 81,
+        "WR": 57.09,
+        "Matches": 1333
+      },
+      {
+        "Hero": 22,
+        "WR": 57.06,
+        "Matches": 2881
+      },
+      {
+        "Hero": 63,
+        "WR": 57.06,
+        "Matches": 1968
+      },
+      {
+        "Hero": 106,
+        "WR": 56.95,
+        "Matches": 604
+      },
+      {
+        "Hero": 7,
+        "WR": 56.92,
+        "Matches": 2816
+      },
+      {
+        "Hero": 47,
+        "WR": 56.75,
+        "Matches": 2437
+      },
+      {
+        "Hero": 70,
+        "WR": 55.81,
+        "Matches": 1111
+      },
+      {
+        "Hero": 6,
+        "WR": 55.7,
+        "Matches": 2668
+      },
+      {
+        "Hero": 40,
+        "WR": 55.33,
+        "Matches": 1482
+      },
+      {
+        "Hero": 23,
+        "WR": 55.07,
+        "Matches": 1084
+      },
+      {
+        "Hero": 26,
+        "WR": 55.01,
+        "Matches": 4094
+      },
+      {
+        "Hero": 21,
+        "WR": 54.93,
+        "Matches": 3126
+      },
+      {
+        "Hero": 88,
+        "WR": 54.85,
+        "Matches": 1464
+      },
+      {
+        "Hero": 136,
+        "WR": 54.66,
+        "Matches": 655
+      },
+      {
+        "Hero": 48,
+        "WR": 54.59,
+        "Matches": 3129
+      },
+      {
+        "Hero": 71,
+        "WR": 54.23,
+        "Matches": 2425
+      },
+      {
+        "Hero": 61,
+        "WR": 54.11,
+        "Matches": 414
+      },
+      {
+        "Hero": 30,
+        "WR": 53.99,
+        "Matches": 3571
+      },
+      {
+        "Hero": 56,
+        "WR": 53.86,
+        "Matches": 1075
+      },
+      {
+        "Hero": 80,
+        "WR": 53.85,
+        "Matches": 947
+      },
+      {
+        "Hero": 36,
+        "WR": 53.76,
+        "Matches": 2485
+      },
+      {
+        "Hero": 8,
+        "WR": 53.6,
+        "Matches": 3407
+      },
+      {
+        "Hero": 27,
+        "WR": 53.6,
+        "Matches": 2748
+      },
+      {
+        "Hero": 44,
+        "WR": 53.58,
+        "Matches": 4597
+      },
+      {
+        "Hero": 73,
+        "WR": 53.37,
+        "Matches": 920
+      },
+      {
+        "Hero": 49,
+        "WR": 53.2,
+        "Matches": 2233
+      },
+      {
+        "Hero": 104,
+        "WR": 53.2,
+        "Matches": 2989
+      },
+      {
+        "Hero": 14,
+        "WR": 53.1,
+        "Matches": 5712
+      },
+      {
+        "Hero": 95,
+        "WR": 53.03,
+        "Matches": 858
+      },
+      {
+        "Hero": 77,
+        "WR": 52.68,
+        "Matches": 336
+      },
+      {
+        "Hero": 35,
+        "WR": 52.64,
+        "Matches": 4704
+      },
+      {
+        "Hero": 15,
+        "WR": 52.3,
+        "Matches": 1524
+      },
+      {
+        "Hero": 32,
+        "WR": 52.14,
+        "Matches": 1592
+      },
+      {
+        "Hero": 93,
+        "WR": 51.88,
+        "Matches": 2361
+      },
+      {
+        "Hero": 99,
+        "WR": 51.86,
+        "Matches": 2310
+      },
+      {
+        "Hero": 62,
+        "WR": 51.59,
+        "Matches": 1413
+      },
+      {
+        "Hero": 84,
+        "WR": 51.32,
+        "Matches": 3833
+      },
+      {
+        "Hero": 67,
+        "WR": 50.84,
+        "Matches": 2201
+      },
+      {
+        "Hero": 2,
+        "WR": 50.59,
+        "Matches": 3416
+      },
+      {
+        "Hero": 42,
+        "WR": 50.29,
+        "Matches": 2945
+      },
+      {
+        "Hero": 75,
+        "WR": 50.15,
+        "Matches": 2710
+      },
+      {
+        "Hero": 16,
+        "WR": 48.33,
+        "Matches": 2450
+      },
+      {
+        "Hero": 1,
+        "WR": 47.84,
+        "Matches": 3424
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 37,
+        "WR": 61.77,
+        "Matches": 1805
+      },
+      {
+        "Hero": 108,
+        "WR": 60.21,
+        "Matches": 1166
+      },
+      {
+        "Hero": 68,
+        "WR": 60.0,
+        "Matches": 1320
+      },
+      {
+        "Hero": 89,
+        "WR": 59.9,
+        "Matches": 207
+      },
+      {
+        "Hero": 42,
+        "WR": 59.8,
+        "Matches": 2189
+      },
+      {
+        "Hero": 16,
+        "WR": 59.39,
+        "Matches": 2310
+      },
+      {
+        "Hero": 31,
+        "WR": 58.59,
+        "Matches": 1775
+      },
+      {
+        "Hero": 84,
+        "WR": 58.53,
+        "Matches": 3689
+      },
+      {
+        "Hero": 32,
+        "WR": 58.38,
+        "Matches": 1134
+      },
+      {
+        "Hero": 2,
+        "WR": 58.3,
+        "Matches": 3062
+      },
+      {
+        "Hero": 67,
+        "WR": 58.19,
+        "Matches": 1014
+      },
+      {
+        "Hero": 14,
+        "WR": 58.0,
+        "Matches": 5031
+      },
+      {
+        "Hero": 104,
+        "WR": 57.9,
+        "Matches": 2532
+      },
+      {
+        "Hero": 87,
+        "WR": 57.74,
+        "Matches": 1027
+      },
+      {
+        "Hero": 30,
+        "WR": 57.25,
+        "Matches": 3460
+      },
+      {
+        "Hero": 98,
+        "WR": 57.21,
+        "Matches": 1061
+      },
+      {
+        "Hero": 105,
+        "WR": 57.05,
+        "Matches": 1334
+      },
+      {
+        "Hero": 27,
+        "WR": 57.02,
+        "Matches": 2473
+      },
+      {
+        "Hero": 102,
+        "WR": 56.97,
+        "Matches": 976
+      },
+      {
+        "Hero": 55,
+        "WR": 56.95,
+        "Matches": 302
+      },
+      {
+        "Hero": 15,
+        "WR": 56.94,
+        "Matches": 1110
+      },
+      {
+        "Hero": 93,
+        "WR": 56.84,
+        "Matches": 1302
+      },
+      {
+        "Hero": 22,
+        "WR": 56.81,
+        "Matches": 2329
+      },
+      {
+        "Hero": 80,
+        "WR": 56.75,
+        "Matches": 585
+      },
+      {
+        "Hero": 88,
+        "WR": 56.73,
+        "Matches": 1218
+      },
+      {
+        "Hero": 61,
+        "WR": 56.55,
+        "Matches": 267
+      },
+      {
+        "Hero": 48,
+        "WR": 56.49,
+        "Matches": 1264
+      },
+      {
+        "Hero": 101,
+        "WR": 56.47,
+        "Matches": 1569
+      },
+      {
+        "Hero": 36,
+        "WR": 56.42,
+        "Matches": 1930
+      },
+      {
+        "Hero": 39,
+        "WR": 56.22,
+        "Matches": 1649
+      },
+      {
+        "Hero": 56,
+        "WR": 56.21,
+        "Matches": 765
+      },
+      {
+        "Hero": 83,
+        "WR": 56.16,
+        "Matches": 942
+      },
+      {
+        "Hero": 75,
+        "WR": 56.03,
+        "Matches": 2224
+      },
+      {
+        "Hero": 131,
+        "WR": 55.92,
+        "Matches": 1545
+      },
+      {
+        "Hero": 96,
+        "WR": 55.7,
+        "Matches": 1508
+      },
+      {
+        "Hero": 33,
+        "WR": 55.65,
+        "Matches": 496
+      },
+      {
+        "Hero": 8,
+        "WR": 55.6,
+        "Matches": 1750
+      },
+      {
+        "Hero": 76,
+        "WR": 55.43,
+        "Matches": 736
+      },
+      {
+        "Hero": 23,
+        "WR": 55.39,
+        "Matches": 919
+      },
+      {
+        "Hero": 6,
+        "WR": 55.36,
+        "Matches": 1297
+      },
+      {
+        "Hero": 64,
+        "WR": 55.34,
+        "Matches": 2161
+      },
+      {
+        "Hero": 51,
+        "WR": 55.29,
+        "Matches": 870
+      },
+      {
+        "Hero": 62,
+        "WR": 55.26,
+        "Matches": 1350
+      },
+      {
+        "Hero": 20,
+        "WR": 55.2,
+        "Matches": 1192
+      },
+      {
+        "Hero": 17,
+        "WR": 55.18,
+        "Matches": 955
+      },
+      {
+        "Hero": 4,
+        "WR": 55.0,
+        "Matches": 620
+      },
+      {
+        "Hero": 113,
+        "WR": 55.0,
+        "Matches": 440
+      },
+      {
+        "Hero": 5,
+        "WR": 54.88,
+        "Matches": 2613
+      },
+      {
+        "Hero": 99,
+        "WR": 54.7,
+        "Matches": 2247
+      },
+      {
+        "Hero": 136,
+        "WR": 54.64,
+        "Matches": 604
+      },
+      {
+        "Hero": 63,
+        "WR": 54.52,
+        "Matches": 1051
+      },
+      {
+        "Hero": 3,
+        "WR": 54.4,
+        "Matches": 364
+      },
+      {
+        "Hero": 47,
+        "WR": 54.4,
+        "Matches": 1625
+      },
+      {
+        "Hero": 81,
+        "WR": 54.27,
+        "Matches": 984
+      },
+      {
+        "Hero": 107,
+        "WR": 54.18,
+        "Matches": 251
+      },
+      {
+        "Hero": 40,
+        "WR": 54.04,
+        "Matches": 1423
+      },
+      {
+        "Hero": 7,
+        "WR": 53.99,
+        "Matches": 2469
+      },
+      {
+        "Hero": 44,
+        "WR": 53.89,
+        "Matches": 2273
+      },
+      {
+        "Hero": 92,
+        "WR": 53.59,
+        "Matches": 306
+      },
+      {
+        "Hero": 49,
+        "WR": 53.55,
+        "Matches": 1791
+      },
+      {
+        "Hero": 119,
+        "WR": 53.48,
+        "Matches": 978
+      },
+      {
+        "Hero": 35,
+        "WR": 53.45,
+        "Matches": 3555
+      },
+      {
+        "Hero": 69,
+        "WR": 53.2,
+        "Matches": 765
+      },
+      {
+        "Hero": 121,
+        "WR": 53.19,
+        "Matches": 611
+      },
+      {
+        "Hero": 29,
+        "WR": 53.06,
+        "Matches": 1031
+      },
+      {
+        "Hero": 57,
+        "WR": 53.05,
+        "Matches": 492
+      },
+      {
+        "Hero": 103,
+        "WR": 53.03,
+        "Matches": 198
+      },
+      {
+        "Hero": 28,
+        "WR": 53.01,
+        "Matches": 1279
+      },
+      {
+        "Hero": 52,
+        "WR": 53.01,
+        "Matches": 332
+      },
+      {
+        "Hero": 60,
+        "WR": 52.95,
+        "Matches": 729
+      },
+      {
+        "Hero": 138,
+        "WR": 52.94,
+        "Matches": 357
+      },
+      {
+        "Hero": 85,
+        "WR": 52.93,
+        "Matches": 1657
+      },
+      {
+        "Hero": 13,
+        "WR": 52.92,
+        "Matches": 718
+      },
+      {
+        "Hero": 126,
+        "WR": 52.77,
+        "Matches": 415
+      },
+      {
+        "Hero": 123,
+        "WR": 52.73,
+        "Matches": 1519
+      },
+      {
+        "Hero": 78,
+        "WR": 52.69,
+        "Matches": 93
+      },
+      {
+        "Hero": 58,
+        "WR": 52.67,
+        "Matches": 993
+      },
+      {
+        "Hero": 21,
+        "WR": 52.6,
+        "Matches": 1979
+      },
+      {
+        "Hero": 111,
+        "WR": 52.53,
+        "Matches": 396
+      },
+      {
+        "Hero": 54,
+        "WR": 52.45,
+        "Matches": 633
+      },
+      {
+        "Hero": 26,
+        "WR": 52.43,
+        "Matches": 4204
+      },
+      {
+        "Hero": 112,
+        "WR": 52.41,
+        "Matches": 540
+      },
+      {
+        "Hero": 77,
+        "WR": 52.33,
+        "Matches": 300
+      },
+      {
+        "Hero": 73,
+        "WR": 52.3,
+        "Matches": 675
+      },
+      {
+        "Hero": 59,
+        "WR": 52.28,
+        "Matches": 811
+      },
+      {
+        "Hero": 71,
+        "WR": 52.2,
+        "Matches": 2253
+      },
+      {
+        "Hero": 11,
+        "WR": 52.19,
+        "Matches": 1460
+      },
+      {
+        "Hero": 53,
+        "WR": 52.02,
+        "Matches": 1903
+      },
+      {
+        "Hero": 74,
+        "WR": 51.97,
+        "Matches": 1778
+      },
+      {
+        "Hero": 109,
+        "WR": 51.83,
+        "Matches": 218
+      },
+      {
+        "Hero": 79,
+        "WR": 51.63,
+        "Matches": 521
+      },
+      {
+        "Hero": 72,
+        "WR": 51.61,
+        "Matches": 560
+      },
+      {
+        "Hero": 86,
+        "WR": 51.56,
+        "Matches": 2302
+      },
+      {
+        "Hero": 43,
+        "WR": 51.54,
+        "Matches": 421
+      },
+      {
+        "Hero": 65,
+        "WR": 51.52,
+        "Matches": 165
+      },
+      {
+        "Hero": 25,
+        "WR": 51.42,
+        "Matches": 1931
+      },
+      {
+        "Hero": 34,
+        "WR": 51.36,
+        "Matches": 403
+      },
+      {
+        "Hero": 137,
+        "WR": 51.31,
+        "Matches": 421
+      },
+      {
+        "Hero": 9,
+        "WR": 51.07,
+        "Matches": 1864
+      },
+      {
+        "Hero": 129,
+        "WR": 50.69,
+        "Matches": 866
+      },
+      {
+        "Hero": 90,
+        "WR": 50.63,
+        "Matches": 399
+      },
+      {
+        "Hero": 82,
+        "WR": 50.3,
+        "Matches": 169
+      },
+      {
+        "Hero": 1,
+        "WR": 50.19,
+        "Matches": 1030
+      },
+      {
+        "Hero": 70,
+        "WR": 50.0,
+        "Matches": 658
+      },
+      {
+        "Hero": 41,
+        "WR": 49.84,
+        "Matches": 915
+      },
+      {
+        "Hero": 110,
+        "WR": 49.7,
+        "Matches": 507
+      },
+      {
+        "Hero": 100,
+        "WR": 49.69,
+        "Matches": 980
+      },
+      {
+        "Hero": 128,
+        "WR": 49.6,
+        "Matches": 875
+      },
+      {
+        "Hero": 19,
+        "WR": 49.55,
+        "Matches": 1118
+      },
+      {
+        "Hero": 120,
+        "WR": 49.52,
+        "Matches": 208
+      },
+      {
+        "Hero": 135,
+        "WR": 49.28,
+        "Matches": 345
+      },
+      {
+        "Hero": 10,
+        "WR": 49.18,
+        "Matches": 368
+      },
+      {
+        "Hero": 95,
+        "WR": 48.91,
+        "Matches": 458
+      },
+      {
+        "Hero": 50,
+        "WR": 48.43,
+        "Matches": 1274
+      },
+      {
+        "Hero": 45,
+        "WR": 48.38,
+        "Matches": 649
+      },
+      {
+        "Hero": 97,
+        "WR": 48.32,
+        "Matches": 596
+      },
+      {
+        "Hero": 46,
+        "WR": 47.96,
+        "Matches": 367
+      },
+      {
+        "Hero": 91,
+        "WR": 47.81,
+        "Matches": 389
+      },
+      {
+        "Hero": 12,
+        "WR": 47.76,
+        "Matches": 536
+      },
+      {
+        "Hero": 114,
+        "WR": 45.63,
+        "Matches": 1006
+      },
+      {
+        "Hero": 106,
+        "WR": 45.2,
+        "Matches": 458
+      },
+      {
+        "Hero": 18,
+        "WR": 45.18,
+        "Matches": 571
+      },
+      {
+        "Hero": 66,
+        "WR": 45.0,
+        "Matches": 60
+      },
+      {
+        "Hero": 38,
+        "WR": 44.44,
+        "Matches": 189
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "HERALD_GUARDIAN",
+    "role": "POSITION_2",
+    "herovs": [
+      {
+        "Hero": 46,
+        "WR": 68.67,
+        "Matches": 581
+      },
+      {
+        "Hero": 120,
+        "WR": 61.07,
+        "Matches": 244
+      },
+      {
+        "Hero": 97,
+        "WR": 61.02,
+        "Matches": 685
+      },
+      {
+        "Hero": 128,
+        "WR": 60.88,
+        "Matches": 928
+      },
+      {
+        "Hero": 39,
+        "WR": 60.55,
+        "Matches": 2114
+      },
+      {
+        "Hero": 114,
+        "WR": 60.21,
+        "Matches": 1498
+      },
+      {
+        "Hero": 105,
+        "WR": 60.2,
+        "Matches": 1520
+      },
+      {
+        "Hero": 10,
+        "WR": 60.15,
+        "Matches": 685
+      },
+      {
+        "Hero": 28,
+        "WR": 59.38,
+        "Matches": 1445
+      },
+      {
+        "Hero": 92,
+        "WR": 59.38,
+        "Matches": 352
+      },
+      {
+        "Hero": 123,
+        "WR": 59.23,
+        "Matches": 1550
+      },
+      {
+        "Hero": 82,
+        "WR": 59.21,
+        "Matches": 228
+      },
+      {
+        "Hero": 9,
+        "WR": 59.09,
+        "Matches": 2107
+      },
+      {
+        "Hero": 53,
+        "WR": 59.0,
+        "Matches": 2244
+      },
+      {
+        "Hero": 58,
+        "WR": 58.9,
+        "Matches": 1017
+      },
+      {
+        "Hero": 90,
+        "WR": 58.85,
+        "Matches": 260
+      },
+      {
+        "Hero": 59,
+        "WR": 58.77,
+        "Matches": 1106
+      },
+      {
+        "Hero": 25,
+        "WR": 58.59,
+        "Matches": 2649
+      },
+      {
+        "Hero": 4,
+        "WR": 58.58,
+        "Matches": 845
+      },
+      {
+        "Hero": 45,
+        "WR": 58.51,
+        "Matches": 699
+      },
+      {
+        "Hero": 86,
+        "WR": 58.42,
+        "Matches": 2388
+      },
+      {
+        "Hero": 11,
+        "WR": 58.28,
+        "Matches": 2253
+      },
+      {
+        "Hero": 17,
+        "WR": 57.92,
+        "Matches": 1243
+      },
+      {
+        "Hero": 138,
+        "WR": 57.83,
+        "Matches": 600
+      },
+      {
+        "Hero": 107,
+        "WR": 57.82,
+        "Matches": 294
+      },
+      {
+        "Hero": 19,
+        "WR": 57.75,
+        "Matches": 1290
+      },
+      {
+        "Hero": 110,
+        "WR": 57.72,
+        "Matches": 544
+      },
+      {
+        "Hero": 119,
+        "WR": 57.56,
+        "Matches": 1124
+      },
+      {
+        "Hero": 72,
+        "WR": 57.28,
+        "Matches": 728
+      },
+      {
+        "Hero": 137,
+        "WR": 57.17,
+        "Matches": 488
+      },
+      {
+        "Hero": 22,
+        "WR": 57.06,
+        "Matches": 2881
+      },
+      {
+        "Hero": 63,
+        "WR": 57.06,
+        "Matches": 1968
+      },
+      {
+        "Hero": 106,
+        "WR": 56.95,
+        "Matches": 604
+      },
+      {
+        "Hero": 7,
+        "WR": 56.92,
+        "Matches": 2816
+      },
+      {
+        "Hero": 47,
+        "WR": 56.75,
+        "Matches": 2437
+      },
+      {
+        "Hero": 13,
+        "WR": 56.66,
+        "Matches": 939
+      },
+      {
+        "Hero": 43,
+        "WR": 56.56,
+        "Matches": 518
+      },
+      {
+        "Hero": 98,
+        "WR": 56.49,
+        "Matches": 1218
+      },
+      {
+        "Hero": 76,
+        "WR": 56.43,
+        "Matches": 1088
+      },
+      {
+        "Hero": 101,
+        "WR": 56.12,
+        "Matches": 1552
+      },
+      {
+        "Hero": 113,
+        "WR": 56.03,
+        "Matches": 589
+      },
+      {
+        "Hero": 6,
+        "WR": 55.7,
+        "Matches": 2668
+      },
+      {
+        "Hero": 20,
+        "WR": 55.63,
+        "Matches": 1287
+      },
+      {
+        "Hero": 52,
+        "WR": 55.61,
+        "Matches": 410
+      },
+      {
+        "Hero": 40,
+        "WR": 55.33,
+        "Matches": 1482
+      },
+      {
+        "Hero": 23,
+        "WR": 55.07,
+        "Matches": 1084
+      },
+      {
+        "Hero": 26,
+        "WR": 55.01,
+        "Matches": 4094
+      },
+      {
+        "Hero": 21,
+        "WR": 54.93,
+        "Matches": 3126
+      },
+      {
+        "Hero": 88,
+        "WR": 54.85,
+        "Matches": 1464
+      },
+      {
+        "Hero": 136,
+        "WR": 54.66,
+        "Matches": 655
+      },
+      {
+        "Hero": 48,
+        "WR": 54.59,
+        "Matches": 3129
+      },
+      {
+        "Hero": 71,
+        "WR": 54.23,
+        "Matches": 2425
+      },
+      {
+        "Hero": 61,
+        "WR": 54.11,
+        "Matches": 414
+      },
+      {
+        "Hero": 34,
+        "WR": 54.0,
+        "Matches": 450
+      },
+      {
+        "Hero": 30,
+        "WR": 53.99,
+        "Matches": 3571
+      },
+      {
+        "Hero": 56,
+        "WR": 53.86,
+        "Matches": 1075
+      },
+      {
+        "Hero": 80,
+        "WR": 53.85,
+        "Matches": 947
+      },
+      {
+        "Hero": 50,
+        "WR": 53.8,
+        "Matches": 1409
+      },
+      {
+        "Hero": 36,
+        "WR": 53.76,
+        "Matches": 2485
+      },
+      {
+        "Hero": 8,
+        "WR": 53.6,
+        "Matches": 3407
+      },
+      {
+        "Hero": 44,
+        "WR": 53.58,
+        "Matches": 4597
+      },
+      {
+        "Hero": 73,
+        "WR": 53.37,
+        "Matches": 920
+      },
+      {
+        "Hero": 49,
+        "WR": 53.2,
+        "Matches": 2233
+      },
+      {
+        "Hero": 104,
+        "WR": 53.2,
+        "Matches": 2989
+      },
+      {
+        "Hero": 14,
+        "WR": 53.1,
+        "Matches": 5712
+      },
+      {
+        "Hero": 95,
+        "WR": 53.03,
+        "Matches": 858
+      },
+      {
+        "Hero": 74,
+        "WR": 52.98,
+        "Matches": 2061
+      },
+      {
+        "Hero": 77,
+        "WR": 52.68,
+        "Matches": 336
+      },
+      {
+        "Hero": 126,
+        "WR": 52.65,
+        "Matches": 566
+      },
+      {
+        "Hero": 35,
+        "WR": 52.64,
+        "Matches": 4704
+      },
+      {
+        "Hero": 15,
+        "WR": 52.3,
+        "Matches": 1524
+      },
+      {
+        "Hero": 32,
+        "WR": 52.14,
+        "Matches": 1592
+      },
+      {
+        "Hero": 93,
+        "WR": 51.88,
+        "Matches": 2361
+      },
+      {
+        "Hero": 99,
+        "WR": 51.86,
+        "Matches": 2310
+      },
+      {
+        "Hero": 64,
+        "WR": 51.65,
+        "Matches": 2215
+      },
+      {
+        "Hero": 62,
+        "WR": 51.59,
+        "Matches": 1413
+      },
+      {
+        "Hero": 84,
+        "WR": 51.32,
+        "Matches": 3833
+      },
+      {
+        "Hero": 67,
+        "WR": 50.84,
+        "Matches": 2201
+      },
+      {
+        "Hero": 68,
+        "WR": 50.67,
+        "Matches": 1413
+      },
+      {
+        "Hero": 2,
+        "WR": 50.59,
+        "Matches": 3416
+      },
+      {
+        "Hero": 42,
+        "WR": 50.29,
+        "Matches": 2945
+      },
+      {
+        "Hero": 75,
+        "WR": 50.15,
+        "Matches": 2710
+      },
+      {
+        "Hero": 16,
+        "WR": 48.33,
+        "Matches": 2450
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 37,
+        "WR": 61.77,
+        "Matches": 1805
+      },
+      {
+        "Hero": 108,
+        "WR": 60.21,
+        "Matches": 1166
+      },
+      {
+        "Hero": 68,
+        "WR": 60.0,
+        "Matches": 1320
+      },
+      {
+        "Hero": 89,
+        "WR": 59.9,
+        "Matches": 207
+      },
+      {
+        "Hero": 42,
+        "WR": 59.8,
+        "Matches": 2189
+      },
+      {
+        "Hero": 16,
+        "WR": 59.39,
+        "Matches": 2310
+      },
+      {
+        "Hero": 31,
+        "WR": 58.59,
+        "Matches": 1775
+      },
+      {
+        "Hero": 84,
+        "WR": 58.53,
+        "Matches": 3689
+      },
+      {
+        "Hero": 32,
+        "WR": 58.38,
+        "Matches": 1134
+      },
+      {
+        "Hero": 2,
+        "WR": 58.3,
+        "Matches": 3062
+      },
+      {
+        "Hero": 67,
+        "WR": 58.19,
+        "Matches": 1014
+      },
+      {
+        "Hero": 14,
+        "WR": 58.0,
+        "Matches": 5031
+      },
+      {
+        "Hero": 104,
+        "WR": 57.9,
+        "Matches": 2532
+      },
+      {
+        "Hero": 87,
+        "WR": 57.74,
+        "Matches": 1027
+      },
+      {
+        "Hero": 30,
+        "WR": 57.25,
+        "Matches": 3460
+      },
+      {
+        "Hero": 98,
+        "WR": 57.21,
+        "Matches": 1061
+      },
+      {
+        "Hero": 105,
+        "WR": 57.05,
+        "Matches": 1334
+      },
+      {
+        "Hero": 27,
+        "WR": 57.02,
+        "Matches": 2473
+      },
+      {
+        "Hero": 102,
+        "WR": 56.97,
+        "Matches": 976
+      },
+      {
+        "Hero": 55,
+        "WR": 56.95,
+        "Matches": 302
+      },
+      {
+        "Hero": 15,
+        "WR": 56.94,
+        "Matches": 1110
+      },
+      {
+        "Hero": 93,
+        "WR": 56.84,
+        "Matches": 1302
+      },
+      {
+        "Hero": 22,
+        "WR": 56.81,
+        "Matches": 2329
+      },
+      {
+        "Hero": 80,
+        "WR": 56.75,
+        "Matches": 585
+      },
+      {
+        "Hero": 88,
+        "WR": 56.73,
+        "Matches": 1218
+      },
+      {
+        "Hero": 61,
+        "WR": 56.55,
+        "Matches": 267
+      },
+      {
+        "Hero": 48,
+        "WR": 56.49,
+        "Matches": 1264
+      },
+      {
+        "Hero": 101,
+        "WR": 56.47,
+        "Matches": 1569
+      },
+      {
+        "Hero": 36,
+        "WR": 56.42,
+        "Matches": 1930
+      },
+      {
+        "Hero": 39,
+        "WR": 56.22,
+        "Matches": 1649
+      },
+      {
+        "Hero": 56,
+        "WR": 56.21,
+        "Matches": 765
+      },
+      {
+        "Hero": 83,
+        "WR": 56.16,
+        "Matches": 942
+      },
+      {
+        "Hero": 75,
+        "WR": 56.03,
+        "Matches": 2224
+      },
+      {
+        "Hero": 131,
+        "WR": 55.92,
+        "Matches": 1545
+      },
+      {
+        "Hero": 96,
+        "WR": 55.7,
+        "Matches": 1508
+      },
+      {
+        "Hero": 33,
+        "WR": 55.65,
+        "Matches": 496
+      },
+      {
+        "Hero": 8,
+        "WR": 55.6,
+        "Matches": 1750
+      },
+      {
+        "Hero": 76,
+        "WR": 55.43,
+        "Matches": 736
+      },
+      {
+        "Hero": 23,
+        "WR": 55.39,
+        "Matches": 919
+      },
+      {
+        "Hero": 6,
+        "WR": 55.36,
+        "Matches": 1297
+      },
+      {
+        "Hero": 64,
+        "WR": 55.34,
+        "Matches": 2161
+      },
+      {
+        "Hero": 51,
+        "WR": 55.29,
+        "Matches": 870
+      },
+      {
+        "Hero": 62,
+        "WR": 55.26,
+        "Matches": 1350
+      },
+      {
+        "Hero": 20,
+        "WR": 55.2,
+        "Matches": 1192
+      },
+      {
+        "Hero": 17,
+        "WR": 55.18,
+        "Matches": 955
+      },
+      {
+        "Hero": 4,
+        "WR": 55.0,
+        "Matches": 620
+      },
+      {
+        "Hero": 113,
+        "WR": 55.0,
+        "Matches": 440
+      },
+      {
+        "Hero": 5,
+        "WR": 54.88,
+        "Matches": 2613
+      },
+      {
+        "Hero": 99,
+        "WR": 54.7,
+        "Matches": 2247
+      },
+      {
+        "Hero": 136,
+        "WR": 54.64,
+        "Matches": 604
+      },
+      {
+        "Hero": 63,
+        "WR": 54.52,
+        "Matches": 1051
+      },
+      {
+        "Hero": 3,
+        "WR": 54.4,
+        "Matches": 364
+      },
+      {
+        "Hero": 47,
+        "WR": 54.4,
+        "Matches": 1625
+      },
+      {
+        "Hero": 81,
+        "WR": 54.27,
+        "Matches": 984
+      },
+      {
+        "Hero": 107,
+        "WR": 54.18,
+        "Matches": 251
+      },
+      {
+        "Hero": 40,
+        "WR": 54.04,
+        "Matches": 1423
+      },
+      {
+        "Hero": 7,
+        "WR": 53.99,
+        "Matches": 2469
+      },
+      {
+        "Hero": 44,
+        "WR": 53.89,
+        "Matches": 2273
+      },
+      {
+        "Hero": 92,
+        "WR": 53.59,
+        "Matches": 306
+      },
+      {
+        "Hero": 49,
+        "WR": 53.55,
+        "Matches": 1791
+      },
+      {
+        "Hero": 119,
+        "WR": 53.48,
+        "Matches": 978
+      },
+      {
+        "Hero": 35,
+        "WR": 53.45,
+        "Matches": 3555
+      },
+      {
+        "Hero": 69,
+        "WR": 53.2,
+        "Matches": 765
+      },
+      {
+        "Hero": 121,
+        "WR": 53.19,
+        "Matches": 611
+      },
+      {
+        "Hero": 29,
+        "WR": 53.06,
+        "Matches": 1031
+      },
+      {
+        "Hero": 57,
+        "WR": 53.05,
+        "Matches": 492
+      },
+      {
+        "Hero": 103,
+        "WR": 53.03,
+        "Matches": 198
+      },
+      {
+        "Hero": 28,
+        "WR": 53.01,
+        "Matches": 1279
+      },
+      {
+        "Hero": 52,
+        "WR": 53.01,
+        "Matches": 332
+      },
+      {
+        "Hero": 60,
+        "WR": 52.95,
+        "Matches": 729
+      },
+      {
+        "Hero": 138,
+        "WR": 52.94,
+        "Matches": 357
+      },
+      {
+        "Hero": 85,
+        "WR": 52.93,
+        "Matches": 1657
+      },
+      {
+        "Hero": 13,
+        "WR": 52.92,
+        "Matches": 718
+      },
+      {
+        "Hero": 126,
+        "WR": 52.77,
+        "Matches": 415
+      },
+      {
+        "Hero": 123,
+        "WR": 52.73,
+        "Matches": 1519
+      },
+      {
+        "Hero": 78,
+        "WR": 52.69,
+        "Matches": 93
+      },
+      {
+        "Hero": 58,
+        "WR": 52.67,
+        "Matches": 993
+      },
+      {
+        "Hero": 21,
+        "WR": 52.6,
+        "Matches": 1979
+      },
+      {
+        "Hero": 111,
+        "WR": 52.53,
+        "Matches": 396
+      },
+      {
+        "Hero": 54,
+        "WR": 52.45,
+        "Matches": 633
+      },
+      {
+        "Hero": 26,
+        "WR": 52.43,
+        "Matches": 4204
+      },
+      {
+        "Hero": 112,
+        "WR": 52.41,
+        "Matches": 540
+      },
+      {
+        "Hero": 77,
+        "WR": 52.33,
+        "Matches": 300
+      },
+      {
+        "Hero": 73,
+        "WR": 52.3,
+        "Matches": 675
+      },
+      {
+        "Hero": 59,
+        "WR": 52.28,
+        "Matches": 811
+      },
+      {
+        "Hero": 71,
+        "WR": 52.2,
+        "Matches": 2253
+      },
+      {
+        "Hero": 11,
+        "WR": 52.19,
+        "Matches": 1460
+      },
+      {
+        "Hero": 53,
+        "WR": 52.02,
+        "Matches": 1903
+      },
+      {
+        "Hero": 74,
+        "WR": 51.97,
+        "Matches": 1778
+      },
+      {
+        "Hero": 109,
+        "WR": 51.83,
+        "Matches": 218
+      },
+      {
+        "Hero": 79,
+        "WR": 51.63,
+        "Matches": 521
+      },
+      {
+        "Hero": 72,
+        "WR": 51.61,
+        "Matches": 560
+      },
+      {
+        "Hero": 86,
+        "WR": 51.56,
+        "Matches": 2302
+      },
+      {
+        "Hero": 43,
+        "WR": 51.54,
+        "Matches": 421
+      },
+      {
+        "Hero": 65,
+        "WR": 51.52,
+        "Matches": 165
+      },
+      {
+        "Hero": 25,
+        "WR": 51.42,
+        "Matches": 1931
+      },
+      {
+        "Hero": 34,
+        "WR": 51.36,
+        "Matches": 403
+      },
+      {
+        "Hero": 137,
+        "WR": 51.31,
+        "Matches": 421
+      },
+      {
+        "Hero": 9,
+        "WR": 51.07,
+        "Matches": 1864
+      },
+      {
+        "Hero": 129,
+        "WR": 50.69,
+        "Matches": 866
+      },
+      {
+        "Hero": 90,
+        "WR": 50.63,
+        "Matches": 399
+      },
+      {
+        "Hero": 82,
+        "WR": 50.3,
+        "Matches": 169
+      },
+      {
+        "Hero": 1,
+        "WR": 50.19,
+        "Matches": 1030
+      },
+      {
+        "Hero": 70,
+        "WR": 50.0,
+        "Matches": 658
+      },
+      {
+        "Hero": 41,
+        "WR": 49.84,
+        "Matches": 915
+      },
+      {
+        "Hero": 110,
+        "WR": 49.7,
+        "Matches": 507
+      },
+      {
+        "Hero": 100,
+        "WR": 49.69,
+        "Matches": 980
+      },
+      {
+        "Hero": 128,
+        "WR": 49.6,
+        "Matches": 875
+      },
+      {
+        "Hero": 19,
+        "WR": 49.55,
+        "Matches": 1118
+      },
+      {
+        "Hero": 120,
+        "WR": 49.52,
+        "Matches": 208
+      },
+      {
+        "Hero": 135,
+        "WR": 49.28,
+        "Matches": 345
+      },
+      {
+        "Hero": 10,
+        "WR": 49.18,
+        "Matches": 368
+      },
+      {
+        "Hero": 95,
+        "WR": 48.91,
+        "Matches": 458
+      },
+      {
+        "Hero": 50,
+        "WR": 48.43,
+        "Matches": 1274
+      },
+      {
+        "Hero": 45,
+        "WR": 48.38,
+        "Matches": 649
+      },
+      {
+        "Hero": 97,
+        "WR": 48.32,
+        "Matches": 596
+      },
+      {
+        "Hero": 46,
+        "WR": 47.96,
+        "Matches": 367
+      },
+      {
+        "Hero": 91,
+        "WR": 47.81,
+        "Matches": 389
+      },
+      {
+        "Hero": 12,
+        "WR": 47.76,
+        "Matches": 536
+      },
+      {
+        "Hero": 114,
+        "WR": 45.63,
+        "Matches": 1006
+      },
+      {
+        "Hero": 106,
+        "WR": 45.2,
+        "Matches": 458
+      },
+      {
+        "Hero": 18,
+        "WR": 45.18,
+        "Matches": 571
+      },
+      {
+        "Hero": 66,
+        "WR": 45.0,
+        "Matches": 60
+      },
+      {
+        "Hero": 38,
+        "WR": 44.44,
+        "Matches": 189
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "HERALD_GUARDIAN",
+    "role": "POSITION_3",
+    "herovs": [
+      {
+        "Hero": 38,
+        "WR": 61.97,
+        "Matches": 213
+      },
+      {
+        "Hero": 33,
+        "WR": 61.72,
+        "Matches": 546
+      },
+      {
+        "Hero": 120,
+        "WR": 61.07,
+        "Matches": 244
+      },
+      {
+        "Hero": 18,
+        "WR": 61.02,
+        "Matches": 826
+      },
+      {
+        "Hero": 97,
+        "WR": 61.02,
+        "Matches": 685
+      },
+      {
+        "Hero": 128,
+        "WR": 60.88,
+        "Matches": 928
+      },
+      {
+        "Hero": 39,
+        "WR": 60.55,
+        "Matches": 2114
+      },
+      {
+        "Hero": 114,
+        "WR": 60.21,
+        "Matches": 1498
+      },
+      {
+        "Hero": 105,
+        "WR": 60.2,
+        "Matches": 1520
+      },
+      {
+        "Hero": 100,
+        "WR": 59.54,
+        "Matches": 959
+      },
+      {
+        "Hero": 28,
+        "WR": 59.38,
+        "Matches": 1445
+      },
+      {
+        "Hero": 92,
+        "WR": 59.38,
+        "Matches": 352
+      },
+      {
+        "Hero": 123,
+        "WR": 59.23,
+        "Matches": 1550
+      },
+      {
+        "Hero": 9,
+        "WR": 59.09,
+        "Matches": 2107
+      },
+      {
+        "Hero": 53,
+        "WR": 59.0,
+        "Matches": 2244
+      },
+      {
+        "Hero": 58,
+        "WR": 58.9,
+        "Matches": 1017
+      },
+      {
+        "Hero": 41,
+        "WR": 58.77,
+        "Matches": 1693
+      },
+      {
+        "Hero": 59,
+        "WR": 58.77,
+        "Matches": 1106
+      },
+      {
+        "Hero": 25,
+        "WR": 58.59,
+        "Matches": 2649
+      },
+      {
+        "Hero": 4,
+        "WR": 58.58,
+        "Matches": 845
+      },
+      {
+        "Hero": 86,
+        "WR": 58.42,
+        "Matches": 2388
+      },
+      {
+        "Hero": 11,
+        "WR": 58.28,
+        "Matches": 2253
+      },
+      {
+        "Hero": 54,
+        "WR": 57.97,
+        "Matches": 847
+      },
+      {
+        "Hero": 135,
+        "WR": 57.83,
+        "Matches": 415
+      },
+      {
+        "Hero": 138,
+        "WR": 57.83,
+        "Matches": 600
+      },
+      {
+        "Hero": 19,
+        "WR": 57.75,
+        "Matches": 1290
+      },
+      {
+        "Hero": 110,
+        "WR": 57.72,
+        "Matches": 544
+      },
+      {
+        "Hero": 12,
+        "WR": 57.7,
+        "Matches": 1319
+      },
+      {
+        "Hero": 129,
+        "WR": 57.7,
+        "Matches": 877
+      },
+      {
+        "Hero": 119,
+        "WR": 57.56,
+        "Matches": 1124
+      },
+      {
+        "Hero": 69,
+        "WR": 57.3,
+        "Matches": 883
+      },
+      {
+        "Hero": 72,
+        "WR": 57.28,
+        "Matches": 728
+      },
+      {
+        "Hero": 137,
+        "WR": 57.17,
+        "Matches": 488
+      },
+      {
+        "Hero": 81,
+        "WR": 57.09,
+        "Matches": 1333
+      },
+      {
+        "Hero": 22,
+        "WR": 57.06,
+        "Matches": 2881
+      },
+      {
+        "Hero": 63,
+        "WR": 57.06,
+        "Matches": 1968
+      },
+      {
+        "Hero": 7,
+        "WR": 56.92,
+        "Matches": 2816
+      },
+      {
+        "Hero": 47,
+        "WR": 56.75,
+        "Matches": 2437
+      },
+      {
+        "Hero": 43,
+        "WR": 56.56,
+        "Matches": 518
+      },
+      {
+        "Hero": 98,
+        "WR": 56.49,
+        "Matches": 1218
+      },
+      {
+        "Hero": 70,
+        "WR": 55.81,
+        "Matches": 1111
+      },
+      {
+        "Hero": 60,
+        "WR": 55.74,
+        "Matches": 836
+      },
+      {
+        "Hero": 6,
+        "WR": 55.7,
+        "Matches": 2668
+      },
+      {
+        "Hero": 20,
+        "WR": 55.63,
+        "Matches": 1287
+      },
+      {
+        "Hero": 40,
+        "WR": 55.33,
+        "Matches": 1482
+      },
+      {
+        "Hero": 23,
+        "WR": 55.07,
+        "Matches": 1084
+      },
+      {
+        "Hero": 26,
+        "WR": 55.01,
+        "Matches": 4094
+      },
+      {
+        "Hero": 21,
+        "WR": 54.93,
+        "Matches": 3126
+      },
+      {
+        "Hero": 103,
+        "WR": 54.92,
+        "Matches": 193
+      },
+      {
+        "Hero": 88,
+        "WR": 54.85,
+        "Matches": 1464
+      },
+      {
+        "Hero": 57,
+        "WR": 54.77,
+        "Matches": 524
+      },
+      {
+        "Hero": 136,
+        "WR": 54.66,
+        "Matches": 655
+      },
+      {
+        "Hero": 112,
+        "WR": 54.61,
+        "Matches": 553
+      },
+      {
+        "Hero": 48,
+        "WR": 54.59,
+        "Matches": 3129
+      },
+      {
+        "Hero": 71,
+        "WR": 54.23,
+        "Matches": 2425
+      },
+      {
+        "Hero": 61,
+        "WR": 54.11,
+        "Matches": 414
+      },
+      {
+        "Hero": 30,
+        "WR": 53.99,
+        "Matches": 3571
+      },
+      {
+        "Hero": 56,
+        "WR": 53.86,
+        "Matches": 1075
+      },
+      {
+        "Hero": 80,
+        "WR": 53.85,
+        "Matches": 947
+      },
+      {
+        "Hero": 36,
+        "WR": 53.76,
+        "Matches": 2485
+      },
+      {
+        "Hero": 85,
+        "WR": 53.76,
+        "Matches": 1715
+      },
+      {
+        "Hero": 8,
+        "WR": 53.6,
+        "Matches": 3407
+      },
+      {
+        "Hero": 27,
+        "WR": 53.6,
+        "Matches": 2748
+      },
+      {
+        "Hero": 44,
+        "WR": 53.58,
+        "Matches": 4597
+      },
+      {
+        "Hero": 73,
+        "WR": 53.37,
+        "Matches": 920
+      },
+      {
+        "Hero": 29,
+        "WR": 53.36,
+        "Matches": 1072
+      },
+      {
+        "Hero": 49,
+        "WR": 53.2,
+        "Matches": 2233
+      },
+      {
+        "Hero": 104,
+        "WR": 53.2,
+        "Matches": 2989
+      },
+      {
+        "Hero": 14,
+        "WR": 53.1,
+        "Matches": 5712
+      },
+      {
+        "Hero": 95,
+        "WR": 53.03,
+        "Matches": 858
+      },
+      {
+        "Hero": 77,
+        "WR": 52.68,
+        "Matches": 336
+      },
+      {
+        "Hero": 35,
+        "WR": 52.64,
+        "Matches": 4704
+      },
+      {
+        "Hero": 78,
+        "WR": 52.48,
+        "Matches": 101
+      },
+      {
+        "Hero": 15,
+        "WR": 52.3,
+        "Matches": 1524
+      },
+      {
+        "Hero": 32,
+        "WR": 52.14,
+        "Matches": 1592
+      },
+      {
+        "Hero": 93,
+        "WR": 51.88,
+        "Matches": 2361
+      },
+      {
+        "Hero": 99,
+        "WR": 51.86,
+        "Matches": 2310
+      },
+      {
+        "Hero": 62,
+        "WR": 51.59,
+        "Matches": 1413
+      },
+      {
+        "Hero": 84,
+        "WR": 51.32,
+        "Matches": 3833
+      },
+      {
+        "Hero": 67,
+        "WR": 50.84,
+        "Matches": 2201
+      },
+      {
+        "Hero": 102,
+        "WR": 50.64,
+        "Matches": 1096
+      },
+      {
+        "Hero": 2,
+        "WR": 50.59,
+        "Matches": 3416
+      },
+      {
+        "Hero": 42,
+        "WR": 50.29,
+        "Matches": 2945
+      },
+      {
+        "Hero": 75,
+        "WR": 50.15,
+        "Matches": 2710
+      },
+      {
+        "Hero": 51,
+        "WR": 49.81,
+        "Matches": 795
+      },
+      {
+        "Hero": 55,
+        "WR": 49.3,
+        "Matches": 284
+      },
+      {
+        "Hero": 96,
+        "WR": 48.36,
+        "Matches": 1590
+      },
+      {
+        "Hero": 108,
+        "WR": 48.35,
+        "Matches": 1181
+      },
+      {
+        "Hero": 16,
+        "WR": 48.33,
+        "Matches": 2450
+      },
+      {
+        "Hero": 1,
+        "WR": 47.84,
+        "Matches": 3424
+      },
+      {
+        "Hero": 37,
+        "WR": 46.46,
+        "Matches": 1838
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 37,
+        "WR": 61.77,
+        "Matches": 1805
+      },
+      {
+        "Hero": 108,
+        "WR": 60.21,
+        "Matches": 1166
+      },
+      {
+        "Hero": 68,
+        "WR": 60.0,
+        "Matches": 1320
+      },
+      {
+        "Hero": 89,
+        "WR": 59.9,
+        "Matches": 207
+      },
+      {
+        "Hero": 42,
+        "WR": 59.8,
+        "Matches": 2189
+      },
+      {
+        "Hero": 16,
+        "WR": 59.39,
+        "Matches": 2310
+      },
+      {
+        "Hero": 31,
+        "WR": 58.59,
+        "Matches": 1775
+      },
+      {
+        "Hero": 84,
+        "WR": 58.53,
+        "Matches": 3689
+      },
+      {
+        "Hero": 32,
+        "WR": 58.38,
+        "Matches": 1134
+      },
+      {
+        "Hero": 2,
+        "WR": 58.3,
+        "Matches": 3062
+      },
+      {
+        "Hero": 67,
+        "WR": 58.19,
+        "Matches": 1014
+      },
+      {
+        "Hero": 14,
+        "WR": 58.0,
+        "Matches": 5031
+      },
+      {
+        "Hero": 104,
+        "WR": 57.9,
+        "Matches": 2532
+      },
+      {
+        "Hero": 87,
+        "WR": 57.74,
+        "Matches": 1027
+      },
+      {
+        "Hero": 30,
+        "WR": 57.25,
+        "Matches": 3460
+      },
+      {
+        "Hero": 98,
+        "WR": 57.21,
+        "Matches": 1061
+      },
+      {
+        "Hero": 105,
+        "WR": 57.05,
+        "Matches": 1334
+      },
+      {
+        "Hero": 27,
+        "WR": 57.02,
+        "Matches": 2473
+      },
+      {
+        "Hero": 102,
+        "WR": 56.97,
+        "Matches": 976
+      },
+      {
+        "Hero": 55,
+        "WR": 56.95,
+        "Matches": 302
+      },
+      {
+        "Hero": 15,
+        "WR": 56.94,
+        "Matches": 1110
+      },
+      {
+        "Hero": 93,
+        "WR": 56.84,
+        "Matches": 1302
+      },
+      {
+        "Hero": 22,
+        "WR": 56.81,
+        "Matches": 2329
+      },
+      {
+        "Hero": 80,
+        "WR": 56.75,
+        "Matches": 585
+      },
+      {
+        "Hero": 88,
+        "WR": 56.73,
+        "Matches": 1218
+      },
+      {
+        "Hero": 61,
+        "WR": 56.55,
+        "Matches": 267
+      },
+      {
+        "Hero": 48,
+        "WR": 56.49,
+        "Matches": 1264
+      },
+      {
+        "Hero": 101,
+        "WR": 56.47,
+        "Matches": 1569
+      },
+      {
+        "Hero": 36,
+        "WR": 56.42,
+        "Matches": 1930
+      },
+      {
+        "Hero": 39,
+        "WR": 56.22,
+        "Matches": 1649
+      },
+      {
+        "Hero": 56,
+        "WR": 56.21,
+        "Matches": 765
+      },
+      {
+        "Hero": 83,
+        "WR": 56.16,
+        "Matches": 942
+      },
+      {
+        "Hero": 75,
+        "WR": 56.03,
+        "Matches": 2224
+      },
+      {
+        "Hero": 131,
+        "WR": 55.92,
+        "Matches": 1545
+      },
+      {
+        "Hero": 96,
+        "WR": 55.7,
+        "Matches": 1508
+      },
+      {
+        "Hero": 33,
+        "WR": 55.65,
+        "Matches": 496
+      },
+      {
+        "Hero": 8,
+        "WR": 55.6,
+        "Matches": 1750
+      },
+      {
+        "Hero": 76,
+        "WR": 55.43,
+        "Matches": 736
+      },
+      {
+        "Hero": 23,
+        "WR": 55.39,
+        "Matches": 919
+      },
+      {
+        "Hero": 6,
+        "WR": 55.36,
+        "Matches": 1297
+      },
+      {
+        "Hero": 64,
+        "WR": 55.34,
+        "Matches": 2161
+      },
+      {
+        "Hero": 51,
+        "WR": 55.29,
+        "Matches": 870
+      },
+      {
+        "Hero": 62,
+        "WR": 55.26,
+        "Matches": 1350
+      },
+      {
+        "Hero": 20,
+        "WR": 55.2,
+        "Matches": 1192
+      },
+      {
+        "Hero": 17,
+        "WR": 55.18,
+        "Matches": 955
+      },
+      {
+        "Hero": 4,
+        "WR": 55.0,
+        "Matches": 620
+      },
+      {
+        "Hero": 113,
+        "WR": 55.0,
+        "Matches": 440
+      },
+      {
+        "Hero": 5,
+        "WR": 54.88,
+        "Matches": 2613
+      },
+      {
+        "Hero": 99,
+        "WR": 54.7,
+        "Matches": 2247
+      },
+      {
+        "Hero": 136,
+        "WR": 54.64,
+        "Matches": 604
+      },
+      {
+        "Hero": 63,
+        "WR": 54.52,
+        "Matches": 1051
+      },
+      {
+        "Hero": 3,
+        "WR": 54.4,
+        "Matches": 364
+      },
+      {
+        "Hero": 47,
+        "WR": 54.4,
+        "Matches": 1625
+      },
+      {
+        "Hero": 81,
+        "WR": 54.27,
+        "Matches": 984
+      },
+      {
+        "Hero": 107,
+        "WR": 54.18,
+        "Matches": 251
+      },
+      {
+        "Hero": 40,
+        "WR": 54.04,
+        "Matches": 1423
+      },
+      {
+        "Hero": 7,
+        "WR": 53.99,
+        "Matches": 2469
+      },
+      {
+        "Hero": 44,
+        "WR": 53.89,
+        "Matches": 2273
+      },
+      {
+        "Hero": 92,
+        "WR": 53.59,
+        "Matches": 306
+      },
+      {
+        "Hero": 49,
+        "WR": 53.55,
+        "Matches": 1791
+      },
+      {
+        "Hero": 119,
+        "WR": 53.48,
+        "Matches": 978
+      },
+      {
+        "Hero": 35,
+        "WR": 53.45,
+        "Matches": 3555
+      },
+      {
+        "Hero": 69,
+        "WR": 53.2,
+        "Matches": 765
+      },
+      {
+        "Hero": 121,
+        "WR": 53.19,
+        "Matches": 611
+      },
+      {
+        "Hero": 29,
+        "WR": 53.06,
+        "Matches": 1031
+      },
+      {
+        "Hero": 57,
+        "WR": 53.05,
+        "Matches": 492
+      },
+      {
+        "Hero": 103,
+        "WR": 53.03,
+        "Matches": 198
+      },
+      {
+        "Hero": 28,
+        "WR": 53.01,
+        "Matches": 1279
+      },
+      {
+        "Hero": 52,
+        "WR": 53.01,
+        "Matches": 332
+      },
+      {
+        "Hero": 60,
+        "WR": 52.95,
+        "Matches": 729
+      },
+      {
+        "Hero": 138,
+        "WR": 52.94,
+        "Matches": 357
+      },
+      {
+        "Hero": 85,
+        "WR": 52.93,
+        "Matches": 1657
+      },
+      {
+        "Hero": 13,
+        "WR": 52.92,
+        "Matches": 718
+      },
+      {
+        "Hero": 126,
+        "WR": 52.77,
+        "Matches": 415
+      },
+      {
+        "Hero": 123,
+        "WR": 52.73,
+        "Matches": 1519
+      },
+      {
+        "Hero": 78,
+        "WR": 52.69,
+        "Matches": 93
+      },
+      {
+        "Hero": 58,
+        "WR": 52.67,
+        "Matches": 993
+      },
+      {
+        "Hero": 21,
+        "WR": 52.6,
+        "Matches": 1979
+      },
+      {
+        "Hero": 111,
+        "WR": 52.53,
+        "Matches": 396
+      },
+      {
+        "Hero": 54,
+        "WR": 52.45,
+        "Matches": 633
+      },
+      {
+        "Hero": 26,
+        "WR": 52.43,
+        "Matches": 4204
+      },
+      {
+        "Hero": 112,
+        "WR": 52.41,
+        "Matches": 540
+      },
+      {
+        "Hero": 77,
+        "WR": 52.33,
+        "Matches": 300
+      },
+      {
+        "Hero": 73,
+        "WR": 52.3,
+        "Matches": 675
+      },
+      {
+        "Hero": 59,
+        "WR": 52.28,
+        "Matches": 811
+      },
+      {
+        "Hero": 71,
+        "WR": 52.2,
+        "Matches": 2253
+      },
+      {
+        "Hero": 11,
+        "WR": 52.19,
+        "Matches": 1460
+      },
+      {
+        "Hero": 53,
+        "WR": 52.02,
+        "Matches": 1903
+      },
+      {
+        "Hero": 74,
+        "WR": 51.97,
+        "Matches": 1778
+      },
+      {
+        "Hero": 109,
+        "WR": 51.83,
+        "Matches": 218
+      },
+      {
+        "Hero": 79,
+        "WR": 51.63,
+        "Matches": 521
+      },
+      {
+        "Hero": 72,
+        "WR": 51.61,
+        "Matches": 560
+      },
+      {
+        "Hero": 86,
+        "WR": 51.56,
+        "Matches": 2302
+      },
+      {
+        "Hero": 43,
+        "WR": 51.54,
+        "Matches": 421
+      },
+      {
+        "Hero": 65,
+        "WR": 51.52,
+        "Matches": 165
+      },
+      {
+        "Hero": 25,
+        "WR": 51.42,
+        "Matches": 1931
+      },
+      {
+        "Hero": 34,
+        "WR": 51.36,
+        "Matches": 403
+      },
+      {
+        "Hero": 137,
+        "WR": 51.31,
+        "Matches": 421
+      },
+      {
+        "Hero": 9,
+        "WR": 51.07,
+        "Matches": 1864
+      },
+      {
+        "Hero": 129,
+        "WR": 50.69,
+        "Matches": 866
+      },
+      {
+        "Hero": 90,
+        "WR": 50.63,
+        "Matches": 399
+      },
+      {
+        "Hero": 82,
+        "WR": 50.3,
+        "Matches": 169
+      },
+      {
+        "Hero": 1,
+        "WR": 50.19,
+        "Matches": 1030
+      },
+      {
+        "Hero": 70,
+        "WR": 50.0,
+        "Matches": 658
+      },
+      {
+        "Hero": 41,
+        "WR": 49.84,
+        "Matches": 915
+      },
+      {
+        "Hero": 110,
+        "WR": 49.7,
+        "Matches": 507
+      },
+      {
+        "Hero": 100,
+        "WR": 49.69,
+        "Matches": 980
+      },
+      {
+        "Hero": 128,
+        "WR": 49.6,
+        "Matches": 875
+      },
+      {
+        "Hero": 19,
+        "WR": 49.55,
+        "Matches": 1118
+      },
+      {
+        "Hero": 120,
+        "WR": 49.52,
+        "Matches": 208
+      },
+      {
+        "Hero": 135,
+        "WR": 49.28,
+        "Matches": 345
+      },
+      {
+        "Hero": 10,
+        "WR": 49.18,
+        "Matches": 368
+      },
+      {
+        "Hero": 95,
+        "WR": 48.91,
+        "Matches": 458
+      },
+      {
+        "Hero": 50,
+        "WR": 48.43,
+        "Matches": 1274
+      },
+      {
+        "Hero": 45,
+        "WR": 48.38,
+        "Matches": 649
+      },
+      {
+        "Hero": 97,
+        "WR": 48.32,
+        "Matches": 596
+      },
+      {
+        "Hero": 46,
+        "WR": 47.96,
+        "Matches": 367
+      },
+      {
+        "Hero": 91,
+        "WR": 47.81,
+        "Matches": 389
+      },
+      {
+        "Hero": 12,
+        "WR": 47.76,
+        "Matches": 536
+      },
+      {
+        "Hero": 114,
+        "WR": 45.63,
+        "Matches": 1006
+      },
+      {
+        "Hero": 106,
+        "WR": 45.2,
+        "Matches": 458
+      },
+      {
+        "Hero": 18,
+        "WR": 45.18,
+        "Matches": 571
+      },
+      {
+        "Hero": 66,
+        "WR": 45.0,
+        "Matches": 60
+      },
+      {
+        "Hero": 38,
+        "WR": 44.44,
+        "Matches": 189
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "CRUSADER_ARCHON",
+    "role": "POSITION_1",
+    "herovs": [
+      {
+        "Hero": 46,
+        "WR": 61.6,
+        "Matches": 914
+      },
+      {
+        "Hero": 10,
+        "WR": 61.09,
+        "Matches": 1573
+      },
+      {
+        "Hero": 81,
+        "WR": 59.37,
+        "Matches": 1558
+      },
+      {
+        "Hero": 138,
+        "WR": 59.23,
+        "Matches": 829
+      },
+      {
+        "Hero": 41,
+        "WR": 58.89,
+        "Matches": 2756
+      },
+      {
+        "Hero": 4,
+        "WR": 58.87,
+        "Matches": 975
+      },
+      {
+        "Hero": 9,
+        "WR": 58.37,
+        "Matches": 4557
+      },
+      {
+        "Hero": 63,
+        "WR": 58.26,
+        "Matches": 3136
+      },
+      {
+        "Hero": 114,
+        "WR": 58.2,
+        "Matches": 2641
+      },
+      {
+        "Hero": 25,
+        "WR": 57.94,
+        "Matches": 4658
+      },
+      {
+        "Hero": 18,
+        "WR": 57.73,
+        "Matches": 1015
+      },
+      {
+        "Hero": 72,
+        "WR": 57.72,
+        "Matches": 1483
+      },
+      {
+        "Hero": 12,
+        "WR": 57.65,
+        "Matches": 1372
+      },
+      {
+        "Hero": 89,
+        "WR": 57.59,
+        "Matches": 481
+      },
+      {
+        "Hero": 11,
+        "WR": 57.38,
+        "Matches": 4641
+      },
+      {
+        "Hero": 109,
+        "WR": 57.28,
+        "Matches": 611
+      },
+      {
+        "Hero": 53,
+        "WR": 56.9,
+        "Matches": 3668
+      },
+      {
+        "Hero": 19,
+        "WR": 56.81,
+        "Matches": 2216
+      },
+      {
+        "Hero": 54,
+        "WR": 56.51,
+        "Matches": 1667
+      },
+      {
+        "Hero": 40,
+        "WR": 56.45,
+        "Matches": 2783
+      },
+      {
+        "Hero": 106,
+        "WR": 56.3,
+        "Matches": 1531
+      },
+      {
+        "Hero": 136,
+        "WR": 55.97,
+        "Matches": 1490
+      },
+      {
+        "Hero": 47,
+        "WR": 55.75,
+        "Matches": 3311
+      },
+      {
+        "Hero": 49,
+        "WR": 55.72,
+        "Matches": 4232
+      },
+      {
+        "Hero": 70,
+        "WR": 55.65,
+        "Matches": 2363
+      },
+      {
+        "Hero": 44,
+        "WR": 55.4,
+        "Matches": 7151
+      },
+      {
+        "Hero": 14,
+        "WR": 55.2,
+        "Matches": 9474
+      },
+      {
+        "Hero": 48,
+        "WR": 54.81,
+        "Matches": 6528
+      },
+      {
+        "Hero": 6,
+        "WR": 54.77,
+        "Matches": 3887
+      },
+      {
+        "Hero": 67,
+        "WR": 54.75,
+        "Matches": 3885
+      },
+      {
+        "Hero": 104,
+        "WR": 54.75,
+        "Matches": 5847
+      },
+      {
+        "Hero": 95,
+        "WR": 54.67,
+        "Matches": 920
+      },
+      {
+        "Hero": 56,
+        "WR": 53.32,
+        "Matches": 1251
+      },
+      {
+        "Hero": 15,
+        "WR": 52.92,
+        "Matches": 2434
+      },
+      {
+        "Hero": 21,
+        "WR": 52.48,
+        "Matches": 6397
+      },
+      {
+        "Hero": 93,
+        "WR": 52.08,
+        "Matches": 4211
+      },
+      {
+        "Hero": 8,
+        "WR": 52.07,
+        "Matches": 5566
+      },
+      {
+        "Hero": 35,
+        "WR": 51.87,
+        "Matches": 7881
+      },
+      {
+        "Hero": 80,
+        "WR": 51.22,
+        "Matches": 2175
+      },
+      {
+        "Hero": 42,
+        "WR": 50.84,
+        "Matches": 4868
+      },
+      {
+        "Hero": 32,
+        "WR": 50.4,
+        "Matches": 2125
+      },
+      {
+        "Hero": 73,
+        "WR": 50.14,
+        "Matches": 1753
+      },
+      {
+        "Hero": 1,
+        "WR": 47.0,
+        "Matches": 6660
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 3,
+        "WR": 61.84,
+        "Matches": 663
+      },
+      {
+        "Hero": 103,
+        "WR": 61.78,
+        "Matches": 348
+      },
+      {
+        "Hero": 82,
+        "WR": 60.41,
+        "Matches": 245
+      },
+      {
+        "Hero": 113,
+        "WR": 59.42,
+        "Matches": 685
+      },
+      {
+        "Hero": 42,
+        "WR": 58.97,
+        "Matches": 3283
+      },
+      {
+        "Hero": 126,
+        "WR": 58.84,
+        "Matches": 1227
+      },
+      {
+        "Hero": 88,
+        "WR": 58.65,
+        "Matches": 3088
+      },
+      {
+        "Hero": 131,
+        "WR": 58.42,
+        "Matches": 4281
+      },
+      {
+        "Hero": 68,
+        "WR": 58.41,
+        "Matches": 2433
+      },
+      {
+        "Hero": 16,
+        "WR": 57.96,
+        "Matches": 5316
+      },
+      {
+        "Hero": 20,
+        "WR": 57.69,
+        "Matches": 2569
+      },
+      {
+        "Hero": 76,
+        "WR": 57.64,
+        "Matches": 1709
+      },
+      {
+        "Hero": 104,
+        "WR": 57.64,
+        "Matches": 4991
+      },
+      {
+        "Hero": 2,
+        "WR": 57.58,
+        "Matches": 5775
+      },
+      {
+        "Hero": 30,
+        "WR": 57.47,
+        "Matches": 6254
+      },
+      {
+        "Hero": 102,
+        "WR": 57.3,
+        "Matches": 2494
+      },
+      {
+        "Hero": 101,
+        "WR": 57.05,
+        "Matches": 2342
+      },
+      {
+        "Hero": 51,
+        "WR": 57.03,
+        "Matches": 2078
+      },
+      {
+        "Hero": 92,
+        "WR": 56.91,
+        "Matches": 745
+      },
+      {
+        "Hero": 84,
+        "WR": 56.84,
+        "Matches": 5938
+      },
+      {
+        "Hero": 27,
+        "WR": 56.74,
+        "Matches": 3807
+      },
+      {
+        "Hero": 22,
+        "WR": 56.72,
+        "Matches": 4274
+      },
+      {
+        "Hero": 14,
+        "WR": 56.63,
+        "Matches": 8746
+      },
+      {
+        "Hero": 96,
+        "WR": 56.61,
+        "Matches": 3618
+      },
+      {
+        "Hero": 37,
+        "WR": 56.57,
+        "Matches": 3426
+      },
+      {
+        "Hero": 80,
+        "WR": 56.43,
+        "Matches": 1214
+      },
+      {
+        "Hero": 71,
+        "WR": 56.31,
+        "Matches": 3724
+      },
+      {
+        "Hero": 31,
+        "WR": 56.3,
+        "Matches": 3286
+      },
+      {
+        "Hero": 60,
+        "WR": 56.2,
+        "Matches": 1815
+      },
+      {
+        "Hero": 61,
+        "WR": 56.09,
+        "Matches": 460
+      },
+      {
+        "Hero": 83,
+        "WR": 56.09,
+        "Matches": 1995
+      },
+      {
+        "Hero": 17,
+        "WR": 55.95,
+        "Matches": 2052
+      },
+      {
+        "Hero": 108,
+        "WR": 55.93,
+        "Matches": 2723
+      },
+      {
+        "Hero": 36,
+        "WR": 55.92,
+        "Matches": 3523
+      },
+      {
+        "Hero": 90,
+        "WR": 55.9,
+        "Matches": 805
+      },
+      {
+        "Hero": 43,
+        "WR": 55.85,
+        "Matches": 607
+      },
+      {
+        "Hero": 73,
+        "WR": 55.83,
+        "Matches": 1150
+      },
+      {
+        "Hero": 85,
+        "WR": 55.83,
+        "Matches": 2660
+      },
+      {
+        "Hero": 62,
+        "WR": 55.78,
+        "Matches": 1902
+      },
+      {
+        "Hero": 5,
+        "WR": 55.77,
+        "Matches": 3911
+      },
+      {
+        "Hero": 47,
+        "WR": 55.72,
+        "Matches": 2507
+      },
+      {
+        "Hero": 87,
+        "WR": 55.67,
+        "Matches": 2312
+      },
+      {
+        "Hero": 32,
+        "WR": 55.55,
+        "Matches": 1298
+      },
+      {
+        "Hero": 93,
+        "WR": 55.52,
+        "Matches": 1558
+      },
+      {
+        "Hero": 79,
+        "WR": 55.41,
+        "Matches": 1341
+      },
+      {
+        "Hero": 4,
+        "WR": 55.2,
+        "Matches": 683
+      },
+      {
+        "Hero": 33,
+        "WR": 55.09,
+        "Matches": 855
+      },
+      {
+        "Hero": 97,
+        "WR": 55.0,
+        "Matches": 2029
+      },
+      {
+        "Hero": 75,
+        "WR": 54.99,
+        "Matches": 3790
+      },
+      {
+        "Hero": 23,
+        "WR": 54.79,
+        "Matches": 2305
+      },
+      {
+        "Hero": 39,
+        "WR": 54.74,
+        "Matches": 4450
+      },
+      {
+        "Hero": 89,
+        "WR": 54.74,
+        "Matches": 285
+      },
+      {
+        "Hero": 28,
+        "WR": 54.64,
+        "Matches": 1971
+      },
+      {
+        "Hero": 52,
+        "WR": 54.61,
+        "Matches": 683
+      },
+      {
+        "Hero": 15,
+        "WR": 54.56,
+        "Matches": 1917
+      },
+      {
+        "Hero": 56,
+        "WR": 54.54,
+        "Matches": 904
+      },
+      {
+        "Hero": 98,
+        "WR": 54.53,
+        "Matches": 2362
+      },
+      {
+        "Hero": 40,
+        "WR": 54.36,
+        "Matches": 2557
+      },
+      {
+        "Hero": 55,
+        "WR": 54.29,
+        "Matches": 466
+      },
+      {
+        "Hero": 59,
+        "WR": 54.28,
+        "Matches": 1144
+      },
+      {
+        "Hero": 107,
+        "WR": 54.17,
+        "Matches": 792
+      },
+      {
+        "Hero": 121,
+        "WR": 54.14,
+        "Matches": 1184
+      },
+      {
+        "Hero": 67,
+        "WR": 54.1,
+        "Matches": 1194
+      },
+      {
+        "Hero": 111,
+        "WR": 54.02,
+        "Matches": 1046
+      },
+      {
+        "Hero": 35,
+        "WR": 53.94,
+        "Matches": 6921
+      },
+      {
+        "Hero": 110,
+        "WR": 53.87,
+        "Matches": 1381
+      },
+      {
+        "Hero": 64,
+        "WR": 53.86,
+        "Matches": 4612
+      },
+      {
+        "Hero": 34,
+        "WR": 53.63,
+        "Matches": 979
+      },
+      {
+        "Hero": 48,
+        "WR": 53.63,
+        "Matches": 1624
+      },
+      {
+        "Hero": 119,
+        "WR": 53.59,
+        "Matches": 1769
+      },
+      {
+        "Hero": 7,
+        "WR": 53.56,
+        "Matches": 4621
+      },
+      {
+        "Hero": 63,
+        "WR": 53.34,
+        "Matches": 1603
+      },
+      {
+        "Hero": 74,
+        "WR": 53.33,
+        "Matches": 4478
+      },
+      {
+        "Hero": 57,
+        "WR": 53.3,
+        "Matches": 1092
+      },
+      {
+        "Hero": 136,
+        "WR": 53.29,
+        "Matches": 1184
+      },
+      {
+        "Hero": 123,
+        "WR": 53.24,
+        "Matches": 3227
+      },
+      {
+        "Hero": 26,
+        "WR": 53.13,
+        "Matches": 8440
+      },
+      {
+        "Hero": 25,
+        "WR": 53.0,
+        "Matches": 3445
+      },
+      {
+        "Hero": 135,
+        "WR": 52.95,
+        "Matches": 880
+      },
+      {
+        "Hero": 21,
+        "WR": 52.91,
+        "Matches": 3697
+      },
+      {
+        "Hero": 86,
+        "WR": 52.75,
+        "Matches": 5943
+      },
+      {
+        "Hero": 77,
+        "WR": 52.63,
+        "Matches": 494
+      },
+      {
+        "Hero": 106,
+        "WR": 52.55,
+        "Matches": 1176
+      },
+      {
+        "Hero": 45,
+        "WR": 52.49,
+        "Matches": 1103
+      },
+      {
+        "Hero": 6,
+        "WR": 52.25,
+        "Matches": 1202
+      },
+      {
+        "Hero": 29,
+        "WR": 52.25,
+        "Matches": 1623
+      },
+      {
+        "Hero": 44,
+        "WR": 52.22,
+        "Matches": 2204
+      },
+      {
+        "Hero": 81,
+        "WR": 52.22,
+        "Matches": 1105
+      },
+      {
+        "Hero": 78,
+        "WR": 52.13,
+        "Matches": 188
+      },
+      {
+        "Hero": 100,
+        "WR": 52.13,
+        "Matches": 2507
+      },
+      {
+        "Hero": 13,
+        "WR": 52.1,
+        "Matches": 2405
+      },
+      {
+        "Hero": 11,
+        "WR": 52.05,
+        "Matches": 3001
+      },
+      {
+        "Hero": 8,
+        "WR": 51.9,
+        "Matches": 1736
+      },
+      {
+        "Hero": 19,
+        "WR": 51.87,
+        "Matches": 1947
+      },
+      {
+        "Hero": 129,
+        "WR": 51.86,
+        "Matches": 2503
+      },
+      {
+        "Hero": 112,
+        "WR": 51.58,
+        "Matches": 948
+      },
+      {
+        "Hero": 105,
+        "WR": 51.54,
+        "Matches": 2266
+      },
+      {
+        "Hero": 70,
+        "WR": 51.33,
+        "Matches": 900
+      },
+      {
+        "Hero": 72,
+        "WR": 51.33,
+        "Matches": 1054
+      },
+      {
+        "Hero": 9,
+        "WR": 51.27,
+        "Matches": 3772
+      },
+      {
+        "Hero": 137,
+        "WR": 50.95,
+        "Matches": 891
+      },
+      {
+        "Hero": 54,
+        "WR": 50.94,
+        "Matches": 748
+      },
+      {
+        "Hero": 99,
+        "WR": 50.65,
+        "Matches": 2754
+      },
+      {
+        "Hero": 12,
+        "WR": 50.62,
+        "Matches": 320
+      },
+      {
+        "Hero": 49,
+        "WR": 50.5,
+        "Matches": 3206
+      },
+      {
+        "Hero": 53,
+        "WR": 49.89,
+        "Matches": 3195
+      },
+      {
+        "Hero": 58,
+        "WR": 49.89,
+        "Matches": 1325
+      },
+      {
+        "Hero": 1,
+        "WR": 49.56,
+        "Matches": 1251
+      },
+      {
+        "Hero": 109,
+        "WR": 49.3,
+        "Matches": 213
+      },
+      {
+        "Hero": 41,
+        "WR": 49.2,
+        "Matches": 1006
+      },
+      {
+        "Hero": 128,
+        "WR": 49.2,
+        "Matches": 1866
+      },
+      {
+        "Hero": 38,
+        "WR": 48.58,
+        "Matches": 459
+      },
+      {
+        "Hero": 50,
+        "WR": 48.54,
+        "Matches": 2332
+      },
+      {
+        "Hero": 69,
+        "WR": 48.16,
+        "Matches": 1713
+      },
+      {
+        "Hero": 18,
+        "WR": 47.97,
+        "Matches": 640
+      },
+      {
+        "Hero": 114,
+        "WR": 47.31,
+        "Matches": 1619
+      },
+      {
+        "Hero": 138,
+        "WR": 47.19,
+        "Matches": 462
+      },
+      {
+        "Hero": 91,
+        "WR": 46.75,
+        "Matches": 676
+      },
+      {
+        "Hero": 46,
+        "WR": 46.38,
+        "Matches": 580
+      },
+      {
+        "Hero": 95,
+        "WR": 46.32,
+        "Matches": 272
+      },
+      {
+        "Hero": 66,
+        "WR": 45.28,
+        "Matches": 106
+      },
+      {
+        "Hero": 120,
+        "WR": 44.17,
+        "Matches": 489
+      },
+      {
+        "Hero": 65,
+        "WR": 43.17,
+        "Matches": 322
+      },
+      {
+        "Hero": 10,
+        "WR": 42.98,
+        "Matches": 570
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "CRUSADER_ARCHON",
+    "role": "POSITION_2",
+    "herovs": [
+      {
+        "Hero": 46,
+        "WR": 61.6,
+        "Matches": 914
+      },
+      {
+        "Hero": 10,
+        "WR": 61.09,
+        "Matches": 1573
+      },
+      {
+        "Hero": 105,
+        "WR": 60.53,
+        "Matches": 2440
+      },
+      {
+        "Hero": 52,
+        "WR": 59.75,
+        "Matches": 785
+      },
+      {
+        "Hero": 138,
+        "WR": 59.23,
+        "Matches": 829
+      },
+      {
+        "Hero": 137,
+        "WR": 59.14,
+        "Matches": 1028
+      },
+      {
+        "Hero": 90,
+        "WR": 58.88,
+        "Matches": 484
+      },
+      {
+        "Hero": 4,
+        "WR": 58.87,
+        "Matches": 975
+      },
+      {
+        "Hero": 13,
+        "WR": 58.86,
+        "Matches": 2691
+      },
+      {
+        "Hero": 82,
+        "WR": 58.86,
+        "Matches": 350
+      },
+      {
+        "Hero": 9,
+        "WR": 58.37,
+        "Matches": 4557
+      },
+      {
+        "Hero": 63,
+        "WR": 58.26,
+        "Matches": 3136
+      },
+      {
+        "Hero": 39,
+        "WR": 58.25,
+        "Matches": 5238
+      },
+      {
+        "Hero": 114,
+        "WR": 58.2,
+        "Matches": 2641
+      },
+      {
+        "Hero": 98,
+        "WR": 58.19,
+        "Matches": 2571
+      },
+      {
+        "Hero": 120,
+        "WR": 58.05,
+        "Matches": 596
+      },
+      {
+        "Hero": 25,
+        "WR": 57.94,
+        "Matches": 4658
+      },
+      {
+        "Hero": 45,
+        "WR": 57.82,
+        "Matches": 1055
+      },
+      {
+        "Hero": 72,
+        "WR": 57.72,
+        "Matches": 1483
+      },
+      {
+        "Hero": 86,
+        "WR": 57.65,
+        "Matches": 6253
+      },
+      {
+        "Hero": 123,
+        "WR": 57.4,
+        "Matches": 3286
+      },
+      {
+        "Hero": 11,
+        "WR": 57.38,
+        "Matches": 4641
+      },
+      {
+        "Hero": 128,
+        "WR": 57.29,
+        "Matches": 2107
+      },
+      {
+        "Hero": 50,
+        "WR": 56.96,
+        "Matches": 2614
+      },
+      {
+        "Hero": 53,
+        "WR": 56.9,
+        "Matches": 3668
+      },
+      {
+        "Hero": 19,
+        "WR": 56.81,
+        "Matches": 2216
+      },
+      {
+        "Hero": 97,
+        "WR": 56.73,
+        "Matches": 2198
+      },
+      {
+        "Hero": 17,
+        "WR": 56.54,
+        "Matches": 2545
+      },
+      {
+        "Hero": 40,
+        "WR": 56.45,
+        "Matches": 2783
+      },
+      {
+        "Hero": 43,
+        "WR": 56.31,
+        "Matches": 753
+      },
+      {
+        "Hero": 7,
+        "WR": 56.3,
+        "Matches": 4716
+      },
+      {
+        "Hero": 106,
+        "WR": 56.3,
+        "Matches": 1531
+      },
+      {
+        "Hero": 59,
+        "WR": 56.17,
+        "Matches": 1435
+      },
+      {
+        "Hero": 107,
+        "WR": 56.03,
+        "Matches": 812
+      },
+      {
+        "Hero": 136,
+        "WR": 55.97,
+        "Matches": 1490
+      },
+      {
+        "Hero": 77,
+        "WR": 55.79,
+        "Matches": 561
+      },
+      {
+        "Hero": 47,
+        "WR": 55.75,
+        "Matches": 3311
+      },
+      {
+        "Hero": 49,
+        "WR": 55.72,
+        "Matches": 4232
+      },
+      {
+        "Hero": 70,
+        "WR": 55.65,
+        "Matches": 2363
+      },
+      {
+        "Hero": 76,
+        "WR": 55.64,
+        "Matches": 2135
+      },
+      {
+        "Hero": 44,
+        "WR": 55.4,
+        "Matches": 7151
+      },
+      {
+        "Hero": 101,
+        "WR": 55.35,
+        "Matches": 2647
+      },
+      {
+        "Hero": 30,
+        "WR": 55.3,
+        "Matches": 6768
+      },
+      {
+        "Hero": 14,
+        "WR": 55.2,
+        "Matches": 9474
+      },
+      {
+        "Hero": 26,
+        "WR": 55.01,
+        "Matches": 6861
+      },
+      {
+        "Hero": 48,
+        "WR": 54.81,
+        "Matches": 6528
+      },
+      {
+        "Hero": 71,
+        "WR": 54.79,
+        "Matches": 4046
+      },
+      {
+        "Hero": 6,
+        "WR": 54.77,
+        "Matches": 3887
+      },
+      {
+        "Hero": 22,
+        "WR": 54.76,
+        "Matches": 5046
+      },
+      {
+        "Hero": 104,
+        "WR": 54.75,
+        "Matches": 5847
+      },
+      {
+        "Hero": 62,
+        "WR": 54.7,
+        "Matches": 1998
+      },
+      {
+        "Hero": 119,
+        "WR": 54.67,
+        "Matches": 1736
+      },
+      {
+        "Hero": 110,
+        "WR": 54.53,
+        "Matches": 1414
+      },
+      {
+        "Hero": 126,
+        "WR": 54.52,
+        "Matches": 1339
+      },
+      {
+        "Hero": 64,
+        "WR": 54.4,
+        "Matches": 4844
+      },
+      {
+        "Hero": 92,
+        "WR": 54.37,
+        "Matches": 846
+      },
+      {
+        "Hero": 20,
+        "WR": 54.36,
+        "Matches": 2800
+      },
+      {
+        "Hero": 34,
+        "WR": 54.31,
+        "Matches": 985
+      },
+      {
+        "Hero": 75,
+        "WR": 54.13,
+        "Matches": 4155
+      },
+      {
+        "Hero": 68,
+        "WR": 53.85,
+        "Matches": 2711
+      },
+      {
+        "Hero": 61,
+        "WR": 53.83,
+        "Matches": 613
+      },
+      {
+        "Hero": 56,
+        "WR": 53.32,
+        "Matches": 1251
+      },
+      {
+        "Hero": 15,
+        "WR": 52.92,
+        "Matches": 2434
+      },
+      {
+        "Hero": 84,
+        "WR": 52.78,
+        "Matches": 6000
+      },
+      {
+        "Hero": 88,
+        "WR": 52.76,
+        "Matches": 3080
+      },
+      {
+        "Hero": 2,
+        "WR": 52.7,
+        "Matches": 5990
+      },
+      {
+        "Hero": 21,
+        "WR": 52.48,
+        "Matches": 6397
+      },
+      {
+        "Hero": 93,
+        "WR": 52.08,
+        "Matches": 4211
+      },
+      {
+        "Hero": 35,
+        "WR": 51.87,
+        "Matches": 7881
+      },
+      {
+        "Hero": 36,
+        "WR": 51.76,
+        "Matches": 4233
+      },
+      {
+        "Hero": 74,
+        "WR": 51.5,
+        "Matches": 4800
+      },
+      {
+        "Hero": 113,
+        "WR": 51.43,
+        "Matches": 906
+      },
+      {
+        "Hero": 80,
+        "WR": 51.22,
+        "Matches": 2175
+      },
+      {
+        "Hero": 32,
+        "WR": 50.4,
+        "Matches": 2125
+      },
+      {
+        "Hero": 73,
+        "WR": 50.14,
+        "Matches": 1753
+      },
+      {
+        "Hero": 23,
+        "WR": 49.73,
+        "Matches": 2445
+      },
+      {
+        "Hero": 16,
+        "WR": 48.61,
+        "Matches": 5451
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 3,
+        "WR": 61.84,
+        "Matches": 663
+      },
+      {
+        "Hero": 103,
+        "WR": 61.78,
+        "Matches": 348
+      },
+      {
+        "Hero": 82,
+        "WR": 60.41,
+        "Matches": 245
+      },
+      {
+        "Hero": 113,
+        "WR": 59.42,
+        "Matches": 685
+      },
+      {
+        "Hero": 42,
+        "WR": 58.97,
+        "Matches": 3283
+      },
+      {
+        "Hero": 126,
+        "WR": 58.84,
+        "Matches": 1227
+      },
+      {
+        "Hero": 88,
+        "WR": 58.65,
+        "Matches": 3088
+      },
+      {
+        "Hero": 131,
+        "WR": 58.42,
+        "Matches": 4281
+      },
+      {
+        "Hero": 68,
+        "WR": 58.41,
+        "Matches": 2433
+      },
+      {
+        "Hero": 16,
+        "WR": 57.96,
+        "Matches": 5316
+      },
+      {
+        "Hero": 20,
+        "WR": 57.69,
+        "Matches": 2569
+      },
+      {
+        "Hero": 76,
+        "WR": 57.64,
+        "Matches": 1709
+      },
+      {
+        "Hero": 104,
+        "WR": 57.64,
+        "Matches": 4991
+      },
+      {
+        "Hero": 2,
+        "WR": 57.58,
+        "Matches": 5775
+      },
+      {
+        "Hero": 30,
+        "WR": 57.47,
+        "Matches": 6254
+      },
+      {
+        "Hero": 102,
+        "WR": 57.3,
+        "Matches": 2494
+      },
+      {
+        "Hero": 101,
+        "WR": 57.05,
+        "Matches": 2342
+      },
+      {
+        "Hero": 51,
+        "WR": 57.03,
+        "Matches": 2078
+      },
+      {
+        "Hero": 92,
+        "WR": 56.91,
+        "Matches": 745
+      },
+      {
+        "Hero": 84,
+        "WR": 56.84,
+        "Matches": 5938
+      },
+      {
+        "Hero": 27,
+        "WR": 56.74,
+        "Matches": 3807
+      },
+      {
+        "Hero": 22,
+        "WR": 56.72,
+        "Matches": 4274
+      },
+      {
+        "Hero": 14,
+        "WR": 56.63,
+        "Matches": 8746
+      },
+      {
+        "Hero": 96,
+        "WR": 56.61,
+        "Matches": 3618
+      },
+      {
+        "Hero": 37,
+        "WR": 56.57,
+        "Matches": 3426
+      },
+      {
+        "Hero": 80,
+        "WR": 56.43,
+        "Matches": 1214
+      },
+      {
+        "Hero": 71,
+        "WR": 56.31,
+        "Matches": 3724
+      },
+      {
+        "Hero": 31,
+        "WR": 56.3,
+        "Matches": 3286
+      },
+      {
+        "Hero": 60,
+        "WR": 56.2,
+        "Matches": 1815
+      },
+      {
+        "Hero": 61,
+        "WR": 56.09,
+        "Matches": 460
+      },
+      {
+        "Hero": 83,
+        "WR": 56.09,
+        "Matches": 1995
+      },
+      {
+        "Hero": 17,
+        "WR": 55.95,
+        "Matches": 2052
+      },
+      {
+        "Hero": 108,
+        "WR": 55.93,
+        "Matches": 2723
+      },
+      {
+        "Hero": 36,
+        "WR": 55.92,
+        "Matches": 3523
+      },
+      {
+        "Hero": 90,
+        "WR": 55.9,
+        "Matches": 805
+      },
+      {
+        "Hero": 43,
+        "WR": 55.85,
+        "Matches": 607
+      },
+      {
+        "Hero": 73,
+        "WR": 55.83,
+        "Matches": 1150
+      },
+      {
+        "Hero": 85,
+        "WR": 55.83,
+        "Matches": 2660
+      },
+      {
+        "Hero": 62,
+        "WR": 55.78,
+        "Matches": 1902
+      },
+      {
+        "Hero": 5,
+        "WR": 55.77,
+        "Matches": 3911
+      },
+      {
+        "Hero": 47,
+        "WR": 55.72,
+        "Matches": 2507
+      },
+      {
+        "Hero": 87,
+        "WR": 55.67,
+        "Matches": 2312
+      },
+      {
+        "Hero": 32,
+        "WR": 55.55,
+        "Matches": 1298
+      },
+      {
+        "Hero": 93,
+        "WR": 55.52,
+        "Matches": 1558
+      },
+      {
+        "Hero": 79,
+        "WR": 55.41,
+        "Matches": 1341
+      },
+      {
+        "Hero": 4,
+        "WR": 55.2,
+        "Matches": 683
+      },
+      {
+        "Hero": 33,
+        "WR": 55.09,
+        "Matches": 855
+      },
+      {
+        "Hero": 97,
+        "WR": 55.0,
+        "Matches": 2029
+      },
+      {
+        "Hero": 75,
+        "WR": 54.99,
+        "Matches": 3790
+      },
+      {
+        "Hero": 23,
+        "WR": 54.79,
+        "Matches": 2305
+      },
+      {
+        "Hero": 39,
+        "WR": 54.74,
+        "Matches": 4450
+      },
+      {
+        "Hero": 89,
+        "WR": 54.74,
+        "Matches": 285
+      },
+      {
+        "Hero": 28,
+        "WR": 54.64,
+        "Matches": 1971
+      },
+      {
+        "Hero": 52,
+        "WR": 54.61,
+        "Matches": 683
+      },
+      {
+        "Hero": 15,
+        "WR": 54.56,
+        "Matches": 1917
+      },
+      {
+        "Hero": 56,
+        "WR": 54.54,
+        "Matches": 904
+      },
+      {
+        "Hero": 98,
+        "WR": 54.53,
+        "Matches": 2362
+      },
+      {
+        "Hero": 40,
+        "WR": 54.36,
+        "Matches": 2557
+      },
+      {
+        "Hero": 55,
+        "WR": 54.29,
+        "Matches": 466
+      },
+      {
+        "Hero": 59,
+        "WR": 54.28,
+        "Matches": 1144
+      },
+      {
+        "Hero": 107,
+        "WR": 54.17,
+        "Matches": 792
+      },
+      {
+        "Hero": 121,
+        "WR": 54.14,
+        "Matches": 1184
+      },
+      {
+        "Hero": 67,
+        "WR": 54.1,
+        "Matches": 1194
+      },
+      {
+        "Hero": 111,
+        "WR": 54.02,
+        "Matches": 1046
+      },
+      {
+        "Hero": 35,
+        "WR": 53.94,
+        "Matches": 6921
+      },
+      {
+        "Hero": 110,
+        "WR": 53.87,
+        "Matches": 1381
+      },
+      {
+        "Hero": 64,
+        "WR": 53.86,
+        "Matches": 4612
+      },
+      {
+        "Hero": 34,
+        "WR": 53.63,
+        "Matches": 979
+      },
+      {
+        "Hero": 48,
+        "WR": 53.63,
+        "Matches": 1624
+      },
+      {
+        "Hero": 119,
+        "WR": 53.59,
+        "Matches": 1769
+      },
+      {
+        "Hero": 7,
+        "WR": 53.56,
+        "Matches": 4621
+      },
+      {
+        "Hero": 63,
+        "WR": 53.34,
+        "Matches": 1603
+      },
+      {
+        "Hero": 74,
+        "WR": 53.33,
+        "Matches": 4478
+      },
+      {
+        "Hero": 57,
+        "WR": 53.3,
+        "Matches": 1092
+      },
+      {
+        "Hero": 136,
+        "WR": 53.29,
+        "Matches": 1184
+      },
+      {
+        "Hero": 123,
+        "WR": 53.24,
+        "Matches": 3227
+      },
+      {
+        "Hero": 26,
+        "WR": 53.13,
+        "Matches": 8440
+      },
+      {
+        "Hero": 25,
+        "WR": 53.0,
+        "Matches": 3445
+      },
+      {
+        "Hero": 135,
+        "WR": 52.95,
+        "Matches": 880
+      },
+      {
+        "Hero": 21,
+        "WR": 52.91,
+        "Matches": 3697
+      },
+      {
+        "Hero": 86,
+        "WR": 52.75,
+        "Matches": 5943
+      },
+      {
+        "Hero": 77,
+        "WR": 52.63,
+        "Matches": 494
+      },
+      {
+        "Hero": 106,
+        "WR": 52.55,
+        "Matches": 1176
+      },
+      {
+        "Hero": 45,
+        "WR": 52.49,
+        "Matches": 1103
+      },
+      {
+        "Hero": 6,
+        "WR": 52.25,
+        "Matches": 1202
+      },
+      {
+        "Hero": 29,
+        "WR": 52.25,
+        "Matches": 1623
+      },
+      {
+        "Hero": 44,
+        "WR": 52.22,
+        "Matches": 2204
+      },
+      {
+        "Hero": 81,
+        "WR": 52.22,
+        "Matches": 1105
+      },
+      {
+        "Hero": 78,
+        "WR": 52.13,
+        "Matches": 188
+      },
+      {
+        "Hero": 100,
+        "WR": 52.13,
+        "Matches": 2507
+      },
+      {
+        "Hero": 13,
+        "WR": 52.1,
+        "Matches": 2405
+      },
+      {
+        "Hero": 11,
+        "WR": 52.05,
+        "Matches": 3001
+      },
+      {
+        "Hero": 8,
+        "WR": 51.9,
+        "Matches": 1736
+      },
+      {
+        "Hero": 19,
+        "WR": 51.87,
+        "Matches": 1947
+      },
+      {
+        "Hero": 129,
+        "WR": 51.86,
+        "Matches": 2503
+      },
+      {
+        "Hero": 112,
+        "WR": 51.58,
+        "Matches": 948
+      },
+      {
+        "Hero": 105,
+        "WR": 51.54,
+        "Matches": 2266
+      },
+      {
+        "Hero": 70,
+        "WR": 51.33,
+        "Matches": 900
+      },
+      {
+        "Hero": 72,
+        "WR": 51.33,
+        "Matches": 1054
+      },
+      {
+        "Hero": 9,
+        "WR": 51.27,
+        "Matches": 3772
+      },
+      {
+        "Hero": 137,
+        "WR": 50.95,
+        "Matches": 891
+      },
+      {
+        "Hero": 54,
+        "WR": 50.94,
+        "Matches": 748
+      },
+      {
+        "Hero": 99,
+        "WR": 50.65,
+        "Matches": 2754
+      },
+      {
+        "Hero": 12,
+        "WR": 50.62,
+        "Matches": 320
+      },
+      {
+        "Hero": 49,
+        "WR": 50.5,
+        "Matches": 3206
+      },
+      {
+        "Hero": 53,
+        "WR": 49.89,
+        "Matches": 3195
+      },
+      {
+        "Hero": 58,
+        "WR": 49.89,
+        "Matches": 1325
+      },
+      {
+        "Hero": 1,
+        "WR": 49.56,
+        "Matches": 1251
+      },
+      {
+        "Hero": 109,
+        "WR": 49.3,
+        "Matches": 213
+      },
+      {
+        "Hero": 41,
+        "WR": 49.2,
+        "Matches": 1006
+      },
+      {
+        "Hero": 128,
+        "WR": 49.2,
+        "Matches": 1866
+      },
+      {
+        "Hero": 38,
+        "WR": 48.58,
+        "Matches": 459
+      },
+      {
+        "Hero": 50,
+        "WR": 48.54,
+        "Matches": 2332
+      },
+      {
+        "Hero": 69,
+        "WR": 48.16,
+        "Matches": 1713
+      },
+      {
+        "Hero": 18,
+        "WR": 47.97,
+        "Matches": 640
+      },
+      {
+        "Hero": 114,
+        "WR": 47.31,
+        "Matches": 1619
+      },
+      {
+        "Hero": 138,
+        "WR": 47.19,
+        "Matches": 462
+      },
+      {
+        "Hero": 91,
+        "WR": 46.75,
+        "Matches": 676
+      },
+      {
+        "Hero": 46,
+        "WR": 46.38,
+        "Matches": 580
+      },
+      {
+        "Hero": 95,
+        "WR": 46.32,
+        "Matches": 272
+      },
+      {
+        "Hero": 66,
+        "WR": 45.28,
+        "Matches": 106
+      },
+      {
+        "Hero": 120,
+        "WR": 44.17,
+        "Matches": 489
+      },
+      {
+        "Hero": 65,
+        "WR": 43.17,
+        "Matches": 322
+      },
+      {
+        "Hero": 10,
+        "WR": 42.98,
+        "Matches": 570
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "LEGEND_ANCIENT",
+    "role": "POSITION_1",
+    "herovs": [
+      {
+        "Hero": 12,
+        "WR": 63.04,
+        "Matches": 533
+      },
+      {
+        "Hero": 81,
+        "WR": 61.01,
+        "Matches": 713
+      },
+      {
+        "Hero": 46,
+        "WR": 59.85,
+        "Matches": 533
+      },
+      {
+        "Hero": 138,
+        "WR": 59.74,
+        "Matches": 549
+      },
+      {
+        "Hero": 18,
+        "WR": 59.46,
+        "Matches": 560
+      },
+      {
+        "Hero": 10,
+        "WR": 59.13,
+        "Matches": 1304
+      },
+      {
+        "Hero": 47,
+        "WR": 58.85,
+        "Matches": 1757
+      },
+      {
+        "Hero": 114,
+        "WR": 58.45,
+        "Matches": 1875
+      },
+      {
+        "Hero": 89,
+        "WR": 58.23,
+        "Matches": 316
+      },
+      {
+        "Hero": 40,
+        "WR": 57.78,
+        "Matches": 1549
+      },
+      {
+        "Hero": 25,
+        "WR": 57.46,
+        "Matches": 3258
+      },
+      {
+        "Hero": 4,
+        "WR": 57.37,
+        "Matches": 502
+      },
+      {
+        "Hero": 9,
+        "WR": 57.31,
+        "Matches": 3240
+      },
+      {
+        "Hero": 11,
+        "WR": 56.95,
+        "Matches": 3366
+      },
+      {
+        "Hero": 53,
+        "WR": 56.62,
+        "Matches": 2287
+      },
+      {
+        "Hero": 19,
+        "WR": 56.6,
+        "Matches": 1530
+      },
+      {
+        "Hero": 63,
+        "WR": 56.38,
+        "Matches": 1747
+      },
+      {
+        "Hero": 54,
+        "WR": 56.28,
+        "Matches": 1082
+      },
+      {
+        "Hero": 41,
+        "WR": 56.26,
+        "Matches": 1493
+      },
+      {
+        "Hero": 109,
+        "WR": 55.59,
+        "Matches": 340
+      },
+      {
+        "Hero": 44,
+        "WR": 55.44,
+        "Matches": 3835
+      },
+      {
+        "Hero": 72,
+        "WR": 55.28,
+        "Matches": 843
+      },
+      {
+        "Hero": 95,
+        "WR": 55.27,
+        "Matches": 503
+      },
+      {
+        "Hero": 104,
+        "WR": 55.21,
+        "Matches": 3704
+      },
+      {
+        "Hero": 14,
+        "WR": 55.08,
+        "Matches": 5487
+      },
+      {
+        "Hero": 49,
+        "WR": 55.03,
+        "Matches": 2731
+      },
+      {
+        "Hero": 42,
+        "WR": 54.9,
+        "Matches": 2399
+      },
+      {
+        "Hero": 15,
+        "WR": 54.79,
+        "Matches": 1535
+      },
+      {
+        "Hero": 67,
+        "WR": 54.34,
+        "Matches": 2098
+      },
+      {
+        "Hero": 48,
+        "WR": 54.14,
+        "Matches": 5270
+      },
+      {
+        "Hero": 6,
+        "WR": 53.08,
+        "Matches": 2125
+      },
+      {
+        "Hero": 106,
+        "WR": 53.01,
+        "Matches": 1230
+      },
+      {
+        "Hero": 8,
+        "WR": 52.93,
+        "Matches": 2989
+      },
+      {
+        "Hero": 80,
+        "WR": 52.7,
+        "Matches": 1594
+      },
+      {
+        "Hero": 20,
+        "WR": 52.69,
+        "Matches": 2268
+      },
+      {
+        "Hero": 56,
+        "WR": 52.16,
+        "Matches": 719
+      },
+      {
+        "Hero": 35,
+        "WR": 51.96,
+        "Matches": 4831
+      },
+      {
+        "Hero": 93,
+        "WR": 51.55,
+        "Matches": 2322
+      },
+      {
+        "Hero": 21,
+        "WR": 51.47,
+        "Matches": 4719
+      },
+      {
+        "Hero": 136,
+        "WR": 51.34,
+        "Matches": 1348
+      },
+      {
+        "Hero": 70,
+        "WR": 51.31,
+        "Matches": 1832
+      },
+      {
+        "Hero": 32,
+        "WR": 49.36,
+        "Matches": 1021
+      },
+      {
+        "Hero": 61,
+        "WR": 47.84,
+        "Matches": 416
+      },
+      {
+        "Hero": 73,
+        "WR": 46.67,
+        "Matches": 1247
+      },
+      {
+        "Hero": 1,
+        "WR": 45.75,
+        "Matches": 4151
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 3,
+        "WR": 60.91,
+        "Matches": 481
+      },
+      {
+        "Hero": 82,
+        "WR": 59.9,
+        "Matches": 207
+      },
+      {
+        "Hero": 79,
+        "WR": 59.31,
+        "Matches": 1278
+      },
+      {
+        "Hero": 92,
+        "WR": 58.98,
+        "Matches": 724
+      },
+      {
+        "Hero": 20,
+        "WR": 58.22,
+        "Matches": 2008
+      },
+      {
+        "Hero": 113,
+        "WR": 58.05,
+        "Matches": 379
+      },
+      {
+        "Hero": 78,
+        "WR": 58.04,
+        "Matches": 143
+      },
+      {
+        "Hero": 42,
+        "WR": 58.0,
+        "Matches": 1438
+      },
+      {
+        "Hero": 84,
+        "WR": 57.98,
+        "Matches": 2984
+      },
+      {
+        "Hero": 101,
+        "WR": 57.69,
+        "Matches": 1314
+      },
+      {
+        "Hero": 60,
+        "WR": 57.67,
+        "Matches": 1448
+      },
+      {
+        "Hero": 131,
+        "WR": 57.56,
+        "Matches": 3954
+      },
+      {
+        "Hero": 76,
+        "WR": 57.51,
+        "Matches": 1231
+      },
+      {
+        "Hero": 32,
+        "WR": 57.32,
+        "Matches": 574
+      },
+      {
+        "Hero": 34,
+        "WR": 57.27,
+        "Matches": 791
+      },
+      {
+        "Hero": 80,
+        "WR": 57.22,
+        "Matches": 977
+      },
+      {
+        "Hero": 51,
+        "WR": 57.2,
+        "Matches": 1764
+      },
+      {
+        "Hero": 68,
+        "WR": 57.17,
+        "Matches": 1422
+      },
+      {
+        "Hero": 90,
+        "WR": 57.12,
+        "Matches": 520
+      },
+      {
+        "Hero": 27,
+        "WR": 57.0,
+        "Matches": 2107
+      },
+      {
+        "Hero": 126,
+        "WR": 57.0,
+        "Matches": 1135
+      },
+      {
+        "Hero": 62,
+        "WR": 56.95,
+        "Matches": 1136
+      },
+      {
+        "Hero": 102,
+        "WR": 56.93,
+        "Matches": 2064
+      },
+      {
+        "Hero": 88,
+        "WR": 56.89,
+        "Matches": 2206
+      },
+      {
+        "Hero": 104,
+        "WR": 56.86,
+        "Matches": 3069
+      },
+      {
+        "Hero": 56,
+        "WR": 56.6,
+        "Matches": 523
+      },
+      {
+        "Hero": 61,
+        "WR": 56.52,
+        "Matches": 322
+      },
+      {
+        "Hero": 6,
+        "WR": 56.46,
+        "Matches": 418
+      },
+      {
+        "Hero": 16,
+        "WR": 56.41,
+        "Matches": 4464
+      },
+      {
+        "Hero": 2,
+        "WR": 56.12,
+        "Matches": 3564
+      },
+      {
+        "Hero": 103,
+        "WR": 56.1,
+        "Matches": 246
+      },
+      {
+        "Hero": 30,
+        "WR": 55.87,
+        "Matches": 3585
+      },
+      {
+        "Hero": 14,
+        "WR": 55.86,
+        "Matches": 5308
+      },
+      {
+        "Hero": 108,
+        "WR": 55.81,
+        "Matches": 2211
+      },
+      {
+        "Hero": 67,
+        "WR": 55.78,
+        "Matches": 441
+      },
+      {
+        "Hero": 96,
+        "WR": 55.76,
+        "Matches": 2769
+      },
+      {
+        "Hero": 17,
+        "WR": 55.59,
+        "Matches": 1646
+      },
+      {
+        "Hero": 23,
+        "WR": 55.56,
+        "Matches": 1834
+      },
+      {
+        "Hero": 57,
+        "WR": 55.53,
+        "Matches": 1012
+      },
+      {
+        "Hero": 107,
+        "WR": 55.47,
+        "Matches": 741
+      },
+      {
+        "Hero": 83,
+        "WR": 55.44,
+        "Matches": 1580
+      },
+      {
+        "Hero": 71,
+        "WR": 55.33,
+        "Matches": 2053
+      },
+      {
+        "Hero": 85,
+        "WR": 55.33,
+        "Matches": 1473
+      },
+      {
+        "Hero": 72,
+        "WR": 55.31,
+        "Matches": 593
+      },
+      {
+        "Hero": 22,
+        "WR": 55.17,
+        "Matches": 2679
+      },
+      {
+        "Hero": 73,
+        "WR": 55.03,
+        "Matches": 745
+      },
+      {
+        "Hero": 37,
+        "WR": 55.01,
+        "Matches": 1845
+      },
+      {
+        "Hero": 39,
+        "WR": 55.0,
+        "Matches": 3662
+      },
+      {
+        "Hero": 47,
+        "WR": 54.99,
+        "Matches": 1373
+      },
+      {
+        "Hero": 40,
+        "WR": 54.98,
+        "Matches": 1435
+      },
+      {
+        "Hero": 77,
+        "WR": 54.84,
+        "Matches": 310
+      },
+      {
+        "Hero": 105,
+        "WR": 54.79,
+        "Matches": 1358
+      },
+      {
+        "Hero": 97,
+        "WR": 54.68,
+        "Matches": 1772
+      },
+      {
+        "Hero": 74,
+        "WR": 54.59,
+        "Matches": 3407
+      },
+      {
+        "Hero": 45,
+        "WR": 54.55,
+        "Matches": 704
+      },
+      {
+        "Hero": 129,
+        "WR": 54.53,
+        "Matches": 2320
+      },
+      {
+        "Hero": 21,
+        "WR": 54.44,
+        "Matches": 2129
+      },
+      {
+        "Hero": 111,
+        "WR": 54.36,
+        "Matches": 907
+      },
+      {
+        "Hero": 136,
+        "WR": 54.27,
+        "Matches": 1019
+      },
+      {
+        "Hero": 112,
+        "WR": 54.2,
+        "Matches": 655
+      },
+      {
+        "Hero": 81,
+        "WR": 54.16,
+        "Matches": 397
+      },
+      {
+        "Hero": 119,
+        "WR": 54.06,
+        "Matches": 1219
+      },
+      {
+        "Hero": 64,
+        "WR": 54.01,
+        "Matches": 3005
+      },
+      {
+        "Hero": 110,
+        "WR": 53.99,
+        "Matches": 1152
+      },
+      {
+        "Hero": 87,
+        "WR": 53.91,
+        "Matches": 1523
+      },
+      {
+        "Hero": 31,
+        "WR": 53.83,
+        "Matches": 2183
+      },
+      {
+        "Hero": 26,
+        "WR": 53.8,
+        "Matches": 5225
+      },
+      {
+        "Hero": 36,
+        "WR": 53.78,
+        "Matches": 1973
+      },
+      {
+        "Hero": 138,
+        "WR": 53.78,
+        "Matches": 251
+      },
+      {
+        "Hero": 98,
+        "WR": 53.64,
+        "Matches": 1922
+      },
+      {
+        "Hero": 75,
+        "WR": 53.57,
+        "Matches": 1766
+      },
+      {
+        "Hero": 5,
+        "WR": 53.52,
+        "Matches": 2128
+      },
+      {
+        "Hero": 135,
+        "WR": 53.47,
+        "Matches": 677
+      },
+      {
+        "Hero": 55,
+        "WR": 53.44,
+        "Matches": 363
+      },
+      {
+        "Hero": 48,
+        "WR": 53.29,
+        "Matches": 715
+      },
+      {
+        "Hero": 28,
+        "WR": 53.25,
+        "Matches": 1091
+      },
+      {
+        "Hero": 11,
+        "WR": 53.22,
+        "Matches": 2144
+      },
+      {
+        "Hero": 63,
+        "WR": 53.16,
+        "Matches": 839
+      },
+      {
+        "Hero": 19,
+        "WR": 53.13,
+        "Matches": 1404
+      },
+      {
+        "Hero": 13,
+        "WR": 53.1,
+        "Matches": 2320
+      },
+      {
+        "Hero": 33,
+        "WR": 52.64,
+        "Matches": 492
+      },
+      {
+        "Hero": 38,
+        "WR": 52.44,
+        "Matches": 349
+      },
+      {
+        "Hero": 121,
+        "WR": 52.4,
+        "Matches": 876
+      },
+      {
+        "Hero": 7,
+        "WR": 52.36,
+        "Matches": 3222
+      },
+      {
+        "Hero": 4,
+        "WR": 51.61,
+        "Matches": 248
+      },
+      {
+        "Hero": 123,
+        "WR": 51.54,
+        "Matches": 2245
+      },
+      {
+        "Hero": 59,
+        "WR": 51.48,
+        "Matches": 709
+      },
+      {
+        "Hero": 25,
+        "WR": 51.31,
+        "Matches": 2169
+      },
+      {
+        "Hero": 43,
+        "WR": 51.31,
+        "Matches": 382
+      },
+      {
+        "Hero": 106,
+        "WR": 51.31,
+        "Matches": 1105
+      },
+      {
+        "Hero": 35,
+        "WR": 51.18,
+        "Matches": 4410
+      },
+      {
+        "Hero": 86,
+        "WR": 51.13,
+        "Matches": 4629
+      },
+      {
+        "Hero": 15,
+        "WR": 50.81,
+        "Matches": 1053
+      },
+      {
+        "Hero": 9,
+        "WR": 50.79,
+        "Matches": 2467
+      },
+      {
+        "Hero": 100,
+        "WR": 50.79,
+        "Matches": 2347
+      },
+      {
+        "Hero": 53,
+        "WR": 50.68,
+        "Matches": 1920
+      },
+      {
+        "Hero": 89,
+        "WR": 50.65,
+        "Matches": 231
+      },
+      {
+        "Hero": 29,
+        "WR": 50.51,
+        "Matches": 792
+      },
+      {
+        "Hero": 128,
+        "WR": 50.48,
+        "Matches": 1462
+      },
+      {
+        "Hero": 120,
+        "WR": 50.4,
+        "Matches": 506
+      },
+      {
+        "Hero": 44,
+        "WR": 50.38,
+        "Matches": 780
+      },
+      {
+        "Hero": 58,
+        "WR": 50.22,
+        "Matches": 898
+      },
+      {
+        "Hero": 54,
+        "WR": 50.17,
+        "Matches": 287
+      },
+      {
+        "Hero": 52,
+        "WR": 50.09,
+        "Matches": 575
+      },
+      {
+        "Hero": 109,
+        "WR": 50.0,
+        "Matches": 106
+      },
+      {
+        "Hero": 46,
+        "WR": 49.83,
+        "Matches": 303
+      },
+      {
+        "Hero": 49,
+        "WR": 49.78,
+        "Matches": 1814
+      },
+      {
+        "Hero": 99,
+        "WR": 49.69,
+        "Matches": 1467
+      },
+      {
+        "Hero": 137,
+        "WR": 49.49,
+        "Matches": 693
+      },
+      {
+        "Hero": 69,
+        "WR": 49.44,
+        "Matches": 1416
+      },
+      {
+        "Hero": 114,
+        "WR": 49.26,
+        "Matches": 1145
+      },
+      {
+        "Hero": 8,
+        "WR": 48.85,
+        "Matches": 608
+      },
+      {
+        "Hero": 1,
+        "WR": 48.76,
+        "Matches": 566
+      },
+      {
+        "Hero": 93,
+        "WR": 48.67,
+        "Matches": 676
+      },
+      {
+        "Hero": 70,
+        "WR": 48.58,
+        "Matches": 459
+      },
+      {
+        "Hero": 95,
+        "WR": 48.44,
+        "Matches": 128
+      },
+      {
+        "Hero": 12,
+        "WR": 47.69,
+        "Matches": 65
+      },
+      {
+        "Hero": 65,
+        "WR": 47.29,
+        "Matches": 203
+      },
+      {
+        "Hero": 18,
+        "WR": 46.8,
+        "Matches": 297
+      },
+      {
+        "Hero": 91,
+        "WR": 46.7,
+        "Matches": 394
+      },
+      {
+        "Hero": 50,
+        "WR": 46.36,
+        "Matches": 1221
+      },
+      {
+        "Hero": 41,
+        "WR": 46.15,
+        "Matches": 442
+      },
+      {
+        "Hero": 66,
+        "WR": 45.16,
+        "Matches": 62
+      },
+      {
+        "Hero": 10,
+        "WR": 41.49,
+        "Matches": 323
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "LEGEND_ANCIENT",
+    "role": "POSITION_2",
+    "herovs": [
+      {
+        "Hero": 39,
+        "WR": 59.99,
+        "Matches": 3887
+      },
+      {
+        "Hero": 46,
+        "WR": 59.85,
+        "Matches": 533
+      },
+      {
+        "Hero": 10,
+        "WR": 59.13,
+        "Matches": 1304
+      },
+      {
+        "Hero": 105,
+        "WR": 59.04,
+        "Matches": 1438
+      },
+      {
+        "Hero": 52,
+        "WR": 58.96,
+        "Matches": 597
+      },
+      {
+        "Hero": 123,
+        "WR": 58.93,
+        "Matches": 2228
+      },
+      {
+        "Hero": 47,
+        "WR": 58.85,
+        "Matches": 1757
+      },
+      {
+        "Hero": 90,
+        "WR": 58.67,
+        "Matches": 271
+      },
+      {
+        "Hero": 114,
+        "WR": 58.45,
+        "Matches": 1875
+      },
+      {
+        "Hero": 98,
+        "WR": 58.36,
+        "Matches": 1991
+      },
+      {
+        "Hero": 22,
+        "WR": 57.9,
+        "Matches": 2950
+      },
+      {
+        "Hero": 40,
+        "WR": 57.78,
+        "Matches": 1549
+      },
+      {
+        "Hero": 45,
+        "WR": 57.7,
+        "Matches": 617
+      },
+      {
+        "Hero": 25,
+        "WR": 57.46,
+        "Matches": 3258
+      },
+      {
+        "Hero": 17,
+        "WR": 57.4,
+        "Matches": 1838
+      },
+      {
+        "Hero": 4,
+        "WR": 57.37,
+        "Matches": 502
+      },
+      {
+        "Hero": 9,
+        "WR": 57.31,
+        "Matches": 3240
+      },
+      {
+        "Hero": 97,
+        "WR": 57.02,
+        "Matches": 1966
+      },
+      {
+        "Hero": 11,
+        "WR": 56.95,
+        "Matches": 3366
+      },
+      {
+        "Hero": 101,
+        "WR": 56.84,
+        "Matches": 1536
+      },
+      {
+        "Hero": 137,
+        "WR": 56.84,
+        "Matches": 709
+      },
+      {
+        "Hero": 120,
+        "WR": 56.79,
+        "Matches": 574
+      },
+      {
+        "Hero": 13,
+        "WR": 56.7,
+        "Matches": 2388
+      },
+      {
+        "Hero": 53,
+        "WR": 56.62,
+        "Matches": 2287
+      },
+      {
+        "Hero": 19,
+        "WR": 56.6,
+        "Matches": 1530
+      },
+      {
+        "Hero": 92,
+        "WR": 56.55,
+        "Matches": 932
+      },
+      {
+        "Hero": 63,
+        "WR": 56.38,
+        "Matches": 1747
+      },
+      {
+        "Hero": 128,
+        "WR": 56.32,
+        "Matches": 1559
+      },
+      {
+        "Hero": 59,
+        "WR": 55.81,
+        "Matches": 835
+      },
+      {
+        "Hero": 86,
+        "WR": 55.81,
+        "Matches": 4761
+      },
+      {
+        "Hero": 36,
+        "WR": 55.73,
+        "Matches": 2173
+      },
+      {
+        "Hero": 43,
+        "WR": 55.71,
+        "Matches": 438
+      },
+      {
+        "Hero": 110,
+        "WR": 55.64,
+        "Matches": 1258
+      },
+      {
+        "Hero": 129,
+        "WR": 55.63,
+        "Matches": 2211
+      },
+      {
+        "Hero": 50,
+        "WR": 55.62,
+        "Matches": 1424
+      },
+      {
+        "Hero": 76,
+        "WR": 55.58,
+        "Matches": 1506
+      },
+      {
+        "Hero": 44,
+        "WR": 55.44,
+        "Matches": 3835
+      },
+      {
+        "Hero": 104,
+        "WR": 55.21,
+        "Matches": 3704
+      },
+      {
+        "Hero": 14,
+        "WR": 55.08,
+        "Matches": 5487
+      },
+      {
+        "Hero": 49,
+        "WR": 55.03,
+        "Matches": 2731
+      },
+      {
+        "Hero": 7,
+        "WR": 54.86,
+        "Matches": 3066
+      },
+      {
+        "Hero": 15,
+        "WR": 54.79,
+        "Matches": 1535
+      },
+      {
+        "Hero": 75,
+        "WR": 54.39,
+        "Matches": 2109
+      },
+      {
+        "Hero": 48,
+        "WR": 54.14,
+        "Matches": 5270
+      },
+      {
+        "Hero": 107,
+        "WR": 53.87,
+        "Matches": 776
+      },
+      {
+        "Hero": 82,
+        "WR": 53.78,
+        "Matches": 238
+      },
+      {
+        "Hero": 26,
+        "WR": 53.77,
+        "Matches": 3803
+      },
+      {
+        "Hero": 64,
+        "WR": 53.75,
+        "Matches": 3068
+      },
+      {
+        "Hero": 68,
+        "WR": 53.75,
+        "Matches": 1851
+      },
+      {
+        "Hero": 84,
+        "WR": 53.61,
+        "Matches": 2824
+      },
+      {
+        "Hero": 71,
+        "WR": 53.54,
+        "Matches": 2148
+      },
+      {
+        "Hero": 6,
+        "WR": 53.08,
+        "Matches": 2125
+      },
+      {
+        "Hero": 106,
+        "WR": 53.01,
+        "Matches": 1230
+      },
+      {
+        "Hero": 113,
+        "WR": 52.79,
+        "Matches": 574
+      },
+      {
+        "Hero": 80,
+        "WR": 52.7,
+        "Matches": 1594
+      },
+      {
+        "Hero": 20,
+        "WR": 52.69,
+        "Matches": 2268
+      },
+      {
+        "Hero": 119,
+        "WR": 52.58,
+        "Matches": 1259
+      },
+      {
+        "Hero": 56,
+        "WR": 52.16,
+        "Matches": 719
+      },
+      {
+        "Hero": 35,
+        "WR": 51.96,
+        "Matches": 4831
+      },
+      {
+        "Hero": 88,
+        "WR": 51.75,
+        "Matches": 1940
+      },
+      {
+        "Hero": 126,
+        "WR": 51.56,
+        "Matches": 1154
+      },
+      {
+        "Hero": 93,
+        "WR": 51.55,
+        "Matches": 2322
+      },
+      {
+        "Hero": 21,
+        "WR": 51.47,
+        "Matches": 4719
+      },
+      {
+        "Hero": 136,
+        "WR": 51.34,
+        "Matches": 1348
+      },
+      {
+        "Hero": 74,
+        "WR": 51.25,
+        "Matches": 3436
+      },
+      {
+        "Hero": 62,
+        "WR": 51.13,
+        "Matches": 1060
+      },
+      {
+        "Hero": 77,
+        "WR": 50.28,
+        "Matches": 352
+      },
+      {
+        "Hero": 32,
+        "WR": 49.36,
+        "Matches": 1021
+      },
+      {
+        "Hero": 23,
+        "WR": 48.89,
+        "Matches": 1896
+      },
+      {
+        "Hero": 16,
+        "WR": 48.83,
+        "Matches": 4432
+      },
+      {
+        "Hero": 34,
+        "WR": 48.65,
+        "Matches": 890
+      },
+      {
+        "Hero": 61,
+        "WR": 47.84,
+        "Matches": 416
+      },
+      {
+        "Hero": 73,
+        "WR": 46.67,
+        "Matches": 1247
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 3,
+        "WR": 60.91,
+        "Matches": 481
+      },
+      {
+        "Hero": 82,
+        "WR": 59.9,
+        "Matches": 207
+      },
+      {
+        "Hero": 79,
+        "WR": 59.31,
+        "Matches": 1278
+      },
+      {
+        "Hero": 92,
+        "WR": 58.98,
+        "Matches": 724
+      },
+      {
+        "Hero": 20,
+        "WR": 58.22,
+        "Matches": 2008
+      },
+      {
+        "Hero": 113,
+        "WR": 58.05,
+        "Matches": 379
+      },
+      {
+        "Hero": 78,
+        "WR": 58.04,
+        "Matches": 143
+      },
+      {
+        "Hero": 42,
+        "WR": 58.0,
+        "Matches": 1438
+      },
+      {
+        "Hero": 84,
+        "WR": 57.98,
+        "Matches": 2984
+      },
+      {
+        "Hero": 101,
+        "WR": 57.69,
+        "Matches": 1314
+      },
+      {
+        "Hero": 60,
+        "WR": 57.67,
+        "Matches": 1448
+      },
+      {
+        "Hero": 131,
+        "WR": 57.56,
+        "Matches": 3954
+      },
+      {
+        "Hero": 76,
+        "WR": 57.51,
+        "Matches": 1231
+      },
+      {
+        "Hero": 32,
+        "WR": 57.32,
+        "Matches": 574
+      },
+      {
+        "Hero": 34,
+        "WR": 57.27,
+        "Matches": 791
+      },
+      {
+        "Hero": 80,
+        "WR": 57.22,
+        "Matches": 977
+      },
+      {
+        "Hero": 51,
+        "WR": 57.2,
+        "Matches": 1764
+      },
+      {
+        "Hero": 68,
+        "WR": 57.17,
+        "Matches": 1422
+      },
+      {
+        "Hero": 90,
+        "WR": 57.12,
+        "Matches": 520
+      },
+      {
+        "Hero": 27,
+        "WR": 57.0,
+        "Matches": 2107
+      },
+      {
+        "Hero": 126,
+        "WR": 57.0,
+        "Matches": 1135
+      },
+      {
+        "Hero": 62,
+        "WR": 56.95,
+        "Matches": 1136
+      },
+      {
+        "Hero": 102,
+        "WR": 56.93,
+        "Matches": 2064
+      },
+      {
+        "Hero": 88,
+        "WR": 56.89,
+        "Matches": 2206
+      },
+      {
+        "Hero": 104,
+        "WR": 56.86,
+        "Matches": 3069
+      },
+      {
+        "Hero": 56,
+        "WR": 56.6,
+        "Matches": 523
+      },
+      {
+        "Hero": 61,
+        "WR": 56.52,
+        "Matches": 322
+      },
+      {
+        "Hero": 6,
+        "WR": 56.46,
+        "Matches": 418
+      },
+      {
+        "Hero": 16,
+        "WR": 56.41,
+        "Matches": 4464
+      },
+      {
+        "Hero": 2,
+        "WR": 56.12,
+        "Matches": 3564
+      },
+      {
+        "Hero": 103,
+        "WR": 56.1,
+        "Matches": 246
+      },
+      {
+        "Hero": 30,
+        "WR": 55.87,
+        "Matches": 3585
+      },
+      {
+        "Hero": 14,
+        "WR": 55.86,
+        "Matches": 5308
+      },
+      {
+        "Hero": 108,
+        "WR": 55.81,
+        "Matches": 2211
+      },
+      {
+        "Hero": 67,
+        "WR": 55.78,
+        "Matches": 441
+      },
+      {
+        "Hero": 96,
+        "WR": 55.76,
+        "Matches": 2769
+      },
+      {
+        "Hero": 17,
+        "WR": 55.59,
+        "Matches": 1646
+      },
+      {
+        "Hero": 23,
+        "WR": 55.56,
+        "Matches": 1834
+      },
+      {
+        "Hero": 57,
+        "WR": 55.53,
+        "Matches": 1012
+      },
+      {
+        "Hero": 107,
+        "WR": 55.47,
+        "Matches": 741
+      },
+      {
+        "Hero": 83,
+        "WR": 55.44,
+        "Matches": 1580
+      },
+      {
+        "Hero": 71,
+        "WR": 55.33,
+        "Matches": 2053
+      },
+      {
+        "Hero": 85,
+        "WR": 55.33,
+        "Matches": 1473
+      },
+      {
+        "Hero": 72,
+        "WR": 55.31,
+        "Matches": 593
+      },
+      {
+        "Hero": 22,
+        "WR": 55.17,
+        "Matches": 2679
+      },
+      {
+        "Hero": 73,
+        "WR": 55.03,
+        "Matches": 745
+      },
+      {
+        "Hero": 37,
+        "WR": 55.01,
+        "Matches": 1845
+      },
+      {
+        "Hero": 39,
+        "WR": 55.0,
+        "Matches": 3662
+      },
+      {
+        "Hero": 47,
+        "WR": 54.99,
+        "Matches": 1373
+      },
+      {
+        "Hero": 40,
+        "WR": 54.98,
+        "Matches": 1435
+      },
+      {
+        "Hero": 77,
+        "WR": 54.84,
+        "Matches": 310
+      },
+      {
+        "Hero": 105,
+        "WR": 54.79,
+        "Matches": 1358
+      },
+      {
+        "Hero": 97,
+        "WR": 54.68,
+        "Matches": 1772
+      },
+      {
+        "Hero": 74,
+        "WR": 54.59,
+        "Matches": 3407
+      },
+      {
+        "Hero": 45,
+        "WR": 54.55,
+        "Matches": 704
+      },
+      {
+        "Hero": 129,
+        "WR": 54.53,
+        "Matches": 2320
+      },
+      {
+        "Hero": 21,
+        "WR": 54.44,
+        "Matches": 2129
+      },
+      {
+        "Hero": 111,
+        "WR": 54.36,
+        "Matches": 907
+      },
+      {
+        "Hero": 136,
+        "WR": 54.27,
+        "Matches": 1019
+      },
+      {
+        "Hero": 112,
+        "WR": 54.2,
+        "Matches": 655
+      },
+      {
+        "Hero": 81,
+        "WR": 54.16,
+        "Matches": 397
+      },
+      {
+        "Hero": 119,
+        "WR": 54.06,
+        "Matches": 1219
+      },
+      {
+        "Hero": 64,
+        "WR": 54.01,
+        "Matches": 3005
+      },
+      {
+        "Hero": 110,
+        "WR": 53.99,
+        "Matches": 1152
+      },
+      {
+        "Hero": 87,
+        "WR": 53.91,
+        "Matches": 1523
+      },
+      {
+        "Hero": 31,
+        "WR": 53.83,
+        "Matches": 2183
+      },
+      {
+        "Hero": 26,
+        "WR": 53.8,
+        "Matches": 5225
+      },
+      {
+        "Hero": 36,
+        "WR": 53.78,
+        "Matches": 1973
+      },
+      {
+        "Hero": 138,
+        "WR": 53.78,
+        "Matches": 251
+      },
+      {
+        "Hero": 98,
+        "WR": 53.64,
+        "Matches": 1922
+      },
+      {
+        "Hero": 75,
+        "WR": 53.57,
+        "Matches": 1766
+      },
+      {
+        "Hero": 5,
+        "WR": 53.52,
+        "Matches": 2128
+      },
+      {
+        "Hero": 135,
+        "WR": 53.47,
+        "Matches": 677
+      },
+      {
+        "Hero": 55,
+        "WR": 53.44,
+        "Matches": 363
+      },
+      {
+        "Hero": 48,
+        "WR": 53.29,
+        "Matches": 715
+      },
+      {
+        "Hero": 28,
+        "WR": 53.25,
+        "Matches": 1091
+      },
+      {
+        "Hero": 11,
+        "WR": 53.22,
+        "Matches": 2144
+      },
+      {
+        "Hero": 63,
+        "WR": 53.16,
+        "Matches": 839
+      },
+      {
+        "Hero": 19,
+        "WR": 53.13,
+        "Matches": 1404
+      },
+      {
+        "Hero": 13,
+        "WR": 53.1,
+        "Matches": 2320
+      },
+      {
+        "Hero": 33,
+        "WR": 52.64,
+        "Matches": 492
+      },
+      {
+        "Hero": 38,
+        "WR": 52.44,
+        "Matches": 349
+      },
+      {
+        "Hero": 121,
+        "WR": 52.4,
+        "Matches": 876
+      },
+      {
+        "Hero": 7,
+        "WR": 52.36,
+        "Matches": 3222
+      },
+      {
+        "Hero": 4,
+        "WR": 51.61,
+        "Matches": 248
+      },
+      {
+        "Hero": 123,
+        "WR": 51.54,
+        "Matches": 2245
+      },
+      {
+        "Hero": 59,
+        "WR": 51.48,
+        "Matches": 709
+      },
+      {
+        "Hero": 25,
+        "WR": 51.31,
+        "Matches": 2169
+      },
+      {
+        "Hero": 43,
+        "WR": 51.31,
+        "Matches": 382
+      },
+      {
+        "Hero": 106,
+        "WR": 51.31,
+        "Matches": 1105
+      },
+      {
+        "Hero": 35,
+        "WR": 51.18,
+        "Matches": 4410
+      },
+      {
+        "Hero": 86,
+        "WR": 51.13,
+        "Matches": 4629
+      },
+      {
+        "Hero": 15,
+        "WR": 50.81,
+        "Matches": 1053
+      },
+      {
+        "Hero": 9,
+        "WR": 50.79,
+        "Matches": 2467
+      },
+      {
+        "Hero": 100,
+        "WR": 50.79,
+        "Matches": 2347
+      },
+      {
+        "Hero": 53,
+        "WR": 50.68,
+        "Matches": 1920
+      },
+      {
+        "Hero": 89,
+        "WR": 50.65,
+        "Matches": 231
+      },
+      {
+        "Hero": 29,
+        "WR": 50.51,
+        "Matches": 792
+      },
+      {
+        "Hero": 128,
+        "WR": 50.48,
+        "Matches": 1462
+      },
+      {
+        "Hero": 120,
+        "WR": 50.4,
+        "Matches": 506
+      },
+      {
+        "Hero": 44,
+        "WR": 50.38,
+        "Matches": 780
+      },
+      {
+        "Hero": 58,
+        "WR": 50.22,
+        "Matches": 898
+      },
+      {
+        "Hero": 54,
+        "WR": 50.17,
+        "Matches": 287
+      },
+      {
+        "Hero": 52,
+        "WR": 50.09,
+        "Matches": 575
+      },
+      {
+        "Hero": 109,
+        "WR": 50.0,
+        "Matches": 106
+      },
+      {
+        "Hero": 46,
+        "WR": 49.83,
+        "Matches": 303
+      },
+      {
+        "Hero": 49,
+        "WR": 49.78,
+        "Matches": 1814
+      },
+      {
+        "Hero": 99,
+        "WR": 49.69,
+        "Matches": 1467
+      },
+      {
+        "Hero": 137,
+        "WR": 49.49,
+        "Matches": 693
+      },
+      {
+        "Hero": 69,
+        "WR": 49.44,
+        "Matches": 1416
+      },
+      {
+        "Hero": 114,
+        "WR": 49.26,
+        "Matches": 1145
+      },
+      {
+        "Hero": 8,
+        "WR": 48.85,
+        "Matches": 608
+      },
+      {
+        "Hero": 1,
+        "WR": 48.76,
+        "Matches": 566
+      },
+      {
+        "Hero": 93,
+        "WR": 48.67,
+        "Matches": 676
+      },
+      {
+        "Hero": 70,
+        "WR": 48.58,
+        "Matches": 459
+      },
+      {
+        "Hero": 95,
+        "WR": 48.44,
+        "Matches": 128
+      },
+      {
+        "Hero": 12,
+        "WR": 47.69,
+        "Matches": 65
+      },
+      {
+        "Hero": 65,
+        "WR": 47.29,
+        "Matches": 203
+      },
+      {
+        "Hero": 18,
+        "WR": 46.8,
+        "Matches": 297
+      },
+      {
+        "Hero": 91,
+        "WR": 46.7,
+        "Matches": 394
+      },
+      {
+        "Hero": 50,
+        "WR": 46.36,
+        "Matches": 1221
+      },
+      {
+        "Hero": 41,
+        "WR": 46.15,
+        "Matches": 442
+      },
+      {
+        "Hero": 66,
+        "WR": 45.16,
+        "Matches": 62
+      },
+      {
+        "Hero": 10,
+        "WR": 41.49,
+        "Matches": 323
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "DIVINE_IMMORTAL",
+    "role": "POSITION_1",
+    "herovs": [
+      {
+        "Hero": 12,
+        "WR": 61.54,
+        "Matches": 91
+      },
+      {
+        "Hero": 89,
+        "WR": 60.96,
+        "Matches": 187
+      },
+      {
+        "Hero": 4,
+        "WR": 60.67,
+        "Matches": 150
+      },
+      {
+        "Hero": 67,
+        "WR": 58.66,
+        "Matches": 537
+      },
+      {
+        "Hero": 9,
+        "WR": 58.02,
+        "Matches": 1260
+      },
+      {
+        "Hero": 72,
+        "WR": 57.69,
+        "Matches": 234
+      },
+      {
+        "Hero": 114,
+        "WR": 56.87,
+        "Matches": 772
+      },
+      {
+        "Hero": 20,
+        "WR": 56.75,
+        "Matches": 763
+      },
+      {
+        "Hero": 49,
+        "WR": 56.54,
+        "Matches": 994
+      },
+      {
+        "Hero": 10,
+        "WR": 56.0,
+        "Matches": 700
+      },
+      {
+        "Hero": 46,
+        "WR": 55.92,
+        "Matches": 245
+      },
+      {
+        "Hero": 81,
+        "WR": 55.88,
+        "Matches": 204
+      },
+      {
+        "Hero": 54,
+        "WR": 55.48,
+        "Matches": 310
+      },
+      {
+        "Hero": 42,
+        "WR": 55.2,
+        "Matches": 471
+      },
+      {
+        "Hero": 14,
+        "WR": 55.08,
+        "Matches": 1921
+      },
+      {
+        "Hero": 63,
+        "WR": 55.06,
+        "Matches": 603
+      },
+      {
+        "Hero": 53,
+        "WR": 54.99,
+        "Matches": 842
+      },
+      {
+        "Hero": 95,
+        "WR": 54.97,
+        "Matches": 151
+      },
+      {
+        "Hero": 104,
+        "WR": 54.92,
+        "Matches": 1027
+      },
+      {
+        "Hero": 40,
+        "WR": 54.82,
+        "Matches": 456
+      },
+      {
+        "Hero": 126,
+        "WR": 54.75,
+        "Matches": 453
+      },
+      {
+        "Hero": 109,
+        "WR": 54.4,
+        "Matches": 125
+      },
+      {
+        "Hero": 44,
+        "WR": 54.3,
+        "Matches": 1094
+      },
+      {
+        "Hero": 41,
+        "WR": 54.24,
+        "Matches": 354
+      },
+      {
+        "Hero": 11,
+        "WR": 54.01,
+        "Matches": 1285
+      },
+      {
+        "Hero": 25,
+        "WR": 53.9,
+        "Matches": 1102
+      },
+      {
+        "Hero": 18,
+        "WR": 53.85,
+        "Matches": 182
+      },
+      {
+        "Hero": 47,
+        "WR": 53.42,
+        "Matches": 468
+      },
+      {
+        "Hero": 138,
+        "WR": 53.11,
+        "Matches": 177
+      },
+      {
+        "Hero": 93,
+        "WR": 52.67,
+        "Matches": 731
+      },
+      {
+        "Hero": 99,
+        "WR": 52.66,
+        "Matches": 488
+      },
+      {
+        "Hero": 56,
+        "WR": 52.59,
+        "Matches": 251
+      },
+      {
+        "Hero": 32,
+        "WR": 52.52,
+        "Matches": 337
+      },
+      {
+        "Hero": 106,
+        "WR": 52.42,
+        "Matches": 517
+      },
+      {
+        "Hero": 8,
+        "WR": 52.32,
+        "Matches": 604
+      },
+      {
+        "Hero": 21,
+        "WR": 52.26,
+        "Matches": 1724
+      },
+      {
+        "Hero": 48,
+        "WR": 52.13,
+        "Matches": 2208
+      },
+      {
+        "Hero": 80,
+        "WR": 52.08,
+        "Matches": 626
+      },
+      {
+        "Hero": 6,
+        "WR": 51.99,
+        "Matches": 477
+      },
+      {
+        "Hero": 35,
+        "WR": 51.1,
+        "Matches": 1405
+      },
+      {
+        "Hero": 136,
+        "WR": 50.95,
+        "Matches": 734
+      },
+      {
+        "Hero": 61,
+        "WR": 50.7,
+        "Matches": 215
+      },
+      {
+        "Hero": 19,
+        "WR": 50.46,
+        "Matches": 539
+      },
+      {
+        "Hero": 15,
+        "WR": 50.32,
+        "Matches": 471
+      },
+      {
+        "Hero": 73,
+        "WR": 50.17,
+        "Matches": 600
+      },
+      {
+        "Hero": 70,
+        "WR": 48.04,
+        "Matches": 716
+      },
+      {
+        "Hero": 1,
+        "WR": 45.75,
+        "Matches": 1399
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 82,
+        "WR": 67.9,
+        "Matches": 81
+      },
+      {
+        "Hero": 70,
+        "WR": 62.42,
+        "Matches": 149
+      },
+      {
+        "Hero": 81,
+        "WR": 61.11,
+        "Matches": 72
+      },
+      {
+        "Hero": 3,
+        "WR": 60.26,
+        "Matches": 156
+      },
+      {
+        "Hero": 103,
+        "WR": 60.0,
+        "Matches": 130
+      },
+      {
+        "Hero": 90,
+        "WR": 58.37,
+        "Matches": 209
+      },
+      {
+        "Hero": 28,
+        "WR": 58.36,
+        "Matches": 305
+      },
+      {
+        "Hero": 27,
+        "WR": 58.03,
+        "Matches": 529
+      },
+      {
+        "Hero": 40,
+        "WR": 57.95,
+        "Matches": 390
+      },
+      {
+        "Hero": 79,
+        "WR": 57.56,
+        "Matches": 714
+      },
+      {
+        "Hero": 34,
+        "WR": 57.52,
+        "Matches": 492
+      },
+      {
+        "Hero": 42,
+        "WR": 57.49,
+        "Matches": 247
+      },
+      {
+        "Hero": 104,
+        "WR": 57.3,
+        "Matches": 822
+      },
+      {
+        "Hero": 126,
+        "WR": 57.27,
+        "Matches": 440
+      },
+      {
+        "Hero": 20,
+        "WR": 57.01,
+        "Matches": 728
+      },
+      {
+        "Hero": 17,
+        "WR": 56.85,
+        "Matches": 642
+      },
+      {
+        "Hero": 47,
+        "WR": 56.55,
+        "Matches": 435
+      },
+      {
+        "Hero": 97,
+        "WR": 56.44,
+        "Matches": 675
+      },
+      {
+        "Hero": 67,
+        "WR": 56.31,
+        "Matches": 103
+      },
+      {
+        "Hero": 92,
+        "WR": 56.11,
+        "Matches": 458
+      },
+      {
+        "Hero": 111,
+        "WR": 56.01,
+        "Matches": 366
+      },
+      {
+        "Hero": 131,
+        "WR": 56.0,
+        "Matches": 2050
+      },
+      {
+        "Hero": 87,
+        "WR": 55.95,
+        "Matches": 479
+      },
+      {
+        "Hero": 60,
+        "WR": 55.84,
+        "Matches": 471
+      },
+      {
+        "Hero": 31,
+        "WR": 55.75,
+        "Matches": 739
+      },
+      {
+        "Hero": 88,
+        "WR": 55.56,
+        "Matches": 846
+      },
+      {
+        "Hero": 51,
+        "WR": 55.46,
+        "Matches": 714
+      },
+      {
+        "Hero": 32,
+        "WR": 55.42,
+        "Matches": 166
+      },
+      {
+        "Hero": 16,
+        "WR": 55.39,
+        "Matches": 1865
+      },
+      {
+        "Hero": 106,
+        "WR": 55.34,
+        "Matches": 515
+      },
+      {
+        "Hero": 61,
+        "WR": 55.32,
+        "Matches": 141
+      },
+      {
+        "Hero": 76,
+        "WR": 55.26,
+        "Matches": 380
+      },
+      {
+        "Hero": 45,
+        "WR": 55.25,
+        "Matches": 181
+      },
+      {
+        "Hero": 72,
+        "WR": 55.22,
+        "Matches": 134
+      },
+      {
+        "Hero": 85,
+        "WR": 55.16,
+        "Matches": 426
+      },
+      {
+        "Hero": 84,
+        "WR": 55.06,
+        "Matches": 721
+      },
+      {
+        "Hero": 62,
+        "WR": 55.0,
+        "Matches": 360
+      },
+      {
+        "Hero": 4,
+        "WR": 54.88,
+        "Matches": 82
+      },
+      {
+        "Hero": 43,
+        "WR": 54.84,
+        "Matches": 124
+      },
+      {
+        "Hero": 54,
+        "WR": 54.76,
+        "Matches": 42
+      },
+      {
+        "Hero": 56,
+        "WR": 54.49,
+        "Matches": 178
+      },
+      {
+        "Hero": 75,
+        "WR": 54.48,
+        "Matches": 402
+      },
+      {
+        "Hero": 46,
+        "WR": 54.46,
+        "Matches": 112
+      },
+      {
+        "Hero": 102,
+        "WR": 54.44,
+        "Matches": 755
+      },
+      {
+        "Hero": 96,
+        "WR": 54.34,
+        "Matches": 1174
+      },
+      {
+        "Hero": 58,
+        "WR": 54.31,
+        "Matches": 383
+      },
+      {
+        "Hero": 99,
+        "WR": 54.27,
+        "Matches": 468
+      },
+      {
+        "Hero": 63,
+        "WR": 54.26,
+        "Matches": 282
+      },
+      {
+        "Hero": 107,
+        "WR": 54.19,
+        "Matches": 358
+      },
+      {
+        "Hero": 74,
+        "WR": 54.18,
+        "Matches": 1268
+      },
+      {
+        "Hero": 101,
+        "WR": 54.07,
+        "Matches": 381
+      },
+      {
+        "Hero": 5,
+        "WR": 54.04,
+        "Matches": 668
+      },
+      {
+        "Hero": 83,
+        "WR": 54.04,
+        "Matches": 718
+      },
+      {
+        "Hero": 29,
+        "WR": 53.81,
+        "Matches": 210
+      },
+      {
+        "Hero": 14,
+        "WR": 53.67,
+        "Matches": 2018
+      },
+      {
+        "Hero": 108,
+        "WR": 53.67,
+        "Matches": 790
+      },
+      {
+        "Hero": 6,
+        "WR": 53.66,
+        "Matches": 82
+      },
+      {
+        "Hero": 55,
+        "WR": 53.66,
+        "Matches": 164
+      },
+      {
+        "Hero": 59,
+        "WR": 53.65,
+        "Matches": 274
+      },
+      {
+        "Hero": 93,
+        "WR": 53.63,
+        "Matches": 179
+      },
+      {
+        "Hero": 52,
+        "WR": 53.5,
+        "Matches": 314
+      },
+      {
+        "Hero": 37,
+        "WR": 53.45,
+        "Matches": 406
+      },
+      {
+        "Hero": 113,
+        "WR": 53.42,
+        "Matches": 146
+      },
+      {
+        "Hero": 121,
+        "WR": 53.26,
+        "Matches": 184
+      },
+      {
+        "Hero": 68,
+        "WR": 53.23,
+        "Matches": 402
+      },
+      {
+        "Hero": 112,
+        "WR": 53.23,
+        "Matches": 248
+      },
+      {
+        "Hero": 2,
+        "WR": 53.19,
+        "Matches": 1096
+      },
+      {
+        "Hero": 19,
+        "WR": 53.14,
+        "Matches": 542
+      },
+      {
+        "Hero": 71,
+        "WR": 52.95,
+        "Matches": 491
+      },
+      {
+        "Hero": 13,
+        "WR": 52.9,
+        "Matches": 1070
+      },
+      {
+        "Hero": 39,
+        "WR": 52.88,
+        "Matches": 1460
+      },
+      {
+        "Hero": 91,
+        "WR": 52.83,
+        "Matches": 159
+      },
+      {
+        "Hero": 57,
+        "WR": 52.8,
+        "Matches": 608
+      },
+      {
+        "Hero": 77,
+        "WR": 52.76,
+        "Matches": 127
+      },
+      {
+        "Hero": 105,
+        "WR": 52.66,
+        "Matches": 357
+      },
+      {
+        "Hero": 10,
+        "WR": 52.48,
+        "Matches": 141
+      },
+      {
+        "Hero": 114,
+        "WR": 52.19,
+        "Matches": 456
+      },
+      {
+        "Hero": 26,
+        "WR": 52.07,
+        "Matches": 1425
+      },
+      {
+        "Hero": 123,
+        "WR": 52.03,
+        "Matches": 713
+      },
+      {
+        "Hero": 73,
+        "WR": 51.97,
+        "Matches": 279
+      },
+      {
+        "Hero": 100,
+        "WR": 51.96,
+        "Matches": 1122
+      },
+      {
+        "Hero": 110,
+        "WR": 51.79,
+        "Matches": 475
+      },
+      {
+        "Hero": 21,
+        "WR": 51.68,
+        "Matches": 716
+      },
+      {
+        "Hero": 33,
+        "WR": 51.68,
+        "Matches": 149
+      },
+      {
+        "Hero": 35,
+        "WR": 51.31,
+        "Matches": 1333
+      },
+      {
+        "Hero": 98,
+        "WR": 51.31,
+        "Matches": 914
+      },
+      {
+        "Hero": 30,
+        "WR": 51.17,
+        "Matches": 895
+      },
+      {
+        "Hero": 129,
+        "WR": 51.12,
+        "Matches": 1027
+      },
+      {
+        "Hero": 64,
+        "WR": 50.95,
+        "Matches": 897
+      },
+      {
+        "Hero": 69,
+        "WR": 50.92,
+        "Matches": 599
+      },
+      {
+        "Hero": 22,
+        "WR": 50.9,
+        "Matches": 829
+      },
+      {
+        "Hero": 119,
+        "WR": 50.9,
+        "Matches": 446
+      },
+      {
+        "Hero": 128,
+        "WR": 50.83,
+        "Matches": 604
+      },
+      {
+        "Hero": 80,
+        "WR": 50.6,
+        "Matches": 332
+      },
+      {
+        "Hero": 53,
+        "WR": 50.3,
+        "Matches": 670
+      },
+      {
+        "Hero": 9,
+        "WR": 50.26,
+        "Matches": 949
+      },
+      {
+        "Hero": 36,
+        "WR": 50.12,
+        "Matches": 413
+      },
+      {
+        "Hero": 7,
+        "WR": 50.09,
+        "Matches": 1100
+      },
+      {
+        "Hero": 136,
+        "WR": 50.09,
+        "Matches": 543
+      },
+      {
+        "Hero": 15,
+        "WR": 50.0,
+        "Matches": 358
+      },
+      {
+        "Hero": 78,
+        "WR": 50.0,
+        "Matches": 80
+      },
+      {
+        "Hero": 95,
+        "WR": 50.0,
+        "Matches": 26
+      },
+      {
+        "Hero": 23,
+        "WR": 49.73,
+        "Matches": 740
+      },
+      {
+        "Hero": 38,
+        "WR": 49.66,
+        "Matches": 149
+      },
+      {
+        "Hero": 49,
+        "WR": 49.63,
+        "Matches": 542
+      },
+      {
+        "Hero": 8,
+        "WR": 48.86,
+        "Matches": 88
+      },
+      {
+        "Hero": 11,
+        "WR": 48.84,
+        "Matches": 692
+      },
+      {
+        "Hero": 86,
+        "WR": 48.77,
+        "Matches": 1673
+      },
+      {
+        "Hero": 135,
+        "WR": 48.59,
+        "Matches": 249
+      },
+      {
+        "Hero": 66,
+        "WR": 48.57,
+        "Matches": 35
+      },
+      {
+        "Hero": 65,
+        "WR": 48.31,
+        "Matches": 89
+      },
+      {
+        "Hero": 41,
+        "WR": 48.25,
+        "Matches": 143
+      },
+      {
+        "Hero": 1,
+        "WR": 48.08,
+        "Matches": 156
+      },
+      {
+        "Hero": 25,
+        "WR": 47.45,
+        "Matches": 647
+      },
+      {
+        "Hero": 89,
+        "WR": 46.96,
+        "Matches": 115
+      },
+      {
+        "Hero": 109,
+        "WR": 46.94,
+        "Matches": 49
+      },
+      {
+        "Hero": 48,
+        "WR": 46.93,
+        "Matches": 228
+      },
+      {
+        "Hero": 138,
+        "WR": 46.38,
+        "Matches": 69
+      },
+      {
+        "Hero": 18,
+        "WR": 44.58,
+        "Matches": 83
+      },
+      {
+        "Hero": 50,
+        "WR": 43.88,
+        "Matches": 278
+      },
+      {
+        "Hero": 137,
+        "WR": 43.11,
+        "Matches": 283
+      },
+      {
+        "Hero": 120,
+        "WR": 42.58,
+        "Matches": 256
+      },
+      {
+        "Hero": 44,
+        "WR": 40.76,
+        "Matches": 157
+      },
+      {
+        "Hero": 12,
+        "WR": 0.0,
+        "Matches": 7
+      }
+    ]
+  },
+  {
+    "hero_id": 94,
+    "rank": "DIVINE_IMMORTAL",
+    "role": "POSITION_2",
+    "herovs": [
+      {
+        "Hero": 4,
+        "WR": 60.67,
+        "Matches": 150
+      },
+      {
+        "Hero": 105,
+        "WR": 59.95,
+        "Matches": 367
+      },
+      {
+        "Hero": 101,
+        "WR": 59.92,
+        "Matches": 474
+      },
+      {
+        "Hero": 123,
+        "WR": 59.81,
+        "Matches": 836
+      },
+      {
+        "Hero": 52,
+        "WR": 59.33,
+        "Matches": 300
+      },
+      {
+        "Hero": 98,
+        "WR": 59.01,
+        "Matches": 888
+      },
+      {
+        "Hero": 9,
+        "WR": 58.02,
+        "Matches": 1260
+      },
+      {
+        "Hero": 39,
+        "WR": 57.18,
+        "Matches": 1483
+      },
+      {
+        "Hero": 76,
+        "WR": 57.14,
+        "Matches": 469
+      },
+      {
+        "Hero": 114,
+        "WR": 56.87,
+        "Matches": 772
+      },
+      {
+        "Hero": 20,
+        "WR": 56.75,
+        "Matches": 763
+      },
+      {
+        "Hero": 49,
+        "WR": 56.54,
+        "Matches": 994
+      },
+      {
+        "Hero": 36,
+        "WR": 56.24,
+        "Matches": 457
+      },
+      {
+        "Hero": 68,
+        "WR": 56.09,
+        "Matches": 517
+      },
+      {
+        "Hero": 10,
+        "WR": 56.0,
+        "Matches": 700
+      },
+      {
+        "Hero": 71,
+        "WR": 55.95,
+        "Matches": 597
+      },
+      {
+        "Hero": 46,
+        "WR": 55.92,
+        "Matches": 245
+      },
+      {
+        "Hero": 82,
+        "WR": 55.91,
+        "Matches": 93
+      },
+      {
+        "Hero": 120,
+        "WR": 55.86,
+        "Matches": 290
+      },
+      {
+        "Hero": 14,
+        "WR": 55.08,
+        "Matches": 1921
+      },
+      {
+        "Hero": 63,
+        "WR": 55.06,
+        "Matches": 603
+      },
+      {
+        "Hero": 75,
+        "WR": 55.03,
+        "Matches": 487
+      },
+      {
+        "Hero": 53,
+        "WR": 54.99,
+        "Matches": 842
+      },
+      {
+        "Hero": 104,
+        "WR": 54.92,
+        "Matches": 1027
+      },
+      {
+        "Hero": 40,
+        "WR": 54.82,
+        "Matches": 456
+      },
+      {
+        "Hero": 110,
+        "WR": 54.76,
+        "Matches": 546
+      },
+      {
+        "Hero": 126,
+        "WR": 54.75,
+        "Matches": 453
+      },
+      {
+        "Hero": 113,
+        "WR": 54.68,
+        "Matches": 203
+      },
+      {
+        "Hero": 128,
+        "WR": 54.61,
+        "Matches": 575
+      },
+      {
+        "Hero": 22,
+        "WR": 54.53,
+        "Matches": 783
+      },
+      {
+        "Hero": 44,
+        "WR": 54.3,
+        "Matches": 1094
+      },
+      {
+        "Hero": 11,
+        "WR": 54.01,
+        "Matches": 1285
+      },
+      {
+        "Hero": 25,
+        "WR": 53.9,
+        "Matches": 1102
+      },
+      {
+        "Hero": 97,
+        "WR": 53.63,
+        "Matches": 703
+      },
+      {
+        "Hero": 17,
+        "WR": 53.51,
+        "Matches": 684
+      },
+      {
+        "Hero": 59,
+        "WR": 53.49,
+        "Matches": 387
+      },
+      {
+        "Hero": 47,
+        "WR": 53.42,
+        "Matches": 468
+      },
+      {
+        "Hero": 129,
+        "WR": 53.4,
+        "Matches": 1000
+      },
+      {
+        "Hero": 26,
+        "WR": 53.28,
+        "Matches": 1036
+      },
+      {
+        "Hero": 45,
+        "WR": 53.18,
+        "Matches": 173
+      },
+      {
+        "Hero": 86,
+        "WR": 53.16,
+        "Matches": 1663
+      },
+      {
+        "Hero": 64,
+        "WR": 52.77,
+        "Matches": 883
+      },
+      {
+        "Hero": 62,
+        "WR": 52.7,
+        "Matches": 389
+      },
+      {
+        "Hero": 93,
+        "WR": 52.67,
+        "Matches": 731
+      },
+      {
+        "Hero": 56,
+        "WR": 52.59,
+        "Matches": 251
+      },
+      {
+        "Hero": 32,
+        "WR": 52.52,
+        "Matches": 337
+      },
+      {
+        "Hero": 50,
+        "WR": 52.45,
+        "Matches": 347
+      },
+      {
+        "Hero": 106,
+        "WR": 52.42,
+        "Matches": 517
+      },
+      {
+        "Hero": 13,
+        "WR": 52.32,
+        "Matches": 1034
+      },
+      {
+        "Hero": 21,
+        "WR": 52.26,
+        "Matches": 1724
+      },
+      {
+        "Hero": 137,
+        "WR": 52.2,
+        "Matches": 295
+      },
+      {
+        "Hero": 48,
+        "WR": 52.13,
+        "Matches": 2208
+      },
+      {
+        "Hero": 34,
+        "WR": 52.1,
+        "Matches": 501
+      },
+      {
+        "Hero": 80,
+        "WR": 52.08,
+        "Matches": 626
+      },
+      {
+        "Hero": 84,
+        "WR": 52.08,
+        "Matches": 624
+      },
+      {
+        "Hero": 88,
+        "WR": 52.02,
+        "Matches": 667
+      },
+      {
+        "Hero": 6,
+        "WR": 51.99,
+        "Matches": 477
+      },
+      {
+        "Hero": 43,
+        "WR": 51.82,
+        "Matches": 137
+      },
+      {
+        "Hero": 90,
+        "WR": 51.52,
+        "Matches": 99
+      },
+      {
+        "Hero": 35,
+        "WR": 51.1,
+        "Matches": 1405
+      },
+      {
+        "Hero": 136,
+        "WR": 50.95,
+        "Matches": 734
+      },
+      {
+        "Hero": 61,
+        "WR": 50.7,
+        "Matches": 215
+      },
+      {
+        "Hero": 119,
+        "WR": 50.48,
+        "Matches": 525
+      },
+      {
+        "Hero": 7,
+        "WR": 50.46,
+        "Matches": 1078
+      },
+      {
+        "Hero": 19,
+        "WR": 50.46,
+        "Matches": 539
+      },
+      {
+        "Hero": 23,
+        "WR": 50.41,
+        "Matches": 726
+      },
+      {
+        "Hero": 15,
+        "WR": 50.32,
+        "Matches": 471
+      },
+      {
+        "Hero": 73,
+        "WR": 50.17,
+        "Matches": 600
+      },
+      {
+        "Hero": 74,
+        "WR": 49.84,
+        "Matches": 1262
+      },
+      {
+        "Hero": 92,
+        "WR": 49.16,
+        "Matches": 535
+      },
+      {
+        "Hero": 107,
+        "WR": 48.05,
+        "Matches": 333
+      },
+      {
+        "Hero": 16,
+        "WR": 47.8,
+        "Matches": 1839
+      },
+      {
+        "Hero": 77,
+        "WR": 45.0,
+        "Matches": 160
+      }
+    ],
+    "herowith": [
+      {
+        "Hero": 82,
+        "WR": 67.9,
+        "Matches": 81
+      },
+      {
+        "Hero": 70,
+        "WR": 62.42,
+        "Matches": 149
+      },
+      {
+        "Hero": 81,
+        "WR": 61.11,
+        "Matches": 72
+      },
+      {
+        "Hero": 3,
+        "WR": 60.26,
+        "Matches": 156
+      },
+      {
+        "Hero": 103,
+        "WR": 60.0,
+        "Matches": 130
+      },
+      {
+        "Hero": 90,
+        "WR": 58.37,
+        "Matches": 209
+      },
+      {
+        "Hero": 28,
+        "WR": 58.36,
+        "Matches": 305
+      },
+      {
+        "Hero": 27,
+        "WR": 58.03,
+        "Matches": 529
+      },
+      {
+        "Hero": 40,
+        "WR": 57.95,
+        "Matches": 390
+      },
+      {
+        "Hero": 79,
+        "WR": 57.56,
+        "Matches": 714
+      },
+      {
+        "Hero": 34,
+        "WR": 57.52,
+        "Matches": 492
+      },
+      {
+        "Hero": 42,
+        "WR": 57.49,
+        "Matches": 247
+      },
+      {
+        "Hero": 104,
+        "WR": 57.3,
+        "Matches": 822
+      },
+      {
+        "Hero": 126,
+        "WR": 57.27,
+        "Matches": 440
+      },
+      {
+        "Hero": 20,
+        "WR": 57.01,
+        "Matches": 728
+      },
+      {
+        "Hero": 17,
+        "WR": 56.85,
+        "Matches": 642
+      },
+      {
+        "Hero": 47,
+        "WR": 56.55,
+        "Matches": 435
+      },
+      {
+        "Hero": 97,
+        "WR": 56.44,
+        "Matches": 675
+      },
+      {
+        "Hero": 67,
+        "WR": 56.31,
+        "Matches": 103
+      },
+      {
+        "Hero": 92,
+        "WR": 56.11,
+        "Matches": 458
+      },
+      {
+        "Hero": 111,
+        "WR": 56.01,
+        "Matches": 366
+      },
+      {
+        "Hero": 131,
+        "WR": 56.0,
+        "Matches": 2050
+      },
+      {
+        "Hero": 87,
+        "WR": 55.95,
+        "Matches": 479
+      },
+      {
+        "Hero": 60,
+        "WR": 55.84,
+        "Matches": 471
+      },
+      {
+        "Hero": 31,
+        "WR": 55.75,
+        "Matches": 739
+      },
+      {
+        "Hero": 88,
+        "WR": 55.56,
+        "Matches": 846
+      },
+      {
+        "Hero": 51,
+        "WR": 55.46,
+        "Matches": 714
+      },
+      {
+        "Hero": 32,
+        "WR": 55.42,
+        "Matches": 166
+      },
+      {
+        "Hero": 16,
+        "WR": 55.39,
+        "Matches": 1865
+      },
+      {
+        "Hero": 106,
+        "WR": 55.34,
+        "Matches": 515
+      },
+      {
+        "Hero": 61,
+        "WR": 55.32,
+        "Matches": 141
+      },
+      {
+        "Hero": 76,
+        "WR": 55.26,
+        "Matches": 380
+      },
+      {
+        "Hero": 45,
+        "WR": 55.25,
+        "Matches": 181
+      },
+      {
+        "Hero": 72,
+        "WR": 55.22,
+        "Matches": 134
+      },
+      {
+        "Hero": 85,
+        "WR": 55.16,
+        "Matches": 426
+      },
+      {
+        "Hero": 84,
+        "WR": 55.06,
+        "Matches": 721
+      },
+      {
+        "Hero": 62,
+        "WR": 55.0,
+        "Matches": 360
+      },
+      {
+        "Hero": 4,
+        "WR": 54.88,
+        "Matches": 82
+      },
+      {
+        "Hero": 43,
+        "WR": 54.84,
+        "Matches": 124
+      },
+      {
+        "Hero": 54,
+        "WR": 54.76,
+        "Matches": 42
+      },
+      {
+        "Hero": 56,
+        "WR": 54.49,
+        "Matches": 178
+      },
+      {
+        "Hero": 75,
+        "WR": 54.48,
+        "Matches": 402
+      },
+      {
+        "Hero": 46,
+        "WR": 54.46,
+        "Matches": 112
+      },
+      {
+        "Hero": 102,
+        "WR": 54.44,
+        "Matches": 755
+      },
+      {
+        "Hero": 96,
+        "WR": 54.34,
+        "Matches": 1174
+      },
+      {
+        "Hero": 58,
+        "WR": 54.31,
+        "Matches": 383
+      },
+      {
+        "Hero": 99,
+        "WR": 54.27,
+        "Matches": 468
+      },
+      {
+        "Hero": 63,
+        "WR": 54.26,
+        "Matches": 282
+      },
+      {
+        "Hero": 107,
+        "WR": 54.19,
+        "Matches": 358
+      },
+      {
+        "Hero": 74,
+        "WR": 54.18,
+        "Matches": 1268
+      },
+      {
+        "Hero": 101,
+        "WR": 54.07,
+        "Matches": 381
+      },
+      {
+        "Hero": 5,
+        "WR": 54.04,
+        "Matches": 668
+      },
+      {
+        "Hero": 83,
+        "WR": 54.04,
+        "Matches": 718
+      },
+      {
+        "Hero": 29,
+        "WR": 53.81,
+        "Matches": 210
+      },
+      {
+        "Hero": 14,
+        "WR": 53.67,
+        "Matches": 2018
+      },
+      {
+        "Hero": 108,
+        "WR": 53.67,
+        "Matches": 790
+      },
+      {
+        "Hero": 6,
+        "WR": 53.66,
+        "Matches": 82
+      },
+      {
+        "Hero": 55,
+        "WR": 53.66,
+        "Matches": 164
+      },
+      {
+        "Hero": 59,
+        "WR": 53.65,
+        "Matches": 274
+      },
+      {
+        "Hero": 93,
+        "WR": 53.63,
+        "Matches": 179
+      },
+      {
+        "Hero": 52,
+        "WR": 53.5,
+        "Matches": 314
+      },
+      {
+        "Hero": 37,
+        "WR": 53.45,
+        "Matches": 406
+      },
+      {
+        "Hero": 113,
+        "WR": 53.42,
+        "Matches": 146
+      },
+      {
+        "Hero": 121,
+        "WR": 53.26,
+        "Matches": 184
+      },
+      {
+        "Hero": 68,
+        "WR": 53.23,
+        "Matches": 402
+      },
+      {
+        "Hero": 112,
+        "WR": 53.23,
+        "Matches": 248
+      },
+      {
+        "Hero": 2,
+        "WR": 53.19,
+        "Matches": 1096
+      },
+      {
+        "Hero": 19,
+        "WR": 53.14,
+        "Matches": 542
+      },
+      {
+        "Hero": 71,
+        "WR": 52.95,
+        "Matches": 491
+      },
+      {
+        "Hero": 13,
+        "WR": 52.9,
+        "Matches": 1070
+      },
+      {
+        "Hero": 39,
+        "WR": 52.88,
+        "Matches": 1460
+      },
+      {
+        "Hero": 91,
+        "WR": 52.83,
+        "Matches": 159
+      },
+      {
+        "Hero": 57,
+        "WR": 52.8,
+        "Matches": 608
+      },
+      {
+        "Hero": 77,
+        "WR": 52.76,
+        "Matches": 127
+      },
+      {
+        "Hero": 105,
+        "WR": 52.66,
+        "Matches": 357
+      },
+      {
+        "Hero": 10,
+        "WR": 52.48,
+        "Matches": 141
+      },
+      {
+        "Hero": 114,
+        "WR": 52.19,
+        "Matches": 456
+      },
+      {
+        "Hero": 26,
+        "WR": 52.07,
+        "Matches": 1425
+      },
+      {
+        "Hero": 123,
+        "WR": 52.03,
+        "Matches": 713
+      },
+      {
+        "Hero": 73,
+        "WR": 51.97,
+        "Matches": 279
+      },
+      {
+        "Hero": 100,
+        "WR": 51.96,
+        "Matches": 1122
+      },
+      {
+        "Hero": 110,
+        "WR": 51.79,
+        "Matches": 475
+      },
+      {
+        "Hero": 21,
+        "WR": 51.68,
+        "Matches": 716
+      },
+      {
+        "Hero": 33,
+        "WR": 51.68,
+        "Matches": 149
+      },
+      {
+        "Hero": 35,
+        "WR": 51.31,
+        "Matches": 1333
+      },
+      {
+        "Hero": 98,
+        "WR": 51.31,
+        "Matches": 914
+      },
+      {
+        "Hero": 30,
+        "WR": 51.17,
+        "Matches": 895
+      },
+      {
+        "Hero": 129,
+        "WR": 51.12,
+        "Matches": 1027
+      },
+      {
+        "Hero": 64,
+        "WR": 50.95,
+        "Matches": 897
+      },
+      {
+        "Hero": 69,
+        "WR": 50.92,
+        "Matches": 599
+      },
+      {
+        "Hero": 22,
+        "WR": 50.9,
+        "Matches": 829
+      },
+      {
+        "Hero": 119,
+        "WR": 50.9,
+        "Matches": 446
+      },
+      {
+        "Hero": 128,
+        "WR": 50.83,
+        "Matches": 604
+      },
+      {
+        "Hero": 80,
+        "WR": 50.6,
+        "Matches": 332
+      },
+      {
+        "Hero": 53,
+        "WR": 50.3,
+        "Matches": 670
+      },
+      {
+        "Hero": 9,
+        "WR": 50.26,
+        "Matches": 949
+      },
+      {
+        "Hero": 36,
+        "WR": 50.12,
+        "Matches": 413
+      },
+      {
+        "Hero": 7,
+        "WR": 50.09,
+        "Matches": 1100
+      },
+      {
+        "Hero": 136,
+        "WR": 50.09,
+        "Matches": 543
+      },
+      {
+        "Hero": 15,
+        "WR": 50.0,
+        "Matches": 358
+      },
+      {
+        "Hero": 78,
+        "WR": 50.0,
+        "Matches": 80
+      },
+      {
+        "Hero": 95,
+        "WR": 50.0,
+        "Matches": 26
+      },
+      {
+        "Hero": 23,
+        "WR": 49.73,
+        "Matches": 740
+      },
+      {
+        "Hero": 38,
+        "WR": 49.66,
+        "Matches": 149
+      },
+      {
+        "Hero": 49,
+        "WR": 49.63,
+        "Matches": 542
+      },
+      {
+        "Hero": 8,
+        "WR": 48.86,
+        "Matches": 88
+      },
+      {
+        "Hero": 11,
+        "WR": 48.84,
+        "Matches": 692
+      },
+      {
+        "Hero": 86,
+        "WR": 48.77,
+        "Matches": 1673
+      },
+      {
+        "Hero": 135,
+        "WR": 48.59,
+        "Matches": 249
+      },
+      {
+        "Hero": 66,
+        "WR": 48.57,
+        "Matches": 35
+      },
+      {
+        "Hero": 65,
+        "WR": 48.31,
+        "Matches": 89
+      },
+      {
+        "Hero": 41,
+        "WR": 48.25,
+        "Matches": 143
+      },
+      {
+        "Hero": 1,
+        "WR": 48.08,
+        "Matches": 156
+      },
+      {
+        "Hero": 25,
+        "WR": 47.45,
+        "Matches": 647
+      },
+      {
+        "Hero": 89,
+        "WR": 46.96,
+        "Matches": 115
+      },
+      {
+        "Hero": 109,
+        "WR": 46.94,
+        "Matches": 49
+      },
+      {
+        "Hero": 48,
+        "WR": 46.93,
+        "Matches": 228
+      },
+      {
+        "Hero": 138,
+        "WR": 46.38,
+        "Matches": 69
+      },
+      {
+        "Hero": 18,
+        "WR": 44.58,
+        "Matches": 83
+      },
+      {
+        "Hero": 50,
+        "WR": 43.88,
+        "Matches": 278
+      },
+      {
+        "Hero": 137,
+        "WR": 43.11,
+        "Matches": 283
+      },
+      {
+        "Hero": 120,
+        "WR": 42.58,
+        "Matches": 256
+      },
+      {
+        "Hero": 44,
+        "WR": 40.76,
+        "Matches": 157
+      },
+      {
+        "Hero": 12,
+        "WR": 0.0,
+        "Matches": 7
+      }
+    ]
+  }
+]

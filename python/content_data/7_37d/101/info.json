@@ -1,0 +1,7 @@
+{
+  "hero_id": 101,
+  "name": "npc_dota_hero_skywrath_mage",
+  "localized_name": "Skywrath Mage",
+  "img": "/apps/dota2/images/dota_react/heroes/skywrath_mage.png?",
+  "attr": "int"
+}

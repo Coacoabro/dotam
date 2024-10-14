@@ -1,0 +1,7 @@
+{
+  "hero_id": 34,
+  "name": "npc_dota_hero_tinker",
+  "localized_name": "Tinker",
+  "img": "/apps/dota2/images/dota_react/heroes/tinker.png?",
+  "attr": "int"
+}

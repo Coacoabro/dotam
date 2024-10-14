@@ -1,0 +1,7 @@
+{
+  "hero_id": 83,
+  "name": "npc_dota_hero_treant",
+  "localized_name": "Treant Protector",
+  "img": "/apps/dota2/images/dota_react/heroes/treant.png?",
+  "attr": "str"
+}

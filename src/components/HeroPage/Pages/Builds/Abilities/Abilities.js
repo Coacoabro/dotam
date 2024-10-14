@@ -5,7 +5,7 @@ export default function Abilities({hero, abilities}) {
 
     if(abilities){
 
-        const wr = ((abilities[0].wins/abilities[0].matches)*100).toFixed(2)
+        const wr = ((abilities.wins/abilities.matches)*100).toFixed(2)
 
         return(
             <div className='space-y-2 sm:space-y-5'>
@@ -18,11 +18,11 @@ export default function Abilities({hero, abilities}) {
                         <div className='flex items-center text-base sm:text-lg'>
                             <h1 className=" font-bold">{wr}</h1>
                             <h2 className="font-medium">% WR</h2>
-                            <h3 className="px-2 text-xs sm:text-base text-cyan-300">({abilities[0].matches} Matches)</h3>
+                            <h3 className="px-2 text-xs sm:text-base text-cyan-300">({abilities.matches} Matches)</h3>
                         </div>
                     : null }
                 </div>
-                {abilities[0] ? <AbilityPath hero={hero} abilities={abilities[0].abilities} /> : null }
+                {abilities ? <AbilityPath hero={hero} abilities={abilities.abilities} /> : null }
             </div>
         )
     }

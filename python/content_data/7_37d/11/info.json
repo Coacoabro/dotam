@@ -1,0 +1,7 @@
+{
+  "hero_id": 11,
+  "name": "npc_dota_hero_nevermore",
+  "localized_name": "Shadow Fiend",
+  "img": "/apps/dota2/images/dota_react/heroes/nevermore.png?",
+  "attr": "agi"
+}

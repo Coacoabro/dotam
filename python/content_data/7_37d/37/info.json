@@ -1,0 +1,7 @@
+{
+  "hero_id": 37,
+  "name": "npc_dota_hero_warlock",
+  "localized_name": "Warlock",
+  "img": "/apps/dota2/images/dota_react/heroes/warlock.png?",
+  "attr": "int"
+}

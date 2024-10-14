@@ -3,10 +3,10 @@ import Item from '../../../Item'
 
 export default function Starting({items}) {
 
-    const [starting, setStarting] = useState(items[0].starting.length > 0 ? items[0].starting : items[1].starting)
+    const [starting, setStarting] = useState(items.starting)
     
     useEffect(() => {
-        setStarting(items[0].starting.length > 0 ? items[0].starting : items[1].starting)
+        setStarting(items.starting.length > 0 ? items.starting : items.starting)
     }, [items])
 
     return(

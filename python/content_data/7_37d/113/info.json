@@ -1,0 +1,7 @@
+{
+  "hero_id": 113,
+  "name": "npc_dota_hero_arc_warden",
+  "localized_name": "Arc Warden",
+  "img": "/apps/dota2/images/dota_react/heroes/arc_warden.png?",
+  "attr": "agi"
+}
