@@ -34,12 +34,13 @@ export default function TierList() {
             <Head>
                 <title>Dota 2 Tier Lists</title>
                 <meta name="description" 
-                content="Dota 2 tier list based on current win rates and pick rates from almost all games played within the current patch" />
+                content="Dota 2 tier list based on current win rates and pick rates from almost all ranked games played within the current patch" />
                 <meta name="keywords"
                 content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg" />
                 <meta name="google-adsense-account"
                 content="ca-pub-2521697717608899" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
 
             <div className="max-w-7xl mx-auto px-1 sm:px-4 sm:space-y-4 text-white sm:pt-8">
