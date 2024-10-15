@@ -65,7 +65,7 @@ def getBuilds(ranked_matches, builds):
     # Stratz API
     graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
     stratz_url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
-    stratz_headers = {'Authorization': f'Bearer {graphql_token}'}
+    stratz_headers = {'Authorization': f'Bearer {graphql_token}', 'User-Agent': 'STRATZ_API'}
 
     Boots = [48, 50, 63, 180, 214, 220, 231, 931] #Brown Boots ID is 29
     Support = [30, 40, 42, 43, 45, 188, 257, 286]
@@ -115,6 +115,7 @@ def getBuilds(ranked_matches, builds):
 
     for ranked_match in ranked_matches:
         match_id = ranked_match['match_id']
+        # print(data)
         gqlmatch = data['data']['match_' + str(match_id)]
         if gqlmatch:
             rank = actualRank(gqlmatch['actualRank'])
@@ -341,15 +342,15 @@ def getBuilds(ranked_matches, builds):
                                         builds.append(tempBuild)
     return builds
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -390,7 +391,7 @@ while True:
                     playersInfo.append(heroObj)
                 ranked_match['players'] = playersInfo
                 ranked_matches.append(ranked_match)
-                if len(ranked_matches) == 25:
+                if len(ranked_matches) == 20:
                     hourlyDump += 1
                     print(hourlyDump)
                     builds = getBuilds(ranked_matches, builds)

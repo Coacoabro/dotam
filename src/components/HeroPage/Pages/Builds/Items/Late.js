@@ -16,7 +16,7 @@ export default function Late({items, isCarry}) {
                 <h1 className='text-lg sm:text-xl font-bold'>Late Game Items</h1>
                 <h2 className='opacity-50'>Get these after your selected core items</h2>
             </div>
-            <div className='grid grid-cols-2 lg:flex place-items-center lg:justify-between w-full gap-2 space-y-2 lg:space-y-0 p-3'>
+            <div className='grid grid-cols-2 lg:flex lg:justify-between w-full gap-2 p-3'>
                 <div className='sm:w-4/5 lg:w-48'><NthItem order={m.toString()} items={items[0]} /></div>
                 <div className='sm:w-4/5 lg:w-48'><NthItem order={(m+1).toString()} items={items[1]} /></div>
                 <div className='sm:w-4/5 lg:w-48'><NthItem order={(m+2).toString()} items={items[2]} /></div>

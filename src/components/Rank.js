@@ -9,11 +9,13 @@ export default function Rank() {
   const [currIcon, setCurrIcon] = useState("")
   const router = useRouter()
 
+  const Ranks = json.filter(rankObj => !["HIGH", "MID", "LOW"].includes(rankObj.rank))
+
   const handleClick = (rank, name, icon) => {
       router.push({
           pathname: router.pathname,
           query: { ...router.query, rank }
-      })
+      }, undefined, { scroll: false })
       setIsOpen(false)
       setCurrName(name)
       setCurrIcon(icon)
@@ -31,7 +33,7 @@ export default function Rank() {
 
         {isOpen && (
                 <div className="absolute mt-1 sm:mt-2 w-24 sm:w-44 bg-slate-900 shadow-lg text-center rounded-lg border border-slate-700">
-                    {json.map((rank) => (
+                    {Ranks.map((rank) => (
                         <div
                             onClick={() => handleClick(rank.rank, rank.name, rank.icon)}
                             className={`sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer ${rank.rank == "" ? "rounded-t" : rank.rank == "HERALD" ? "rounded-b" : null}`}

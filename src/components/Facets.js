@@ -19,7 +19,7 @@ export default function Facets( {id, initFacet} ) {
         router.push({
             pathname: router.pathname,
             query: { ...router.query, facet }
-        })
+        }, undefined, { scroll: false })
         setCurrFacet(facet)
     }
 

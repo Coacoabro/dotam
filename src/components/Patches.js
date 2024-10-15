@@ -15,7 +15,7 @@ export default function Patches() {
         router.push({
             pathname: router.pathname,
             query: { ...router.query, patch }
-        })
+        }, undefined, { scroll: false })
         setIsOpen(false)
         setCurrPatch(patch)
     }
