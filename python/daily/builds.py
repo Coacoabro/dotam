@@ -109,7 +109,7 @@ def getBuilds(ranked_matches, builds):
         }}
         {fragment}
     """
-
+    
     response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
     data = json.loads(response.text)
 
@@ -342,6 +342,306 @@ def getBuilds(ranked_matches, builds):
                                         builds.append(tempBuild)
     return builds
 
+def sendtosql(builds):
+
+    BATCH_SIZE = 500
+
+    # process = psutil.Process()
+    # mem_info = process.memory_info()
+    # print(f"Resident Set Size: {mem_info.rss / 1024 ** 2:.2f} MB")
+    # print(f"Virtual Memory Size: {mem_info.vms / 1024 ** 2:.2f} MB")
+
+    print("Dumping builds")
+
+    total_data = []
+    abilities_data = []
+    talents_data = []
+    starting_items_data = []
+    early_items_data = []
+    core_items_data = []
+    late_items_data = []
+
+    unique_identifiers = []
+    for build in builds:
+        hero_id = build[0]
+        rank = build[1]
+        role = build[2]
+        facet = build[3]
+        # cur.execute("""
+        #     SELECT * FROM main
+        #     WHERE hero_id = %s AND rank = %s AND role = %s AND facet = %s AND patch = %s
+        # """, (hero_id, rank, role, facet, patch))
+        # tempIdentifier = cur.fetchall()
+        # if not tempIdentifier:
+        #     print(build)
+        unique_identifiers.append((hero_id, rank, role, facet, patch))
+
+    placeholders = ', '.join(['(%s, %s, %s, %s, %s)']*len(unique_identifiers))
+    params = [item for sublist in unique_identifiers for item in sublist]
+
+    cur.execute(f"""
+        SELECT * FROM main 
+        WHERE (hero_id, rank, role, facet, patch) IN ({placeholders})
+    """, params)
+
+    build_ids = cur.fetchall()
+
+    print("Obtained all build ids")
+
+    # print(len(build_ids), len(unique_identifiers))
+
+    for build in builds:
+        build_id = None
+        for row in build_ids:
+            if (row[1], row[2], row[3], row[4], row[5]) == (build[0], build[1], build[2], build[3], patch):
+                build_id = row[0]
+                break
+        total_matches = build[4]
+        total_wins = build[5]
+        abilities = build[6]
+        talents = build[7]
+        starting_items = build[8]
+        early_items = build[9]
+        core_items = build[10]
+
+        # print(build[0], build[1], build[2], build[3], patch, build_id)
+
+        total_data.append((build_id, total_matches, total_wins))
+        abilities_data.extend([
+            (build_id, abi['Abilities'], abi['Wins'], abi['Matches']) 
+            for abi in abilities
+        ])
+        talents_data.extend([
+            (build_id, talent['Talent'], talent['Wins'], talent['Matches']) 
+            for talent in talents
+        ])
+        starting_items_data.extend([
+            (build_id, sorted(start['Starting']), start['Wins'], start['Matches']) 
+            for start in starting_items
+        ])
+        early_items_data.extend([
+            (build_id, early['Item'], early['isSecondPurchase'], early['Wins'], early['Matches']) 
+            for early in early_items
+        ])
+        
+        for core in core_items:
+            core_items_data.append((build_id, core['Core'], core['Wins'], core['Matches']))
+            late_items_data.extend([
+                (build_id, core['Core'], late['Nth'], late['Item'], late['Wins'], late['Matches'])
+                for late in core['Late']
+            ])
+
+        # Total Matches and Wins
+        if len(total_data) >= BATCH_SIZE:
+            print("Batched total matches")
+            placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
+            query = f"""
+                INSERT INTO main (build_id, total_matches, total_wins)
+                VALUES {placeholders}
+                ON CONFLICT (build_id)
+                DO UPDATE SET total_matches = main.total_matches + EXCLUDED.total_matches, total_wins = main.total_wins + EXCLUDED.total_wins
+            """
+            params = [item for sublist in total_data for item in sublist]
+            cur.execute(query, params)
+            total_data = []
+
+        # Abilities
+        if len(abilities_data) >= BATCH_SIZE:
+            print("Batched abilities")
+            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
+            query = f"""
+                INSERT INTO abilities (build_id, abilities, wins, matches)
+                VALUES {placeholders}
+                ON CONFLICT (build_id, abilities)
+                DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
+            """
+            params = [item for sublist in abilities_data for item in sublist]
+            cur.execute(query, params)
+            abilities_data = []
+
+        # Talents
+        if len(talents_data) >= BATCH_SIZE:
+            print("Batched talents")
+            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
+            query = f"""
+                INSERT INTO talents (build_id, talent, wins, matches)
+                VALUES {placeholders}
+                ON CONFLICT (build_id, talent)
+                DO UPDATE SET wins = talents.wins + EXCLUDED.wins, matches = talents.matches + EXCLUDED.matches
+            """
+            params = [item for sublist in talents_data for item in sublist]
+            cur.execute(query, params)
+            talents_data = []
+        
+        # Starting 
+        if len(starting_items_data) >= BATCH_SIZE:
+            print("Batched starting")
+            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
+            query = f"""
+                INSERT INTO starting (build_id, starting, wins, matches)
+                VALUES {placeholders}
+                ON CONFLICT (build_id, starting)
+                DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
+            """
+            params = [item for sublist in starting_items_data for item in sublist]
+            cur.execute(query, params)
+            starting_items_data = []
+
+        # Early 
+        if len(early_items_data) >= BATCH_SIZE:
+            print("Batched early")
+            placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
+            query = f"""
+                INSERT INTO early (build_id, item, secondpurchase, wins, matches)
+                VALUES {placeholders}
+                ON CONFLICT (build_id, item, secondpurchase)
+                DO UPDATE SET wins = early.wins + EXCLUDED.wins, matches = early.matches + EXCLUDED.matches
+            """
+            params = [item for sublist in early_items_data for item in sublist]
+            cur.execute(query, params)
+            early_items_data = []
+        
+        # Core
+        if len(core_items_data) >= BATCH_SIZE:
+            print("Batched core")
+            core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
+            core_query = f"""
+                INSERT INTO core (build_id, core, wins, matches)
+                VALUES {core_placeholders}
+                ON CONFLICT (build_id, core)
+                DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
+            """
+            core_params = [item for sublist in core_items_data for item in sublist]
+            cur.execute(core_query, core_params)
+            core_items_data = [] 
+
+            late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
+            late_query = f"""
+                INSERT INTO late (build_id, core_items, nth, item, wins, matches)
+                VALUES {late_placeholders}
+                ON CONFLICT (build_id, core_items, nth, item)
+                DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
+            """
+            late_params = [item for sublist in late_items_data for item in sublist]
+            cur.execute(late_query, late_params)
+            late_items_data = []
+
+    # IF WE HAVE LEFT OVER DATA
+    print("Finished looping through builds, dumping rest")
+    if total_data:
+        print("Left over total")
+        placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
+        query = f"""
+            INSERT INTO main (build_id, total_matches, total_wins)
+            VALUES {placeholders}
+            ON CONFLICT (build_id)
+            DO UPDATE SET total_matches = main.total_matches + EXCLUDED.total_matches, total_wins = main.total_wins + EXCLUDED.total_wins
+        """
+        params = [item for sublist in total_data for item in sublist]
+        cur.execute(query, params)
+        total_data = []
+        print("Total Data Complete")
+
+    # Abilities
+    if abilities_data:
+        print("Left over abilities")
+        placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
+        query = f"""
+            INSERT INTO abilities (build_id, abilities, wins, matches)
+            VALUES {placeholders}
+            ON CONFLICT (build_id, abilities)
+            DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
+        """
+        params = [item for sublist in abilities_data for item in sublist]
+        cur.execute(query, params)
+        abilities_data = []
+        print("Abilities Data Complete")
+
+    # Talents
+    if talents_data:
+        print("Left over talents")
+        placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
+        query = f"""
+            INSERT INTO talents (build_id, talent, wins, matches)
+            VALUES {placeholders}
+            ON CONFLICT (build_id, talent)
+            DO UPDATE SET wins = talents.wins + EXCLUDED.wins, matches = talents.matches + EXCLUDED.matches
+        """
+        params = [item for sublist in talents_data for item in sublist]
+        cur.execute(query, params)
+        talents_data = []
+        print("Talent Data Complete")
+    
+    # Starting 
+    if starting_items_data:
+        print("Left over starting")
+        placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
+        query = f"""
+            INSERT INTO starting (build_id, starting, wins, matches)
+            VALUES {placeholders}
+            ON CONFLICT (build_id, starting)
+            DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
+        """
+        params = [item for sublist in starting_items_data for item in sublist]
+        cur.execute(query, params)
+        starting_items_data = []
+        print("Starting Data Complete")
+
+    # Early 
+    if early_items_data:
+        print("Left over early")
+        placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
+        query = f"""
+            INSERT INTO early (build_id, item, secondpurchase, wins, matches)
+            VALUES {placeholders}
+            ON CONFLICT (build_id, item, secondpurchase)
+            DO UPDATE SET wins = early.wins + EXCLUDED.wins, matches = early.matches + EXCLUDED.matches
+        """
+        params = [item for sublist in early_items_data for item in sublist]
+        cur.execute(query, params)
+        early_items_data = []
+        print("Early Data Complete")
+    
+    # Core
+    if core_items_data:
+        print("Left over core")
+        core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
+        core_query = f"""
+            INSERT INTO core (build_id, core, wins, matches)
+            VALUES {core_placeholders}
+            ON CONFLICT (build_id, core)
+            DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
+        """
+        core_params = [item for sublist in core_items_data for item in sublist]
+        cur.execute(core_query, core_params)
+        core_items_data = []
+        print("Core Data Complete") 
+
+    # Late    
+    if late_items_data:
+        print("Left over late")
+        late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
+        late_query = f"""
+            INSERT INTO late (build_id, core_items, nth, item, wins, matches)
+            VALUES {late_placeholders}
+            ON CONFLICT (build_id, core_items, nth, item)
+            DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
+        """
+        late_params = [item for sublist in late_items_data for item in sublist]
+        cur.execute(late_query, late_params)
+        late_items_data = []
+        print("Late Data Complete")
+    
+    print("Done. Last sequence num: ", seq_num)
+    with open(file_path, 'w') as file:
+        json.dump({"seq_num": seq_num}, file)
+    conn.commit()
+    conn.close()
+
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"That took {round((elapsed_time/60), 2)} minutes")
+    
 # file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
 file_path = './python/daily/seq_num.json'
 
@@ -361,341 +661,51 @@ hourlyDump = 0
 builds = []
 
 while True:
+    try:
 
-    DOTA_2_URL = SEQ_URL + str(seq_num)
+        DOTA_2_URL = SEQ_URL + str(seq_num)
 
-    response = requests.get(DOTA_2_URL, timeout=600)
+        response = requests.get(DOTA_2_URL, timeout=600)
 
-    if response.status_code == 200:
-        matches = response.json()['result']['matches']
-        for match in matches:
-            seq_num = match['match_seq_num']
-            if match['lobby_type'] == 7 and match['game_mode'] == 22:
-                ranked_match = {}
-                radiantWon = match['radiant_win']
-                ranked_match['match_id'] = match['match_id']
-                players = match['players']
-                i = 0
-                playersInfo = []
-                for player in players:
-                    won = 0
-                    if i < 5 and radiantWon:
-                        won = 1
-                    elif i > 4 and not radiantWon:
-                        won = 1
-                    i += 1
-                    heroObj = {}
-                    heroObj['id'] = player['hero_id']
-                    heroObj['facet'] = player['hero_variant']
-                    heroObj['won'] = won
-                    playersInfo.append(heroObj)
-                ranked_match['players'] = playersInfo
-                ranked_matches.append(ranked_match)
-                if len(ranked_matches) == 20:
-                    hourlyDump += 1
-                    print(hourlyDump)
-                    builds = getBuilds(ranked_matches, builds)
-                    ranked_matches = []
-    else:
-        seq_num += 1
+        if response.status_code == 200:
+            matches = response.json()['result']['matches']
+            for match in matches:
+                seq_num = match['match_seq_num']
+                if match['lobby_type'] == 7 and match['game_mode'] == 22:
+                    ranked_match = {}
+                    radiantWon = match['radiant_win']
+                    ranked_match['match_id'] = match['match_id']
+                    players = match['players']
+                    i = 0
+                    playersInfo = []
+                    for player in players:
+                        won = 0
+                        if i < 5 and radiantWon:
+                            won = 1
+                        elif i > 4 and not radiantWon:
+                            won = 1
+                        i += 1
+                        heroObj = {}
+                        heroObj['id'] = player['hero_id']
+                        heroObj['facet'] = player['hero_variant']
+                        heroObj['won'] = won
+                        playersInfo.append(heroObj)
+                    ranked_match['players'] = playersInfo
+                    ranked_matches.append(ranked_match)
+                    if len(ranked_matches) == 25:
+                        hourlyDump += 1
+                        print(hourlyDump)
+                        builds = getBuilds(ranked_matches, builds)
+                        ranked_matches = []
+        else:
+            seq_num += 1
 
-    if hourlyDump >= 200:
-
-        BATCH_SIZE = 500
-
-        # process = psutil.Process()
-        # mem_info = process.memory_info()
-        # print(f"Resident Set Size: {mem_info.rss / 1024 ** 2:.2f} MB")
-        # print(f"Virtual Memory Size: {mem_info.vms / 1024 ** 2:.2f} MB")
-
-        print("Dumping builds")
-
-        total_data = []
-        abilities_data = []
-        talents_data = []
-        starting_items_data = []
-        early_items_data = []
-        core_items_data = []
-        late_items_data = []
-
-        unique_identifiers = []
-        for build in builds:
-            hero_id = build[0]
-            rank = build[1]
-            role = build[2]
-            facet = build[3]
-            # cur.execute("""
-            #     SELECT * FROM main
-            #     WHERE hero_id = %s AND rank = %s AND role = %s AND facet = %s AND patch = %s
-            # """, (hero_id, rank, role, facet, patch))
-            # tempIdentifier = cur.fetchall()
-            # if not tempIdentifier:
-            #     print(build)
-            unique_identifiers.append((hero_id, rank, role, facet, patch))
-
-        placeholders = ', '.join(['(%s, %s, %s, %s, %s)']*len(unique_identifiers))
-        params = [item for sublist in unique_identifiers for item in sublist]
-
-        cur.execute(f"""
-            SELECT * FROM main 
-            WHERE (hero_id, rank, role, facet, patch) IN ({placeholders})
-        """, params)
-
-        build_ids = cur.fetchall()
-
-        print("Obtained all build ids")
-
-        # print(len(build_ids), len(unique_identifiers))
-
-        for build in builds:
-            build_id = None
-            for row in build_ids:
-                if (row[1], row[2], row[3], row[4], row[5]) == (build[0], build[1], build[2], build[3], patch):
-                    build_id = row[0]
-                    break
-            total_matches = build[4]
-            total_wins = build[5]
-            abilities = build[6]
-            talents = build[7]
-            starting_items = build[8]
-            early_items = build[9]
-            core_items = build[10]
-
-            # print(build[0], build[1], build[2], build[3], patch, build_id)
-
-            total_data.append((build_id, total_matches, total_wins))
-            abilities_data.extend([
-                (build_id, abi['Abilities'], abi['Wins'], abi['Matches']) 
-                for abi in abilities
-            ])
-            talents_data.extend([
-                (build_id, talent['Talent'], talent['Wins'], talent['Matches']) 
-                for talent in talents
-            ])
-            starting_items_data.extend([
-                (build_id, sorted(start['Starting']), start['Wins'], start['Matches']) 
-                for start in starting_items
-            ])
-            early_items_data.extend([
-                (build_id, early['Item'], early['isSecondPurchase'], early['Wins'], early['Matches']) 
-                for early in early_items
-            ])
-            
-            for core in core_items:
-                core_items_data.append((build_id, core['Core'], core['Wins'], core['Matches']))
-                late_items_data.extend([
-                    (build_id, core['Core'], late['Nth'], late['Item'], late['Wins'], late['Matches'])
-                    for late in core['Late']
-                ])
-
-            # Total Matches and Wins
-            if len(total_data) >= BATCH_SIZE:
-                print("Batched total matches")
-                placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
-                query = f"""
-                    INSERT INTO main (build_id, total_matches, total_wins)
-                    VALUES {placeholders}
-                    ON CONFLICT (build_id)
-                    DO UPDATE SET total_matches = main.total_matches + EXCLUDED.total_matches, total_wins = main.total_wins + EXCLUDED.total_wins
-                """
-                params = [item for sublist in total_data for item in sublist]
-                cur.execute(query, params)
-                total_data = []
-
-            # Abilities
-            if len(abilities_data) >= BATCH_SIZE:
-                print("Batched abilities")
-                placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
-                query = f"""
-                    INSERT INTO abilities (build_id, abilities, wins, matches)
-                    VALUES {placeholders}
-                    ON CONFLICT (build_id, abilities)
-                    DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
-                """
-                params = [item for sublist in abilities_data for item in sublist]
-                cur.execute(query, params)
-                abilities_data = []
-
-            # Talents
-            if len(talents_data) >= BATCH_SIZE:
-                print("Batched talents")
-                placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
-                query = f"""
-                    INSERT INTO talents (build_id, talent, wins, matches)
-                    VALUES {placeholders}
-                    ON CONFLICT (build_id, talent)
-                    DO UPDATE SET wins = talents.wins + EXCLUDED.wins, matches = talents.matches + EXCLUDED.matches
-                """
-                params = [item for sublist in talents_data for item in sublist]
-                cur.execute(query, params)
-                talents_data = []
-            
-            # Starting 
-            if len(starting_items_data) >= BATCH_SIZE:
-                print("Batched starting")
-                placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
-                query = f"""
-                    INSERT INTO starting (build_id, starting, wins, matches)
-                    VALUES {placeholders}
-                    ON CONFLICT (build_id, starting)
-                    DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
-                """
-                params = [item for sublist in starting_items_data for item in sublist]
-                cur.execute(query, params)
-                starting_items_data = []
-
-            # Early 
-            if len(early_items_data) >= BATCH_SIZE:
-                print("Batched early")
-                placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
-                query = f"""
-                    INSERT INTO early (build_id, item, secondpurchase, wins, matches)
-                    VALUES {placeholders}
-                    ON CONFLICT (build_id, item, secondpurchase)
-                    DO UPDATE SET wins = early.wins + EXCLUDED.wins, matches = early.matches + EXCLUDED.matches
-                """
-                params = [item for sublist in early_items_data for item in sublist]
-                cur.execute(query, params)
-                early_items_data = []
-            
-            # Core
-            if len(core_items_data) >= BATCH_SIZE:
-                print("Batched core")
-                core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
-                core_query = f"""
-                    INSERT INTO core (build_id, core, wins, matches)
-                    VALUES {core_placeholders}
-                    ON CONFLICT (build_id, core)
-                    DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
-                """
-                core_params = [item for sublist in core_items_data for item in sublist]
-                cur.execute(core_query, core_params)
-                core_items_data = [] 
-
-                late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
-                late_query = f"""
-                    INSERT INTO late (build_id, core_items, nth, item, wins, matches)
-                    VALUES {late_placeholders}
-                    ON CONFLICT (build_id, core_items, nth, item)
-                    DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
-                """
-                late_params = [item for sublist in late_items_data for item in sublist]
-                cur.execute(late_query, late_params)
-                late_items_data = []
-
-        # IF WE HAVE LEFT OVER DATA
-        print("Finished looping through builds, dumping rest")
-        if total_data:
-            print("Left over total")
-            placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
-            query = f"""
-                INSERT INTO main (build_id, total_matches, total_wins)
-                VALUES {placeholders}
-                ON CONFLICT (build_id)
-                DO UPDATE SET total_matches = main.total_matches + EXCLUDED.total_matches, total_wins = main.total_wins + EXCLUDED.total_wins
-            """
-            params = [item for sublist in total_data for item in sublist]
-            cur.execute(query, params)
-            total_data = []
-            print("Total Data Complete")
-
-        # Abilities
-        if abilities_data:
-            print("Left over abilities")
-            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
-            query = f"""
-                INSERT INTO abilities (build_id, abilities, wins, matches)
-                VALUES {placeholders}
-                ON CONFLICT (build_id, abilities)
-                DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
-            """
-            params = [item for sublist in abilities_data for item in sublist]
-            cur.execute(query, params)
-            abilities_data = []
-            print("Abilities Data Complete")
-
-        # Talents
-        if talents_data:
-            print("Left over talents")
-            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
-            query = f"""
-                INSERT INTO talents (build_id, talent, wins, matches)
-                VALUES {placeholders}
-                ON CONFLICT (build_id, talent)
-                DO UPDATE SET wins = talents.wins + EXCLUDED.wins, matches = talents.matches + EXCLUDED.matches
-            """
-            params = [item for sublist in talents_data for item in sublist]
-            cur.execute(query, params)
-            talents_data = []
-            print("Talent Data Complete")
-        
-        # Starting 
-        if starting_items_data:
-            print("Left over starting")
-            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
-            query = f"""
-                INSERT INTO starting (build_id, starting, wins, matches)
-                VALUES {placeholders}
-                ON CONFLICT (build_id, starting)
-                DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
-            """
-            params = [item for sublist in starting_items_data for item in sublist]
-            cur.execute(query, params)
-            starting_items_data = []
-            print("Starting Data Complete")
-
-        # Early 
-        if early_items_data:
-            print("Left over early")
-            placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
-            query = f"""
-                INSERT INTO early (build_id, item, secondpurchase, wins, matches)
-                VALUES {placeholders}
-                ON CONFLICT (build_id, item, secondpurchase)
-                DO UPDATE SET wins = early.wins + EXCLUDED.wins, matches = early.matches + EXCLUDED.matches
-            """
-            params = [item for sublist in early_items_data for item in sublist]
-            cur.execute(query, params)
-            early_items_data = []
-            print("Early Data Complete")
-        
-        # Core
-        if core_items_data:
-            print("Left over core")
-            core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
-            core_query = f"""
-                INSERT INTO core (build_id, core, wins, matches)
-                VALUES {core_placeholders}
-                ON CONFLICT (build_id, core)
-                DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
-            """
-            core_params = [item for sublist in core_items_data for item in sublist]
-            cur.execute(core_query, core_params)
-            core_items_data = []
-            print("Core Data Complete") 
-
-        # Late    
-        if late_items_data:
-            print("Left over late")
-            late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
-            late_query = f"""
-                INSERT INTO late (build_id, core_items, nth, item, wins, matches)
-                VALUES {late_placeholders}
-                ON CONFLICT (build_id, core_items, nth, item)
-                DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
-            """
-            late_params = [item for sublist in late_items_data for item in sublist]
-            cur.execute(late_query, late_params)
-            late_items_data = []
-            print("Late Data Complete")
-        
-        print("Done. Last sequence num: ", seq_num)
-        with open(file_path, 'w') as file:
-            json.dump({"seq_num": seq_num}, file)
-        conn.commit()
-        conn.close()
-
-        end_time = time.time()
-        elapsed_time = end_time - start_time
-        print(f"That took {round((elapsed_time/60), 2)} minutes")
+        if hourlyDump >= 200:
+            print("Sucessfully parsed data!")
+            sendtosql(builds)
+            break
+    
+    except Exception as e:
+        print("Error: ", e)
+        sendtosql(builds)
         break

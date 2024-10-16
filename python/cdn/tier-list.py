@@ -42,12 +42,20 @@ matchups_data = cur.fetchall()
 matchups_columns = [desc[0] for desc in cur.description]
 matchups_result = [dict(zip(matchups_columns, row)) for row in matchups_data]
 
-heroes_file = f"./python/content_data/heroes.json"
-rates_file = f"./python/content_data/rates.json"
-matchups_file = f"./python/content_data/matchups.json"
-tier_matchups_file = f"./python/content_data/tier-matchups.json"
+# Home
+# heroes_file = f"./python/content_data/heroes.json"
+# rates_file = f"./python/content_data/rates.json"
+# matchups_file = f"./python/content_data/matchups.json"
+# tier_matchups_file = f"./python/content_data/tier-matchups.json"
+# directory_path = "./python/content_data"
 
-directory_path = "./python/content_data"
+# EC2
+heroes_file = f"/home/ec2-user/dotam/python/content_data/heroes.json"
+rates_file = f"/home/ec2-user/dotam/python/content_data/rates.json"
+matchups_file = f"/home/ec2-user/dotam/python/content_data/matchups.json"
+tier_matchups_file = f"/home/ec2-user/dotam/python/content_data/tier-matchups.json"
+directory_path = "/home/ec2-user/dotam/python/content_data"
+
 os.makedirs(directory_path, exist_ok=True)
 
 with open(heroes_file, 'w') as file:
