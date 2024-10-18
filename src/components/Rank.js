@@ -9,7 +9,7 @@ export default function Rank() {
   const [currIcon, setCurrIcon] = useState("")
   const router = useRouter()
 
-  const Ranks = json.filter(rankObj => !["HIGH", "MID", "LOW"].includes(rankObj.rank))
+  const Ranks = json
 
   const handleClick = (rank, name, icon) => {
       router.push({
