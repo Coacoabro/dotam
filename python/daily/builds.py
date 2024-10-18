@@ -33,7 +33,7 @@ cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 conn.close()
 
-conn = psycopg2.connect(builds_database_url)
+conn = psycopg2.connect(builds_database_url, connect_timeout=600)
 cur = conn.cursor()
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
@@ -389,8 +389,11 @@ def sendtosql(builds):
     print("Obtained all build ids")
 
     # print(len(build_ids), len(unique_identifiers))
+    m = len(builds)
 
     for build in builds:
+        print(m)
+        m -= 1
         build_id = None
         for row in build_ids:
             if (row[1], row[2], row[3], row[4], row[5]) == (build[0], build[1], build[2], build[3], patch):
@@ -515,6 +518,8 @@ def sendtosql(builds):
             cur.execute(core_query, core_params)
             core_items_data = [] 
 
+        if len(late_items_data) >= BATCH_SIZE:
+            print("Batched late")
             late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
             late_query = f"""
                 INSERT INTO late (build_id, core_items, nth, item, wins, matches)
@@ -642,15 +647,15 @@ def sendtosql(builds):
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
     
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
