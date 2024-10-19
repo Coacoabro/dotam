@@ -82,6 +82,8 @@ def getBuilds(ranked_matches, builds):
                 600, 603, 604, 609, 610, 635, 931, 939, 1097, 1107, 1466, 1806, 1808] 
     Swords = [162, 170, 259]
 
+    NeutralTokens = [2091, 2092, 2093, 2094, 2095]
+
     fragment = """
         fragment MatchData on MatchType {
             actualRank
@@ -95,6 +97,11 @@ def getBuilds(ranked_matches, builds):
                     itemPurchases {
                         itemId
                         time
+                    }
+                    inventoryReport {
+                        neutral0 {
+                            itemId
+                        }
                     }
                 }
             }
@@ -122,6 +129,7 @@ def getBuilds(ranked_matches, builds):
             players = gqlmatch['players']
             for n, player in enumerate(players):
                 purchasedItems = player['stats']['itemPurchases']
+                neutralEvents = player['stats']['inventoryReport']
                 if purchasedItems:
                     hero_id = ranked_match['players'][n]['id']
                     role = player['position']
@@ -194,6 +202,14 @@ def getBuilds(ranked_matches, builds):
                                 core = itemBuild[:3]
                             else:
                                 core = None
+                            
+                            # Neutral Items
+                            neutralItems = []
+                            for neutralEvent in neutralEvents:
+                                if neutralEvent['neutral0'] != None:
+                                    neutral = neutralEvent['neutral0']['itemId']
+                                    if neutral not in neutralItems and neutral not in NeutralTokens:
+                                        neutralItems.append(neutral)
                             
                             if core:
                                 rankBuildFound = False # Specific Rank Build
@@ -301,6 +317,20 @@ def getBuilds(ranked_matches, builds):
                                                     lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
                                                 m += 1
                                             hero_build[10].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+
+                                        neutralFound = False
+                                        for neutralItem in neutralItems:
+                                            neutralFound = False
+                                            currentNeutrals = copy.deepcopy(hero_build[11])
+                                            for currNeutrals in currentNeutrals:
+                                                if currNeutrals['Item'] == neutralItem:
+                                                    currNeutrals['Wins'] += win
+                                                    currNeutrals['Matches'] += 1
+                                                    neutralFound = True
+                                                    hero_build[11] = currentNeutrals
+                                                    break
+                                            if not neutralFound:
+                                                hero_build[11].append({'Item': neutralItem, 'Wins': win, 'Matches': 1})
                                         
                                         if rankBuildFound and lmhBuildFound and allBuildFound:
                                             break
@@ -321,25 +351,33 @@ def getBuilds(ranked_matches, builds):
                                             lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
                                         m += 1
                                     finalCoreItems.append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+                                    finalNeutrals = []
+                                    if len(neutralItems) > 0:
+                                        for finalNeutralItem in neutralItems:
+                                            finalNeutrals.append({'Item': finalNeutralItem, 'Wins': win, 'Matches': 1})
+
 
                                     if not rankBuildFound:
                                         tempBuild = [hero_id, rank[0], role, facet, 1, win, 
                                                     [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
                                                     [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                    finalCoreItems]
+                                                    finalCoreItems, finalNeutrals]
                                         builds.append(tempBuild)
                                     if not lmhBuildFound:
                                         tempBuild = [hero_id, rank[1], role, facet, 1, win, 
                                                     [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
                                                     [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                    finalCoreItems]
+                                                    finalCoreItems, finalNeutrals]
                                         builds.append(tempBuild)
                                     if not allBuildFound:
                                         tempBuild = [hero_id, "", role, facet, 1, win, 
                                                     [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
                                                     [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                    finalCoreItems]
+                                                    finalCoreItems, finalNeutrals]
                                         builds.append(tempBuild)
+    
+    for build in builds:
+        print(build[11])
     return builds
 
 def sendtosql(builds):
@@ -360,6 +398,7 @@ def sendtosql(builds):
     early_items_data = []
     core_items_data = []
     late_items_data = []
+    neutral_items_data = []
 
     unique_identifiers = []
     for build in builds:
@@ -406,6 +445,7 @@ def sendtosql(builds):
         starting_items = build[8]
         early_items = build[9]
         core_items = build[10]
+        neutral_items = build[11]
 
         # print(build[0], build[1], build[2], build[3], patch, build_id)
 
@@ -433,6 +473,11 @@ def sendtosql(builds):
                 (build_id, core['Core'], late['Nth'], late['Item'], late['Wins'], late['Matches'])
                 for late in core['Late']
             ])
+        
+        neutral_items_data.extend([
+            (build_id, neutral['Item'], neutral['Wins'], neutral['Matches'])
+            for neutral in neutral_items
+        ])
 
         # Total Matches and Wins
         if len(total_data) >= BATCH_SIZE:
@@ -647,15 +692,15 @@ def sendtosql(builds):
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
     
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -666,51 +711,51 @@ hourlyDump = 0
 builds = []
 
 while True:
-    try:
+    # try:
 
-        DOTA_2_URL = SEQ_URL + str(seq_num)
+    DOTA_2_URL = SEQ_URL + str(seq_num)
 
-        response = requests.get(DOTA_2_URL, timeout=600)
+    response = requests.get(DOTA_2_URL, timeout=600)
 
-        if response.status_code == 200:
-            matches = response.json()['result']['matches']
-            for match in matches:
-                seq_num = match['match_seq_num']
-                if match['lobby_type'] == 7 and match['game_mode'] == 22:
-                    ranked_match = {}
-                    radiantWon = match['radiant_win']
-                    ranked_match['match_id'] = match['match_id']
-                    players = match['players']
-                    i = 0
-                    playersInfo = []
-                    for player in players:
-                        won = 0
-                        if i < 5 and radiantWon:
-                            won = 1
-                        elif i > 4 and not radiantWon:
-                            won = 1
-                        i += 1
-                        heroObj = {}
-                        heroObj['id'] = player['hero_id']
-                        heroObj['facet'] = player['hero_variant']
-                        heroObj['won'] = won
-                        playersInfo.append(heroObj)
-                    ranked_match['players'] = playersInfo
-                    ranked_matches.append(ranked_match)
-                    if len(ranked_matches) == 25:
-                        hourlyDump += 1
-                        print(hourlyDump)
-                        builds = getBuilds(ranked_matches, builds)
-                        ranked_matches = []
-        else:
-            seq_num += 1
+    if response.status_code == 200:
+        matches = response.json()['result']['matches']
+        for match in matches:
+            seq_num = match['match_seq_num']
+            if match['lobby_type'] == 7 and match['game_mode'] == 22:
+                ranked_match = {}
+                radiantWon = match['radiant_win']
+                ranked_match['match_id'] = match['match_id']
+                players = match['players']
+                i = 0
+                playersInfo = []
+                for player in players:
+                    won = 0
+                    if i < 5 and radiantWon:
+                        won = 1
+                    elif i > 4 and not radiantWon:
+                        won = 1
+                    i += 1
+                    heroObj = {}
+                    heroObj['id'] = player['hero_id']
+                    heroObj['facet'] = player['hero_variant']
+                    heroObj['won'] = won
+                    playersInfo.append(heroObj)
+                ranked_match['players'] = playersInfo
+                ranked_matches.append(ranked_match)
+                if len(ranked_matches) == 25:
+                    hourlyDump += 1
+                    print(hourlyDump)
+                    builds = getBuilds(ranked_matches, builds)
+                    ranked_matches = []
+    else:
+        seq_num += 1
 
-        if hourlyDump >= 200:
-            print("Sucessfully parsed data!")
-            sendtosql(builds)
-            break
-    
-    except Exception as e:
-        print("Error: ", e)
+    if hourlyDump >= 200:
+        print("Sucessfully parsed data!")
         sendtosql(builds)
         break
+    
+    # except Exception as e:
+    #     print("Error: ", e)
+    #     # sendtosql(builds)
+    #     break

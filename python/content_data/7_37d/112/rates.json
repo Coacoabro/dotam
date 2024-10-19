@@ -14,6 +14,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 1463,
+    "wincount": 665,
+    "winrate": 0.45454545454545453,
+    "pickrate": 0.0003980493351542209,
+    "role": "POSITION_1",
+    "rank": "LOW",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 12728,
     "wincount": 6437,
     "winrate": 0.50573538654934,
@@ -34,6 +46,18 @@
     "rank": "GUARDIAN",
     "tier_num": -0.63498795,
     "tier_str": "C"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 7349,
+    "wincount": 3803,
+    "winrate": 0.5174853721594774,
+    "pickrate": 0.0019994973096707923,
+    "role": "POSITION_2",
+    "rank": "LOW",
+    "tier_num": 0.0,
+    "tier_str": "?"
   },
   {
     "hero_id": 112,
@@ -70,6 +94,18 @@
     "rank": "GUARDIAN",
     "tier_num": -0.67442334,
     "tier_str": "C"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 4827,
+    "wincount": 2418,
+    "winrate": 0.5009322560596644,
+    "pickrate": 0.0013133179362880547,
+    "role": "POSITION_3",
+    "rank": "LOW",
+    "tier_num": 0.0,
+    "tier_str": "?"
   },
   {
     "hero_id": 112,
@@ -122,6 +158,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 43043,
+    "wincount": 21329,
+    "winrate": 0.49552772808586765,
+    "pickrate": 0.011711030439537341,
+    "role": "POSITION_4",
+    "rank": "LOW",
+    "tier_num": -0.52572346,
+    "tier_str": "C"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 2057,
     "wincount": 1162,
     "winrate": 0.5649003403014098,
@@ -170,12 +218,48 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 53516,
+    "wincount": 26280,
+    "winrate": 0.4910680917856342,
+    "pickrate": 0.014560497758108875,
+    "role": "POSITION_5",
+    "rank": "LOW",
+    "tier_num": -0.5744486,
+    "tier_str": "C"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 2255,
     "wincount": 1180,
     "winrate": 0.5232815964523282,
     "pickrate": 0.001340090240666539,
     "role": "POSITION_3",
     "rank": "CRUSADER",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 820,
+    "wincount": 412,
+    "winrate": 0.5024390243902439,
+    "pickrate": 0.00025628648077874835,
+    "role": "POSITION_1",
+    "rank": "MID",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 7956,
+    "wincount": 4142,
+    "winrate": 0.5206133735545501,
+    "pickrate": 0.002486603952531368,
+    "role": "POSITION_2",
+    "rank": "MID",
     "tier_num": 0.0,
     "tier_str": "?"
   },
@@ -218,6 +302,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 5923,
+    "wincount": 3195,
+    "winrate": 0.539422589903765,
+    "pickrate": 0.001851201006893325,
+    "role": "POSITION_3",
+    "rank": "MID",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 414,
     "wincount": 185,
     "winrate": 0.4468599033816425,
@@ -230,6 +326,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 32945,
+    "wincount": 16588,
+    "winrate": 0.5035058430717864,
+    "pickrate": 0.010296778182019347,
+    "role": "POSITION_4",
+    "rank": "MID",
+    "tier_num": -0.45466375,
+    "tier_str": "B"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 3255,
     "wincount": 1680,
     "winrate": 0.5161290322580645,
@@ -238,6 +346,18 @@
     "rank": "LEGEND",
     "tier_num": 0.0,
     "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 46151,
+    "wincount": 23123,
+    "winrate": 0.5010292301358584,
+    "pickrate": 0.014424240700512214,
+    "role": "POSITION_5",
+    "rank": "MID",
+    "tier_num": -0.41205153,
+    "tier_str": "B"
   },
   {
     "hero_id": 112,
@@ -290,6 +410,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 405,
+    "wincount": 190,
+    "winrate": 0.4691358024691358,
+    "pickrate": 0.00023742716189009138,
+    "role": "POSITION_1",
+    "rank": "HIGH",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 2604,
     "wincount": 1235,
     "winrate": 0.47427035330261136,
@@ -314,6 +446,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 4807,
+    "wincount": 2540,
+    "winrate": 0.5283960890368213,
+    "pickrate": 0.0028180552276683194,
+    "role": "POSITION_2",
+    "rank": "HIGH",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 423,
     "wincount": 222,
     "winrate": 0.524822695035461,
@@ -332,6 +476,18 @@
     "pickrate": 0.002987532458378787,
     "role": "POSITION_2",
     "rank": "DIVINE",
+    "tier_num": 0.0,
+    "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 6921,
+    "wincount": 3806,
+    "winrate": 0.54992053171507,
+    "pickrate": 0.004057366388744006,
+    "role": "POSITION_3",
+    "rank": "HIGH",
     "tier_num": 0.0,
     "tier_str": "?"
   },
@@ -374,6 +530,18 @@
   {
     "hero_id": 112,
     "patch": "7.37d",
+    "matches": 22502,
+    "wincount": 11859,
+    "winrate": 0.5270198204604035,
+    "pickrate": 0.013191570362594657,
+    "role": "POSITION_4",
+    "rank": "HIGH",
+    "tier_num": 0.38555562,
+    "tier_str": "B"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
     "matches": 17439,
     "wincount": 9341,
     "winrate": 0.5356385113825334,
@@ -394,6 +562,18 @@
     "rank": "CRUSADER",
     "tier_num": 0.0,
     "tier_str": "?"
+  },
+  {
+    "hero_id": 112,
+    "patch": "7.37d",
+    "matches": 28489,
+    "wincount": 14547,
+    "winrate": 0.5106181333146127,
+    "pickrate": 0.0167013886792267,
+    "role": "POSITION_5",
+    "rank": "HIGH",
+    "tier_num": -0.09269334,
+    "tier_str": "B"
   },
   {
     "hero_id": 112,
