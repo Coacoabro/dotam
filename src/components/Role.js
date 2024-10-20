@@ -15,7 +15,7 @@ export default function Role( {initRole} ) {
         router.push({
             pathname: router.pathname,
             query: { ...router.query, role }
-        })
+        }, undefined, { scroll: false })
         setCurrRole(role)
     }
 

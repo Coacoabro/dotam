@@ -57,7 +57,7 @@ export default function TierRow({ tier_str, role, hero, WR, PR, matches, counter
         }
         if (counters) {
         const heroCounters = counters.herovs;
-        const reverseCounters = heroCounters.slice(-5).reverse();
+        const reverseCounters = heroCounters.slice(-5);
         const finalCounters = reverseCounters.map(hero => hero.Hero);
         setFiveCounters(finalCounters);
         }

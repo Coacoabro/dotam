@@ -11,12 +11,11 @@ module.exports = {
     const otherPaths = [
         { loc: '/', lastmod: new Date().toISOString(), changefreq: 'daily', priority: 1.0 },
         { loc: '/heroes', lastmod: new Date().toISOString(), changefreq: 'daily', priority: 0.7 },
-        { loc: '/basics', lastmod: new Date().toISOString(), changefreq: 'monthly', priority: 0.4 },
         { loc: '/tier-list', lastmod: new Date().toISOString(), changefreq: 'daily', priority: 0.8 },
       ];
 
     const heroPaths = heroData.map(hero => ({
-      loc: `/hero/${hero.url}`,
+      loc: `/hero/${hero.url}/builds`,
       lastmod: new Date().toISOString(),
       changefreq: 'daily',
       priority: 0.7

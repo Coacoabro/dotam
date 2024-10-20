@@ -1,32 +1,18 @@
-import { Pool } from 'pg';
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
 
 export default async function handler(req, res) {
   try {
-    const client = await pool.connect();
 
-    const heroesQuery = client.query('SELECT * FROM heroes');
-    const ratesQuery = client.query('SELECT * FROM rates');
-    const matchupsQuery = client.query('SELECT hero_id, rank, role, herovs FROM matchups');
-
-    const [heroesResult, ratesResult, matchupsResult] = await Promise.all([
-      heroesQuery,
-      ratesQuery,
-      matchupsQuery,
-    ]);
-
-    client.release();
+    const heroesResult = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/heroes.json`)
+    const heroes = await heroesResult.json()
+    const ratesResult = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/rates.json`)
+    const rates = await ratesResult.json()
+    const matchupsResult = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/tier-matchups.json`)    
+    const matchups = await matchupsResult.json()
 
     res.status(200).json({
-      heroes: heroesResult.rows,
-      rates: ratesResult.rows,
-      matchups: matchupsResult.rows,
+      heroes: heroes,
+      rates: rates,
+      matchups: matchups,
     });
   } catch (error) {
     console.error('Error fetching tier list data:', error);

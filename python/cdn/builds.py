@@ -256,11 +256,19 @@ for hero_id in hero_ids:
         
 
     patch_file_name = patch.replace('.', '_')
-    build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
-    abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-    items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
+    # Home
+    # build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
+    # abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+    # items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
+    # directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
+
+    # EC2
+    build_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/builds.json"
+    abilities_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+    items_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/items.json"
+    directory_path = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}"
+
     
-    directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
     os.makedirs(directory_path, exist_ok=True)
 
     # Write to local file

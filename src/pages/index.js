@@ -47,6 +47,7 @@ export default function Home() {
                 <meta name="google-adsense-account"
                     content="ca-pub-2521697717608899" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
 
             <div className="flex top-[5vh] sm:top-[20vh] justify-center items-center relative z-10" >

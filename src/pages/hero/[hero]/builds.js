@@ -38,6 +38,7 @@ export default function BuildsPage( { hero, patch } ) {
                 <meta name="keywords"
                     content={`${heroName}, builds, neutral, neutrals, matchups`} />
                 <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
 
             <Builds hero={hero} current_patch={patch} />
