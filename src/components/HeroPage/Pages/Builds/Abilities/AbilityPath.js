@@ -7,6 +7,8 @@ import AbilityCard from '../../../AbilityCard'
 
 export default function AbilityPath({hero, abilities}) {
 
+    console.log(abilities)
+
     const heroName = hero.name
     const Abilities = heroAbilities[heroName].abilities
 
