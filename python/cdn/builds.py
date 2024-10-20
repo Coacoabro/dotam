@@ -10,6 +10,7 @@ import copy
 import boto3
 import datetime
 
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -87,7 +88,7 @@ for hero_id in hero_ids:
         ORDER BY build_id, rn
     """
 
-
+    print("Getting abilities")
     cur.execute(abilities_query, (build_ids,))
     abilities_data = cur.fetchall()
     abilitiesFinal = []
@@ -99,6 +100,7 @@ for hero_id in hero_ids:
         abilitiesObj['matches'] = abilities[3]
         abilitiesFinal.append(abilitiesObj)
 
+    print("Getting talents")
     cur.execute(talents_query, (build_ids,))
     talents_data = cur.fetchall()
     talentsFinal = []
@@ -110,6 +112,7 @@ for hero_id in hero_ids:
         talentsObj['matches'] = talents[3]
         talentsFinal.append(talentsObj)
 
+    print("Getting starting")
     cur.execute(starting_query, (build_ids,))
     starting_data = cur.fetchall()
     startingFinal = []
@@ -121,6 +124,7 @@ for hero_id in hero_ids:
         startingObj['matches'] = starting[3]
         startingFinal.append(startingObj)        
 
+    print("Getting early")
     cur.execute(early_query, (build_ids,))
     early_data = cur.fetchall()
     earlyFinal = []
@@ -133,6 +137,7 @@ for hero_id in hero_ids:
         earlyObj['matches'] = early[4]
         earlyFinal.append(earlyObj)
 
+    print("Getting core")
     cur.execute(core_query, (build_ids,))
     core_data = cur.fetchall()
 
@@ -146,6 +151,7 @@ for hero_id in hero_ids:
 
     core_items_list = [core_items_by_build_id.get(build_id, []) for build_id in build_ids]
 
+    print("Getting late")
     # Query late items
     query_parts = []
     query_params = []
@@ -165,6 +171,7 @@ for hero_id in hero_ids:
     cur.execute(late_items_query, query_params)
     late_items_data = cur.fetchall()
 
+    print("Merging core into one")
     # Merge late items with core items
     coreFinal = []
     for item in core_data:
@@ -187,6 +194,7 @@ for hero_id in hero_ids:
         coreObj['late'] = lateFinal
         coreFinal.append(coreObj)
 
+    print("Getting neutrals")
     cur.execute(neutral_query, (build_ids,))
     neutral_data = cur.fetchall()
     neutralFinal = []
@@ -202,7 +210,7 @@ for hero_id in hero_ids:
             }
             neutralFinal.append(neutralObj)
 
-
+    print("Compiling into builds")
     # Build final data structure for each build
     build_data = []
     abilities_data = []
@@ -294,35 +302,32 @@ for hero_id in hero_ids:
         }
         build_data.append(build_info)
 
-        
-
-    patch_file_name = patch.replace('.', '_')
-    # Home
-    build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
-    abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-    items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
-    directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
-
-    # # EC2
-    # build_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/builds.json"
-    # abilities_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-    # items_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/items.json"
-    # directory_path = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}"
-
-    os.makedirs(directory_path, exist_ok=True)
+    
+    build_json = json.dumps(build_data, indent=2)
+    abilities_json = json.dumps(abilities_data, indent=2)
+    item_json = json.dumps(items_data, indent=2)
 
     # Write to local file
-    with open(build_file, 'w') as file:
-        json.dump(build_data, file, indent=2)
-    with open(abilities_file, 'w') as file:
-        json.dump(abilities_data, file, indent=2)
-    with open(items_file, 'w') as file:
-        json.dump(items_data, file, indent=2)
+    if hero_id == 1:
+        patch_file_name = patch.replace('.', '_')
+        # Home
+        build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
+        abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+        items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
+        directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
+        
+        os.makedirs(directory_path, exist_ok=True)
+        with open(build_file, 'w') as file:
+            json.dump(build_data, file, indent=2)
+        with open(abilities_file, 'w') as file:
+            json.dump(abilities_data, file, indent=2)
+        with open(items_file, 'w') as file:
+            json.dump(items_data, file, indent=2)
 
     # Create the S3 File
-    s3.upload_file(build_file, 'dotam-builds', f"data/{patch_file_name}/{hero_id}/builds.json")
-    s3.upload_file(abilities_file, 'dotam-builds', f"data/{patch_file_name}/{hero_id}/abilities.json")
-    s3.upload_file(items_file, 'dotam-builds', f"data/{patch_file_name}/{hero_id}/items.json")
+    s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/builds.json", Body=build_json)
+    s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/items.json", Body=item_json)
+    s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/abilities.json", Body=abilities_json)
 
 
 # Reinitialize cloudfront so old data isn't stored on peoples cache
