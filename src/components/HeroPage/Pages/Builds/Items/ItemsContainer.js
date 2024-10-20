@@ -52,7 +52,7 @@ export default function ItemsContainer({build, hero, role}) {
             <div className={`block lg:hidden sm:w-3/5 mx-auto`}>
                 <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} />
             </div>
-            <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full '>
+            <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full'>
                 <Late items={lateItems} isCarry={isCarry} />
             </div>
         </div>
