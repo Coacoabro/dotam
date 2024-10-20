@@ -39,6 +39,10 @@ cur = conn.cursor()
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
 
+item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
+item_res = item_res.json()
+item_list = item_res['result']['data']['itemabilities']
+
 def actualRank(rank):
     if rank >= 80:
         return ["IMMORTAL", "HIGH"]
@@ -341,15 +345,15 @@ def getBuilds(ranked_matches, builds):
                                         builds.append(tempBuild)
     return builds
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -459,6 +463,7 @@ while True:
             starting_items = build[8]
             early_items = build[9]
             core_items = build[10]
+            neutral_items = build[11]
 
             # print(build[0], build[1], build[2], build[3], patch, build_id)
 
@@ -486,6 +491,11 @@ while True:
                     (build_id, core['Core'], late['Nth'], late['Item'], late['Wins'], late['Matches'])
                     for late in core['Late']
                 ])
+            
+            neutral_items_data.extend([
+                (build_id, neutral['Tier'], neutral['Item'], neutral['Wins'], neutral['Matches'])
+                for neutral in neutral_items
+            ])
 
             # Total Matches and Wins
             if len(total_data) >= BATCH_SIZE:
@@ -581,6 +591,20 @@ while True:
                 late_params = [item for sublist in late_items_data for item in sublist]
                 cur.execute(late_query, late_params)
                 late_items_data = []
+            
+            if len(neutral_items_data) >= BATCH_SIZE:
+                print("Batched neutrals")
+                placeholder = ', '.join(['(%s, %s, %s, %s, %s)'] * len(neutral_items_data))
+                query = f"""
+                    INSERT INTO neutrals (build_id, tier, item, wins, matches)
+                    VALUES {placeholders}
+                    ON CONFLICT (build_id, item)
+                    DO UPDATE SET wins = neutrals.wins + EXCLUDED.wins, matches = neutrals.matches + EXCLUDED.matches
+                """
+                params = [item for sublist in neutral_items_data for item in sublist]
+                cur.execute(query, params)
+                neutral_items_data = []
+            
 
         # IF WE HAVE LEFT OVER DATA
         print("Finished looping through builds, dumping rest")
@@ -687,6 +711,20 @@ while True:
             cur.execute(late_query, late_params)
             late_items_data = []
             print("Late Data Complete")
+        
+        if neutral_items_data:
+            print("Left over neutrals")
+            placeholder = ', '.join(['(%s, %s, %s, %s, %s)'] * len(neutral_items_data))
+            query = f"""
+                INSERT INTO neutrals (build_id, tier, item, wins, matches)
+                VALUES {placeholders}
+                ON CONFLICT (build_id, item)
+                DO UPDATE SET wins = neutrals.wins + EXCLUDED.wins, matches = neutrals.matches + EXCLUDED.matches
+            """
+            params = [item for sublist in neutral_items_data for item in sublist]
+            cur.execute(query, params)
+            neutral_items_data = []
+            print("Neutral Data Complete")
         
         print("Done. Last sequence num: ", seq_num)
         with open(file_path, 'w') as file:
