@@ -36,7 +36,7 @@ conn = psycopg2.connect(builds_database_url)
 cur = conn.cursor()
 
 for hero_id in hero_ids:
-
+    print(hero_id)
     cur.execute('SELECT * FROM main WHERE hero_id = %s AND patch = %s', (hero_id, patch))
     main = cur.fetchall()
     build_ids = [row[0] for row in main] # Assuming build_id is the first column in the main table
@@ -78,6 +78,16 @@ for hero_id in hero_ids:
         ORDER BY build_id, rn
     """
 
+    neutral_query = """
+        SELECT * FROM (
+            SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id ORDER BY matches DESC) AS rn
+            FROM neutrals
+            WHERE build_id = ANY(%s)
+        ) AS ranked
+        ORDER BY build_id, rn
+    """
+
+
     cur.execute(abilities_query, (build_ids,))
     abilities_data = cur.fetchall()
     abilitiesFinal = []
@@ -109,7 +119,7 @@ for hero_id in hero_ids:
         startingObj['starting'] = starting[1]
         startingObj['wins'] = starting[2]
         startingObj['matches'] = starting[3]
-        startingFinal.append(startingObj)
+        startingFinal.append(startingObj)        
 
     cur.execute(early_query, (build_ids,))
     early_data = cur.fetchall()
@@ -177,6 +187,22 @@ for hero_id in hero_ids:
         coreObj['late'] = lateFinal
         coreFinal.append(coreObj)
 
+    cur.execute(neutral_query, (build_ids,))
+    neutral_data = cur.fetchall()
+    neutralFinal = []
+    for tier in range(1, 6):
+        filtered_neutrals = filter(lambda neutral: neutral[1] == tier, neutral_data)
+        for neutral in filtered_neutrals:
+            neutralObj = {
+                'build_id': neutral[0],
+                'tier': neutral[1],
+                'item': neutral[2],
+                'wins': neutral[3],
+                'matches': neutral[4],
+            }
+            neutralFinal.append(neutralObj)
+
+
     # Build final data structure for each build
     build_data = []
     abilities_data = []
@@ -195,6 +221,7 @@ for hero_id in hero_ids:
         starting_array = [s for s in startingFinal if s['build_id'] == build_id]
         early_array = [e for e in earlyFinal if e['build_id'] == build_id]
         core_array = [c for c in coreFinal if c['build_id'] == build_id]
+        neutral_array = [n for n in neutralFinal if n['build_id'] == build_id]
 
         abilities_info = {
             "build_id": build_id,
@@ -219,7 +246,8 @@ for hero_id in hero_ids:
             "total_wins": total_wins,
             "starting": starting_array,
             "early": early_array,
-            "core": core_array
+            "core": core_array,
+            "neutrals": neutral_array
         }
         items_data.append(items_info)
 
@@ -235,6 +263,18 @@ for hero_id in hero_ids:
                 n += 1
             cores['late'] = newLate
 
+        build_neutrals_array = []
+
+        for i in range(1, 6):
+            j = 0
+            for neutral_build in neutral_array:
+                if neutral_build['tier'] == i:
+                    build_neutrals_array.append(neutral_build)
+                    j += 1
+                    if j == 4:
+                        break
+                
+
         build_info = {
             "build_id": build_id,
             "rank": rank,
@@ -248,7 +288,8 @@ for hero_id in hero_ids:
             "items": {
                 "starting": starting_array[0] if len(starting_array) > 0 else None,
                 "early": early_array[:6] if len(early_array) > 0 else None,
-                "core": build_core if len(core_array) > 0 else None
+                "core": build_core if len(core_array) > 0 else None,
+                "neutrals": build_neutrals_array
             }
         }
         build_data.append(build_info)
@@ -256,7 +297,7 @@ for hero_id in hero_ids:
         
 
     patch_file_name = patch.replace('.', '_')
-    # Home
+    # # Home
     # build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
     # abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
     # items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
@@ -268,7 +309,6 @@ for hero_id in hero_ids:
     items_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/items.json"
     directory_path = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}"
 
-    
     os.makedirs(directory_path, exist_ok=True)
 
     # Write to local file
