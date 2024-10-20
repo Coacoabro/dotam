@@ -159,7 +159,7 @@ for hero_id in hero_ids:
         SELECT * FROM (
             SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id, core_items, nth ORDER BY matches DESC, wins DESC) AS rn
             FROM late
-            WHERE ({where_condition}) AND nth IN (3, 4, 5, 6, 7, 8, 9)
+            WHERE ({where_condition}) AND nth IN (3, 4, 5, 6, 7, 8, 9, 10)
         ) AS ranked WHERE rn <= 10 ORDER BY build_id, core_items, nth, matches DESC, wins DESC;
     """
     cur.execute(late_items_query, query_params)
@@ -297,17 +297,17 @@ for hero_id in hero_ids:
         
 
     patch_file_name = patch.replace('.', '_')
-    # # Home
-    # build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
-    # abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-    # items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
-    # directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
+    # Home
+    build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
+    abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+    items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
+    directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
 
-    # EC2
-    build_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/builds.json"
-    abilities_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-    items_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/items.json"
-    directory_path = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}"
+    # # EC2
+    # build_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/builds.json"
+    # abilities_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+    # items_file = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}/items.json"
+    # directory_path = f"/home/ec2-user/dotam/python/build_data/{patch_file_name}/{hero_id}"
 
     os.makedirs(directory_path, exist_ok=True)
 

@@ -24,8 +24,6 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
 
     const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == current_patch))
 
-    console.log(heroMatchups)
-
     useEffect(() => {
 
         const currRole = role || initRole
@@ -41,8 +39,8 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
         <div className='space-y-4 flex-col justify-center'>
             {currBuild ?
                 <div className='lg:flex w-full gap-2 space-y-2 lg:space-y-0'>
-                    <div className='sm:w-11/12 mx-auto lg:w-2/3 py-2 sm:py-5 px-3  bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={heroData} abilities={currBuild.abilities} /></div>
-                    <div className='sm:w-1/2 sm:mx-auto lg:w-1/3 py-2 sm:py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={heroData} talents={currBuild.talents} /></div>
+                    <div className='sm:w-11/12 mx-auto lg:w-2/3 py-2 sm:py-3 px-3  bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={heroData} abilities={currBuild.abilities} /></div>
+                    <div className='sm:w-1/2 sm:mx-auto lg:w-1/3 py-2 sm:py-3 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={heroData} talents={currBuild.talents} /></div>
                 </div>
                 :
                 <div className='lg:flex w-full gap-2'>
@@ -58,7 +56,7 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
                 <div>Not enough Item data</div>
             }
             {heroMatchups[0] ? 
-                <div className='sm:w-4/5 sm:mx-auto lg:w-full lg:flex lg:items-end px-5 py-2 lg:p-5 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2 sm:space-y-0'>
+                <div className='sm:w-4/5 sm:mx-auto lg:w-full lg:flex lg:items-end px-5 py-2 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2 sm:space-y-0'>
                     <div className='lg:w-1/2'><Matchups type='against' matchups={heroMatchups[0].herovs} hero={heroData} /></div>
                     <div className='lg:w-1/2'><Matchups type='with' matchups={heroMatchups[0].herowith} hero={heroData} /></div>
                 </div> : 

@@ -18,7 +18,7 @@ export default function Early({items}) {
 
             <div className='py-4 px-4 gap-2 rounded-b-lg'>
                 {early ?
-                    <div className="flex flex-col justify-center items-center space-y-2 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:place-items-center">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 place-items-center">
                         {early.map((item, index) => (
                             <ItemCard item={item} index={index} />
                         ))}

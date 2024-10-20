@@ -12,7 +12,7 @@ export default function Abilities({hero, abilities}) {
                 <div className='sm:flex justify-between space-y-1'>
                     <div className="sm:flex items-end gap-2.5 space-y-1">
                         <p className="text-lg sm:text-xl font-bold">Ability Path</p>
-                        <h1 className="text-gray-300/50">Best ability order for {hero.localized_name}</h1>
+                        <h1 className="text-sm opacity-50 pb-0.5">Best ability order for {hero.localized_name}</h1>
                     </div>
                     {abilities[0] ? 
                         <div className='flex items-center text-base sm:text-lg'>
