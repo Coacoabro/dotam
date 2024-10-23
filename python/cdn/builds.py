@@ -32,6 +32,7 @@ conn.close()
 # Getting patch info
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
+patch_file_name = patch.replace('.', '_')
 
 conn = psycopg2.connect(builds_database_url)
 cur = conn.cursor()
@@ -307,22 +308,21 @@ for hero_id in hero_ids:
     abilities_json = json.dumps(abilities_data, indent=2)
     item_json = json.dumps(items_data, indent=2)
 
-    # Write to local file
-    if hero_id == 1:
-        patch_file_name = patch.replace('.', '_')
-        # Home
-        build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
-        abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-        items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
-        directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
+    # # Write to local file
+    # if hero_id == 1:
+    #     # Home
+    #     build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
+    #     abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+    #     items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
+    #     directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
         
-        os.makedirs(directory_path, exist_ok=True)
-        with open(build_file, 'w') as file:
-            json.dump(build_data, file, indent=2)
-        with open(abilities_file, 'w') as file:
-            json.dump(abilities_data, file, indent=2)
-        with open(items_file, 'w') as file:
-            json.dump(items_data, file, indent=2)
+    #     os.makedirs(directory_path, exist_ok=True)
+    #     with open(build_file, 'w') as file:
+    #         json.dump(build_data, file, indent=2)
+    #     with open(abilities_file, 'w') as file:
+    #         json.dump(abilities_data, file, indent=2)
+    #     with open(items_file, 'w') as file:
+    #         json.dump(items_data, file, indent=2)
 
     # Create the S3 File
     s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/builds.json", Body=build_json)

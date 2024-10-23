@@ -7,6 +7,7 @@ import requests
 import os
 import psutil
 import copy
+import traceback
 
 from dotenv import load_dotenv
 from collections import Counter
@@ -117,9 +118,19 @@ def getBuilds(ranked_matches, builds):
         }}
         {fragment}
     """
-    
-    response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
-    data = json.loads(response.text)
+
+    tries = 0
+
+    while tries < 3:
+        try:
+            response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
+            data = json.loads(response.text)
+            break
+        except:
+            print(f"Got nothing, trying again in 1 minute ({3-tries} tries left)")
+            time.sleep(60)
+            tries += 1
+
 
     for ranked_match in ranked_matches:
         match_id = ranked_match['match_id']
@@ -756,15 +767,15 @@ def sendtosql(builds):
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
     
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -821,5 +832,6 @@ while True:
 
     except Exception as e:
         print("Error: ", e)
+        traceback.print_exc()
         sendtosql(builds)
         break
