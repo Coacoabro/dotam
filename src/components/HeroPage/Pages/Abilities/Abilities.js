@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import AbilityPath from "./AbilityPath/AbilityPath";
 import TalentOptions from "./TalentOption/TalentOptions";
+import AbilitiesContainer from './AbilityPath/AbilitiesContainer';
 
 export default function Abilities({ initRole, initFacet, heroData, heroBuilds, current_patch }) {
 
@@ -25,8 +26,8 @@ export default function Abilities({ initRole, initFacet, heroData, heroBuilds, c
     if(currBuild){
         return(
             <div className="space-y-4">
-                <AbilityPath abilities={currBuild.abilities} />
                 <TalentOptions talents={currBuild.talents} hero={heroData} />
+                <AbilitiesContainer abilities={currBuild.abilities} hero={heroData} />
             </div>
         )
     }
