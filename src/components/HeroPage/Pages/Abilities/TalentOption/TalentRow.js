@@ -6,11 +6,6 @@ export default function TalentRow({ level, right, left }) {
     const leftPR = ((left.Matches / totalMatches)*600).toFixed(0)
     const leftWR = ((left.Wins / left.Matches)*100).toFixed(2)
 
-
-
-
-
-
     return(
         <div className="relative flex justify-center py-3">
 

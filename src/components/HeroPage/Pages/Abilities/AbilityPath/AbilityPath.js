@@ -25,13 +25,11 @@ export default function AbilityPath(abilities) {
                     </th>
                 </tr>
                 <tbody className="text-lg">
-                    
                     {abilities.abilities.map((obj, index) => (
                         <AbilityRow order={index} abilityPath={obj.abilities} matches={obj.matches} wins={obj.wins} />
                     ))}
                 </tbody>
             </table>
         </div>
-        
     )
 }
