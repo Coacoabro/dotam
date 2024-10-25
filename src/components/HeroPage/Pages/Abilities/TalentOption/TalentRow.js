@@ -18,7 +18,7 @@ export default function TalentRow({ level, right, left }) {
                 <div className={`${leftWR > rightWR ? 'font-bold' : 'opacity-75'} px-6`}>{leftWR}% <span className="text-cyan-300">WR</span></div>
                 <div className="text-lg pr-8 py-1">
                     <div 
-                        className={`absolute right-1/2 -mt-1.5 h-10 bg-slate-800 rounded-l-md ${leftWR > rightWR ? 'border border-slate-600' : null}`} 
+                        className={`absolute right-1/2 -mt-1.5 h-10 bg-slate-800 rounded-l-md ${leftWR > rightWR ? 'border border-cyan-300/50' : null}`} 
                         style={{ width: `${leftPR}px`}}
                     />
                     <div className="relative">{left.Talent}</div>
@@ -28,7 +28,7 @@ export default function TalentRow({ level, right, left }) {
             
 
             <div className="z-30 absolute left-1/2 -translate-x-1/2 py-4">
-                <div className="rounded-full bg-slate-800 h-full py-3 px-3.5 text-2xl border border-slate-600">
+                <div className="rounded-full bg-slate-800 h-full py-3 px-3.5 text-2xl border border-cyan-300/50">
                     {level}
                 </div>
             </div>
@@ -38,7 +38,7 @@ export default function TalentRow({ level, right, left }) {
                 <div className={`${leftWR < rightWR ? 'font-bold' : 'opacity-75'} px-6`}>{rightWR}% <span className="text-cyan-300">WR</span></div>
                 <div className="text-lg pl-8 py-1">
                     <div 
-                        className={`absolute left-1/2 -mt-1.5 h-10 rounded-r-md bg-slate-800 ${leftWR < rightWR ? 'border border-slate-600' : null}`} 
+                        className={`absolute left-1/2 -mt-1.5 h-10 rounded-r-md bg-slate-800 ${leftWR < rightWR ? 'border border-cyan-300/50' : null}`} 
                         style={{ width: `${rightPR}px`}}
                     />
                     <div className="relative">{right.Talent}</div>

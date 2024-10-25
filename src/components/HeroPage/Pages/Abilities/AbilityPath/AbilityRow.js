@@ -11,7 +11,7 @@ export default function AbilityRow( {order, abilityPath, matches, wins} ) {
     const talentURL = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg"
 
     return(
-        <tr className={`${order % 2 ? null : "bg-slate-800"} hover:bg-slate-700`}>
+        <tr className={`${order % 2 ? null : "bg-slate-950"} hover:bg-slate-900 ${order != 9 ? 'border-b-2 border-slate-800' : null}`}>
             <td className="flex space-x-3 py-6 px-8">
                 {abilityPath.map((ability, index) => (
                     <div className="relative">

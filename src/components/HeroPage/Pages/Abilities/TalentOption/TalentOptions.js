@@ -57,11 +57,11 @@ export default function TalentOptions({talents, hero}) {
                 </div>
                 <div className='text-gray-300/50 sm:hidden px-3'>Best talents for {hero.localized_name}</div>
 
-                <div className="bg-slate-950 rounded-lg">
+                <div className="bg-slate-950 rounded-lg border border-slate-800">
                     {levels.map((_, index) => (
                         <>
                             <TalentRow level={levels[index]} right={rightTalents[index]} left={leftTalents[index]} />
-                            {index != 3 ? <div className="h-[1px] w-full bg-slate-700" /> : null}
+                            {index != 3 ? <div className="h-[2px] w-full bg-slate-800" /> : null}
                         </>
                     ))}
                 </div>
