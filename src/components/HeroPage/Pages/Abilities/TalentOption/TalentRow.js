@@ -5,12 +5,18 @@ export default function TalentRow({ level, right, left }) {
     const rightWR = ((right.Wins / right.Matches)*100).toFixed(2)
     const leftPR = ((left.Matches / totalMatches)*600).toFixed(0)
     const leftWR = ((left.Wins / left.Matches)*100).toFixed(2)
+    const lWRColor = leftWR >= 51.5 ? 'text-[#ABDEED]' 
+    : leftWR >= 48.5 ? 'text-slate-200'
+    : 'text-[#F46E58]'
+    const rWRColor = rightWR >= 51.5 ? 'text-[#ABDEED]' 
+    : rightWR >= 48.5 ? 'text-slate-200'
+    : 'text-[#F46E58]'
 
     return(
         <div className="relative flex justify-center py-3">
 
             <div className="w-[50%] space-y-2 text-right text-sm">
-                <div className={`${leftWR > rightWR ? 'font-bold' : 'opacity-75'} px-6`}>{leftWR}% <span className="text-cyan-300">WR</span></div>
+                <div className={`${leftWR > rightWR ? 'font-bold' : 'opacity-75'} ${lWRColor} px-6`}>{leftWR}% <span className="text-cyan-300">WR</span></div>
                 <div className="text-lg pr-8 py-1">
                     <div 
                         className={`absolute right-1/2 -mt-1.5 h-10 bg-slate-800 rounded-l-md ${leftWR > rightWR ? 'border border-cyan-300/50' : null}`} 
@@ -30,7 +36,7 @@ export default function TalentRow({ level, right, left }) {
 
 
             <div className="w-[50%] space-y-2 text-sm">
-                <div className={`${leftWR < rightWR ? 'font-bold' : 'opacity-75'} px-6`}>{rightWR}% <span className="text-cyan-300">WR</span></div>
+                <div className={`${leftWR < rightWR ? 'font-bold' : 'opacity-75'} ${rWRColor} px-6`}>{rightWR}% <span className="text-cyan-300">WR</span></div>
                 <div className="text-lg pl-8 py-1">
                     <div 
                         className={`absolute left-1/2 -mt-1.5 h-10 rounded-r-md bg-slate-800 ${leftWR < rightWR ? 'border border-cyan-300/50' : null}`} 

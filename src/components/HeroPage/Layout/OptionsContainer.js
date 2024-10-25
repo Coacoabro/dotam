@@ -17,11 +17,16 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
 
             {/* Desktop Screen */}
             <div className='px-3 text-lg items-center hidden lg:flex justify-evenly'>
-                <div className='flex gap-2 items-center'>
-                    Facets: 
-                    <Facets initFacet={initFacet} id={hero.id} />
-                </div>
-                <div className='h-14 w-[1px] bg-slate-800'/>
+                {initFacet == 'blank' ? null : 
+                <>
+                    <div className='flex gap-2 items-center'>
+                        Facets: 
+                        <Facets initFacet={initFacet} id={hero.id} />
+                    </div>
+                
+                    <div className='h-14 w-[1px] bg-slate-800'/>
+                </>
+                }
                 <div className='flex gap-2 items-center'>
                     Roles: 
                     <Role initRole={initRole} />

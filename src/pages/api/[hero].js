@@ -24,8 +24,12 @@ export default async function handler(req, res) {
         break
 
       case 'page':
-        const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/${page}.json`)
-        result = await page_res.json()
+        if(page != 'matchups'){
+          const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/${page}.json`)
+          result = await page_res.json()
+        }
+        else{result = null}
+        
         break
 
       case 'matchups':

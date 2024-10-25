@@ -33,7 +33,7 @@ rates = cur.fetchall()
 
 
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
-roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
+roles = ['All', 'POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 
 hero_roles = {
     'POSITION_1': [],
@@ -88,9 +88,10 @@ data = json.loads(response.text)
 
 
 for role in roles:
-    for rate in rates:
-        if role == rate[6] and rate[7] == "" and rate[9] != '?':
-            hero_roles[role].append(rate[0])
+    if role != 'All':
+        for rate in rates:
+            if role == rate[6] and rate[7] == "" and rate[9] != '?':
+                hero_roles[role].append(rate[0])
 
 
 for rank in ranks:
@@ -101,7 +102,10 @@ for rank in ranks:
 
     for role in roles:
 
-        if role == "POSITION_1":
+        if role == "All":
+            heroes_against = hero_ids
+            heroes_with = hero_ids
+        elif role == "POSITION_1":
             heroes_against = hero_roles['POSITION_3']
             heroes_with = hero_roles['POSITION_5']
         elif role == "POSITION_2":
@@ -125,8 +129,8 @@ for rank in ranks:
 
             hero_id = matchup['heroId']
 
-            if hero_id in hero_roles[role]:
-        
+            if hero_id in hero_ids:
+
                 matchupsVs = matchup['vs']
                 matchupsWith = matchup['with']
 
@@ -146,7 +150,7 @@ for rank in ranks:
                 withFinal.sort(key=lambda x: x['WR'], reverse=True)
 
                 cur.execute("INSERT INTO matchups (hero_id, rank, role, herovs, herowith) VALUES (%s, %s, %s, %s, %s);", (hero_id, rank, role, json.dumps(vsFinal), json.dumps(withFinal)))
-                
+                    
                 
 conn.commit() # Commit the transaction
 

@@ -1,4 +1,6 @@
-export default function Matchups({ builds }) {
+export default function Matchups({ heroData, initRole, heroMatchups }) {
+
+    console.log(heroMatchups)
 
     return(
         <div>

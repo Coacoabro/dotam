@@ -75,17 +75,17 @@ for hero_id in hero_ids:
         hero_matchups.append(heroMatchup)
     
     patch_file_name = patch.replace('.', '_')
-    # # Home
-    # info_file = f"./python/content_data/{patch_file_name}/{hero_id}/info.json"
-    # rate_file = f"./python/content_data/{patch_file_name}/{hero_id}/rates.json"
-    # matchups_file = f"./python/content_data/{patch_file_name}/{hero_id}/matchups.json"
-    # directory_path = f"./python/content_data/{patch_file_name}/{hero_id}"
+    # Home
+    info_file = f"./python/content_data/{patch_file_name}/{hero_id}/info.json"
+    rate_file = f"./python/content_data/{patch_file_name}/{hero_id}/rates.json"
+    matchups_file = f"./python/content_data/{patch_file_name}/{hero_id}/matchups.json"
+    directory_path = f"./python/content_data/{patch_file_name}/{hero_id}"
 
-    # EC2
-    info_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}/info.json"
-    rate_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}/rates.json"
-    matchups_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}/matchups.json"
-    directory_path = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}"
+    # # EC2
+    # info_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}/info.json"
+    # rate_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}/rates.json"
+    # matchups_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}/matchups.json"
+    # directory_path = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/{hero_id}"
 
 
     os.makedirs(directory_path, exist_ok=True)

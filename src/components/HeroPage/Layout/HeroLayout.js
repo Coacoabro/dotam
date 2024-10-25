@@ -38,12 +38,10 @@ export default function HeroLayout({ children, hero, current_patch, page }) {
     if(patch){setCurrPatch(patch)}
   }, [patch])
 
-  if(ratesLoading || infoLoading || buildsLoading || matchupsLoading || matchupsLoading ){
+  if(ratesLoading || infoLoading || buildsLoading || matchupsLoading ){
     <IoLoading />
   }
   else{
-
-    console.log(heroRates, heroInfo, heroBuilds)
 
     const heroData = heroInfo
 
@@ -58,15 +56,18 @@ export default function HeroLayout({ children, hero, current_patch, page }) {
     const initFacet = (() => {
       let most = 0;
       let best = 0;
-      heroBuilds.forEach((obj) => {
-        if (obj.role === initRole && obj.rank === "") {
-          if (obj.total_matches > most) {
-            most = obj.total_matches;
-            best = obj.facet;
+      if(heroBuilds){
+        heroBuilds.forEach((obj) => {
+          if (obj.role === initRole && obj.rank === "") {
+            if (obj.total_matches > most) {
+              most = obj.total_matches;
+              best = obj.facet;
+            }
           }
-        }
-      });
-      return best;
+        });
+        return best;
+      }
+      else return 'blank'
     })();
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
