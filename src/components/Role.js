@@ -28,7 +28,24 @@ export default function Role( {initRole} ) {
                 >
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>
-            )) : 
+            )) : router.asPath.includes('matchups') ? (
+                <>
+                    <button
+                        onClick={() => handleClick("All")}
+                        className={`text-sm font-bold items-center flex justify-center w-10 sm:w-12 h-7 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == "All" ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700'}`}
+                    >
+                        All
+                    </button>
+                    {json.filter((r) => r.role !== "").map((role) => (
+                        <button 
+                            onClick={() => handleClick(role.role)} 
+                            className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700 bg-slate-900'}`}
+                        >
+                            {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
+                        </button>
+                    ))}
+                </>
+            ) :
             json.filter((r) => r.role !== "").map((role) => (
                 <button 
                     onClick={() => handleClick(role.role)} 

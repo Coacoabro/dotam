@@ -11,21 +11,20 @@ export default function MatchupTable( { search, matchups, initRole, type } ) {
 
     const [currHeroBuild, setCurrHeroBuild] = useState(matchups.filter(obj => obj.role == role || initRole && obj.rank == rank || ""))
 
-    const [currMatchups, setCurrMatchups] = useState(currHeroBuild[0][type])
+    const [currMatchups, setCurrMatchups] = useState(currHeroBuild.length > 0 ? currHeroBuild[0][type] : [])
 
     useEffect(() => {
 
         const currRole = role || initRole
         const currRank = rank || ""
 
-        console.log(currRole)
-
         setCurrHeroBuild(matchups.filter(obj => obj.role == currRole && obj.rank == currRank))
+        
     }, [role, rank, matchups, initRole])
 
     useEffect(() => {
 
-        let heroesByRR = currHeroBuild[0][type]
+        let heroesByRR = currHeroBuild.length > 0 ? currHeroBuild[0][type] : []
 
         if (search && heroInfo) {
             let filteredHeroes = []
@@ -40,7 +39,7 @@ export default function MatchupTable( { search, matchups, initRole, type } ) {
             })
             setCurrMatchups(filteredHeroes)
         }
-        else setCurrMatchups(currHeroBuild[0][type])
+        else setCurrMatchups(currHeroBuild.length > 0 ? currHeroBuild[0][type] : [])
 
     }, [currHeroBuild, search, heroInfo])
 

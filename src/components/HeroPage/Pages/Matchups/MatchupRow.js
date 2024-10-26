@@ -15,7 +15,7 @@ export default function MatchupRow( {order, hero, info} ) {
 
     return(
        
-        <tr className={`${order % 2 ? null : "bg-slate-950"} hover:bg-slate-900`}>
+        <tr className={`${order % 2 ? null : "bg-slate-950"} hover:bg-slate-900 w-full`}>
             <td className="py-3 px-8">
                 <Link href={`/hero/${heroURL}/builds`} className="flex gap-4 items-center">
                     <img src={img} className="w-24"/>
@@ -23,8 +23,8 @@ export default function MatchupRow( {order, hero, info} ) {
                 </Link>
             </td>
             
-            <td className={`${wrColor}`}>{wr}%</td>
-            <td>{hero.Matches.toLocaleString()}</td>
+            <td className={`${wrColor} px-4`}>{wr}%</td>
+            <td className="px-10 text-right">{hero.Matches.toLocaleString()}</td>
 
         </tr>
         
