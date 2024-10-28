@@ -29,6 +29,7 @@ cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 conn.close()
 
+
 # Getting patch info
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
@@ -49,7 +50,8 @@ for hero_id in hero_ids:
             SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id ORDER BY matches DESC) AS rn
             FROM abilities
             WHERE build_id = ANY(%s)
-        ) AS ranked WHERE rn <= 10 ORDER BY build_id, rn
+        ) AS ranked WHERE rn <= 10 
+        ORDER BY build_id, rn
     """
     talents_query = "SELECT * FROM talents WHERE build_id = ANY(%s) ORDER BY build_id;"
     starting_query = """
@@ -58,7 +60,7 @@ for hero_id in hero_ids:
             FROM starting
             WHERE build_id = ANY(%s)
         ) AS ranked
-        WHERE rn <= 10
+        WHERE rn <= 5
         ORDER BY build_id, rn
     """
     early_query = """
