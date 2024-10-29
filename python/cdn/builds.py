@@ -40,6 +40,8 @@ cur = conn.cursor()
 
 for hero_id in hero_ids:
     print(hero_id)
+    conn = psycopg2.connect(builds_database_url)
+    cur = conn.cursor()
     cur.execute('SELECT * FROM main WHERE hero_id = %s AND patch = %s', (hero_id, patch))
     main = cur.fetchall()
     build_ids = [row[0] for row in main] # Assuming build_id is the first column in the main table
@@ -330,6 +332,10 @@ for hero_id in hero_ids:
     s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/builds.json", Body=build_json)
     s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/items.json", Body=item_json)
     s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/abilities.json", Body=abilities_json)
+
+    conn.commit()
+    conn.close()
+    time.sleep(45)
 
 
 # Reinitialize cloudfront so old data isn't stored on peoples cache

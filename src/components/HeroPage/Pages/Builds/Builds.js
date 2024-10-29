@@ -64,14 +64,14 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
                     <h1 className='text-center text-slate-200'>No matchups available for this role</h1>
                 </div>
             }
-            {/*
+            
             <Link href={`/hero/${hero.url}/matchups`} className='flex items-center justify-between mx-auto rounded-lg border border-cyan-200/25 px-5 py-3 w-48 hover:bg-slate-700'>
                 <div>Open Matchups</div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
             </Link>
-            */}
+           
         </div>
     )
 }

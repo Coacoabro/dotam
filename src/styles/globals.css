@@ -29,3 +29,34 @@ body {
     color: rgb(226 232 240);
     letter-spacing: 0.5px;
   }
+
+.basics {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.48px;
+  color: #D1D5DB;
+}
+
+.basics h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #F9FCFF;
+  margin: 1rem 0;
+}
+
+.basics h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: #F9FCFF;
+  margin: 1rem 0;
+}
+
+
+.basics hr {
+  border: none;
+  border-top: 1px solid;
+  margin: 0.5rem 0;
+  opacity: 0.10;
+}
+
