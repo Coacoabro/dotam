@@ -41,22 +41,30 @@ body {
   font-size: 32px;
   font-weight: 700;
   color: #F9FCFF;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 
 .basics h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #F9FCFF;
+  margin: 5rem 0;
+}
+
+.basics h3 {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.2px;
   color: #F9FCFF;
-  margin: 1rem 0;
+  margin-top: 5rem;
 }
 
 
 .basics hr {
   border: none;
   border-top: 1px solid;
-  margin: 0.5rem 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   opacity: 0.10;
 }
 
