@@ -5,7 +5,7 @@ Dota 2 Tier List and Statistics Website built on Next.js
 
 
 Node.js (for npm)
-npm install next pg graphql
+npm install next pg
 
 Git (bash and stuff)
 git clone https://github.com/Coacoabro/dotam.git
