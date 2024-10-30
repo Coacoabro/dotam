@@ -1,5 +1,7 @@
 import BasicsLayout from "../../components/Basics/BasicsLayout";
 
+import PictureBox from "../../components/Basics/PictureBox";
+
 import { useRouter } from "next/router";
 import { MDXProvider } from "@mdx-js/react";
 import dynamic from "next/dynamic";
@@ -8,6 +10,9 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
+const components = {
+    PictureBox
+}
 
 
 
@@ -19,7 +24,9 @@ export default function BasicsPage({ fileContent, files }) {
 
     return (
         <BasicsLayout files={files}>
-            <MdxContent />
+            <MDXProvider components={components}>
+                <MdxContent />
+            </MDXProvider>
         </BasicsLayout>
     );
 }
