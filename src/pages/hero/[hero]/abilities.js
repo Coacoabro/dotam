@@ -8,7 +8,6 @@ import Abilities from '../../../components/HeroPage/Pages/Abilities/Abilities.js
 import dota2heroes from '../../../../json/dota2heroes.json'
 
 export async function getServerSideProps(context) {
-
     const hero = dota2heroes.find(hero => hero.url === context.query.hero)
     const res = await fetch("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
     const patch = await res.text()
@@ -33,7 +32,7 @@ export default function ItemsPage({ hero, patch }) {
             <Head>
                 <title>{heroName} Guide: Builds, Matchups, and Rates</title>
                 <meta name="description" 
-                    content={`Highest rated builds for ${heroName}. See where they fit in the meta through DotaM's tiering system.`} />
+                    content={`Highest rated abilities and talents for ${heroName}.`} />
                 <meta name="keywords"
                     content={`${heroName}, builds, neutral, neutrals, matchups`} />
                 <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />

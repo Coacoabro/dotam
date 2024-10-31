@@ -45,16 +45,17 @@ export default function MatchupTable( { search, matchups, initRole, type } ) {
 
     return(
         <div className="overflow-y-auto custom-scrollbar bg-slate-950 rounded-lg shadow border border-slate-800 pb-4 w-full">
-            <table className="table-auto text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-xl">
+            <table className="table-auto text-slate-200 font-medium font-['Inter'] font-sans leading-tight sm:text-xl">
                 <tr className="border-b-2 border-slate-800">
-                    <th className="text-left px-8 py-3 w-full z-10">
+                    <th className="text-left py-1 px-8 sm:py-3 w-full z-10">
                         Heroes
                     </th>
                     <th className="">
-                        <button className=" flex items-center py-3 px-8">WR</button>
+                        <button className=" flex items-center px-4 py-1 sm:px-8 sm:py-3">WR</button>
                     </th>
                     <th className="">
-                        <button className="flex items-center py-3 px-8">Matches</button>
+                        <button className="flex hidden sm:block items-center px-4 py-1 sm:px-8 sm:py-3">Matches</button>
+                        <button className="flex sm:hidden items-center px-4 py-1 sm:px-8 sm:py-3">M</button>
                     </th>
                 </tr>
                 <tbody className="text-lg">

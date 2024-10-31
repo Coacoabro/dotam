@@ -46,7 +46,9 @@ export default function OptionsContainer({ hero, initRole, initFacet }) {
 
             {/* Mobile Screen */}
             <div className='lg:hidden flex justify-evenly items-center'>
-                <Facets initFacet={initFacet} id={hero.id} />
+                {initFacet == 'blank' ? null : 
+                    <Facets initFacet={initFacet} id={hero.id} />
+                }
                 <Rank />
                 <Patches />
             </div>
