@@ -11,16 +11,16 @@ export default function AbilityPath(abilities) {
 
 
     return(
-        <div className="overflow-x-auto mx-auto custom-scrollbar bg-slate-950 rounded-lg shadow border border-slate-800 pb-4 h-[500px]">
-            <table className="table-auto text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-xl">
+        <div className="overflow-x-auto mx-auto custom-scrollbar bg-slate-950 rounded-lg shadow border border-slate-800 pb-4 sm:h-[500px]">
+            <table className="table-auto w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-sm sm:text-xl">
                 <tr className="border-b-2 border-slate-800">
-                    <th className="text-left px-8 py-3 w-2/3">
+                    <th className="text-left px-8 py-3 sm:w-2/3">
                         Ability Path Order
                     </th>
-                    <th className="w-1/12">
+                    <th className="sm:w-1/12">
                         <button className=" flex items-center py-3">WR</button>
                     </th>
-                    <th className="w-1/12">
+                    <th className="sm:w-1/12">
                         <button className="flex items-center py-3">Matches</button>
                     </th>
                 </tr>
