@@ -31,24 +31,29 @@ body {
   }
 
 .basics {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 22.5px;
   letter-spacing: 0.48px;
   color: #D1D5DB;
+}
+
+.basics p {
+  margin-bottom: 1.5rem;
 }
 
 .basics h1 {
   font-size: 32px;
   font-weight: 700;
   color: #F9FCFF;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 .basics h2 {
   font-size: 32px;
   font-weight: 700;
   color: #F9FCFF;
-  margin: 5rem 0;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
 .basics h3 {
@@ -56,15 +61,15 @@ body {
   font-weight: 700;
   letter-spacing: 0.2px;
   color: #F9FCFF;
-  margin-top: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
 
 
 .basics hr {
   border: none;
   border-top: 1px solid;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   opacity: 0.10;
 }
 

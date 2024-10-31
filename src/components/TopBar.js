@@ -20,7 +20,7 @@ export default function TopBar() {
                 <div className={`hidden sm:inline-flex absolute text-xs sm:text-lg items-center space-x-1 sm:space-x-4 lg:space-x-10 sm:right-16 lg:right-24`}>
                     <Link href="/heroes" className={`px-3 py-1 rounded-md ${path == '/heroes' ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Heroes</Link>
                     <Link href="/tier-list" className={`px-3 py-1 rounded-md ${path.includes('tier-list') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Tier List</Link>
-                    {/* <Link href="/basics" className={`px-3 py-1 rounded-md ${path.includes('basic') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Basics</Link> */}
+                    <Link href="/basics/introduction/welcome" className={`px-3 py-1 rounded-md ${path.includes('basic') ? 'bg-indigo-300 text-black font-bold' : null} hover:bg-slate-500`}>Basics</Link>
                     <div className='z-50 flex'><SearchTopBar /></div>
                 </div>
                 <div className='absolute gap-2.5 transition-all duration-1000 delay-100 ease-in-out right-2 sm:right-8 flex sm:hidden'>

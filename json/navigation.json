@@ -1,0 +1,60 @@
+[
+    {
+        "title": "Introduction",
+        "subPaths": [
+            {
+                "title": "Welcome",
+                "path": "/basics/introduction/welcome"
+            },
+            {
+                "title": "Essentials",
+                "path": "/basics/introduction/essentials"
+            }
+        ]
+    },
+    {
+        "title": "Roles",
+        "subPaths": [
+            {
+                "title": "Overview",
+                "path": "/basics/roles/overview"
+            },
+            {
+                "title": "Position 1",
+                "path": "/basics/roles/safe-lane"
+            },
+            {
+                "title": "Position 2",
+                "path": "/basics/roles/mid-lane"
+            },
+            {
+                "title": "Position 3",
+                "path": "/basics/roles/off-lane"
+            },
+            {
+                "title": "Position 4",
+                "path": "/basics/roles/soft-support"
+            },
+            {
+                "title": "Position 5",
+                "path": "/basics/roles/hard-support"
+            }
+        ]
+    },
+    {
+        "title": "Ranks",
+        "path": "/basics/ranks"
+    },
+    {
+        "title": "Facets",
+        "path": "/basics/facets"
+    },
+    {
+        "title": "Items",
+        "path": "/basics/items"
+    },
+    {
+        "title": "Settings/Hotkeys",
+        "path": "/basics/hotkeys"
+    }
+]
