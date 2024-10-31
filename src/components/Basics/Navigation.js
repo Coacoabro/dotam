@@ -41,7 +41,7 @@ export default function Navigation() {
                     {file.subPaths ? (
                         <div className={``}>
                             <button 
-                                className='p-2 rounded w-full flex justify-between'
+                                className='p-2 rounded w-full flex justify-between hover:bg-slate-900'
                                 onClick={()=>toggleSection(file.title)}
                             >
                                 {file.title}

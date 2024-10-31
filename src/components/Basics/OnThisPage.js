@@ -11,7 +11,7 @@ export default function OnThisPage({headings}) {
             {headings.length > 0 ? (
                 <>
                     {headings.map(({depth, text, id}) => (
-                        <div className={`ml-${(depth - 1)*4} text-sm py-1 px-2`}>
+                        <div className={`ml-${(depth - 1)*4} py-1 px-2 hover:underline`}>
                             <a href={`#${id}`}>
                                 {text}
                             </a>

@@ -4,18 +4,27 @@ import IoLoading from '../../components/IoLoading'
 import PictureBox from "../../components/Basics/PictureBox";
 
 import { useRouter } from "next/router";
+import React from "react"
+import { useEffect, useState } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import dynamic from "next/dynamic";
 import { remark } from 'remark'
 import remarkMdx from 'remark-mdx'
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 
 import fs from 'fs'
 import path from 'path'
 
 
+const HeadingWithId = ({ level, children }) => {
+    const id = children.toLowerCase().replace(/\s+/g, '-')
+    return React.createElement(`h${level}`, {id}, children)
+}
+
 const components = {
-    PictureBox
+    PictureBox,
+    h1: (props) => <HeadingWithId level={1} {...props} />,
+    h2: (props) => <HeadingWithId level={2} {...props} />,
+    h3: (props) => <HeadingWithId level={3} {...props} />
 }
 
 export default function BasicsPage( {mdxContent }) {
@@ -30,7 +39,6 @@ export default function BasicsPage( {mdxContent }) {
         loading: () => <IoLoading />
     })
 
-
     return (
         <BasicsLayout headings={headings}>
             <MDXProvider components={components}>
@@ -42,16 +50,18 @@ export default function BasicsPage( {mdxContent }) {
 
 const extractHeadings = async (content) => {
     const headings = []
-    await remark().use(remarkMdx).use(() => (tree) => {
-        function visit(node) {
-            if (node.type === 'heading') {
-                const depth = node.depth
-                const text = node.children.map(child => child.value).join('')
-                const id = text.toLowerCase().replace(/\s+/g, '-')
-                headings.push( { depth, text, id })
+    await remark()
+        .use(remarkMdx)
+        .use(() => (tree) => {
+            function visit(node) {
+                if (node.type === 'heading') {
+                    const depth = node.depth
+                    const text = node.children.map(child => child.value).join('')
+                    const id = text.toLowerCase().replace(/\s+/g, '-')
+                    headings.push( { depth, text, id })
+                }
+                if (node.children) node.children.forEach(visit)
             }
-            if (node.children) node.children.forEach(visit)
-        }
         visit(tree)
     }).process(content)
     return headings
@@ -61,9 +71,7 @@ const useHeadings = (content) => {
     const [headings, setHeadings] = useState([])
 
     useEffect(() => {
-        if(content){
-            extractHeadings(content).then(setHeadings)
-        }
+        extractHeadings(content).then(setHeadings)
     }, [content])
 
     return headings
@@ -72,13 +80,7 @@ const useHeadings = (content) => {
 export async function getStaticProps({ params }) {
     const slugPath = params.slug ? params.slug.join('/') : '';
     const filePath = path.join(process.cwd(), 'src/basics', `${slugPath}.mdx`);
-
-    let mdxContent = '';
-    try {
-        mdxContent = fs.readFileSync(filePath, 'utf8');
-    } catch (error) {
-        console.error("Error reading MDX file:", error);
-    }
+    const mdxContent = fs.readFileSync(filePath, 'utf8');
 
     return {
         props: { mdxContent }
