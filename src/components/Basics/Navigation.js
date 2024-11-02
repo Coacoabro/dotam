@@ -11,6 +11,7 @@ export default function Navigation() {
 
     const [openSections, setOpenSections] = useState({})
 
+
     const toggleSection = (title) => {
         setOpenSections(prev => ({
             ...prev,

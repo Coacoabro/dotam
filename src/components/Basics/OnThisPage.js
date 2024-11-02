@@ -2,9 +2,6 @@ import { useEffect, useState } from "react"
 
 export default function OnThisPage({headings}) {
 
-
-    console.log(headings)
-
     return(
         <div>
             <span className="text-xl">ON THIS PAGE</span>
