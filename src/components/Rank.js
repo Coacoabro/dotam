@@ -23,7 +23,7 @@ export default function Rank() {
 
   return(
       <div className='relative z-10'>
-        <button onClick={() => setIsOpen(!isOpen)} className='bg-slate-900 sm:text-lg h-8 w-24 sm:w-44 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
+        <button onClick={() => setIsOpen(!isOpen)} className='bg-slate-900 text-sm sm:text-lg h-8 w-28 sm:w-44 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
           <div className='flex items-center'>
             {currIcon ? <img src={currIcon} className="w-4 h-4 sm:w-6 sm:h-6 mr-1 sm:mr-2" /> : null}
             {currName}
@@ -32,11 +32,11 @@ export default function Rank() {
         </button>
 
         {isOpen && (
-                <div className="absolute mt-1 sm:mt-2 w-24 sm:w-44 bg-slate-900 shadow-lg text-center rounded-lg border border-slate-700">
+                <div className="absolute mt-1 sm:mt-2 w-28 sm:w-44 bg-slate-900 shadow-lg text-center rounded-lg border border-slate-700">
                     {Ranks.map((rank) => (
                         <div
                             onClick={() => handleClick(rank.rank, rank.name, rank.icon)}
-                            className={`sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer ${rank.rank == "" ? "rounded-t" : rank.rank == "HERALD" ? "rounded-b" : null}`}
+                            className={`text-sm sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer ${rank.rank == "" ? "rounded-t" : rank.rank == "HERALD" ? "rounded-b" : null}`}
                         >
                             {rank.icon ? <img src={rank.icon} className={`w-5 h-5 sm:w-6 sm:h-6 mr-2`} /> : null}
                             {rank.name}

@@ -50,10 +50,17 @@ export default function TierList() {
                     <div className="flex items-center justify-center space-x-2">
                         <HeroSearch onSearch={handleSearch} />
                     </div>
-                    <div class="flex items-center justify-center space-x-2">
+                    <div class="hidden sm:flex items-center justify-center space-x-2">
                         <Role />
                         <Patches />
                         <Rank />
+                    </div>
+                    <div class="flex flex-col sm:hidden items-center justify-center space-y-2">
+                        <Role />
+                        <div className='flex gap-6'>
+                            <Patches />
+                            <Rank />
+                        </div>
                     </div>
                 </div>
                 {isLoading ? (<LoadingWheel />) : (

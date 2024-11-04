@@ -22,7 +22,7 @@ export default function Patches() {
 
     return(
         <div className='relative z-10'>
-            <button onClick={() => setIsOpen(!isOpen)} className='bg-slate-900 sm:text-lg h-8 w-16 sm:w-28 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
+            <button onClick={() => setIsOpen(!isOpen)} className='bg-slate-900 text-sm sm:text-lg h-8 w-16 sm:w-28 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 rounded-lg border border-slate-700 justify-between items-center gap-1 inline-flex'>
             <div className='flex items-center'>
                 {currPatch}
             </div>
@@ -34,7 +34,7 @@ export default function Patches() {
                         {json.map((patch) => (
                             <div
                                 onClick={() => handleClick(patch.Patch, patch.url)}
-                                className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer"
+                                className="text-sm sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer"
                             >
                                 {patch.Patch}
                             </div>
