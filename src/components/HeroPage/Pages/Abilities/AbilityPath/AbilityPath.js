@@ -4,8 +4,6 @@ import AbilityRow from "./AbilityRow";
 
 export default function AbilityPath(abilities) {
 
-    console.log(abilities)
-
     const allAbilities = abilities.abilities.sort((a, b) => b["Matches"] - a["Matches"])
     const topAbilities = allAbilities.slice(0, 10)
 
