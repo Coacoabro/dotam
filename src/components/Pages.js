@@ -7,14 +7,18 @@ export default function Pages({ hero }) {
     const router = useRouter()
     const initPath = router.asPath.split('/').pop()
     const initPage = initPath.split("?")[0]
+    const initOptions = initPath.split("?")[1]
 
     const [isOpen, setIsOpen] = useState(false)
     const [currPage, setCurrPage] = useState(initPage)
+    const [currOptions, setCurrOptions] = useState('?' + initOptions)
 
     useEffect(() => {
         const initPath = router.asPath.split('/').pop()
         const initPage = initPath.split("?")[0]
+        const initOptions = initPath.split("?")[1]
         setCurrPage(initPage)
+        setCurrOptions('?' + initOptions)
     }, [router])
 
     return(
@@ -28,16 +32,16 @@ export default function Pages({ hero }) {
 
             {isOpen && (
                     <div className="absolute mt-1 sm:mt-2 w-16 sm:w-32 bg-slate-900 shadow-lg text-center rounded-lg border border-slate-700">
-                        <Link href={`/hero/${hero}/builds`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-t">
+                        <Link href={`/hero/${hero}/builds${currOptions ? currOptions : null}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-t">
                             Builds
                         </Link>
-                        <Link href={`/hero/${hero}/items`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
+                        <Link href={`/hero/${hero}/items${currOptions ? currOptions : null}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
                             Items
                         </Link>
-                        <Link href={`/hero/${hero}/abilities`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
+                        <Link href={`/hero/${hero}/abilities${currOptions ? currOptions : null}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
                             Abilities
                         </Link>
-                        <Link href={`/hero/${hero}/matchups`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-b">
+                        <Link href={`/hero/${hero}/matchups${currOptions ? currOptions : null}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-b">
                             Matchups
                         </Link>
                     </div>

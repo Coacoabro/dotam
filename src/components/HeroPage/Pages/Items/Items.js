@@ -10,7 +10,7 @@ export default function Items({ initRole, initFacet, heroData, heroBuilds, curre
     const router = useRouter()
     const { role, rank, patch, facet } = router.query
 
-    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == current_patch))
+    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == role || initRole && obj.rank == rank || "" && obj.facet == facet || initFacet && obj.patch == patch || current_patch))
     const [isCarry, setIsCarry] = useState(currBuild.role == 'POSITION_4' || currBuild.role == 'POSITION_5' ? false : true)
 
     useEffect(() => {

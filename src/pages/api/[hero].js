@@ -17,11 +17,6 @@ export default async function handler(req, res) {
         const info_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/info.json`)
         result = await info_res.json()
         break;
-        
-      case 'rates':
-        const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/rates.json`)
-        result = await rates_res.json()
-        break
 
       case 'page':
         if(page != 'matchups'){

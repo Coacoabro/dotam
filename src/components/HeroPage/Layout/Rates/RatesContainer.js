@@ -6,6 +6,7 @@ import RateCard from './RateCard';
 export default function RatesContainer({ rates, initRole, current_patch }) {
 
     const router = useRouter()
+    const {rank, role, patch} = router.query
 
     const tierColor = {
         "S+": "text-[#F4B856]", 
@@ -18,23 +19,23 @@ export default function RatesContainer({ rates, initRole, current_patch }) {
     }
 
     
-    const [heroWinRate, setHeroWinRate] = useState(0);
-    const [heroPickRate, setHeroPickRate] = useState(0);
-    const [heroMatches, setHeroMatches] = useState(0);
-    const [heroTier, setHeroTier] = useState(0);
-
+    const [currRate, setCurrRate] = useState(rates.find(r => r.rank === rank || "" && r.role === role || initRole && r.patch === patch || current_patch))
+    const [heroWinRate, setHeroWinRate] = useState((currRate.winrate * 100).toFixed(2));
+    const [heroPickRate, setHeroPickRate] = useState((currRate.pickrate * 100).toFixed(2));
+    const [heroMatches, setHeroMatches] = useState(currRate.matches.toLocaleString());
+    const [heroTier, setHeroTier] = useState(currRate.tier_str);
     const [color, setColor] = useState(tierColor[heroTier])
 
     useEffect(() => {
 
-        let { rank, role, patch } = router.query
-        if (!role) {role = initRole}
-        if (!rank) {rank = ""}
-        if (!patch) {patch = current_patch}
+        const currRole = role || initRole
+        const currRank = rank || ""
+        const currPatch = patch || current_patch
 
-        const rate = rates.find(r => r.rank === rank && r.role === role && r.patch === patch)
+        const rate = rates.find(r => r.rank === currRank && r.role === currRole && r.patch === currPatch)
 
         if (rate) {
+            setCurrRate(rate)
             setHeroWinRate((rate.winrate * 100).toFixed(2));
             setHeroPickRate((rate.pickrate * 100).toFixed(2));
             setHeroMatches(rate.matches.toLocaleString());

@@ -13,6 +13,7 @@ import BottomBar from '../../BottomBar';
 import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
 import Pages from '../../Pages';
+import HeroLoading from './HeroLoading';
 
 const fetchHeroData = async (hero, type, patch, page) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}&page=${page}`);
@@ -22,7 +23,7 @@ const fetchHeroData = async (hero, type, patch, page) => {
   return response.json();
 };
 
-export default function HeroLayout({ children, hero, current_patch, page }) {
+export default function HeroLayout({ children, hero, current_patch, page, rates, initRole }) {
 
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
@@ -31,15 +32,17 @@ export default function HeroLayout({ children, hero, current_patch, page }) {
 
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currPatch], () => fetchHeroData(hero.id, 'info', currPatch), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currPatch, page], () => fetchHeroData(hero.id, 'page', currPatch, page), {staleTime: 3600000});
-  const { data: heroRates, isLoading: ratesLoading } = useQuery(['heroData', hero.id, 'rates', currPatch], () => fetchHeroData(hero.id, 'rates', currPatch), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currPatch], () => fetchHeroData(hero.id, 'matchups', currPatch), {staleTime: 3600000});
 
   useEffect(() => {
     if(patch){setCurrPatch(patch)}
   }, [patch])
 
-  if(ratesLoading || infoLoading || buildsLoading || matchupsLoading ){
-    <IoLoading />
+  if( buildsLoading || matchupsLoading ){
+    if(heroInfo){
+      return(<HeroLoading hero={hero} heroData={heroInfo} rates={rates} current_patch={current_patch} initRole={initRole} />)
+    }
+    else{return(<IoLoading />)}
   }
   else{
 
@@ -47,11 +50,7 @@ export default function HeroLayout({ children, hero, current_patch, page }) {
 
     const heroName = hero.name
 
-    const highestPickRateRole = heroRates
-      .filter(rate => rate.role !== "" && rate.rank == "")
-      .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
     
-    const initRole = highestPickRateRole.role
 
     const initFacet = (() => {
       let most = 0;
@@ -78,46 +77,46 @@ export default function HeroLayout({ children, hero, current_patch, page }) {
       <div>
         <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
 
-        <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
+          <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
 
-          <img src={portrait} className="h-14 sm:h-32" />
+            <img src={portrait} className="h-14 sm:h-32" />
 
-          <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
-            <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
-            <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
+            <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
+              <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
+              <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
+            </div>
+
+            <div className="hidden sm:flex absolute right-0 mt-20 h-72 opacity-25 z-0">
+              <img src={crop_img} className="object-cover w-full h-full" />
+            </div>
+
           </div>
 
-          <div className="hidden sm:flex absolute right-0 mt-20 h-72 opacity-25 z-0">
+          <div className="sm:hidden absolute h-36 right-0 top-16 opacity-25">
             <img src={crop_img} className="object-cover w-full h-full" />
           </div>
 
-        </div>
-
-        <div className="sm:hidden absolute h-36 right-0 top-16 opacity-25">
-          <img src={crop_img} className="object-cover w-full h-full" />
-        </div>
-
-        <div className="block sm:hidden z-10">
-          <StaticInfo hero={heroData} />
-        </div>
-
-        <div className='flex space-x-3'>
-          <RatesContainer rates={heroRates} initRole={initRole} current_patch={current_patch} />
-          <div className='hidden sm:block'>
-            <h1 className='font-bold px-2 pb-2'>More Info:</h1>
-            <Pages hero={hero.url} />
+          <div className="block sm:hidden z-10">
+            <StaticInfo hero={heroData} />
           </div>
-        </div>
 
-        <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
-          <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
-        </div>
+          <div className='flex space-x-3'>
+            <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} />
+            <div className='hidden sm:block'>
+              <h1 className='font-bold px-2 pb-2'>More Info:</h1>
+              <Pages hero={hero.url} />
+            </div>
+          </div>
 
-        <main>
-          {React.Children.map(children, child =>
-            React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
-          )}
-        </main>
+          <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
+            <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
+          </div>
+
+          <main>
+            {React.Children.map(children, child =>
+              React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
+            )}
+          </main>
 
         </div>
 

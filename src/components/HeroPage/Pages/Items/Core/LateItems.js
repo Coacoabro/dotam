@@ -1,15 +1,23 @@
+import { useEffect, useState } from "react"
 import NthItems from "./NthItems"
+import { setOriginalNode } from "typescript"
 
 export default function LateItems({items, isCarry}){
 
     const orderedItems = Array.from({length: 7}, () => [])
-    const n = isCarry ? 4 : 3
+    const [n, setN] = useState(isCarry ? 4 : 3)
+
+    
 
     items.forEach(item => {
-        if (item.nth >= 3 && item.nth <=10) {
+        if (item.nth >= n && item.nth <=(n+6)) {
             orderedItems[item.nth - n].push(item)
         }
     })
+
+    useEffect(() => {
+        setN(isCarry ? 4 : 3)
+    }, [isCarry])
 
     return(
         <div className="flex custom-scrollbar p-4 gap-3">

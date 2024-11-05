@@ -5,13 +5,13 @@ import Boots from './Boots'
 import Early from './Early'
 import Core from './Core'
 import Late from './Late'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 
 export default function ItemsContainer({build, hero, role}) {
 
     const [isCarry, setIsCarry] = useState(role == "POSITION_4" || role == "POSITION_5" ? false : true)
+
     const [lateItems, setLateItems] = useState(build.core[0].late)
 
     const handleLate = (data) => {
@@ -25,6 +25,7 @@ export default function ItemsContainer({build, hero, role}) {
         else {
             setIsCarry(true)
         }
+        setLateItems(build.core[0].late)
     }, [build, role])    
 
     return(

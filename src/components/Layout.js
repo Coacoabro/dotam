@@ -8,7 +8,7 @@ import BottomBar from './BottomBar';
 import TopBar from './TopBar';
 
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
 
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function Layout({children}) {
   useEffect(() => {
 
     const handleStart = (url) => {
-      if(!url.includes(route)){
+      if (!url.includes(route)) {
         setRoute(router.pathname.split('/')[1])
         setIsLoading(true)
       }
@@ -40,18 +40,20 @@ export default function Layout({children}) {
   }, [router]);
 
   return (
-        <div className="layout overflow-x-hidden overflow-y-hidden">
-          <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          </Head>
-          <header className='z-10'><TopBar /></header>
-          {isLoading ? (
-            <IoLoading />
-          ) 
-          : 
-          (<main className='pt-24 z-20'>{children}</main>)}
-          <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/')  ? 'hidden' : ''} ${path == '/' ? 'pt-24 lg:pt-[650px]' : 'pt-12 lg:pt-56'}  z-0`}><BottomBar /></footer>
-          <Analytics />
+    <div className="layout overflow-x-hidden overflow-y-hidden">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <header className='z-10'>
+        <TopBar />
+      </header>
+      {isLoading ? (
+        <IoLoading />
+      )
+        :
+        (<main className='pt-24 z-20'>{children}</main>)}
+      <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} ${path == '/' ? 'pt-24 lg:pt-[650px]' : 'pt-12 lg:pt-56'}  z-0`}><BottomBar /></footer>
+      <Analytics />
     </div>
   );
 };
