@@ -11,6 +11,7 @@ export default function Items({ initRole, initFacet, heroData, heroBuilds, curre
     const { role, rank, patch, facet } = router.query
 
     const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == current_patch))
+    const [isCarry, setIsCarry] = useState(currBuild.role == 'POSITION_4' || currBuild.role == 'POSITION_5' ? false : true)
 
     useEffect(() => {
 
@@ -20,6 +21,10 @@ export default function Items({ initRole, initFacet, heroData, heroBuilds, curre
         const currFacet = facet || initFacet
 
         setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
+        if(currRole == 'POSITION_4' || currRole == 'POSITION_5'){
+            setIsCarry(false)
+        }
+        else{setIsCarry(true)}
 
     }, [role, rank, patch, facet, heroBuilds])
 
@@ -29,7 +34,7 @@ export default function Items({ initRole, initFacet, heroData, heroBuilds, curre
                 <div className="w-1/4"><Starting hero={heroData} items={currBuild.starting} /></div>
                 <div className="w-3/4"><Early hero={heroData} items={currBuild.early} /></div>
             </div>
-            <Core hero={heroData} items={currBuild.core} />
+            <Core hero={heroData} items={currBuild.core} isCarry={isCarry} />
             <Neutrals hero={heroData} items={currBuild.neutrals} />
         </div>
     )

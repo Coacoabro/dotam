@@ -264,7 +264,7 @@ for hero_id in hero_ids:
         }
         items_data.append(items_info)
 
-        build_core = core_array[:3]
+        build_core = copy.deepcopy(core_array[:3])
 
         for cores in build_core:
             newLate = []

@@ -17,7 +17,7 @@ export default function EarlyRow({order, item, secondpurchase, matches, wins}){
             <tr className={`${order % 2 ? null : "bg-slate-950"} hover:bg-slate-900 ${order != 9 ? 'border-b-2 border-slate-800' : null}`}>
                 <td className="flex items-center gap-4 py-3 px-4  overflow-x-scroll sm:overflow-visible min-w-[540px]">
                     <Item id={item} />
-                    {itemName}
+                    {itemName}{secondpurchase ? <span className='text-cyan-300'>(2nd Purchase)</span> : null}
                 </td>
                 
                 <td className={`${wrColor} text-xs sm:text-lg`}>{wr}%</td>

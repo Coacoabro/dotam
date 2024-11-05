@@ -10,8 +10,6 @@ export default function Neutrals({hero, items}){
         }
     })
 
-    console.log(tieredItems)
-
     return(
         <div className="bg-slate-900 rounded-lg py-4 px-8 border border-slate-800 space-y-2">
             <div className="flex items-center gap-2.5 px-2 sm:px-0">
