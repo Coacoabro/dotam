@@ -11,8 +11,8 @@ export default function StartingContainer({items}){
     return(
         <div className="px-4 space-y-2">
             <div className="flex justify-between items-center">
-                <p className={`text-xl ${wrColor}`}>{wr}% <span className="text-sm text-slate-200">WR</span></p>
-                <p className="text-sm">{matches} Matches</p>
+                <p className={`sm:text-xl ${wrColor}`}>{wr}% <span className="text-xs sm:text-sm text-slate-200">WR</span></p>
+                <p className="text-xs sm:text-sm">{matches} Matches</p>
             </div>
             <div className="grid grid-cols-3 gap-2 place-items-center">
                 {items.starting.map((item, index) => (

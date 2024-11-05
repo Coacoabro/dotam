@@ -30,9 +30,9 @@ export default function Items({ initRole, initFacet, heroData, heroBuilds, curre
 
     return(
         <div className="space-y-4">
-            <div className="flex gap-2">
-                <div className="w-1/4"><Starting hero={heroData} items={currBuild.starting} /></div>
-                <div className="w-3/4"><Early hero={heroData} items={currBuild.early} /></div>
+            <div className="sm:flex gap-2 space-y-4 sm:space-y-0">
+                <div className="w-3/4 mx-auto sm:w-1/4"><Starting hero={heroData} items={currBuild.starting} /></div>
+                <div className="sm:w-3/4"><Early hero={heroData} items={currBuild.early} /></div>
             </div>
             <Core hero={heroData} items={currBuild.core} isCarry={isCarry} />
             <Neutrals hero={heroData} items={currBuild.neutrals} />

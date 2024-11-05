@@ -4,8 +4,8 @@ import EarlyRow from "./EarlyRow";
 export default function EarlyTable({items}){
 
     return(
-        <div className="overflow-y-auto custom-scrollbar bg-slate-950 rounded-lg shadow border border-slate-800 sm:h-96">
-            <table className="table-auto w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-sm sm:text-xl">
+        <div className="overflow-y-auto custom-scrollbar bg-slate-950 rounded-lg shadow border border-slate-800 h-96">
+            <table className="table-auto sm:w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight text-sm sm:text-xl">
                 <tr className="border-b-2 border-slate-800">
                     <th className="text-left px-8 py-3 sm:w-3/5">
                         Item
