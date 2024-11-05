@@ -12,7 +12,7 @@ export default function LateItems({items, isCarry}){
     })
 
     return(
-        <div className="flex custom-scrollbar p-4 gap-2">
+        <div className="flex custom-scrollbar p-4 gap-3">
             {orderedItems.map((nthItems, index) => (
                 <div>
                     <NthItems items={nthItems} order={index} n={n} />
