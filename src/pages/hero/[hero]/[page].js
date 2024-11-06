@@ -85,7 +85,7 @@ export default function HeroPage({ hero, patch, rates }) {
                     content={KeywordsContent} />
                 <meta name="google-adsense-account"
                     content="ca-pub-2521697717608899" />
-                <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+                <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
                     crossorigin="anonymous"></script>
             </Head>

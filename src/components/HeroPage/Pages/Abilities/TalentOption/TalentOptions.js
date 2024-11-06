@@ -40,10 +40,6 @@ export default function TalentOptions({talents, hero}) {
         const rightTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
         const leftTalents = [Talents[7], Talents[5], Talents[3], Talents[1]]
 
-        console.log(rightTalents, leftTalents)
-
-
-
         const levels = [25, 20, 15, 10]
 
         return(
