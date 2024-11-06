@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import CoreItems from "./CoreItems";
 import LateItems from "./LateItems";
 
 export default function MobileCoreContainer({items, isCarry}){
 
     const [currCore, setCurrCore] = useState(items[0])
+
+    useEffect(() => {
+        setCurrCore(items[0])
+    }, [items])
 
     return(
         <div className="bg-slate-950 rounded-lg ">
