@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Navigation from "./Navigation"
 import OnThisPage from "./OnThisPage"
 import { useRouter } from "next/router"
+import Head from "next/head"
 
 export default function BasicsLayout({children, headings}){
 
@@ -16,6 +17,13 @@ export default function BasicsLayout({children, headings}){
 
     return(
         <div>
+            <Head>
+                <title>Basics: {headings[0] ? headings[0].text : ''}</title>
+                <meta name="google-adsense-account"
+                    content="ca-pub-2521697717608899" />
+                <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
+            </Head>
             {/* Desktop Version */}
             <div className="hidden sm:flex space-x-4 mt-8 h-[calc(100vh-160px)]">
                 <div className="w-1/6"><Navigation /></div>

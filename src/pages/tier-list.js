@@ -35,8 +35,8 @@ export default function TierList() {
                 <title>Dota 2 Tier Lists</title>
                 <meta name="description" 
                 content="Dota 2 tier list based on current win rates and pick rates from almost all ranked games played within the current patch" />
-                <meta name="keywords"
-                content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg" />
+                <meta name="keywords" 
+                content="Dota 2 Tier List, Dota 2 Hero Rankings, Best Dota 2 Heroes, Top Dota 2 Heroes, Dota 2 Hero Tier Rankings, Dota 2 Hero Guide, Dota 2 Meta Tier List, Dota 2 Patch Tier List, Dota 2 Competitive Tier List, Dota 2 Hero Strengths and Weaknesses, Dota 2 Ranked Heroes, Dota 2 Best Heroes for Patch, Dota 2 High-Rank Hero Picks, Dota 2 Pro Meta Tier List, Dota 2 Hero Rankings by Role, Dota 2 Tier List for Rank, Dota 2 Best Carry Heroes, Dota 2 Best Support Heroes, Dota 2 Hero Rankings by Patch, Dota 2 Hero Tier List by Meta, Dota 2 Tier List 2024, Dota 2 Hero Balance, Dota 2 Hero Tiers" />
                 <meta name="google-adsense-account"
                 content="ca-pub-2521697717608899" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
