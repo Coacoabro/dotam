@@ -17,7 +17,7 @@ export default function Core({hero, items, isCarry}){
                     <h1 className='text-lg sm:text-2xl font-bold '>Core Items</h1>
                     <h2 className='text-lg text-gray-300/50 hidden sm:block'>First set of items</h2>
                 </div>
-                <div className="flex items-end gap-2 hidden sm:block">
+                <div className="sm:flex items-end gap-2 hidden">
                     <h1 className='text-lg sm:text-2xl font-bold'>Late Game Items</h1>
                     <h2 className='text-lg text-gray-300/50 hidden sm:block'>Get these after selecting your core items!</h2>
                 </div>
