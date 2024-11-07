@@ -15,7 +15,7 @@ export default function ItemCard({item, index}) {
             <div className='flex sm:gap-2.5 items-start'>
                 <div className='w-16'>
                     <Item id={itemId} />
-                    <div className='absolute -mt-6 ml-5 sm:-mt-5 w-full sm:ml-8'>{item.isSecondPurchase ? <div>2nd</div> : null}</div>
+                    <div className='absolute -mt-6 ml-5 sm:-mt-7 w-full sm:ml-8'>{item.secondpurchase ? <div>2nd</div> : null}</div>
                 </div>
                 
                 <div className='w-28'>
