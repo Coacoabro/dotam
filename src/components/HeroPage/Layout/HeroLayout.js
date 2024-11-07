@@ -122,7 +122,10 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
         </div>
 
         <div className='z-0 mx-auto mt-12'>
-          <HorizontalAd />
+          {/* <HorizontalAd /> */}
+          <div className="w-[50%] h-[100px] bg-gray-200 block text-gray-700 mx-auto">
+            Ad Placeholder
+          </div>
           <BottomBar />
         </div>
 
