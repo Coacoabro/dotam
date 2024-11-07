@@ -7,6 +7,7 @@ import Core from './Core'
 import Late from './Late'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Neutrals from './Neutrals'
 
 
 export default function ItemsContainer({build, hero, role}) {
@@ -40,7 +41,7 @@ export default function ItemsContainer({build, hero, role}) {
     }, [build, role, router])    
 
     return(
-        <div className='w-full space-y-4 sm:space-y-2'>
+        <div className='w-full space-y-4'>
             <div className="sm:h-72 sm:flex lg:justify-between items-start sm:items-center lg:items-start gap-2.5 space-y-2 lg:space-y-0">
                 <div className='px-12 lg:px-0 space-y-4 sm:w-72'>
                     <Link href={`/hero/${hero.url}/items${currOptions ? currOptions : null}`} className='flex items-center justify-between mx-auto rounded-lg border border-cyan-200/25 px-5 py-2 hover:bg-slate-700'>
@@ -66,6 +67,9 @@ export default function ItemsContainer({build, hero, role}) {
             </div>
             <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full'>
                 <Late items={lateItems} isCarry={isCarry} />
+            </div>
+            <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full'>
+                <Neutrals hero={hero} items={build.neutrals} />
             </div>
         </div>
     )
