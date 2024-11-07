@@ -15,7 +15,7 @@ export default function Neutrals({hero, items}){
             <div className="flex items-center gap-2.5 px-2 sm:px-0">
                 <div className="flex items-end gap-2">
                     <h1 className='text-lg sm:text-xl font-bold '>Neutrals</h1>
-                    <h2 className='text-base text-gray-300/50 hidden sm:block'>Best neutral items for {hero.localized_name}</h2>
+                    <h2 className='text-base text-gray-300/50 hidden sm:block'>Best neutral items for {hero.name}</h2>
                 </div>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:flex justify-evenly">
