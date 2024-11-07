@@ -121,9 +121,8 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
         </div>
 
-        <HorizontalAd />
-
-        <div className='z-0'>
+        <div className='z-0 mx-auto mt-12'>
+          <HorizontalAd />
           <BottomBar />
         </div>
 

@@ -14,7 +14,7 @@ export default function HorizontalAd(){
     }, [])
 
     return(
-        <>
+        <div className='flex items-center justify-center'>
             <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
@@ -24,13 +24,17 @@ export default function HorizontalAd(){
 
             <ins
                 className='adsbygoogle'
-                style={{ display: 'block' }}
+                style={{
+                    display: 'block',
+                    width: '300px',
+                    height: '150px'
+                }}
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot="1909967797"
                 data-ad-format="auto"
                 data-full-width-responsive="true"
             >    
             </ins>
-        </>
+        </div>
     )
 }
