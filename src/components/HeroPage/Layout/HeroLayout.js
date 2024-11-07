@@ -14,6 +14,7 @@ import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
 import Pages from '../../Pages';
 import HeroLoading from './HeroLoading';
+import HorizontalAd from '../../Ads/Google/HorizontalAd';
 
 const fetchHeroData = async (hero, type, patch, page) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}&page=${page}`);
@@ -120,7 +121,9 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
         </div>
 
-        <div className='pt-12 lg:pt-36 z-0'>
+        <HorizontalAd />
+
+        <div className='z-0'>
           <BottomBar />
         </div>
 
