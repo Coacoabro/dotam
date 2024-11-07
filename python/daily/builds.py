@@ -73,6 +73,7 @@ def getBuilds(ranked_matches, builds):
     Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
 
     Early = [29, 34, 36, 41, 73, 75, 77, 88, 178, 181, 240, 244, 569]
+    Stackable = [73, 75, 77]
     SupportFull = [37, 79, 90, 92, 102, 226, 231, 254, 269, 1128]
     FullItems = [1, 48, 50, 63, 65, 81, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114,
                 116, 119, 121, 123, 125, 127, 131, 133, 135, 137, 139, 141, 143, 145, 
@@ -186,7 +187,10 @@ def getBuilds(ranked_matches, builds):
                                     if earlitem['time'] < 900 and item_id in Early:
                                         secondPurchase = False
                                         if item_id in tempItemArray:
-                                            secondPurchase = True
+                                            if item_id in Stackable:
+                                                secondPurchase = True
+                                            else:
+                                                secondItems.append(item_id)
                                         if item_id not in secondItems:
                                             tempItemArray.append(item_id)
                                             earlyItems.append({'Item': item_id, 'isSecondPurchase': secondPurchase})
