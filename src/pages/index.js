@@ -74,7 +74,7 @@ export default function Home() {
                 <Heroes scrollY={scrollY}/>
             </div>
 
-            <div className='w-[300px] h-[600px] fixed top-1/4 left-4'>
+            <div className='w-[300px] h-[300px] fixed top-1/4 right-4'>
                 <VerticalAd slot="3693391551" />
             </div>
         </div>

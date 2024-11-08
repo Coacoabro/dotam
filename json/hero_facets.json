@@ -1827,5 +1827,13 @@
             "Desc": "Muerta can place a beneficial Ofrenda on the map to respawn there instead of the fountain.",
             "Icon": "teleport"
         }
+    ],
+    "145": [
+        {
+            "Name": "kez_default",
+            "Title": "Hero of the Flightless",
+            "Desc": "Kez always has a few fun tricks up his sleeve, but right now he's got a war to win. This facet doesn't do anything... yet.",
+            "Icon": "kez"
+        }
     ]
 }

@@ -7,7 +7,7 @@ base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 def get_innate():
     innate_json = {}
 
-    for i in range(1, 139):
+    for i in range(1, 146):
 
         url = base_url + str(i)
 
@@ -49,7 +49,7 @@ def get_facets():
     facets_json = {}
     facet_nums_json = {}
 
-    for i in range(1, 139):
+    for i in range(1, 146):
 
         url = base_url + str(i)
 
