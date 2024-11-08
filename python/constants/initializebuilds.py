@@ -15,7 +15,7 @@ base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 def get_innate():
     innate_json = {}
 
-    for i in range(1, 139):
+    for i in range(1, 146):
 
         url = base_url + str(i)
 
@@ -52,38 +52,6 @@ def get_innate():
     with open('./json/hero_innate.json', 'w') as f:
         json.dump(innate_json, f)
 
-def get_facets():
-    facets_json = {}
-    facet_nums_json = {}
-
-    for i in range(1, 139):
-
-        url = base_url + str(i)
-
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
-
-            if data["result"]["data"]["heroes"]:
-                facets = data["result"]["data"]["heroes"][0]["facets"]
-                hero_facets = []
-                facet_nums = []
-                n = 0
-                for facet in facets:
-                    n += 1
-                    hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet["description_loc"], "Icon": facet["icon"]} )
-                    facet_nums.append(n)
-                
-                facet_nums_json[i] = facet_nums
-                facets_json[i] = hero_facets
-
-    with open('./json/hero_facets.json', 'w') as f:
-        json.dump(facets_json, f)
-    with open('./json/facet_nums.json', 'w') as f:
-        json.dump(facet_nums_json, f)
-
-
-get_facets()
 get_innate()
 
 # My Amazon Database
@@ -99,7 +67,6 @@ conn.close()
 conn = psycopg2.connect(builds_database_url)
 cur = conn.cursor()
 
-# Update on my S3 cloudfront bucket
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
 

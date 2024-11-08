@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router';
 import json from '../../json/hero_facets.json'
+import heroAbilities from '../../dotaconstants/build/hero_abilities.json'
 
 
-export default function Facets( {id, initFacet} ) {
+export default function Facets( {name, initFacet} ) {
 
     const router = useRouter()
 
     const { facet } = router.query
+
+    const heroFacets = heroAbilities[name].facets
 
     const [currFacet, setCurrFacet] = useState(facet || initFacet)
     const [facetShow, setFacetShow] = useState(false)
@@ -33,23 +36,23 @@ export default function Facets( {id, initFacet} ) {
         setHoverFacet(null)
     }
 
-    const facet1 = json[id][0]
-    const facet2 = json[id][1]
+    const facet1 = heroFacets[0]
+    const facet2 = heroFacets[1]
     const facet3 = (() => {
-        if (json[id].length > 2) {
-          return json[id][2]
+        if (heroFacets.length > 2) {
+          return heroFacets[2]
         }
         else{return null}
     })()
     const facet4 = (() => {
-        if (json[id].length > 3) {
-          return json[id][3]
+        if (heroFacets.length > 3) {
+          return heroFacets[3]
         }
         else{return null}
     })()
     const facet5 = (() => {
-        if (json[id].length > 4) {
-          return json[id][4]
+        if (heroFacets.length > 4) {
+          return heroFacets[4]
         }
         else{return null}
     })()   
@@ -64,7 +67,7 @@ export default function Facets( {id, initFacet} ) {
                 onMouseLeave={() => hideFacetInfo()}
             >
                 {initFacet == 1 ? (<div className='underline font-bold'>Best</div>) : null}
-                <img src={iconLink + facet1.Icon + '.png'} className={`${currFacet == 1 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                <img src={iconLink + facet1.icon + '.png'} className={`${currFacet == 1 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
             </button>
             
             {facet2 ? (
@@ -75,7 +78,7 @@ export default function Facets( {id, initFacet} ) {
                     onMouseLeave={() => hideFacetInfo()}
                 >
                     {initFacet == 2 ? (<div className='underline font-bold'>Best</div>) : null}
-                    <img src={iconLink + facet2.Icon + '.png'} className={`${currFacet == 2 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                    <img src={iconLink + facet2.icon + '.png'} className={`${currFacet == 2 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
                 </button>
             ) : null}
 
@@ -87,7 +90,7 @@ export default function Facets( {id, initFacet} ) {
                     onMouseLeave={() => hideFacetInfo()}
                 >
                     {initFacet == 3 ? (<div className='underline font-bold'>Best</div>) : null}
-                    <img src={iconLink + facet3.Icon + '.png'} className={`${currFacet == 3 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                    <img src={iconLink + facet3.icon + '.png'} className={`${currFacet == 3 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
                 </button>
             ) : null}
 
@@ -99,7 +102,7 @@ export default function Facets( {id, initFacet} ) {
                     onMouseLeave={() => hideFacetInfo()}
                 >
                     {initFacet == 4 ? (<div className='underline font-bold'>Best</div>) : null}
-                    <img src={iconLink + facet4.Icon + '.png'} className={`${currFacet == 4 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                    <img src={iconLink + facet4.icon + '.png'} className={`${currFacet == 4 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
                 </button>
             ) : null}
 
@@ -111,7 +114,7 @@ export default function Facets( {id, initFacet} ) {
                     onMouseLeave={() => hideFacetInfo()}
                 >
                     {initFacet == 5 ? (<div className='underline font-bold'>Best</div>) : null}
-                    <img src={iconLink + facet5.Icon + '.png'} className={`${currFacet == 5 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
+                    <img src={iconLink + facet5.icon + '.png'} className={`${currFacet == 5 ? 'brightness-0' : ''} w-4 h-4 sm:w-6 sm:h-6`} />
                 </button>
             ) : null}
 
@@ -119,13 +122,13 @@ export default function Facets( {id, initFacet} ) {
                 <div className='hidden sm:block absolute py-2 z-50 mt-[270px]'>
                     <div className="text-white border-slate-900 shadow whitespace-pre-line z-40 w-[300px] sm:w-[400px]">
                         <div className="text-lg sm:text-2xl flex font-bold rounded-t-lg py-2 px-3 sm:py-2 sm:px-5 bg-slate-800 items-center gap-2 border-slate-600 shadow border-t border-l border-r">
-                        <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-8 sm:w-10 sm:h-10 rounded-md sm:p-1" />
-                            {hoverFacet.Title}
+                        <img src={iconLink + hoverFacet.icon + '.png'} className="w-6 h-8 sm:w-10 sm:h-10 rounded-md sm:p-1" />
+                            {hoverFacet.title}
                         </div>
                         <p
                             className={`text-sm sm:text-lg px-3 py-2 sm:px-6 sm:py-5 bg-slate-950 text-cyan-300 border-l border-r border-b border-slate-600 rounded-b-lg`}
                             dangerouslySetInnerHTML={{
-                                __html: hoverFacet.Desc.replace(/\{[^}]*\}/g, '?'),
+                                __html: hoverFacet.description.replace(/\{[^}]*\}/g, '?'),
                             }}
                         ></p>
                     </div>
