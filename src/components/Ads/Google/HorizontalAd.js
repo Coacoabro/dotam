@@ -22,20 +22,11 @@ export default function HorizontalAd(){
                 strategy='afterInteractive'
             />
 
-            <ins
-                className='adsbygoogle'
-                style={{
-                    display: 'block',
-                    width: '728px',
-                    height: '90px',
-                    maxHeight: '100px'
-                }}
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:728px;height:90px"
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot="1909967797"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-            >    
-            </ins>
+            ></ins>
         </div>
     )
 }
