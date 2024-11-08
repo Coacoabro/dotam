@@ -39,7 +39,7 @@ export default function Home() {
     }, [router.asPath]);
     
     return(
-        <div className='flex justify-between'>
+        <div className='flex flex-col relative min-h-screen'>
 
             <Head>
                 <title>DotaM: Dota 2 Builds Tier Lists and Basics</title>
@@ -53,30 +53,29 @@ export default function Home() {
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
 
-            <div className='w-[300px] h-[600px]'>
+            <div className='w-[300px] h-[600px] fixed top-1/4 left-4'>
                 <VerticalAd slot="7985255708" />
+                Test
             </div>
 
-            <div className="flex flex-col relative min-h-screen">
 
-                <div className="flex top-[5vh] sm:top-[20vh] justify-center items-center relative z-10" >
-                    <Hero />
-                </div>
-
-                <div id="heroes" className="flex top-[10vh] sm:top-[22.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
-                    <div>Data powered by</div>
-                    <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.stratz.com" target="_blank"> <img src="/StratzLogo.svg" className='w-8 h-8'/>Stratz</a>
-                    {/* <div>and</div>
-                    <a className="font-bold flex space-x-1 items-center text-indigo-200" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a> */}
-                </div>
-
-                <div className={`relative top-[15vh] sm:top-[25vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 space-y-8`}>
-                    <HorizontalAd slot="1909967797" />
-                    <Heroes scrollY={scrollY}/>
-                </div>
+            <div className="flex top-[5vh] sm:top-[20vh] justify-center items-center relative z-10" >
+                <Hero />
             </div>
 
-            <div className='w-[300px] h-[600px]'>
+            <div id="heroes" className="flex top-[10vh] sm:top-[22.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
+                <div>Data powered by</div>
+                <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.stratz.com" target="_blank"> <img src="/StratzLogo.svg" className='w-8 h-8'/>Stratz</a>
+                {/* <div>and</div>
+                <a className="font-bold flex space-x-1 items-center text-indigo-200" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a> */}
+            </div>
+
+            <div className={`relative top-[15vh] sm:top-[25vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 space-y-8`}>
+                <HorizontalAd slot="1909967797" />
+                <Heroes scrollY={scrollY}/>
+            </div>
+
+            <div className='w-[300px] h-[600px] fixed top-1/4 left-4'>
                 <VerticalAd slot="3693391551" />
             </div>
         </div>

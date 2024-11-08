@@ -14,7 +14,7 @@ export default function VerticalAd( {slot} ){
     }, [])
 
     return(
-        <div className='flex items-center justify-center mx-auto'>
+        <>
             <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
@@ -31,6 +31,6 @@ export default function VerticalAd( {slot} ){
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot={slot}
             ></ins>
-        </div>
+        </>
     )
 }
