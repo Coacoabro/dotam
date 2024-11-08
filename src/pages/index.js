@@ -55,7 +55,6 @@ export default function Home() {
 
             <div className='w-[300px] h-[600px] fixed top-1/4 left-4'>
                 <VerticalAd slot="7985255708" />
-                Test
             </div>
 
 
