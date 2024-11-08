@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar'
 
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import HorizontalAd from '../components/Ads/Google/HorizontalAd'
 
 
 export default function Home() {
@@ -54,14 +55,15 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div id="heroes" className="flex top-[10vh] sm:top-[27.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
+            <div id="heroes" className="flex top-[10vh] sm:top-[22.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
                 <div>Data powered by</div>
                 <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.stratz.com" target="_blank"> <img src="/StratzLogo.svg" className='w-8 h-8'/>Stratz</a>
                 {/* <div>and</div>
                 <a className="font-bold flex space-x-1 items-center text-indigo-200" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a> */}
             </div>
 
-            <div className={`relative top-[15vh] sm:top-[35vh] filter transition-all top-3/4 duration-500 ease-in-out z-0`}>
+            <div className={`relative top-[15vh] sm:top-[25vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 space-y-8`}>
+                <HorizontalAd />
                 <Heroes scrollY={scrollY}/>
             </div>
         </div>
