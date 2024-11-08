@@ -8365,7 +8365,7 @@
     "dmg_type": "Physical",
     "bkbpierce": "Yes",
     "dispellable": "Strong Dispels Only",
-    "notes": "Does not stack with other sources of Bash.\nThe following heroes cannot trigger Bash on this item: Spirit Breaker, Faceless Void, and Slardar.\nDoes not grant Bash to Clones and Tempest Doubles.",
+    "notes": "Does not stack with other sources of Bash.\nThe following heroes cannot trigger Bash on this item: Spirit Breaker, Faceless Void, Slardar, and Kez while in Sai mode.\nDoes not grant Bash to Clones and Tempest Doubles.",
     "attrib": [
       {
         "key": "bonus_damage",
@@ -11902,7 +11902,7 @@
       "Hero",
       "Basic"
     ],
-    "notes": "The stun is melee range.\nDoes not stack with other bashes, and does not grant bash to Clones and Tempest Doubles.\nMultiple sources of damage block do not stack.",
+    "notes": "The stun is melee range.\nDoes not stack with other bashes, and does not grant bash to Clones and Tempest Doubles.\nMultiple sources of damage block do not stack.\nThe following heroes cannot trigger Bash on this item: Spirit Breaker, Faceless Void, Slardar, and Kez while in Sai mode.",
     "attrib": [
       {
         "key": "bonus_damage",

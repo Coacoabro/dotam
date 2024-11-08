@@ -13,7 +13,6 @@ export default async function handler(req, res) {
     switch (type) {
 
       case 'info':
-        
         const info_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/info.json`)
         result = await info_res.json()
         break;

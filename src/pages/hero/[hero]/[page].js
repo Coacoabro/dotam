@@ -16,7 +16,16 @@ export async function getServerSideProps(context) {
     const patch = await patch_res.text()
     if(hero && patch){
         const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero.id}/rates.json`)
-        const rates = await rates_res.json()
+        let rates = []
+
+        try {
+            const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero.id}/rates.json`)
+            rates = await rates_res.json();
+        } catch (error) {
+            console.error('Error fetching rates:', error);
+            rates = {};  // Fallback to an empty JSON object
+        }
+
 
         return {
             props: {
@@ -34,11 +43,17 @@ export default function HeroPage({ hero, patch, rates }) {
 
     const heroName = hero.name;
 
-    const highestPickRateRole = rates
-      .filter(rate => rate.role !== "" && rate.rank == "")
-      .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
-    
-    const initRole = highestPickRateRole.role
+    let initRole = ''
+
+    if(rates.length > 0){
+        const highestPickRateRole = rates
+            .filter(rate => rate.role !== "" && rate.rank == "")
+            .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
+      
+        initRole = highestPickRateRole.role
+    }
+
+
 
     // Determine which page to render based on the 'page' query
     let PageComponent

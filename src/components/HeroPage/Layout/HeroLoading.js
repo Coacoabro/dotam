@@ -46,7 +46,7 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
             </div>
 
             <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
-                <OptionsContainer hero={hero} />
+                <OptionsContainer hero={hero} hero_name={heroData.name} />
             </div>
 
             <div className="hidden sm:block"><LoadingWheel /></div>

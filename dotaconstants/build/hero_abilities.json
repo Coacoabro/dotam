@@ -8449,7 +8449,8 @@
       "ringmaster_empty_souvenir",
       "ringmaster_spotlight",
       "ringmaster_wheel",
-      "ringmaster_tame_the_beasts_crack"
+      "ringmaster_tame_the_beasts_crack",
+      "generic_hidden"
     ],
     "talents": [
       {
@@ -8510,6 +8511,66 @@
         "gradient_id": 3,
         "title": "Center Stage",
         "description": "Ringmaster is still new to the spotlight. This facet doesn't do anything... yet."
+      }
+    ]
+  },
+  "npc_dota_hero_kez": {
+    "abilities": [
+      "kez_echo_slash",
+      "kez_grappling_claw",
+      "kez_kazurai_katana",
+      "kez_switch_weapons",
+      "generic_hidden",
+      "kez_raptor_dance",
+      "kez_falcon_rush",
+      "kez_talon_toss",
+      "kez_shodo_sai",
+      "kez_ravens_veil",
+      "kez_shodo_sai_parry_cancel"
+    ],
+    "talents": [
+      {
+        "name": "special_bonus_magic_resistance_12",
+        "level": 1
+      },
+      {
+        "name": "special_bonus_mp_regen_150",
+        "level": 1
+      },
+      {
+        "name": "special_bonus_unique_kez_falcon_rush_duration",
+        "level": 2
+      },
+      {
+        "name": "special_bonus_unique_kez_raptor_dance_radius",
+        "level": 2
+      },
+      {
+        "name": "special_bonus_unique_kez_kazura_katana_bleed_damage",
+        "level": 3
+      },
+      {
+        "name": "special_bonus_unique_kez_falcon_rush_evasion",
+        "level": 3
+      },
+      {
+        "name": "special_bonus_unique_kez_mark_damage",
+        "level": 4
+      },
+      {
+        "name": "special_bonus_unique_kez_echo_slash_strike_count",
+        "level": 4
+      }
+    ],
+    "facets": [
+      {
+        "id": 0,
+        "name": "kez_default",
+        "icon": "kez",
+        "color": "Blue",
+        "gradient_id": 3,
+        "title": "Hero of the Flightless",
+        "description": "Kez always has a few fun tricks up his sleeve, but right now he's got a war to win. This facet doesn't do anything... yet."
       }
     ]
   }

@@ -49,9 +49,7 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
     const heroData = heroInfo
 
-    const heroName = hero.name
-
-    
+    const heroName = hero.name    
 
     const initFacet = (() => {
       let most = 0;
@@ -110,7 +108,7 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
           </div>
 
           <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
-            <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} />
+            <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} />
           </div>
 
           <main>
