@@ -10,6 +10,8 @@ import Role from "../components/Role";
 import BottomBar from '../components/BottomBar';
 import HeroSearch from '../components/Home/Heroes/HeroSearch';
 import BottomBarAd from '../components/Ads/Google/BottomBarAd';
+import VerticalAd from '../components/Ads/Google/VerticalAd';
+import SquareAd from '../components/Ads/Google/SquareAd';
 
 const fetchTierData = async (hero, type) => {
     const response = await fetch(`/api/tier-list`);
@@ -76,6 +78,13 @@ export default function TierList() {
                 </div>
             ) : null}
             
+            <div className='fixed top-1/4 left-4'>
+                <VerticalAd slot="9393446382" />
+            </div>
+            
+            <div className='fixed top-1/4 right-4'>
+                <SquareAd slot="7585670579" />
+            </div>
         </div>
     )
 }
