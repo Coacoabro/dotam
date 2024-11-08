@@ -45,7 +45,7 @@ export default function BottomBarAd() {
             />
 
             {/* Conditionally render the ad if loaded */}
-            {adLoaded && router.asPath !== "/" (
+            {adLoaded && router.asPath !== "/" ? (
                 <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg">
                     <ins
                         className="adsbygoogle"
@@ -54,7 +54,7 @@ export default function BottomBarAd() {
                         data-ad-slot="1909967797"
                     ></ins>
                 </div>
-            )}
+            ) : null}
         </div>
     );
 }
