@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import Script from 'next/script';
-import { useRouter } from 'next/router';
+import Script from 'next/script'
+import { useEffect } from 'react'
 
-export default function BottomBarAd({slot}) {
+export default function VerticalAd( {slot} ){
 
     useEffect(() => {
         if (typeof window !== 'undefined'){
@@ -14,20 +13,24 @@ export default function BottomBarAd({slot}) {
         }
     }, [])
 
-    return (
-        <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg py-1">
-            <Script
+    return(
+        <div className='flex items-center justify-center mx-auto'>
+            <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
-                crossOrigin="anonymous"
-                strategy="afterInteractive"
+                crossOrigin='anonymous'
+                strategy='afterInteractive'
             />
-            <ins
-                className="adsbygoogle"
-                style={{ display: "inline-block", width: "728px", height: "90px" }}
+
+            <ins className="adsbygoogle"
+                style={{
+                    display:"inline-block",
+                    width:"300px",
+                    height:"600px"
+                }}
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot={slot}
             ></ins>
         </div>
-    );
+    )
 }
