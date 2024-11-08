@@ -52,7 +52,7 @@ export default function BottomBarAd() {
                         className="adsbygoogle"
                         style={{ display: "inline-block", width: "728px", height: "90px" }}
                         data-ad-client="ca-pub-2521697717608899"
-                        data-ad-slot="1909967797"
+                        data-ad-slot="2221793137"
                     ></ins>
                 </div>
             ) : null}
