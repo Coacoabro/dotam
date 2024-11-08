@@ -6,36 +6,15 @@ export default function BottomBarAd() {
 
     const router = useRouter()
     
-    const [adLoaded, setAdLoaded] = useState(false);
-
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const adElement = document.querySelector('.adsbygoogle');
-            
-            if (adElement) {
-                // Observe changes to detect when ad content loads
-                setAdLoaded(false)
-                const observer = new MutationObserver(() => {
-                    if (adElement.offsetHeight > 0 && adElement.offsetWidth > 0) {
-                        setAdLoaded(true);
-                    }
-                });
-                
-                observer.observe(adElement, { attributes: true, childList: true, subtree: true });
-                
-                if (!adElement.hasAttribute('data-ad-client')) {
-                    try {
-                        (window.adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.error("AdSense error: ", e);
-                    }
-                }
-                
-                // Clean up observer on unmount
-                return () => observer.disconnect();
+        if (typeof window !== 'undefined'){
+            try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({})
+            } catch (e) {
+                console.error("AdSense error: ", e)
             }
         }
-    }, [router.asPath]);
+    }, [])
 
     return (
         <div>
@@ -48,7 +27,7 @@ export default function BottomBarAd() {
             />
 
             {/* Conditionally render the ad if loaded */}
-            {adLoaded && router.asPath !== "/" ? (
+            {router.asPath !== "/" ? (
                 <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg py-4">
                     <ins
                         className="adsbygoogle"
