@@ -14,7 +14,7 @@ export default function SquareAd( {slot} ){
     }, [])
 
     return(
-        <div className='hidden lg:fixed top-1/4 right-4'>
+        <div className='hidden lg:block fixed top-1/4 right-4'>
             <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
