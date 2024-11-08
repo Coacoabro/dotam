@@ -14,7 +14,7 @@ export default function SquareAd( {slot} ){
     }, [])
 
     return(
-        <>
+        <div className='fixed top-1/4 right-4'>
             <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
@@ -31,6 +31,6 @@ export default function SquareAd( {slot} ){
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot={slot}
             ></ins>
-        </>
+        </div>
     )
 }
