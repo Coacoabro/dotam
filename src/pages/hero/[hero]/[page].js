@@ -9,6 +9,9 @@ import Abilities from '../../../components/HeroPage/Pages/Abilities/Abilities.js
 import Matchups from '../../../components/HeroPage/Pages/Matchups/Matchups.js';
 
 import dota2heroes from '../../../../json/dota2heroes.json';
+import BottomBarAd from '../../../components/Ads/Google/BottomBarAd.js';
+import SquareAd from '../../../components/Ads/Google/SquareAd.js';
+import VerticalAd from '../../../components/Ads/Google/VerticalAd.js';
 
 export async function getServerSideProps(context) {
     const hero = dota2heroes.find(hero => hero.url === context.query.hero);
@@ -106,6 +109,16 @@ export default function HeroPage({ hero, patch, rates }) {
             </Head>
 
             {PageComponent}
+            
+            <div className='fixed top-1/4 left-4'>
+                <VerticalAd slot="1448902987" />
+            </div>
+            
+            <div className='fixed top-1/4 right-4'>
+                <SquareAd slot="6234325805" />
+            </div>
+            
+            <BottomBarAd slot="5282810981" />
         </HeroLayout>
     );
 }

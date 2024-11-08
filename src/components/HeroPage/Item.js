@@ -70,10 +70,12 @@ export default function ItemCard({ id }) {
                                     <img src={itemImg} className='w-12 sm:w-16 h-full' />
                                     <div>
                                         <h1 className='text-xl sm:text-2xl font-bold'>{item.dname}</h1>
-                                        <h2 className='flex gap-1 items-center text-sm sm:text-base text-gold-400'>
-                                            <img src='/gold.png' className='w-4 sm:w-5 h-full' />
-                                            {item.cost}
-                                        </h2>
+                                        {item.cost !== 0 ? 
+                                            <h2 className='flex gap-1 items-center text-sm sm:text-base text-gold-400'>
+                                                <img src='/gold.png' className='w-4 sm:w-5 h-full' />
+                                                {item.cost}
+                                            </h2>
+                                        : null}
                                     </div>
                                 </div>
                                 <div className='bg-slate-950 py-3 px-5 text-left space-y-3 border-r border-l border-b border-slate-700 rounded-b-lg'>

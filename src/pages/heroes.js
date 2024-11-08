@@ -2,10 +2,14 @@ import Head from 'next/head'
 
 import Heroes from '../components/Home/Heroes'
 import SearchBar from '../components/SearchBar'
+import VerticalAd from '../components/Ads/Google/VerticalAd';
+import SquareAd from '../components/Ads/Google/SquareAd';
+import BottomBarAd from '../components/Ads/Google/BottomBarAd';
 
 export default function HeroesPage() {
   return (
     <div>
+
       <Head>
         <title>Dota 2 All Heroes</title>
         <meta name="description" 
@@ -18,10 +22,22 @@ export default function HeroesPage() {
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
           crossorigin="anonymous"></script>
       </Head>
+
       <div className='sm:py-10 space-y-4 sm:space-y-10'>
         <div className="text-xl sm:text-3xl sm:text-center font-semibold px-3">Dota 2 All Heroes</div>
         <div className='z-0'><Heroes /></div>
       </div>
+
+      <div className='fixed top-1/4 left-4'>
+          <VerticalAd slot="1862440721" />
+      </div>
+      
+      <div className='fixed top-1/4 right-4'>
+          <SquareAd slot="4321212989" />
+      </div>
+      
+      <BottomBarAd slot="2656647645" />
+
     </div>
   );
 }
