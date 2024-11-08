@@ -14,6 +14,7 @@ export default function BottomBarAd() {
             
             if (adElement) {
                 // Observe changes to detect when ad content loads
+                setAdLoaded(false)
                 const observer = new MutationObserver(() => {
                     if (adElement.offsetHeight > 0 && adElement.offsetWidth > 0) {
                         setAdLoaded(true);
@@ -32,7 +33,7 @@ export default function BottomBarAd() {
                 return () => observer.disconnect();
             }
         }
-    }, []);
+    }, [router.asPath]);
 
     return (
         <div>
@@ -46,7 +47,7 @@ export default function BottomBarAd() {
 
             {/* Conditionally render the ad if loaded */}
             {adLoaded && router.asPath !== "/" ? (
-                <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg">
+                <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg py-4">
                     <ins
                         className="adsbygoogle"
                         style={{ display: "inline-block", width: "728px", height: "90px" }}
