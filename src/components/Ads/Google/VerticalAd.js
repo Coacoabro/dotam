@@ -14,7 +14,7 @@ export default function VerticalAd( {slot} ){
     }, [])
 
     return(
-        <div className='fixed top-1/4 left-4'>
+        <div className='hidden lg:fixed top-1/4 left-4'>
             <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"

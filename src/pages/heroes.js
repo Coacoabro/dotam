@@ -28,14 +28,8 @@ export default function HeroesPage() {
         <div className='z-0'><Heroes /></div>
       </div>
 
-      <div className='fixed top-1/4 left-4'>
-          <VerticalAd slot="1862440721" />
-      </div>
-      
-      <div className='fixed top-1/4 right-4'>
-          <SquareAd slot="4321212989" />
-      </div>
-      
+      <VerticalAd slot="1862440721" />
+      <SquareAd slot="4321212989" />
       <BottomBarAd slot="2656647645" />
 
     </div>
