@@ -22,12 +22,12 @@ export default function HeroSearch({onSearch, scrollY}) {
                         type="text"
                         value={inputValue}
                         onChange={handleChange}
-                        placeholder="Search a hero"
-                        className={`${scrollY == 0 && !router.pathname.includes('/heroes') ? 'lg:w-[1050px]' : 'sm:w-[550px]'} text-slate-200 text-[15px] font-medium leading-5 bg-transparent border-none outline-none flex-1 tracking-wide px-2`}
+                        placeholder="Filter for your hero..."
+                        className={`${scrollY == 0 && !router.pathname.includes('/heroes') ? 'lg:w-[1050px]' : 'sm:w-[550px]'} text-slate-200 text-lg bg-transparent border-none outline-none flex-1 tracking-wide px-2`}
                     />
                 </div>
             </div>
-            <button className={`w-[80px] text-xs sm:text-sm sm:w-[94px] h-[30px] sm:h-[45px] sm:px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}>
+            <button className={`w-[80px] text-xs sm:text-lg sm:w-[94px] h-[30px] sm:h-[45px] sm:px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}>
                 Search
             </button>
         </div>

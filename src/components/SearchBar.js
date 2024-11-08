@@ -101,7 +101,7 @@ export default function SearchBar( {scrollY, topBar} ) {
                 <li
                   key={hero.id}
                   onClick={() => handleSuggestionClick(hero)}
-                  className={`px-2 py-1 sm:px-3 sm:py-2 gap-2 flex items-center text-white text-sm sm:text-md cursor-pointer z-50 border border-slate-700 hover:bg-slate-900 ${index === selectedSuggestionIndex ? 'bg-slate-900' : 'bg-slate-800'}`}
+                  className={`px-2 py-1 sm:px-3 sm:py-2 gap-2 flex items-center text-white text-sm sm:text-lg cursor-pointer z-50 border border-slate-700 hover:bg-slate-900 ${index === selectedSuggestionIndex ? 'bg-slate-900' : 'bg-slate-800'}`}
                 >
                   <img src={'https://cdn.cloudflare.steamstatic.com' + heroData[hero.id].img} className="h-6 sm:h-10" />
                   {hero.name}
