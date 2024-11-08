@@ -9,6 +9,7 @@ import Rank from "../components/Rank";
 import Role from "../components/Role";
 import BottomBar from '../components/BottomBar';
 import HeroSearch from '../components/Home/Heroes/HeroSearch';
+import BottomBarAd from '../components/Ads/Google/BottomBarAd';
 
 const fetchTierData = async (hero, type) => {
     const response = await fetch(`/api/tier-list`);
@@ -69,7 +70,10 @@ export default function TierList() {
             </div>
 
             {data ? (
-                <div className='pt-12'><BottomBar /></div>
+                <div className='pt-12'>
+                    <BottomBarAd slot="2221793137" />
+                    <BottomBar />
+                </div>
             ) : null}
             
         </div>

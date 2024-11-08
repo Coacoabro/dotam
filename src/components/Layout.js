@@ -55,7 +55,7 @@ export default function Layout({ children }) {
         :
         (<main className='pt-24 z-20'>{children}</main>)}
       <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} ${path == '/' ? 'pt-24 lg:pt-[650px]' : 'pt-12 lg:pt-56'}  z-0`}><BottomBar /></footer>
-      <div className='fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg'><HorizontalAd /></div>
+      {/* <div className='fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg'><HorizontalAd /></div> */}
       <Analytics />
     </div>
   );

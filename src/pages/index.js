@@ -63,7 +63,7 @@ export default function Home() {
             </div>
 
             <div className={`relative top-[15vh] sm:top-[25vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 space-y-8`}>
-                <HorizontalAd />
+                <HorizontalAd slot="1909967797" />
                 <Heroes scrollY={scrollY}/>
             </div>
         </div>
