@@ -26,9 +26,9 @@ export default function HorizontalAd(){
                 className='adsbygoogle'
                 style={{
                     display: 'block',
-                    width: '50%',
-                    height: '125px',
-                    maxHeight: '150px'
+                    width: '728px',
+                    height: '90px',
+                    maxHeight: '100px'
                 }}
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot="1909967797"
