@@ -100,7 +100,7 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
           </div>
 
           <div className='flex space-x-3'>
-            <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} />
+            {rates.length > 0 ? <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} /> : null}
             <div className='hidden sm:block'>
               <h1 className='font-bold px-2 pb-2'>More Info:</h1>
               <Pages hero={hero.url} />
@@ -111,11 +111,13 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
             <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} />
           </div>
 
-          <main>
-            {React.Children.map(children, child =>
-              React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
-            )}
-          </main>
+          {heroBuilds ?
+            <main>
+              {React.Children.map(children, child =>
+                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
+              )}
+            </main>
+          : <div>Nothing yet!</div>}
 
         </div>
 
