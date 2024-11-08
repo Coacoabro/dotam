@@ -73,18 +73,13 @@ export default function TierList() {
 
             {data ? (
                 <div className='pt-12'>
-                    <BottomBarAd slot="2221793137" />
                     <BottomBar />
                 </div>
             ) : null}
             
-            <div className='fixed top-1/4 left-4'>
-                <VerticalAd slot="9393446382" />
-            </div>
-            
-            <div className='fixed top-1/4 right-4'>
-                <SquareAd slot="7585670579" />
-            </div>
+            <VerticalAd slot="9393446382" />
+            <SquareAd slot="7585670579" />
+            <BottomBarAd slot="2221793137" />
         </div>
     )
 }
