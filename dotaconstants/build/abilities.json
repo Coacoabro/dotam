@@ -74483,5 +74483,23 @@
       "24"
     ],
     "img": "/apps/dota2/images/dota_react/abilities/kez_ravens_veil.png"
+  },
+  "special_bonus_unique_kez_falcon_rush_duration": {
+    "dname": "+2s Falcon Rush Duration"
+  },
+  "special_bonus_unique_kez_raptor_dance_radius": {
+    "dname": "+50 Raptor Dance Radius"
+  },
+  "special_bonus_unique_kez_kazura_katana_bleed_damage": {
+    "dname": "+5% Kazurai Katana Damage Per Second"
+  },
+  "special_bonus_unique_kez_falcon_rush_evasion": {
+    "dname": "+50% Falcon Rush Evasion"
+  },
+  "special_bonus_unique_kez_mark_damage": {
+    "dname": "+75% Shodo Sai Mark Critical Strike"
+  },
+  "special_bonus_unique_kez_echo_slash_strike_count": {
+    "dname": "+1 Echo Slash Attack"
   }
 }
