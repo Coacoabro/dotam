@@ -6,6 +6,7 @@ import IoLoading from './IoLoading'
 import Head from 'next/head'
 import BottomBar from './BottomBar';
 import TopBar from './TopBar';
+import BottomBarAd from './Ads/Google/BottomBarAd';
 
 
 export default function Layout({ children }) {
@@ -53,6 +54,7 @@ export default function Layout({ children }) {
         :
         (<main className='pt-24 z-20'>{children}</main>)}
       <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} ${path == '/' ? 'pt-24 lg:pt-[650px]' : 'pt-12 lg:pt-56'}  z-0`}><BottomBar /></footer>
+      <BottomBarAd />
       <Analytics />
     </div>
   );
