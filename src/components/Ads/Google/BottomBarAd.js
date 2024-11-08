@@ -23,10 +23,12 @@ export default function BottomBarAd() {
                 
                 observer.observe(adElement, { attributes: true, childList: true, subtree: true });
                 
-                try {
-                    (window.adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.error("AdSense error: ", e);
+                if (!adElement.hasAttribute('data-ad-client')) {
+                    try {
+                        (window.adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                        console.error("AdSense error: ", e);
+                    }
                 }
                 
                 // Clean up observer on unmount
