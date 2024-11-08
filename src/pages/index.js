@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import HorizontalAd from '../components/Ads/Google/HorizontalAd'
 import VerticalAd from '../components/Ads/Google/VerticalAd'
+import SquareAd from '../components/Ads/Google/SquareAd'
 
 
 export default function Home() {
@@ -53,7 +54,7 @@ export default function Home() {
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
 
-            <div className='w-[300px] h-[600px] fixed top-1/4 left-4'>
+            <div className='fixed top-1/4 left-4'>
                 <VerticalAd slot="7985255708" />
             </div>
 
@@ -74,8 +75,8 @@ export default function Home() {
                 <Heroes scrollY={scrollY}/>
             </div>
 
-            <div className='w-[300px] h-[300px] fixed top-1/4 right-4'>
-                <VerticalAd slot="3693391551" />
+            <div className='fixed top-1/4 right-4'>
+                <SquareAd slot="3693391551" />
             </div>
         </div>
     )
