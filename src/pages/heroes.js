@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar'
 import VerticalAd from '../components/Ads/Google/VerticalAd';
 import SquareAd from '../components/Ads/Google/SquareAd';
 import BottomBarAd from '../components/Ads/Google/BottomBarAd';
+import Script from 'next/script';
 
 export default function HeroesPage() {
   return (
@@ -19,9 +20,13 @@ export default function HeroesPage() {
         <meta name="google-adsense-account"
           content="ca-pub-2521697717608899" />
         <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
-          crossorigin="anonymous"></script>
       </Head>
+
+      <Script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" 
+          crossOrigin="anonymous"
+      />
 
       <div className='sm:py-10 space-y-4 sm:space-y-10'>
         <div className="text-xl sm:text-3xl sm:text-center font-semibold px-3">Dota 2 All Heroes</div>

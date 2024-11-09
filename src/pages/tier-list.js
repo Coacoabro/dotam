@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
+import Script from 'next/script';
 
 import LoadingWheel from '../components/LoadingWheel';
 import TierContainer from '../components/TierList/TierContainer';
@@ -43,8 +44,13 @@ export default function TierList() {
                 <meta name="google-adsense-account"
                 content="ca-pub-2521697717608899" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
+
+            <Script 
+                async 
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" 
+                crossOrigin="anonymous"
+            />
 
             <div className="max-w-7xl mx-auto px-1 sm:px-4 sm:space-y-4 text-white sm:pt-8">
                 <div className="text-xl sm:text-3xl px-2 sm:px-0 py-2 sm:py-4 font-semibold">Dota 2 Tier List</div>

@@ -1,10 +1,11 @@
+import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
+import Script from 'next/script'
+
 import Head from 'next/head'
 import Hero from '../components/Home/Hero'
 import Heroes from '../components/Home/Heroes'
 import SearchBar from '../components/SearchBar'
-
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router'
 import HorizontalAd from '../components/Ads/Google/HorizontalAd'
 import VerticalAd from '../components/Ads/Google/VerticalAd'
 import SquareAd from '../components/Ads/Google/SquareAd'
@@ -51,8 +52,13 @@ export default function Home() {
                 <meta name="google-adsense-account"
                     content="ca-pub-2521697717608899" />
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" crossorigin="anonymous"></script>
             </Head>
+
+            <Script 
+                async 
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" 
+                crossOrigin="anonymous"
+            />
 
             <div className='fixed top-1/4 left-4'>
                 <VerticalAd slot="7985255708" />

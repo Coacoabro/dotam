@@ -12,6 +12,7 @@ import dota2heroes from '../../../../json/dota2heroes.json';
 import BottomBarAd from '../../../components/Ads/Google/BottomBarAd.js';
 import SquareAd from '../../../components/Ads/Google/SquareAd.js';
 import VerticalAd from '../../../components/Ads/Google/VerticalAd.js';
+import Script from 'next/script.js';
 
 export async function getServerSideProps(context) {
     const hero = dota2heroes.find(hero => hero.url === context.query.hero);
@@ -104,9 +105,13 @@ export default function HeroPage({ hero, patch, rates }) {
                 <meta name="google-adsense-account"
                     content="ca-pub-2521697717608899" />
                 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
-                    crossorigin="anonymous"></script>
             </Head>
+
+            <Script 
+                async 
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899" 
+                crossOrigin="anonymous"
+            />
 
             {PageComponent}
             
