@@ -110,15 +110,12 @@ export default function HeroPage({ hero, patch, rates }) {
 
             {PageComponent}
             
-            <div className='fixed top-1/4 left-4'>
-                <VerticalAd slot="1448902987" />
+            <VerticalAd slot="1448902987" />
+            <SquareAd slot="6234325805" />
+
+            <div className='mx-auto'>
+                <BottomBarAd slot="5282810981" />
             </div>
-            
-            <div className='fixed top-1/4 right-4'>
-                <SquareAd slot="6234325805" />
-            </div>
-            
-            <BottomBarAd slot="5282810981" />
         </HeroLayout>
     );
 }

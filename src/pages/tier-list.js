@@ -79,7 +79,11 @@ export default function TierList() {
             
             <VerticalAd slot="9393446382" />
             <SquareAd slot="7585670579" />
-            <BottomBarAd slot="2221793137" />
+
+            <div className='mx-auto'>
+                <BottomBarAd slot="2221793137" />
+            </div>
+            
         </div>
     )
 }

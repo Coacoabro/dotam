@@ -27,9 +27,7 @@ export default function BottomBarAd({slot}) {
                 style={{ 
                     display: "inline-block", 
                     width: "728px", 
-                    height: "90px",
-                    marginLeft: "auto",
-                    marginRight: "auto"
+                    height: "90px"
                 }}
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot={slot}

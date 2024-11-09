@@ -30,7 +30,10 @@ export default function HeroesPage() {
 
       <VerticalAd slot="1862440721" />
       <SquareAd slot="4321212989" />
-      <BottomBarAd slot="2656647645" />
+
+      <div className='mx-auto'>
+        <BottomBarAd slot="2656647645" />
+      </div>
 
     </div>
   );
