@@ -15,7 +15,7 @@ export default function BottomBarAd({slot}) {
     }, [])
 
     return (
-        <div className="hidden sm:block fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg py-1 z-50 mx-auto w-screen">
+        <div className="hidden sm:block fixed bottom-0 left-0 right-0 flex justify-center bg-slate-900/50 shadow-lg py-1 z-50">
             <Script
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"
@@ -24,7 +24,13 @@ export default function BottomBarAd({slot}) {
             />
             <ins
                 className="adsbygoogle"
-                style={{ display: "inline-block", width: "728px", height: "90px" }}
+                style={{ 
+                    display: "inline-block", 
+                    width: "728px", 
+                    height: "90px",
+                    marginLeft: "auto",
+                    marginRight: "auto"
+                }}
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot={slot}
             ></ins>
