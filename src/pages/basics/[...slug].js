@@ -5,6 +5,7 @@ import PictureBox from "../../components/Basics/PictureBox";
 
 import { useRouter } from "next/router";
 import React from "react"
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { remark } from 'remark'
@@ -22,6 +23,7 @@ const HeadingWithId = ({ level, children }) => {
 
 const components = {
     PictureBox,
+    Link,
     h1: (props) => <HeadingWithId level={1} {...props} />,
     h2: (props) => <HeadingWithId level={2} {...props} />,
     h3: (props) => <HeadingWithId level={3} {...props} />
