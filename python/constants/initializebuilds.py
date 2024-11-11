@@ -52,7 +52,7 @@ def get_innate():
     with open('./json/hero_innate.json', 'w') as f:
         json.dump(innate_json, f)
 
-get_innate()
+# get_innate()
 
 # My Amazon Database
 database_url = os.environ.get('DATABASE_URL')
