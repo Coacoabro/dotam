@@ -47,7 +47,7 @@ export default function HeroPage({ hero, patch, rates }) {
 
     const heroName = hero.name;
 
-    let initRole = ''
+    let initRole = 'POSITION_1'
 
     if(rates.length > 0){
         const highestPickRateRole = rates

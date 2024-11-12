@@ -65,7 +65,7 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
         });
         return best;
       }
-      else return 'blank'
+      else return 1
     })();
 
     const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img

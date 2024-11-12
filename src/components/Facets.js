@@ -62,7 +62,7 @@ export default function Facets( {name, initFacet} ) {
 
             <button 
                 onClick={() => handleClick("1")} 
-                className={`flex py-2 px-2 sm:px-3 h-8 sm:h-10 ${initFacet == 1 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-l-lg ${currFacet == 1 ? 'bg-cyan-300 text-black' : ''} `}
+                className={`flex py-2 px-2 sm:px-3 h-8 sm:h-10 ${initFacet == 1 ? 'w-16 sm:w-24' : 'w-8 sm:w-14'} space-x-2 justify-center hover:bg-slate-600 rounded-l-lg ${currFacet == 1 ? 'bg-cyan-300 text-black' : ''}  ${facet2 ? '' : 'rounded-r-lg'}`}
                 onMouseEnter={() => showFacetInfo(facet1)}
                 onMouseLeave={() => hideFacetInfo()}
             >

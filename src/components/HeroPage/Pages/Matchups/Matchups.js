@@ -4,7 +4,7 @@ import MatchupTable from './MatchupTable'
 import HeroSearch from '../../../Home/Heroes/HeroSearch'
 
 
-export default function Matchups({ heroData, initRole, heroMatchups }) {
+export default function Matchups({ initRole, initFacet, heroData, heroBuilds, heroMatchups }) {
 
     const [searchTerm, setSearchTerm] = useState('')
 
@@ -13,6 +13,8 @@ export default function Matchups({ heroData, initRole, heroMatchups }) {
     const handleSearch = (term) => {
       setSearchTerm(term)
     }
+
+    console.log(heroMatchups)
 
     return(
         <div className='space-y-2 sm:space-y-4 bg-slate-900 py-2 sm:py-4 px-3 sm:px-6 mx-auto rounded-lg border border-slate-800'>
