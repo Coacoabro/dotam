@@ -117,6 +117,12 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
                 React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
               )}
             </main>
+          : heroMatchups ? 
+            <main>
+              {React.Children.map(children, child =>
+                React.cloneElement(child, { heroData, initRole, heroMatchups })
+              )}
+            </main>
           : <div>Nothing yet!</div>}
 
         </div>
