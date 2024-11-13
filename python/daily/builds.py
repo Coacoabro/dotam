@@ -87,6 +87,8 @@ def getBuilds(ranked_matches, builds):
     NeutralTokens = [2091, 2092, 2093, 2094, 2095]
     FakeNeutrals = [1441] # So far the only one I see is Witch Doctors GrisGris
 
+    KezTalents = [6299, 7132, 1511, 1509, 1510, 1516, 1514, 1513]
+
     fragment = """
         fragment MatchData on MatchType {
             actualRank
@@ -157,13 +159,37 @@ def getBuilds(ranked_matches, builds):
                             talents = []
 
                             for ability in abilityEvents:
-                                if ability['abilityId'] != 730 and len(talents) < 4:
-                                    if ability['isTalent']:
-                                        talents.append(ability['abilityId'])
-                                        if len(abilities) < 16:
-                                            abilities.append(-1)
-                                    elif len(abilities) < 16:
-                                        abilities.append(ability['abilityId'])
+                                abilityId = ability['abilityId']
+                                if abilityId != 730 and len(talents) < 4:
+
+                                    # FOR KEZ, UPDATE TALENTS LATER
+                                    
+                                    if hero_id == 145:
+                                        if abilityId in KezTalents:
+                                            talents.append(abilityId)
+                                            if len(abilities) < 16:
+                                                abilities.append(-1)
+                                        elif len(abilities) < 16:
+                                            if abilityId == 1502:
+                                                abilities.append(1498)
+                                            elif abilityId == 1503:
+                                                abilities.append(1499)
+                                            elif abilityId == 1504:
+                                                abilities.append(1500)
+                                            elif abilityId == 1506:
+                                                abilities.append(1501)
+                                            else:
+                                                abilities.append(abilityId)
+
+
+
+                                    else:
+                                        if ability['isTalent']:
+                                            talents.append(ability['abilityId'])
+                                            if len(abilities) < 16:
+                                                abilities.append(-1)
+                                        elif len(abilities) < 16:
+                                            abilities.append(ability['abilityId'])
                             
                             # If a hero hits level 16 at least then we should have enough info for items and what not
                             if len(abilities) == 16:
