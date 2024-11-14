@@ -134,7 +134,6 @@ def getBuilds(ranked_matches, builds):
             time.sleep(60)
             tries += 1
 
-
     for ranked_match in ranked_matches:
         match_id = ranked_match['match_id']
         # print(data)
@@ -190,9 +189,13 @@ def getBuilds(ranked_matches, builds):
                                                 abilities.append(-1)
                                         elif len(abilities) < 16:
                                             abilities.append(ability['abilityId'])
-                            
+
                             # If a hero hits level 16 at least then we should have enough info for items and what not
                             if len(abilities) == 16:
+                                if hero_id == 145:
+                                    print(abilityEvents)
+                                    print(abilities)
+                                    print(talents)
                                 isSupport = False
                                 if role == 'POSITION_4' or role == 'POSITION_5':
                                     isSupport = True
@@ -430,6 +433,7 @@ def getBuilds(ranked_matches, builds):
                                                         [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
                                                         finalCoreItems, finalNeutrals]
                                             builds.append(tempBuild)
+
 
     return builds
 
@@ -797,15 +801,15 @@ def sendtosql(builds):
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
     
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -855,7 +859,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 75:
+        if hourlyDump >= 100:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
