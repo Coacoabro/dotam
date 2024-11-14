@@ -1,0 +1,11101 @@
+[
+  {
+    "build_id": 46339,
+    "rank": "HERALD",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46340,
+    "rank": "HERALD",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46343,
+    "rank": "HERALD",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46345,
+    "rank": "HERALD",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46349,
+    "rank": "GUARDIAN",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46352,
+    "rank": "GUARDIAN",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46353,
+    "rank": "GUARDIAN",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46354,
+    "rank": "GUARDIAN",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46362,
+    "rank": "CRUSADER",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46364,
+    "rank": "CRUSADER",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46366,
+    "rank": "CRUSADER",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46372,
+    "rank": "ARCHON",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46373,
+    "rank": "ARCHON",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46374,
+    "rank": "ARCHON",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46375,
+    "rank": "ARCHON",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46376,
+    "rank": "ARCHON",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46382,
+    "rank": "LEGEND",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46383,
+    "rank": "LEGEND",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46384,
+    "rank": "LEGEND",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46385,
+    "rank": "LEGEND",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46386,
+    "rank": "LEGEND",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46389,
+    "rank": "ANCIENT",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46390,
+    "rank": "ANCIENT",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46391,
+    "rank": "ANCIENT",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46392,
+    "rank": "ANCIENT",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46394,
+    "rank": "ANCIENT",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46395,
+    "rank": "ANCIENT",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46396,
+    "rank": "ANCIENT",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46400,
+    "rank": "DIVINE",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46401,
+    "rank": "DIVINE",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46403,
+    "rank": "DIVINE",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46404,
+    "rank": "DIVINE",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46405,
+    "rank": "DIVINE",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46406,
+    "rank": "DIVINE",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46409,
+    "rank": "IMMORTAL",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46411,
+    "rank": "IMMORTAL",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46413,
+    "rank": "IMMORTAL",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46414,
+    "rank": "IMMORTAL",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46415,
+    "rank": "IMMORTAL",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46416,
+    "rank": "IMMORTAL",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46432,
+    "rank": "MID",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46433,
+    "rank": "MID",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46434,
+    "rank": "MID",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46435,
+    "rank": "MID",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46436,
+    "rank": "MID",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46441,
+    "rank": "HIGH",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46444,
+    "rank": "HIGH",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46445,
+    "rank": "HIGH",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46446,
+    "rank": "HIGH",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 0,
+    "total_wins": 0,
+    "abilities": [],
+    "talents": []
+  },
+  {
+    "build_id": 46357,
+    "rank": "CRUSADER",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 99,
+    "total_wins": 45,
+    "abilities": [
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 12
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5004,
+          5003,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          5003,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          5003,
+          7314,
+          7314,
+          5006,
+          5003,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46357,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46357,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 21
+      },
+      {
+        "build_id": 46357,
+        "talent": 6606,
+        "wins": 15,
+        "matches": 18
+      },
+      {
+        "build_id": 46357,
+        "talent": 6800,
+        "wins": 12,
+        "matches": 18
+      },
+      {
+        "build_id": 46357,
+        "talent": 665,
+        "wins": 33,
+        "matches": 51
+      },
+      {
+        "build_id": 46357,
+        "talent": 6353,
+        "wins": 21,
+        "matches": 36
+      },
+      {
+        "build_id": 46357,
+        "talent": 735,
+        "wins": 9,
+        "matches": 21
+      },
+      {
+        "build_id": 46357,
+        "talent": 966,
+        "wins": 39,
+        "matches": 78
+      },
+      {
+        "build_id": 46357,
+        "talent": 666,
+        "wins": 33,
+        "matches": 81
+      }
+    ]
+  },
+  {
+    "build_id": 46417,
+    "rank": "LOW",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 216,
+    "total_wins": 90,
+    "abilities": [
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 9,
+        "matches": 21
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          5003
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46417,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46417,
+        "talent": 1495,
+        "wins": 18,
+        "matches": 66
+      },
+      {
+        "build_id": 46417,
+        "talent": 6606,
+        "wins": 21,
+        "matches": 36
+      },
+      {
+        "build_id": 46417,
+        "talent": 735,
+        "wins": 21,
+        "matches": 54
+      },
+      {
+        "build_id": 46417,
+        "talent": 6353,
+        "wins": 36,
+        "matches": 63
+      },
+      {
+        "build_id": 46417,
+        "talent": 6800,
+        "wins": 15,
+        "matches": 39
+      },
+      {
+        "build_id": 46417,
+        "talent": 665,
+        "wins": 66,
+        "matches": 126
+      },
+      {
+        "build_id": 46417,
+        "talent": 966,
+        "wins": 72,
+        "matches": 156
+      },
+      {
+        "build_id": 46417,
+        "talent": 666,
+        "wins": 75,
+        "matches": 177
+      }
+    ]
+  },
+  {
+    "build_id": 46327,
+    "rank": "",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 351,
+    "total_wins": 144,
+    "abilities": [
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 18,
+        "matches": 30
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 9,
+        "matches": 27
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 12
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 9
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46327,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 6
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46327,
+        "talent": 1495,
+        "wins": 33,
+        "matches": 90
+      },
+      {
+        "build_id": 46327,
+        "talent": 6606,
+        "wins": 27,
+        "matches": 48
+      },
+      {
+        "build_id": 46327,
+        "talent": 6800,
+        "wins": 21,
+        "matches": 54
+      },
+      {
+        "build_id": 46327,
+        "talent": 6353,
+        "wins": 66,
+        "matches": 114
+      },
+      {
+        "build_id": 46327,
+        "talent": 735,
+        "wins": 30,
+        "matches": 78
+      },
+      {
+        "build_id": 46327,
+        "talent": 665,
+        "wins": 102,
+        "matches": 201
+      },
+      {
+        "build_id": 46327,
+        "talent": 966,
+        "wins": 111,
+        "matches": 261
+      },
+      {
+        "build_id": 46327,
+        "talent": 666,
+        "wins": 123,
+        "matches": 297
+      }
+    ]
+  },
+  {
+    "build_id": 46337,
+    "rank": "HERALD",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 27,
+    "total_wins": 18,
+    "abilities": [
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          7314,
+          5004,
+          5003,
+          -1,
+          5004,
+          5006,
+          5004,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          7314,
+          5003,
+          5004,
+          5004,
+          5004,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          5004,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          7314,
+          5006,
+          7314,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46337,
+        "talent": 665,
+        "wins": 12,
+        "matches": 21
+      },
+      {
+        "build_id": 46337,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "talent": 966,
+        "wins": 12,
+        "matches": 15
+      },
+      {
+        "build_id": 46337,
+        "talent": 735,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46337,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46337,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46337,
+        "talent": 666,
+        "wins": 18,
+        "matches": 27
+      }
+    ]
+  },
+  {
+    "build_id": 46356,
+    "rank": "GUARDIAN",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46356,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46356,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46356,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46426,
+    "rank": "LOW",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46426,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46426,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46426,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46426,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46426,
+        "talent": 666,
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46426,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46336,
+    "rank": "",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46336,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46336,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46336,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46336,
+        "talent": 666,
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46336,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46336,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46368,
+    "rank": "ARCHON",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 93,
+    "total_wins": 51,
+    "abilities": [
+      {
+        "build_id": 46368,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 9
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          7314,
+          5006,
+          7314,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          7314,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46368,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          5003,
+          5006,
+          5004,
+          5004,
+          5003,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46368,
+        "talent": 6606,
+        "wins": 15,
+        "matches": 18
+      },
+      {
+        "build_id": 46368,
+        "talent": 666,
+        "wins": 45,
+        "matches": 81
+      },
+      {
+        "build_id": 46368,
+        "talent": 966,
+        "wins": 36,
+        "matches": 66
+      },
+      {
+        "build_id": 46368,
+        "talent": 665,
+        "wins": 45,
+        "matches": 72
+      },
+      {
+        "build_id": 46368,
+        "talent": 6353,
+        "wins": 24,
+        "matches": 33
+      },
+      {
+        "build_id": 46368,
+        "talent": 1495,
+        "wins": 15,
+        "matches": 27
+      },
+      {
+        "build_id": 46368,
+        "talent": 6800,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46368,
+        "talent": 735,
+        "wins": 6,
+        "matches": 15
+      }
+    ]
+  },
+  {
+    "build_id": 46428,
+    "rank": "MID",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 153,
+    "total_wins": 78,
+    "abilities": [
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 9
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          7314,
+          5006,
+          7314,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          7314,
+          5004,
+          5003,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46428,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46428,
+        "talent": 6606,
+        "wins": 24,
+        "matches": 36
+      },
+      {
+        "build_id": 46428,
+        "talent": 665,
+        "wins": 66,
+        "matches": 117
+      },
+      {
+        "build_id": 46428,
+        "talent": 966,
+        "wins": 51,
+        "matches": 108
+      },
+      {
+        "build_id": 46428,
+        "talent": 6800,
+        "wins": 6,
+        "matches": 24
+      },
+      {
+        "build_id": 46428,
+        "talent": 1495,
+        "wins": 27,
+        "matches": 45
+      },
+      {
+        "build_id": 46428,
+        "talent": 6353,
+        "wins": 33,
+        "matches": 54
+      },
+      {
+        "build_id": 46428,
+        "talent": 735,
+        "wins": 9,
+        "matches": 21
+      },
+      {
+        "build_id": 46428,
+        "talent": 666,
+        "wins": 72,
+        "matches": 129
+      }
+    ]
+  },
+  {
+    "build_id": 46328,
+    "rank": "",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 453,
+    "total_wins": 240,
+    "abilities": [
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 18,
+        "matches": 33
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 9,
+        "matches": 24
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 15
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          7314,
+          5006,
+          7314,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 12
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 12
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 9
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46328,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          5006
+        ],
+        "wins": 6,
+        "matches": 6
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46328,
+        "talent": 666,
+        "wins": 213,
+        "matches": 387
+      },
+      {
+        "build_id": 46328,
+        "talent": 6800,
+        "wins": 27,
+        "matches": 66
+      },
+      {
+        "build_id": 46328,
+        "talent": 1495,
+        "wins": 66,
+        "matches": 132
+      },
+      {
+        "build_id": 46328,
+        "talent": 735,
+        "wins": 57,
+        "matches": 84
+      },
+      {
+        "build_id": 46328,
+        "talent": 6353,
+        "wins": 138,
+        "matches": 195
+      },
+      {
+        "build_id": 46328,
+        "talent": 6606,
+        "wins": 42,
+        "matches": 60
+      },
+      {
+        "build_id": 46328,
+        "talent": 665,
+        "wins": 162,
+        "matches": 303
+      },
+      {
+        "build_id": 46328,
+        "talent": 966,
+        "wins": 168,
+        "matches": 309
+      }
+    ]
+  },
+  {
+    "build_id": 46398,
+    "rank": "DIVINE",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 39,
+    "total_wins": 24,
+    "abilities": [
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          5006
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          7314,
+          5006,
+          5004,
+          5004,
+          5003,
+          7314,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "abilities": [
+          5003,
+          5004,
+          5004,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46398,
+        "talent": 966,
+        "wins": 9,
+        "matches": 18
+      },
+      {
+        "build_id": 46398,
+        "talent": 665,
+        "wins": 15,
+        "matches": 21
+      },
+      {
+        "build_id": 46398,
+        "talent": 1495,
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46398,
+        "talent": 666,
+        "wins": 24,
+        "matches": 39
+      },
+      {
+        "build_id": 46398,
+        "talent": 735,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46398,
+        "talent": 6353,
+        "wins": 12,
+        "matches": 12
+      }
+    ]
+  },
+  {
+    "build_id": 46438,
+    "rank": "HIGH",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 78,
+    "total_wins": 42,
+    "abilities": [
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          5006
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          5003,
+          7314,
+          -1,
+          7314,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          5004,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314,
+          5006
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          7314,
+          5006,
+          5004,
+          5004,
+          5003,
+          7314,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5004,
+          5006,
+          7314,
+          5004,
+          7314,
+          7314,
+          5003,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46438,
+        "talent": 735,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46438,
+        "talent": 666,
+        "wins": 42,
+        "matches": 75
+      },
+      {
+        "build_id": 46438,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46438,
+        "talent": 966,
+        "wins": 21,
+        "matches": 42
+      },
+      {
+        "build_id": 46438,
+        "talent": 665,
+        "wins": 27,
+        "matches": 48
+      },
+      {
+        "build_id": 46438,
+        "talent": 1495,
+        "wins": 18,
+        "matches": 27
+      },
+      {
+        "build_id": 46438,
+        "talent": 6353,
+        "wins": 27,
+        "matches": 33
+      }
+    ]
+  },
+  {
+    "build_id": 46358,
+    "rank": "CRUSADER",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 99,
+    "total_wins": 45,
+    "abilities": [
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 9
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5003,
+          5004,
+          5003,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          7314,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46358,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46358,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 24
+      },
+      {
+        "build_id": 46358,
+        "talent": 966,
+        "wins": 39,
+        "matches": 75
+      },
+      {
+        "build_id": 46358,
+        "talent": 666,
+        "wins": 39,
+        "matches": 84
+      },
+      {
+        "build_id": 46358,
+        "talent": 665,
+        "wins": 36,
+        "matches": 78
+      },
+      {
+        "build_id": 46358,
+        "talent": 6606,
+        "wins": 12,
+        "matches": 15
+      },
+      {
+        "build_id": 46358,
+        "talent": 735,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46358,
+        "talent": 6353,
+        "wins": 27,
+        "matches": 39
+      },
+      {
+        "build_id": 46358,
+        "talent": 6800,
+        "wins": 6,
+        "matches": 15
+      }
+    ]
+  },
+  {
+    "build_id": 46418,
+    "rank": "LOW",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 222,
+    "total_wins": 120,
+    "abilities": [
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 18,
+        "matches": 21
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 12
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          7314,
+          5006,
+          7314,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46418,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          7314,
+          -1,
+          5003,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46418,
+        "talent": 6353,
+        "wins": 78,
+        "matches": 111
+      },
+      {
+        "build_id": 46418,
+        "talent": 665,
+        "wins": 69,
+        "matches": 138
+      },
+      {
+        "build_id": 46418,
+        "talent": 666,
+        "wins": 99,
+        "matches": 183
+      },
+      {
+        "build_id": 46418,
+        "talent": 6800,
+        "wins": 21,
+        "matches": 42
+      },
+      {
+        "build_id": 46418,
+        "talent": 735,
+        "wins": 42,
+        "matches": 57
+      },
+      {
+        "build_id": 46418,
+        "talent": 966,
+        "wins": 96,
+        "matches": 162
+      },
+      {
+        "build_id": 46418,
+        "talent": 1495,
+        "wins": 24,
+        "matches": 63
+      },
+      {
+        "build_id": 46418,
+        "talent": 6606,
+        "wins": 18,
+        "matches": 24
+      }
+    ]
+  },
+  {
+    "build_id": 46347,
+    "rank": "GUARDIAN",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 90,
+    "total_wins": 27,
+    "abilities": [
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          5003,
+          5006,
+          7314,
+          5003,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          7314,
+          5003,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46347,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          5003,
+          5003,
+          5006,
+          7314,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46347,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 15
+      },
+      {
+        "build_id": 46347,
+        "talent": 735,
+        "wins": 6,
+        "matches": 27
+      },
+      {
+        "build_id": 46347,
+        "talent": 666,
+        "wins": 24,
+        "matches": 69
+      },
+      {
+        "build_id": 46347,
+        "talent": 966,
+        "wins": 21,
+        "matches": 57
+      },
+      {
+        "build_id": 46347,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 21
+      },
+      {
+        "build_id": 46347,
+        "talent": 665,
+        "wins": 21,
+        "matches": 54
+      },
+      {
+        "build_id": 46347,
+        "talent": 6353,
+        "wins": 12,
+        "matches": 24
+      },
+      {
+        "build_id": 46347,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 33
+      }
+    ]
+  },
+  {
+    "build_id": 46348,
+    "rank": "GUARDIAN",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 81,
+    "total_wins": 48,
+    "abilities": [
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          -1,
+          5003,
+          5006,
+          5003,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          7314,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          7314,
+          5006,
+          5004,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          7314,
+          -1,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5004,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          -1,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          7314,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46348,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          5004,
+          5006,
+          5003,
+          5003,
+          7314,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46348,
+        "talent": 966,
+        "wins": 36,
+        "matches": 57
+      },
+      {
+        "build_id": 46348,
+        "talent": 6606,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46348,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 15
+      },
+      {
+        "build_id": 46348,
+        "talent": 1495,
+        "wins": 12,
+        "matches": 27
+      },
+      {
+        "build_id": 46348,
+        "talent": 735,
+        "wins": 18,
+        "matches": 30
+      },
+      {
+        "build_id": 46348,
+        "talent": 6353,
+        "wins": 39,
+        "matches": 54
+      },
+      {
+        "build_id": 46348,
+        "talent": 665,
+        "wins": 27,
+        "matches": 45
+      },
+      {
+        "build_id": 46348,
+        "talent": 666,
+        "wins": 45,
+        "matches": 69
+      }
+    ]
+  },
+  {
+    "build_id": 46338,
+    "rank": "HERALD",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 42,
+    "total_wins": 27,
+    "abilities": [
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 9,
+        "matches": 9
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          7314,
+          -1,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          7314,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          5004
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          -1,
+          5006,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          7314,
+          5006,
+          7314,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          7314,
+          5004,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5004,
+          5003,
+          5003,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46338,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46338,
+        "talent": 666,
+        "wins": 15,
+        "matches": 30
+      },
+      {
+        "build_id": 46338,
+        "talent": 735,
+        "wins": 18,
+        "matches": 18
+      },
+      {
+        "build_id": 46338,
+        "talent": 966,
+        "wins": 21,
+        "matches": 30
+      },
+      {
+        "build_id": 46338,
+        "talent": 6606,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46338,
+        "talent": 665,
+        "wins": 6,
+        "matches": 15
+      },
+      {
+        "build_id": 46338,
+        "talent": 6353,
+        "wins": 12,
+        "matches": 18
+      },
+      {
+        "build_id": 46338,
+        "talent": 6800,
+        "wins": 12,
+        "matches": 12
+      }
+    ]
+  },
+  {
+    "build_id": 46387,
+    "rank": "ANCIENT",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 27,
+    "total_wins": 18,
+    "abilities": [
+      {
+        "build_id": 46387,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          -1,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          5003,
+          5006,
+          7314,
+          -1,
+          7314,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5003,
+          5004,
+          5004,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          7314,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46387,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          7314,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46387,
+        "talent": 966,
+        "wins": 12,
+        "matches": 18
+      },
+      {
+        "build_id": 46387,
+        "talent": 666,
+        "wins": 15,
+        "matches": 21
+      },
+      {
+        "build_id": 46387,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46387,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46387,
+        "talent": 6353,
+        "wins": 15,
+        "matches": 21
+      },
+      {
+        "build_id": 46387,
+        "talent": 665,
+        "wins": 9,
+        "matches": 18
+      },
+      {
+        "build_id": 46387,
+        "talent": 735,
+        "wins": 6,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46437,
+    "rank": "HIGH",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 51,
+    "total_wins": 33,
+    "abilities": [
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          7314,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          7314,
+          5004,
+          5003,
+          -1,
+          5006,
+          5004,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          5004,
+          5004,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          7314,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46437,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          5003,
+          5006,
+          7314,
+          -1,
+          7314,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46437,
+        "talent": 6353,
+        "wins": 21,
+        "matches": 27
+      },
+      {
+        "build_id": 46437,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46437,
+        "talent": 735,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46437,
+        "talent": 1495,
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46437,
+        "talent": 666,
+        "wins": 30,
+        "matches": 45
+      },
+      {
+        "build_id": 46437,
+        "talent": 665,
+        "wins": 21,
+        "matches": 33
+      },
+      {
+        "build_id": 46437,
+        "talent": 966,
+        "wins": 24,
+        "matches": 39
+      }
+    ]
+  },
+  {
+    "build_id": 46393,
+    "rank": "ANCIENT",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46393,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46393,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46393,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46393,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46443,
+    "rank": "HIGH",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46443,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46443,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46443,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46443,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46333,
+    "rank": "",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 12,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46333,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46333,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          7314,
+          7314,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46333,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46333,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46333,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46333,
+        "talent": 966,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46333,
+        "talent": 735,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46333,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46333,
+        "talent": 665,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46333,
+        "talent": 666,
+        "wins": 6,
+        "matches": 9
+      }
+    ]
+  },
+  {
+    "build_id": 46371,
+    "rank": "ARCHON",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46371,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46371,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46371,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46371,
+        "talent": 966,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46371,
+        "talent": 665,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46371,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46371,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46431,
+    "rank": "MID",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 12,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46431,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46431,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46431,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46431,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46431,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46431,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46431,
+        "talent": 966,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46431,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46431,
+        "talent": 665,
+        "wins": 6,
+        "matches": 9
+      }
+    ]
+  },
+  {
+    "build_id": 46331,
+    "rank": "",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 21,
+    "total_wins": 12,
+    "abilities": [
+      {
+        "build_id": 46331,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5004,
+          5006,
+          7314,
+          5003,
+          5004,
+          -1,
+          5004,
+          7314,
+          5006,
+          5003,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46331,
+        "talent": 735,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46331,
+        "talent": 966,
+        "wins": 12,
+        "matches": 18
+      },
+      {
+        "build_id": 46331,
+        "talent": 6800,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46331,
+        "talent": 665,
+        "wins": 12,
+        "matches": 15
+      },
+      {
+        "build_id": 46331,
+        "talent": 666,
+        "wins": 9,
+        "matches": 15
+      },
+      {
+        "build_id": 46331,
+        "talent": 6606,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46378,
+    "rank": "LEGEND",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 60,
+    "total_wins": 27,
+    "abilities": [
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5004,
+          5003,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46378,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46378,
+        "talent": 6353,
+        "wins": 9,
+        "matches": 21
+      },
+      {
+        "build_id": 46378,
+        "talent": 735,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46378,
+        "talent": 1495,
+        "wins": 12,
+        "matches": 18
+      },
+      {
+        "build_id": 46378,
+        "talent": 666,
+        "wins": 27,
+        "matches": 48
+      },
+      {
+        "build_id": 46378,
+        "talent": 6606,
+        "wins": 9,
+        "matches": 18
+      },
+      {
+        "build_id": 46378,
+        "talent": 665,
+        "wins": 21,
+        "matches": 45
+      },
+      {
+        "build_id": 46378,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 12
+      },
+      {
+        "build_id": 46378,
+        "talent": 966,
+        "wins": 15,
+        "matches": 42
+      }
+    ]
+  },
+  {
+    "build_id": 46408,
+    "rank": "IMMORTAL",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 15,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46408,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46408,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          5003,
+          7314,
+          -1,
+          7314,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46408,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          7314,
+          7314,
+          5006,
+          5004,
+          5004,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46408,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314,
+          5006
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46408,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46408,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46408,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46408,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46408,
+        "talent": 666,
+        "wins": 3,
+        "matches": 15
+      },
+      {
+        "build_id": 46408,
+        "talent": 665,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46408,
+        "talent": 735,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46412,
+    "rank": "IMMORTAL",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46412,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46412,
+        "talent": 666,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46412,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46412,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46442,
+    "rank": "HIGH",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46442,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46442,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46442,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46442,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46442,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46332,
+    "rank": "",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 12,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46332,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46332,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46332,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46332,
+        "abilities": [
+          7314,
+          5003,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46332,
+        "talent": 966,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46332,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46332,
+        "talent": 666,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46332,
+        "talent": 665,
+        "wins": 6,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46367,
+    "rank": "ARCHON",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 51,
+    "total_wins": 15,
+    "abilities": [
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5004,
+          5003,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          7314,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          5003
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          7314,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          7314,
+          5006,
+          5003,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          -1,
+          7314,
+          5006,
+          5004,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46367,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46367,
+        "talent": 6353,
+        "wins": 6,
+        "matches": 15
+      },
+      {
+        "build_id": 46367,
+        "talent": 735,
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46367,
+        "talent": 1495,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46367,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46367,
+        "talent": 666,
+        "wins": 12,
+        "matches": 45
+      },
+      {
+        "build_id": 46367,
+        "talent": 665,
+        "wins": 12,
+        "matches": 27
+      },
+      {
+        "build_id": 46367,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46367,
+        "talent": 966,
+        "wins": 12,
+        "matches": 42
+      }
+    ]
+  },
+  {
+    "build_id": 46427,
+    "rank": "MID",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 84,
+    "total_wins": 21,
+    "abilities": [
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5004,
+          5006,
+          5004,
+          7314,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          7314,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          5003
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          7314,
+          5004,
+          5003,
+          5004,
+          5004,
+          5006,
+          5004,
+          7314,
+          7314,
+          -1,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46427,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          7314,
+          -1,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46427,
+        "talent": 665,
+        "wins": 15,
+        "matches": 42
+      },
+      {
+        "build_id": 46427,
+        "talent": 735,
+        "wins": 3,
+        "matches": 18
+      },
+      {
+        "build_id": 46427,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46427,
+        "talent": 666,
+        "wins": 18,
+        "matches": 75
+      },
+      {
+        "build_id": 46427,
+        "talent": 966,
+        "wins": 15,
+        "matches": 69
+      },
+      {
+        "build_id": 46427,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46427,
+        "talent": 6353,
+        "wins": 9,
+        "matches": 24
+      },
+      {
+        "build_id": 46427,
+        "talent": 6606,
+        "wins": 6,
+        "matches": 12
+      }
+    ]
+  },
+  {
+    "build_id": 46399,
+    "rank": "DIVINE",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46399,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46399,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46399,
+        "talent": 1495,
+        "wins": 9,
+        "matches": 9
+      },
+      {
+        "build_id": 46399,
+        "talent": 6800,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46399,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46399,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46399,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46439,
+    "rank": "HIGH",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46439,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46439,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46439,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46439,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46439,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46439,
+        "talent": 1495,
+        "wins": 9,
+        "matches": 9
+      },
+      {
+        "build_id": 46439,
+        "talent": 6800,
+        "wins": 6,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46329,
+    "rank": "",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 24,
+    "total_wins": 18,
+    "abilities": [
+      {
+        "build_id": 46329,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46329,
+        "abilities": [
+          5004,
+          7314,
+          5003,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46329,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46329,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46329,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          7314,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46329,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46329,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46329,
+        "talent": 666,
+        "wins": 9,
+        "matches": 15
+      },
+      {
+        "build_id": 46329,
+        "talent": 6800,
+        "wins": 9,
+        "matches": 9
+      },
+      {
+        "build_id": 46329,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46329,
+        "talent": 6353,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46329,
+        "talent": 1495,
+        "wins": 15,
+        "matches": 15
+      },
+      {
+        "build_id": 46329,
+        "talent": 665,
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46329,
+        "talent": 966,
+        "wins": 3,
+        "matches": 9
+      }
+    ]
+  },
+  {
+    "build_id": 46388,
+    "rank": "ANCIENT",
+    "role": "POSITION_1",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 24,
+    "total_wins": 15,
+    "abilities": [
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          7314,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          5004,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46388,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46388,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "talent": 735,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46388,
+        "talent": 6353,
+        "wins": 12,
+        "matches": 12
+      },
+      {
+        "build_id": 46388,
+        "talent": 665,
+        "wins": 9,
+        "matches": 18
+      },
+      {
+        "build_id": 46388,
+        "talent": 666,
+        "wins": 15,
+        "matches": 21
+      },
+      {
+        "build_id": 46388,
+        "talent": 966,
+        "wins": 9,
+        "matches": 18
+      }
+    ]
+  },
+  {
+    "build_id": 46377,
+    "rank": "LEGEND",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 33,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46377,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          7314,
+          -1,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5004,
+          7314,
+          5003,
+          5004,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "abilities": [
+          7314,
+          5004,
+          5003,
+          5004,
+          5004,
+          5006,
+          5004,
+          7314,
+          7314,
+          -1,
+          7314,
+          5006,
+          5003,
+          5003,
+          -1,
+          5003
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46377,
+        "talent": 665,
+        "wins": 3,
+        "matches": 15
+      },
+      {
+        "build_id": 46377,
+        "talent": 966,
+        "wins": 3,
+        "matches": 27
+      },
+      {
+        "build_id": 46377,
+        "talent": 666,
+        "wins": 6,
+        "matches": 30
+      },
+      {
+        "build_id": 46377,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46377,
+        "talent": 735,
+        "wins": 3,
+        "matches": 12
+      },
+      {
+        "build_id": 46377,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46377,
+        "talent": 1495,
+        "wins": 3,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46410,
+    "rank": "IMMORTAL",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46410,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          7314,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46410,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46410,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46440,
+    "rank": "HIGH",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46440,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          7314,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46440,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46440,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46330,
+    "rank": "",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 24,
+    "total_wins": 9,
+    "abilities": [
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          7314,
+          5003,
+          5004,
+          5004,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          5004,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          7314,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          5004
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          7314,
+          5004,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          7314,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46330,
+        "talent": 665,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46330,
+        "talent": 966,
+        "wins": 9,
+        "matches": 21
+      },
+      {
+        "build_id": 46330,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46330,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46330,
+        "talent": 666,
+        "wins": 9,
+        "matches": 24
+      }
+    ]
+  },
+  {
+    "build_id": 46351,
+    "rank": "GUARDIAN",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46351,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46351,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46351,
+        "talent": 666,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46351,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46421,
+    "rank": "LOW",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46421,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5003,
+          5003,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46421,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46421,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5004,
+          5006,
+          7314,
+          5003,
+          5004,
+          -1,
+          5004,
+          7314,
+          5006,
+          5003,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46421,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46421,
+        "talent": 666,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46421,
+        "talent": 735,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46421,
+        "talent": 6606,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46421,
+        "talent": 966,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46421,
+        "talent": 665,
+        "wins": 6,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46363,
+    "rank": "CRUSADER",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46363,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46363,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          7314,
+          7314,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46363,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46363,
+        "talent": 966,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46363,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46363,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46363,
+        "talent": 735,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46363,
+        "talent": 666,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46363,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46423,
+    "rank": "LOW",
+    "role": "POSITION_4",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46423,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          7314,
+          7314,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46423,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46423,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46423,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46423,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46423,
+        "talent": 966,
+        "wins": 6,
+        "matches": 9
+      },
+      {
+        "build_id": 46423,
+        "talent": 666,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46423,
+        "talent": 735,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46423,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46407,
+    "rank": "IMMORTAL",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 12,
+    "total_wins": 9,
+    "abilities": [
+      {
+        "build_id": 46407,
+        "abilities": [
+          7314,
+          5003,
+          5004,
+          5004,
+          5004,
+          5006,
+          5004,
+          7314,
+          7314,
+          5003,
+          5003,
+          5006,
+          7314,
+          5003,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46407,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46407,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46407,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          7314,
+          5006,
+          5003,
+          5004,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46407,
+        "talent": 966,
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46407,
+        "talent": 6353,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46407,
+        "talent": 666,
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46407,
+        "talent": 665,
+        "wins": 6,
+        "matches": 9
+      }
+    ]
+  },
+  {
+    "build_id": 46360,
+    "rank": "CRUSADER",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 9,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46360,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          5004,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46360,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46360,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46360,
+        "talent": 666,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46360,
+        "talent": 966,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46360,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46420,
+    "rank": "LOW",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 15,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46420,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          -1,
+          5004,
+          5006,
+          5004,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46420,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46420,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46420,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          7314,
+          5003,
+          5004,
+          5004,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46420,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46420,
+        "talent": 665,
+        "wins": 3,
+        "matches": 9
+      },
+      {
+        "build_id": 46420,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 6
+      },
+      {
+        "build_id": 46420,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46420,
+        "talent": 666,
+        "wins": 6,
+        "matches": 15
+      },
+      {
+        "build_id": 46420,
+        "talent": 966,
+        "wins": 6,
+        "matches": 12
+      }
+    ]
+  },
+  {
+    "build_id": 46369,
+    "rank": "ARCHON",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46369,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46369,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          7314,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46369,
+        "talent": 1495,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46369,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46369,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46369,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46369,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46369,
+        "talent": 665,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46369,
+        "talent": 666,
+        "wins": 6,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46429,
+    "rank": "MID",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 12,
+    "total_wins": 9,
+    "abilities": [
+      {
+        "build_id": 46429,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          7314,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46429,
+        "abilities": [
+          5004,
+          5003,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46429,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46429,
+        "abilities": [
+          5004,
+          7314,
+          5003,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46429,
+        "talent": 6353,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46429,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46429,
+        "talent": 665,
+        "wins": 9,
+        "matches": 9
+      },
+      {
+        "build_id": 46429,
+        "talent": 666,
+        "wins": 9,
+        "matches": 12
+      },
+      {
+        "build_id": 46429,
+        "talent": 1495,
+        "wins": 9,
+        "matches": 9
+      },
+      {
+        "build_id": 46429,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46429,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46342,
+    "rank": "HERALD",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46342,
+        "abilities": [
+          7314,
+          5003,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46342,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46342,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46342,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46342,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46342,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46422,
+    "rank": "LOW",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46422,
+        "abilities": [
+          7314,
+          5003,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46422,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          7314,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46422,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46422,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46422,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46422,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46397,
+    "rank": "DIVINE",
+    "role": "POSITION_1",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 12,
+    "total_wins": 6,
+    "abilities": [
+      {
+        "build_id": 46397,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46397,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46397,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          7314,
+          5004,
+          5003,
+          -1,
+          5006,
+          5004,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46397,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46397,
+        "talent": 1495,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46397,
+        "talent": 665,
+        "wins": 6,
+        "matches": 6
+      },
+      {
+        "build_id": 46397,
+        "talent": 666,
+        "wins": 6,
+        "matches": 12
+      },
+      {
+        "build_id": 46397,
+        "talent": 966,
+        "wins": 3,
+        "matches": 9
+      }
+    ]
+  },
+  {
+    "build_id": 46344,
+    "rank": "HERALD",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46344,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46344,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46344,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46344,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46344,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46424,
+    "rank": "LOW",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46424,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46424,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46424,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46424,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46424,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46334,
+    "rank": "",
+    "role": "POSITION_4",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46334,
+        "abilities": [
+          5004,
+          5003,
+          5004,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          5003,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          5006
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46334,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46334,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46334,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46334,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46380,
+    "rank": "LEGEND",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46380,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          7314,
+          5004,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46380,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46380,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46430,
+    "rank": "MID",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46430,
+        "abilities": [
+          5003,
+          7314,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          5004
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46430,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          7314,
+          5004,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46430,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46430,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46430,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46350,
+    "rank": "GUARDIAN",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46350,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          7314,
+          5003,
+          5004,
+          5004,
+          5006,
+          -1,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46350,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46350,
+        "talent": 665,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46350,
+        "talent": 6606,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46350,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46350,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46350,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46381,
+    "rank": "LEGEND",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46381,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46381,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46381,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46381,
+        "talent": 666,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46381,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46381,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46365,
+    "rank": "CRUSADER",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46365,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46365,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46365,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46365,
+        "talent": 6800,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46425,
+    "rank": "LOW",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46425,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46425,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46425,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46425,
+        "talent": 665,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46425,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46425,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      }
+    ]
+  },
+  {
+    "build_id": 46335,
+    "rank": "",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46335,
+        "abilities": [
+          5003,
+          5004,
+          7314,
+          5003,
+          5003,
+          5004,
+          5003,
+          5004,
+          5006,
+          5004,
+          7314,
+          5006,
+          7314,
+          -1,
+          7314,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46335,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46335,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46335,
+        "talent": 966,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46335,
+        "talent": 665,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46335,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46402,
+    "rank": "DIVINE",
+    "role": "POSITION_3",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46402,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46402,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46402,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46361,
+    "rank": "CRUSADER",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46361,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46361,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46361,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46361,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46361,
+        "talent": 666,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46370,
+    "rank": "ARCHON",
+    "role": "POSITION_2",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46370,
+        "abilities": [
+          5003,
+          7314,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          7314,
+          5004,
+          -1,
+          5004,
+          5006,
+          7314,
+          7314,
+          -1,
+          5004
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46370,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46370,
+        "talent": 666,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46370,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46359,
+    "rank": "CRUSADER",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46359,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46359,
+        "talent": 1495,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46359,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46419,
+    "rank": "LOW",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46419,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          5004,
+          5003,
+          5006,
+          5003,
+          5004,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46419,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46419,
+        "talent": 1495,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46346,
+    "rank": "HERALD",
+    "role": "POSITION_5",
+    "facet": 2,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46346,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5004,
+          5004,
+          5003,
+          -1,
+          5003,
+          5006,
+          7314,
+          7314,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46346,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46346,
+        "talent": 665,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46346,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46355,
+    "rank": "GUARDIAN",
+    "role": "POSITION_5",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46355,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5004,
+          5006,
+          5003,
+          5003,
+          5004,
+          7314,
+          -1,
+          5006,
+          7314,
+          5004,
+          -1,
+          7314
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46355,
+        "talent": 966,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46355,
+        "talent": 6800,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46355,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46355,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46379,
+    "rank": "LEGEND",
+    "role": "POSITION_2",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 6,
+    "total_wins": 3,
+    "abilities": [
+      {
+        "build_id": 46379,
+        "abilities": [
+          5003,
+          5004,
+          5003,
+          7314,
+          5003,
+          5006,
+          5004,
+          5004,
+          5004,
+          5003,
+          7314,
+          5006,
+          7314,
+          7314,
+          -1,
+          -1
+        ],
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46379,
+        "abilities": [
+          5004,
+          7314,
+          5003,
+          5003,
+          5003,
+          5006,
+          5004,
+          5003,
+          5004,
+          5004,
+          -1,
+          5006,
+          7314,
+          7314,
+          7314,
+          -1
+        ],
+        "wins": 3,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46379,
+        "talent": 6353,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46379,
+        "talent": 666,
+        "wins": 3,
+        "matches": 6
+      },
+      {
+        "build_id": 46379,
+        "talent": 665,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46379,
+        "talent": 1495,
+        "wins": 3,
+        "matches": 3
+      },
+      {
+        "build_id": 46379,
+        "talent": 966,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  },
+  {
+    "build_id": 46341,
+    "rank": "HERALD",
+    "role": "POSITION_3",
+    "facet": 1,
+    "patch": "7.37k",
+    "total_matches": 3,
+    "total_wins": 0,
+    "abilities": [
+      {
+        "build_id": 46341,
+        "abilities": [
+          5003,
+          7314,
+          5004,
+          5003,
+          5004,
+          5006,
+          7314,
+          5003,
+          5004,
+          -1,
+          5004,
+          7314,
+          5006,
+          5003,
+          -1,
+          7314
+        ],
+        "wins": 0,
+        "matches": 3
+      }
+    ],
+    "talents": [
+      {
+        "build_id": 46341,
+        "talent": 666,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46341,
+        "talent": 735,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46341,
+        "talent": 6606,
+        "wins": 0,
+        "matches": 3
+      },
+      {
+        "build_id": 46341,
+        "talent": 1495,
+        "wins": 0,
+        "matches": 3
+      }
+    ]
+  }
+]
