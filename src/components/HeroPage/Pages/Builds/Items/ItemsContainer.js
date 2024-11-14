@@ -20,7 +20,7 @@ export default function ItemsContainer({build, hero, role}) {
 
     const [isCarry, setIsCarry] = useState(role == "POSITION_4" || role == "POSITION_5" ? false : true)
 
-    const [lateItems, setLateItems] = useState(build.core[0].late)
+    const [lateItems, setLateItems] = useState(build.core ? build.core[0].late : [])
 
     const [currOptions, setCurrOptions] = useState('?' + initOptions)
 
@@ -38,7 +38,9 @@ export default function ItemsContainer({build, hero, role}) {
         else {
             setIsCarry(true)
         }
-        setLateItems(build.core[0].late)
+        if(build.core){
+            setLateItems(build.core[0].late)
+        }
     }, [build, role, router])    
 
     return(
@@ -51,26 +53,26 @@ export default function ItemsContainer({build, hero, role}) {
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
                     </Link> 
-                    <Starting items={build.starting} />
+                    {build.starting ? <Starting items={build.starting} /> : <div>No starting data</div>}
                 </div>
                 <div className='hidden sm:flex lg:w-1/3 px-10 sm:px-0'>
-                    <Early items={build.early} />
+                    {build.early ? <Early items={build.early} /> : <div>No early items data</div>}
                 </div>
                 <div className={`hidden lg:w-2/5 lg:block`}>
-                    <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} />
+                    {build.core ? <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} /> : <div>No core data</div>}
                 </div>
             </div>
             <div className='sm:w-1/3 sm:hidden px-10 sm:px-0'>
-                <Early items={build.early} />
+                {build.early ? <Early items={build.early} /> : <div>No early items data</div>}
             </div>
             <div className={`block lg:hidden sm:w-3/5 mx-auto`}>
-                <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} />
+                {build.core ? <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} /> : <div>No core data</div>}
             </div>
             <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full'>
                 <Late items={lateItems} isCarry={isCarry} />
             </div>
             <div className='lg:flex lg:items-center gap-2 w-full sm:w-3/5 sm:mx-auto lg:mx-0 lg:w-3/4'>
-                <Neutrals hero={hero} items={build.neutrals} />
+                {build.neutrals ? <Neutrals hero={hero} items={build.neutrals} /> : <div>No neutral data</div>}
                 <div className='hidden lg:block'>
                     <SquareAd slot="6947376325" />
                 </div>
