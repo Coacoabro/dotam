@@ -1,0 +1,7 @@
+{
+  "hero_id": 76,
+  "name": "npc_dota_hero_obsidian_destroyer",
+  "localized_name": "Outworld Devourer",
+  "img": "/apps/dota2/images/dota_react/heroes/obsidian_destroyer.png?",
+  "attr": "int"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 108,
+  "name": "npc_dota_hero_abyssal_underlord",
+  "localized_name": "Underlord",
+  "img": "/apps/dota2/images/dota_react/heroes/abyssal_underlord.png?",
+  "attr": "str"
+}

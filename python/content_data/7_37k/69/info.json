@@ -1,0 +1,7 @@
+{
+  "hero_id": 69,
+  "name": "npc_dota_hero_doom_bringer",
+  "localized_name": "Doom",
+  "img": "/apps/dota2/images/dota_react/heroes/doom_bringer.png?",
+  "attr": "str"
+}

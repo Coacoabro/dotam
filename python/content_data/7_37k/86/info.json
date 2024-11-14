@@ -1,0 +1,7 @@
+{
+  "hero_id": 86,
+  "name": "npc_dota_hero_rubick",
+  "localized_name": "Rubick",
+  "img": "/apps/dota2/images/dota_react/heroes/rubick.png?",
+  "attr": "int"
+}

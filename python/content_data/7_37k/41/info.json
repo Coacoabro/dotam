@@ -1,0 +1,7 @@
+{
+  "hero_id": 41,
+  "name": "npc_dota_hero_faceless_void",
+  "localized_name": "Faceless Void",
+  "img": "/apps/dota2/images/dota_react/heroes/faceless_void.png?",
+  "attr": "agi"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 80,
+  "name": "npc_dota_hero_lone_druid",
+  "localized_name": "Lone Druid",
+  "img": "/apps/dota2/images/dota_react/heroes/lone_druid.png?",
+  "attr": "all"
+}

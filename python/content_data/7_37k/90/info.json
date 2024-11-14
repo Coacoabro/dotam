@@ -1,0 +1,7 @@
+{
+  "hero_id": 90,
+  "name": "npc_dota_hero_keeper_of_the_light",
+  "localized_name": "Keeper of the Light",
+  "img": "/apps/dota2/images/dota_react/heroes/keeper_of_the_light.png?",
+  "attr": "int"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 99,
+  "name": "npc_dota_hero_bristleback",
+  "localized_name": "Bristleback",
+  "img": "/apps/dota2/images/dota_react/heroes/bristleback.png?",
+  "attr": "str"
+}

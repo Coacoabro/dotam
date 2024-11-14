@@ -1,0 +1,7 @@
+{
+  "hero_id": 16,
+  "name": "npc_dota_hero_sand_king",
+  "localized_name": "Sand King",
+  "img": "/apps/dota2/images/dota_react/heroes/sand_king.png?",
+  "attr": "all"
+}

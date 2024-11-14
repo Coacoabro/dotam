@@ -1,0 +1,7 @@
+{
+  "hero_id": 100,
+  "name": "npc_dota_hero_tusk",
+  "localized_name": "Tusk",
+  "img": "/apps/dota2/images/dota_react/heroes/tusk.png?",
+  "attr": "str"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 128,
+  "name": "npc_dota_hero_snapfire",
+  "localized_name": "Snapfire",
+  "img": "/apps/dota2/images/dota_react/heroes/snapfire.png?",
+  "attr": "all"
+}

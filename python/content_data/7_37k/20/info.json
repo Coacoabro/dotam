@@ -1,0 +1,7 @@
+{
+  "hero_id": 20,
+  "name": "npc_dota_hero_vengefulspirit",
+  "localized_name": "Vengeful Spirit",
+  "img": "/apps/dota2/images/dota_react/heroes/vengefulspirit.png?",
+  "attr": "all"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 10,
+  "name": "npc_dota_hero_morphling",
+  "localized_name": "Morphling",
+  "img": "/apps/dota2/images/dota_react/heroes/morphling.png?",
+  "attr": "agi"
+}

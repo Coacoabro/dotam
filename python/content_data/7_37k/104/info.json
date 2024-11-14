@@ -1,0 +1,7 @@
+{
+  "hero_id": 104,
+  "name": "npc_dota_hero_legion_commander",
+  "localized_name": "Legion Commander",
+  "img": "/apps/dota2/images/dota_react/heroes/legion_commander.png?",
+  "attr": "str"
+}

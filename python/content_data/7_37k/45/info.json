@@ -1,0 +1,7 @@
+{
+  "hero_id": 45,
+  "name": "npc_dota_hero_pugna",
+  "localized_name": "Pugna",
+  "img": "/apps/dota2/images/dota_react/heroes/pugna.png?",
+  "attr": "int"
+}

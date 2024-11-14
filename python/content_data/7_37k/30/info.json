@@ -1,0 +1,7 @@
+{
+  "hero_id": 30,
+  "name": "npc_dota_hero_witch_doctor",
+  "localized_name": "Witch Doctor",
+  "img": "/apps/dota2/images/dota_react/heroes/witch_doctor.png?",
+  "attr": "int"
+}

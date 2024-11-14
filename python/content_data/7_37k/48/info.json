@@ -1,0 +1,7 @@
+{
+  "hero_id": 48,
+  "name": "npc_dota_hero_luna",
+  "localized_name": "Luna",
+  "img": "/apps/dota2/images/dota_react/heroes/luna.png?",
+  "attr": "agi"
+}

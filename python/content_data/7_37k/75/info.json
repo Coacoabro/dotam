@@ -1,0 +1,7 @@
+{
+  "hero_id": 75,
+  "name": "npc_dota_hero_silencer",
+  "localized_name": "Silencer",
+  "img": "/apps/dota2/images/dota_react/heroes/silencer.png?",
+  "attr": "int"
+}

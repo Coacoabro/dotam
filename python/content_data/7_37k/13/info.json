@@ -1,0 +1,7 @@
+{
+  "hero_id": 13,
+  "name": "npc_dota_hero_puck",
+  "localized_name": "Puck",
+  "img": "/apps/dota2/images/dota_react/heroes/puck.png?",
+  "attr": "int"
+}

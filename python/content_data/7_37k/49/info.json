@@ -1,0 +1,7 @@
+{
+  "hero_id": 49,
+  "name": "npc_dota_hero_dragon_knight",
+  "localized_name": "Dragon Knight",
+  "img": "/apps/dota2/images/dota_react/heroes/dragon_knight.png?",
+  "attr": "str"
+}

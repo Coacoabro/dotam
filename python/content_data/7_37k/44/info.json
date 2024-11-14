@@ -1,0 +1,7 @@
+{
+  "hero_id": 44,
+  "name": "npc_dota_hero_phantom_assassin",
+  "localized_name": "Phantom Assassin",
+  "img": "/apps/dota2/images/dota_react/heroes/phantom_assassin.png?",
+  "attr": "agi"
+}

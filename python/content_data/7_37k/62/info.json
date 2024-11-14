@@ -1,0 +1,7 @@
+{
+  "hero_id": 62,
+  "name": "npc_dota_hero_bounty_hunter",
+  "localized_name": "Bounty Hunter",
+  "img": "/apps/dota2/images/dota_react/heroes/bounty_hunter.png?",
+  "attr": "agi"
+}

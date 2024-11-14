@@ -1,0 +1,7 @@
+{
+  "hero_id": 26,
+  "name": "npc_dota_hero_lion",
+  "localized_name": "Lion",
+  "img": "/apps/dota2/images/dota_react/heroes/lion.png?",
+  "attr": "int"
+}

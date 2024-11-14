@@ -1,0 +1,7 @@
+{
+  "hero_id": 46,
+  "name": "npc_dota_hero_templar_assassin",
+  "localized_name": "Templar Assassin",
+  "img": "/apps/dota2/images/dota_react/heroes/templar_assassin.png?",
+  "attr": "agi"
+}

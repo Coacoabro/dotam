@@ -1,0 +1,7 @@
+{
+  "hero_id": 84,
+  "name": "npc_dota_hero_ogre_magi",
+  "localized_name": "Ogre Magi",
+  "img": "/apps/dota2/images/dota_react/heroes/ogre_magi.png?",
+  "attr": "str"
+}

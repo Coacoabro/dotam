@@ -1,0 +1,7 @@
+{
+  "hero_id": 67,
+  "name": "npc_dota_hero_spectre",
+  "localized_name": "Spectre",
+  "img": "/apps/dota2/images/dota_react/heroes/spectre.png?",
+  "attr": "agi"
+}

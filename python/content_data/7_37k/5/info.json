@@ -1,0 +1,7 @@
+{
+  "hero_id": 5,
+  "name": "npc_dota_hero_crystal_maiden",
+  "localized_name": "Crystal Maiden",
+  "img": "/apps/dota2/images/dota_react/heroes/crystal_maiden.png?",
+  "attr": "int"
+}

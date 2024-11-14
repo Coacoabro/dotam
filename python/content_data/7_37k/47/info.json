@@ -1,0 +1,7 @@
+{
+  "hero_id": 47,
+  "name": "npc_dota_hero_viper",
+  "localized_name": "Viper",
+  "img": "/apps/dota2/images/dota_react/heroes/viper.png?",
+  "attr": "agi"
+}

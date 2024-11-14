@@ -1,0 +1,7 @@
+{
+  "hero_id": 9,
+  "name": "npc_dota_hero_mirana",
+  "localized_name": "Mirana",
+  "img": "/apps/dota2/images/dota_react/heroes/mirana.png?",
+  "attr": "all"
+}

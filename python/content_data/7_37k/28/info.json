@@ -1,0 +1,7 @@
+{
+  "hero_id": 28,
+  "name": "npc_dota_hero_slardar",
+  "localized_name": "Slardar",
+  "img": "/apps/dota2/images/dota_react/heroes/slardar.png?",
+  "attr": "str"
+}

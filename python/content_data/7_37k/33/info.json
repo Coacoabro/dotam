@@ -1,0 +1,7 @@
+{
+  "hero_id": 33,
+  "name": "npc_dota_hero_enigma",
+  "localized_name": "Enigma",
+  "img": "/apps/dota2/images/dota_react/heroes/enigma.png?",
+  "attr": "all"
+}

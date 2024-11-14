@@ -1,0 +1,7 @@
+{
+  "hero_id": 97,
+  "name": "npc_dota_hero_magnataur",
+  "localized_name": "Magnus",
+  "img": "/apps/dota2/images/dota_react/heroes/magnataur.png?",
+  "attr": "all"
+}

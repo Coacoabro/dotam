@@ -1,0 +1,7 @@
+{
+  "hero_id": 105,
+  "name": "npc_dota_hero_techies",
+  "localized_name": "Techies",
+  "img": "/apps/dota2/images/dota_react/heroes/techies.png?",
+  "attr": "all"
+}

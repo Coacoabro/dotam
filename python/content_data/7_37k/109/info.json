@@ -1,0 +1,7 @@
+{
+  "hero_id": 109,
+  "name": "npc_dota_hero_terrorblade",
+  "localized_name": "Terrorblade",
+  "img": "/apps/dota2/images/dota_react/heroes/terrorblade.png?",
+  "attr": "agi"
+}

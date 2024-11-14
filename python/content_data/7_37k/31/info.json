@@ -1,0 +1,7 @@
+{
+  "hero_id": 31,
+  "name": "npc_dota_hero_lich",
+  "localized_name": "Lich",
+  "img": "/apps/dota2/images/dota_react/heroes/lich.png?",
+  "attr": "int"
+}

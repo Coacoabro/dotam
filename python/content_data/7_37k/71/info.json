@@ -1,0 +1,7 @@
+{
+  "hero_id": 71,
+  "name": "npc_dota_hero_spirit_breaker",
+  "localized_name": "Spirit Breaker",
+  "img": "/apps/dota2/images/dota_react/heroes/spirit_breaker.png?",
+  "attr": "str"
+}

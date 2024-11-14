@@ -1,0 +1,7 @@
+{
+  "hero_id": 14,
+  "name": "npc_dota_hero_pudge",
+  "localized_name": "Pudge",
+  "img": "/apps/dota2/images/dota_react/heroes/pudge.png?",
+  "attr": "str"
+}

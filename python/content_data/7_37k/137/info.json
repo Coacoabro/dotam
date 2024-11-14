@@ -1,0 +1,7 @@
+{
+  "hero_id": 137,
+  "name": "npc_dota_hero_primal_beast",
+  "localized_name": "Primal Beast",
+  "img": "/apps/dota2/images/dota_react/heroes/primal_beast.png?",
+  "attr": "str"
+}

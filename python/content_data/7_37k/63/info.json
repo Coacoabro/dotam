@@ -1,0 +1,7 @@
+{
+  "hero_id": 63,
+  "name": "npc_dota_hero_weaver",
+  "localized_name": "Weaver",
+  "img": "/apps/dota2/images/dota_react/heroes/weaver.png?",
+  "attr": "agi"
+}

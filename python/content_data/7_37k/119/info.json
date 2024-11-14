@@ -1,0 +1,7 @@
+{
+  "hero_id": 119,
+  "name": "npc_dota_hero_dark_willow",
+  "localized_name": "Dark Willow",
+  "img": "/apps/dota2/images/dota_react/heroes/dark_willow.png?",
+  "attr": "all"
+}

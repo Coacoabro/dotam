@@ -1,0 +1,7 @@
+{
+  "hero_id": 82,
+  "name": "npc_dota_hero_meepo",
+  "localized_name": "Meepo",
+  "img": "/apps/dota2/images/dota_react/heroes/meepo.png?",
+  "attr": "agi"
+}

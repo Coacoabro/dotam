@@ -1,0 +1,7 @@
+{
+  "hero_id": 8,
+  "name": "npc_dota_hero_juggernaut",
+  "localized_name": "Juggernaut",
+  "img": "/apps/dota2/images/dota_react/heroes/juggernaut.png?",
+  "attr": "agi"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 54,
+  "name": "npc_dota_hero_life_stealer",
+  "localized_name": "Lifestealer",
+  "img": "/apps/dota2/images/dota_react/heroes/life_stealer.png?",
+  "attr": "str"
+}

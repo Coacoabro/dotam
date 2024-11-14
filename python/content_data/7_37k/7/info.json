@@ -1,0 +1,7 @@
+{
+  "hero_id": 7,
+  "name": "npc_dota_hero_earthshaker",
+  "localized_name": "Earthshaker",
+  "img": "/apps/dota2/images/dota_react/heroes/earthshaker.png?",
+  "attr": "str"
+}

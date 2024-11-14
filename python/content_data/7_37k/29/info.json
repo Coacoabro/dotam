@@ -1,0 +1,7 @@
+{
+  "hero_id": 29,
+  "name": "npc_dota_hero_tidehunter",
+  "localized_name": "Tidehunter",
+  "img": "/apps/dota2/images/dota_react/heroes/tidehunter.png?",
+  "attr": "str"
+}

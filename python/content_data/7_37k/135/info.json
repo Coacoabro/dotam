@@ -1,0 +1,7 @@
+{
+  "hero_id": 135,
+  "name": "npc_dota_hero_dawnbreaker",
+  "localized_name": "Dawnbreaker",
+  "img": "/apps/dota2/images/dota_react/heroes/dawnbreaker.png?",
+  "attr": "str"
+}

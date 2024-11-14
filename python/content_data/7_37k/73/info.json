@@ -1,0 +1,7 @@
+{
+  "hero_id": 73,
+  "name": "npc_dota_hero_alchemist",
+  "localized_name": "Alchemist",
+  "img": "/apps/dota2/images/dota_react/heroes/alchemist.png?",
+  "attr": "str"
+}

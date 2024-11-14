@@ -1,0 +1,7 @@
+{
+  "hero_id": 77,
+  "name": "npc_dota_hero_lycan",
+  "localized_name": "Lycan",
+  "img": "/apps/dota2/images/dota_react/heroes/lycan.png?",
+  "attr": "all"
+}

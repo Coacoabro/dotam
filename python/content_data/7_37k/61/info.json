@@ -1,0 +1,7 @@
+{
+  "hero_id": 61,
+  "name": "npc_dota_hero_broodmother",
+  "localized_name": "Broodmother",
+  "img": "/apps/dota2/images/dota_react/heroes/broodmother.png?",
+  "attr": "all"
+}
