@@ -14,7 +14,7 @@ export default function HorizontalAd( {slot} ){
     }, [])
 
     return(
-        <div className='flex items-center justify-center mx-auto'>
+        <div className='hidden sm:flex items-center justify-center mx-auto'>
             <Script 
                 async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2521697717608899"

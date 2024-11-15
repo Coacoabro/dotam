@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar'
 import VerticalAd from '../components/Ads/Google/VerticalAd';
 import SquareAd from '../components/Ads/Google/SquareAd';
 import BottomBarAd from '../components/Ads/Google/BottomBarAd';
+import MobileAd from '../components/Ads/Google/MobileAd'
 import Script from 'next/script';
 
 export default function HeroesPage() {

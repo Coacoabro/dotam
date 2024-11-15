@@ -13,6 +13,7 @@ import HeroSearch from '../components/Home/Heroes/HeroSearch';
 import BottomBarAd from '../components/Ads/Google/BottomBarAd';
 import VerticalAd from '../components/Ads/Google/VerticalAd';
 import SquareAd from '../components/Ads/Google/SquareAd';
+import MobileAd from '../components/Ads/Google/MobileAd'
 
 const fetchTierData = async (hero, type) => {
     const response = await fetch(`/api/tier-list`);
