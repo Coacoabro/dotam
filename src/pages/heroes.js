@@ -39,6 +39,7 @@ export default function HeroesPage() {
 
       <div className='mx-auto'>
         <BottomBarAd slot="2656647645" />
+        <MobileAd slot="3116583158" />
       </div>
 
     </div>

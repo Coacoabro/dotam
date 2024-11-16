@@ -141,8 +141,6 @@ export default function HeroPage({ hero, patch, rates }) {
 
             <div className='mx-auto'>
                 <BottomBarAd slot={BottomSlot} />
-            </div>
-            <div className='mx-auto'>
                 <MobileAd slot={MobileSlot} />
             </div>
         </HeroLayout>
