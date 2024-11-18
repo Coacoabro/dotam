@@ -75,7 +75,7 @@ export default function HeroPage({ hero, patch, rates }) {
             PageComponent = <Abilities current_patch={patch} />
             MetaContent = `Highest rated abilities and talents for ${heroName}.`
             GuideContent = `Abilities and Talents`
-            KeywordsContent = ``
+            KeywordsContent = `${heroName} abilities, ${heroName} talents, Best abilities for ${heroName}, Best talents for ${heroName}, ${heroName} ability guide, ${heroName} talent guide, Highest rated abilities for ${heroName}, Highest rated talents for ${heroName}, Dota 2 ${heroName} abilities, Dota 2 ${heroName} talents, ${heroName} ability build, ${heroName} talent build`
             VerticalSlot = "8840790347"
             SquareSlot = "3768255622"
             BottomSlot = "4051498092"
