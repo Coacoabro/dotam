@@ -9,6 +9,7 @@ import SearchBar from '../components/SearchBar'
 import HorizontalAd from '../components/Ads/Google/HorizontalAd'
 import VerticalAd from '../components/Ads/Google/VerticalAd'
 import SquareAd from '../components/Ads/Google/SquareAd'
+import MobileAd from '../components/Ads/Google/MobileAd'
 
 
 export default function Home() {
@@ -83,6 +84,10 @@ export default function Home() {
 
             <div className='fixed top-1/4 right-4'>
                 <SquareAd slot="3693391551" />
+            </div>
+            
+            <div className='mx-auto'>
+                <MobileAd slot="8102423740" />
             </div>
         </div>
     )

@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar'
 import VerticalAd from '../components/Ads/Google/VerticalAd';
 import SquareAd from '../components/Ads/Google/SquareAd';
 import BottomBarAd from '../components/Ads/Google/BottomBarAd';
+import MobileAd from '../components/Ads/Google/MobileAd'
 import Script from 'next/script';
 
 export default function HeroesPage() {
@@ -38,6 +39,7 @@ export default function HeroesPage() {
 
       <div className='mx-auto'>
         <BottomBarAd slot="2656647645" />
+        <MobileAd slot="3116583158" />
       </div>
 
     </div>

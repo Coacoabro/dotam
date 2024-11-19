@@ -13,6 +13,7 @@ import HeroSearch from '../components/Home/Heroes/HeroSearch';
 import BottomBarAd from '../components/Ads/Google/BottomBarAd';
 import VerticalAd from '../components/Ads/Google/VerticalAd';
 import SquareAd from '../components/Ads/Google/SquareAd';
+import MobileAd from '../components/Ads/Google/MobileAd'
 
 const fetchTierData = async (hero, type) => {
     const response = await fetch(`/api/tier-list`);
@@ -88,6 +89,7 @@ export default function TierList() {
 
             <div className='mx-auto'>
                 <BottomBarAd slot="2221793137" />
+                <MobileAd slot="9032362034" />
             </div>
             
         </div>

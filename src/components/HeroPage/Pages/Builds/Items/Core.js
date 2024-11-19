@@ -19,7 +19,7 @@ export default function Core({items, isCarry, sendLate}) {
         <div className='bg-slate-900 rounded-lg border border-slate-800 space-y-1'>
             <div className='sm:flex items-end gap-2.5 px-5 pt-3'>
                 <h1 className='text-lg sm:text-xl font-bold'>Core Item Builds</h1>
-                <h2 className='opacity-50'>First three items to purchase</h2>
+                <h2 className='opacity-50'>First set of items to purchase</h2>
             </div>
             <div className='p-3 rounded-b-lg'>
 

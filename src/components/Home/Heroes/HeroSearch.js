@@ -27,7 +27,7 @@ export default function HeroSearch({onSearch, scrollY}) {
                     />
                 </div>
             </div>
-            <button className={`w-[80px] text-xs sm:text-lg sm:w-[94px] h-[30px] sm:h-[45px] sm:px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}>
+            <button className={`hidden sm:block w-[80px] text-xs sm:text-lg sm:w-[94px] h-[30px] sm:h-[45px] sm:px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}>
                 Search
             </button>
         </div>
