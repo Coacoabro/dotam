@@ -23,11 +23,13 @@ export default function VerticalAd( {slot} ){
             />
 
             <ins className="adsbygoogle"
-                style={{display:"inline-block"}}
+                style={{
+                    display:"inline-block",
+                    width:"300px",
+                    height:"600px"
+                }}
                 data-ad-client="ca-pub-2521697717608899"
                 data-ad-slot={slot}
-                data-ad-format="auto"
-                data-full-width-responsive="true"
             ></ins>
         </div>
     )
