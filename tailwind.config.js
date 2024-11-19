@@ -26,6 +26,9 @@ module.exports = {
         'cyan-200': '#E2E8F6',
         'gold-400': '#F4D35C'
       },
+      screens: {
+        'xl-full': '1900px',
+      },
     },
   },
   plugins: [],
