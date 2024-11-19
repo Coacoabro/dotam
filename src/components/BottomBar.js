@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 export default function BottomBar() {
@@ -25,6 +26,7 @@ export default function BottomBar() {
                     <div className='text-sm'>
                         <div className='font-bold'>If you see a bug, report it!</div>
                         <div>Email us at: <button onClick={()=>emailCopy()} className='hover:underline'>support@dotam.gg</button></div>
+                        <Link href="/privacy-policy" className='font-bold text-cyan-300'>Our Privacy Policy</Link>
                     </div>
                     <div className='space-y-2 text-xs sm:text-base'>
                         <h1 className='text-sm sm:text-lg'>Dota 2 Data Provided by:</h1>
@@ -40,9 +42,7 @@ export default function BottomBar() {
                         </div>
                     </div>
                 </div>
-                <div> </div>
             </div>
         </div>
-        
     )
 }
