@@ -4,7 +4,10 @@ import psycopg2
 import json
 import requests
 import os
+import boto3
+import datetime
 
+from datetime import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -53,6 +56,23 @@ def get_innate():
         json.dump(innate_json, f)
 
 # get_innate()
+
+# Make Sure Everythings Up to Date
+
+client = boto3.client('cloudfront')
+
+response = client.create_invalidation(
+    DistributionId='E2UJP3F27QO2FJ',  # Replace with your CloudFront Distribution ID
+    InvalidationBatch={
+        'Paths': {
+            'Quantity': 1,  # Number of paths to invalidate
+            'Items': [
+                '/*',  # Invalidate all files; use specific paths for individual files
+            ]
+        },
+        'CallerReference': str(datetime.now())  # Unique string to prevent duplicate invalidations
+    }
+)
 
 # My Amazon Database
 database_url = os.environ.get('DATABASE_URL')

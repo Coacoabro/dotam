@@ -3,6 +3,8 @@ import Head from 'next/head';
 
 import HeroLayout from '../../../components/HeroPage/Layout/HeroLayout.js';
 
+import Patches from '../../../../json/Patches.json'
+
 import Builds from '../../../components/HeroPage/Pages/Builds/Builds.js';
 import Items from '../../../components/HeroPage/Pages/Items/Items.js';
 import Abilities from '../../../components/HeroPage/Pages/Abilities/Abilities.js';
@@ -17,8 +19,7 @@ import Script from 'next/script.js';
 
 export async function getServerSideProps(context) {
     const hero = dota2heroes.find(hero => hero.url === context.query.hero);
-    const patch_res = await fetch("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt");
-    const patch = await patch_res.text()
+    const patch = Patches[0].Patch
     if(hero && patch){
         const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero.id}/rates.json`)
         let rates = []
