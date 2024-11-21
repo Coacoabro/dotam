@@ -1,0 +1,7 @@
+{
+  "hero_id": 103,
+  "name": "npc_dota_hero_elder_titan",
+  "localized_name": "Elder Titan",
+  "img": "/apps/dota2/images/dota_react/heroes/elder_titan.png?",
+  "attr": "str"
+}

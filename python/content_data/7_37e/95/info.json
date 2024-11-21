@@ -1,0 +1,7 @@
+{
+  "hero_id": 95,
+  "name": "npc_dota_hero_troll_warlord",
+  "localized_name": "Troll Warlord",
+  "img": "/apps/dota2/images/dota_react/heroes/troll_warlord.png?",
+  "attr": "agi"
+}

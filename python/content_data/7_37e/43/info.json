@@ -1,0 +1,7 @@
+{
+  "hero_id": 43,
+  "name": "npc_dota_hero_death_prophet",
+  "localized_name": "Death Prophet",
+  "img": "/apps/dota2/images/dota_react/heroes/death_prophet.png?",
+  "attr": "int"
+}

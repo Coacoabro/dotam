@@ -1,0 +1,7 @@
+{
+  "hero_id": 17,
+  "name": "npc_dota_hero_storm_spirit",
+  "localized_name": "Storm Spirit",
+  "img": "/apps/dota2/images/dota_react/heroes/storm_spirit.png?",
+  "attr": "int"
+}

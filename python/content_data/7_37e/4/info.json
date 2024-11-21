@@ -1,0 +1,7 @@
+{
+  "hero_id": 4,
+  "name": "npc_dota_hero_bloodseeker",
+  "localized_name": "Bloodseeker",
+  "img": "/apps/dota2/images/dota_react/heroes/bloodseeker.png?",
+  "attr": "agi"
+}

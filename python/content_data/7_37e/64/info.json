@@ -1,0 +1,7 @@
+{
+  "hero_id": 64,
+  "name": "npc_dota_hero_jakiro",
+  "localized_name": "Jakiro",
+  "img": "/apps/dota2/images/dota_react/heroes/jakiro.png?",
+  "attr": "int"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 102,
+  "name": "npc_dota_hero_abaddon",
+  "localized_name": "Abaddon",
+  "img": "/apps/dota2/images/dota_react/heroes/abaddon.png?",
+  "attr": "all"
+}

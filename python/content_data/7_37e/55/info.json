@@ -1,0 +1,7 @@
+{
+  "hero_id": 55,
+  "name": "npc_dota_hero_dark_seer",
+  "localized_name": "Dark Seer",
+  "img": "/apps/dota2/images/dota_react/heroes/dark_seer.png?",
+  "attr": "all"
+}

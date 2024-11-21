@@ -1,0 +1,7 @@
+{
+  "hero_id": 145,
+  "name": "npc_dota_hero_kez",
+  "localized_name": "Kez",
+  "img": "/apps/dota2/images/dota_react/heroes/kez.png?",
+  "attr": "agi"
+}

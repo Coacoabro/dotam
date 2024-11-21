@@ -1,0 +1,7 @@
+{
+  "hero_id": 52,
+  "name": "npc_dota_hero_leshrac",
+  "localized_name": "Leshrac",
+  "img": "/apps/dota2/images/dota_react/heroes/leshrac.png?",
+  "attr": "int"
+}

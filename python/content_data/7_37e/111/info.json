@@ -1,0 +1,7 @@
+{
+  "hero_id": 111,
+  "name": "npc_dota_hero_oracle",
+  "localized_name": "Oracle",
+  "img": "/apps/dota2/images/dota_react/heroes/oracle.png?",
+  "attr": "int"
+}

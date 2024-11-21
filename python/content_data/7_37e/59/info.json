@@ -1,0 +1,7 @@
+{
+  "hero_id": 59,
+  "name": "npc_dota_hero_huskar",
+  "localized_name": "Huskar",
+  "img": "/apps/dota2/images/dota_react/heroes/huskar.png?",
+  "attr": "str"
+}

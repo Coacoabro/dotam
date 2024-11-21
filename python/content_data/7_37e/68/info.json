@@ -1,0 +1,7 @@
+{
+  "hero_id": 68,
+  "name": "npc_dota_hero_ancient_apparition",
+  "localized_name": "Ancient Apparition",
+  "img": "/apps/dota2/images/dota_react/heroes/ancient_apparition.png?",
+  "attr": "int"
+}

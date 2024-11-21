@@ -1,0 +1,7 @@
+{
+  "hero_id": 3,
+  "name": "npc_dota_hero_bane",
+  "localized_name": "Bane",
+  "img": "/apps/dota2/images/dota_react/heroes/bane.png?",
+  "attr": "all"
+}

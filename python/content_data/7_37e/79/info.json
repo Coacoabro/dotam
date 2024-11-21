@@ -1,0 +1,7 @@
+{
+  "hero_id": 79,
+  "name": "npc_dota_hero_shadow_demon",
+  "localized_name": "Shadow Demon",
+  "img": "/apps/dota2/images/dota_react/heroes/shadow_demon.png?",
+  "attr": "int"
+}

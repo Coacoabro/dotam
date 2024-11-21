@@ -1,0 +1,7 @@
+{
+  "hero_id": 126,
+  "name": "npc_dota_hero_void_spirit",
+  "localized_name": "Void Spirit",
+  "img": "/apps/dota2/images/dota_react/heroes/void_spirit.png?",
+  "attr": "all"
+}

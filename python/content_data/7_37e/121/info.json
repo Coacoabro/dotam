@@ -1,0 +1,7 @@
+{
+  "hero_id": 121,
+  "name": "npc_dota_hero_grimstroke",
+  "localized_name": "Grimstroke",
+  "img": "/apps/dota2/images/dota_react/heroes/grimstroke.png?",
+  "attr": "int"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 93,
+  "name": "npc_dota_hero_slark",
+  "localized_name": "Slark",
+  "img": "/apps/dota2/images/dota_react/heroes/slark.png?",
+  "attr": "agi"
+}

@@ -1,0 +1,7 @@
+{
+  "hero_id": 74,
+  "name": "npc_dota_hero_invoker",
+  "localized_name": "Invoker",
+  "img": "/apps/dota2/images/dota_react/heroes/invoker.png?",
+  "attr": "all"
+}

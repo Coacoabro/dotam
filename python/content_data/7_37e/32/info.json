@@ -1,0 +1,7 @@
+{
+  "hero_id": 32,
+  "name": "npc_dota_hero_riki",
+  "localized_name": "Riki",
+  "img": "/apps/dota2/images/dota_react/heroes/riki.png?",
+  "attr": "agi"
+}

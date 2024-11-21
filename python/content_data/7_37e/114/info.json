@@ -1,0 +1,7 @@
+{
+  "hero_id": 114,
+  "name": "npc_dota_hero_monkey_king",
+  "localized_name": "Monkey King",
+  "img": "/apps/dota2/images/dota_react/heroes/monkey_king.png?",
+  "attr": "agi"
+}

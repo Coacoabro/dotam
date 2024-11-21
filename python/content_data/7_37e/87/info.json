@@ -1,0 +1,7 @@
+{
+  "hero_id": 87,
+  "name": "npc_dota_hero_disruptor",
+  "localized_name": "Disruptor",
+  "img": "/apps/dota2/images/dota_react/heroes/disruptor.png?",
+  "attr": "int"
+}

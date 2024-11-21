@@ -801,6 +801,25 @@ def sendtosql(builds):
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
     
+def initializeBuilds():
+
+    global facet_nums
+    global hero_ids
+    global patch
+    Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
+    Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
+
+    for hero_id in hero_ids:
+        num_facets = len(facet_nums[str(hero_id)])
+        hero_facet = list(range(1, num_facets + 1))
+        for rank in Ranks:
+            for role in Roles:
+                for facet in hero_facet:
+                    cur.execute("""
+                        INSERT INTO main (hero_id, rank, role, facet, patch, total_matches, total_wins) 
+                        VALUES (%s, %s, %s, %s, %s, %s, %s)
+                    """, (hero_id, rank, role, facet, patch, 0, 0))
+
 file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
 # file_path = './python/daily/seq_num.json'
 

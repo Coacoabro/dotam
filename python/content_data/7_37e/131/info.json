@@ -1,0 +1,7 @@
+{
+  "hero_id": 131,
+  "name": "npc_dota_hero_ringmaster",
+  "localized_name": "Ringmaster",
+  "img": "/apps/dota2/images/dota_react/heroes/ringmaster.png?",
+  "attr": "int"
+}

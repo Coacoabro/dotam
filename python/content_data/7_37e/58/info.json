@@ -1,0 +1,7 @@
+{
+  "hero_id": 58,
+  "name": "npc_dota_hero_enchantress",
+  "localized_name": "Enchantress",
+  "img": "/apps/dota2/images/dota_react/heroes/enchantress.png?",
+  "attr": "int"
+}

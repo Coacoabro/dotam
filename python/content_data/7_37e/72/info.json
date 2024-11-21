@@ -1,0 +1,7 @@
+{
+  "hero_id": 72,
+  "name": "npc_dota_hero_gyrocopter",
+  "localized_name": "Gyrocopter",
+  "img": "/apps/dota2/images/dota_react/heroes/gyrocopter.png?",
+  "attr": "agi"
+}

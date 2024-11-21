@@ -1,0 +1,7 @@
+{
+  "hero_id": 18,
+  "name": "npc_dota_hero_sven",
+  "localized_name": "Sven",
+  "img": "/apps/dota2/images/dota_react/heroes/sven.png?",
+  "attr": "str"
+}

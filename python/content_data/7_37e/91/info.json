@@ -1,0 +1,7 @@
+{
+  "hero_id": 91,
+  "name": "npc_dota_hero_wisp",
+  "localized_name": "Io",
+  "img": "/apps/dota2/images/dota_react/heroes/wisp.png?",
+  "attr": "all"
+}

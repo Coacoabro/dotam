@@ -103,7 +103,6 @@ for hero_id in hero_ids:
     for rank in Ranks:
         for role in Roles:
             for facet in hero_facet:
-                
                 cur.execute("""
                     INSERT INTO main (hero_id, rank, role, facet, patch, total_matches, total_wins) 
                     VALUES (%s, %s, %s, %s, %s, %s, %s)

@@ -1,0 +1,7 @@
+{
+  "hero_id": 78,
+  "name": "npc_dota_hero_brewmaster",
+  "localized_name": "Brewmaster",
+  "img": "/apps/dota2/images/dota_react/heroes/brewmaster.png?",
+  "attr": "all"
+}

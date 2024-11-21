@@ -1,0 +1,7 @@
+{
+  "hero_id": 81,
+  "name": "npc_dota_hero_chaos_knight",
+  "localized_name": "Chaos Knight",
+  "img": "/apps/dota2/images/dota_react/heroes/chaos_knight.png?",
+  "attr": "str"
+}

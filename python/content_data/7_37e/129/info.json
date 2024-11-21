@@ -1,0 +1,7 @@
+{
+  "hero_id": 129,
+  "name": "npc_dota_hero_mars",
+  "localized_name": "Mars",
+  "img": "/apps/dota2/images/dota_react/heroes/mars.png?",
+  "attr": "str"
+}

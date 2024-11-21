@@ -1,0 +1,7 @@
+{
+  "hero_id": 35,
+  "name": "npc_dota_hero_sniper",
+  "localized_name": "Sniper",
+  "img": "/apps/dota2/images/dota_react/heroes/sniper.png?",
+  "attr": "agi"
+}
