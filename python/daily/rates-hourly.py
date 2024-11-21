@@ -9,9 +9,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-# current_patch = response.text
-current_patch = '7.37k'
+response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+current_patch = response.text
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
 
