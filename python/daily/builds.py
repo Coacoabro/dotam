@@ -192,10 +192,6 @@ def getBuilds(ranked_matches, builds):
 
                             # If a hero hits level 16 at least then we should have enough info for items and what not
                             if len(abilities) == 16:
-                                if hero_id == 145:
-                                    print(abilityEvents)
-                                    print(abilities)
-                                    print(talents)
                                 isSupport = False
                                 if role == 'POSITION_4' or role == 'POSITION_5':
                                     isSupport = True
