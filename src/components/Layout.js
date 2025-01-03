@@ -45,13 +45,20 @@ export default function Layout({ children }) {
     <div className="layout overflow-x-hidden overflow-y-hidden">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GE9JHJJ3ZR"></script>
-        <script>
-          window.dataLayer = window.dataLayer || []
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date())
-          gtag('config', 'G-GE9JHJJ3ZR')
-        </script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GE9JHJJ3ZR"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-GE9JHJJ3ZR');
+            `,
+          }}
+        ></script>
       </Head>
       <header className='z-10'>
         <TopBar />
