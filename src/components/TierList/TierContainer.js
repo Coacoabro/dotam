@@ -130,6 +130,7 @@ export default function TierContainer( {heroes, rates, matchups, search} ) {
                             tier_str={tierItem.tier_str}
                             hero={heroes.find(hero => hero.hero_id === tierItem.hero_id)}
                             role={tierItem.role}
+                            rank={tierItem.rank}
                             WR={tierItem.winrate}
                             PR={tierItem.pickrate}
                             matches={tierItem.matches}
