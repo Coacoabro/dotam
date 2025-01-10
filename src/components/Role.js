@@ -10,6 +10,7 @@ export default function Role( {initRole} ) {
     const { role } = router.query
 
     const [currRole, setCurrRole] = useState(role || initRole || "")
+    const [hovered, setHovered] = useState(null)
 
     const handleClick = (role) => {
         router.push({
@@ -24,8 +25,13 @@ export default function Role( {initRole} ) {
             {router.asPath.includes('tier-list') || router.pathname == '/' || router.pathname == '/heroes' ? json.map((role) => (
                 <button 
                     onClick={() => handleClick(role.role)} 
+                    onMouseEnter={() => setHovered(role.role)}
+                    onMouseLeave={() => setHovered(null)}
                     className={`text-sm font-bold items-center flex justify-center w-10 sm:w-12 h-7 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700'}`}
                 >
+                    <div className={`${hovered == role.role && hovered != "" ? "" : "hidden"} absolute -mt-20 bg-slate-950 border border-slate-700 py-1 px-2 rounded-lg text-white`}>
+                        {role.name}
+                    </div>
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>
             )) : router.asPath.includes('matchups') ? (
@@ -39,8 +45,13 @@ export default function Role( {initRole} ) {
                     {json.filter((r) => r.role !== "").map((role) => (
                         <button 
                             onClick={() => handleClick(role.role)} 
+                            onMouseEnter={() => setHovered(role.role)}
+                            onMouseLeave={() => setHovered(null)}
                             className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700 bg-slate-900'}`}
                         >
+                            <div className={`${hovered == role.role && hovered != "" ? "" : "hidden"} absolute -mt-16 bg-slate-950 border border-slate-700 py-1 px-2 rounded-lg text-white`}>
+                                {role.name}
+                            </div>
                             {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                         </button>
                     ))}
@@ -48,9 +59,14 @@ export default function Role( {initRole} ) {
             ) :
             json.filter((r) => r.role !== "").map((role) => (
                 <button 
-                    onClick={() => handleClick(role.role)} 
+                    onClick={() => handleClick(role.role)}
+                    onMouseEnter={() => setHovered(role.role)}
+                    onMouseLeave={() => setHovered(null)}
                     className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700 bg-slate-900'}`}
                 >
+                    <div className={`${hovered == role.role && hovered != "" ? "" : "hidden"} absolute -mt-16 bg-slate-950 border border-slate-700 py-1 px-2 rounded-lg text-white`}>
+                        {role.name}
+                    </div>
                     {role.role == "" ? <div>{role.name}</div> : <img src={currRole == role.role ? role.selected : role.icon} className="h-full" />}
                 </button>
             ))
