@@ -15,7 +15,7 @@ function HeroTable({heroes, search, attr, img}) {
         </div>
       </div>
 
-      <div className="grid grid-cols-6 place-items-center sm:grid-cols-8">
+      <div className="flex flex-wrap sm:gap-0 sm:grid sm:grid-cols-8 sm:place-items-center">
         {heroes.map(hero => (
           <div>
             <HeroCard hero={hero} search={search} />

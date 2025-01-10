@@ -42,8 +42,8 @@ export default function Heroes({scrollY}) {
         <HeroSearch onSearch={handleSearch} scrollY={scrollY} />
       </div>
       <div className={`transition-all duration-500 ease-in-out px-2 z-0 lg:max-w-6xl lg:mx-auto space-y-6 text-slate-200 ${(scrollY !== 0 && router.pathname == '/') || router.pathname == '/heroes' ? 'blur-none opacity-100' : 'blur opacity-25'}`}>        
-        <div className='flex justify-center items-center space-x-4'>
-          <p className='text-xl'>Roles:</p>
+        <div className='sm:flex justify-center items-center space-x-4'>
+          <p className='sm:text-xl text-center'>Roles:</p>
           <Role />
         </div>
         <div className="grid sm:grid-cols-2 gap-[10px] lg:gap-[25px]">
