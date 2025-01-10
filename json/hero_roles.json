@@ -1,0 +1,549 @@
+{
+  "1": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "2": [
+    "POSITION_3"
+  ],
+  "3": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "4": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "5": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "6": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "7": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "8": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "9": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "10": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "11": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "12": [
+    "POSITION_1"
+  ],
+  "13": [
+    "POSITION_2"
+  ],
+  "14": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "15": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "16": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4"
+  ],
+  "17": [
+    "POSITION_2"
+  ],
+  "18": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "19": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "20": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "21": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "22": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "23": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "25": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "26": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "27": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "28": [
+    "POSITION_3"
+  ],
+  "29": [
+    "POSITION_3"
+  ],
+  "30": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "31": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "32": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4"
+  ],
+  "33": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "34": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "35": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "36": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4"
+  ],
+  "37": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "38": [
+    "POSITION_3"
+  ],
+  "39": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "40": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "41": [
+    "POSITION_1"
+  ],
+  "42": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "43": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "44": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "45": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "46": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "47": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4"
+  ],
+  "48": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "49": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "50": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "51": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "52": [
+    "POSITION_2"
+  ],
+  "53": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "54": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "55": [
+    "POSITION_3"
+  ],
+  "56": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_4"
+  ],
+  "57": [
+    "POSITION_5"
+  ],
+  "58": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "59": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "60": [
+    "POSITION_3"
+  ],
+  "61": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "62": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "63": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "64": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "65": [
+    "POSITION_4"
+  ],
+  "66": [],
+  "67": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "68": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "69": [
+    "POSITION_3"
+  ],
+  "70": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "71": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "72": [
+    "POSITION_1",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "73": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "74": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "75": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "76": [
+    "POSITION_2"
+  ],
+  "77": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "78": [
+    "POSITION_3"
+  ],
+  "79": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "80": [
+    "POSITION_2"
+  ],
+  "81": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "82": [
+    "POSITION_2"
+  ],
+  "83": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "84": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "85": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "86": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "87": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "88": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "89": [],
+  "90": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "91": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "92": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "93": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "94": [
+    "POSITION_1",
+    "POSITION_2"
+  ],
+  "95": [
+    "POSITION_1"
+  ],
+  "96": [
+    "POSITION_3"
+  ],
+  "97": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "98": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "99": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "100": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "101": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "102": [
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "103": [
+    "POSITION_3"
+  ],
+  "104": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "105": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "106": [
+    "POSITION_2"
+  ],
+  "107": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4"
+  ],
+  "108": [
+    "POSITION_3"
+  ],
+  "109": [
+    "POSITION_1",
+    "POSITION_3"
+  ],
+  "110": [
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "111": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "112": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "113": [
+    "POSITION_2"
+  ],
+  "114": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "119": [
+    "POSITION_2",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "120": [
+    "POSITION_2",
+    "POSITION_3"
+  ],
+  "121": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "123": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "126": [
+    "POSITION_2"
+  ],
+  "128": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "129": [
+    "POSITION_3"
+  ],
+  "135": [
+    "POSITION_3",
+    "POSITION_4"
+  ],
+  "136": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3",
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "137": [
+    "POSITION_3"
+  ],
+  "138": [
+    "POSITION_1",
+    "POSITION_4"
+  ],
+  "131": [
+    "POSITION_4",
+    "POSITION_5"
+  ],
+  "145": [
+    "POSITION_1",
+    "POSITION_2",
+    "POSITION_3"
+  ]
+}

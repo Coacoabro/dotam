@@ -29,6 +29,7 @@ hero_ids = [row[0] for row in cur.fetchall()]
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
 
+heroRolesObj = {}
 
 for hero_id in hero_ids:
 
@@ -47,6 +48,7 @@ for hero_id in hero_ids:
     cur.execute("SELECT * FROM rates WHERE hero_id = %s AND patch = %s", [hero_id, patch])
     rates = cur.fetchall()
     hero_rates = []
+    hero_roles = []
     for rate in rates:
         heroRate = {}
         heroRate['hero_id'] = rate[0]
@@ -60,6 +62,12 @@ for hero_id in hero_ids:
         heroRate['tier_num'] = rate[8]
         heroRate['tier_str'] = rate[9]
         hero_rates.append(heroRate)
+
+        if rate[9] != '?' and rate[7] == "":
+            hero_roles.append(rate[6])
+
+    
+    heroRolesObj[hero_id] = hero_roles
 
     hero_matchups = {}
     cur.execute("SELECT * FROM matchups WHERE hero_id = %s", [hero_id])
@@ -102,6 +110,15 @@ for hero_id in hero_ids:
     s3.upload_file(rate_file, 'dotam-content', f"data/{patch_file_name}/{hero_id}/rates.json")
     s3.upload_file(matchups_file, 'dotam-content', f"data/{patch_file_name}/{hero_id}/matchups.json")
     
+
+roles_file = f"./python/content_data/{patch_file_name}/roles.json"
+# roles_file = f"/home/ec2-user/dotam/python/content_data/{patch_file_name}/roles.json"
+
+with open(roles_file, 'w') as file:
+    json.dump(heroRolesObj, file, indent=2)
+
+s3.upload_file(roles_file, 'dotam-content', f"data/{patch_file_name}/roles.json")
+
 client = boto3.client('cloudfront')
 
 response = client.create_invalidation(

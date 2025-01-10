@@ -2,14 +2,21 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link'
 
 import dota2heroes from '../../../../json/dota2heroes.json'
+import hero_roles from '../../../../json/hero_roles.json'
+import { useRouter } from 'next/router';
 
 export default function HeroCard({ hero, search }) {
+
+  const router = useRouter()
+  const { role } = router.query
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [searched, setSearched] = useState(false)
   const searchName = hero.localized_name.toLowerCase()
-  const heroURL = dota2heroes.find(r => r.id === hero.id)?.url
+  const heroId = hero.id
+  const heroURL = dota2heroes.find(r => r.id === heroId)?.url
+  const heroRoles = hero_roles[heroId]
 
   const heroImage = 'https://dhpoqm1ofsbx7.cloudfront.net/hero_thumbnail/' + hero.name + '.jpg';
   const heroVideo = 'https://dhpoqm1ofsbx7.cloudfront.net/hero_animation/' + hero.name + '.webm';
@@ -40,19 +47,34 @@ export default function HeroCard({ hero, search }) {
   };
 
   useEffect(() => {
-    if(search) {
-      if(searchName.includes(search.toLowerCase())){
-        setSearched(100)
+    if(role || search) {
+      const roleMatch = role && heroRoles.includes(role)
+      const searchMatch = search && searchName.includes(search.toLowerCase())
+
+      if(role && search){
+        if(roleMatch && searchMatch){
+          setSearched(100)
+        } else{setSearched(25)}
       }
-      else{setSearched(25)}
-    } else{setSearched(100)}
-  }, [search])
+      else if(role){
+        if(roleMatch){
+          setSearched(100)
+        } else{setSearched(25)}
+      }
+      else if(search){
+        if(searchMatch){
+          setSearched(100)
+        } else{setSearched(25)}
+      }
+    } 
+    else {setSearched(100)}
+  }, [search, role])
 
   return (
 
     <Link href={`/hero/${heroURL}/builds`}>
       <div
-        className={`relative rounded-md transition-transform duration-300 hover:scale-150 hover:z-10 opacity-${searched}`}
+        className={`relative rounded-md transition-transform-all duration-300 hover:scale-150 hover:z-10 opacity-${searched}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

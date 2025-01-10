@@ -21,7 +21,7 @@ export default function Role( {initRole} ) {
 
     return(
         <div className="flex h-8 gap-2 sm:gap-2.5 items-center">
-            {router.asPath.includes('tier-list') ? json.map((role) => (
+            {router.asPath.includes('tier-list') || router.pathname == '/' || router.pathname == '/heroes' ? json.map((role) => (
                 <button 
                     onClick={() => handleClick(role.role)} 
                     className={`text-sm font-bold items-center flex justify-center w-10 sm:w-12 h-7 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700'}`}
