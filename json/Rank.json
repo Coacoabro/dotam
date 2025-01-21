@@ -1,8 +1,8 @@
 [
     {"rank": "", "name": "All Ranks", "icon": ""},
-    {"rank": "HIGH", "name": "High MMR", "icon": ""},
-    {"rank": "MID", "name": "Mid MMR", "icon": ""},
-    {"rank": "LOW", "name": "Low MMR", "icon": ""},
+    {"rank": "HIGH", "name": "High MMR", "icon": "/dota_ranks/High.png"},
+    {"rank": "MID", "name": "Mid MMR", "icon": "/dota_ranks/Mid.png"},
+    {"rank": "LOW", "name": "Low MMR", "icon": "/dota_ranks/Low.png"},
     {"rank": "IMMORTAL", "name": "Immortal", "icon": "/dota_ranks/Immortal.png"},
     {"rank": "DIVINE", "name": "Divine", "icon": "/dota_ranks/Divine.png"},
     {"rank": "ANCIENT", "name": "Ancient", "icon": "/dota_ranks/Ancient.png"},
