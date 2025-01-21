@@ -9,6 +9,7 @@ import psutil
 import copy
 import traceback
 
+from datetime import datetime
 from dotenv import load_dotenv
 from collections import Counter
 
@@ -16,6 +17,10 @@ from collections import Counter
 # Starting Items - Forgot to make sure they are sorted when comparing them
 
 start_time = time.time()
+first_sunday = datetime(2025, 1, 5)
+current_day = datetime.now()
+days_diff = (current_day - first_sunday).days
+biweek = days_diff // 14 + 1
 
 load_dotenv()
 
@@ -489,13 +494,13 @@ def sendtosql(builds):
         rank = build[1]
         role = build[2]
         facet = build[3]
-        unique_identifiers.append((hero_id, rank, role, facet, patch))
+        unique_identifiers.append((hero_id, rank, role, facet, patch)) # Add , biweek
 
-    placeholders = ', '.join(['(%s, %s, %s, %s, %s)']*len(unique_identifiers))
+    placeholders = ', '.join(['(%s, %s, %s, %s, %s)']*len(unique_identifiers)) # Add another %s if you want to do biweek
     params = [item for sublist in unique_identifiers for item in sublist]
     main_query = f"""
         SELECT * FROM main 
-        WHERE (hero_id, rank, role, facet, patch) IN ({placeholders})
+        WHERE (hero_id, rank, role, facet, patch) IN ({placeholders}) # Add biweek at the end of the , patch
     """
     build_ids.extend(execute_postgres(cur, main_query, params, 120, True))
 
