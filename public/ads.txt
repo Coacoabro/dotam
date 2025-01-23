@@ -2,7 +2,7 @@ google.com, pub-2521697717608899, DIRECT, f08c47fec0942fa0
 
 ownerdomain=dotam.gg
 managerdomain=venatus.com
-venatus.com, 6777e58cc745116748647d82, DIRECT
+venatus.com, 6792552a82ad99367cb3e183, DIRECT
 
 
 #V 12.12.2024 VH

@@ -20,24 +20,29 @@
                 "path": "/basics/roles/overview"
             },
             {
-                "title": "Position 1",
-                "path": "/basics/roles/safe-lane"
+                "title": "Safe Lane",
+                "path": "/basics/roles/safe-lane",
+                "img": "/dota_roles/Safe-Lane.png"
             },
             {
-                "title": "Position 2",
-                "path": "/basics/roles/mid-lane"
+                "title": "Mid Lane",
+                "path": "/basics/roles/mid-lane",
+                "img": "/dota_roles/Mid-Lane.png"
             },
             {
-                "title": "Position 3",
-                "path": "/basics/roles/off-lane"
+                "title": "Off Lane",
+                "path": "/basics/roles/off-lane",
+                "img": "/dota_roles/Off-Lane.png"
             },
             {
-                "title": "Position 4",
-                "path": "/basics/roles/soft-support"
+                "title": "Soft Support",
+                "path": "/basics/roles/soft-support",
+                "img": "/dota_roles/Soft-Support.png"
             },
             {
-                "title": "Position 5",
-                "path": "/basics/roles/hard-support"
+                "title": "Hard Support",
+                "path": "/basics/roles/hard-support",
+                "img": "/dota_roles/Hard-Support.png"
             }
         ]
     },

@@ -59,7 +59,10 @@ export default function Navigation() {
                                 <div>
                                     {file.subPaths.map(subFile => (
                                         <Link href={`${subFile.path}`}>
-                                            <div className={`${router.asPath == subFile.path ? 'bg-slate-800 font-bold' : null} px-8 py-1 rounded hover:bg-slate-900 text-lg`}>
+                                            <div className={`${router.asPath == subFile.path ? 'bg-slate-800 font-bold' : null} px-8 py-1 rounded hover:bg-slate-900 text-lg flex items-center gap-2`}>
+                                                {subFile.img ? (
+                                                    <img src={subFile.img} className='w-8 h-8'/>
+                                                ) : null}
                                                 {subFile.title}
                                             </div>
                                         </Link>

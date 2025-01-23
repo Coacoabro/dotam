@@ -1,24 +1,27 @@
-import BasicsLayout from "../../components/Basics/BasicsLayout";
-import IoLoading from '../../components/IoLoading'
-
-import PictureBox from "../../components/Basics/PictureBox";
-
-import { useRouter } from "next/router";
 import React from "react"
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { MDXProvider } from "@mdx-js/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 import { remark } from 'remark'
 import remarkMdx from 'remark-mdx'
-import dynamic from "next/dynamic";
-
+import { MDXProvider } from "@mdx-js/react";
 import fs from 'fs'
 import path from 'path'
 
+import BasicsLayout from "../../components/Basics/BasicsLayout";
+import IoLoading from '../../components/IoLoading'
+import PictureBox from "../../components/Basics/PictureBox";
+
 
 const HeadingWithId = ({ level, children }) => {
-    const id = children.toLowerCase().replace(/\s+/g, '-')
+    const heading = children[0]
+    const id = heading.toLowerCase().replace(/\s+/g, '-')
+    if (level === 1) {
+        return <h1 className="flex items-center gap-2" id={id}>{children}</h1>
+    } else {
     return React.createElement(`h${level}`, {id}, children)
+    }
 }
 
 const components = {
