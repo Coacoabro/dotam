@@ -1,16 +1,7 @@
 [
     {
         "title": "Introduction",
-        "subPaths": [
-            {
-                "title": "Welcome",
-                "path": "/basics/introduction/welcome"
-            },
-            {
-                "title": "Essentials",
-                "path": "/basics/introduction/essentials"
-            }
-        ]
+        "path": "/basics/introduction"
     },
     {
         "title": "Roles",
@@ -49,17 +40,5 @@
     {
         "title": "Ranks",
         "path": "/basics/ranks"
-    },
-    {
-        "title": "Facets",
-        "path": "/basics/facets"
-    },
-    {
-        "title": "Items",
-        "path": "/basics/items"
-    },
-    {
-        "title": "Settings/Hotkeys",
-        "path": "/basics/hotkeys"
     }
 ]

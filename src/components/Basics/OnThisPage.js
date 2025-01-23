@@ -8,8 +8,11 @@ export default function OnThisPage({headings}) {
             {headings.length > 0 ? (
                 <>
                     {headings.map(({depth, text, id}) => (
-                        <div className={`ml-${(depth - 1)*4} py-1 px-2 hover:underline`}>
-                            <a href={`#${id}`}>
+                        <div className={`py-1 px-2 flex items-center`}>
+                            {depth == 3 ? (
+                                <div>--</div>
+                            ) : null}
+                            <a href={`#${id}`} className="hover:underline">
                                 {text}
                             </a>
                         </div>

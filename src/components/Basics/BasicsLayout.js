@@ -44,7 +44,7 @@ export default function BasicsLayout({children, headings}){
                 <div className="basics p-4 max-h-screen overflow-y-auto custom-scrollbar">
                     {children}
                 </div>
-                <div className={`${mobileNav ? 'w-52' : 'w-0'} absolute flex top-28 z-20 overflow-hidden transition-all duration-300 delay-50 ease-in-out bg-slate-900`}>
+                <div className={`${mobileNav ? 'w-64' : 'w-0'} absolute flex top-28 z-20 overflow-hidden transition-all duration-300 delay-50 ease-in-out bg-slate-900`}>
                     <Navigation />
                 </div>
             </div>

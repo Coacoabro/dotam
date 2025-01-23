@@ -1,7 +1,9 @@
-export default function PictureBox({ children, imgSrc=[] }) {
+export default function PictureBox({ children, imgSrc=[], isFlex }) {
+
+
     return(
         <div className="bg-slate-800 rounded-lg mt-4">
-            <div className="flex justify-between">
+            <div className={`${isFlex ? "flex" : ""} justify-between p-4 space-y-4`}>
                 {imgSrc.map(src => (
                     <img src={src} className=""/>
                 ))}
