@@ -102,9 +102,9 @@ export default function TierRow({ tier_str, role, rank, hero, WR, PR, matches, c
             <td>
                 <div className="hidden lg:flex items-center justify-evenly">
                 {fiveCounters.map(hero => (
-                    <Link href={`/hero/${heroURL}/builds`}>                        
+                    <Link href={`/hero/${heroURL}/builds`} className='w-12 h-12 rounded-full overflow-hidden'>                        
                         <img
-                            className="w-10 h-full rounded-full"
+                            className="w-12 h-16 -mt-1"
                             src={hero ? `https://dhpoqm1ofsbx7.cloudfront.net/hero_thumbnail/${heroConstants[hero].name}` + '.jpg' : null}
                             title={heroConstants[hero].localized_name}
                         />
