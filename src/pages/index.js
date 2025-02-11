@@ -50,8 +50,8 @@ export default function Home() {
                     content="DotaM looks at the current Dota 2 Meta and showcases it in a clean accessible way!" />
                 <meta name="keywords"
                     content="Dota 2, Tier List, Tier, Best Heroes, Best Hero, dota, gg, builds, neutral, neutrals, matchups, dota basics, dota explained" />
-                <meta name="google-adsense-account"
-                    content="ca-pub-2521697717608899" />
+                {/* <meta name="google-adsense-account"
+                    content="ca-pub-2521697717608899" /> */}
                 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
             </Head>
 
@@ -61,9 +61,9 @@ export default function Home() {
                 crossOrigin="anonymous"
             />
 
-            <div className='fixed top-1/4 left-4'>
+            {/* <div className='fixed top-1/4 left-4'>
                 <VerticalAd slot="7985255708" />
-            </div>
+            </div> */}
 
 
             <div className="flex top-[5vh] sm:top-[20vh] justify-center items-center relative z-10" >
@@ -78,16 +78,16 @@ export default function Home() {
             </div>
 
             <div className={`relative top-[15vh] sm:top-[25vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 space-y-8`}>
-                <HorizontalAd slot="1909967797" />
+                {/* <HorizontalAd slot="1909967797" /> */}
                 <Heroes scrollY={scrollY}/>
             </div>
 
             <div className='fixed top-1/4 right-4'>
-                <SquareAd slot="3693391551" />
+                {/* <SquareAd slot="3693391551" /> */}
             </div>
             
             <div className='mx-auto'>
-                <MobileAd slot="8102423740" />
+                {/* <MobileAd slot="8102423740" /> */}
             </div>
         </div>
     )

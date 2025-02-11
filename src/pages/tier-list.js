@@ -84,13 +84,13 @@ export default function TierList() {
                 </div>
             ) : null}
             
-            <VerticalAd slot="9393446382" />
+            {/* <VerticalAd slot="9393446382" />
             <SquareAd slot="7585670579" />
 
             <div className='mx-auto'>
                 <BottomBarAd slot="2221793137" />
                 <MobileAd slot="9032362034" />
-            </div>
+            </div> */}
             
         </div>
     )

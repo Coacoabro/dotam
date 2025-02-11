@@ -56,24 +56,24 @@ export default function Layout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
             self.__VM = self.__VM || [];
-            self.__VM.push(function (admanager, scope) {
-              scope.Config.get('billboard').display('slot-1');
-              scope.Config.get('leaderboard').display('slot-2');
-              scope.Config.get('mobile_banner').display('slot-3');
-              scope.Config.get('mobile_mpu').display('slot-4');
-              scope.Config.get('mpu').display('slot-5');
-              scope.Config.get('skyscraper').display('slot-6');
-              scope.Config.get('double_mpu').display('slot-7');
-              scope.Config.get('desktop_takeover').display('slot-8');
-              scope.Config.get('mobile_takeover').display('slot-9');
-              scope.Config.get('video').display('slot-10');
-            });
+            // self.__VM.push(function (admanager, scope) {
+            //   scope.Config.get('billboard').display('slot-1');
+            //   scope.Config.get('leaderboard').display('slot-2');
+            //   scope.Config.get('mobile_banner').display('slot-3');
+            //   scope.Config.get('mobile_mpu').display('slot-4');
+            //   scope.Config.get('mpu').display('slot-5');
+            //   scope.Config.get('skyscraper').display('slot-6');
+            //   scope.Config.get('double_mpu').display('slot-7');
+            //   scope.Config.get('desktop_takeover').display('slot-8');
+            //   scope.Config.get('mobile_takeover').display('slot-9');
+            //   scope.Config.get('video').display('slot-10');
+            // });
             `,
           }}
         />
 
         {/* Google Ad Manager */}
-        <script
+        {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-GE9JHJJ3ZR"
         ></script>
@@ -86,7 +86,7 @@ export default function Layout({ children }) {
               gtag('config', 'G-GE9JHJJ3ZR');
             `,
           }}
-        ></script>
+        ></script> */}
         
 
 

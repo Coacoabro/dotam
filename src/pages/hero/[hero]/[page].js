@@ -137,13 +137,13 @@ export default function HeroPage({ hero, patch, rates }) {
 
             {PageComponent}
             
-            <VerticalAd slot={VerticalSlot} />
+            {/* <VerticalAd slot={VerticalSlot} />
             <SquareAd slot={SquareSlot} />
 
             <div className='mx-auto'>
                 <BottomBarAd slot={BottomSlot} />
                 <MobileAd slot={MobileSlot} />
-            </div>
+            </div> */}
         </HeroLayout>
     );
 }
