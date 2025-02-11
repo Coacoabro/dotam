@@ -1,12 +1,16 @@
 import Head from 'next/head'
+import Script from 'next/script';
 
 import Heroes from '../components/Home/Heroes'
 import SearchBar from '../components/SearchBar'
-import VerticalAd from '../components/Ads/Google/VerticalAd';
-import SquareAd from '../components/Ads/Google/SquareAd';
-import BottomBarAd from '../components/Ads/Google/BottomBarAd';
-import MobileAd from '../components/Ads/Google/MobileAd'
-import Script from 'next/script';
+
+import Ad from '../components/Ads/Venatus/Ad';
+
+import VerticalAd from '../components/Ads/Venatus/VerticalAd';
+import SquareAd from '../components/Ads/Venatus/SquareAd';
+import BottomBarAd from '../components/Ads/Venatus/BottomBarAd';
+import MobileAd from '../components/Ads/Venatus/MobileAd'
+import SideVideoAd from '../components/Ads/Venatus/SideVideoAd';
 
 export default function HeroesPage() {
   return (
@@ -34,13 +38,20 @@ export default function HeroesPage() {
         <div className='z-0'><Heroes /></div>
       </div>
 
+      <VerticalAd />
+      <BottomBarAd />
+      <SquareAd />
+      <SideVideoAd />
+
+
+      {/* Google Ad Sense
       <VerticalAd slot="1862440721" />
       <SquareAd slot="4321212989" />
 
       <div className='mx-auto'>
         <BottomBarAd slot="2656647645" />
         <MobileAd slot="3116583158" />
-      </div>
+      </div> */}
 
     </div>
   );
