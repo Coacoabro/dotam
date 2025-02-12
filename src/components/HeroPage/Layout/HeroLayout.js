@@ -12,7 +12,7 @@ import BottomBar from '../../BottomBar';
 
 import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
-import Pages from '../../Pages';
+import PagesList from '../../PagesList';
 import HeroLoading from './HeroLoading';
 
 const fetchHeroData = async (hero, type, patch, page) => {
@@ -100,9 +100,10 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
           <div className='flex space-x-3'>
             {rates.length > 0 ? <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} /> : null}
-            <div className='hidden sm:block'>
-              <h1 className='font-bold px-2 pb-2'>More Info:</h1>
-              <Pages hero={hero.url} />
+            <div className='hidden sm:block space-y-3'>
+              <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
+              <PagesList hero={hero.url} />
+              {/* <Pages hero={hero.url} /> */}
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import LoadingWheel from "../../LoadingWheel"
-import Pages from "../../Pages"
+import PagesList from "../../PagesList"
 import OptionsContainer from "./OptionsContainer"
 import RatesContainer from "./Rates/RatesContainer"
 import StaticInfo from "./Static/StaticInfo"
@@ -39,9 +39,9 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
 
             <div className="flex space-x-3">
                 {rates.length > 0 ? <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} /> : null}
-                <div className='hidden sm:block'>
-                    <h1 className='font-bold px-2 pb-2'>More Info:</h1>
-                    <Pages hero={hero.url} />
+                <div className='hidden sm:block space-y-3'>
+                    <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
+                    <PagesList hero={hero.url} />
                 </div>
             </div>
 
