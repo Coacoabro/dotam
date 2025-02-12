@@ -144,6 +144,7 @@ export default function HeroPage({ hero, patch, rates }) {
                 <BottomBarAd slot={BottomSlot} />
                 <MobileAd slot={MobileSlot} />
             </div> */}
+            
         </HeroLayout>
     );
 }

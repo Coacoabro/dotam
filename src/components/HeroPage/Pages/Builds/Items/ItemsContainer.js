@@ -8,7 +8,7 @@ import Late from './Late'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Neutrals from './Neutrals'
-import SquareAd from '../../../../Ads/Google/SquareAd'
+import Ad from '../../../../../components/Ads/Venatus/Ad'
 
 
 export default function ItemsContainer({build, hero, role}) {
@@ -71,12 +71,15 @@ export default function ItemsContainer({build, hero, role}) {
             <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full'>
                 <Late items={lateItems} isCarry={isCarry} />
             </div>
-            <div className='lg:flex lg:items-center gap-2 w-full sm:w-3/5 sm:mx-auto lg:mx-0 lg:w-3/4'>
-                {build.neutrals ? <Neutrals hero={hero} items={build.neutrals} /> : <div>No neutral data</div>}
-                <div className='hidden lg:block'>
-                    <SquareAd slot="6947376325" />
+            <div className='flex items-center'>
+                <div className='lg:flex lg:items-center gap-2 w-full sm:w-3/5 sm:mx-auto lg:mx-0 lg:w-3/4'>
+                    {build.neutrals ? <Neutrals hero={hero} items={build.neutrals} /> : <div>No neutral data</div>}
+                </div>
+                <div className='hidden lg:block w-1/3'>
+                    <Ad placementName="video" />
                 </div>
             </div>
+            
         </div>
     )
 }

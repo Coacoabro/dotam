@@ -14,7 +14,6 @@ import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
 import Pages from '../../Pages';
 import HeroLoading from './HeroLoading';
-import HorizontalAd from '../../Ads/Google/HorizontalAd';
 
 const fetchHeroData = async (hero, type, patch, page) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}&page=${page}`);
