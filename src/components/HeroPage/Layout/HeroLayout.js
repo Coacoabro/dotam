@@ -15,6 +15,8 @@ import MiniLoadingWheel from '../../MiniLoadingWheel';
 import PagesList from '../../PagesList';
 import HeroLoading from './HeroLoading';
 
+import Ad from '../../../components/Ads/Venatus/Ad';
+
 const fetchHeroData = async (hero, type, patch, page) => {
   const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}&page=${page}`);
   if (!response.ok) {
@@ -74,6 +76,8 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
     return(
       <div>
         <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
+
+          <Ad placementName="leaderboard" className="max-h-[160px]" />
 
           <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
 

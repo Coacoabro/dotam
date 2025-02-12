@@ -17,12 +17,16 @@ export default function TalentOptions({talents, hero}) {
         talents.forEach((talent) => {
             const tempTalent = abilityIds[talent.talent]
             if(tempTalent) {
-                const talentObj = {
-                    "Talent": Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?'),
-                    "Wins": talent.wins,
-                    "Matches": talent.matches
+                if(Abilities[tempTalent]){
+                    if(Abilities[tempTalent].dname){
+                        const talentObj = {
+                            "Talent": Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?'),
+                            "Wins": talent.wins,
+                            "Matches": talent.matches
+                        }
+                        tempTalents.push(talentObj)
+                    }
                 }
-                tempTalents.push(talentObj)
             }
         })
 
