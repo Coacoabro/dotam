@@ -38,10 +38,10 @@ export default function HeroesPage() {
         <div className='z-0'><Heroes /></div>
       </div>
 
-      <VerticalAd />
+      {/* <VerticalAd />
       <BottomBarAd />
       <SquareAd />
-      <SideVideoAd />
+      <SideVideoAd /> */}
 
 
       {/* Google Ad Sense
