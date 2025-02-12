@@ -8,13 +8,17 @@ export default function Talents({hero, talents}) {
 
     const Talents = []
 
+    console.log(talents)
+
     if(talents){
 
         talents.forEach((talent) => {
             const tempTalent = abilityIds[talent.talent]
             if(tempTalent) {
                 if(Abilities[tempTalent]){
-                    talent.talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                    if(Abilities[tempTalent].dname){
+                        talent.talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                    }
                 }
             }
         })
