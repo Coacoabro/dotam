@@ -75,9 +75,12 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
     return(
       <div>
-        <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
-
-          <Ad placementName="leaderboard" className="max-h-[160px]" />
+        <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
+          
+          <div className="pt-2 flex justify-center align-items-center" >
+            <Ad placementName="leaderboard" />
+          </div>
+          
 
           <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
 
