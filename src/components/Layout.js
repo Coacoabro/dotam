@@ -57,16 +57,6 @@ export default function Layout({ children }) {
             __html: `
             self.__VM = self.__VM || [];
             self.__VM.push((admanager, scope) => {
-              scope.Config.get('billboard').display('slot-1');
-              scope.Config.get('leaderboard').display('slot-2');
-              scope.Config.get('mobile_banner').display('slot-3');
-              scope.Config.get('mobile_mpu').display('slot-4');
-              scope.Config.get('mpu').display('slot-5');
-              scope.Config.get('skyscraper').display('slot-6');
-              scope.Config.get('double_mpu').display('slot-7');
-              scope.Config.get('desktop_takeover').display('slot-8');
-              scope.Config.get('mobile_takeover').display('slot-9');
-              scope.Config.get('video').display('slot-10');
               scope.Instances.pageManager.on('navigated', () => {
                 scope.Instances.pageManager.newPageSession(true)
                 }, false);
