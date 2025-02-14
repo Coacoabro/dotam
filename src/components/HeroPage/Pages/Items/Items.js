@@ -4,6 +4,7 @@ import Core from "./Core/Core"
 import Early from "./Early/Early"
 import Neutrals from "./Neutrals/Neutrals"
 import Starting from "./Starting/Starting"
+import Ad from "../../../../components/Ads/Venatus/Ad"
 
 export default function Items({ initRole, initFacet, heroData, heroBuilds, current_patch }) {
 
@@ -45,6 +46,11 @@ export default function Items({ initRole, initFacet, heroData, heroBuilds, curre
                 <div className="w-3/4 mx-auto sm:w-1/4"><Starting hero={heroData} items={currBuild.starting} /></div>
                 <div className="sm:w-3/4"><Early hero={heroData} items={currBuild.early} /></div>
             </div>
+
+            <div className='sm:hidden flex justify-center align-items-center'>
+                <Ad placementName="mobile_takeover" />
+            </div>
+
             <Core hero={heroData} items={currBuild.core} isCarry={isCarry} />
             <Neutrals hero={heroData} items={currBuild.neutrals} />
         </div>

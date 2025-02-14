@@ -10,6 +10,7 @@ import HorizontalAd from '../components/Ads/Google/HorizontalAd'
 import VerticalAd from '../components/Ads/Google/VerticalAd'
 import SquareAd from '../components/Ads/Google/SquareAd'
 import MobileAd from '../components/Ads/Google/MobileAd'
+import Ad from '../components/Ads/Venatus/Ad'
 
 
 export default function Home() {
@@ -64,6 +65,10 @@ export default function Home() {
             {/* <div className='fixed top-1/4 left-4'>
                 <VerticalAd slot="7985255708" />
             </div> */}
+
+            <div className='sm:hidden flex justify-center align-items-center'>
+                <Ad placementName="mobile_banner" />
+            </div>
 
 
             <div className="flex top-[5vh] sm:top-[20vh] justify-center items-center relative z-10" >

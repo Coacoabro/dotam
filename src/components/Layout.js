@@ -101,7 +101,7 @@ export default function Layout({ children }) {
 
       {isLoading ? (<IoLoading />) : (<main className='pt-24 z-20'>{children}</main>)}
 
-      <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} ${router.asPath == '/' ? 'pt-24 lg:pt-[400px]' : 'pt-12 lg:pt-24'}  z-0`}>
+      <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} ${router.asPath == '/' ? 'pt-32 lg:pt-[400px]' : 'pt-12 lg:pt-24'}  z-0`}>
         <BottomBar />
       </footer>
       

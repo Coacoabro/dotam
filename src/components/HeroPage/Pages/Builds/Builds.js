@@ -10,6 +10,7 @@ import Talents from './Abilities/Talents'
 import Matchups from './Matchups/Matchups'
 import ItemsContainer from './Items/ItemsContainer';
 import IoLoading from '../../../IoLoading';
+import Ad from '../../../../components/Ads/Venatus/Ad';
 
 
 export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups, current_patch }) {
@@ -48,6 +49,9 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
                     <div className='lg:w-1/3 py-5 px-2 bg-slate-900 rounded-lg border border-slate-800'>Not enough Talent data</div>
                 </div>
             }
+            <div className='sm:hidden flex justify-center align-items-center'>
+                <Ad placementName="mobile_takeover" />
+            </div>
             {currBuild ?
                 <div className='flex w-full gap-2'>
                     <ItemsContainer build={currBuild.items} hero={hero} role={currBuild.role} />

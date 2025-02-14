@@ -65,10 +65,10 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name 
             <div className='lg:hidden w-full bg-slate-600/50 h-[1px]'/>
 
             <div className='px-3 flex lg:hidden space-x-8 text-sm md:text-lg justify-center'>
-                <Link href={`/hero/${hero.url}/builds`} className={`${router.pathname.includes('builds') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Builds</Link>
-                <Link href={`/hero/${hero.url}/items`} className={`${router.pathname.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
-                <Link href={`/hero/${hero.url}/abilities`} className={`${router.pathname.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
-                <Link href={`/hero/${hero.url}/matchups`} className={`${router.pathname.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
+                <Link href={`/hero/${hero.url}/builds`} className={`${router.asPath.includes('builds') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Builds</Link>
+                <Link href={`/hero/${hero.url}/items`} className={`${router.asPath.includes('items') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Items</Link>
+                <Link href={`/hero/${hero.url}/abilities`} className={`${router.asPath.includes('abilities') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Abilities</Link>
+                <Link href={`/hero/${hero.url}/matchups`} className={`${router.asPath.includes('matchups') ? 'text-indigo-300 underline font-bold' : ''} hover:underline`}>Matchups</Link>
             </div>
 
             {/* <div className='hidden sm:flex justify-between'>
