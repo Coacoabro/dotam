@@ -12,13 +12,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+newest_hero_id = 150
+
 base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
-
 def get_innate():
+    global newest_hero_id
     innate_json = {}
+    
 
-    for i in range(1, 146):
+    for i in range(1, newest_hero_id):
 
         url = base_url + str(i)
 
@@ -55,7 +58,63 @@ def get_innate():
     with open('./json/hero_innate.json', 'w') as f:
         json.dump(innate_json, f)
 
-# get_innate()
+def get_facets():
+    # This grabs new Facets as well as the amount of facets each hero has for the backend and front end
+    facets_json = {}
+    facet_nums_json = {}
+    
+    global newest_hero_id
+
+    for i in range(1, newest_hero_id):
+
+        url = base_url + str(i)
+
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+
+            if data["result"]["data"]["heroes"]:
+                facets = data["result"]["data"]["heroes"][0]["facets"]
+                hero_facets = []
+                facet_nums = []
+                n = 0
+                for facet in facets:
+                    n += 1
+                    facet_desc = facet["description_loc"]
+                    percentPlaceholders = [placeholder.strip('%') for placeholder in facet_desc.split('%')[1::2]]
+                    for placeholder in percentPlaceholders:
+                        value = ''
+                        if placeholder == '':
+                            value = '%'
+                        else:
+                            for abilities in data["result"]["data"]["heroes"][0]['facet_abilities']:
+                                if len(abilities['abilities']) > 0:
+                                    special_values = abilities['abilities'][0]["special_values"]
+                                    for special_value in special_values:
+                                        if special_value["name"] == placeholder:
+                                            float_values = special_value["values_float"]
+                                            if len(float_values) > 1:
+                                                for float_value in float_values:
+                                                    value += str(float_value) + '/'
+                                                value = value[:-1]
+                                            else:
+                                                value = float_values[0]
+                        
+                        facet_desc = facet_desc.replace(f'%{placeholder}%', str(value))
+                                    
+                    hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet_desc, "Icon": facet["icon"]} )
+                    facet_nums.append(n)
+                
+                facet_nums_json[i] = facet_nums
+                facets_json[i] = hero_facets
+
+    with open('./json/hero_facets.json', 'w') as f:
+        json.dump(facets_json, f)
+    with open('./json/facet_nums.json', 'w') as f:
+        json.dump(facet_nums_json, f)
+
+get_facets()
+get_innate()
 
 # Make Sure Everythings Up to Date
 
