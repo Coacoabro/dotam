@@ -31,14 +31,14 @@ export default function BottomBar() {
                     <div className='space-y-2 text-xs sm:text-base'>
                         <h1 className='text-sm sm:text-lg'>Dota 2 Data Provided by:</h1>
                         <div className='flex sm:flex-col gap-2'>
-                            <a href="https://www.stratz.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline'>
+                            <Link href="https://www.stratz.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline w-20'>
                                 <img src="/StratzLogo.svg" className='w-6 h-6'/> 
                                 Stratz
-                            </a>
-                            <a href="https://www.opendota.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline'>
+                            </Link>
+                            <Link href="https://www.opendota.com" target="_blank" className='text-cyan-200 flex items-center gap-1 hover:underline w-28'>
                                 <img src="/OpenDotaLogo.svg" className='w-6 h-6'/>
                                 OpenDota
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
