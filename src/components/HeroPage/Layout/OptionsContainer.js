@@ -13,6 +13,8 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name 
 
     const router = useRouter()
 
+    const hero_id = hero.id
+
 
     return (
         <div className='pb-3 sm:py-3 lg:py-0 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
@@ -23,7 +25,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name 
                 <>
                     <div className='flex gap-2 items-center'>
                         Facets: 
-                        <Facets initFacet={initFacet} name={hero_name} />
+                        <Facets initFacet={initFacet} name={hero_name} id={hero_id} />
                     </div>
                 
                     <div className='h-14 w-[1px] bg-slate-800'/>
@@ -49,7 +51,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name 
             {/* Mobile Screen */}
             <div className='lg:hidden flex justify-evenly items-center'>
                 {initFacet == 'blank' ? null : 
-                    <Facets initFacet={initFacet} name={hero_name} />
+                    <Facets initFacet={initFacet} name={hero_name} id={hero_id} />
                 }
                 <Rank />
                 <Patches />
