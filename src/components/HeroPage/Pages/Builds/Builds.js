@@ -50,7 +50,7 @@ export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds
                 </div>
             }
             <div className='sm:hidden flex justify-center align-items-center'>
-                <Ad placementName="mobile_takeover" />
+                <Ad placementName="video" />
             </div>
             {currBuild ?
                 <div className='flex w-full gap-2'>
