@@ -94,11 +94,11 @@ def get_facets():
 
     with open('./json/hero_facets.json', 'w') as f:
         json.dump(facets_json, f)
-    # with open('./json/facet_nums.json', 'w') as f:
-    #     json.dump(facet_nums_json, f)
+    with open('./json/facet_nums.json', 'w') as f:
+        json.dump(facet_nums_json, f)
 
 get_facets()
-# get_innate()
+get_innate()
         
     
 

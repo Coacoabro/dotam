@@ -5,7 +5,7 @@
     },
     "2": {
         "Name": "Coat of Blood",
-        "Desc": "Whenever Axe gets a kill, he permanently gains 0.2/0.3/0.4/0.5 armor. Killing with Culling Blade gives 3x that amount."
+        "Desc": "Axe permanently drenches his blade every time he kills an enemy Hero, gaining 0.2/0.3/0.4/0.5 bonus armor for each stack. Killing with Culling Blade gives 3x stacks."
     },
     "3": {
         "Name": "Ichor of Nyctasha",
@@ -17,11 +17,11 @@
     },
     "5": {
         "Name": "Blueheart Floe",
-        "Desc": "Crystal Maiden has 50% Mana Regeneration Amplification."
+        "Desc": "Crystal Maiden has 25/50/75/100% Mana Regeneration Amplification."
     },
     "6": {
         "Name": "Precision Aura",
-        "Desc": "Grants Drow and nearby ranged heroes with bonus agility based on Drow's current agility and level."
+        "Desc": "Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received 50% of the bonus agility."
     },
     "7": {
         "Name": "Spirit Cairn",
@@ -33,11 +33,11 @@
     },
     "9": {
         "Name": "Selemene's Faithful",
-        "Desc": "Healing Lotuses are 20% more effective on Mirana and her allies."
+        "Desc": "Healing Lotuses are 50% more effective on Mirana and her allies."
     },
     "10": {
         "Name": "Accumulation",
-        "Desc": "Morphling receives 50% of stat growth bonuses every half level instead of the full bonus at level up. Morphling receives +100% bonus stats from All Attributes bonus from skill points in the Talent Tree."
+        "Desc": "Morphling receives 50% of stat growth bonuses every half level instead of the full bonus at level up. All Attributes bonuses from skill points in the Talent Tree provide an additional +3 to Morphling's primary attribute."
     },
     "11": {
         "Name": "Necromastery",
@@ -49,11 +49,11 @@
     },
     "13": {
         "Name": "Puckish",
-        "Desc": "Whenever Puck disjoints an attack, it restores 15 + 2% of its max mana and 15 + 2% of its max health. Dodging a targeted spell projectile restores 4x that amount."
+        "Desc": "Whenever Puck disjoints an attack, it restores 10 + 2% of its max mana and 10 + 2% of its max health. Dodging a targeted spell projectile restores 3.5x that amount."
     },
     "14": {
         "Name": "Flesh Heap",
-        "Desc": "Each time Pudge kills an enemy Hero, he permanently gains 1.1/1.4/1.7/2 bonus Strength."
+        "Desc": "Pudge's skin thickens permanently every time he kills an enemy Hero, gaining 1.1/1.4/1.7/2 bonus Strength for each stack."
     },
     "15": {
         "Name": "Unstable Current",
@@ -69,7 +69,7 @@
     },
     "18": {
         "Name": "Vanquisher",
-        "Desc": "Sven's attacks deal 17% bonus damage to stunned enemies."
+        "Desc": "Sven's attacks deal 20% bonus damage to stunned enemies."
     },
     "19": {
         "Name": "Craggy Exterior",
@@ -77,7 +77,7 @@
     },
     "20": {
         "Name": "Retribution",
-        "Desc": "Whenever an enemy hero kills Vengeful Spirit, they get a debuff until their next death, causing Vengeful Spirit to deal 10% bonus damage to them."
+        "Desc": "Whenever an enemy hero kills Vengeful Spirit, they get a debuff until their next death, causing Vengeful Spirit to deal 20% bonus damage to them."
     },
     "21": {
         "Name": "Easy Breezy",
@@ -105,7 +105,7 @@
     },
     "28": {
         "Name": "Seaborn Sentinel",
-        "Desc": "Slardar gains bonus movement speed, health regeneration, attack damage, and armor while in a puddle or river."
+        "Desc": "Slardar gains bonus movement speed, health regeneration, attack damage, and armor while in a puddle, trail, or river."
     },
     "29": {
         "Name": "Blubber",
@@ -148,8 +148,8 @@
         "Desc": "Beastmaster's melee hero Damage Block Chance is increased from 50% to 100% versus non-hero units."
     },
     "39": {
-        "Name": "Bondage",
-        "Desc": "Whenever an enemy within 1200 range deals spell damage to Queen of Pain, she returns 15% of the damage dealt."
+        "Name": "Succubus",
+        "Desc": "All sources of Spell Lifesteal also apply to Pure Damage. Queen of Pain gains Spell Lifesteal that increases with proximity to her enemies. Lifesteal is at its maximum when the enemy is 300 units or closer to her and at its minimum when the enemy is 800 units or further from her."
     },
     "40": {
         "Name": "Septic Shock",
@@ -165,7 +165,7 @@
     },
     "43": {
         "Name": "Witchcraft",
-        "Desc": "Death Prophet's occult knowledge deepens with experience, gaining 0.75% movement speed per level, and 0.5% spell cooldown reduction per level."
+        "Desc": "Death Prophet's occult knowledge deepens with experience, gaining 0.5% movement speed per level, and 0.75% spell cooldown reduction per level."
     },
     "44": {
         "Name": "Immaterial",
@@ -185,7 +185,7 @@
     },
     "48": {
         "Name": "Lunar Blessing",
-        "Desc": "Grants 1 attack damage per level to Luna and nearby allied heroes, with Luna receiving double the attack damage bonuses. At night, Lunar Blessing is global, and Luna is blessed with 400 bonus night vision + 20 per level."
+        "Desc": "Grants 1 attack damage per level to Luna and nearby allied heroes, with Luna receiving double the attack damage bonuses. At night, Lunar Blessing is global, and Luna is blessed with 250 bonus night vision + 25 per level."
     },
     "49": {
         "Name": "Dragon Blood",
@@ -205,15 +205,15 @@
     },
     "53": {
         "Name": "Spirit of the Forest",
-        "Desc": "Nature's Prophet gains 2/3/4/5/6% bonus damage for each tree within 300 and a multiplier of that same bonus for each treant within 1200 distance of him."
+        "Desc": "Nature's Prophet gains 4% bonus damage for each tree within 300/400/500/600 and a multiplier of that same bonus for each treant within 1200 distance of him."
     },
     "54": {
         "Name": "Feast",
         "Desc": "Lifestealer's attacks deal damage and provide heal for a percentage of his target's max health. Allows Lifestealer to attack allied creeps at 75% health. Lifestealer gains permanent max HP whenever he kills a creep or hero."
     },
     "55": {
-        "Name": "Mental Fortitude",
-        "Desc": "Dark Seer's Intelligence cannot be lower than the average of his Strength and Agility."
+        "Name": "Aggrandize",
+        "Desc": "When Dark Seer levels up, he restores a percentage of his max health and mana. Restore percentage is equal to 10% + 2% per hero level."
     },
     "56": {
         "Name": "Bone and Arrow",
@@ -225,7 +225,7 @@
     },
     "58": {
         "Name": "Rabble-Rouser",
-        "Desc": "All neutral camps deal more damage to enemy heroes. Damage increase is 10% + 3% per Enchantress's hero level."
+        "Desc": "All neutral camps deal more damage to enemy heroes. Damage increase is 10% + 4% per Enchantress's hero level."
     },
     "59": {
         "Name": "Blood Magic",
@@ -249,11 +249,11 @@
     },
     "64": {
         "Name": "Double Trouble",
-        "Desc": "Jakiro's attacks launch an attack from each head, but deal 50% less damage each."
+        "Desc": "Jakiro's attacks launch an attack from each head, but deal less damage each."
     },
     "65": {
         "Name": "Smoldering Resin",
-        "Desc": "Batrider's attacks apply a debuff that deals 15% of the attack damage every 1s for 2s."
+        "Desc": "Batrider's attacks apply a debuff that deals 20% of the attack damage every 1s for 2s."
     },
     "66": {
         "Name": "Summon Convert",
@@ -269,7 +269,7 @@
     },
     "69": {
         "Name": "Lvl ? Pain",
-        "Desc": "Doom's attacks deal 15% bonus damage to heroes whose level is lower than Doom's level."
+        "Desc": "Doom's attacks deal 25% bonus damage to heroes whose level is lower than Doom's level."
     },
     "70": {
         "Name": "Maul",
@@ -288,24 +288,24 @@
         "Desc": "Alchemist synthesizes additional gold from his enemies and bounty runes. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next 40 seconds, an additional instance of Extra Bonus Gold is added to the total. Additionally, causes bounty runes to yield more gold."
     },
     "74": {
-        "Name": "Mastermind",
-        "Desc": "When Invoker denies a lane creep, he gets 25% of the XP."
+        "Name": "Invoke",
+        "Desc": "Combines the properties of the elements currently being manipulated to create a new spell for Invoker to use. Invoke cooldown is reduced by 0.3 seconds for each orb level. <br><br> Click the help button to see the list of possible spells."
     },
     "75": {
         "Name": "Brain Drain",
-        "Desc": "If Silencer kills an enemy hero, he permanently steals 1 Intelligence."
+        "Desc": "If Silencer kills an enemy hero, he permanently steals Intelligence."
     },
     "76": {
         "Name": "Ominous Discernment",
-        "Desc": "Outworld Destroyer gains an additional 2 mana per point of Intelligence."
+        "Desc": "Outworld Destroyer gains an additional 2.5 mana per point of Intelligence."
     },
     "77": {
         "Name": "Apex Predator",
-        "Desc": "Deal 2% extra damage to neutral creeps per hero level."
+        "Desc": "Lycan and units he controls deal 2% extra damage to neutral creeps per hero level."
     },
     "78": {
         "Name": "Belligerent",
-        "Desc": "Brewmaster gains 20% bonus attack damage for 15s when he comes out of Primal Split and for 30s when he respawns."
+        "Desc": "Brewmaster gains 25% bonus attack damage for 15s when he comes out of Primal Split and for 30s when he respawns."
     },
     "79": {
         "Name": "Menace",
@@ -313,7 +313,7 @@
     },
     "80": {
         "Name": "Gift Bearer",
-        "Desc": "Lone Druid can re-roll his Neutral Token once per tier."
+        "Desc": "Lone Druid's Spirit Bear receives a copy of his Neutral Item that has an independent cooldown."
     },
     "81": {
         "Name": "Reins of Chaos",
@@ -349,11 +349,11 @@
     },
     "89": {
         "Name": "Eelskin",
-        "Desc": "Naga Siren gets 6% evasion per other Naga Siren within 900 radius."
+        "Desc": "Naga Siren gets 8% evasion per other Naga Siren within 900 radius."
     },
     "90": {
-        "Name": "Mana Magnifier",
-        "Desc": "Allies within 900 range of Keeper of the Light have 15% more mana. Lingers for 5 seconds."
+        "Name": "Special Reserve",
+        "Desc": "Keeper of the Light cannot go below 75 mana."
     },
     "91": {
         "Name": "Sight Seer",
@@ -397,11 +397,11 @@
     },
     "101": {
         "Name": "Ruin and Restoration",
-        "Desc": "Skywrath Mage has 20/30/40/50% Spell Lifesteal."
+        "Desc": "Skywrath Mage has 25/30/35/40% Spell Lifesteal."
     },
     "102": {
         "Name": "Withering Mist",
-        "Desc": "Damaging enemies applies the Withering Mist debuff for 5s. Affected enemies have their HP regeneration, healing, lifesteal and spell lifesteal reduced by 35% if they are below 40% HP."
+        "Desc": "Damaging enemies applies the Withering Mist debuff for 5s. Affected enemies have their HP regeneration, healing, lifesteal and Spell lifesteal reduced by 35% if they are below 40% HP."
     },
     "103": {
         "Name": "Tip the Scales",
@@ -413,7 +413,7 @@
     },
     "105": {
         "Name": "Minefield Sign",
-        "Desc": "Plant a warning sign, causing mines within its radius to be invulnerable. Only one sign can exist at a time. Lasts 60 seconds. "
+        "Desc": "Plant a warning sign, causing Sticky Bombs and Proximity Mines within its radius to be invulnerable and deal 15% more damage. Only one sign can exist at a time. Lasts 60 seconds. "
     },
     "106": {
         "Name": "Immolation",
@@ -441,7 +441,7 @@
     },
     "112": {
         "Name": "Eldwurm Scholar",
-        "Desc": "When an allied hero picks up a Wisdom Rune, Winter Wyvern shares the knowledge with her entire team, granting 20% of the experience to each of the 3 heroes that did not collect the initial bonus."
+        "Desc": "When a Shrine of Wisdom grants experience to allies, Winter Wyvern shares the knowledge with her entire team, granting 20% of the experience to each of the 3 heroes that did not collect the initial bonus."
     },
     "113": {
         "Name": "Runic Infusion",
@@ -449,7 +449,7 @@
     },
     "114": {
         "Name": "Mischief",
-        "Desc": "Changes Monkey King's shape to deceive opponents, using the environment nearby as inspiration for the disguise. Taking damage, attacking, or using any item or ability breaks Monkey King's disguise. Grants damage immunity for 0.2 seconds upon transforming."
+        "Desc": "Changes Monkey King's shape to deceive opponents, using the environment nearby as inspiration for the disguise. Taking damage, attacking, or using any item or ability breaks Monkey King's disguise. Grants damage immunity for 0.1 seconds upon transforming."
     },
     "119": {
         "Name": "Pixie Dust",
@@ -477,19 +477,19 @@
     },
     "129": {
         "Name": "Dauntless",
-        "Desc": "Mars and allied heroes within 2000 units get more HP Regen the more they are outnumbered by enemy heroes in that area."
+        "Desc": "Mars gets more HP Regen the more he and his allies are outnumbered by enemy heroes in 900 radius."
     },
     "131": {
         "Name": "Dark Carnival Barker",
-        "Desc": "Ringmaster receives a random single-use Dark Carnival Souvenir whenever an enemy hero dies within 925 units of him. Additional Souvenirs are held as charges.<br><br>If Ringmaster does not have a Souvenir when he respawns he will be granted one.<br><br>Souvenirs of the Dark Carnival include a Funhouse Mirror, a Strongman Tonic, and a Whoopee Cushion."
+        "Desc": "Ringmaster receives a random single-use Dark Carnival Souvenir whenever an enemy hero dies within 925 units of him. Additional Souvenirs are held as charges.<br><br>If Ringmaster does not have a Souvenir when he respawns he will be granted one."
     },
     "135": {
         "Name": "Break of Dawn",
-        "Desc": "Whenever the sun comes out, Dawnbreaker reveals the whole map to allies for 5 seconds."
+        "Desc": "Whenever the sun comes out, Dawnbreaker reveals the whole map to allies for 4 seconds."
     },
     "136": {
         "Name": "Special Delivery",
-        "Desc": "All allied couriers gain 3 bonus levels and 1 bonus health."
+        "Desc": "Marci whistles to instantly summon her courier to her.<br><br>Passively grants all allied couriers 3 bonus levels and 1 bonus health."
     },
     "137": {
         "Name": "Colossal",
@@ -501,6 +501,6 @@
     },
     "145": {
         "Name": "Switch Discipline",
-        "Desc": "Kez switches between his Kazurai Katana and Shodo Sai.<br><br>He gains different attack capabilities and abilities based on the weapon equipped. The abilities level up together, and when an ability is used, the associated alternate weapon ability also goes on cooldown.<br><br>Switch Discipline cooldown decreases by 0.2s per Hero level"
+        "Desc": "Kez switches between his Kazurai Katana and Shodo Sai.<br><br>He gains different attack capabilities and abilities based on the weapon equipped. The abilities level up together, and when an ability is used, the associated alternate weapon ability also goes on cooldown.<br><br>Switch Discipline cooldown decreases by 0.2s per Hero level."
     }
 }
