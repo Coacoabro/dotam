@@ -70,9 +70,10 @@ export default function SearchBar() {
     const value = event.target.value;
     setSearchTerm(value);
 
-    const filteredHeroes = dota2Heroes.filter(hero =>
-      hero.name.toLowerCase().startsWith(value.toLowerCase())
-    );
+    const filteredHeroes = value.toLowerCase() == "tracker" ? [dota2Heroes[60]] : 
+      dota2Heroes.filter(hero =>
+        hero.name.toLowerCase().startsWith(value.toLowerCase())
+      );
     setSuggestions(filteredHeroes);
     setShowSuggestions(true);
     setSelectedSuggestionIndex(-1);

@@ -15,7 +15,10 @@ export default function Heroes({scrollY}) {
 
   const [searchTerm, setSearchTerm] = useState('')
   const handleSearch = (term) => {
-    setSearchTerm(term)
+    if(term.toLowerCase() == "tracker") {
+      setSearchTerm("Bounty Hunter")
+    }
+    else{setSearchTerm(term)}
   }
 
   const sortedHeroData = Object.values(heroData)
