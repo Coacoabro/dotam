@@ -28,7 +28,10 @@ export default function TierList() {
     const [searchTerm, setSearchTerm] = useState('')
 
     const handleSearch = (term) => {
-      setSearchTerm(term)
+        if(term.toLowerCase() == "tracker") {
+            setSearchTerm("Bounty Hunter")
+            }
+        setSearchTerm(term)
     }
 
     const { data, isLoading } = useQuery(['tierList'], fetchTierData)
