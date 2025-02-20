@@ -91,13 +91,13 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
               <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
             </div>
 
-            <div className="hidden sm:flex absolute right-0 mt-20 h-72 opacity-25 z-0">
+            <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25 z-0">
               <img src={crop_img} className="object-cover w-full h-full" />
             </div>
 
           </div>
 
-          <div className="sm:hidden absolute h-36 right-0 top-16 opacity-25">
+          <div className="sm:hidden absolute h-36 right-0 top-20 opacity-25">
             <img src={crop_img} className="object-cover w-full h-full" />
           </div>
 
