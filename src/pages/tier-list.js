@@ -31,7 +31,7 @@ export default function TierList() {
         if(term.toLowerCase() == "tracker") {
             setSearchTerm("Bounty Hunter")
             }
-        setSearchTerm(term)
+        else{setSearchTerm(term)}
     }
 
     const { data, isLoading } = useQuery(['tierList'], fetchTierData)
