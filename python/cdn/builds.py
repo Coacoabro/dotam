@@ -25,10 +25,10 @@ builds_database_url = os.environ.get('BUILDS_DATABASE_URL')
 # Getting all hero ids
 conn = psycopg2.connect(database_url)
 cur = conn.cursor()
-# cur.execute("SELECT hero_id from heroes;")
-# hero_ids = [row[0] for row in cur.fetchall()]
-# conn.close()
-hero_ids = [145]
+cur.execute("SELECT hero_id from heroes;")
+hero_ids = [row[0] for row in cur.fetchall()]
+conn.close()
+# hero_ids = hero_ids[100:]
 
 
 # Getting patch info
@@ -166,16 +166,17 @@ for hero_id in hero_ids:
             query_parts.append(f"(build_id = %s AND core_items = %s)")
             query_params.extend([build_id, core])
 
-    where_condition = " OR ".join(query_parts)
-    late_items_query = f"""
-        SELECT * FROM (
-            SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id, core_items, nth ORDER BY matches DESC, wins DESC) AS rn
-            FROM late
-            WHERE ({where_condition}) AND nth IN (3, 4, 5, 6, 7, 8, 9, 10)
-        ) AS ranked WHERE rn <= 10 ORDER BY build_id, core_items, nth, matches DESC, wins DESC;
-    """
-    cur.execute(late_items_query, query_params)
-    late_items_data = cur.fetchall()
+    if query_params:
+        where_condition = " OR ".join(query_parts)
+        late_items_query = f"""
+            SELECT * FROM (
+                SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id, core_items, nth ORDER BY matches DESC, wins DESC) AS rn
+                FROM late
+                WHERE ({where_condition}) AND nth IN (3, 4, 5, 6, 7, 8, 9, 10)
+            ) AS ranked WHERE rn <= 10 ORDER BY build_id, core_items, nth, matches DESC, wins DESC;
+        """
+        cur.execute(late_items_query, query_params)
+        late_items_data = cur.fetchall()
 
     print("Merging core into one")
     # Merge late items with core items
@@ -314,20 +315,20 @@ for hero_id in hero_ids:
     item_json = json.dumps(items_data, indent=2)
 
     # Write to local file
-    if hero_id == 145:
-        # Home
-        build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
-        abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
-        items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
-        directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
+    # if hero_id == 145:
+    #     # Home
+    #     build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
+    #     abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
+    #     items_file = f"./python/build_data/{patch_file_name}/{hero_id}/items.json"
+    #     directory_path = f"./python/build_data/{patch_file_name}/{hero_id}"
         
-        os.makedirs(directory_path, exist_ok=True)
-        with open(build_file, 'w') as file:
-            json.dump(build_data, file, indent=2)
-        with open(abilities_file, 'w') as file:
-            json.dump(abilities_data, file, indent=2)
-        with open(items_file, 'w') as file:
-            json.dump(items_data, file, indent=2)
+    #     os.makedirs(directory_path, exist_ok=True)
+    #     with open(build_file, 'w') as file:
+    #         json.dump(build_data, file, indent=2)
+    #     with open(abilities_file, 'w') as file:
+    #         json.dump(abilities_data, file, indent=2)
+    #     with open(items_file, 'w') as file:
+    #         json.dump(items_data, file, indent=2)
 
     # Create the S3 File
     s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/builds.json", Body=build_json)
