@@ -10,10 +10,7 @@ import Rank from "../components/Rank";
 import Role from "../components/Role";
 import BottomBar from '../components/BottomBar';
 import HeroSearch from '../components/Home/Heroes/HeroSearch';
-import BottomBarAd from '../components/Ads/Google/BottomBarAd';
-import VerticalAd from '../components/Ads/Google/VerticalAd';
-import SquareAd from '../components/Ads/Google/SquareAd';
-import MobileAd from '../components/Ads/Google/MobileAd'
+import Ad from '../components/Ads/Venatus/Ad';
 
 const fetchTierData = async (hero, type) => {
     const response = await fetch(`/api/tier-list`);
@@ -57,7 +54,10 @@ export default function TierList() {
             />
 
             <div className="max-w-7xl mx-auto px-1 sm:px-4 sm:space-y-4 text-white sm:pt-8">
-                <div className="text-xl sm:text-3xl px-2 sm:px-0 py-2 sm:py-4 font-semibold">Dota 2 Tier List</div>
+                <div className="text-xl sm:text-3xl px-2 sm:px-0 py-2 sm:py-4 font-semibold flex justify-between items-end">
+                    Dota 2 Tier List
+                    <Ad placementName="leaderboard" />
+                </div>
                 <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
                 <div className="py-2 justify-between text-white space-y-2 sm:flex">
                     <div className="flex items-center justify-center space-x-2">
