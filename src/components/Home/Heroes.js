@@ -49,7 +49,7 @@ export default function Heroes({scrollY}) {
           <p className='sm:text-xl text-center py-1'>Roles:</p>
           <div className='flex justify-center align-items-center'><Role /></div>
         </div>
-        <div className="grid sm:grid-cols-2 gap-[10px] lg:gap-[25px] place-items-center">
+        <div className="grid sm:grid-cols-4 gap-[10px] place-items-center sm:place-items-start">
           <div>
             <HeroTable heroes={strengthHeroes} search={searchTerm} attr="Strength" img="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"/>
           </div>
