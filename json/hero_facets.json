@@ -1,1 +1,1863 @@
-{"1": [{"Name": "antimage_magebanes_mirror", "Title": "Magebane's Mirror", "Desc": "Spells countered by Counterspell or Counterspell Ally will immediately burn a percentage of its mana cost from the enemy and deal damage based on the burned mana cost.", "Icon": "ricochet"}, {"Name": "antimage_mana_thirst", "Title": "Mana Thirst", "Desc": "Anti-Mage gains damage when his enemies are at low mana.", "Icon": "mana"}], "2": [{"Name": "axe_one_man_army", "Title": "One Man Army", "Desc": "Axe gains Strength based on his armor as long as he's away from his allies.", "Icon": "strength"}, {"Name": "axe_call_out", "Title": "Call Out", "Desc": "Berserker's Call gives attacking enemies more attack speed and Axe more armor for the duration.", "Icon": "armor"}], "3": [{"Name": "bane_dream_stalker", "Title": "Dream Stalker", "Desc": "Bane has increased attack speed when attacking Nightmared units.", "Icon": "damage"}, {"Name": "bane_sleepwalk", "Title": "Sleepwalk", "Desc": "Nightmared units walk in Bane's chosen direction.", "Icon": "movement"}], "4": [{"Name": "bloodseeker_arterial_spray", "Title": "Arterial Spray", "Desc": "Ruptured units are pushed when attacked by Bloodseeker.", "Icon": "movement"}, {"Name": "bloodseeker_bloodrush", "Title": "Bloodrush", "Desc": "Bloodseeker can supercharge the movement speed from Thirst temporarily.", "Icon": "speed"}], "5": [{"Name": "crystal_maiden_glacial_guard", "Title": "Glacial Guard", "Desc": "Crystal Nova has increased radius and grants allied heroes a physical damage barrier. Barrier is increased for Crystal Maiden.", "Icon": "armor"}, {"Name": "crystal_maiden_arcane_overflow", "Title": "Arcane Overflow", "Desc": "Activating Arcane Aura temporarily increases Crystal Maiden's spell amplification and mana costs. During the duration, Crystal Maiden restores her allies' Mana when casting spells.", "Icon": "mana"}], "6": [{"Name": "drow_ranger_high_ground", "Title": "Vantage Point", "Desc": "Drow deals 30% more damage when attacking from high ground.", "Icon": "damage"}, {"Name": "drow_ranger_sidestep", "Title": "Sidestep", "Desc": "Drow can move slowly and use items while casting Multishot.", "Icon": "multi_arrow"}], "7": [{"Name": "earthshaker_tectonic_buildup", "Title": "Tectonic Buildup", "Desc": "Aftershock radius is increased by {s:bonus_aftershock_range_increase_per_level_interval} every {s:bonus_aftershock_range_level_interval} hero levels.", "Icon": "area_of_effect"}, {"Name": "earthshaker_slugger", "Title": "Slugger", "Desc": "Enemies killed with Enchant Totem or Earthshaker's other abilities are sent flying, dealing damage to enemies they hit.", "Icon": "movement"}], "8": [{"Name": "juggernaut_bladestorm", "Title": "Bladestorm", "Desc": "Blade Fury can now critically strike based on the level of Blade Dance.", "Icon": "spinning"}, {"Name": "juggernaut_agigain", "Title": "Bladeform", "Desc": "Juggernaut gains Agility and Movement Speed as long as he's not taking damage.", "Icon": "agility"}], "9": [{"Name": "mirana_starstruck", "Title": "Starstruck", "Desc": "Starstorm's second meteor deals more damage and blinds the target.", "Icon": "no_vision"}, {"Name": "mirana_leaps_and_bounds", "Title": "Leaps and Bounds", "Desc": "Upon landing, Leap roots targets in a {s:bonus_root_radius} radius for {s:bonus_root_duration}s.", "Icon": "slow"}], "10": [{"Name": "morphling_agi", "Title": "Ebb", "Desc": "Morphling's Primary Attribute is now <font color='#9acd32'>Agility</font>. Waveform attacks enemies in his path.", "Icon": "agility"}, {"Name": "morphling_str", "Title": "Flow", "Desc": "Morphling's Primary Attribute is now <font color='#ff0000'>Strength</font>. Adaptive Strike stuns based on Morphling's strength. Morphling gains 1% Spell Amp per 4 Agility.", "Icon": "strength"}], "11": [{"Name": "nevermore_lasting_presence", "Title": "Lasting Presence", "Desc": "Presence of the Dark Lord temporarily reduces more armor after nearby enemy heroes are killed. Every hero kill increases Necromastery's max souls by {s:bonus_max_soul_increase_on_hero_kill} until Shadow Fiend dies.", "Icon": "armor_broken"}, {"Name": "nevermore_shadowmire", "Title": "Shadowmire", "Desc": "Shadowraze slows enemies.", "Icon": "slow"}], "12": [{"Name": "phantom_lancer_divergence", "Title": "Divergence", "Desc": "Juxtapose Illusions spawn on random nearby units and deal more damage but can't be controlled.", "Icon": "summons"}, {"Name": "phantom_lancer_lancelot", "Title": "Lancelot", "Desc": "Spirit Lances from Phantom Lancer's illusions deal {s:bonus_illusion_lance_damage_pct}% Lance Damage.", "Icon": "phantom_lance"}], "13": [{"Name": "puck_jostling_rift", "Title": "Jostling Rift", "Desc": "Waning Rift can push or pull targets.", "Icon": "movement"}, {"Name": "puck_curveball", "Title": "Curveball", "Desc": "Puck's Illusory Orb can be curved in any direction, moves faster, and lasts longer.", "Icon": "curve_ball"}], "14": [{"Name": "pudge_fresh_meat", "Title": "Fresh Meat", "Desc": "Dismember increases Strength when dealing damage to heroes.", "Icon": "meat"}, {"Name": "pudge_rotten_core", "Title": "Rotten Core", "Desc": "While Rot is activated, Pudge gains bonus attack damage every second.", "Icon": "fist"}], "15": [{"Name": "razor_thunderhead", "Title": "Thunderhead", "Desc": "Storm Surge lightning strikes more often and hits all units within Eye of the Storm's area of effect when it is active.", "Icon": "barrier"}, {"Name": "razor_spellamp", "Title": "Dynamo", "Desc": "Razor gains 1% spell amplification for every 20 points of attack damage.", "Icon": "nuke"}], "16": [{"Name": "sand_king_sandshroud", "Title": "Sandshroud", "Desc": "Sand Storm has increased radius and grants Sand King Invisibility while in it.", "Icon": "vision"}, {"Name": "sand_king_dust_devil", "Title": "Dust Devil", "Desc": "Sand Storm follows Sand King when he moves.", "Icon": "speed"}], "17": [{"Name": "storm_spirit_shock_collar", "Title": "Shock Collar", "Desc": "Electric Vortex applies a debuff that triggers an Overload Charge if they attack.", "Icon": "nuke"}, {"Name": "storm_spirit_static_slide", "Title": "Static Slide", "Desc": "Static Remnants spawn at Storm Spirit and move to the target position.", "Icon": "movement"}], "18": [{"Name": "sven_heavy_plate", "Title": "Heavy Plate", "Desc": "Warcry provides a physical damage barrier.", "Icon": "armor"}, {"Name": "sven_strscaling", "Title": "Wrath of God", "Desc": "Sven gains additional attack damage from Strength.", "Icon": "strength"}], "19": [{"Name": "tiny_crash_landing", "Title": "Crash Landing", "Desc": "Tossed units slow and deal bonus damage to other targets at the Toss destination.", "Icon": "nuke"}, {"Name": "tiny_insurmountable", "Title": "Insurmountable", "Desc": "Tiny gains Status and Slow Resistance from Strength. Slow Resistance also reduces the impact of Attack Speed slows.", "Icon": "armor"}], "20": [{"Name": "vengefulspirit_avenging_missile", "Title": "Avenging Missile", "Desc": "Magic Missile deals {s:bonus_damage_per_lasthit} bonus damage for every creep the enemy has killed.", "Icon": "nuke"}, {"Name": "vvengefulspirit_melee", "Title": "Soul Strike", "Desc": "Vengeful Spirit's ranged attacks behave as if they were melee attacks.", "Icon": "fist"}], "21": [{"Name": "windrunner_tangled", "Title": "Tangled", "Desc": "Shackleshot affects more enemies and grants damage per unit shackled.", "Icon": "tree"}, {"Name": "windrunner_killshot", "Title": "Killshot", "Desc": "Powershot executes low health enemy heroes.", "Icon": "execute"}], "22": [{"Name": "zuus_livewire", "Title": "Livewire", "Desc": "Static Field deals more damage to nearby enemies.", "Icon": "range"}, {"Name": "zuus_divine_rampage", "Title": "Divine Rampage", "Desc": "When Thundergod's Wrath kills an enemy, it deals more damage to the other enemies.", "Icon": "nuke"}], "23": [{"Name": "kunkka_high_tide", "Title": "High Tide", "Desc": "Tidebringer cooldown is reduced per enemy hero it hits.", "Icon": "cooldown"}, {"Name": "kunkka_grog", "Title": "Grog Blossom", "Desc": "When X Marks the Spot returns its target, nearby allies gain Ghostship's improved Admiral's Rum buff.", "Icon": "armor"}], "25": [{"Name": "lina_supercharge", "Title": "Thermal Runaway", "Desc": "Casting Laguna Blade temporarily supercharges Lina, granting her stacks of Fiery Soul.", "Icon": "damage"}, {"Name": "lina_dot", "Title": "Slow Burn", "Desc": "Lina's spells deal extra damage over time.", "Icon": "nuke"}], "26": [{"Name": "lion_essence_eater", "Title": "Essence Eater", "Desc": "Mana Drain deals damage equal to {s:bonus_damage_pct}% of mana stolen.", "Icon": "nuke"}, {"Name": "lion_fist_of_death", "Title": "Fist of Death", "Desc": "Lion gains a strong Melee cleaving attack after casting Finger of Death.", "Icon": "fist"}], "27": [{"Name": "shadow_shaman_voodoo_hands", "Title": "Chicken Fingers", "Desc": "Shadow Shaman's attacks can transform enemies into a chicken.", "Icon": "chicken"}, {"Name": "shadow_shaman_massive_serpent_ward", "Title": "Massive Serpent Ward", "Desc": "Summons a single massive Serpent Ward with {s:bonus_mega_ward_multiplier_tooltip}x damage and bounty values and {s:bonus_mega_ward_health_tooltip}x health.", "Icon": "snake"}], "28": [{"Name": "slardar_leg_day", "Title": "Leg Day", "Desc": "Slardar has slow resistance and even more movement speed at the beginning of Guardian Sprint.", "Icon": "speed"}, {"Name": "slardar_brineguard", "Title": "Brineguard", "Desc": "Corrosive Haze increases Slardar's armor by {s:bonus_armor_pct}% of the total armor reduced.", "Icon": "armor"}], "29": [{"Name": "tidehunter_kraken_swell", "Title": "Kraken Swell", "Desc": "Kraken Shell gains permanent Damage Block when an enemy hero dies under the effects of Anchor Smash.", "Icon": "armor"}, {"Name": "tidehunter_sizescale", "Title": "Krill Eater", "Desc": "Tidehunter grows larger and gains extra bonuses per level.", "Icon": "overshadow"}], "30": [{"Name": "witch_doctor_headhunter", "Title": "Headhunter", "Desc": "Paralyzing Cask deals more damage each bounce.", "Icon": "ricochet"}, {"Name": "witch_doctor_cleft_death", "Title": "Cleft Death", "Desc": "Death Ward attacks multiple targets with reduced damage.", "Icon": "death_ward"}], "31": [{"Name": "lich_frostbound", "Title": "Frostbound", "Desc": "Chain Frost lingers on its last target if it fails to bounce and can bounce again if new targets become available.", "Icon": "snowflake"}, {"Name": "lich_growing_cold", "Title": "Growing Cold", "Desc": "When an enemy is killed by Chain Frost or while under the effect of Frost Shield, the duration of these abilities is extended.", "Icon": "cooldown"}], "32": [{"Name": "riki_contract_killer", "Title": "Contract Killer", "Desc": "Riki receives bonus experience for assists and kills.", "Icon": "xp"}, {"Name": "riki_exterminator", "Title": "Exterminator", "Desc": "Tricks of the Trade has {s:bonus_creep_agility_multiplier}x Agility Bonus when attacking non-hero units. When Riki kills a non-hero unit during Tricks of the Trade, the cooldown is reduced by {s:bonus_cooldown_reduction_per_creep_kill}s.", "Icon": "agility"}], "33": [{"Name": "enigma_gravity", "Title": "Event Horizon", "Desc": "Units in a 600 radius moving away from Enigma have a 8/12/16/20% movespeed penalty.", "Icon": "slow"}, {"Name": "enigma_fragment", "Title": "Splitting Image", "Desc": "Enigma spawns Eidolons upon receiving damage.", "Icon": "summons"}], "34": [{"Name": "tinker_repair_bots", "Title": "Repair Bots", "Desc": "March of the Machines applies a non-stacking heal over time when passing through allied heroes.", "Icon": "healing"}, {"Name": "tinker_translocator", "Title": "Translocator", "Desc": "When a Self-Defense Matrix barrier on Tinker is fully absorbed, he blinks in a random forward direction.<br><br>DISPEL TYPE: Basic Dispel", "Icon": "movement"}], "35": [{"Name": "sniper_ghillie_suit", "Title": "Ghillie Suit", "Desc": "While Take Aim is active, Sniper's attacks do not reveal him from fog of war.", "Icon": "vision"}, {"Name": "sniper_scattershot", "Title": "Scattershot", "Desc": "Shrapnel slow and damage are increased, but duration is decreased.", "Icon": "nuke"}], "36": [{"Name": "necrolyte_profane_potency", "Title": "Profane Potency", "Desc": "Sadist also grants Necrophos' AoE abilities and items bonus Radius per kill.", "Icon": "area_of_effect"}, {"Name": "necrolyte_rapid_decay", "Title": "Rapid Decay", "Desc": "Ghost Shroud steals speed from his enemies and decreases their restorative powers.", "Icon": "speed"}], "37": [{"Name": "warlock_golem", "Title": "Champion of Gorroth", "Desc": "Chaotic Offering Golems deal more burn damage based on Warlock's health and mana regeneration.", "Icon": "summons"}, {"Name": "warlock_grimoire", "Title": "Black Grimoire", "Desc": "Grants Warlock the item Black Grimoire, which can be consumed to gain experience for each kill Warlock participated in. Starts with 1 charge.", "Icon": "xp"}], "38": [{"Name": "beastmaster_wild_hunt", "Title": "Wild Hunt", "Desc": "Beastmaster attacks faster when his units are nearby.", "Icon": "summons"}, {"Name": "beastmaster_beast_mode", "Title": "Beast Mode", "Desc": "Beastmaster can get a self attack speed and damage amplification boost.", "Icon": "damage"}], "39": [{"Name": "queenofpain_selfdmg", "Title": "Masochist", "Desc": "Queen of Pain has bonus Spell Amplification but a percentage of her spell damage is reflected back to her.", "Icon": "nuke"}, {"Name": "queenofpain_facet_bondage", "Title": "Bondage", "Desc": "Queen of Pain returns spell damage back to enemies.", "Icon": "twin_hearts"}], "40": [{"Name": "venomancer_patient_zero", "Title": "Patient Zero", "Desc": "Noxious Plague spreads again.", "Icon": "snot"}, {"Name": "venomancer_plague_carrier", "Title": "Plague Carrier", "Desc": "Plague Wards can be attached to allies and have extra charges.", "Icon": "summons"}], "41": [{"Name": "faceless_void_chronosphere", "Title": "Chronosphere", "Desc": "Faceless Void can cast <b color='white'>Chronosphere</b>, trapping enemies in a sphere.", "Icon": "area_of_effect"}, {"Name": "faceless_void_time_zone", "Title": "Time Zone", "Desc": "Faceless Void can cast <b color='white'>Time Zone</b>, dramatically slowing down enemies and speeding up allies in an area.", "Icon": "chrono_cube"}], "42": [{"Name": "skeleton_king_facet_bone_guard", "Title": "Bone Guard", "Desc": "Wraith King can summon skeletons to fight for him.", "Icon": "summons"}, {"Name": "skeleton_king_facet_cursed_blade", "Title": "Spectral Blade", "Desc": "Wraith King's attacks curse enemies, dealing additional damage after a delay.", "Icon": "damage"}], "43": [{"Name": "death_prophet_ghosts", "Title": "Spirit Collector", "Desc": "Hero deaths empower your next Exorcism.", "Icon": "spirit"}, {"Name": "death_prophet_delayed_damage", "Title": "Mourning Ritual", "Desc": "Death Prophet delays a percentage of incoming damage, taking the damage in even intervals over a short duration.", "Icon": "healing"}], "44": [{"Name": "phantom_assassin_methodical", "Title": "Methodical", "Desc": "Coup de Grace procs every {s:bonus_attacks_to_proc} attacks on the same hero or {s:bonus_attacks_to_proc_creeps} attacks on non hero units.", "Icon": "skull"}, {"Name": "phantom_assassin_sweet_release", "Title": "Sweet Release", "Desc": "Stifling Dagger re-casts when an enemy dies.", "Icon": "phantom_ass_dagger"}], "45": [{"Name": "pugna_siphoning_ward", "Title": "Siphoning Ward", "Desc": "Nether Ward restores mana and health to Pugna based on how much damage is dealt.", "Icon": "healing"}, {"Name": "pugna_rewards_of_ruin", "Title": "Rewards of Ruin", "Desc": "Pugna receives {s:bonus_tower_scale}% spell amplification per destroyed tower.", "Icon": "siege"}], "46": [{"Name": "templar_assassin_voidblades", "Title": "Voidblades", "Desc": "Meld bonus damage and armor reductions are applied to all enemies in the Psi Blades split range.", "Icon": "ricochet"}, {"Name": "templar_assassin_refractor", "Title": "Refractor", "Desc": "Refraction gains a damage charge every time a shield charge gets consumed.", "Icon": "damage"}, {"Name": "templar_assassin_hidden_reach", "Title": "Hidden Reach", "Desc": "When in Meld, Templar increases her attack range by up to an additional {s:bonus_attack_range_increase_max} range over {s:bonus_attack_range_increase_time}s.", "Icon": "range"}], "47": [{"Name": "viper_poison_burst", "Title": "Poison Burst", "Desc": "After Poison Attack stacks expire, enemies around the target take additional damage.", "Icon": "area_of_effect"}, {"Name": "viper_caustic_bath", "Title": "Caustic Bath", "Desc": "Viper's Corrosive Skin effects are increased while he is in Nethertoxin.", "Icon": "armor"}], "48": [{"Name": "luna_moonshield", "Title": "Moonshield", "Desc": "Lunar Orbit provide damage reduction while active.", "Icon": "armor"}, {"Name": "luna_moonstorm", "Title": "Moonstorm", "Desc": "Hitting enemies with Lucent Beams or Eclipse grants Luna bonus attack damage.", "Icon": "damage"}], "49": [{"Name": "dragon_knight_fire_dragon", "Title": "Fire Dragon", "Desc": "Dragon Knight deals additional Magic Damage with his attacks. Dragon Knight's abilities have increased Area of Effect that get stronger when in Elder Dragon Form.", "Icon": "dragon_fire"}, {"Name": "dragon_knight_corrosive_dragon", "Title": "Corrosive Dragon", "Desc": "Dragon Knight has Corrosive Powers on his attacks that get stronger when in Elder Dragon Form. All of his abilities deal Physical damage.", "Icon": "dragon_poison"}, {"Name": "dragon_knight_frost_dragon", "Title": "Frost Dragon", "Desc": "Dragon Knight has Slow and Healing Reduction Effects on his attacks that get stronger when in Elder Dragon Form.", "Icon": "dragon_frost"}], "50": [{"Name": "dazzle_facet_nothl_boon", "Title": "Nothl Boon", "Desc": "Dazzle's overhealing is converted into a barrier. Weave is stronger on allies and amplifies incoming heals from Dazzle.", "Icon": "armor"}, {"Name": "dazzle_poison_bloom", "Title": "Poison Bloom", "Desc": "Dazzle can spread his Poison Touch when attacking enemies. Weave is stronger on enemies.", "Icon": "ricochet"}], "51": [{"Name": "rattletrap_hookup", "Title": "Hookup", "Desc": "If there's another allied hero within {s:bonus_radius_ally} of Hookshot's hit target, Clockwerk and all allies in the area receive bonus armor, while refunding a portion of Hookshot's cooldown and manacost.", "Icon": "cooldown"}, {"Name": "rattletrap_expanded_armature", "Title": "Expanded Armature", "Desc": "Power Cogs form in a larger radius.", "Icon": "area_of_effect"}], "52": [{"Name": "leshrac_attacks_mana", "Title": "Chronoptic Nourishment", "Desc": "Leshrac's attacks restore mana.", "Icon": "mana"}, {"Name": "leshrac_misanthropy", "Title": "Misanthropy", "Desc": "Diabolic Edict explosion rate increased but it no longer damages buildings.", "Icon": "nuke"}], "53": [{"Name": "furion_soothing_saplings", "Title": "Soothing Saplings", "Desc": "Allies inside and nearby on the outside of Sprout are healed over time.", "Icon": "healing"}, {"Name": "furion_ironwood_treant", "Title": "Ironwood Treant", "Desc": "Nature's Call creates only {s:bonus_max_treants} Treant that has more health, more damage, increased vision, increased movement speed, and is Reinforced.", "Icon": "siege"}], "54": [{"Name": "life_stealer_fleshfeast", "Title": "Fleshfeast", "Desc": "Feast's max HP per hero kill is increased. Open Wounds' cooldown is refreshed if a unit dies while afflicted by Open Wounds.", "Icon": "full_heart"}, {"Name": "life_stealer_gorestorm", "Title": "Gorestorm", "Desc": "Consuming a creep with Infest drenches enemies in blood which deals damage over time based on the host's remaining health. Infest can be used on Ancient creeps.", "Icon": "area_of_effect"}], "55": [{"Name": "dark_seer_atkspd", "Title": "Quick Wit", "Desc": "Dark Seer also gains Attack Speed from Intelligence.", "Icon": "damage"}, {"Name": "dark_seer_movespd", "Title": "Heart of Battle", "Desc": "Dark Seer moves faster when near other heroes.", "Icon": "speed"}], "56": [{"Name": "clinkz_suppressive_fire", "Title": "Suppressive Fire", "Desc": "Strafe attacks cause enemies to miss more often.", "Icon": "no_vision"}, {"Name": "clinkz_engulfing_step", "Title": "Engulfing Step", "Desc": "Death Pact teleports Clinkz towards his victim. Reduces Death Pact cooldown.", "Icon": "teleport"}], "57": [{"Name": "omniknight_omnipresent", "Title": "Omnipresent", "Desc": "Omniknight deals more damage to heroes inside his Degen Aura.", "Icon": "damage"}, {"Name": "omniknight_dmgheals", "Title": "Healing Hammer", "Desc": "Ability damage done to enemies by Omniknight heals him over time.", "Icon": "healing"}], "58": [{"Name": "enchantress_overprotective_wisps", "Title": "Overprotective Wisps", "Desc": "Summon Healing Wisps upon receiving damage.", "Icon": "healing"}, {"Name": "enchantress_spellbound", "Title": "Spellbound", "Desc": "Enchant and attacks on Enchanted targets have extra range.", "Icon": "range"}], "59": [{"Name": "huskar_cauterize", "Title": "Cauterize", "Desc": "Berserker's Blood can be activated for a health cost. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.", "Icon": "broken_chain"}, {"Name": "huskar_nothl_conflagration", "Title": "Incendiary", "Desc": "Burning Spears also burns enemies for a percentage of their max health. Costs Max Health instead of Current Health.", "Icon": "damage"}], "60": [{"Name": "night_stalker_dayswap", "Title": "Night Reign", "Desc": "The game now starts at night instead of day. Night is longer than day. Night Stalker starts with a bonus level of Hunter in the Night.", "Icon": "moon"}, {"Name": "night_stalker_voidbringer", "Title": "Voidbringer", "Desc": "Increases the max level of Void. Level {s:bonus_max_level_tooltip} Void at night becomes ground targeted and applies to an area.", "Icon": "area_of_effect"}], "61": [{"Name": "broodmother_necrotic_webs", "Title": "Necrotic Webs", "Desc": "Reduces health regeneration of enemies on webs.", "Icon": "web"}, {"Name": "broodmother_feeding_frenzy", "Title": "Feeding Frenzy", "Desc": "Insatiable Hunger also applies to nearby Spiderlings.", "Icon": "summons"}], "62": [{"Name": "bounty_hunter_shuriken", "Title": "Through and Through", "Desc": "Shuriken Toss applies its damage and slow to all enemies it passes through.", "Icon": "nuke"}, {"Name": "bounty_hunter_mugging", "Title": "Cutpurse", "Desc": "Bounty Hunter steals gold when targeting enemy heroes with his abilities or items.", "Icon": "gold"}], "63": [{"Name": "weaver_skitterstep", "Title": "Skitterstep", "Desc": "Shukuchi movespeed increased and slows enemies when passing through them.", "Icon": "speed"}, {"Name": "weaver_hivemind", "Title": "Hivemind", "Desc": "Weaver gains experience when The Swarm beetles attack heroes.", "Icon": "xp"}], "64": [{"Name": "jakiro_twin_terror", "Title": "Twin Terror", "Desc": "Jakiro deals more damage with his double attacks.", "Icon": "damage"}, {"Name": "jakiro_ice_breaker", "Title": "Ice Breaker", "Desc": "Ice Path lasts longer and detonates upon expiration, dealing damage and stunning enemies a second time. Ice Path can be manually detonated early.", "Icon": "snowflake"}], "65": [{"Name": "batrider_buff_on_displacement", "Title": "Stoked", "Desc": "Batrider gains Move Speed and Spell Amplification when displacing enemies.", "Icon": "speed"}, {"Name": "batrider_arsonist", "Title": "Arsonist", "Desc": "Sticky Napalm deals damage to structures.", "Icon": "siege"}], "66": [{"Name": "chen_centaur_convert", "Title": "Centaur Convert", "Desc": "Summon Convert calls forth either a Centaur Courser or Centaur Conqueror.", "Icon": "area_of_effect"}, {"Name": "chen_hellbear_convert", "Title": "Hellbear Convert", "Desc": "Summon Convert calls forth either a Hellbear or Hellbear Smasher.", "Icon": "slow"}, {"Name": "chen_troll_convert", "Title": "Troll Convert", "Desc": "Summon Convert calls forth either a Hill Troll or Dark Troll Summoner.", "Icon": "summons"}, {"Name": "chen_satyr_convert", "Title": "Satyr Convert", "Desc": "Summon Convert calls forth either a Satyr Mindstealer or Satyr Tormenter.", "Icon": "mana"}, {"Name": "chen_frog_convert", "Title": "Marshmage Convert", "Desc": "Summon Convert calls forth either a Marshmage Apprentice or a Marshmage.", "Icon": "bubbles"}], "67": [{"Name": "spectre_forsaken", "Title": "Forsaken", "Desc": "Spectre deals {s:bonus_bonus_damage_multiplier_tooltip}x damage with Desolate. Spectre's illusions no longer have Desolate.", "Icon": "spectre"}, {"Name": "spectre_twist_the_knife", "Title": "Twist the Knife", "Desc": "Reality also casts Spectral Dagger on the target.", "Icon": "nuke"}], "68": [{"Name": "ancient_apparition_bone_chill", "Title": "Bone Chill", "Desc": "Ancient Apparition's abilities reduce the enemy's Strength.", "Icon": "debuff"}, {"Name": "ancient_apparition_exposure", "Title": "Exposure", "Desc": "Cold Feet applies in an AoE, depending on the current level of Ice Blast.", "Icon": "area_of_effect"}], "69": [{"Name": "doom_bringer_gluttony", "Title": "Gluttony", "Desc": "Devour now has {s:bonus_AbilityCharges} charges and stolen creep abilities are upgraded by one level.", "Icon": "meat"}, {"Name": "doom_bringer_boost_selling", "Title": "Devil's Bargain", "Desc": "Doom can sell items for % of their value, but his buyback costs are increased by %.", "Icon": "gold"}, {"Name": "doom_bringer_impending_doom", "Title": "Impending Doom", "Desc": "Every {s:bonus_upgrade_interval} minutes, Doom's duration is increased by {s:bonus_upgrade_amount}s.", "Icon": "cooldown"}], "70": [{"Name": "ursa_grudge_bearer", "Title": "Grudge Bearer", "Desc": "When damaged during Enrage, Ursa gains bonus attack damage.", "Icon": "damage"}, {"Name": "ursa_debuff_reduce", "Title": "Bear Down", "Desc": "Debuffs inflicted by Ursa last longer.", "Icon": "cooldown"}], "71": [{"Name": "spirit_breaker_bull_rush", "Title": "Bull Rush", "Desc": "Charge of Darkness bonus movement speed lingers after charge ends.", "Icon": "speed"}, {"Name": "spirit_breaker_bulls_hit", "Title": "Bull's Hit", "Desc": "Greater Bash chance is increased if you've bashed more than one hero recently.", "Icon": "rng"}], "72": [{"Name": "gyrocopter_secondary_strikes", "Title": "Secondary Strikes", "Desc": "Call Down creates delayed secondary explosions around heroes it hits.", "Icon": "nuke"}, {"Name": "gyrocopter_afterburner", "Title": "Afterburner", "Desc": "Every successful hit of a Rocket Barrage rocket on an enemy hero increases Gyrocopter's movement speed.", "Icon": "speed"}], "73": [{"Name": "alchemist_seed_money", "Title": "Seed Money", "Desc": "Alchemist starts with {s:bonus_starting_gold_bonus} more gold.", "Icon": "gold"}, {"Name": "alchemist_mixologist", "Title": "Mixologist", "Desc": "Unstable Concoction and Berserk Potion recharge faster when in Chemical Rage.", "Icon": "cooldown"}, {"Name": "alchemist_dividends", "Title": "Dividends", "Desc": "Alchemist gains +{s:bonus_gpm_increase_per_stack} GPM for each Aghanim's Scepter he has granted to allies.", "Icon": "aghs"}], "74": [{"Name": "invoker_quas_focus", "Title": "Scholar of Koryx", "Desc": "<font color='#7998b5'>Quas</font> gains an additional max level. When Invoker reaches level 6, <font color='#7998b5'>Quas</font> gains an additional level.<br><br>When <b>Cold Snap</b> triggers, Invoker is healed and restores some mana.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Ghost Walk</b> and grants 2 current and max levels to <font color='#7998b5'>Quas</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Ice Wall</b>.", "Icon": "invoker_quas"}, {"Name": "invoker_wex_focus", "Title": "Mind of Tornarus", "Desc": "<font color='#d671a9'>Wex</font> gains an additional max level. When Invoker reaches level 6, <font color='#d671a9'>Wex</font> gains an additional level.<br><br><b>Alacrity</b> grants bonus attack range when used on Invoker or range units under his control.</b><br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Tornado</b> and grants 2 current and max levels to <font color='#d671a9'>Wex</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>E.M.P.</b>", "Icon": "invoker_wex"}, {"Name": "invoker_exort_focus", "Title": "Agent of Gallaron", "Desc": "<font color='#cabe68'>Exort</font> gains an additional max level. When Invoker reaches level 6, <font color='#cabe68'>Exort</font> gains an additional level.<br><br><b>Chaos Meteor</b>'s radius and travel distance is increased.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Sun Strike</b> and grants 2 current and max levels to <font color='#cabe68'>Exort</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Sun Strike</b>.", "Icon": "invoker_exort"}], "75": [{"Name": "silencer_irrepressible", "Title": "Irrepressible", "Desc": "Silencer cannot be silenced.", "Icon": "silencer"}, {"Name": "silencer_reverberating_silence", "Title": "Reverberating Silence", "Desc": "The first time Global Silence ends on a unit it is applied again.", "Icon": "debuff"}], "76": [{"Name": "obsidian_destroyer_obsidian_decimator", "Title": "Obsidian Decimator", "Desc": "When Essence Flux restores mana, it also temporarily increases maximum mana.", "Icon": "mana"}, {"Name": "obsidian_destroyer_overwhelming_devourer", "Title": "Overwhelming Devourer", "Desc": "Heroes affected by Astral Imprisonment and Sanity's Eclipse heal Outworld Destroyer every time they cast a spell.", "Icon": "healing"}], "77": [{"Name": "lycan_pack_leader", "Title": "Pack Leader", "Desc": "Enemy heroes killed by Lycan or his units extend Shapeshift duration.", "Icon": "summons"}, {"Name": "lycan_spirit_wolves", "Title": "Spirit Wolves", "Desc": "Summon Wolves creates invulnerable non-attacking wolves that buff Lycan's health and attack damage.", "Icon": "spirit"}, {"Name": "lycan_alpha_wolves", "Title": "Alpha Wolves", "Desc": "Increases the max level of Summon Wolves while lowering the max level of Howl and Feral Impulse.", "Icon": "wolf"}], "78": [{"Name": "brewmaster_roll_out_the_barrel", "Title": "Roll Out the Barrel", "Desc": "Throw a barrel at enemies, damaging them and applying Cinder Brew.", "Icon": "nuke"}, {"Name": "brewmaster_drunken_master", "Title": "Drunken Master", "Desc": "When brewed up, Brewmaster moves with a varying amount of movement speed, altering between {s:bonus_min_movement} faster for the duration.", "Icon": "speed"}], "79": [{"Name": "shadow_demon_promulgate", "Title": "Promulgate", "Desc": "Disseminate instantly removes a percentage of the opponent's health for its duration.", "Icon": "nuke"}, {"Name": "shadow_demon_facet_soul_mastery", "Title": "Shadow Servant", "Desc": "Shadow Demon creates illusions of heroes that die near him.", "Icon": "illusion"}], "80": [{"Name": "lone_druid_bear_with_me", "Title": "Bear with Me", "Desc": "Spirit Link's Shared Armor is increased and Lone Druid's attacks heal the Spirit Bear.", "Icon": "healing"}, {"Name": "lone_druid_bear_necessities", "Title": "Bear Necessities", "Desc": "Lone Druid's items are more powerful and his inventory is smaller.", "Icon": "item"}], "81": [{"Name": "chaos_knight_irrationality", "Title": "Irrationality", "Desc": "Reality Rift has equal chances of applying Break, Disarm, or Silence for {s:bonus_additional_debuff_duration_percent}% of the base debuff duration in addition to its normal effects.", "Icon": "rng"}, {"Name": "chaos_knight_facet_fundamental_forging", "Title": "Fundamental Forging", "Desc": "Chaos Knight can craft artifacts from the next tier when making a Neutral Item.", "Icon": "item"}, {"Name": "chaos_knight_cloven_chaos", "Title": "Cloven Chaos", "Desc": "Chaos Bolt splits in half upon striking its target, stunning one additional enemy and damaging another.", "Icon": "ricochet"}], "82": [{"Name": "meepo_more_meepo", "Title": "More Meepo", "Desc": "Obtain extra Meepos sooner and get 1 extra Meepo.", "Icon": "summons"}, {"Name": "meepo_codependent", "Title": "Codependent", "Desc": "Meepos increase other Meepos' attack speed and armor.", "Icon": "illusion"}], "83": [{"Name": "treant_primeval_power", "Title": "Primeval Power", "Desc": "Treant gains +{s:bonus_attack_damage_per_level} base attack damage per hero level.", "Icon": "damage"}, {"Name": "treant_sapling", "Title": "Sapling", "Desc": "Leech Seed can be ground targeted to plant a tree.", "Icon": "tree"}], "84": [{"Name": "ogre_magi_fat_chance", "Title": "Fat Chance", "Desc": "Multicast chance is increased by  {s:bonus_strength_mult}% of Ogre Magi's Strength.", "Icon": "rng"}, {"Name": "ogre_magi_learning_curve", "Title": "Learning Curve", "Desc": "Level requirement of all spells and talents reduced by {s:bonus_required_level}. You get {s:bonus_level_one_ability_points} Ability Points at level one and {s:bonus_level_two_ability_points} Ability Points at level two.", "Icon": "ogre"}], "85": [{"Name": "undying_rotting_mitts", "Title": "Rotting Mitts", "Desc": "While transformed into a Flesh Golem, attacks spawn a zombie.", "Icon": "summons"}, {"Name": "undying_ripped", "Title": "Ripped", "Desc": "Casting Soul Rip on allies increases their Strength by a percentage of Undying's Strength.", "Icon": "strength"}], "86": [{"Name": "rubick_frugal_filch", "Title": "Frugal Filch", "Desc": "Stolen spells also have lower mana cost.", "Icon": "mana"}, {"Name": "rubick_arcane_accumulation", "Title": "Arcane Accumulation", "Desc": "Casting a spell temporarily increases the area of effect for all subsequent spells.", "Icon": "area_of_effect"}], "87": [{"Name": "disruptor_thunderstorm", "Title": "Thunderstorm", "Desc": "Thunder Strike additionally hits all enemies within Kinetic Field.", "Icon": "area_of_effect"}, {"Name": "disruptor_line_walls", "Title": "Kinetic Fence", "Desc": "Replaces Kinetic Field with the ability to create impassable walls.", "Icon": "fence"}], "88": [{"Name": "nyx_assassin_burn_mana", "Title": "Mana Burn", "Desc": "Mind Flare burns a percentage of the target's max mana.", "Icon": "nuke"}, {"Name": "nyx_assassin_scuttle", "Title": "Scuttle", "Desc": "For the first {s:bonus_free_pathing_duration}s of Vendetta, Nyx is hasted and has unobstructed pathing.", "Icon": "speed"}], "89": [{"Name": "naga_siren_passive_riptide", "Title": "Rip Tide", "Desc": "Every 6 attacks from Naga and her illusions, enemies around them are damaged and their Armor is reduced.", "Icon": "armor_broken"}, {"Name": "naga_siren_active_riptide", "Title": "Deluge", "Desc": "Naga Siren can create a splash around herself and her illusions, damaging enemies and reducing their Status Resistance.", "Icon": "nuke"}], "90": [{"Name": "keeper_of_the_light_facet_solar_bind", "Title": "", "Desc": "Grants the Solar Bind ability while active.", "Icon": "slow"}, {"Name": "keeper_of_the_light_facet_recall", "Title": "Recall", "Desc": "This facet grants the ability <span class=\"AttributeHighlight\">{s:facet_ability_name}</span>.", "Icon": "teleport"}], "91": [{"Name": "wisp_kritzkrieg", "Title": "Kritzkrieg", "Desc": "Overcharge grants attack speed and spell amplification to Io and any Tethered allies.", "Icon": "damage"}, {"Name": "wisp_medigun", "Title": "Medigun", "Desc": "Overcharge grants armor and magic resistance to Io and any Tethered allies.", "Icon": "armor"}], "92": [{"Name": "visage_sepulchre", "Title": "Sepulchre", "Desc": "Grave Chill also affects units around the target. Visage can also recall his familiars.", "Icon": "area_of_effect"}, {"Name": "visage_faithful_followers", "Title": "Faithful Followers", "Desc": "Familiars automatically move with Visage and attack his targets.", "Icon": "summons"}, {"Name": "visage_gold_assumption", "Title": "Death Toll", "Desc": "Soul Assumption kills give bonus gold. Visage can also recall his familiars.", "Icon": "gold"}], "93": [{"Name": "slark_leeching_leash", "Title": "Leeching Leash", "Desc": "Pounce applies stacks of Essence Shift when striking enemy heroes.", "Icon": "agility"}, {"Name": "slark_dark_reef_renegade", "Title": "Dark Reef Renegade", "Desc": "Barracuda lingers after being revealed to the enemy if Slark is not nearby allied heroes. Slark's attacks reduce the target's armor while Slark is under the effects of Barracuda.", "Icon": "cooldown"}], "94": [{"Name": "medusa_engorged", "Title": "Engorged", "Desc": "Mystic Snake grants Medusa attack damage.", "Icon": "snake"}, {"Name": "medusa_slow_attacks", "Title": "Venomous Volley", "Desc": "Every 6 attacks, Medusa applies poison to her arrow that briefly reduces movement speed, attack speed, and cast speed.", "Icon": "slow"}, {"Name": "medusa_undulation", "Title": "Undulation", "Desc": "Medusa's movement speed is fixed at 310 (465 during Stone Gaze). Medusa is unslowable and does not benefit from movement speed increases.", "Icon": "speed"}], "95": [{"Name": "troll_warlord_insensitive", "Title": "Insensitive", "Desc": "Fervor grants armor per stack while in melee form.", "Icon": "armor"}, {"Name": "troll_warlord_bad_influence", "Title": "Bad Influence", "Desc": "During Battle Trance, Troll Warlord has increased max Fervor stacks and no attack speed limit. Battle Trance grants allied heroes {s:bonus_attack_speed_share_percent}% of the attack speed bonus. ", "Icon": "damage"}], "96": [{"Name": "centaur_counter_strike", "Title": "Counter-Strike", "Desc": "Double Edge damage is increased when Centaur is attacked.", "Icon": "nuke"}, {"Name": "centaur_horsepower", "Title": "Horsepower", "Desc": "Centaur Warrunner gains Movement Speed based on his Strength.", "Icon": "speed"}], "97": [{"Name": "magnataur_eternal_empowerment", "Title": "Eternal Empowerment", "Desc": "Empower is always on Magnus. Each subsequent attack increases its power.", "Icon": "empower"}, {"Name": "magnataur_diminishing_return", "Title": "Diminishing Return", "Desc": "Increases the max level of Shockwave. Level {s:bonus_max_level_tooltip} Shockwave causes it to return towards Magnus's location.", "Icon": "ricochet"}], "98": [{"Name": "shredder_shredder", "Title": "Shredder", "Desc": "Timber Chain splinters the tree into all directions around Timbersaw.", "Icon": "tree"}, {"Name": "shredder_second_chakram", "Title": "Twisted Chakram", "Desc": "This facet grants the ability <span class=\"AttributeHighlight\">{s:facet_ability_name}</span>.", "Icon": "spinning"}], "99": [{"Name": "bristleback_snot_rocket", "Title": "Snot Rocket", "Desc": "Bristleback now fires Viscous Nasal Goo instead of Quills when damaged. Viscous Nasal Goo effects are stronger.", "Icon": "snot"}, {"Name": "bristleback_seeing_red", "Title": "Seeing Red", "Desc": "Warpath can be activated to gain extra bonuses. While Seeing Red, Bristleback's vision is limited and he does not receive vision from his allies.", "Icon": "no_vision"}], "100": [{"Name": "tusk_facet_tag_team", "Title": "Tag Team", "Desc": "Tusk can cast <b color='white'>Tag Team</b> causing nearby enemies to receive bonus damage from attacks.", "Icon": "damage"}, {"Name": "tusk_facet_fist_bump", "Title": "Drinking Buddies", "Desc": "Tusk can cast <b color='white'>Drinking Buddies</b>, pulling him and a teammate closer and granting both bonus Movement Speed and Attack Damage.", "Icon": "movement"}], "101": [{"Name": "skywrath_mage_shield", "Title": "Shield of the Scion", "Desc": "Skywrath Mage gains a magic damage barrier when dealing damage to heroes.", "Icon": "armor"}, {"Name": "skywrath_mage_staff", "Title": "Staff of the Scion", "Desc": "Skywrath Mage's Cooldowns are reduced when he deals spell damage to enemy heroes.", "Icon": "cooldown"}], "102": [{"Name": "abaddon_death_dude", "Title": "The Quickening", "Desc": "Units dying nearby Abaddon lower his cooldowns.", "Icon": "cooldown"}, {"Name": "abaddon_mephitic_shroud", "Title": "Mephitic Shroud", "Desc": "Aphotic Shield absorbs more damage and reflects damage when received instead of exploding at the end.", "Icon": "barrier"}], "103": [{"Name": "elder_titan_deconstruction", "Title": "Deconstruction", "Desc": "Natural Order drains Magic Resistance and Armor over time.", "Icon": "armor_broken"}, {"Name": "elder_titan_boost_atkspd", "Title": "Momentum", "Desc": "Elder Titan's Base Attack Speed is reduced but his Movement Speed also grants Attack Speed.", "Icon": "damage"}], "104": [{"Name": "legion_commander_stonehall_plate", "Title": "Stonehall Plate", "Desc": "Overwhelming Odds grants an all damage barrier based on the damage it deals to enemy heroes.", "Icon": "armor"}, {"Name": "legion_commander_spoils_of_war", "Title": "Spoils of War", "Desc": "When a Duel is won, units that damaged the loser during the Duel will gain permanent bonus damage. If Legion Commander won the Duel, she will automatically cast Press the Attack on herself and assisting allies.", "Icon": "damage"}], "105": [{"Name": "techies_atk_range", "Title": "Squee's Scope", "Desc": "Techies gains 1 attack range and attack projectile speed for each point of attack speed.", "Icon": "range"}, {"Name": "techies_spleens_secret_sauce", "Title": "Spleen's Secret Sauce", "Desc": "Increased Blast Off! damage and self damage.", "Icon": "nuke"}, {"Name": "techies_backpack", "Title": "Spoon's Stash", "Desc": "Techies stack all previously selected Enchantments onto newly crafted Neutral Items.", "Icon": "item"}], "106": [{"Name": "ember_spirit_double_impact", "Title": "Double Impact", "Desc": "Sleight of Fist hits one of its targets an extra time.", "Icon": "fist"}, {"Name": "ember_spirit_chain_gang", "Title": "Chain Gang", "Desc": "Searing Chains can affect an additional enemy. When Searing Chains are cast, they are also cast around each Fire Remnant.", "Icon": "debuff"}], "107": [{"Name": "earth_spirit_resonance", "Title": "Resonance", "Desc": "Gain bonus Attack Damage when Magnetizing Stone Remnants.", "Icon": "damage"}, {"Name": "earth_spirit_stepping_stone", "Title": "Stepping Stone", "Desc": "Stone Remnant has a {s:bonus_AbilityCooldown}s cooldown instead of Charges and Remnants don't get destroyed by Rolling Boulder.", "Icon": "cooldown"}, {"Name": "earth_spirit_ready_to_roll", "Title": "Ready to Roll", "Desc": "Rolling Boulder can roll over allied heroes for additional bonuses.", "Icon": "spinning"}], "108": [{"Name": "abyssal_underlord_demons_reach", "Title": "Demon's Reach", "Desc": "Underlord's attacks cleave while he has bonus damage from Atrophy Aura.", "Icon": "area_of_effect"}, {"Name": "abyssal_underlord_summons", "Title": "Abyssal Horde", "Desc": "Fiend's Gate periodically summons minions.", "Icon": "summons"}], "109": [{"Name": "terrorblade_condemned", "Title": "Condemned", "Desc": "There is no minimum health threshold for Sundered enemies.", "Icon": "twin_hearts"}, {"Name": "terrorblade_soul_fragment", "Title": "Soul Fragment", "Desc": "Conjure Image illusions always spawn at full health and cost health instead of mana.", "Icon": "illusion"}], "110": [{"Name": "phoenix_facet_immolate", "Title": "Dying Light", "Desc": "Phoenix deals 4.5% of his missing health as magic damage to all enemies in a 400 radius every second.", "Icon": "barrier"}, {"Name": "phoenix_hotspot", "Title": "Hotspot", "Desc": "Sun Ray deals more damage and applies more Blinding Sun stacks towards the tip of the ray.", "Icon": "nuke"}], "111": [{"Name": "oracle_facet_dmg", "Title": "Clairvoyant Curse", "Desc": "Spell amplification increased by 1% per hero level.", "Icon": "nuke"}, {"Name": "oracle_facet_heal", "Title": "Clairvoyant Cure", "Desc": "Heal amplification increased by 0.75% per hero level.", "Icon": "healing"}], "112": [{"Name": "winter_wyvern_winterproof", "Title": "Winterproof", "Desc": "Cold Embrace can be cast on buildings. Does not heal buildings. Allied units and buildings gain bonus attack damage when emerging from the icy cocoon.", "Icon": "tower"}, {"Name": "winter_wyvern_recursive", "Title": "Recursive", "Desc": "Winter's Curse is recast on the lowest health enemy hero if the primary target dies.", "Icon": "ricochet"}], "113": [{"Name": "arc_warden_runed_replica", "Title": "Runed Replica", "Desc": "The Tempest Double is infused with the bonuses of Power Runes for {s:bonus_rune_duration}s when created.<br><br>Level 1 - Invisibility Rune.<br><br>Level 2 - Invisibility and Arcane Runes.<br><br>Level 3 - Invisibility, Arcane, and Haste Runes.", "Icon": "arc_warden_alt"}, {"Name": "arc_warden_power_capture", "Title": "Power Capture", "Desc": "Magnetic Field pulls runes. Arc Warden gains +{s:bonus_all_attribute_bonus_per_stack} all attributes permanently upon activating a Power Rune.", "Icon": "rune"}], "114": [{"Name": "monkey_king_wukongs_faithful", "Title": "Wukong's Faithful", "Desc": "Monkey King's soldiers last longer and do not disperse unless he spends more than {s:bonus_leadership_time_buffer} seconds outside the area.", "Icon": "summons"}, {"Name": "monkey_king_simian_stride", "Title": "Simian Stride", "Desc": "Increases the max level of Tree Dance. Level {s:bonus_max_level_tooltip} Tree Dance reduces the cooldown to zero.", "Icon": "tree"}], "119": [{"Name": "dark_willow_throwing_shade", "Title": "Throwing Shade", "Desc": "Dark Willow deals more damage to nearby heroes when she's in the Shadow Realm.", "Icon": "damage"}, {"Name": "dark_willow_shattering_crown", "Title": "Shattering Crown", "Desc": "Cursed Crown accumulates all damage dealt by Dark Willow and attack damage dealt by her allies. A percentage of that damage is dealt again as magical damage to the whole area when the counter expires.", "Icon": "barrier"}], "120": [{"Name": "pangolier_double_jump", "Title": "Double Jump", "Desc": "Pangolier can double jump with Shield Crash dealing more damage and gaining more barrier.", "Icon": "double_bounce"}, {"Name": "pangolier_thunderbolt", "Title": "Thunderbolt", "Desc": "Rolling Thunder movement and turn speed increased, but duration is decreased.", "Icon": "speed"}], "121": [{"Name": "grimstroke_inkstigate", "Title": "Inkstigate", "Desc": "Ink Swell can be manually detonated early.", "Icon": "area_of_effect"}, {"Name": "grimstroke_fine_art", "Title": "Fine Art", "Desc": "Stroke of Fate can now be vector targeted to manipulate the ink's travel path.", "Icon": "brush"}], "123": [{"Name": "hoodwink_hunter", "Title": "Go Nuts", "Desc": "Scurry also provides bonus attack and cast range.", "Icon": "range"}, {"Name": "hoodwink_hipshot", "Title": "Hipshot", "Desc": "Sharpshooter has a greatly reduced cooldown. Damage, debuff duration, turn time, and wind-up times are also reduced.", "Icon": "cooldown"}], "126": [{"Name": "void_spirit_sanctuary", "Title": "Sanctuary", "Desc": "Resonant Pulse creates a larger all damage barrier instead of a physical barrier.", "Icon": "armor"}, {"Name": "void_spirit_aether_artifice", "Title": "Call of the Void", "Desc": "Upon exiting Dissimilate, Aether Remnants are created at the {s:bonus_aether_remnant_count} portals furthest from Void Spirit.", "Icon": "illusion"}], "127": [], "128": [{"Name": "snapfire_ricochet_ii", "Title": "Ricochet II", "Desc": "Whenever Snapfire glances or misses an attack, 2 ricochet attacks will bounce towards nearby enemies.", "Icon": "ricochet"}, {"Name": "snapfire_full_bore", "Title": "Full Bore", "Desc": "Scatterblast is narrower and longer. Bonus damage and slow when enemies are not in point blank range.", "Icon": "range"}], "129": [{"Name": "mars_victory_feast", "Title": "Victory Feast", "Desc": "Mars and his allies gain health, mana, and attack damage when an enemy inside his Arena of Blood dies.", "Icon": "healing"}, {"Name": "mars_arena", "Title": "Blood Sport", "Desc": "Enemies inside the Arena of Blood don't have vision outside the arena.", "Icon": "no_vision"}], "131": [{"Name": "ringmaster_carny_classics", "Title": "Carny Classics", "Desc": "Ringmaster's Souvenirs are <b color='white'>Funhouse Mirror</b>, <b color='white'>Strongman Tonic</b>, and <b color='white'>Whoopee Cushion</b>.", "Icon": "whoopee_cushion"}, {"Name": "ringmaster_sideshow_secrets", "Title": "Sideshow Secrets", "Desc": "Ringmaster's Souvenirs are <b color='white'>Crystal Ball</b>, <b color='white'>Unicycle</b>, and <b color='white'>Weighted Pie</b>.", "Icon": "pie"}], "135": [{"Name": "dawnbreaker_solar_charged", "Title": "Solar Charged", "Desc": "Whenever Dawnbreaker hits a target with a powered up Luminosity, she decreases the cooldowns of all of her abilities.", "Icon": "cooldown"}, {"Name": "dawnbreaker_blaze", "Title": "Starsurge", "Desc": "Dawnbreaker and nearby allies gain bonus attack speed at the end of Starbreaker for each swipe that hit enemy heroes.", "Icon": "fist"}, {"Name": "dawnbreaker_hearthfire", "Title": "Trailblazer", "Desc": "Walking along Celestial Hammer's fire trail gives bonus movespeed.", "Icon": "speed"}], "136": [{"Name": "marci_buddy_system", "Title": "Buddy System", "Desc": "While bodyguarded, Marci and her partner share a portion of health healed by this ability with each other.", "Icon": "twin_hearts"}, {"Name": "marci_pickmeup", "Title": "Pick-me-up", "Desc": "Rebound can be alt-cast to bring Marci's ally with her after the jump.", "Icon": "ricochet"}, {"Name": "marci_fleeting_fury", "Title": "Fleeting Fury", "Desc": "Upon landing with Rebound, Marci gains a Fury combo. ", "Icon": "fist"}], "137": [{"Name": "primal_beast_provoke_the_beast", "Title": "Provoke the Beast", "Desc": "Gain {s:bonus_stack_count_increase_on_disable} Uproar stacks upon being disabled by an enemy hero.", "Icon": "broken_chain"}, {"Name": "primal_beast_ferocity", "Title": "Ferocity", "Desc": "Each Pulverize slam increase Primal Beast's AoE.", "Icon": "area_of_effect"}], "138": [{"Name": "muerta_dance_of_the_dead", "Title": "Dance of the Dead", "Desc": "The Calling becomes stronger when heroes die inside it.", "Icon": "spirit"}, {"Name": "muerta_ofrenda", "Title": "Ofrenda", "Desc": "Muerta can place a beneficial Ofrenda on the map to respawn there instead of the fountain.", "Icon": "teleport"}], "145": [{"Name": "kez_flutter", "Title": "Flutter", "Desc": "Kez deals extra damage on the first attack or ability after switching to Katana, and gains bonus movement speed after switching to Sai.", "Icon": "kez_flutter"}, {"Name": "kez_shadowhawk", "Title": "Shadowhawk", "Desc": "Triggering a Shodo Sai Mark from invisibility deals bonus critical damage.", "Icon": "kez_shadowhawk"}]}
+{
+    "1": [
+        {
+            "Name": "antimage_magebanes_mirror",
+            "Title": "Magebane's Mirror",
+            "Desc": "Spells countered by Counterspell or Counterspell Ally will immediately burn a percentage of its mana cost from the enemy and deal damage based on the burned mana cost.",
+            "Icon": "ricochet"
+        },
+        {
+            "Name": "antimage_mana_thirst",
+            "Title": "Mana Thirst",
+            "Desc": "Anti-Mage gains damage when his enemies are at low mana.",
+            "Icon": "mana"
+        }
+    ],
+    "2": [
+        {
+            "Name": "axe_one_man_army",
+            "Title": "One Man Army",
+            "Desc": "Axe gains Strength based on his armor as long as he's away from his allies.",
+            "Icon": "strength"
+        },
+        {
+            "Name": "axe_call_out",
+            "Title": "Call Out",
+            "Desc": "Berserker's Call gives attacking enemies more attack speed and Axe more armor for the duration.",
+            "Icon": "armor"
+        }
+    ],
+    "3": [
+        {
+            "Name": "bane_dream_stalker",
+            "Title": "Dream Stalker",
+            "Desc": "Bane has increased attack speed when attacking Nightmared units.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "bane_sleepwalk",
+            "Title": "Sleepwalk",
+            "Desc": "Nightmared units walk in Bane's chosen direction.",
+            "Icon": "movement"
+        }
+    ],
+    "4": [
+        {
+            "Name": "bloodseeker_arterial_spray",
+            "Title": "Arterial Spray",
+            "Desc": "Ruptured units are pushed when attacked by Bloodseeker.",
+            "Icon": "movement"
+        },
+        {
+            "Name": "bloodseeker_bloodrush",
+            "Title": "Bloodrush",
+            "Desc": "Bloodseeker can supercharge the movement speed from Thirst temporarily.",
+            "Icon": "speed"
+        }
+    ],
+    "5": [
+        {
+            "Name": "crystal_maiden_glacial_guard",
+            "Title": "Glacial Guard",
+            "Desc": "Crystal Nova has increased radius and grants allied heroes a physical damage barrier. Barrier is increased for Crystal Maiden.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "crystal_maiden_arcane_overflow",
+            "Title": "Arcane Overflow",
+            "Desc": "Activating Arcane Aura temporarily increases Crystal Maiden's spell amplification and mana costs. During the duration, Crystal Maiden restores her allies' Mana when casting spells.",
+            "Icon": "mana"
+        }
+    ],
+    "6": [
+        {
+            "Name": "drow_ranger_high_ground",
+            "Title": "Vantage Point",
+            "Desc": "Drow deals 30% more damage when attacking from high ground.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "drow_ranger_sidestep",
+            "Title": "Sidestep",
+            "Desc": "Drow can move slowly and use items while casting Multishot.",
+            "Icon": "multi_arrow"
+        }
+    ],
+    "7": [
+        {
+            "Name": "earthshaker_tectonic_buildup",
+            "Title": "Tectonic Buildup",
+            "Desc": "Aftershock radius is increased by {s:bonus_aftershock_range_increase_per_level_interval} every {s:bonus_aftershock_range_level_interval} hero levels.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "earthshaker_slugger",
+            "Title": "Slugger",
+            "Desc": "Enemies killed with Enchant Totem or Earthshaker's other abilities are sent flying, dealing damage to enemies they hit.",
+            "Icon": "movement"
+        }
+    ],
+    "8": [
+        {
+            "Name": "juggernaut_bladestorm",
+            "Title": "Bladestorm",
+            "Desc": "Blade Fury can now critically strike based on the level of Blade Dance.",
+            "Icon": "spinning"
+        },
+        {
+            "Name": "juggernaut_agigain",
+            "Title": "Bladeform",
+            "Desc": "Juggernaut gains Agility and Movement Speed as long as he's not taking damage.",
+            "Icon": "agility"
+        }
+    ],
+    "9": [
+        {
+            "Name": "mirana_starstruck",
+            "Title": "Starstruck",
+            "Desc": "Starstorm's second meteor deals more damage and blinds the target.",
+            "Icon": "no_vision"
+        },
+        {
+            "Name": "mirana_leaps_and_bounds",
+            "Title": "Leaps and Bounds",
+            "Desc": "Upon landing, Leap roots targets in a {s:bonus_root_radius} radius for {s:bonus_root_duration}s.",
+            "Icon": "slow"
+        }
+    ],
+    "10": [
+        {
+            "Name": "morphling_agi",
+            "Title": "Ebb",
+            "Desc": "Morphling's Primary Attribute is now <font color='#9acd32'>Agility</font>. Waveform attacks enemies in his path.",
+            "Icon": "agility"
+        },
+        {
+            "Name": "morphling_str",
+            "Title": "Flow",
+            "Desc": "Morphling's Primary Attribute is now <font color='#ff0000'>Strength</font>. Adaptive Strike stuns based on Morphling's strength. Morphling gains 1% Spell Amp per 4 Agility.",
+            "Icon": "strength"
+        }
+    ],
+    "11": [
+        {
+            "Name": "nevermore_lasting_presence",
+            "Title": "Lasting Presence",
+            "Desc": "Presence of the Dark Lord temporarily reduces more armor after nearby enemy heroes are killed. Every hero kill increases Necromastery's max souls by {s:bonus_max_soul_increase_on_hero_kill} until Shadow Fiend dies.",
+            "Icon": "armor_broken"
+        },
+        {
+            "Name": "nevermore_shadowmire",
+            "Title": "Shadowmire",
+            "Desc": "Shadowraze slows enemies.",
+            "Icon": "slow"
+        }
+    ],
+    "12": [
+        {
+            "Name": "phantom_lancer_divergence",
+            "Title": "Divergence",
+            "Desc": "Juxtapose Illusions spawn on random nearby units and deal more damage but can't be controlled.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "phantom_lancer_lancelot",
+            "Title": "Lancelot",
+            "Desc": "Spirit Lances from Phantom Lancer's illusions deal {s:bonus_illusion_lance_damage_pct}% Lance Damage.",
+            "Icon": "phantom_lance"
+        }
+    ],
+    "13": [
+        {
+            "Name": "puck_jostling_rift",
+            "Title": "Jostling Rift",
+            "Desc": "Waning Rift can push or pull targets.",
+            "Icon": "movement"
+        },
+        {
+            "Name": "puck_curveball",
+            "Title": "Curveball",
+            "Desc": "Puck's Illusory Orb can be curved in any direction, moves faster, and lasts longer.",
+            "Icon": "curve_ball"
+        }
+    ],
+    "14": [
+        {
+            "Name": "pudge_fresh_meat",
+            "Title": "Fresh Meat",
+            "Desc": "Dismember increases Strength when dealing damage to heroes.",
+            "Icon": "meat"
+        },
+        {
+            "Name": "pudge_rotten_core",
+            "Title": "Rotten Core",
+            "Desc": "While Rot is activated, Pudge gains bonus attack damage every second.",
+            "Icon": "fist"
+        }
+    ],
+    "15": [
+        {
+            "Name": "razor_thunderhead",
+            "Title": "Thunderhead",
+            "Desc": "Storm Surge lightning strikes more often and hits all units within Eye of the Storm's area of effect when it is active.",
+            "Icon": "barrier"
+        },
+        {
+            "Name": "razor_spellamp",
+            "Title": "Dynamo",
+            "Desc": "Razor gains 1% spell amplification for every 20 points of attack damage.",
+            "Icon": "nuke"
+        }
+    ],
+    "16": [
+        {
+            "Name": "sand_king_sandshroud",
+            "Title": "Sandshroud",
+            "Desc": "Sand Storm has increased radius and grants Sand King Invisibility while in it.",
+            "Icon": "vision"
+        },
+        {
+            "Name": "sand_king_dust_devil",
+            "Title": "Dust Devil",
+            "Desc": "Sand Storm follows Sand King when he moves.",
+            "Icon": "speed"
+        }
+    ],
+    "17": [
+        {
+            "Name": "storm_spirit_shock_collar",
+            "Title": "Shock Collar",
+            "Desc": "Electric Vortex applies a debuff that triggers an Overload Charge if they attack.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "storm_spirit_static_slide",
+            "Title": "Static Slide",
+            "Desc": "Static Remnants spawn at Storm Spirit and move to the target position.",
+            "Icon": "movement"
+        }
+    ],
+    "18": [
+        {
+            "Name": "sven_heavy_plate",
+            "Title": "Heavy Plate",
+            "Desc": "Warcry provides a physical damage barrier.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "sven_strscaling",
+            "Title": "Wrath of God",
+            "Desc": "Sven gains additional attack damage from Strength.",
+            "Icon": "strength"
+        }
+    ],
+    "19": [
+        {
+            "Name": "tiny_crash_landing",
+            "Title": "Crash Landing",
+            "Desc": "Tossed units slow and deal bonus damage to other targets at the Toss destination.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "tiny_insurmountable",
+            "Title": "Insurmountable",
+            "Desc": "Tiny gains Status and Slow Resistance from Strength. Slow Resistance also reduces the impact of Attack Speed slows.",
+            "Icon": "armor"
+        }
+    ],
+    "20": [
+        {
+            "Name": "vengefulspirit_avenging_missile",
+            "Title": "Avenging Missile",
+            "Desc": "Magic Missile deals {s:bonus_damage_per_lasthit} bonus damage for every creep the enemy has killed.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "vvengefulspirit_melee",
+            "Title": "Soul Strike",
+            "Desc": "Vengeful Spirit's ranged attacks behave as if they were melee attacks.",
+            "Icon": "fist"
+        }
+    ],
+    "21": [
+        {
+            "Name": "windrunner_tangled",
+            "Title": "Tangled",
+            "Desc": "Shackleshot affects more enemies and grants damage per unit shackled.",
+            "Icon": "tree"
+        },
+        {
+            "Name": "windrunner_killshot",
+            "Title": "Killshot",
+            "Desc": "Powershot executes low health enemy heroes.",
+            "Icon": "execute"
+        }
+    ],
+    "22": [
+        {
+            "Name": "zuus_livewire",
+            "Title": "Livewire",
+            "Desc": "Static Field deals more damage to nearby enemies.",
+            "Icon": "range"
+        },
+        {
+            "Name": "zuus_divine_rampage",
+            "Title": "Divine Rampage",
+            "Desc": "When Thundergod's Wrath kills an enemy, it deals more damage to the other enemies.",
+            "Icon": "nuke"
+        }
+    ],
+    "23": [
+        {
+            "Name": "kunkka_high_tide",
+            "Title": "High Tide",
+            "Desc": "Tidebringer cooldown is reduced per enemy hero it hits.",
+            "Icon": "cooldown"
+        },
+        {
+            "Name": "kunkka_grog",
+            "Title": "Grog Blossom",
+            "Desc": "When X Marks the Spot returns its target, nearby allies gain Ghostship's improved Admiral's Rum buff.",
+            "Icon": "armor"
+        }
+    ],
+    "25": [
+        {
+            "Name": "lina_supercharge",
+            "Title": "Thermal Runaway",
+            "Desc": "Casting Laguna Blade temporarily supercharges Lina, granting her stacks of Fiery Soul.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "lina_dot",
+            "Title": "Slow Burn",
+            "Desc": "Lina's spells deal extra damage over time.",
+            "Icon": "nuke"
+        }
+    ],
+    "26": [
+        {
+            "Name": "lion_essence_eater",
+            "Title": "Essence Eater",
+            "Desc": "Mana Drain deals damage equal to {s:bonus_damage_pct}% of mana stolen.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "lion_fist_of_death",
+            "Title": "Fist of Death",
+            "Desc": "Lion gains a strong Melee cleaving attack after casting Finger of Death.",
+            "Icon": "fist"
+        }
+    ],
+    "27": [
+        {
+            "Name": "shadow_shaman_voodoo_hands",
+            "Title": "Chicken Fingers",
+            "Desc": "Shadow Shaman's attacks can transform enemies into a chicken.",
+            "Icon": "chicken"
+        },
+        {
+            "Name": "shadow_shaman_massive_serpent_ward",
+            "Title": "Massive Serpent Ward",
+            "Desc": "Summons a single massive Serpent Ward with {s:bonus_mega_ward_multiplier_tooltip}x damage and bounty values and {s:bonus_mega_ward_health_tooltip}x health.",
+            "Icon": "snake"
+        }
+    ],
+    "28": [
+        {
+            "Name": "slardar_leg_day",
+            "Title": "Leg Day",
+            "Desc": "Slardar has slow resistance and even more movement speed at the beginning of Guardian Sprint.",
+            "Icon": "speed"
+        },
+        {
+            "Name": "slardar_brineguard",
+            "Title": "Brineguard",
+            "Desc": "Corrosive Haze increases Slardar's armor by {s:bonus_armor_pct}% of the total armor reduced.",
+            "Icon": "armor"
+        }
+    ],
+    "29": [
+        {
+            "Name": "tidehunter_kraken_swell",
+            "Title": "Kraken Swell",
+            "Desc": "Kraken Shell gains permanent Damage Block when an enemy hero dies under the effects of Anchor Smash.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "tidehunter_sizescale",
+            "Title": "Krill Eater",
+            "Desc": "Tidehunter grows larger and gains extra bonuses per level.",
+            "Icon": "overshadow"
+        }
+    ],
+    "30": [
+        {
+            "Name": "witch_doctor_headhunter",
+            "Title": "Headhunter",
+            "Desc": "Paralyzing Cask deals more damage each bounce.",
+            "Icon": "ricochet"
+        },
+        {
+            "Name": "witch_doctor_cleft_death",
+            "Title": "Cleft Death",
+            "Desc": "Death Ward attacks multiple targets with reduced damage.",
+            "Icon": "death_ward"
+        }
+    ],
+    "31": [
+        {
+            "Name": "lich_frostbound",
+            "Title": "Frostbound",
+            "Desc": "Chain Frost lingers on its last target if it fails to bounce and can bounce again if new targets become available.",
+            "Icon": "snowflake"
+        },
+        {
+            "Name": "lich_growing_cold",
+            "Title": "Growing Cold",
+            "Desc": "When an enemy is killed by Chain Frost or while under the effect of Frost Shield, the duration of these abilities is extended.",
+            "Icon": "cooldown"
+        }
+    ],
+    "32": [
+        {
+            "Name": "riki_contract_killer",
+            "Title": "Contract Killer",
+            "Desc": "Riki receives bonus experience for assists and kills.",
+            "Icon": "xp"
+        },
+        {
+            "Name": "riki_exterminator",
+            "Title": "Exterminator",
+            "Desc": "Tricks of the Trade has {s:bonus_creep_agility_multiplier}x Agility Bonus when attacking non-hero units. When Riki kills a non-hero unit during Tricks of the Trade, the cooldown is reduced by {s:bonus_cooldown_reduction_per_creep_kill}s.",
+            "Icon": "agility"
+        }
+    ],
+    "33": [
+        {
+            "Name": "enigma_gravity",
+            "Title": "Event Horizon",
+            "Desc": "Units in a 600 radius moving away from Enigma have a 8/12/16/20% movespeed penalty.",
+            "Icon": "slow"
+        },
+        {
+            "Name": "enigma_fragment",
+            "Title": "Splitting Image",
+            "Desc": "Enigma spawns Eidolons upon receiving damage.",
+            "Icon": "summons"
+        }
+    ],
+    "34": [
+        {
+            "Name": "tinker_repair_bots",
+            "Title": "Repair Bots",
+            "Desc": "March of the Machines applies a non-stacking heal over time when passing through allied heroes.",
+            "Icon": "healing"
+        },
+        {
+            "Name": "tinker_translocator",
+            "Title": "Translocator",
+            "Desc": "When a Self-Defense Matrix barrier on Tinker is fully absorbed, he blinks in a random forward direction.<br><br>DISPEL TYPE: Basic Dispel",
+            "Icon": "movement"
+        }
+    ],
+    "35": [
+        {
+            "Name": "sniper_ghillie_suit",
+            "Title": "Ghillie Suit",
+            "Desc": "While Take Aim is active, Sniper's attacks do not reveal him from fog of war.",
+            "Icon": "vision"
+        },
+        {
+            "Name": "sniper_scattershot",
+            "Title": "Scattershot",
+            "Desc": "Shrapnel slow and damage are increased, but duration is decreased.",
+            "Icon": "nuke"
+        }
+    ],
+    "36": [
+        {
+            "Name": "necrolyte_profane_potency",
+            "Title": "Profane Potency",
+            "Desc": "Sadist also grants Necrophos' AoE abilities and items bonus Radius per kill.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "necrolyte_rapid_decay",
+            "Title": "Rapid Decay",
+            "Desc": "Ghost Shroud steals speed from his enemies and decreases their restorative powers.",
+            "Icon": "speed"
+        }
+    ],
+    "37": [
+        {
+            "Name": "warlock_golem",
+            "Title": "Champion of Gorroth",
+            "Desc": "Chaotic Offering Golems deal more burn damage based on Warlock's health and mana regeneration.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "warlock_grimoire",
+            "Title": "Black Grimoire",
+            "Desc": "Grants Warlock the item Black Grimoire, which can be consumed to gain experience for each kill Warlock participated in. Starts with 1 charge.",
+            "Icon": "xp"
+        }
+    ],
+    "38": [
+        {
+            "Name": "beastmaster_wild_hunt",
+            "Title": "Wild Hunt",
+            "Desc": "Beastmaster attacks faster when his units are nearby.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "beastmaster_beast_mode",
+            "Title": "Beast Mode",
+            "Desc": "Beastmaster can get a self attack speed and damage amplification boost.",
+            "Icon": "damage"
+        }
+    ],
+    "39": [
+        {
+            "Name": "queenofpain_selfdmg",
+            "Title": "Masochist",
+            "Desc": "Queen of Pain has bonus Spell Amplification but a percentage of her spell damage is reflected back to her.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "queenofpain_facet_bondage",
+            "Title": "Bondage",
+            "Desc": "Queen of Pain returns spell damage back to enemies.",
+            "Icon": "twin_hearts"
+        }
+    ],
+    "40": [
+        {
+            "Name": "venomancer_patient_zero",
+            "Title": "Patient Zero",
+            "Desc": "Noxious Plague spreads again.",
+            "Icon": "snot"
+        },
+        {
+            "Name": "venomancer_plague_carrier",
+            "Title": "Plague Carrier",
+            "Desc": "Plague Wards can be attached to allies and have extra charges.",
+            "Icon": "summons"
+        }
+    ],
+    "41": [
+        {
+            "Name": "faceless_void_chronosphere",
+            "Title": "Chronosphere",
+            "Desc": "Faceless Void can cast <b color='white'>Chronosphere</b>, trapping enemies in a sphere.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "faceless_void_time_zone",
+            "Title": "Time Zone",
+            "Desc": "Faceless Void can cast <b color='white'>Time Zone</b>, dramatically slowing down enemies and speeding up allies in an area.",
+            "Icon": "chrono_cube"
+        }
+    ],
+    "42": [
+        {
+            "Name": "skeleton_king_facet_bone_guard",
+            "Title": "Bone Guard",
+            "Desc": "Wraith King can summon skeletons to fight for him.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "skeleton_king_facet_cursed_blade",
+            "Title": "Spectral Blade",
+            "Desc": "Wraith King's attacks curse enemies, dealing additional damage after a delay.",
+            "Icon": "damage"
+        }
+    ],
+    "43": [
+        {
+            "Name": "death_prophet_ghosts",
+            "Title": "Spirit Collector",
+            "Desc": "Hero deaths empower your next Exorcism.",
+            "Icon": "spirit"
+        },
+        {
+            "Name": "death_prophet_delayed_damage",
+            "Title": "Mourning Ritual",
+            "Desc": "Death Prophet delays a percentage of incoming damage, taking the damage in even intervals over a short duration.",
+            "Icon": "healing"
+        }
+    ],
+    "44": [
+        {
+            "Name": "phantom_assassin_methodical",
+            "Title": "Methodical",
+            "Desc": "Coup de Grace procs every {s:bonus_attacks_to_proc} attacks on the same hero or {s:bonus_attacks_to_proc_creeps} attacks on non hero units.",
+            "Icon": "skull"
+        },
+        {
+            "Name": "phantom_assassin_sweet_release",
+            "Title": "Sweet Release",
+            "Desc": "Stifling Dagger re-casts when an enemy dies.",
+            "Icon": "phantom_ass_dagger"
+        }
+    ],
+    "45": [
+        {
+            "Name": "pugna_siphoning_ward",
+            "Title": "Siphoning Ward",
+            "Desc": "Nether Ward restores mana and health to Pugna based on how much damage is dealt.",
+            "Icon": "healing"
+        },
+        {
+            "Name": "pugna_rewards_of_ruin",
+            "Title": "Rewards of Ruin",
+            "Desc": "Pugna receives {s:bonus_tower_scale}% spell amplification per destroyed tower.",
+            "Icon": "siege"
+        }
+    ],
+    "46": [
+        {
+            "Name": "templar_assassin_voidblades",
+            "Title": "Voidblades",
+            "Desc": "Meld bonus damage and armor reductions are applied to all enemies in the Psi Blades split range.",
+            "Icon": "ricochet"
+        },
+        {
+            "Name": "templar_assassin_refractor",
+            "Title": "Refractor",
+            "Desc": "Refraction gains a damage charge every time a shield charge gets consumed.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "templar_assassin_hidden_reach",
+            "Title": "Hidden Reach",
+            "Desc": "When in Meld, Templar increases her attack range by up to an additional {s:bonus_attack_range_increase_max} range over {s:bonus_attack_range_increase_time}s.",
+            "Icon": "range"
+        }
+    ],
+    "47": [
+        {
+            "Name": "viper_poison_burst",
+            "Title": "Poison Burst",
+            "Desc": "After Poison Attack stacks expire, enemies around the target take additional damage.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "viper_caustic_bath",
+            "Title": "Caustic Bath",
+            "Desc": "Viper's Corrosive Skin effects are increased while he is in Nethertoxin.",
+            "Icon": "armor"
+        }
+    ],
+    "48": [
+        {
+            "Name": "luna_moonshield",
+            "Title": "Moonshield",
+            "Desc": "Lunar Orbit provide damage reduction while active.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "luna_moonstorm",
+            "Title": "Moonstorm",
+            "Desc": "Hitting enemies with Lucent Beams or Eclipse grants Luna bonus attack damage.",
+            "Icon": "damage"
+        }
+    ],
+    "49": [
+        {
+            "Name": "dragon_knight_fire_dragon",
+            "Title": "Fire Dragon",
+            "Desc": "Dragon Knight deals additional Magic Damage with his attacks. Dragon Knight's abilities have increased Area of Effect that get stronger when in Elder Dragon Form.",
+            "Icon": "dragon_fire"
+        },
+        {
+            "Name": "dragon_knight_corrosive_dragon",
+            "Title": "Corrosive Dragon",
+            "Desc": "Dragon Knight has Corrosive Powers on his attacks that get stronger when in Elder Dragon Form. All of his abilities deal Physical damage.",
+            "Icon": "dragon_poison"
+        },
+        {
+            "Name": "dragon_knight_frost_dragon",
+            "Title": "Frost Dragon",
+            "Desc": "Dragon Knight has Slow and Healing Reduction Effects on his attacks that get stronger when in Elder Dragon Form.",
+            "Icon": "dragon_frost"
+        }
+    ],
+    "50": [
+        {
+            "Name": "dazzle_facet_nothl_boon",
+            "Title": "Nothl Boon",
+            "Desc": "Dazzle's overhealing is converted into a barrier. Weave is stronger on allies and amplifies incoming heals from Dazzle.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "dazzle_poison_bloom",
+            "Title": "Poison Bloom",
+            "Desc": "Dazzle can spread his Poison Touch when attacking enemies. Weave is stronger on enemies.",
+            "Icon": "ricochet"
+        }
+    ],
+    "51": [
+        {
+            "Name": "rattletrap_hookup",
+            "Title": "Hookup",
+            "Desc": "If there's another allied hero within {s:bonus_radius_ally} of Hookshot's hit target, Clockwerk and all allies in the area receive bonus armor, while refunding a portion of Hookshot's cooldown and manacost.",
+            "Icon": "cooldown"
+        },
+        {
+            "Name": "rattletrap_expanded_armature",
+            "Title": "Expanded Armature",
+            "Desc": "Power Cogs form in a larger radius.",
+            "Icon": "area_of_effect"
+        }
+    ],
+    "52": [
+        {
+            "Name": "leshrac_attacks_mana",
+            "Title": "Chronoptic Nourishment",
+            "Desc": "Leshrac's attacks restore mana.",
+            "Icon": "mana"
+        },
+        {
+            "Name": "leshrac_misanthropy",
+            "Title": "Misanthropy",
+            "Desc": "Diabolic Edict explosion rate increased but it no longer damages buildings.",
+            "Icon": "nuke"
+        }
+    ],
+    "53": [
+        {
+            "Name": "furion_soothing_saplings",
+            "Title": "Soothing Saplings",
+            "Desc": "Allies inside and nearby on the outside of Sprout are healed over time.",
+            "Icon": "healing"
+        },
+        {
+            "Name": "furion_ironwood_treant",
+            "Title": "Ironwood Treant",
+            "Desc": "Nature's Call creates only {s:bonus_max_treants} Treant that has more health, more damage, increased vision, increased movement speed, and is Reinforced.",
+            "Icon": "siege"
+        }
+    ],
+    "54": [
+        {
+            "Name": "life_stealer_fleshfeast",
+            "Title": "Fleshfeast",
+            "Desc": "Feast's max HP per hero kill is increased. Open Wounds' cooldown is refreshed if a unit dies while afflicted by Open Wounds.",
+            "Icon": "full_heart"
+        },
+        {
+            "Name": "life_stealer_gorestorm",
+            "Title": "Gorestorm",
+            "Desc": "Consuming a creep with Infest drenches enemies in blood which deals damage over time based on the host's remaining health. Infest can be used on Ancient creeps.",
+            "Icon": "area_of_effect"
+        }
+    ],
+    "55": [
+        {
+            "Name": "dark_seer_atkspd",
+            "Title": "Quick Wit",
+            "Desc": "Dark Seer also gains Attack Speed from Intelligence.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "dark_seer_movespd",
+            "Title": "Heart of Battle",
+            "Desc": "Dark Seer moves faster when near other heroes.",
+            "Icon": "speed"
+        }
+    ],
+    "56": [
+        {
+            "Name": "clinkz_suppressive_fire",
+            "Title": "Suppressive Fire",
+            "Desc": "Strafe attacks cause enemies to miss more often.",
+            "Icon": "no_vision"
+        },
+        {
+            "Name": "clinkz_engulfing_step",
+            "Title": "Engulfing Step",
+            "Desc": "Death Pact teleports Clinkz towards his victim. Reduces Death Pact cooldown.",
+            "Icon": "teleport"
+        }
+    ],
+    "57": [
+        {
+            "Name": "omniknight_omnipresent",
+            "Title": "Omnipresent",
+            "Desc": "Omniknight deals more damage to heroes inside his Degen Aura.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "omniknight_dmgheals",
+            "Title": "Healing Hammer",
+            "Desc": "Ability damage done to enemies by Omniknight heals him over time.",
+            "Icon": "healing"
+        }
+    ],
+    "58": [
+        {
+            "Name": "enchantress_overprotective_wisps",
+            "Title": "Overprotective Wisps",
+            "Desc": "Summon Healing Wisps upon receiving damage.",
+            "Icon": "healing"
+        },
+        {
+            "Name": "enchantress_spellbound",
+            "Title": "Spellbound",
+            "Desc": "Enchant and attacks on Enchanted targets have extra range.",
+            "Icon": "range"
+        }
+    ],
+    "59": [
+        {
+            "Name": "huskar_cauterize",
+            "Title": "Cauterize",
+            "Desc": "Berserker's Blood can be activated for a health cost. Dispels Huskar, then after a delay, heals for the amount of health consumed plus an additional bonus per debuff dispelled.",
+            "Icon": "broken_chain"
+        },
+        {
+            "Name": "huskar_nothl_conflagration",
+            "Title": "Incendiary",
+            "Desc": "Burning Spears also burns enemies for a percentage of their max health. Costs Max Health instead of Current Health.",
+            "Icon": "damage"
+        }
+    ],
+    "60": [
+        {
+            "Name": "night_stalker_dayswap",
+            "Title": "Night Reign",
+            "Desc": "The game now starts at night instead of day. Night is longer than day. Night Stalker starts with a bonus level of Hunter in the Night.",
+            "Icon": "moon"
+        },
+        {
+            "Name": "night_stalker_voidbringer",
+            "Title": "Voidbringer",
+            "Desc": "Increases the max level of Void. Level {s:bonus_max_level_tooltip} Void at night becomes ground targeted and applies to an area.",
+            "Icon": "area_of_effect"
+        }
+    ],
+    "61": [
+        {
+            "Name": "broodmother_necrotic_webs",
+            "Title": "Necrotic Webs",
+            "Desc": "Reduces health regeneration of enemies on webs.",
+            "Icon": "web"
+        },
+        {
+            "Name": "broodmother_feeding_frenzy",
+            "Title": "Feeding Frenzy",
+            "Desc": "Insatiable Hunger also applies to nearby Spiderlings.",
+            "Icon": "summons"
+        }
+    ],
+    "62": [
+        {
+            "Name": "bounty_hunter_shuriken",
+            "Title": "Through and Through",
+            "Desc": "Shuriken Toss applies its damage and slow to all enemies it passes through.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "bounty_hunter_mugging",
+            "Title": "Cutpurse",
+            "Desc": "Bounty Hunter steals gold when targeting enemy heroes with his abilities or items.",
+            "Icon": "gold"
+        }
+    ],
+    "63": [
+        {
+            "Name": "weaver_skitterstep",
+            "Title": "Skitterstep",
+            "Desc": "Shukuchi movespeed increased and slows enemies when passing through them.",
+            "Icon": "speed"
+        },
+        {
+            "Name": "weaver_hivemind",
+            "Title": "Hivemind",
+            "Desc": "Weaver gains experience when The Swarm beetles attack heroes.",
+            "Icon": "xp"
+        }
+    ],
+    "64": [
+        {
+            "Name": "jakiro_twin_terror",
+            "Title": "Twin Terror",
+            "Desc": "Jakiro deals more damage with his double attacks.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "jakiro_ice_breaker",
+            "Title": "Ice Breaker",
+            "Desc": "Ice Path lasts longer and detonates upon expiration, dealing damage and stunning enemies a second time. Ice Path can be manually detonated early.",
+            "Icon": "snowflake"
+        }
+    ],
+    "65": [
+        {
+            "Name": "batrider_buff_on_displacement",
+            "Title": "Stoked",
+            "Desc": "Batrider gains Move Speed and Spell Amplification when displacing enemies.",
+            "Icon": "speed"
+        },
+        {
+            "Name": "batrider_arsonist",
+            "Title": "Arsonist",
+            "Desc": "Sticky Napalm deals damage to structures.",
+            "Icon": "siege"
+        }
+    ],
+    "66": [
+        {
+            "Name": "chen_centaur_convert",
+            "Title": "Centaur Convert",
+            "Desc": "Summon Convert calls forth either a Centaur Courser or Centaur Conqueror.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "chen_hellbear_convert",
+            "Title": "Hellbear Convert",
+            "Desc": "Summon Convert calls forth either a Hellbear or Hellbear Smasher.",
+            "Icon": "slow"
+        },
+        {
+            "Name": "chen_troll_convert",
+            "Title": "Troll Convert",
+            "Desc": "Summon Convert calls forth either a Hill Troll or Dark Troll Summoner.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "chen_satyr_convert",
+            "Title": "Satyr Convert",
+            "Desc": "Summon Convert calls forth either a Satyr Mindstealer or Satyr Tormenter.",
+            "Icon": "mana"
+        },
+        {
+            "Name": "chen_frog_convert",
+            "Title": "Marshmage Convert",
+            "Desc": "Summon Convert calls forth either a Marshmage Apprentice or a Marshmage.",
+            "Icon": "bubbles"
+        }
+    ],
+    "67": [
+        {
+            "Name": "spectre_forsaken",
+            "Title": "Forsaken",
+            "Desc": "Spectre deals {s:bonus_bonus_damage_multiplier_tooltip}x damage with Desolate. Spectre's illusions no longer have Desolate.",
+            "Icon": "spectre"
+        },
+        {
+            "Name": "spectre_twist_the_knife",
+            "Title": "Twist the Knife",
+            "Desc": "Reality also casts Spectral Dagger on the target.",
+            "Icon": "nuke"
+        }
+    ],
+    "68": [
+        {
+            "Name": "ancient_apparition_bone_chill",
+            "Title": "Bone Chill",
+            "Desc": "Ancient Apparition's abilities reduce the enemy's Strength.",
+            "Icon": "debuff"
+        },
+        {
+            "Name": "ancient_apparition_exposure",
+            "Title": "Exposure",
+            "Desc": "Cold Feet applies in an AoE, depending on the current level of Ice Blast.",
+            "Icon": "area_of_effect"
+        }
+    ],
+    "69": [
+        {
+            "Name": "doom_bringer_gluttony",
+            "Title": "Gluttony",
+            "Desc": "Devour now has {s:bonus_AbilityCharges} charges and stolen creep abilities are upgraded by one level.",
+            "Icon": "meat"
+        },
+        {
+            "Name": "doom_bringer_boost_selling",
+            "Title": "Devil's Bargain",
+            "Desc": "Doom can sell items for % of their value, but his buyback costs are increased by %.",
+            "Icon": "gold"
+        },
+        {
+            "Name": "doom_bringer_impending_doom",
+            "Title": "Impending Doom",
+            "Desc": "Every {s:bonus_upgrade_interval} minutes, Doom's duration is increased by {s:bonus_upgrade_amount}s.",
+            "Icon": "cooldown"
+        }
+    ],
+    "70": [
+        {
+            "Name": "ursa_grudge_bearer",
+            "Title": "Grudge Bearer",
+            "Desc": "When damaged during Enrage, Ursa gains bonus attack damage.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "ursa_debuff_reduce",
+            "Title": "Bear Down",
+            "Desc": "Debuffs inflicted by Ursa last longer.",
+            "Icon": "cooldown"
+        }
+    ],
+    "71": [
+        {
+            "Name": "spirit_breaker_bull_rush",
+            "Title": "Bull Rush",
+            "Desc": "Charge of Darkness bonus movement speed lingers after charge ends.",
+            "Icon": "speed"
+        },
+        {
+            "Name": "spirit_breaker_bulls_hit",
+            "Title": "Bull's Hit",
+            "Desc": "Greater Bash chance is increased if you've bashed more than one hero recently.",
+            "Icon": "rng"
+        }
+    ],
+    "72": [
+        {
+            "Name": "gyrocopter_secondary_strikes",
+            "Title": "Secondary Strikes",
+            "Desc": "Call Down creates delayed secondary explosions around heroes it hits.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "gyrocopter_afterburner",
+            "Title": "Afterburner",
+            "Desc": "Every successful hit of a Rocket Barrage rocket on an enemy hero increases Gyrocopter's movement speed.",
+            "Icon": "speed"
+        }
+    ],
+    "73": [
+        {
+            "Name": "alchemist_seed_money",
+            "Title": "Seed Money",
+            "Desc": "Alchemist starts with {s:bonus_starting_gold_bonus} more gold.",
+            "Icon": "gold"
+        },
+        {
+            "Name": "alchemist_mixologist",
+            "Title": "Mixologist",
+            "Desc": "Unstable Concoction and Berserk Potion recharge faster when in Chemical Rage.",
+            "Icon": "cooldown"
+        },
+        {
+            "Name": "alchemist_dividends",
+            "Title": "Dividends",
+            "Desc": "Alchemist gains +{s:bonus_gpm_increase_per_stack} GPM for each Aghanim's Scepter he has granted to allies.",
+            "Icon": "aghs"
+        }
+    ],
+    "74": [
+        {
+            "Name": "invoker_quas_focus",
+            "Title": "Scholar of Koryx",
+            "Desc": "<font color='#7998b5'>Quas</font> gains an additional max level. When Invoker reaches level 6, <font color='#7998b5'>Quas</font> gains an additional level.<br><br>When <b>Cold Snap</b> triggers, Invoker is healed and restores some mana.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Ghost Walk</b> and grants 2 current and max levels to <font color='#7998b5'>Quas</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Ice Wall</b>.",
+            "Icon": "invoker_quas"
+        },
+        {
+            "Name": "invoker_wex_focus",
+            "Title": "Mind of Tornarus",
+            "Desc": "<font color='#d671a9'>Wex</font> gains an additional max level. When Invoker reaches level 6, <font color='#d671a9'>Wex</font> gains an additional level.<br><br><b>Alacrity</b> grants bonus attack range when used on Invoker or range units under his control.</b><br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Tornado</b> and grants 2 current and max levels to <font color='#d671a9'>Wex</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>E.M.P.</b>",
+            "Icon": "invoker_wex"
+        },
+        {
+            "Name": "invoker_exort_focus",
+            "Title": "Agent of Gallaron",
+            "Desc": "<font color='#cabe68'>Exort</font> gains an additional max level. When Invoker reaches level 6, <font color='#cabe68'>Exort</font> gains an additional level.<br><br><b>Chaos Meteor</b>'s radius and travel distance is increased.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Sun Strike</b> and grants 2 current and max levels to <font color='#cabe68'>Exort</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Sun Strike</b>.",
+            "Icon": "invoker_exort"
+        }
+    ],
+    "75": [
+        {
+            "Name": "silencer_irrepressible",
+            "Title": "Irrepressible",
+            "Desc": "Silencer cannot be silenced.",
+            "Icon": "silencer"
+        },
+        {
+            "Name": "silencer_reverberating_silence",
+            "Title": "Reverberating Silence",
+            "Desc": "The first time Global Silence ends on a unit it is applied again.",
+            "Icon": "debuff"
+        }
+    ],
+    "76": [
+        {
+            "Name": "obsidian_destroyer_obsidian_decimator",
+            "Title": "Obsidian Decimator",
+            "Desc": "When Essence Flux restores mana, it also temporarily increases maximum mana.",
+            "Icon": "mana"
+        },
+        {
+            "Name": "obsidian_destroyer_overwhelming_devourer",
+            "Title": "Overwhelming Devourer",
+            "Desc": "Heroes affected by Astral Imprisonment and Sanity's Eclipse heal Outworld Destroyer every time they cast a spell.",
+            "Icon": "healing"
+        }
+    ],
+    "77": [
+        {
+            "Name": "lycan_pack_leader",
+            "Title": "Pack Leader",
+            "Desc": "Enemy heroes killed by Lycan or his units extend Shapeshift duration.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "lycan_spirit_wolves",
+            "Title": "Spirit Wolves",
+            "Desc": "Summon Wolves creates invulnerable non-attacking wolves that buff Lycan's health and attack damage.",
+            "Icon": "spirit"
+        },
+        {
+            "Name": "lycan_alpha_wolves",
+            "Title": "Alpha Wolves",
+            "Desc": "Increases the max level of Summon Wolves while lowering the max level of Howl and Feral Impulse.",
+            "Icon": "wolf"
+        }
+    ],
+    "78": [
+        {
+            "Name": "brewmaster_roll_out_the_barrel",
+            "Title": "Roll Out the Barrel",
+            "Desc": "Throw a barrel at enemies, damaging them and applying Cinder Brew.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "brewmaster_drunken_master",
+            "Title": "Drunken Master",
+            "Desc": "When brewed up, Brewmaster moves with a varying amount of movement speed, altering between {s:bonus_min_movement} faster for the duration.",
+            "Icon": "speed"
+        }
+    ],
+    "79": [
+        {
+            "Name": "shadow_demon_promulgate",
+            "Title": "Promulgate",
+            "Desc": "Disseminate instantly removes a percentage of the opponent's health for its duration.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "shadow_demon_facet_soul_mastery",
+            "Title": "Shadow Servant",
+            "Desc": "Shadow Demon creates illusions of heroes that die near him.",
+            "Icon": "illusion"
+        }
+    ],
+    "80": [
+        {
+            "Name": "lone_druid_bear_with_me",
+            "Title": "Bear with Me",
+            "Desc": "Spirit Link's Shared Armor is increased and Lone Druid's attacks heal the Spirit Bear.",
+            "Icon": "healing"
+        },
+        {
+            "Name": "lone_druid_bear_necessities",
+            "Title": "Bear Necessities",
+            "Desc": "Lone Druid's items are more powerful and his inventory is smaller.",
+            "Icon": "item"
+        }
+    ],
+    "81": [
+        {
+            "Name": "chaos_knight_irrationality",
+            "Title": "Irrationality",
+            "Desc": "Reality Rift has equal chances of applying Break, Disarm, or Silence for {s:bonus_additional_debuff_duration_percent}% of the base debuff duration in addition to its normal effects.",
+            "Icon": "rng"
+        },
+        {
+            "Name": "chaos_knight_facet_fundamental_forging",
+            "Title": "Fundamental Forging",
+            "Desc": "Chaos Knight can craft artifacts from the next tier when making a Neutral Item.",
+            "Icon": "item"
+        },
+        {
+            "Name": "chaos_knight_cloven_chaos",
+            "Title": "Cloven Chaos",
+            "Desc": "Chaos Bolt splits in half upon striking its target, stunning one additional enemy and damaging another.",
+            "Icon": "ricochet"
+        }
+    ],
+    "82": [
+        {
+            "Name": "meepo_more_meepo",
+            "Title": "More Meepo",
+            "Desc": "Obtain extra Meepos sooner and get 1 extra Meepo.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "meepo_codependent",
+            "Title": "Codependent",
+            "Desc": "Meepos increase other Meepos' attack speed and armor.",
+            "Icon": "illusion"
+        }
+    ],
+    "83": [
+        {
+            "Name": "treant_primeval_power",
+            "Title": "Primeval Power",
+            "Desc": "Treant gains +{s:bonus_attack_damage_per_level} base attack damage per hero level.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "treant_sapling",
+            "Title": "Sapling",
+            "Desc": "Leech Seed can be ground targeted to plant a tree.",
+            "Icon": "tree"
+        }
+    ],
+    "84": [
+        {
+            "Name": "ogre_magi_fat_chance",
+            "Title": "Fat Chance",
+            "Desc": "Multicast chance is increased by  {s:bonus_strength_mult}% of Ogre Magi's Strength.",
+            "Icon": "rng"
+        },
+        {
+            "Name": "ogre_magi_learning_curve",
+            "Title": "Learning Curve",
+            "Desc": "Level requirement of all spells and talents reduced by {s:bonus_required_level}. You get {s:bonus_level_one_ability_points} Ability Points at level one and {s:bonus_level_two_ability_points} Ability Points at level two.",
+            "Icon": "ogre"
+        }
+    ],
+    "85": [
+        {
+            "Name": "undying_rotting_mitts",
+            "Title": "Rotting Mitts",
+            "Desc": "While transformed into a Flesh Golem, attacks spawn a zombie.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "undying_ripped",
+            "Title": "Ripped",
+            "Desc": "Casting Soul Rip on allies increases their Strength by a percentage of Undying's Strength.",
+            "Icon": "strength"
+        }
+    ],
+    "86": [
+        {
+            "Name": "rubick_frugal_filch",
+            "Title": "Frugal Filch",
+            "Desc": "Stolen spells also have lower mana cost.",
+            "Icon": "mana"
+        },
+        {
+            "Name": "rubick_arcane_accumulation",
+            "Title": "Arcane Accumulation",
+            "Desc": "Casting a spell temporarily increases the area of effect for all subsequent spells.",
+            "Icon": "area_of_effect"
+        }
+    ],
+    "87": [
+        {
+            "Name": "disruptor_thunderstorm",
+            "Title": "Thunderstorm",
+            "Desc": "Thunder Strike additionally hits all enemies within Kinetic Field.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "disruptor_line_walls",
+            "Title": "Kinetic Fence",
+            "Desc": "Replaces Kinetic Field with the ability to create impassable walls.",
+            "Icon": "fence"
+        }
+    ],
+    "88": [
+        {
+            "Name": "nyx_assassin_burn_mana",
+            "Title": "Mana Burn",
+            "Desc": "Mind Flare burns a percentage of the target's max mana.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "nyx_assassin_scuttle",
+            "Title": "Scuttle",
+            "Desc": "For the first {s:bonus_free_pathing_duration}s of Vendetta, Nyx is hasted and has unobstructed pathing.",
+            "Icon": "speed"
+        }
+    ],
+    "89": [
+        {
+            "Name": "naga_siren_passive_riptide",
+            "Title": "Rip Tide",
+            "Desc": "Every 6 attacks from Naga and her illusions, enemies around them are damaged and their Armor is reduced.",
+            "Icon": "armor_broken"
+        },
+        {
+            "Name": "naga_siren_active_riptide",
+            "Title": "Deluge",
+            "Desc": "Naga Siren can create a splash around herself and her illusions, damaging enemies and reducing their Status Resistance.",
+            "Icon": "nuke"
+        }
+    ],
+    "90": [
+        {
+            "Name": "keeper_of_the_light_facet_solar_bind",
+            "Title": "",
+            "Desc": "Grants the Solar Bind ability while active.",
+            "Icon": "slow"
+        },
+        {
+            "Name": "keeper_of_the_light_facet_recall",
+            "Title": "Recall",
+            "Desc": "This facet grants the ability <span class=\"AttributeHighlight\">{s:facet_ability_name}</span>.",
+            "Icon": "teleport"
+        }
+    ],
+    "91": [
+        {
+            "Name": "wisp_kritzkrieg",
+            "Title": "Kritzkrieg",
+            "Desc": "Overcharge grants attack speed and spell amplification to Io and any Tethered allies.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "wisp_medigun",
+            "Title": "Medigun",
+            "Desc": "Overcharge grants armor and magic resistance to Io and any Tethered allies.",
+            "Icon": "armor"
+        }
+    ],
+    "92": [
+        {
+            "Name": "visage_sepulchre",
+            "Title": "Sepulchre",
+            "Desc": "Grave Chill also affects units around the target. Visage can also recall his familiars.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "visage_faithful_followers",
+            "Title": "Faithful Followers",
+            "Desc": "Familiars automatically move with Visage and attack his targets.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "visage_gold_assumption",
+            "Title": "Death Toll",
+            "Desc": "Soul Assumption kills give bonus gold. Visage can also recall his familiars.",
+            "Icon": "gold"
+        }
+    ],
+    "93": [
+        {
+            "Name": "slark_leeching_leash",
+            "Title": "Leeching Leash",
+            "Desc": "Pounce applies stacks of Essence Shift when striking enemy heroes.",
+            "Icon": "agility"
+        },
+        {
+            "Name": "slark_dark_reef_renegade",
+            "Title": "Dark Reef Renegade",
+            "Desc": "Barracuda lingers after being revealed to the enemy if Slark is not nearby allied heroes. Slark's attacks reduce the target's armor while Slark is under the effects of Barracuda.",
+            "Icon": "cooldown"
+        }
+    ],
+    "94": [
+        {
+            "Name": "medusa_engorged",
+            "Title": "Engorged",
+            "Desc": "Mystic Snake grants Medusa attack damage.",
+            "Icon": "snake"
+        },
+        {
+            "Name": "medusa_slow_attacks",
+            "Title": "Venomous Volley",
+            "Desc": "Every 6 attacks, Medusa applies poison to her arrow that briefly reduces movement speed, attack speed, and cast speed.",
+            "Icon": "slow"
+        },
+        {
+            "Name": "medusa_undulation",
+            "Title": "Undulation",
+            "Desc": "Medusa's movement speed is fixed at 310 (465 during Stone Gaze). Medusa is unslowable and does not benefit from movement speed increases.",
+            "Icon": "speed"
+        }
+    ],
+    "95": [
+        {
+            "Name": "troll_warlord_insensitive",
+            "Title": "Insensitive",
+            "Desc": "Fervor grants armor per stack while in melee form.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "troll_warlord_bad_influence",
+            "Title": "Bad Influence",
+            "Desc": "During Battle Trance, Troll Warlord has increased max Fervor stacks and no attack speed limit. Battle Trance grants allied heroes {s:bonus_attack_speed_share_percent}% of the attack speed bonus. ",
+            "Icon": "damage"
+        }
+    ],
+    "96": [
+        {
+            "Name": "centaur_counter_strike",
+            "Title": "Counter-Strike",
+            "Desc": "Double Edge damage is increased when Centaur is attacked.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "centaur_horsepower",
+            "Title": "Horsepower",
+            "Desc": "Centaur Warrunner gains Movement Speed based on his Strength.",
+            "Icon": "speed"
+        }
+    ],
+    "97": [
+        {
+            "Name": "magnataur_eternal_empowerment",
+            "Title": "Eternal Empowerment",
+            "Desc": "Empower is always on Magnus. Each subsequent attack increases its power.",
+            "Icon": "empower"
+        },
+        {
+            "Name": "magnataur_diminishing_return",
+            "Title": "Diminishing Return",
+            "Desc": "Increases the max level of Shockwave. Level {s:bonus_max_level_tooltip} Shockwave causes it to return towards Magnus's location.",
+            "Icon": "ricochet"
+        }
+    ],
+    "98": [
+        {
+            "Name": "shredder_shredder",
+            "Title": "Shredder",
+            "Desc": "Timber Chain splinters the tree into all directions around Timbersaw.",
+            "Icon": "tree"
+        },
+        {
+            "Name": "shredder_second_chakram",
+            "Title": "Twisted Chakram",
+            "Desc": "This facet grants the ability <span class=\"AttributeHighlight\">{s:facet_ability_name}</span>.",
+            "Icon": "spinning"
+        }
+    ],
+    "99": [
+        {
+            "Name": "bristleback_snot_rocket",
+            "Title": "Snot Rocket",
+            "Desc": "Bristleback now fires Viscous Nasal Goo instead of Quills when damaged. Viscous Nasal Goo effects are stronger.",
+            "Icon": "snot"
+        },
+        {
+            "Name": "bristleback_seeing_red",
+            "Title": "Seeing Red",
+            "Desc": "Warpath can be activated to gain extra bonuses. While Seeing Red, Bristleback's vision is limited and he does not receive vision from his allies.",
+            "Icon": "no_vision"
+        }
+    ],
+    "100": [
+        {
+            "Name": "tusk_facet_tag_team",
+            "Title": "Tag Team",
+            "Desc": "Tusk can cast <b color='white'>Tag Team</b> causing nearby enemies to receive bonus damage from attacks.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "tusk_facet_fist_bump",
+            "Title": "Drinking Buddies",
+            "Desc": "Tusk can cast <b color='white'>Drinking Buddies</b>, pulling him and a teammate closer and granting both bonus Movement Speed and Attack Damage.",
+            "Icon": "movement"
+        }
+    ],
+    "101": [
+        {
+            "Name": "skywrath_mage_shield",
+            "Title": "Shield of the Scion",
+            "Desc": "Skywrath Mage gains a magic damage barrier when dealing damage to heroes.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "skywrath_mage_staff",
+            "Title": "Staff of the Scion",
+            "Desc": "Skywrath Mage's Cooldowns are reduced when he deals spell damage to enemy heroes.",
+            "Icon": "cooldown"
+        }
+    ],
+    "102": [
+        {
+            "Name": "abaddon_death_dude",
+            "Title": "The Quickening",
+            "Desc": "Units dying nearby Abaddon lower his cooldowns.",
+            "Icon": "cooldown"
+        },
+        {
+            "Name": "abaddon_mephitic_shroud",
+            "Title": "Mephitic Shroud",
+            "Desc": "Aphotic Shield absorbs more damage and reflects damage when received instead of exploding at the end.",
+            "Icon": "barrier"
+        }
+    ],
+    "103": [
+        {
+            "Name": "elder_titan_deconstruction",
+            "Title": "Deconstruction",
+            "Desc": "Natural Order drains Magic Resistance and Armor over time.",
+            "Icon": "armor_broken"
+        },
+        {
+            "Name": "elder_titan_boost_atkspd",
+            "Title": "Momentum",
+            "Desc": "Elder Titan's Base Attack Speed is reduced but his Movement Speed also grants Attack Speed.",
+            "Icon": "damage"
+        }
+    ],
+    "104": [
+        {
+            "Name": "legion_commander_stonehall_plate",
+            "Title": "Stonehall Plate",
+            "Desc": "Overwhelming Odds grants an all damage barrier based on the damage it deals to enemy heroes.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "legion_commander_spoils_of_war",
+            "Title": "Spoils of War",
+            "Desc": "When a Duel is won, units that damaged the loser during the Duel will gain permanent bonus damage. If Legion Commander won the Duel, she will automatically cast Press the Attack on herself and assisting allies.",
+            "Icon": "damage"
+        }
+    ],
+    "105": [
+        {
+            "Name": "techies_atk_range",
+            "Title": "Squee's Scope",
+            "Desc": "Techies gains 1 attack range and attack projectile speed for each point of attack speed.",
+            "Icon": "range"
+        },
+        {
+            "Name": "techies_spleens_secret_sauce",
+            "Title": "Spleen's Secret Sauce",
+            "Desc": "Increased Blast Off! damage and self damage.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "techies_backpack",
+            "Title": "Spoon's Stash",
+            "Desc": "Techies stack all previously selected Enchantments onto newly crafted Neutral Items.",
+            "Icon": "item"
+        }
+    ],
+    "106": [
+        {
+            "Name": "ember_spirit_double_impact",
+            "Title": "Double Impact",
+            "Desc": "Sleight of Fist hits one of its targets an extra time.",
+            "Icon": "fist"
+        },
+        {
+            "Name": "ember_spirit_chain_gang",
+            "Title": "Chain Gang",
+            "Desc": "Searing Chains can affect an additional enemy. When Searing Chains are cast, they are also cast around each Fire Remnant.",
+            "Icon": "debuff"
+        }
+    ],
+    "107": [
+        {
+            "Name": "earth_spirit_resonance",
+            "Title": "Resonance",
+            "Desc": "Gain bonus Attack Damage when Magnetizing Stone Remnants.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "earth_spirit_stepping_stone",
+            "Title": "Stepping Stone",
+            "Desc": "Stone Remnant has a {s:bonus_AbilityCooldown}s cooldown instead of Charges and Remnants don't get destroyed by Rolling Boulder.",
+            "Icon": "cooldown"
+        },
+        {
+            "Name": "earth_spirit_ready_to_roll",
+            "Title": "Ready to Roll",
+            "Desc": "Rolling Boulder can roll over allied heroes for additional bonuses.",
+            "Icon": "spinning"
+        }
+    ],
+    "108": [
+        {
+            "Name": "abyssal_underlord_demons_reach",
+            "Title": "Demon's Reach",
+            "Desc": "Underlord's attacks cleave while he has bonus damage from Atrophy Aura.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "abyssal_underlord_summons",
+            "Title": "Abyssal Horde",
+            "Desc": "Fiend's Gate periodically summons minions.",
+            "Icon": "summons"
+        }
+    ],
+    "109": [
+        {
+            "Name": "terrorblade_condemned",
+            "Title": "Condemned",
+            "Desc": "There is no minimum health threshold for Sundered enemies.",
+            "Icon": "twin_hearts"
+        },
+        {
+            "Name": "terrorblade_soul_fragment",
+            "Title": "Soul Fragment",
+            "Desc": "Conjure Image illusions always spawn at full health and cost health instead of mana.",
+            "Icon": "illusion"
+        }
+    ],
+    "110": [
+        {
+            "Name": "phoenix_facet_immolate",
+            "Title": "Dying Light",
+            "Desc": "Phoenix deals 4.5% of his missing health as magic damage to all enemies in a 400 radius every second.",
+            "Icon": "barrier"
+        },
+        {
+            "Name": "phoenix_hotspot",
+            "Title": "Hotspot",
+            "Desc": "Sun Ray deals more damage and applies more Blinding Sun stacks towards the tip of the ray.",
+            "Icon": "nuke"
+        }
+    ],
+    "111": [
+        {
+            "Name": "oracle_facet_dmg",
+            "Title": "Clairvoyant Curse",
+            "Desc": "Spell amplification increased by 1% per hero level.",
+            "Icon": "nuke"
+        },
+        {
+            "Name": "oracle_facet_heal",
+            "Title": "Clairvoyant Cure",
+            "Desc": "Heal amplification increased by 0.75% per hero level.",
+            "Icon": "healing"
+        }
+    ],
+    "112": [
+        {
+            "Name": "winter_wyvern_winterproof",
+            "Title": "Winterproof",
+            "Desc": "Cold Embrace can be cast on buildings. Does not heal buildings. Allied units and buildings gain bonus attack damage when emerging from the icy cocoon.",
+            "Icon": "tower"
+        },
+        {
+            "Name": "winter_wyvern_recursive",
+            "Title": "Recursive",
+            "Desc": "Winter's Curse is recast on the lowest health enemy hero if the primary target dies.",
+            "Icon": "ricochet"
+        }
+    ],
+    "113": [
+        {
+            "Name": "arc_warden_runed_replica",
+            "Title": "Runed Replica",
+            "Desc": "The Tempest Double is infused with the bonuses of Power Runes for {s:bonus_rune_duration}s when created.<br><br>Level 1 - Invisibility Rune.<br><br>Level 2 - Invisibility and Arcane Runes.<br><br>Level 3 - Invisibility, Arcane, and Haste Runes.",
+            "Icon": "arc_warden_alt"
+        },
+        {
+            "Name": "arc_warden_power_capture",
+            "Title": "Power Capture",
+            "Desc": "Magnetic Field pulls runes. Arc Warden gains +{s:bonus_all_attribute_bonus_per_stack} all attributes permanently upon activating a Power Rune.",
+            "Icon": "rune"
+        }
+    ],
+    "114": [
+        {
+            "Name": "monkey_king_wukongs_faithful",
+            "Title": "Wukong's Faithful",
+            "Desc": "Monkey King's soldiers last longer and do not disperse unless he spends more than {s:bonus_leadership_time_buffer} seconds outside the area.",
+            "Icon": "summons"
+        },
+        {
+            "Name": "monkey_king_simian_stride",
+            "Title": "Simian Stride",
+            "Desc": "Increases the max level of Tree Dance. Level {s:bonus_max_level_tooltip} Tree Dance reduces the cooldown to zero.",
+            "Icon": "tree"
+        }
+    ],
+    "119": [
+        {
+            "Name": "dark_willow_throwing_shade",
+            "Title": "Throwing Shade",
+            "Desc": "Dark Willow deals more damage to nearby heroes when she's in the Shadow Realm.",
+            "Icon": "damage"
+        },
+        {
+            "Name": "dark_willow_shattering_crown",
+            "Title": "Shattering Crown",
+            "Desc": "Cursed Crown accumulates all damage dealt by Dark Willow and attack damage dealt by her allies. A percentage of that damage is dealt again as magical damage to the whole area when the counter expires.",
+            "Icon": "barrier"
+        }
+    ],
+    "120": [
+        {
+            "Name": "pangolier_double_jump",
+            "Title": "Double Jump",
+            "Desc": "Pangolier can double jump with Shield Crash dealing more damage and gaining more barrier.",
+            "Icon": "double_bounce"
+        },
+        {
+            "Name": "pangolier_thunderbolt",
+            "Title": "Thunderbolt",
+            "Desc": "Rolling Thunder movement and turn speed increased, but duration is decreased.",
+            "Icon": "speed"
+        }
+    ],
+    "121": [
+        {
+            "Name": "grimstroke_inkstigate",
+            "Title": "Inkstigate",
+            "Desc": "Ink Swell can be manually detonated early.",
+            "Icon": "area_of_effect"
+        },
+        {
+            "Name": "grimstroke_fine_art",
+            "Title": "Fine Art",
+            "Desc": "Stroke of Fate can now be vector targeted to manipulate the ink's travel path.",
+            "Icon": "brush"
+        }
+    ],
+    "123": [
+        {
+            "Name": "hoodwink_hunter",
+            "Title": "Go Nuts",
+            "Desc": "Scurry also provides bonus attack and cast range.",
+            "Icon": "range"
+        },
+        {
+            "Name": "hoodwink_hipshot",
+            "Title": "Hipshot",
+            "Desc": "Sharpshooter has a greatly reduced cooldown. Damage, debuff duration, turn time, and wind-up times are also reduced.",
+            "Icon": "cooldown"
+        }
+    ],
+    "126": [
+        {
+            "Name": "void_spirit_sanctuary",
+            "Title": "Sanctuary",
+            "Desc": "Resonant Pulse creates a larger all damage barrier instead of a physical barrier.",
+            "Icon": "armor"
+        },
+        {
+            "Name": "void_spirit_aether_artifice",
+            "Title": "Call of the Void",
+            "Desc": "Upon exiting Dissimilate, Aether Remnants are created at the {s:bonus_aether_remnant_count} portals furthest from Void Spirit.",
+            "Icon": "illusion"
+        }
+    ],
+    "127": [],
+    "128": [
+        {
+            "Name": "snapfire_ricochet_ii",
+            "Title": "Ricochet II",
+            "Desc": "Whenever Snapfire glances or misses an attack, 2 ricochet attacks will bounce towards nearby enemies.",
+            "Icon": "ricochet"
+        },
+        {
+            "Name": "snapfire_full_bore",
+            "Title": "Full Bore",
+            "Desc": "Scatterblast is narrower and longer. Bonus damage and slow when enemies are not in point blank range.",
+            "Icon": "range"
+        }
+    ],
+    "129": [
+        {
+            "Name": "mars_victory_feast",
+            "Title": "Victory Feast",
+            "Desc": "Mars and his allies gain health, mana, and attack damage when an enemy inside his Arena of Blood dies.",
+            "Icon": "healing"
+        },
+        {
+            "Name": "mars_arena",
+            "Title": "Blood Sport",
+            "Desc": "Enemies inside the Arena of Blood don't have vision outside the arena.",
+            "Icon": "no_vision"
+        }
+    ],
+    "131": [
+        {
+            "Name": "ringmaster_carny_classics",
+            "Title": "Carny Classics",
+            "Desc": "Ringmaster's Souvenirs are <b color='white'>Funhouse Mirror</b>, <b color='white'>Strongman Tonic</b>, and <b color='white'>Whoopee Cushion</b>.",
+            "Icon": "whoopee_cushion"
+        },
+        {
+            "Name": "ringmaster_sideshow_secrets",
+            "Title": "Sideshow Secrets",
+            "Desc": "Ringmaster's Souvenirs are <b color='white'>Crystal Ball</b>, <b color='white'>Unicycle</b>, and <b color='white'>Weighted Pie</b>.",
+            "Icon": "pie"
+        }
+    ],
+    "135": [
+        {
+            "Name": "dawnbreaker_solar_charged",
+            "Title": "Solar Charged",
+            "Desc": "Whenever Dawnbreaker hits a target with a powered up Luminosity, she decreases the cooldowns of all of her abilities.",
+            "Icon": "cooldown"
+        },
+        {
+            "Name": "dawnbreaker_blaze",
+            "Title": "Starsurge",
+            "Desc": "Dawnbreaker and nearby allies gain bonus attack speed at the end of Starbreaker for each swipe that hit enemy heroes.",
+            "Icon": "fist"
+        },
+        {
+            "Name": "dawnbreaker_hearthfire",
+            "Title": "Trailblazer",
+            "Desc": "Walking along Celestial Hammer's fire trail gives bonus movespeed.",
+            "Icon": "speed"
+        }
+    ],
+    "136": [
+        {
+            "Name": "marci_buddy_system",
+            "Title": "Buddy System",
+            "Desc": "While bodyguarded, Marci and her partner share a portion of health healed by this ability with each other.",
+            "Icon": "twin_hearts"
+        },
+        {
+            "Name": "marci_pickmeup",
+            "Title": "Pick-me-up",
+            "Desc": "Rebound can be alt-cast to bring Marci's ally with her after the jump.",
+            "Icon": "ricochet"
+        },
+        {
+            "Name": "marci_fleeting_fury",
+            "Title": "Fleeting Fury",
+            "Desc": "Upon landing with Rebound, Marci gains a Fury combo. ",
+            "Icon": "fist"
+        }
+    ],
+    "137": [
+        {
+            "Name": "primal_beast_provoke_the_beast",
+            "Title": "Provoke the Beast",
+            "Desc": "Gain {s:bonus_stack_count_increase_on_disable} Uproar stacks upon being disabled by an enemy hero.",
+            "Icon": "broken_chain"
+        },
+        {
+            "Name": "primal_beast_ferocity",
+            "Title": "Ferocity",
+            "Desc": "Each Pulverize slam increase Primal Beast's AoE.",
+            "Icon": "area_of_effect"
+        }
+    ],
+    "138": [
+        {
+            "Name": "muerta_dance_of_the_dead",
+            "Title": "Dance of the Dead",
+            "Desc": "The Calling becomes stronger when heroes die inside it.",
+            "Icon": "spirit"
+        },
+        {
+            "Name": "muerta_ofrenda",
+            "Title": "Ofrenda",
+            "Desc": "Muerta can place a beneficial Ofrenda on the map to respawn there instead of the fountain.",
+            "Icon": "teleport"
+        }
+    ],
+    "145": [
+        {
+            "Name": "kez_flutter",
+            "Title": "Flutter",
+            "Desc": "Kez deals extra damage on the first attack or ability after switching to Katana, and gains bonus movement speed after switching to Sai.",
+            "Icon": "kez_flutter"
+        },
+        {
+            "Name": "kez_shadowhawk",
+            "Title": "Shadowhawk",
+            "Desc": "Triggering a Shodo Sai Mark from invisibility deals bonus critical damage.",
+            "Icon": "kez_shadowhawk"
+        }
+    ]
+}
