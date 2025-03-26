@@ -77,7 +77,7 @@ export default function AbilityCard({ ability, hero, type, path }) {
         </button>
         {toolTip && (
           <div
-            className="fixed sm:absolute sm:w-[400px] sm:top-[110%] sm:left-1/2 sm:-translate-x-1/2 sm:transform top-100 left-8 flex items-center justify-center bg-black bg-opacity-75 z-30"
+            className="fixed sm:absolute sm:w-[400px] sm:top-[110%] sm:left-1/2 sm:-translate-x-1/2 sm:transform rounded-lg top-100 left-8 flex items-center justify-center bg-black bg-opacity-75 z-30"
             style={{
               visibility: toolTip ? 'visible' : 'hidden',
             }}
