@@ -8,7 +8,7 @@ export default function Talents({hero, talents}) {
 
     const Talents = []
 
-    console.log(talents)
+    // console.log(talents)
 
     if(talents){
 

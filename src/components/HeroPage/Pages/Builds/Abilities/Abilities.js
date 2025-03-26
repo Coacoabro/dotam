@@ -3,6 +3,8 @@ import AbilityPath from './AbilityPath'
 
 export default function Abilities({hero, abilities}) {
 
+    // console.log(abilities)
+
     if(abilities){
 
         const wr = ((abilities.wins/abilities.matches)*100).toFixed(2)
