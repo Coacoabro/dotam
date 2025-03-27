@@ -119,7 +119,7 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
           </div>
 
           <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
-            <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} />
+            <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} builds={heroBuilds} current_patch={current_patch}/>
           </div>
 
           {heroBuilds ?

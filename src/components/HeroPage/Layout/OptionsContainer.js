@@ -9,12 +9,34 @@ import Facets from '../../Facets';
 import Pages from '../../Pages';
 
 
-export default function OptionsContainer({ hero, initRole, initFacet, hero_name }) {
-
-    const router = useRouter()
+export default function OptionsContainer({ hero, current_patch, initRole, initFacet, hero_name, builds }) {
 
     const hero_id = hero.id
 
+    const router = useRouter()
+    const { facet, rank, role, patch } = router.query
+
+    const [currRank, setCurrRank] = useState(rank || "")
+    const [currRole, setCurrRole] = useState(role || initRole)
+    const [currPatch, setCurrPatch] = useState(patch || current_patch)
+
+    const [generalRates, setGeneralRates] = useState([])
+
+    useEffect(() => {
+
+        setCurrRank(rank)
+        setCurrRole(role)
+        setCurrPatch(patch)
+        
+        if(builds){
+
+            let filteredBuilds = builds.filter((item) => item.rank == currRank && item.role == currRole && item.patch == currPatch)
+            filteredBuilds.sort((a, b) => a.facet - b.facet)
+    
+            setGeneralRates(filteredBuilds)
+        }
+
+    }, [builds, rank, role, patch])
 
     return (
         <div className='pb-3 sm:py-3 lg:py-0 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
@@ -25,7 +47,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name 
                 <>
                     <div className='flex gap-2 items-center'>
                         Facets: 
-                        <Facets initFacet={initFacet} name={hero_name} id={hero_id} />
+                        <Facets initFacet={initFacet} name={hero_name} id={hero_id} rates={generalRates} />
                     </div>
                 
                     <div className='h-14 w-[1px] bg-slate-800'/>
@@ -51,7 +73,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name 
             {/* Mobile Screen */}
             <div className='lg:hidden flex justify-evenly items-center'>
                 {initFacet == 'blank' ? null : 
-                    <Facets initFacet={initFacet} name={hero_name} id={hero_id} />
+                    <Facets initFacet={initFacet} name={hero_name} id={hero_id} rates={generalRates} />
                 }
                 <Rank />
                 <Patches />
