@@ -494,29 +494,27 @@ def sendtosql(builds):
         rank = build[1]
         role = build[2]
         facet = build[3]
-        unique_identifiers.append((hero_id, rank, role, facet, patch)) # Add , biweek
+        unique_identifiers.append((hero_id, rank, role, facet, patch))
 
-    placeholders = ', '.join(['(%s, %s, %s, %s, %s)']*len(unique_identifiers)) # Add another %s if you want to do biweek
+    placeholders = ', '.join(['(%s, %s, %s, %s, %s)']*len(unique_identifiers))
     params = [item for sublist in unique_identifiers for item in sublist]
     main_query = f"""
         SELECT * FROM main 
-        WHERE (hero_id, rank, role, facet, patch) IN ({placeholders}) # Add biweek at the end of the , patch
+        WHERE (hero_id, rank, role, facet, patch) IN ({placeholders})
     """
     build_ids.extend(execute_postgres(cur, main_query, params, 120, True))
 
-    print("Obtained all build ids")
-
     # print(len(build_ids), len(unique_identifiers))
     m = len(builds)
+
 
     for build in builds:
         print(m)
         m -= 1
         build_id = None
         for row in build_ids:
-            if (row[1], row[2], row[3], row[4], row[5]) == (build[0], build[1], build[2], build[3], patch):
+            if (row[1], row[2], row[3], row[4], row[5]) == (build[0], patch, build[1], build[2], build[3]):
                 build_id = row[0]
-                break
         total_matches = build[4]
         total_wins = build[5]
         abilities = build[6]
@@ -530,7 +528,7 @@ def sendtosql(builds):
 
         total_data.append((build_id, total_matches, total_wins))
         abilities_data.extend([
-            (build_id, abi['Abilities'], abi['Wins'], abi['Matches']) 
+            (build_id, *abi['Abilities'], abi['Wins'], abi['Matches']) 
             for abi in abilities
         ])
         talents_data.extend([
@@ -538,7 +536,7 @@ def sendtosql(builds):
             for talent in talents
         ])
         starting_items_data.extend([
-            (build_id, sorted(start['Starting']), start['Wins'], start['Matches']) 
+            (build_id, *sorted(start['Starting']), start['Wins'], start['Matches']) 
             for start in starting_items
         ])
         early_items_data.extend([
@@ -546,13 +544,15 @@ def sendtosql(builds):
             for early in early_items
         ])
         
+        print(early_items_data)
+        return
+
         for core in core_items:
-            core_items_data.append((build_id, core['Core'], core['Wins'], core['Matches']))
+            core_items_data.append((build_id, None, *core['Core'], core['Wins'], core['Matches']))
             late_items_data.extend([
-                (build_id, core['Core'], late['Nth'], late['Item'], late['Wins'], late['Matches'])
+                (build_id, None, late['Nth'], late['Item'], late['Wins'], late['Matches'])
                 for late in core['Late']
             ])
-
         
         neutral_items_data.extend([
             (build_id, neutral['Tier'], neutral['Item'], neutral['Wins'], neutral['Matches'])
@@ -801,35 +801,17 @@ def sendtosql(builds):
     end_time = time.time()
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
-    
-def initializeBuilds():
 
-    global facet_nums
-    global hero_ids
-    global patch
-    Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
-    Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
 
-    for hero_id in hero_ids:
-        num_facets = len(facet_nums[str(hero_id)])
-        hero_facet = list(range(1, num_facets + 1))
-        for rank in Ranks:
-            for role in Roles:
-                for facet in hero_facet:
-                    cur.execute("""
-                        INSERT INTO main (hero_id, rank, role, facet, patch, total_matches, total_wins) 
-                        VALUES (%s, %s, %s, %s, %s, %s, %s)
-                    """, (hero_id, rank, role, facet, patch, 0, 0))
-
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -847,6 +829,7 @@ while True:
         response = requests.get(DOTA_2_URL, timeout=600)
 
         if response.status_code == 200:
+            print("Got Match")
             matches = response.json()['result']['matches']
             for match in matches:
                 seq_num = match['match_seq_num']
@@ -879,7 +862,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 100:
+        if hourlyDump >= 2:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break

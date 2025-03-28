@@ -9,6 +9,7 @@ import datetime
 
 from datetime import datetime
 from dotenv import load_dotenv
+from psycopg2.extras import execute_values
 
 load_dotenv()
 
@@ -113,10 +114,10 @@ def get_facets():
     with open('./json/facet_nums.json', 'w') as f:
         json.dump(facet_nums_json, f)
 
-get_facets()
-get_innate()
+# get_facets()
+# get_innate()
 
-# Make Sure Everythings Up to Date
+## Make Sure Everythings Up to Date
 
 client = boto3.client('cloudfront')
 
@@ -146,6 +147,7 @@ conn.close()
 conn = psycopg2.connect(builds_database_url)
 cur = conn.cursor()
 
+previous_patch = "7.38b"
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
 
@@ -155,6 +157,9 @@ file_path = './json/hero_facets.json'
 with open(file_path, 'r') as file:
     Facets = json.load(file)
 
+cur.execute("DELETE FROM main WHERE patch = %s", (previous_patch,))
+
+data = []
 
 for hero_id in hero_ids:
     num_facets = len(Facets[str(hero_id)])
@@ -162,11 +167,14 @@ for hero_id in hero_ids:
     for rank in Ranks:
         for role in Roles:
             for facet in hero_facet:
-                cur.execute("""
-                    INSERT INTO main (hero_id, rank, role, facet, patch, total_matches, total_wins) 
-                    VALUES (%s, %s, %s, %s, %s, %s, %s)
-                """, (hero_id, rank, role, facet, patch, 0, 0))
+                data.append((hero_id, rank, role, facet, patch, 0, 0))
 
+query = """
+    INSERT INTO main (hero_id, rank, role, facet, patch, total_matches, total_wins) 
+    VALUES %s
+"""
+
+execute_values(cur, query, data)
 
 conn.commit()
 conn.close()
