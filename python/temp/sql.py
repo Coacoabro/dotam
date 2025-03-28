@@ -81,7 +81,6 @@ cur.execute("""
 
     CREATE TABLE core (
         build_id INT REFERENCES main(build_id) ON DELETE CASCADE,
-        core_id SERIAL,
         core_1 INT,
         core_2 INT,
         core_3 INT,
@@ -91,7 +90,9 @@ cur.execute("""
 
     CREATE TABLE late (
         build_id INT REFERENCES main(build_id) ON DELETE CASCADE,
-        core_id INT,
+        core_1 INT,
+        core_2 INT,
+        core_3 INT,
         nth INT,
         item INT,
         wins INT DEFAULT 0,

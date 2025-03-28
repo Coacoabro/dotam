@@ -543,14 +543,16 @@ def sendtosql(builds):
             (build_id, early['Item'], early['isSecondPurchase'], early['Wins'], early['Matches']) 
             for early in early_items
         ])
-        
-        print(early_items_data)
-        return
 
         for core in core_items:
-            core_items_data.append((build_id, None, *core['Core'], core['Wins'], core['Matches']))
+            core_1 = core['Core'][0]
+            core_2 = core['Core'][1]
+            core_3 = None
+            if len(core['Core']) > 2:
+                core_3 = core['Core'][2]
+            core_items_data.append((build_id, core_1, core_2, core_3, core['Wins'], core['Matches']))
             late_items_data.extend([
-                (build_id, None, late['Nth'], late['Item'], late['Wins'], late['Matches'])
+                (build_id, core_1, core_2, core_3, late['Nth'], late['Item'], late['Wins'], late['Matches'])
                 for late in core['Late']
             ])
         
@@ -576,11 +578,11 @@ def sendtosql(builds):
         # Abilities
         if len(abilities_data) >= BATCH_SIZE:
             print("Batched abilities")
-            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
+            placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(abilities_data))
             query = f"""
-                INSERT INTO abilities (build_id, abilities, wins, matches)
+                INSERT INTO abilities (build_id, ability_1, ability_2, ability_3, ability_4, ability_5, ability_6, ability_7, ability_8, ability_9, ability_10, ability_11, ability_12, ability_13, ability_14, ability_15, ability_16, wins, matches)
                 VALUES {placeholders}
-                ON CONFLICT (build_id, abilities)
+                ON CONFLICT (build_id, ability_1, ability_2, ability_3, ability_4, ability_5, ability_6, ability_7, ability_8, ability_9, ability_10, ability_11, ability_12, ability_13, ability_14, ability_15, ability_16)
                 DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
             """
             params = [item for sublist in abilities_data for item in sublist]
@@ -604,11 +606,11 @@ def sendtosql(builds):
         # Starting 
         if len(starting_items_data) >= BATCH_SIZE:
             print("Batched starting")
-            placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
+            placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(starting_items_data))
             query = f"""
-                INSERT INTO starting (build_id, starting, wins, matches)
+                INSERT INTO starting (build_id, starting_1, starting_2, starting_3, starting_4, starting_5, starting_6, wins, matches)
                 VALUES {placeholders}
-                ON CONFLICT (build_id, starting)
+                ON CONFLICT (build_id, starting_1, starting_2, starting_3, starting_4, starting_5, starting_6)
                 DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
             """
             params = [item for sublist in starting_items_data for item in sublist]
@@ -632,31 +634,32 @@ def sendtosql(builds):
         # Core
         if len(core_items_data) >= BATCH_SIZE:
             print("Batched core")
-            core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
+            core_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(core_items_data))
             core_query = f"""
-                INSERT INTO core (build_id, core, wins, matches)
+                INSERT INTO core (build_id, core_1, core_2, core_3, wins, matches)
                 VALUES {core_placeholders}
-                ON CONFLICT (build_id, core)
+                ON CONFLICT (build_id, core_1, core_2, core_3)
                 DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
             """
             core_params = [item for sublist in core_items_data for item in sublist]
             execute_postgres(cur, core_query, core_params, 120, False)
             core_items_data = [] 
 
+        # Late
         if len(late_items_data) >= BATCH_SIZE:
             print("Batched late")
-            late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
+            late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s)'] * len(late_items_data))
             late_query = f"""
-                INSERT INTO late (build_id, core_items, nth, item, wins, matches)
+                INSERT INTO late (build_id, core_1, core_2, core_3, nth, item, wins, matches)
                 VALUES {late_placeholders}
-                ON CONFLICT (build_id, core_items, nth, item)
+                ON CONFLICT (build_id, core_1, core_2, core_3, nth, item)
                 DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
             """
             late_params = [item for sublist in late_items_data for item in sublist]
             execute_postgres(cur, late_query, late_params, 180, False)
             late_items_data = []
         
-        
+        # Neutrals
         if len(neutral_items_data) >= BATCH_SIZE:
             print("Batched neutrals")
             placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(neutral_items_data))
@@ -673,8 +676,9 @@ def sendtosql(builds):
 
     # IF WE HAVE LEFT OVER DATA
     print("Finished looping through builds, dumping rest")
+    # Total Matches and Wins
     if total_data:
-        print("Left over total")
+        print("Batched total matches")
         placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
         query = f"""
             INSERT INTO main (build_id, total_matches, total_wins)
@@ -685,26 +689,24 @@ def sendtosql(builds):
         params = [item for sublist in total_data for item in sublist]
         execute_postgres(cur, query, params, 30, False)
         total_data = []
-        print("Total Data Complete")
 
     # Abilities
     if abilities_data:
-        print("Left over abilities")
-        placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(abilities_data))
+        print("Batched abilities")
+        placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(abilities_data))
         query = f"""
-            INSERT INTO abilities (build_id, abilities, wins, matches)
+            INSERT INTO abilities (build_id, ability_1, ability_2, ability_3, ability_4, ability_5, ability_6, ability_7, ability_8, ability_9, ability_10, ability_11, ability_12, ability_13, ability_14, ability_15, ability_16, wins, matches)
             VALUES {placeholders}
-            ON CONFLICT (build_id, abilities)
+            ON CONFLICT (build_id, ability_1, ability_2, ability_3, ability_4, ability_5, ability_6, ability_7, ability_8, ability_9, ability_10, ability_11, ability_12, ability_13, ability_14, ability_15, ability_16)
             DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
         """
         params = [item for sublist in abilities_data for item in sublist]
-        execute_postgres(cur, query, params, 60, False)
+        execute_postgres(cur, query, params, 30, False)
         abilities_data = []
-        print("Abilities Data Complete")
 
     # Talents
     if talents_data:
-        print("Left over talents")
+        print("Batched talents")
         placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
         query = f"""
             INSERT INTO talents (build_id, talent, wins, matches)
@@ -715,26 +717,24 @@ def sendtosql(builds):
         params = [item for sublist in talents_data for item in sublist]
         execute_postgres(cur, query, params, 30, False)
         talents_data = []
-        print("Talent Data Complete")
     
     # Starting 
     if starting_items_data:
-        print("Left over starting")
-        placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(starting_items_data))
+        print("Batched starting")
+        placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(starting_items_data))
         query = f"""
-            INSERT INTO starting (build_id, starting, wins, matches)
+            INSERT INTO starting (build_id, starting_1, starting_2, starting_3, starting_4, starting_5, starting_6, wins, matches)
             VALUES {placeholders}
-            ON CONFLICT (build_id, starting)
+            ON CONFLICT (build_id, starting_1, starting_2, starting_3, starting_4, starting_5, starting_6)
             DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
         """
         params = [item for sublist in starting_items_data for item in sublist]
-        execute_postgres(cur, query, params, 60, False)
+        execute_postgres(cur, query, params, 30, False)
         starting_items_data = []
-        print("Starting Data Complete")
 
     # Early 
     if early_items_data:
-        print("Left over early")
+        print("Batched early")
         placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
         query = f"""
             INSERT INTO early (build_id, item, secondpurchase, wins, matches)
@@ -745,41 +745,38 @@ def sendtosql(builds):
         params = [item for sublist in early_items_data for item in sublist]
         execute_postgres(cur, query, params, 30, False)
         early_items_data = []
-        print("Early Data Complete")
     
     # Core
     if core_items_data:
-        print("Left over core")
-        core_placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(core_items_data))
+        print("Batched core")
+        core_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(core_items_data))
         core_query = f"""
-            INSERT INTO core (build_id, core, wins, matches)
+            INSERT INTO core (build_id, core_1, core_2, core_3, wins, matches)
             VALUES {core_placeholders}
-            ON CONFLICT (build_id, core)
+            ON CONFLICT (build_id, core_1, core_2, core_3)
             DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
         """
         core_params = [item for sublist in core_items_data for item in sublist]
         execute_postgres(cur, core_query, core_params, 120, False)
-        core_items_data = []
-        print("Core Data Complete") 
+        core_items_data = [] 
 
-    # Late    
+    # Late
     if late_items_data:
-        print("Left over late")
-        late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(late_items_data))
+        print("Batched late")
+        late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s)'] * len(late_items_data))
         late_query = f"""
-            INSERT INTO late (build_id, core_items, nth, item, wins, matches)
+            INSERT INTO late (build_id, core_1, core_2, core_3, nth, item, wins, matches)
             VALUES {late_placeholders}
-            ON CONFLICT (build_id, core_items, nth, item)
+            ON CONFLICT (build_id, core_1, core_2, core_3, nth, item)
             DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
         """
         late_params = [item for sublist in late_items_data for item in sublist]
         execute_postgres(cur, late_query, late_params, 180, False)
         late_items_data = []
-        print("Late Data Complete")
     
-    # Neutals
+    # Neutrals
     if neutral_items_data:
-        print("Left over neutrals")
+        print("Batched neutrals")
         placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(neutral_items_data))
         query = f"""
             INSERT INTO neutrals (build_id, tier, item, wins, matches)
@@ -790,7 +787,6 @@ def sendtosql(builds):
         params = [item for sublist in neutral_items_data for item in sublist]
         execute_postgres(cur, query, params, 30, False)
         neutral_items_data = []
-        print("Neutral Data Complete")
         
     print("Done. Last sequence num: ", seq_num)
     with open(file_path, 'w') as file:

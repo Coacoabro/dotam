@@ -134,7 +134,7 @@ export default function Facets( {name, id, initFacet, rates} ) {
                             <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-8 sm:w-10 sm:h-10 rounded-md sm:p-1" />
                             {hoverFacet.Title}
                         </div>
-                        <div className='text-base font-medium text-right'>
+                        <div className='flex flex-cols  text-base font-medium text-right'>
                             <div>{((rates[hovFacetNum].total_wins / rates[hovFacetNum].total_matches)*100).toFixed(2)}% <span className='text-sm'>WR</span></div>
                             <span className='text-xs opacity-50'>{(rates[hovFacetNum].total_matches).toLocaleString()} Matches</span>
                         </div>
