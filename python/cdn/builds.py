@@ -224,10 +224,10 @@ for hero_id in hero_ids:
     items_data = []
     for build in main:
         build_id = build[0]
-        rank = build[2]
-        role = build[3]
-        facet = build[4]
-        patch = build[5]
+        patch = build[2]
+        rank = build[3]
+        role = build[4]
+        facet = build[5]
         total_matches = build[6]
         total_wins = build[7]
         # Filter by build_id

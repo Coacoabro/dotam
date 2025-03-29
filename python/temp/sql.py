@@ -21,11 +21,11 @@ cur.execute("""
 
     CREATE TABLE main (
         build_id SERIAL PRIMARY KEY,
-        hero_id INT NOT NULL,
-        patch TEXT NOT NULL,
-        rank TEXT NOT NULL,
-        role TEXT NOT NULL,
-        facet INT NOT NULL,
+        hero_id INT,
+        patch TEXT,
+        rank TEXT,
+        role TEXT,
+        facet INT,
         total_wins INT DEFAULT 0,
         total_matches INT DEFAULT 0
     );
@@ -101,8 +101,8 @@ cur.execute("""
 
     CREATE TABLE neutrals (
         build_id INT REFERENCES main(build_id) ON DELETE CASCADE,
-        tier INT NOT NULL,
-        item INT NOT NULL,
+        tier INT,
+        item INT,
         wins INT DEFAULT 0,
         matches INT DEFAULT 0
     );
@@ -115,6 +115,30 @@ cur.execute("""
     CREATE INDEX idx_abilities_build ON abilities(build_id);
     CREATE INDEX idx_talents_build ON talents(build_id);
     CREATE INDEX idx_neutrals_build ON neutrals(build_id);
+            
+    ALTER TABLE main 
+    ADD CONSTRAINT unique_main UNIQUE (hero_id, rank, role, facet, patch);
+
+    ALTER TABLE abilities 
+    ADD CONSTRAINT unique_abilities UNIQUE (build_id, ability_1, ability_2, ability_3, ability_4, ability_5, ability_6, ability_7, ability_8, ability_9, ability_10, ability_11, ability_12, ability_13, ability_14, ability_15, ability_16);
+
+    ALTER TABLE talents 
+    ADD CONSTRAINT unique_talents UNIQUE (build_id, talent);
+            
+    ALTER TABLE starting
+    ADD CONSTRAINT unique_starting UNIQUE (build_id, starting_1, starting_2, starting_3, starting_4, starting_5, starting_6);
+            
+    ALTER TABLE early 
+    ADD CONSTRAINT unique_early UNIQUE (build_id, item, secondpurchase);
+
+    ALTER TABLE core 
+    ADD CONSTRAINT unique_core UNIQUE (build_id, core_1, core_2, core_3);
+
+    ALTER TABLE late 
+    ADD CONSTRAINT unique_late UNIQUE (build_id, core_1, core_2, core_3, nth, item);
+
+    ALTER TABLE neutrals 
+    ADD CONSTRAINT unique_neutrals UNIQUE (build_id, tier, item);
 
 """)
 

@@ -536,7 +536,7 @@ def sendtosql(builds):
             for talent in talents
         ])
         starting_items_data.extend([
-            (build_id, *sorted(start['Starting']), start['Wins'], start['Matches']) 
+            (build_id, *sorted(start['Starting']) + [None] * (6 - len(start['Starting'])), start['Wins'], start['Matches']) 
             for start in starting_items
         ])
         early_items_data.extend([
