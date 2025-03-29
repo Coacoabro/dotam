@@ -101,9 +101,14 @@ for hero_id in hero_ids:
     for abilities in abilities_data:
         abilitiesObj = {}
         abilitiesObj['build_id'] = abilities[0]
-        abilitiesObj['abilities'] = abilities[1]
-        abilitiesObj['wins'] = abilities[2]
-        abilitiesObj['matches'] = abilities[3]
+        abilitiesObj['abilities'] = [
+            abilities[1], abilities[2], abilities[3], abilities[4], 
+            abilities[5], abilities[6], abilities[7], abilities[8], 
+            abilities[9], abilities[10], abilities[11], abilities[12], 
+            abilities[13], abilities[14], abilities[15], abilities[16]
+        ]
+        abilitiesObj['wins'] = abilities[17]
+        abilitiesObj['matches'] = abilities[18]
         abilitiesFinal.append(abilitiesObj)
 
     print("Getting talents")
@@ -125,9 +130,12 @@ for hero_id in hero_ids:
     for starting in starting_data:
         startingObj = {}
         startingObj['build_id'] = starting[0]
-        startingObj['starting'] = starting[1]
-        startingObj['wins'] = starting[2]
-        startingObj['matches'] = starting[3]
+        startingObj['starting'] = [
+            starting[1], starting[2], starting[3],
+            starting[4], starting[5], starting[6] 
+        ]
+        startingObj['wins'] = starting[7]
+        startingObj['matches'] = starting[8]
         startingFinal.append(startingObj)        
 
     print("Getting early")
@@ -153,7 +161,7 @@ for hero_id in hero_ids:
         build_id = item[0]  # Assuming build_id is the first column
         if build_id not in core_items_by_build_id:
             core_items_by_build_id[build_id] = []
-        core_items_by_build_id[build_id].append(item[1])  # Assuming core items are in the second column
+        core_items_by_build_id[build_id].append([item[1], item[2], item[3]])  # Assuming core items are in the second column
 
     core_items_list = [core_items_by_build_id.get(build_id, []) for build_id in build_ids]
 
@@ -163,17 +171,17 @@ for hero_id in hero_ids:
     query_params = []
     for build_id, core_items in zip(build_ids, core_items_list):
         for core in core_items:
-            query_parts.append(f"(build_id = %s AND core_items = %s)")
-            query_params.extend([build_id, core])
+            query_parts.append(f"(build_id = %s AND core_1 = %s AND core_2 = %s AND core_3 = %s)")
+            query_params.extend([build_id, core[0], core[1], core[2]])
 
     if query_params:
         where_condition = " OR ".join(query_parts)
         late_items_query = f"""
             SELECT * FROM (
-                SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id, core_items, nth ORDER BY matches DESC, wins DESC) AS rn
+                SELECT *, ROW_NUMBER() OVER (PARTITION BY build_id, core_1, core_2, core_3, nth ORDER BY matches DESC, wins DESC) AS rn
                 FROM late
                 WHERE ({where_condition}) AND nth IN (3, 4, 5, 6, 7, 8, 9, 10)
-            ) AS ranked WHERE rn <= 10 ORDER BY build_id, core_items, nth, matches DESC, wins DESC;
+            ) AS ranked WHERE rn <= 10 ORDER BY build_id, core_1, core_2, core_3, nth, matches DESC, wins DESC;
         """
         cur.execute(late_items_query, query_params)
         late_items_data = cur.fetchall()
@@ -184,19 +192,19 @@ for hero_id in hero_ids:
     for item in core_data:
         coreObj = {}
         coreObj['build_id'] = item[0]
-        coreObj['core'] = item[1]
-        coreObj['wins'] = item[2]
-        coreObj['matches'] = item[3]
-        late_items = [row for row in late_items_data if row[0] == item[0] and row[1] == item[1]] # matching build_id and core
+        coreObj['core'] = [item[1], item[2], item[3]]
+        coreObj['wins'] = item[4]
+        coreObj['matches'] = item[5]
+        late_items = [row for row in late_items_data if row[0] == item[0] and row[1] == item[1] and row[2] == item[2] and row[3] == item[3]] # matching build_id and core
         lateFinal = []
         for lateItem in late_items:
             lateObj = {}
             lateObj['build_id'] = lateItem[0]
-            lateObj['core_items'] = lateItem[1]
-            lateObj['nth'] = lateItem[2]
-            lateObj['item'] = lateItem[3]
-            lateObj['wins'] = lateItem[4]
-            lateObj['matches'] = lateItem[5]
+            lateObj['core_items'] = [lateItem[1], lateItem[2], lateItem[3]]
+            lateObj['nth'] = lateItem[4]
+            lateObj['item'] = lateItem[5]
+            lateObj['wins'] = lateItem[6]
+            lateObj['matches'] = lateItem[7]
             lateFinal.append(lateObj)
         coreObj['late'] = lateFinal
         coreFinal.append(coreObj)
@@ -314,8 +322,8 @@ for hero_id in hero_ids:
     abilities_json = json.dumps(abilities_data, indent=2)
     item_json = json.dumps(items_data, indent=2)
 
-    # Write to local file
-    # if hero_id == 145:
+    # # Write to local file
+    # if hero_id == 1:
     #     # Home
     #     build_file = f"./python/build_data/{patch_file_name}/{hero_id}/builds.json"
     #     abilities_file = f"./python/build_data/{patch_file_name}/{hero_id}/abilities.json"
@@ -329,6 +337,7 @@ for hero_id in hero_ids:
     #         json.dump(abilities_data, file, indent=2)
     #     with open(items_file, 'w') as file:
     #         json.dump(items_data, file, indent=2)
+    
 
     # Create the S3 File
     s3.put_object(Bucket='dotam-builds', Key=f"data/{patch_file_name}/{hero_id}/builds.json", Body=build_json)
