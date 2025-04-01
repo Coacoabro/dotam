@@ -236,8 +236,8 @@ for hero_id in hero_ids:
         rank = build[3]
         role = build[4]
         facet = build[5]
-        total_matches = build[6]
-        total_wins = build[7]
+        total_wins = build[6]
+        total_matches = build[7]
         # Filter by build_id
         abilities_array = [a for a in abilitiesFinal if a['build_id'] == build_id]
         talents_array = [t for t in talentsFinal if t['build_id'] == build_id]
@@ -252,8 +252,8 @@ for hero_id in hero_ids:
             "role": role,
             "facet": facet,
             "patch": patch,
-            "total_matches": total_matches,
             "total_wins": total_wins,
+            "total_matches": total_matches,
             "abilities": abilities_array,
             "talents": talents_array
         }
@@ -265,8 +265,8 @@ for hero_id in hero_ids:
             "role": role,
             "facet": facet,
             "patch": patch,
-            "total_matches": total_matches,
             "total_wins": total_wins,
+            "total_matches": total_matches,
             "starting": starting_array,
             "early": early_array,
             "core": core_array,
@@ -304,8 +304,8 @@ for hero_id in hero_ids:
             "role": role,
             "facet": facet,
             "patch": patch,
-            "total_matches": total_matches,
             "total_wins": total_wins,
+            "total_matches": total_matches,
             "abilities": abilities_array[0] if len(abilities_array) > 0 else None,
             "talents": talents_array,
             "items": {

@@ -188,7 +188,7 @@ def getBuilds(ranked_matches, builds):
 
 
                                     else:
-                                        if ability['isTalent']:
+                                        if ability['isTalent'] and ability['abilityId'] not in talents:
                                             talents.append(ability['abilityId'])
                                             if len(abilities) < 16:
                                                 abilities.append(-1)
@@ -438,7 +438,7 @@ def getBuilds(ranked_matches, builds):
 
     return builds
 
-def execute_postgres(cur, query, params, timeout, doReturn):
+def execute_postgres(cur, query, params, timeout, doReturn, type):
 
     cur.execute(f"SET statement_timeout = '{timeout}s'")
     retries = 3
@@ -458,6 +458,23 @@ def execute_postgres(cur, query, params, timeout, doReturn):
                 time.sleep(5)
             else:
                 print("Third time wasn't the charm. Failed on this query: ", query)
+        except psycopg2.Error as e:
+            
+            if type == "talents":
+                unique_pairs = []
+                new_params = []
+                for i in range(0, len(params), 4):
+                    pair = [params[i], params[i+1]]
+                    if pair not in unique_pairs:
+                        unique_pairs.append(pair)
+                        new_params.extend([params[i], params[i+1], params[i+2], params[i+3]])
+                    else:
+                        print(pair)
+                cur.execute(query, new_params)
+            break
+
+
+        
 
 def sendtosql(builds):
 
@@ -502,11 +519,10 @@ def sendtosql(builds):
         SELECT * FROM main 
         WHERE (hero_id, rank, role, facet, patch) IN ({placeholders})
     """
-    build_ids.extend(execute_postgres(cur, main_query, params, 120, True))
+    build_ids.extend(execute_postgres(cur, main_query, params, 120, True, "main"))
 
     # print(len(build_ids), len(unique_identifiers))
     m = len(builds)
-
 
     for build in builds:
         print(m)
@@ -523,6 +539,9 @@ def sendtosql(builds):
         early_items = build[9]
         core_items = build[10]
         neutral_items = build[11]
+
+        # if build_id == 5930 or build_id == 5990:
+        #     print(build)
 
         # print(build[0], build[1], build[2], build[3], patch, build_id)
 
@@ -572,7 +591,7 @@ def sendtosql(builds):
                 DO UPDATE SET total_matches = main.total_matches + EXCLUDED.total_matches, total_wins = main.total_wins + EXCLUDED.total_wins
             """
             params = [item for sublist in total_data for item in sublist]
-            execute_postgres(cur, query, params, 30, False)
+            execute_postgres(cur, query, params, 30, False, "total")
             total_data = []
 
         # Abilities
@@ -586,7 +605,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
             """
             params = [item for sublist in abilities_data for item in sublist]
-            execute_postgres(cur, query, params, 30, False)
+            execute_postgres(cur, query, params, 30, False, "abilities")
             abilities_data = []
 
         # Talents
@@ -600,7 +619,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = talents.wins + EXCLUDED.wins, matches = talents.matches + EXCLUDED.matches
             """
             params = [item for sublist in talents_data for item in sublist]
-            execute_postgres(cur, query, params, 30, False)
+            execute_postgres(cur, query, params, 30, False, "talents")
             talents_data = []
         
         # Starting 
@@ -614,7 +633,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
             """
             params = [item for sublist in starting_items_data for item in sublist]
-            execute_postgres(cur, query, params, 30, False)
+            execute_postgres(cur, query, params, 30, False, "starting")
             starting_items_data = []
 
         # Early 
@@ -628,7 +647,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = early.wins + EXCLUDED.wins, matches = early.matches + EXCLUDED.matches
             """
             params = [item for sublist in early_items_data for item in sublist]
-            execute_postgres(cur, query, params, 30, False)
+            execute_postgres(cur, query, params, 30, False, "early")
             early_items_data = []
         
         # Core
@@ -642,7 +661,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
             """
             core_params = [item for sublist in core_items_data for item in sublist]
-            execute_postgres(cur, core_query, core_params, 120, False)
+            execute_postgres(cur, core_query, core_params, 120, False, "core")
             core_items_data = [] 
 
         # Late
@@ -656,7 +675,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
             """
             late_params = [item for sublist in late_items_data for item in sublist]
-            execute_postgres(cur, late_query, late_params, 180, False)
+            execute_postgres(cur, late_query, late_params, 180, False, "late")
             late_items_data = []
         
         # Neutrals
@@ -670,7 +689,7 @@ def sendtosql(builds):
                 DO UPDATE SET wins = neutrals.wins + EXCLUDED.wins, matches = neutrals.matches + EXCLUDED.matches
             """
             params = [item for sublist in neutral_items_data for item in sublist]
-            execute_postgres(cur, query, params, 30, False)
+            execute_postgres(cur, query, params, 30, False, "neutrals")
             neutral_items_data = []
             
 
@@ -687,7 +706,7 @@ def sendtosql(builds):
             DO UPDATE SET total_matches = main.total_matches + EXCLUDED.total_matches, total_wins = main.total_wins + EXCLUDED.total_wins
         """
         params = [item for sublist in total_data for item in sublist]
-        execute_postgres(cur, query, params, 30, False)
+        execute_postgres(cur, query, params, 30, False, "total")
         total_data = []
 
     # Abilities
@@ -701,7 +720,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = abilities.wins + EXCLUDED.wins, matches = abilities.matches + EXCLUDED.matches
         """
         params = [item for sublist in abilities_data for item in sublist]
-        execute_postgres(cur, query, params, 30, False)
+        execute_postgres(cur, query, params, 30, False, "abilities")
         abilities_data = []
 
     # Talents
@@ -715,7 +734,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = talents.wins + EXCLUDED.wins, matches = talents.matches + EXCLUDED.matches
         """
         params = [item for sublist in talents_data for item in sublist]
-        execute_postgres(cur, query, params, 30, False)
+        execute_postgres(cur, query, params, 30, False, "talents")
         talents_data = []
     
     # Starting 
@@ -729,7 +748,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = starting.wins + EXCLUDED.wins, matches = starting.matches + EXCLUDED.matches
         """
         params = [item for sublist in starting_items_data for item in sublist]
-        execute_postgres(cur, query, params, 30, False)
+        execute_postgres(cur, query, params, 30, False, "starting")
         starting_items_data = []
 
     # Early 
@@ -743,7 +762,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = early.wins + EXCLUDED.wins, matches = early.matches + EXCLUDED.matches
         """
         params = [item for sublist in early_items_data for item in sublist]
-        execute_postgres(cur, query, params, 30, False)
+        execute_postgres(cur, query, params, 30, False, "early")
         early_items_data = []
     
     # Core
@@ -757,7 +776,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
         """
         core_params = [item for sublist in core_items_data for item in sublist]
-        execute_postgres(cur, core_query, core_params, 120, False)
+        execute_postgres(cur, core_query, core_params, 120, False, "core")
         core_items_data = [] 
 
     # Late
@@ -771,7 +790,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
         """
         late_params = [item for sublist in late_items_data for item in sublist]
-        execute_postgres(cur, late_query, late_params, 180, False)
+        execute_postgres(cur, late_query, late_params, 180, False, "late")
         late_items_data = []
     
     # Neutrals
@@ -785,7 +804,7 @@ def sendtosql(builds):
             DO UPDATE SET wins = neutrals.wins + EXCLUDED.wins, matches = neutrals.matches + EXCLUDED.matches
         """
         params = [item for sublist in neutral_items_data for item in sublist]
-        execute_postgres(cur, query, params, 30, False)
+        execute_postgres(cur, query, params, 30, False, "neutrals")
         neutral_items_data = []
         
     print("Done. Last sequence num: ", seq_num)
@@ -799,15 +818,15 @@ def sendtosql(builds):
     print(f"That took {round((elapsed_time/60), 2)} minutes")
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -857,7 +876,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 250:
+        if hourlyDump >= 150:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
