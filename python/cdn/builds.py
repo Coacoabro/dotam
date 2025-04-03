@@ -171,8 +171,12 @@ for hero_id in hero_ids:
     query_params = []
     for build_id, core_items in zip(build_ids, core_items_list):
         for core in core_items:
-            query_parts.append(f"(build_id = %s AND core_1 = %s AND core_2 = %s AND core_3 = %s)")
-            query_params.extend([build_id, core[0], core[1], core[2]])
+            if core[2] is not None:
+                query_parts.append(f"(build_id = %s AND core_1 = %s AND core_2 = %s AND core_3 = %s)")
+                query_params.extend([build_id, core[0], core[1], core[2]])
+            else:
+                query_parts.append(f"(build_id = %s AND core_1 = %s AND core_2 = %s AND core_3 IS NULL)")
+                query_params.extend([build_id, core[0], core[1]])
 
     if query_params:
         where_condition = " OR ".join(query_parts)
@@ -185,6 +189,7 @@ for hero_id in hero_ids:
         """
         cur.execute(late_items_query, query_params)
         late_items_data = cur.fetchall()
+    
 
     print("Merging core into one")
     # Merge late items with core items

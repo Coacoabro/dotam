@@ -876,7 +876,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 150:
+        if hourlyDump >= 100:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
