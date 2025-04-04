@@ -15,6 +15,7 @@ builds_database_url = os.environ.get('BUILDS_DATABASE_URL')
 conn = psycopg2.connect(builds_database_url)
 cur = conn.cursor()
 
+
 cur.execute("""
             
     DROP TABLE IF EXISTS abilities, early, starting, core, late, talents, neutrals, items, main CASCADE;
@@ -136,6 +137,10 @@ cur.execute("""
 
     ALTER TABLE late 
     ADD CONSTRAINT unique_late UNIQUE (build_id, core_1, core_2, core_3, nth, item);
+    
+    CREATE UNIQUE INDEX unique_late_support
+    ON late (build_id, core_1, core_2, nth, item)
+    WHERE core_3 IS NULL;
 
     ALTER TABLE neutrals 
     ADD CONSTRAINT unique_neutrals UNIQUE (build_id, tier, item);

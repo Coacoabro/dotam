@@ -440,7 +440,7 @@ def getBuilds(ranked_matches, builds):
 
 def execute_postgres(cur, query, params, timeout, doReturn, type):
 
-    cur.execute(f"SET statement_timeout = '{timeout}s'")
+    # cur.execute(f"SET statement_timeout = '{timeout}s'")
     retries = 3
 
     for attempt in range(retries):
@@ -458,19 +458,22 @@ def execute_postgres(cur, query, params, timeout, doReturn, type):
                 time.sleep(5)
             else:
                 print("Third time wasn't the charm. Failed on this query: ", query)
+        
         except psycopg2.Error as e:
+
+            print(f"Error: {e}")
             
-            if type == "talents":
-                unique_pairs = []
-                new_params = []
-                for i in range(0, len(params), 4):
-                    pair = [params[i], params[i+1]]
-                    if pair not in unique_pairs:
-                        unique_pairs.append(pair)
-                        new_params.extend([params[i], params[i+1], params[i+2], params[i+3]])
-                    else:
-                        print(pair)
-                cur.execute(query, new_params)
+            # if type == "talents":
+            #     unique_pairs = []
+            #     new_params = []
+            #     for i in range(0, len(params), 4):
+            #         pair = [params[i], params[i+1]]
+            #         if pair not in unique_pairs:
+            #             unique_pairs.append(pair)
+            #             new_params.extend([params[i], params[i+1], params[i+2], params[i+3]])
+            #         else:
+            #             print(pair)
+            #     cur.execute(query, new_params)
             break
 
 
@@ -482,7 +485,7 @@ def sendtosql(builds):
     conn = psycopg2.connect(builds_database_url, connect_timeout=600)
     cur = conn.cursor()
 
-    BATCH_SIZE = 10000
+    BATCH_SIZE = 25000
 
     # process = psutil.Process()
     # mem_info = process.memory_info()
@@ -667,15 +670,35 @@ def sendtosql(builds):
         # Late
         if len(late_items_data) >= BATCH_SIZE:
             print("Batched late")
-            late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s)'] * len(late_items_data))
-            late_query = f"""
-                INSERT INTO late (build_id, core_1, core_2, core_3, nth, item, wins, matches)
-                VALUES {late_placeholders}
-                ON CONFLICT (build_id, core_1, core_2, core_3, nth, item)
-                DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
-            """
-            late_params = [item for sublist in late_items_data for item in sublist]
-            execute_postgres(cur, late_query, late_params, 180, False, "late")
+            carry = [item for item in late_items_data if item[3] is not None]
+            support = [item for item in late_items_data if item[3] is None]
+
+            if carry:
+                carry_late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s)'] * len(carry))
+                carry_late_query = f"""
+                    INSERT INTO late (build_id, core_1, core_2, core_3, nth, item, wins, matches)
+                    VALUES {carry_late_placeholders}
+                    ON CONFLICT (build_id, core_1, core_2, core_3, nth, item)
+                    DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
+                """
+                carry_late_params = [item for sublist in carry for item in sublist]
+                execute_postgres(cur, carry_late_query, carry_late_params, 180, False, "late")
+            
+            if support:
+                support_late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s)'] * len(support))
+                support_late_query = f"""
+                    INSERT INTO late (build_id, core_1, core_2, nth, item, wins, matches)
+                    VALUES {support_late_placeholders}
+                    ON CONFLICT (build_id, core_1, core_2, nth, item)
+                    WHERE core_3 IS NULL
+                    DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
+                """
+                support_late_params = []
+                for sublist in support:
+                    build_id, core_1, core_2, core_3, nth, item, wins, matches = sublist  # Skip core_3
+                    support_late_params.extend([build_id, core_1, core_2, nth, item, wins, matches])
+                execute_postgres(cur, support_late_query, support_late_params, 180, False, "late")
+            
             late_items_data = []
         
         # Neutrals
@@ -782,15 +805,36 @@ def sendtosql(builds):
     # Late
     if late_items_data:
         print("Batched late")
-        late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s)'] * len(late_items_data))
-        late_query = f"""
-            INSERT INTO late (build_id, core_1, core_2, core_3, nth, item, wins, matches)
-            VALUES {late_placeholders}
-            ON CONFLICT (build_id, core_1, core_2, core_3, nth, item)
-            DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
-        """
-        late_params = [item for sublist in late_items_data for item in sublist]
-        execute_postgres(cur, late_query, late_params, 180, False, "late")
+
+        carry = [item for item in late_items_data if item[3] is not None]
+        support = [item for item in late_items_data if item[3] is None]
+
+        if carry:
+            carry_late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s)'] * len(carry))
+            carry_late_query = f"""
+                INSERT INTO late (build_id, core_1, core_2, core_3, nth, item, wins, matches)
+                VALUES {carry_late_placeholders}
+                ON CONFLICT (build_id, core_1, core_2, core_3, nth, item)
+                DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
+            """
+            carry_late_params = [item for sublist in carry for item in sublist]
+            execute_postgres(cur, carry_late_query, carry_late_params, 180, False, "late")
+        
+        if support:
+            support_late_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s)'] * len(support))
+            support_late_query = f"""
+                INSERT INTO late (build_id, core_1, core_2, nth, item, wins, matches)
+                VALUES {support_late_placeholders}
+                ON CONFLICT (build_id, core_1, core_2, nth, item)
+                WHERE core_3 IS NULL
+                DO UPDATE SET wins = late.wins + EXCLUDED.wins, matches = late.matches + EXCLUDED.matches
+            """
+            support_late_params = []
+            for sublist in support:
+                build_id, core_1, core_2, _, nth, item, wins, matches = sublist  # Skip core_3
+                support_late_params.extend([build_id, core_1, core_2, nth, item, wins, matches])
+            execute_postgres(cur, support_late_query, support_late_params, 180, False, "late")
+        
         late_items_data = []
     
     # Neutrals
@@ -876,7 +920,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 100:
+        if hourlyDump >= 150:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
