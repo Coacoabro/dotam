@@ -134,6 +134,10 @@ cur.execute("""
 
     ALTER TABLE core 
     ADD CONSTRAINT unique_core UNIQUE (build_id, core_1, core_2, core_3);
+            
+    CREATE UNIQUE INDEX unique_core_support
+    ON core (build_id, core_1, core_2)
+    WHERE core_3 IS NULL;
 
     ALTER TABLE late 
     ADD CONSTRAINT unique_late UNIQUE (build_id, core_1, core_2, core_3, nth, item);

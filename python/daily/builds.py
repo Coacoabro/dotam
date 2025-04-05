@@ -656,16 +656,39 @@ def sendtosql(builds):
         # Core
         if len(core_items_data) >= BATCH_SIZE:
             print("Batched core")
-            core_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(core_items_data))
-            core_query = f"""
-                INSERT INTO core (build_id, core_1, core_2, core_3, wins, matches)
-                VALUES {core_placeholders}
-                ON CONFLICT (build_id, core_1, core_2, core_3)
-                DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
-            """
-            core_params = [item for sublist in core_items_data for item in sublist]
-            execute_postgres(cur, core_query, core_params, 120, False, "core")
+
+            carry = [item for item in core_items_data if item[3] is not None]
+            support = [item for item in core_items_data if item[3] is None]
+
+            if carry:
+                carry_core_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(carry))
+                carry_core_query = f"""
+                    INSERT INTO core (build_id, core_1, core_2, core_3, wins, matches)
+                    VALUES {carry_core_placeholders}
+                    ON CONFLICT (build_id, core_1, core_2, core_3)
+                    DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
+                """
+                carry_core_params = [item for sublist in carry for item in sublist]
+                execute_postgres(cur, carry_core_query, carry_core_params, 120, False, "core")
+
+            if support:
+                support_core_placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(support))
+                support_core_query = f"""
+                    INSERT INTO core (build_id, core_1, core_2, wins, matches)
+                    VALUES {support_core_placeholders}
+                    ON CONFLICT (build_id, core_1, core_2)
+                    WHERE core_3 IS NULL
+                    DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
+                """
+                support_core_params = []
+                for sublist in support:
+                    build_id, core_1, core_2, _, wins, matches = sublist  # Skip core_3
+                    support_core_params.extend([build_id, core_1, core_2, wins, matches])
+                execute_postgres(cur, support_core_query, support_core_params, 120, False, "core")
+
             core_items_data = [] 
+            carry = []
+            support = []
 
         # Late
         if len(late_items_data) >= BATCH_SIZE:
@@ -700,6 +723,8 @@ def sendtosql(builds):
                 execute_postgres(cur, support_late_query, support_late_params, 180, False, "late")
             
             late_items_data = []
+            carry = []
+            support = []
         
         # Neutrals
         if len(neutral_items_data) >= BATCH_SIZE:
@@ -791,16 +816,39 @@ def sendtosql(builds):
     # Core
     if core_items_data:
         print("Batched core")
-        core_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(core_items_data))
-        core_query = f"""
-            INSERT INTO core (build_id, core_1, core_2, core_3, wins, matches)
-            VALUES {core_placeholders}
-            ON CONFLICT (build_id, core_1, core_2, core_3)
-            DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
-        """
-        core_params = [item for sublist in core_items_data for item in sublist]
-        execute_postgres(cur, core_query, core_params, 120, False, "core")
+
+        carry = [item for item in core_items_data if item[3] is not None]
+        support = [item for item in core_items_data if item[3] is None]
+
+        if carry:
+            carry_core_placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s)'] * len(carry))
+            carry_core_query = f"""
+                INSERT INTO core (build_id, core_1, core_2, core_3, wins, matches)
+                VALUES {carry_core_placeholders}
+                ON CONFLICT (build_id, core_1, core_2, core_3)
+                DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
+            """
+            carry_core_params = [item for sublist in carry for item in sublist]
+            execute_postgres(cur, carry_core_query, carry_core_params, 120, False, "core")
+
+        if support:
+            support_core_placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(support))
+            support_core_query = f"""
+                INSERT INTO core (build_id, core_1, core_2, wins, matches)
+                VALUES {support_core_placeholders}
+                ON CONFLICT (build_id, core_1, core_2)
+                WHERE core_3 IS NULL
+                DO UPDATE SET wins = core.wins + EXCLUDED.wins, matches = core.matches + EXCLUDED.matches
+            """
+            support_core_params = []
+            for sublist in support:
+                build_id, core_1, core_2, _, wins, matches = sublist  # Skip core_3
+                support_core_params.extend([build_id, core_1, core_2, wins, matches])
+            execute_postgres(cur, support_core_query, support_core_params, 120, False, "core")
+
         core_items_data = [] 
+        core = []
+        support = []
 
     # Late
     if late_items_data:
@@ -836,6 +884,8 @@ def sendtosql(builds):
             execute_postgres(cur, support_late_query, support_late_params, 180, False, "late")
         
         late_items_data = []
+        core = []
+        support = []
     
     # Neutrals
     if neutral_items_data:
@@ -862,15 +912,15 @@ def sendtosql(builds):
     print(f"That took {round((elapsed_time/60), 2)} minutes")
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
