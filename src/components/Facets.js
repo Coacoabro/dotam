@@ -128,13 +128,13 @@ export default function Facets( {name, id, initFacet, rates} ) {
 
         {facetShow &&
             <div className='hidden sm:block absolute py-2 z-50'>
-                <div className="text-white border-slate-900 shadow whitespace-pre-line z-40 w-[300px] sm:w-[400px]">
+                <div className="text-white border-slate-900 shadow whitespace-pre-line z-40 w-[300px] sm:w-[450px]">
                     <div className="text-lg sm:text-2xl flex font-bold rounded-t-lg p-2 justify-between sm:py-2 sm:px-5 bg-slate-800 border-slate-600 shadow border-t border-l border-r">
                         <div className='flex items-center gap-2'>
                             <img src={iconLink + hoverFacet.Icon + '.png'} className="w-6 h-8 sm:w-10 sm:h-10 rounded-md sm:p-1" />
                             {hoverFacet.Title}
                         </div>
-                        <div className='flex flex-cols  text-base font-medium text-right'>
+                        <div className='flex flex-col  text-base font-medium text-right'>
                             <div>{((rates[hovFacetNum].total_wins / rates[hovFacetNum].total_matches)*100).toFixed(2)}% <span className='text-sm'>WR</span></div>
                             <span className='text-xs opacity-50'>{(rates[hovFacetNum].total_matches).toLocaleString()} Matches</span>
                         </div>
