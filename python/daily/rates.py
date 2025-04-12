@@ -4,6 +4,9 @@ import psycopg2
 import json
 import requests
 import os
+import time
+
+start_time = time.time()
 
 from dotenv import load_dotenv
 
@@ -314,7 +317,9 @@ for tier, tier_roles in combinedArray.items():
                     """, (hero_id, current_patch, matches, wins, WR, PR, currentRole, tier, tier_num, tier_str))
         
 conn.commit()
-    
-
-
 conn.close() # Close communication with the database
+
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+print(f"That took {round((elapsed_time/60), 2)} minutes")
