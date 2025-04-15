@@ -502,7 +502,7 @@ def sendtosql(builds):
     conn = psycopg2.connect(builds_database_url, connect_timeout=600)
     cur = conn.cursor()
 
-    BATCH_SIZE = 25000
+    BATCH_SIZE = 10000
 
     # process = psutil.Process()
     # mem_info = process.memory_info()
@@ -929,15 +929,15 @@ def sendtosql(builds):
     print(f"That took {round((elapsed_time/60), 2)} minutes")
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -987,12 +987,15 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 250:
+        if hourlyDump >= 500:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
 
     except Exception as e:
         error_message = f"An error occurred in your script:\n\n{str(e)}"
-        send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+        print(f"An error occurred in your script:\n\n{str(e)}")
+        # send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+        if builds:
+            sendtosql(builds)
         break
