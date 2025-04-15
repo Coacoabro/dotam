@@ -45,6 +45,23 @@ item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=englis
 item_res = item_req.json()
 item_list = item_res['result']['data']['itemabilities']
 
+# Telegram Stuff
+
+BOT_TOKEN = "8073220272:AAGVRtXb7LRM0H4h3KizX5GfbfqLGDj6S1s"  # From BotFather
+CHAT_ID = "529384584"  # From userinfobot
+
+def send_telegram_message(bot_token, chat_id, message):
+    url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    payload = {
+        "chat_id": chat_id,
+        "text": message
+    }
+    response = requests.post(url, json=payload)
+    if response.status_code == 200:
+        print("Telegram notification sent!")
+    else:
+        print(f"Failed to send Telegram message: {response.status_code} - {response.text}")
+
 def actualRank(rank):
     if rank >= 80:
         return ["IMMORTAL", "HIGH"]
@@ -962,7 +979,7 @@ while True:
                         playersInfo.append(heroObj)
                     ranked_match['players'] = playersInfo
                     ranked_matches.append(ranked_match)
-                    if len(ranked_matches) == 25:
+                    if len(ranked_matches) == 30:
                         hourlyDump += 1
                         print(hourlyDump)
                         builds = getBuilds(ranked_matches, builds)
@@ -970,13 +987,12 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 150:
+        if hourlyDump >= 250:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
 
     except Exception as e:
-        print("Error: ", e)
-        traceback.print_exc()
-        sendtosql(builds)
+        error_message = f"An error occurred in your script:\n\n{str(e)}"
+        send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
         break
