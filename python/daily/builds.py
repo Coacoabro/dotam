@@ -545,7 +545,6 @@ def sendtosql(builds):
     m = len(builds)
 
     for build in builds:
-        print(m)
         m -= 1
         build_id = None
         for row in build_ids:
@@ -602,7 +601,7 @@ def sendtosql(builds):
 
         # Total Matches and Wins
         if len(total_data) >= BATCH_SIZE:
-            print("Batched total matches")
+            print("Batched total matches - ", m)
             placeholders = ', '.join(['(%s, %s, %s)'] * len(total_data))
             query = f"""
                 INSERT INTO main (build_id, total_matches, total_wins)
@@ -616,7 +615,7 @@ def sendtosql(builds):
 
         # Abilities
         if len(abilities_data) >= BATCH_SIZE:
-            print("Batched abilities")
+            print("Batched abilities - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(abilities_data))
             query = f"""
                 INSERT INTO abilities (build_id, ability_1, ability_2, ability_3, ability_4, ability_5, ability_6, ability_7, ability_8, ability_9, ability_10, ability_11, ability_12, ability_13, ability_14, ability_15, ability_16, wins, matches)
@@ -630,7 +629,7 @@ def sendtosql(builds):
 
         # Talents
         if len(talents_data) >= BATCH_SIZE:
-            print("Batched talents")
+            print("Batched talents - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s)'] * len(talents_data))
             query = f"""
                 INSERT INTO talents (build_id, talent, wins, matches)
@@ -644,7 +643,7 @@ def sendtosql(builds):
         
         # Starting 
         if len(starting_items_data) >= BATCH_SIZE:
-            print("Batched starting")
+            print("Batched starting - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(starting_items_data))
             query = f"""
                 INSERT INTO starting (build_id, starting_1, starting_2, starting_3, starting_4, starting_5, starting_6, wins, matches)
@@ -658,7 +657,7 @@ def sendtosql(builds):
 
         # Early 
         if len(early_items_data) >= BATCH_SIZE:
-            print("Batched early")
+            print("Batched early - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
             query = f"""
                 INSERT INTO early (build_id, item, secondpurchase, wins, matches)
@@ -672,7 +671,7 @@ def sendtosql(builds):
         
         # Core
         if len(core_items_data) >= BATCH_SIZE:
-            print("Batched core")
+            print("Batched core - ", m)
 
             carry = [item for item in core_items_data if item[3] is not None]
             support = [item for item in core_items_data if item[3] is None]
@@ -709,7 +708,7 @@ def sendtosql(builds):
 
         # Late
         if len(late_items_data) >= BATCH_SIZE:
-            print("Batched late")
+            print("Batched late - ", m)
             carry = [item for item in late_items_data if item[3] is not None]
             support = [item for item in late_items_data if item[3] is None]
 
@@ -745,7 +744,7 @@ def sendtosql(builds):
         
         # Neutrals
         if len(neutral_items_data) >= BATCH_SIZE:
-            print("Batched neutrals")
+            print("Batched neutrals - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(neutral_items_data))
             query = f"""
                 INSERT INTO neutrals (build_id, tier, item, wins, matches)
@@ -929,15 +928,15 @@ def sendtosql(builds):
     print(f"That took {round((elapsed_time/60), 2)} minutes")
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -995,7 +994,7 @@ while True:
     except Exception as e:
         error_message = f"An error occurred in your script:\n\n{str(e)}"
         print(f"An error occurred in your script:\n\n{str(e)}")
-        # send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+        send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
         if builds:
             sendtosql(builds)
         break
