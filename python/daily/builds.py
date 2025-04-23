@@ -502,7 +502,7 @@ def sendtosql(builds):
     conn = psycopg2.connect(builds_database_url, connect_timeout=600)
     cur = conn.cursor()
 
-    BATCH_SIZE = 10000
+    BATCH_SIZE = 2500
 
     # process = psutil.Process()
     # mem_info = process.memory_info()
@@ -986,7 +986,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 500:
+        if hourlyDump >= 250:
             print("Sucessfully parsed data!")
             sendtosql(builds)
             break
