@@ -953,6 +953,8 @@ def savebuilds(builds):
     with open(build_file, 'w') as file:
         json.dump(builds, file, indent=2)
 
+def mergebuilds(existing, new):
+    
 
 def sendtos3(builds):
 
@@ -986,11 +988,11 @@ def sendtos3(builds):
             else:
                 raise
         
-
+        updated_builds = {}
         
             
 
-        json.dumps(merged_summary, indent=2)
+        json.dumps(updated_builds, indent=2)
         s3.put_object(Bucket='dotam-builds', Key=s3_build_key)
 
 
