@@ -2,6 +2,7 @@
 
 import time
 import psycopg2
+import boto3
 import json
 import requests
 import os
@@ -12,6 +13,8 @@ import traceback
 from datetime import datetime
 from dotenv import load_dotenv
 from collections import Counter
+from collections import defaultdict
+from botocore.exceptions import ClientError
 
 # UPDATES
 # Starting Items - Forgot to make sure they are sorted when comparing them
@@ -44,6 +47,11 @@ patch = res.text
 item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
 item_res = item_req.json()
 item_list = item_res['result']['data']['itemabilities']
+
+# S3 Bucket
+
+s3 = boto3.client('s3')
+
 
 # Telegram Stuff
 
@@ -492,9 +500,7 @@ def execute_postgres(cur, query, params, timeout, doReturn, type):
             #             print(pair)
             #     cur.execute(query, new_params)
             break
-
-
-        
+       
 
 def sendtosql(builds):
 
@@ -502,7 +508,9 @@ def sendtosql(builds):
     conn = psycopg2.connect(builds_database_url, connect_timeout=600)
     cur = conn.cursor()
 
-    BATCH_SIZE = 2500
+    BATCH_SIZE = 10000
+    ITEMS_BATCH = 2500
+    ABILITIES_BATCH = 1000
 
     # process = psutil.Process()
     # mem_info = process.memory_info()
@@ -543,9 +551,19 @@ def sendtosql(builds):
 
     # print(len(build_ids), len(unique_identifiers))
     m = len(builds)
+    n = 0
 
     for build in builds:
         m -= 1
+        if n > 1000:
+            n = 0
+            conn.commit()
+            conn.close()
+            time.sleep(30)
+            conn = psycopg2.connect(builds_database_url, connect_timeout=600)
+            cur = conn.cursor()
+        else:
+            n += 1
         build_id = None
         for row in build_ids:
             if (row[1], row[2], row[3], row[4], row[5]) == (build[0], patch, build[1], build[2], build[3]):
@@ -614,7 +632,7 @@ def sendtosql(builds):
             total_data = []
 
         # Abilities
-        if len(abilities_data) >= BATCH_SIZE:
+        if len(abilities_data) >= ABILITIES_BATCH:
             print("Batched abilities - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(abilities_data))
             query = f"""
@@ -642,7 +660,7 @@ def sendtosql(builds):
             talents_data = []
         
         # Starting 
-        if len(starting_items_data) >= BATCH_SIZE:
+        if len(starting_items_data) >= ITEMS_BATCH:
             print("Batched starting - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s, %s, %s, %s, %s)'] * len(starting_items_data))
             query = f"""
@@ -656,7 +674,7 @@ def sendtosql(builds):
             starting_items_data = []
 
         # Early 
-        if len(early_items_data) >= BATCH_SIZE:
+        if len(early_items_data) >= ITEMS_BATCH:
             print("Batched early - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(early_items_data))
             query = f"""
@@ -670,7 +688,7 @@ def sendtosql(builds):
             early_items_data = []
         
         # Core
-        if len(core_items_data) >= BATCH_SIZE:
+        if len(core_items_data) >= ITEMS_BATCH:
             print("Batched core - ", m)
 
             carry = [item for item in core_items_data if item[3] is not None]
@@ -707,7 +725,7 @@ def sendtosql(builds):
             support = []
 
         # Late
-        if len(late_items_data) >= BATCH_SIZE:
+        if len(late_items_data) >= ITEMS_BATCH:
             print("Batched late - ", m)
             carry = [item for item in late_items_data if item[3] is not None]
             support = [item for item in late_items_data if item[3] is None]
@@ -743,7 +761,7 @@ def sendtosql(builds):
             support = []
         
         # Neutrals
-        if len(neutral_items_data) >= BATCH_SIZE:
+        if len(neutral_items_data) >= ITEMS_BATCH:
             print("Batched neutrals - ", m)
             placeholders = ', '.join(['(%s, %s, %s, %s, %s)'] * len(neutral_items_data))
             query = f"""
@@ -928,15 +946,64 @@ def sendtosql(builds):
     print(f"That took {round((elapsed_time/60), 2)} minutes")
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+def savebuilds(builds):
+    build_file = f"./python/build_data/test/builds.json"
+    directory_path = f"./python/build_data/test"
+    os.makedirs(directory_path, exist_ok=True)
+    with open(build_file, 'w') as file:
+        json.dump(builds, file, indent=2)
+
+
+def sendtos3(builds):
+
+    global patch
+
+    for build in builds:
+        hero_id, rank, role, facet, total_matches, total_wins, abilities, talents, starting, early, core, neutrals = build
+        if not rank:
+            rank = "ALL"
+
+        # Merging Wins and Matches to Summary
+        s3_summary_key = f"data/test/{hero_id}/{rank}/summary.json"
+        summary_obj = s3.get_object(Bucket='dotam-builds', Key=s3_summary_key)
+        s3_summary = json.loads(summary_obj['Body'].read().decode('utf-8'))
+
+        s3_summary[role][str(facet)]["total_matches"] += total_matches
+        s3_summary[role][str(facet)]["total_wins"] += total_wins
+
+        json.dumps(s3_summary, indent=2)
+        s3.put_object(Bucket='dotam-builds', Key=s3_build_key)
+
+
+        # Merging Wins and Matches to Builds
+        s3_build_key = f"data/{patch}/{hero_id}/{rank}/{role}/{facet}.json"
+        try:
+            build_obj = s3.get_object(Bucket='dotam-builds', Key=s3_build_key)
+            existing_build_data = json.loads(build_obj['Body'].read().decode('utf-8'))
+        except ClientError as e:
+            if e.respond['Error']['Code'] == 'NoSuchKey':
+                existing_build_data = []
+            else:
+                raise
+        
+
+        
+            
+
+        json.dumps(merged_summary, indent=2)
+        s3.put_object(Bucket='dotam-builds', Key=s3_build_key)
+
+
+
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -947,7 +1014,7 @@ hourlyDump = 0
 builds = []
 
 while True:
-    try:
+    # try:
 
         DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -986,15 +1053,17 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 250:
+        if hourlyDump >= 2:
             print("Sucessfully parsed data!")
-            sendtosql(builds)
+            # savebuilds(builds)
+            # sendtosql(builds)
+            sendtos3(builds)
             break
 
-    except Exception as e:
-        error_message = f"An error occurred in your script:\n\n{str(e)}"
-        print(f"An error occurred in your script:\n\n{str(e)}")
-        send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-        if builds:
-            sendtosql(builds)
-        break
+    # except Exception as e:
+    #     error_message = f"An error occurred in your script:\n\n{str(e)}"
+    #     print(e)
+    #     # send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+    #     # if builds:
+    #     #     sendtosql(builds)
+    #     break
