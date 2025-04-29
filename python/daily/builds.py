@@ -953,7 +953,17 @@ def savebuilds(builds):
     with open(build_file, 'w') as file:
         json.dump(builds, file, indent=2)
 
-def mergebuilds(existing, new):
+def mergebuilds(existing, new, key_fn):
+    index = {key_fn(e): e for e in existing}
+    for item in new:
+        key = key_fn(item)
+        if key in index:
+            index[key]["Wins"] += item["Wins"]
+            index[key]["Matches"] += item["Matches"]
+        else:
+            existing.append(item)
+    return existing
+
     
 
 def sendtos3(builds):
@@ -974,7 +984,7 @@ def sendtos3(builds):
         s3_summary[role][str(facet)]["total_wins"] += total_wins
 
         json.dumps(s3_summary, indent=2)
-        s3.put_object(Bucket='dotam-builds', Key=s3_build_key)
+        s3.put_object(Bucket='dotam-builds', Key=s3_summary_key, Body=json.dumps(s3_summary, indent=2))
 
 
         # Merging Wins and Matches to Builds
@@ -983,17 +993,30 @@ def sendtos3(builds):
             build_obj = s3.get_object(Bucket='dotam-builds', Key=s3_build_key)
             existing_build_data = json.loads(build_obj['Body'].read().decode('utf-8'))
         except ClientError as e:
-            if e.respond['Error']['Code'] == 'NoSuchKey':
+            if e.response['Error']['Code'] == 'NoSuchKey':
                 existing_build_data = []
             else:
                 raise
         
-        updated_builds = {}
-        
-            
+        new_build_data = [abilities, talents, starting, early, core, neutrals]
 
-        json.dumps(updated_builds, indent=2)
-        s3.put_object(Bucket='dotam-builds', Key=s3_build_key)
+        if not existing_build_data:
+            updated_builds = new_build_data
+        else:
+            old_abilities, old_talents, old_starting, old_early, old_core, old_neutrals = existing_build_data
+
+            updated_abilities = mergebuilds(old_abilities, abilities, lambda a: tuple(a["Abilities"]))
+            updated_talents = mergebuilds(old_talents, talents, lambda t: t["Talent"])
+            updated_starting = mergebuilds(old_starting, starting, lambda s: tuple(sorted(s["Starting"])))
+            updated_early = mergebuilds(old_early, early, lambda e: (e["Item"], e["isSecondPurchase"]))
+            updated_neutrals = mergebuilds(old_neutrals, neutrals, lambda n: (n["Tier"], n["Item"]))
+
+            # Core is unique because of Late game items
+            updated_core = []
+
+            updated_builds = [updated_abilities, updated_talents, updated_starting, updated_early, updated_core, updated_neutrals]
+        
+        s3.put_object(Bucket='dotam-builds', Key=s3_build_key, Body=json.dumps(updated_builds, indent=2))
 
 
 
