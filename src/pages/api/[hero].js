@@ -1,10 +1,7 @@
 import { useState } from "react"
 
 export default async function handler(req, res) {
-  const { hero } = req.query
-  const { type } = req.query
-  const { page } = req.query
-  const { patch } = req.query
+  const { hero, type, page, patch, rank, role, facet } = req.query
 
   try {
 
@@ -13,13 +10,14 @@ export default async function handler(req, res) {
     switch (type) {
 
       case 'info':
-        const info_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/info.json`)
+        const info_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero}/info.json`)
         result = await info_res.json()
         break;
 
       case 'page':
         if(page != 'matchups'){
           const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/${page}.json`)
+          // const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero}/${rank}/${role}/${facet}/${page}.json`)
           result = await page_res.json()
         }
         else{result = null}

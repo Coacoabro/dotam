@@ -17,8 +17,8 @@ import HeroLoading from './HeroLoading';
 
 import Ad from '../../../components/Ads/Venatus/Ad';
 
-const fetchHeroData = async (hero, type, patch, page) => {
-  const response = await fetch(`/api/${hero}?type=${type}&patch=${patch}&page=${page}`);
+const fetchHeroData = async (hero, type, rank, role, patch, facet, page) => {
+  const response = await fetch(`/api/${hero}?type=${type}&rank=${rank}&role=${role}&patch=${patch}&facet=${facet}&page=${page}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -30,15 +30,21 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
 
+  const [currRank, setCurrRank] = useState(rank || "")
+  const [currRole, setCurrRole] = useState(role || initRole)
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
+  const [currFacet, setCurrFacet] = useState(facet || "1")
 
-  const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currPatch], () => fetchHeroData(hero.id, 'info', currPatch), {staleTime: 3600000});
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currPatch, page], () => fetchHeroData(hero.id, 'page', currPatch, page), {staleTime: 3600000});
-  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currPatch], () => fetchHeroData(hero.id, 'matchups', currPatch), {staleTime: 3600000});
+  const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'info', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currRole, currPatch, currFacet, page], () => fetchHeroData(hero.id, 'page', currRank, currRole, currPatch, currFacet, page), {staleTime: 3600000});
+  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'matchups', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
 
   useEffect(() => {
+    if(rank){setCurrRank(rank)}
+    if(role){setCurrRole(role)}
     if(patch){setCurrPatch(patch)}
-  }, [patch])
+    if(facet){setCurrFacet(facet)}
+  }, [rank, role, patch, facet])
 
   if( buildsLoading || matchupsLoading ){
     if(heroInfo){

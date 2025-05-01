@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Script from 'next/script';
 
@@ -11,18 +11,31 @@ import Role from "../components/Role";
 import BottomBar from '../components/BottomBar';
 import HeroSearch from '../components/Home/Heroes/HeroSearch';
 import Ad from '../components/Ads/Venatus/Ad';
+import PatchesJson from '../../json/Patches.json'
+import { useRouter } from 'next/router';
 
-const fetchTierData = async (hero, type) => {
-    const response = await fetch(`/api/tier-list`);
+const fetchTierData = async (patch) => {
+
+    const response = await fetch(`/api/tier-list?patch=${patch}`)
+
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+        throw new Error('Network response was not ok');
     }
-    return response.json();
+    const json = await response.json()
+    return json;
 };
 
 export default function TierList() {
 
+    const router = useRouter()
+    const {patch} = router.query
+
     const [searchTerm, setSearchTerm] = useState('')
+    const [currPatch, setCurrPatch] = useState(patch || PatchesJson[0].Patch)
+
+    useEffect(() => {
+        if(patch){setCurrPatch(patch)}
+    },[patch])
 
     const handleSearch = (term) => {
         if(term.toLowerCase() == "tracker") {
@@ -31,7 +44,8 @@ export default function TierList() {
         else{setSearchTerm(term)}
     }
 
-    const { data, isLoading } = useQuery(['tierList'], fetchTierData)
+    const { data, isLoading, error } = useQuery(['tierList', currPatch], () => fetchTierData(currPatch), {enabled: !!currPatch,})
+    console.log(data, isLoading, error)
     
     return(
         <div className=''>

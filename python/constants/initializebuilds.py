@@ -19,6 +19,9 @@ newest_hero_id = 150
 
 base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
+res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+patch = res.text
+
 def get_innate():
     global newest_hero_id
     innate_json = {}
@@ -164,6 +167,8 @@ def postgres_data():
 
 def s3_data():
 
+    global patch
+
     s3 = boto3.client('s3')
 
     database_url = os.environ.get('DATABASE_URL')
@@ -173,11 +178,6 @@ def s3_data():
     cur.execute("SELECT hero_id from heroes;")
     hero_ids = [row[0] for row in cur.fetchall()]
     conn.close()
-
-    res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-    # patch = res.text
-    patch = "test"
-    patch_file_name = patch.replace('.', '_')
 
     Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
     Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
@@ -195,17 +195,53 @@ def s3_data():
                     for facet in hero_facet:
                         summary[role][facet] = {"total_matches": 0, "total_wins": 0}
                 summary = json.loads(json.dumps(summary))
-                s3_key = f"data/{patch_file_name}/{hero_id}/{rank}/summary.json"
+                s3_key = f"data/{patch}/{hero_id}/{rank}/summary.json"
                 executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_key, Body=json.dumps(summary, indent=2))
             
+def hero_info():
+
+    global patch
+
+    s3 = boto3.client('s3')
+
+    database_url = os.environ.get('DATABASE_URL')
+    conn = psycopg2.connect(database_url)
+    cur = conn.cursor()
+
+    cur.execute("SELECT hero_id from heroes;")
+    hero_ids = [row[0] for row in cur.fetchall()]
+
+    heroes = []
+
+    with ThreadPoolExecutor(max_workers=20) as executor:
+
+        for hero_id in hero_ids:
+
+            cur.execute("SELECT * FROM heroes WHERE hero_id = %s", [hero_id])
+            hero = cur.fetchall()
+            hero = hero[0]
+            heroObj = {}
+            heroObj['hero_id'] = hero[0]
+            heroObj['name'] = hero[1]
+            heroObj['localized_name'] = hero[2]
+            heroObj['img'] = hero[3]
+            heroObj['attr'] = hero[4]
+
+            executor.submit(s3.put_object, Bucket='dotam-content', Key=f"data/{patch}/{hero_id}/info.json", Body=json.dumps(heroObj, indent=2))
+            heroes.append(heroObj)
+    
+    s3.put_object(Bucket='dotam-content', Key=f"data/heroes.json", Body=json.dumps(heroes, indent=2))
 
 
     
-
+## All of these are used
 # get_facets()
 # get_innate()
-# postgres_data()
-s3_data()
+# s3_data()
+hero_info()
+
+
+### postgres_data() # NO LONGER USED
 
 
 ## Make Sure Everythings Up to Date
