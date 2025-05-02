@@ -472,134 +472,176 @@ def mergebuilds(existing, new, key_fn):
             existing.append(item)
     return existing
 
-def process_build(build):
+def process_build(builds, hero_id, rank):
     
     global patch
 
-    hero_id, rank, role, facet, total_matches, total_wins, abilities, talents, starting, early, core, neutrals = build
     if not rank:
         rank = ""
     
-    lateStart = 4
-    if role == "POSITION_4" or role == "POSITION_5":
-        lateStart = 3
-
-    # Merging Wins and Matches to Summary
+    # Grabbing Summary for Wins and Matches
     s3_summary_key = f"data/{patch}/{hero_id}/{rank}/summary.json"
     summary_obj = s3.get_object(Bucket='dotam-builds', Key=s3_summary_key)
     s3_summary = json.loads(summary_obj['Body'].read().decode('utf-8'))
 
-    s3_summary[role][str(facet)]["total_matches"] += total_matches
-    s3_summary[role][str(facet)]["total_wins"] += total_wins
+    # Grabbing Data
+    s3_data_key = f"data/{patch}/{hero_id}/{rank}/data.json"
+    data_obj = s3.get_object(Bucket='dotam-builds', Key=s3_data_key)
+    existing_data = json.loads(data_obj['Body'].read().decode('utf-8'))
 
+    # Grabbing Abilities Page Info
+    s3_abilities_key = f"data/{patch}/{hero_id}/{rank}/abilities.json"
+    abilities_obj = s3.get_object(Bucket='dotam-builds', Key=s3_abilities_key)
+    existing_abilities = json.loads(abilities_obj['Body'].read().decode('utf-8'))
+
+    # Grabbing Items Page Info
+    s3_items_key = f"data/{patch}/{hero_id}/{rank}/items.json"
+    items_obj = s3.get_object(Bucket='dotam-builds', Key=s3_items_key)
+    existing_items = json.loads(items_obj['Body'].read().decode('utf-8'))
+    
+    # Grabbing Build Page Info
+    s3_builds_key = f"data/{patch}/{hero_id}/{rank}/builds.json"
+    build_obj = s3.get_object(Bucket='dotam-builds', Key=s3_builds_key)
+    existing_builds = json.loads(build_obj['Body'].read().decode('utf-8'))
+
+
+    for build in builds:
+
+        hero_id, rank, role, facet, total_matches, total_wins, abilities, talents, starting, early, core, neutrals = build
+
+        if not rank:
+            rank = ""
+        
+        lateStart = 4
+        if role == "POSITION_4" or role == "POSITION_5":
+            lateStart = 3
+
+        s3_summary[role][str(facet)]["total_matches"] += total_matches
+        s3_summary[role][str(facet)]["total_wins"] += total_wins
+        
+        new_build_data = [abilities, talents, starting, early, core, neutrals]
+
+        existing_build_data = existing_data[role][str(facet)]
+
+        if not existing_build_data:
+            updated_abilities, updated_talents, updated_starting, updated_early, updated_core, updated_neutrals = new_build_data
+            existing_data[role][str(facet)] = [updated_abilities, updated_talents, updated_starting, updated_early, updated_core, updated_neutrals]
+        else:
+            old_abilities, old_talents, old_starting, old_early, old_core, old_neutrals = existing_build_data
+
+            updated_abilities = mergebuilds(old_abilities, abilities, lambda a: tuple(a["Abilities"]))
+            updated_talents = mergebuilds(old_talents, talents, lambda t: t["Talent"])
+            updated_starting = mergebuilds(old_starting, starting, lambda s: tuple(sorted(s["Starting"])))
+            updated_early = mergebuilds(old_early, early, lambda e: (e["Item"], e["isSecondPurchase"]))
+            updated_neutrals = mergebuilds(old_neutrals, neutrals, lambda n: (n["Tier"], n["Item"]))
+
+            # Core is unique because of Late game items
+            existing_index = {tuple(c["Core"]): c for c in old_core}
+            for nc in core:
+                key = tuple(nc["Core"])
+                if key in existing_index:
+                    ec = existing_index[key]
+                    ec["Wins"] += nc["Wins"]
+                    ec["Matches"] += nc["Matches"]
+                    ec["Late"] = mergebuilds(ec.get("Late", []), nc.get("Late", []), lambda l: (l["Nth"], l["Item"]))
+                else:
+                    old_core.append(nc)
+            updated_core = old_core
+
+            existing_data[role][str(facet)] = [updated_abilities, updated_talents, updated_starting, updated_early, updated_core, updated_neutrals]
+
+        
+        # Organize Updated Builds for faster loading
+
+        # Abilities Page
+        top_abilities = sorted(updated_abilities, key=lambda ta: ta["Matches"], reverse=True)[:10]
+        existing_abilities[role][str(facet)] = {
+            "abilities": top_abilities,
+            "talents": updated_talents
+        }
+
+        # Items Page
+        copied_starting = copy.deepcopy(updated_starting)
+        copied_early = copy.deepcopy(updated_early)
+        copied_core = copy.deepcopy(updated_core)
+        copied_neutrals = copy.deepcopy(updated_neutrals)
+
+        top_starting = sorted(copied_starting, key=lambda ts: ts["Matches"], reverse=True)[:5]
+        top_early = sorted(copied_early, key=lambda te: te["Matches"], reverse=True)[:10]
+        top_core = sorted(copied_core, key=lambda tc: tc["Matches"], reverse=True)[:10]
+        top_neutrals = sorted(copied_neutrals, key=lambda tn: tn["Matches"], reverse=True)
+
+        for tc in top_core:
+            top_late = []
+            for n in range(lateStart,11):
+                nth_items = list(filter(lambda nl: nl["Nth"] == n, tc["Late"]))
+                top_late.append(sorted(nth_items, key=lambda tl: tl["Matches"], reverse=True)[:10])
+            tc["Late"] = top_late
+
+        existing_items[role][str(facet)] = {
+            "starting": top_starting,
+            "early": top_early,
+            "core": top_core,
+            "neutrals": top_neutrals
+        }
+
+        # Builds Page
+        builds_core = top_core[:3] if len(top_core) > 0 else None
+        if builds_core:
+            for bc in builds_core:
+                builds_late = []
+                for nth_items in bc["Late"]:
+                    builds_late.append(nth_items[:3])
+                bc["Late"] = builds_late
+
+        existing_builds[role][str(facet)] = {
+            "abilities": top_abilities[0] if len(top_abilities) > 0 else None,
+            "talents": updated_talents,
+            "items": {
+                "starting": top_starting[0] if len(top_starting) > 0 else None,
+                "early": top_early[:6] if len(top_early) > 0 else None,
+                "core": builds_core,
+                "neutrals": top_neutrals
+            }
+        }
+
+    # Dumping Updated Summary
     json.dumps(s3_summary, indent=2)
     s3.put_object(Bucket='dotam-builds', Key=s3_summary_key, Body=json.dumps(s3_summary, indent=2))
 
+    # Dumping Updated Build Data
+    json.dumps(existing_data, indent=2)
+    s3.put_object(Bucket='dotam-builds', Key=s3_data_key, Body=json.dumps(existing_data, indent=2))
 
-    # Merging Wins and Matches to Builds
-    s3_build_key = f"data/{patch}/{hero_id}/{rank}/{role}/{facet}/data.json"
-    try:
-        build_obj = s3.get_object(Bucket='dotam-builds', Key=s3_build_key)
-        existing_build_data = json.loads(build_obj['Body'].read().decode('utf-8'))
-    except ClientError as e:
-        if e.response['Error']['Code'] == 'NoSuchKey':
-            existing_build_data = []
-        else:
-            raise
-    
-    new_build_data = [abilities, talents, starting, early, core, neutrals]
+    # Dumping Updated Abilities Page
+    json.dumps(existing_abilities, indent=2)
+    s3.put_object(Bucket='dotam-builds', Key=s3_abilities_key, Body=json.dumps(existing_abilities, indent=2))
 
-    if not existing_build_data:
-        updated_builds = new_build_data
-    else:
-        old_abilities, old_talents, old_starting, old_early, old_core, old_neutrals = existing_build_data
+    # Dumping Updated Items Page
+    json.dumps(existing_items, indent=2)
+    s3.put_object(Bucket='dotam-builds', Key=s3_items_key, Body=json.dumps(existing_items, indent=2))
 
-        updated_abilities = mergebuilds(old_abilities, abilities, lambda a: tuple(a["Abilities"]))
-        updated_talents = mergebuilds(old_talents, talents, lambda t: t["Talent"])
-        updated_starting = mergebuilds(old_starting, starting, lambda s: tuple(sorted(s["Starting"])))
-        updated_early = mergebuilds(old_early, early, lambda e: (e["Item"], e["isSecondPurchase"]))
-        updated_neutrals = mergebuilds(old_neutrals, neutrals, lambda n: (n["Tier"], n["Item"]))
+    # Dumping Updated Builds Page
+    json.dumps(existing_builds, indent=2)
+    s3.put_object(Bucket='dotam-builds', Key=s3_builds_key, Body=json.dumps(existing_builds, indent=2))
 
-        # Core is unique because of Late game items
-        existing_index = {tuple(c["Core"]): c for c in old_core}
-        for nc in core:
-            key = tuple(nc["Core"])
-            if key in existing_index:
-                ec = existing_index[key]
-                ec["Wins"] += nc["Wins"]
-                ec["Matches"] += nc["Matches"]
-                ec["Late"] = mergebuilds(ec.get("Late", []), nc.get("Late", []), lambda l: (l["Nth"], l["Item"]))
-            else:
-                old_core.append(nc)
-        updated_core = old_core
-
-        updated_builds = [updated_abilities, updated_talents, updated_starting, updated_early, updated_core, updated_neutrals]
-    
-    s3.put_object(Bucket='dotam-builds', Key=s3_build_key, Body=json.dumps(updated_builds, indent=2))
-    
-    # Organize Updated Builds for faster loading
-
-    # Abilities Page
-    top_abilities = sorted(updated_abilities, key=lambda ta: ta["Matches"], reverse=True)[:10]
-    abilities_json = {
-        "abilities": top_abilities,
-        "talents": updated_talents
-    }
-    s3.put_object(Bucket='dotam-builds', Key=f"data/{patch}/{hero_id}/{rank}/{role}/{facet}/abilities.json", Body=json.dumps(abilities_json, indent=2))
-
-    # Items Page
-    top_starting = sorted(updated_starting, key=lambda ts: ts["Matches"], reverse=True)[:5]
-    top_early = sorted(updated_early, key=lambda te: te["Matches"], reverse=True)[:10]
-    top_core = sorted(updated_core, key=lambda tc: tc["Matches"], reverse=True)[:10]
-    top_neutrals = sorted(updated_neutrals, key=lambda tn: tn["Matches"], reverse=True)
-
-    for tc in top_core:
-        top_late = []
-        for n in range(lateStart,11):
-            nth_items = list(filter(lambda nl: nl["Nth"] == n, tc["Late"]))
-            top_late.append(sorted(nth_items, key=lambda tl: tl["Matches"], reverse=True)[:10])
-        tc["Late"] = top_late
-
-    items_json = {
-        "starting": top_starting,
-        "early": top_early,
-        "core": top_core,
-        "neutrals": top_neutrals
-    }
-    s3.put_object(Bucket='dotam-builds', Key=f"data/{patch}/{hero_id}/{rank}/{role}/{facet}/items.json", Body=json.dumps(items_json, indent=2))
-
-    # Builds Page
-    builds_core = top_core[:3] if len(top_core) > 0 else None
-    if builds_core:
-        for bc in builds_core:
-            builds_late = []
-            for nth_items in bc["Late"]:
-                builds_late.append(nth_items[:3])
-            bc["Late"] = builds_late
-
-    builds_json = {
-        "abilities": top_abilities[0] if len(top_abilities) > 0 else None,
-        "talents": updated_talents,
-        "items": {
-            "starting": top_starting[0] if len(top_starting) > 0 else None,
-            "early": top_early[:6] if len(top_early) > 0 else None,
-            "core": builds_core,
-            "neutrals": top_neutrals
-        }
-    }
-    s3.put_object(Bucket='dotam-builds', Key=f"data/{patch}/{hero_id}/{rank}/{role}/{facet}/builds.json", Body=json.dumps(builds_json, indent=2))
-
+    print("Done: ", hero_id, rank)
 
 def sendtos3(builds):
 
-    m = len(builds)
+    grouped_builds = defaultdict(list)
 
-    with ThreadPoolExecutor(max_workers=20) as executor:
-        for build in builds:
-            m -= 1
-            print(m)
-            process_build(build)
-            executor.submit(lambda build=build: process_build(build))
+    for build in builds:
+        hero_id = build[0]
+        rank = build[1]
+        grouped_builds[(hero_id, rank)].append(build)
+
+    print("Amount of builds: ", len(grouped_builds))
+
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        for (hero_id, rank), build_group in grouped_builds.items():
+            # process_build(build_group, hero_id, rank)
+            executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
 
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
@@ -624,20 +666,17 @@ def sendtos3(builds):
     elapsed_time = end_time - start_time
     print(f"That took {round((elapsed_time/60), 2)} minutes")
 
-    
 
 
-
-
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -650,7 +689,7 @@ builds = []
 sent_already = False
 
 while True:
-    try:
+    # try:
 
         DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -696,14 +735,15 @@ while True:
 
             break
 
-    except Exception as e:
-        error_message = f"An error occurred in your script:\n\n{str(e)}"
-        if str(e) == "local variable 'data' referenced before assignment":
-            send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
-            break
-        else:
-            send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-            if builds and not sent_already:
-                sent_already = True
-                sendtos3(builds)
-        break
+    # except Exception as e:
+    #     error_message = f"An error occurred in your script:\n\n{str(e)}"
+    #     print(error_message)
+    #     if str(e) == "local variable 'data' referenced before assignment":
+    #         # send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
+    #         break
+    #     else:
+    #         # send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+    #         if builds and not sent_already:
+    #             sent_already = True
+    #             sendtos3(builds)
+    #     break

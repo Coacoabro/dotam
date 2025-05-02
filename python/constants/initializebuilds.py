@@ -191,12 +191,50 @@ def s3_data():
             hero_facet = list(range(1, num_facets + 1))
             for rank in Ranks: 
                 summary = defaultdict(dict)
+                data = defaultdict(dict)
+                abilities = defaultdict(dict)
+                items = defaultdict(dict)
+                builds = defaultdict(dict)
                 for role in Roles:
                     for facet in hero_facet:
-                        summary[role][facet] = {"total_matches": 0, "total_wins": 0}
+                        summary[role][facet] = {
+                            "total_matches": 0, 
+                            "total_wins": 0
+                        }
+                        data[role][facet] = []
+                        abilities[role][facet] = {
+                            "abilities": None, 
+                            "talents": None
+                        }
+                        items[role][facet] = {
+                            "starting": None, 
+                            "early": None, 
+                            "core": None, 
+                            "neutrals":None
+                        }
+                        builds[role][facet] = {
+                            "abilities": None,
+                            "talents": None,
+                            "items": {
+                                "starting": None,
+                                "early": None,
+                                "core": None,
+                                "neutrals": None
+                            }
+                        }
+                        
                 summary = json.loads(json.dumps(summary))
+                data = json.loads(json.dumps(data))
                 s3_key = f"data/{patch}/{hero_id}/{rank}/summary.json"
+                s3_data_key = f"data/{patch}/{hero_id}/{rank}/data.json"
+                s3_abilities_key = f"data/{patch}/{hero_id}/{rank}/abilities.json"
+                s3_items_key = f"data/{patch}/{hero_id}/{rank}/items.json"
+                s3_builds_key = f"data/{patch}/{hero_id}/{rank}/builds.json"
                 executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_key, Body=json.dumps(summary, indent=2))
+                executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_data_key, Body=json.dumps(data, indent=2))
+                executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_abilities_key, Body=json.dumps(abilities, indent=2))
+                executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_items_key, Body=json.dumps(items, indent=2))
+                executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_builds_key, Body=json.dumps(builds, indent=2))
             
 def hero_info():
 
@@ -237,8 +275,8 @@ def hero_info():
 ## All of these are used
 # get_facets()
 # get_innate()
-# s3_data()
-hero_info()
+s3_data()
+# hero_info()
 
 
 ### postgres_data() # NO LONGER USED
