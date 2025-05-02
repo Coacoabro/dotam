@@ -664,19 +664,22 @@ def sendtos3(builds):
         json.dump({"seq_num": seq_num}, file)
     end_time = time.time()
     elapsed_time = end_time - start_time
-    print(f"That took {round((elapsed_time/60), 2)} minutes")
+
+    time_message = f"That took {round((elapsed_time/60), 2)} minutes"
+    print(time_message)
+    send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
 
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -689,7 +692,7 @@ builds = []
 sent_already = False
 
 while True:
-    # try:
+    try:
 
         DOTA_2_URL = SEQ_URL + str(seq_num)
 
@@ -728,22 +731,22 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 5:
+        if hourlyDump >= 300:
             print("Sucessfully parsed data!")
             sent_already = True
             sendtos3(builds)
 
             break
 
-    # except Exception as e:
-    #     error_message = f"An error occurred in your script:\n\n{str(e)}"
-    #     print(error_message)
-    #     if str(e) == "local variable 'data' referenced before assignment":
-    #         # send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
-    #         break
-    #     else:
-    #         # send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-    #         if builds and not sent_already:
-    #             sent_already = True
-    #             sendtos3(builds)
-    #     break
+    except Exception as e:
+        error_message = f"An error occurred in your script:\n\n{str(e)}"
+        print(error_message)
+        if str(e) == "local variable 'data' referenced before assignment":
+            send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
+            break
+        else:
+            send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+            if builds and not sent_already:
+                sent_already = True
+                sendtos3(builds)
+        break
