@@ -28,13 +28,13 @@ def getQuery(rank):
 
     roles_query = "\n".join([f"""
     {role}: heroStats {{
-        winHour(
+        winDay(
         gameModeIds: ALL_PICK_RANKED
         take: 1
         {'positionIds: ' + role if role else ''}
         {'bracketIds: ' + rank if rank else ''}
         ) {{
-            hour
+            day
             winCount
             matchCount
             heroId
@@ -154,7 +154,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
 
         for currentRole in Roles:
             if currentTier != None:
-                combinedArray[currentTier][currentRole].extend(data['data'][currentRole]['winHour'])
+                combinedArray[currentTier][currentRole].extend(data['data'][currentRole]['winDay'])
                 if rates:
                     for rate in rates:
                         if rate["rank"] == currentRank and rate["role"] == currentRole:
@@ -165,7 +165,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
                             }
                             combinedArray[currentTier][currentRole].append(tempObj)
             role_data = data['data'][currentRole]
-            for item in role_data['winHour']:
+            for item in role_data['winDay']:
                 total_matches += item['matchCount']
         
         total_matches /= 10
@@ -175,7 +175,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
             for hero_id in hero_ids:
                 matches = 0
                 wins = 0
-                for item in role_data['winHour']:
+                for item in role_data['winDay']:
                     if item['heroId'] == hero_id:
                         matches += item['matchCount']
                         wins += item['winCount']
@@ -196,7 +196,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
             for hero_id in hero_ids:
                 matches = 0
                 wincount = 0
-                for item in role_data['winHour']:
+                for item in role_data['winDay']:
                     if item['heroId'] == hero_id:
                         matches += item['matchCount']
                         wincount += item['winCount']
