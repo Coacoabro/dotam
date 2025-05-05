@@ -3,7 +3,7 @@ import requests
 BOT_TOKEN = "8073220272:AAGVRtXb7LRM0H4h3KizX5GfbfqLGDj6S1s"  # From BotFather
 CHAT_ID = "529384584"  # From userinfobot
 
-message = "Now dumping into SQL"
+message = "Up And Running!"
 
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 

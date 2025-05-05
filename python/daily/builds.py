@@ -662,6 +662,7 @@ def sendtos3(builds):
     print("Done. Last sequence num: ", seq_num)
     with open(file_path, 'w') as file:
         json.dump({"seq_num": seq_num}, file)
+
     end_time = time.time()
     elapsed_time = end_time - start_time
 
@@ -731,7 +732,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 300:
+        if hourlyDump >= 500:
             print("Sucessfully parsed data!")
             sent_already = True
             sendtos3(builds)
