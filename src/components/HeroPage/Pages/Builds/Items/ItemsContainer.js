@@ -20,7 +20,7 @@ export default function ItemsContainer({build, hero, role}) {
 
     const [isCarry, setIsCarry] = useState(role == "POSITION_4" || role == "POSITION_5" ? false : true)
 
-    const [lateItems, setLateItems] = useState(build.core ? build.core[0].late : [])
+    const [lateItems, setLateItems] = useState(build.core ? build.core[0].Late : [])
 
     const [currOptions, setCurrOptions] = useState('?' + initOptions)
 
@@ -39,7 +39,7 @@ export default function ItemsContainer({build, hero, role}) {
             setIsCarry(true)
         }
         if(build.core){
-            setLateItems(build.core[0].late)
+            setLateItems(build.core[0].Late)
         }
     }, [build, role, router])    
 
@@ -59,14 +59,14 @@ export default function ItemsContainer({build, hero, role}) {
                     {build.early ? <Early items={build.early} /> : <div>No early items data</div>}
                 </div>
                 <div className={`hidden lg:w-2/5 lg:block`}>
-                    {build.core ? <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} /> : <div>No core data</div>}
+                    {build.core ? <Core items={build.core} isCarry={isCarry} sendLate={handleLate} /> : <div>No core data</div>}
                 </div>
             </div>
             <div className='sm:w-1/3 sm:hidden px-10 sm:px-0'>
                 {build.early ? <Early items={build.early} /> : <div>No early items data</div>}
             </div>
             <div className={`block lg:hidden sm:w-3/5 mx-auto`}>
-                {build.core ? <Core items={build.core} matches={build.total_matches} isCarry={isCarry} sendLate={handleLate} /> : <div>No core data</div>}
+                {build.core ? <Core items={build.core} isCarry={isCarry} sendLate={handleLate} /> : <div>No core data</div>}
             </div>
             <div className='w-full sm:w-3/5 sm:mx-auto lg:w-full'>
                 <Late items={lateItems} isCarry={isCarry} />

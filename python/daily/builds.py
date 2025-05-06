@@ -646,7 +646,7 @@ def sendtos3(builds):
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
     response = client.create_invalidation(
-        DistributionId='E2UJP3F27QO2FJ',  # Replace with your CloudFront Distribution ID
+        DistributionId='E3TU5F95XHEEA',  # Replace with your CloudFront Distribution ID
         InvalidationBatch={
             'Paths': {
                 'Quantity': 1,  # Number of paths to invalidate
@@ -732,7 +732,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 500:
+        if hourlyDump >= 350:
             print("Sucessfully parsed data!")
             sent_already = True
             sendtos3(builds)

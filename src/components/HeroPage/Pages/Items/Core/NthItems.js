@@ -13,4 +13,5 @@ export default function NthItems({items, order, n}){
             ))}
         </div>
     )
+    
 }

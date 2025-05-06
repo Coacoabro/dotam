@@ -19,7 +19,7 @@ export default function EarlyTable({items}){
                 </tr>
                 <tbody className="text-lg">
                     {items.map((obj, index) => (
-                        <EarlyRow order={index} item={obj.item} secondpurchase={obj.secondpurchase} matches={obj.matches} wins={obj.wins} />
+                        <EarlyRow order={index} item={obj.Item} secondpurchase={obj.isSecondPurchase} matches={obj.Matches} wins={obj.Wins} />
                     ))}
                 </tbody>
             </table>

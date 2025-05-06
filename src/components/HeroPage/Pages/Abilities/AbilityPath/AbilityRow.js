@@ -1,7 +1,9 @@
+import { useState } from "react"
 import ability_ids from "../../../../../../dotaconstants/build/ability_ids"
 
 export default function AbilityRow( {order, abilityPath, matches, wins} ) {
 
+    const [hovered, setHovered] = useState(false)
 
     const wr = ((wins/matches)*100).toFixed(1)
     const wrColor = wr >= 51.5 ? 'text-[#ABDEED]' 
@@ -11,17 +13,17 @@ export default function AbilityRow( {order, abilityPath, matches, wins} ) {
     const talentURL = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg"
 
     return(
-        <tr className={`${order % 2 ? null : "bg-slate-950"} hover:bg-slate-900 ${order != 9 ? 'border-b-2 border-slate-800' : null}`}>
-            <td className="flex space-x-3 py-3 px-4 sm:py-6 sm:px-8 overflow-x-scroll sm:overflow-visible min-w-[540px]">
+        <tr className={`${order % 2 ? null : "bg-slate-950"} ${order != 9 ? 'border-b-2 border-slate-800' : null}`}>
+            <td className="flex space-x-3 py-3 px-4 sm:py-3 sm:px-4 overflow-x-scroll sm:overflow-visible min-w-[540px]">
                 {abilityPath.map((ability, index) => (
-                    <div className="relative">
+                    <div className={`relative bg-slate-900 px-1 py-0.5 rounded-md`}>
+                        <div className="text-center">{index+1}</div>
                         <img className="w-6 sm:w-10 rounded-lg" src={ability > 0 ? imgURL + ability_ids[ability] + ".png" : talentURL} />
-                        <div className='hidden sm:block sm:text-base sm:absolute -mt-6 ml-5 sm:-mt-5 sm:ml-6'><div>{index+1}</div></div>
                     </div>
                 ))}
             </td>
             
-            <td className={`${wrColor} text-xs sm:text-lg`}>{wr}%</td>
+            <td className={`${wrColor} text-xs sm:text-lg sm:text-center`}>{wr}%</td>
             <td className="text-xs sm:text-lg text-right sm:text-center">{matches.toLocaleString()}</td>
         </tr>
     )

@@ -3,11 +3,7 @@ import ItemCard from './ItemCard'
 
 export default function Early({items}) {
 
-    const [early, setEarly] = useState(items.slice(0, 6))
-    
-    useEffect(() => {
-        setEarly(items.slice(0, 6))
-    }, [items])
+    const early = items
 
     return(
         <div className="space-y-1 bg-slate-900 rounded-lg border border-slate-800 h-full">

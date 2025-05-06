@@ -6,37 +6,18 @@ import Neutrals from "./Neutrals/Neutrals"
 import Starting from "./Starting/Starting"
 import Ad from "../../../../components/Ads/Venatus/Ad"
 
-export default function Items({ initRole, initFacet, heroData, heroBuilds, current_patch }) {
+export default function Items({ initRole, heroData, currBuild }) {
 
     const router = useRouter()
-    const { role, rank, patch, facet } = router.query
+    const { role } = router.query
 
-    const [currBuild, setCurrBuild] = useState(
-        heroBuilds.find((obj) => 
-            (obj.role == role || (!role && obj.role == initRole))
-            && (obj.rank == rank || (!rank && obj.rank == ""))
-            && (obj.facet == facet || (!facet && obj.facet == initFacet) )
-            && (obj.patch == patch || (!patch && obj.patch == current_patch))
-        )
-    )
-    
-    
-    const [isCarry, setIsCarry] = useState(currBuild.role == 'POSITION_4' || currBuild.role == 'POSITION_5' ? false : true)
+    const [currRole, setCurrRole] = useState(role || initRole)
+    const [isCarry, setIsCarry] = useState(currRole == "POSITION_4" || currRole == "POSITION_5" ? false : true)
 
     useEffect(() => {
-
-        const currRole = role || initRole
-        const currRank = rank || ""
-        const currPatch = patch || current_patch
-        const currFacet = facet || initFacet
-
-        setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
-        if(currRole == 'POSITION_4' || currRole == 'POSITION_5'){
-            setIsCarry(false)
-        }
-        else{setIsCarry(true)}
-
-    }, [role, rank, patch, facet, heroBuilds])
+        if(role){setCurrRole(role)}
+        if(currRole){setIsCarry(currRole == "POSITION_4" || currRole == "POSITION_5" ? false : true)}
+    }, [role])
 
     console.log(currBuild)
 

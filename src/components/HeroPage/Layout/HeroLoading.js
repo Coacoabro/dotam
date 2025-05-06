@@ -4,7 +4,7 @@ import OptionsContainer from "./OptionsContainer"
 import RatesContainer from "./Rates/RatesContainer"
 import StaticInfo from "./Static/StaticInfo"
 
-export default function HeroLoading({hero, heroData, rates, current_patch, initRole}){
+export default function HeroLoading({hero, heroData, rates, current_patch, initRole, initFacet}){
 
     const heroName = hero.name
 
@@ -38,7 +38,7 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
             </div>
 
             <div className="flex space-x-3">
-                {rates.length > 0 ? <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} /> : null}
+                <RatesContainer rates={rates} />
                 <div className='hidden sm:block space-y-3'>
                     <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
                     <PagesList hero={hero.url} />
@@ -46,7 +46,7 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
             </div>
 
             <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
-                <OptionsContainer hero={hero} hero_name={heroData.name} />
+                <OptionsContainer hero={hero} hero_name={heroData.name} initFacet={initFacet} />
             </div>
 
             <div className="hidden sm:block"><LoadingWheel /></div>

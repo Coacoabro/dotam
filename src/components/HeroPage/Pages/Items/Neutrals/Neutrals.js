@@ -5,8 +5,8 @@ export default function Neutrals({hero, items}){
     const tieredItems = Array.from({length: 5}, () => [])
 
     items.forEach(item => {
-        if (item.tier >= 1 && item.tier <=5) {
-            tieredItems[item.tier - 1].push(item)
+        if (item.Tier >= 1 && item.Tier <=5) {
+            tieredItems[item.Tier - 1].push(item)
         }
     })
 

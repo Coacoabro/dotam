@@ -16,8 +16,7 @@ export default async function handler(req, res) {
 
       case 'page':
         if(page != 'matchups'){
-          const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch.replace(".", "_")}/${hero}/${page}.json`)
-          // const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero}/${rank}/${role}/${facet}/${page}.json`)
+          const page_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero}/${rank}/${page}.json`)
           result = await page_res.json()
         }
         else{result = null}

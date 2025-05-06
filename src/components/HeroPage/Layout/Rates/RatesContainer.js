@@ -3,10 +3,7 @@ import { useRouter } from 'next/router';
 import RateCard from './RateCard';
 
 
-export default function RatesContainer({ rates, initRole, current_patch }) {
-
-    const router = useRouter()
-    const {rank, role, patch} = router.query
+export default function RatesContainer({ rates }) {
 
     const tierColor = {
         "S+": "text-[#F4B856]", 
@@ -19,7 +16,7 @@ export default function RatesContainer({ rates, initRole, current_patch }) {
     }
 
     
-    const [currRate, setCurrRate] = useState(rates.find(r => r.rank === rank || "" && r.role === role || initRole && r.patch === patch || current_patch))
+    const [currRate, setCurrRate] = useState(rates)
     const [heroWinRate, setHeroWinRate] = useState((currRate.winrate * 100).toFixed(2));
     const [heroPickRate, setHeroPickRate] = useState((currRate.pickrate * 100).toFixed(2));
     const [heroMatches, setHeroMatches] = useState(currRate.matches.toLocaleString());
@@ -28,23 +25,17 @@ export default function RatesContainer({ rates, initRole, current_patch }) {
 
     useEffect(() => {
 
-        const currRole = role || initRole
-        const currRank = rank || ""
-        const currPatch = patch || current_patch
-
-        const rate = rates.find(r => r.rank === currRank && r.role === currRole && r.patch === currPatch)
-
-        if (rate) {
-            setCurrRate(rate)
-            setHeroWinRate((rate.winrate * 100).toFixed(2));
-            setHeroPickRate((rate.pickrate * 100).toFixed(2));
-            setHeroMatches(rate.matches.toLocaleString());
-            setHeroTier(rate.tier_str);
+        if (rates) {
+            setCurrRate(rates)
+            setHeroWinRate((rates.winrate * 100).toFixed(2));
+            setHeroPickRate((rates.pickrate * 100).toFixed(2));
+            setHeroMatches(rates.matches.toLocaleString());
+            setHeroTier(rates.tier_str);
         }
 
         setColor(tierColor[heroTier])
     
-    }, [{rates} , router.events, initRole])
+    }, [rates])
 
 
 

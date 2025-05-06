@@ -4,10 +4,10 @@ export default function ItemCard({item, index}) {
 
     const order = ['1st', '2nd', '3rd', '4th', '5th', '6th']
 
-    const itemId = item.item
+    const itemId = item.Item
 
-    const wr = ((item.wins/item.matches)*100).toFixed(1)
-    const matches = (item.matches).toLocaleString()
+    const wr = ((item.Wins/item.Matches)*100).toFixed(1)
+    const matches = (item.Matches).toLocaleString()
 
     return(
         <div className='flex gap-3 items-end'>
@@ -15,7 +15,7 @@ export default function ItemCard({item, index}) {
             <div className='flex sm:gap-2.5 items-start'>
                 <div className='w-16'>
                     <Item id={itemId} />
-                    <div className='absolute -mt-6 ml-5 sm:-mt-7 w-full sm:ml-8'>{item.secondpurchase ? <div>2nd</div> : null}</div>
+                    <div className='absolute -mt-6 ml-5 sm:-mt-7 w-full sm:ml-8'>{item.isSecondPurchase ? <div>2nd</div> : null}</div>
                 </div>
                 
                 <div className='w-28'>

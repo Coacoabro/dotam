@@ -22,10 +22,18 @@ const fetchHeroData = async (hero, type, rank, role, patch, facet, page) => {
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
-  return response.json();
+  return await response.json();
 };
 
-export default function HeroLayout({ children, hero, current_patch, page, rates, initRole }) {
+const fetchRatesData = async (hero, rank, role, patch) => {
+  const response = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero}/rates/${rank}/${role}/rates.json`)
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
+  return response.json()
+}
+
+export default function HeroLayout({ children, hero, current_patch, page, summary, initRole, initFacet }) {
 
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
@@ -33,7 +41,9 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
   const [currRank, setCurrRank] = useState(rank || "")
   const [currRole, setCurrRole] = useState(role || initRole)
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
-  const [currFacet, setCurrFacet] = useState(facet || "1")
+  const [currFacet, setCurrFacet] = useState(facet || initFacet)
+
+  const [rates, setRates] = useState(null)
 
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'info', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currRole, currPatch, currFacet, page], () => fetchHeroData(hero.id, 'page', currRank, currRole, currPatch, currFacet, page), {staleTime: 3600000});
@@ -44,112 +54,113 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
     if(role){setCurrRole(role)}
     if(patch){setCurrPatch(patch)}
     if(facet){setCurrFacet(facet)}
+    
+    const loadData = async () => {
+      try {
+        const data = await fetchRatesData(hero.id, currRank, currRole, currPatch)
+        setRates(data)
+      } catch (error) {
+        console.error('Failed to fetch')
+      }
+    }
+
+    loadData()
   }, [rank, role, patch, facet])
 
-  if( buildsLoading || matchupsLoading ){
-    if(heroInfo){
-      return(<HeroLoading hero={hero} heroData={heroInfo} rates={rates} current_patch={current_patch} initRole={initRole} />)
-    }
-    else{return(<IoLoading />)}
-  }
-  else{
+  if(rates){
 
-    const heroData = heroInfo
-
-    const heroName = hero.name    
-
-    const initFacet = (() => {
-      let most = 0;
-      let best = 0;
-      if(heroBuilds){
-        heroBuilds.forEach((obj) => {
-          if (obj.role === initRole && obj.rank === "") {
-            if (obj.total_matches > most) {
-              most = obj.total_matches;
-              best = obj.facet;
-            }
-          }
-        });
-        return best;
+    if( buildsLoading || matchupsLoading ){
+      if(heroInfo){
+        return(<HeroLoading hero={hero} heroData={heroInfo} rates={rates} current_patch={current_patch} initRole={initRole} initFacet={initFacet} />)
       }
-      else return 1
-    })();
+      else{return(<IoLoading />)}
+    }
 
-    const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
-    const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
-    const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
+    else{
 
-    return(
-      <div>
-        <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
-          
-          <div className="pt-2 flex justify-center align-items-center" >
-            <Ad placementName="leaderboard" />
-          </div>
-          
+      const heroData = heroInfo
+      const heroName = hero.name    
 
-          <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
+      let currBuild = null
 
-            <img src={portrait} className="h-14 sm:h-32" />
+      const portrait = 'https://cdn.cloudflare.steamstatic.com' + heroData.img
+      const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
+      const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
 
-            <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
-              <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
-              <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
+      if(heroBuilds){currBuild = heroBuilds[currRole][currFacet]}
+
+      return(
+        <div>
+          <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
+            
+            <div className="pt-2 flex justify-center align-items-center" >
+              <Ad placementName="leaderboard" />
+            </div>
+            
+
+            <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
+
+              <img src={portrait} className="h-14 sm:h-32" />
+
+              <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
+                <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
+                <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
+              </div>
+
+              <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25 z-0">
+                <img src={crop_img} className="object-cover w-full h-full" />
+              </div>
+
             </div>
 
-            <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25 z-0">
+            <div className="sm:hidden absolute h-36 right-0 top-20 opacity-25">
               <img src={crop_img} className="object-cover w-full h-full" />
             </div>
 
-          </div>
-
-          <div className="sm:hidden absolute h-36 right-0 top-20 opacity-25">
-            <img src={crop_img} className="object-cover w-full h-full" />
-          </div>
-
-          <div className="block sm:hidden z-10">
-            <StaticInfo hero={heroData} />
-          </div>
-
-          <div className='flex space-x-3'>
-            {rates.length > 0 ? <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} /> : null}
-            <div className='hidden sm:block space-y-3'>
-              <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
-              <PagesList hero={hero.url} />
-              {/* <Pages hero={hero.url} /> */}
+            <div className="block sm:hidden z-10">
+              <StaticInfo hero={heroData} />
             </div>
+
+            <div className='flex space-x-3'>
+              <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} />
+              <div className='hidden sm:block space-y-3'>
+                <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
+                <PagesList hero={hero.url} />
+                {/* <Pages hero={hero.url} /> */}
+              </div>
+            </div>
+
+            <div className="pt-2 flex justify-center align-items-center" >
+              <Ad placementName="mobile_banner" />
+            </div>
+
+            <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
+              <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} summary={summary} />
+            </div>
+
+            {currBuild ?
+              <main>
+                {React.Children.map(children, child =>
+                  React.cloneElement(child, { initRole, initFacet, heroData, currBuild, heroMatchups })
+                )}
+              </main>
+            : heroMatchups ? 
+              <main>
+                {React.Children.map(children, child =>
+                  React.cloneElement(child, { heroData, initRole, heroMatchups })
+                )}
+              </main>
+            : <div>Nothing yet!</div>}
+
           </div>
 
-          <div className="pt-2 flex justify-center align-items-center" >
-            <Ad placementName="mobile_banner" />
+          <div className='z-0 mx-auto mt-12'>
+            <BottomBar />
           </div>
-
-          <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
-            <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} builds={heroBuilds} current_patch={current_patch}/>
-          </div>
-
-          {heroBuilds ?
-            <main>
-              {React.Children.map(children, child =>
-                React.cloneElement(child, { initRole, initFacet, heroData, heroBuilds, heroMatchups })
-              )}
-            </main>
-          : heroMatchups ? 
-            <main>
-              {React.Children.map(children, child =>
-                React.cloneElement(child, { heroData, initRole, heroMatchups })
-              )}
-            </main>
-          : <div>Nothing yet!</div>}
 
         </div>
-
-        <div className='z-0 mx-auto mt-12'>
-          <BottomBar />
-        </div>
-
-      </div>
-      
-    )
+        
+      )
+    }
   }
 }

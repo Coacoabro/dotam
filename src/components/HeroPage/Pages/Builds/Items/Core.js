@@ -3,17 +3,13 @@ import CoreItems from './CoreItems'
 
 export default function Core({items, isCarry, sendLate}) {
 
-    const [cores, setCores] = useState(items.slice(0, 3))
+    const cores = items
     const [selectedCore, setSelectedCore] = useState(0)
 
     const handleClick = (select) => {
         setSelectedCore(select)
-        sendLate(cores[select].late)
+        sendLate(cores[select].Late)
     }
-    
-    useEffect(() => {
-        setCores(items.slice(0, 3))
-    }, [items])
 
     return(
         <div className='bg-slate-900 rounded-lg border border-slate-800 space-y-1'>

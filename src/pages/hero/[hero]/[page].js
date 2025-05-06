@@ -18,46 +18,47 @@ import MobileAd from '../../../components/Ads/Google/MobileAd.js'
 import Script from 'next/script.js';
 
 export async function getServerSideProps(context) {
+    const { rank } = context.query
     const hero = dota2heroes.find(hero => hero.url === context.query.hero);
     const patch = Patches[0].Patch
     if(hero && patch){
-        const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero.id}/rates.json`)
-        let rates = []
 
-        try {
-            const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch.replace(".", "_")}/${hero.id}/rates.json`)
-            rates = await rates_res.json();
-        } catch (error) {
-            console.error('Error fetching rates:', error);
-            rates = {};  // Fallback to an empty JSON object
+        let maxMatches = 0
+        let initRole = ""
+        let initFacet = ""
+
+        const summary_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero.id}/${rank ? rank : ""}/summary.json`)
+        const summary = await summary_res.json()
+
+        for (const role in summary) {
+            const facets = summary[role]
+            for (const facet in facets) {
+                const { total_matches } = facets[facet]
+                if (total_matches > maxMatches) {
+                    maxMatches = total_matches
+                    initRole = role
+                    initFacet = facet
+                }
+            }
         }
-
 
         return {
             props: {
                 hero: hero,
                 patch: patch,
-                rates: rates,
+                summary: summary,
+                initRole: initRole,
+                initFacet: initFacet
             },
         };
     }
 }
 
-export default function HeroPage({ hero, patch, rates }) {
+export default function HeroPage({ hero, patch, summary, initRole, initFacet }) {
     const router = useRouter();
     const { page } = router.query;
 
-    const heroName = hero.name;
-
-    let initRole = 'POSITION_1'
-
-    if(rates.length > 0){
-        const highestPickRateRole = rates
-            .filter(rate => rate.role !== "" && rate.rank == "")
-            .reduce((max, rate) => rate.pickrate > max.pickrate ? rate : max, {pickrate: 0});
-      
-        initRole = highestPickRateRole.role
-    }
+    const heroName = hero.name;  
 
 
 
@@ -117,7 +118,7 @@ export default function HeroPage({ hero, patch, rates }) {
     }
 
     return (
-        <HeroLayout hero={hero} current_patch={patch} page={page} rates={rates} initRole={initRole}>
+        <HeroLayout hero={hero} current_patch={patch} page={page} summary={summary} initRole={initRole} initFacet={initFacet}>
             <Head>
                 <title>{heroName} Guide: {GuideContent}</title>
                 <meta name="description"
@@ -136,14 +137,6 @@ export default function HeroPage({ hero, patch, rates }) {
             />
 
             {PageComponent}
-            
-            {/* <VerticalAd slot={VerticalSlot} />
-            <SquareAd slot={SquareSlot} />
-
-            <div className='mx-auto'>
-                <BottomBarAd slot={BottomSlot} />
-                <MobileAd slot={MobileSlot} />
-            </div> */}
             
         </HeroLayout>
     );

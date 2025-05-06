@@ -23,7 +23,7 @@ export default function CoreContainer({items, isCarry}){
                 ))}
             </div>
             <div className="w-3/4 overflow-y-auto custom-scrollbar">
-                <LateItems items={currCore.late} isCarry={isCarry} />
+                <LateItems items={currCore.Late} isCarry={isCarry} />
             </div>
         </div>
     )

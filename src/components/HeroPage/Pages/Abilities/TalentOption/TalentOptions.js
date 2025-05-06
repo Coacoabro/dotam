@@ -10,19 +10,21 @@ export default function TalentOptions({talents, hero}) {
 
     const heroName = hero.name
 
+
     if(talents){
-        
+
+        console.log(talents)
 
         const tempTalents = []
         talents.forEach((talent) => {
-            const tempTalent = abilityIds[talent.talent]
+            const tempTalent = abilityIds[talent.Talent]
             if(tempTalent) {
                 if(Abilities[tempTalent]){
                     if(Abilities[tempTalent].dname){
                         const talentObj = {
                             "Talent": Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?'),
-                            "Wins": talent.wins,
-                            "Matches": talent.matches
+                            "Wins": talent.Wins,
+                            "Matches": talent.Matches
                         }
                         tempTalents.push(talentObj)
                     }

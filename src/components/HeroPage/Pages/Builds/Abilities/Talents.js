@@ -13,7 +13,7 @@ export default function Talents({hero, talents}) {
     if(talents){
 
         talents.forEach((talent) => {
-            const tempTalent = abilityIds[talent.talent]
+            const tempTalent = abilityIds[talent.Talent]
             if(tempTalent) {
                 if(Abilities[tempTalent]){
                     if(Abilities[tempTalent].dname){
@@ -39,7 +39,7 @@ export default function Talents({hero, talents}) {
             let leftTalent = talents.find((obj) => obj.talent == leftTalents[i])
             let rightTalent = talents.find((obj) => obj.talent == rightTalents[i])
             if(leftTalent && rightTalent) {
-                if (leftTalent.matches > rightTalent.matches) {
+                if (leftTalent.Matches > rightTalent.Matches) {
                     bestTalents[i] = leftTalents[i];
                 } else {
                     bestTalents[i] = rightTalents[i];

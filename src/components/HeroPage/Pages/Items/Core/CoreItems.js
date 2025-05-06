@@ -3,9 +3,9 @@ import Item from '../../../Item'
 export default function CoreItems({core, isCarry}) {
 
     if(core){
-        const items = core.core
-        const wr = ((core.wins/core.matches)*100).toFixed(1)
-        const dispMatches = core.matches.toLocaleString()
+        const items = core.Core
+        const wr = ((core.Wins/core.Matches)*100).toFixed(1)
+        const dispMatches = core.Matches.toLocaleString()
         const wrColor = wr >= 51.5 ? 'text-[#ABDEED]' 
             : wr >= 48.5 ? 'text-slate-200'
             : 'text-[#F46E58]'

@@ -2,11 +2,11 @@ import Item from "../../../Item"
 
 export default function StartingContainer({items}){
 
-    const wr = ((items.wins / items.matches) * 100).toFixed(2)
+    const wr = ((items.Wins / items.Matches) * 100).toFixed(2)
     const wrColor = wr >= 51.5 ? 'text-[#ABDEED]' 
     : wr >= 48.5 ? 'text-slate-200'
     : 'text-[#F46E58]'
-    const matches = items.matches.toLocaleString()
+    const matches = items.Matches.toLocaleString()
 
     return(
         <div className="px-4 space-y-2">
@@ -15,7 +15,7 @@ export default function StartingContainer({items}){
                 <p className="text-xs sm:text-sm">{matches} Matches</p>
             </div>
             <div className="grid grid-cols-3 gap-2 place-items-center">
-                {items.starting.map((item, index) => (
+                {items.Starting.map((item, index) => (
                     <Item id={item} />
                 ))}
             </div>

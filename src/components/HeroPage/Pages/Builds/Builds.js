@@ -13,28 +13,14 @@ import IoLoading from '../../../IoLoading';
 import Ad from '../../../../components/Ads/Venatus/Ad';
 
 
-export default function Builds({ hero, initRole, initFacet, heroData, heroBuilds, heroMatchups, current_patch }) {
+export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
 
     const router = useRouter()
-
-    const { role, rank, patch, facet } = router.query
 
     const buttonClass = "p-4 gap-2 border-t border-l border-r border-slate-800 border-b-0 flex items-end justify-evenly"
 
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
-    const [currBuild, setCurrBuild] = useState(heroBuilds.find((obj) => obj.role == initRole && obj.rank == "" && obj.facet == initFacet && obj.patch == current_patch))
-
-    useEffect(() => {
-
-        const currRole = role || initRole
-        const currRank = rank || ""
-        const currPatch = patch || current_patch
-        const currFacet = facet || initFacet
-
-        setCurrBuild(heroBuilds.find((obj) => obj.role == currRole && obj.rank == currRank && obj.patch == currPatch && obj.facet == currFacet))
-
-    }, [role, rank, patch, facet, heroBuilds])
 
     return(
         <div className='space-y-4 flex-col justify-center'>
