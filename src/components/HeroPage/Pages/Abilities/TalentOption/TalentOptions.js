@@ -10,10 +10,11 @@ export default function TalentOptions({talents, hero}) {
 
     const heroName = hero.name
 
+    const init_talents = talents
+    console.log(init_talents)
+
 
     if(talents){
-
-        console.log(talents)
 
         const tempTalents = []
         talents.forEach((talent) => {

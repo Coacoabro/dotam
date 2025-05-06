@@ -46523,7 +46523,9 @@
   "special_bonus_unique_silencer_arcane_curse_charges": {
     "dname": "2 Arcane Curse charges"
   },
-  "special_bonus_unique_silencer_arcane_curse_duration": {},
+  "special_bonus_unique_silencer_arcane_curse_duration": {
+    "dname": "+2s/+1s Arcane Curse Base/Penalty Duration"
+  },
   "obsidian_destroyer_arcane_orb": {
     "dname": "Arcane Orb",
     "behavior": [
@@ -77243,7 +77245,7 @@
     "dname": "-{s:bonus_AbilityCooldown}% Stone Gaze Cooldown and Mana Cost"
   },
   "special_bonus_unique_medusa_gorgons_grasp_volleys": {
-    "dname": "+{s:bonus_volley_count} Gorgon's Grasp Volley"
+    "dname": "+1 Gorgon's Grasp Volley"
   },
   "special_bonus_unique_silencer_5": {
     "dname": "+{s:value}s Glaives Silence"
