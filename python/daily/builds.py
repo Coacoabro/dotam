@@ -586,7 +586,8 @@ def process_build(builds, hero_id, rank):
         }
 
         # Builds Page
-        builds_core = top_core[:3] if len(top_core) > 0 else None
+        core_copy = copy.deepcopy(top_core)
+        builds_core = core_copy[:3] if len(core_copy) > 0 else None
         if builds_core:
             for bc in builds_core:
                 builds_late = []
