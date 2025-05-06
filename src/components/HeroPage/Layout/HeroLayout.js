@@ -93,9 +93,9 @@ export default function HeroLayout({ children, hero, current_patch, page, summar
         <div>
           <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
             
-            <div className="pt-2 flex justify-center align-items-center" >
+            {/* <div className="pt-2 flex justify-center align-items-center" >
               <Ad placementName="leaderboard" />
-            </div>
+            </div> */}
             
 
             <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
@@ -136,6 +136,10 @@ export default function HeroLayout({ children, hero, current_patch, page, summar
 
             <div className='py-3 z-0 px-0 sm:px-32 lg:px-0'>
               <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} summary={summary} />
+            </div>
+
+            <div className="pt-2 flex justify-center align-items-center" >
+              <Ad placementName="leaderboard" />
             </div>
 
             {currBuild ?
