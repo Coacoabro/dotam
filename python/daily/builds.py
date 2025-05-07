@@ -667,7 +667,7 @@ def sendtos3(builds):
     end_time = time.time()
     elapsed_time = end_time - start_time
 
-    time_message = f"That took {round((elapsed_time/60), 2)} minutes"
+    time_message = f"Finished sending to S3. That took {round((elapsed_time/60), 2)} minutes"
     print(time_message)
     send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
 
@@ -734,7 +734,13 @@ while True:
             seq_num += 1
 
         if hourlyDump >= 350:
-            print("Sucessfully parsed data!")
+
+            end_time = time.time()
+            elapsed_time = end_time - start_time
+            time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
+            print(time_message)
+            send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
+
             sent_already = True
             sendtos3(builds)
 

@@ -29,6 +29,8 @@ export async function getServerSideProps(context) {
 
         const summary_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero.id}/${rank ? rank : ""}/summary.json`)
         const summary = await summary_res.json()
+        const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero.id}/rates/${rank ? rank : ""}/rates.json`)
+        const rates = await rates_res.json()
 
         for (const role in summary) {
             const facets = summary[role]
@@ -46,6 +48,7 @@ export async function getServerSideProps(context) {
             props: {
                 hero: hero,
                 patch: patch,
+                rates: rates,
                 summary: summary,
                 initRole: initRole,
                 initFacet: initFacet
@@ -54,7 +57,7 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default function HeroPage({ hero, patch, summary, initRole, initFacet }) {
+export default function HeroPage({ hero, patch, rates, summary, initRole, initFacet }) {
     const router = useRouter();
     const { page } = router.query;
 
@@ -118,7 +121,7 @@ export default function HeroPage({ hero, patch, summary, initRole, initFacet }) 
     }
 
     return (
-        <HeroLayout hero={hero} current_patch={patch} page={page} summary={summary} initRole={initRole} initFacet={initFacet}>
+        <HeroLayout hero={hero} current_patch={patch} page={page} rates={rates} summary={summary} initRole={initRole} initFacet={initFacet}>
             <Head>
                 <title>{heroName} Guide: {GuideContent}</title>
                 <meta name="description"

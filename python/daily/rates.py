@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from datetime import datetime
 from botocore.exceptions import ClientError
 from concurrent.futures import ThreadPoolExecutor
+from collections import defaultdict
 
 load_dotenv()
 
@@ -129,228 +130,235 @@ combinedArray = {
 
 updated_rates = []
 
-with ThreadPoolExecutor(max_workers=10) as executor:
 
-    for currentRank in Ranks:
+for currentRank in Ranks:
 
-        if rates:
-            total_matches = sum(item["matches"] for item in rates if item["rank"] == currentRank)
-        else:
-            total_matches = 0
-
-        wrArray = []
-        prArray = []
-
-        query = getQuery(currentRank)
-
-        response = requests.post(url, json={'query': query}, headers=headers)
-        data = json.loads(response.text)
-
-        currentTier = None
-
-        for tier, ranks_list in CombinedRanks.items():
-            if currentRank in ranks_list:
-                currentTier = tier
-
-        for currentRole in Roles:
-            if currentTier != None:
-                combinedArray[currentTier][currentRole].extend(data['data'][currentRole]['winHour'])
-                if rates:
-                    for rate in rates:
-                        if rate["rank"] == currentRank and rate["role"] == currentRole:
-                            tempObj = {
-                                'heroId': rate["hero_id"],
-                                'matchCount': rate["matches"],
-                                'winCount': rate["wincount"]
-                            }
-                            combinedArray[currentTier][currentRole].append(tempObj)
-            role_data = data['data'][currentRole]
-            for item in role_data['winHour']:
-                total_matches += item['matchCount']
-        
-        total_matches /= 10
-
-        for currentRole in Roles:
-            role_data = data['data'][currentRole]
-            for hero_id in hero_ids:
-                matches = 0
-                wins = 0
-                for item in role_data['winHour']:
-                    if item['heroId'] == hero_id:
-                        matches += item['matchCount']
-                        wins += item['winCount']
-                if rates:
-                    for rate in rates:
-                        if rate["role"] == currentRole and rate["rank"] == currentRank and rate["hero_id"] == hero_id:
-                            matches += rate["matches"]
-                            wins += rate["wincount"]
-                if matches > 0:
-                    PR = matches / total_matches
-                    WR =  wins / matches
-                    if(PR > 0.005):
-                        wrArray.append(WR)
-                        prArray.append(PR)
-
-        for currentRole in Roles:
-            role_data = data['data'][currentRole]
-            for hero_id in hero_ids:
-                matches = 0
-                wincount = 0
-                for item in role_data['winHour']:
-                    if item['heroId'] == hero_id:
-                        matches += item['matchCount']
-                        wincount += item['winCount']
-                if rates:
-                    for rate in rates:
-                        if rate["role"] == currentRole and rate["rank"] == currentRank and rate["hero_id"] == hero_id:
-                            matches += rate["matches"]
-                            wincount += rate["wincount"]
-
-                if matches > 0:        
-                    winrate = wincount / matches
-                    pickrate = matches / total_matches                    
-
-                    if pickrate >= 0.005:
-                        sdWR = standardDeviation(wrArray)
-                        sdPR = standardDeviation(prArray)
-                        zScoreWR = (winrate - (sum(wrArray) / len(wrArray)) ) / sdWR
-                        zScorePR = (pickrate - (sum(prArray) / len(prArray)) ) / sdPR
-
-                        if zScoreWR < 0:
-                            tier_num = zScoreWR - abs(zScorePR)
-                        else:
-                            tier_num = zScoreWR + zScorePR
-
-                        tier_str = tierCalc(tier_num)
-
-                    else:
-                        tier_num = 0
-                        tier_str = '?'
-
-                    updated_rates.append({
-                        "hero_id": hero_id,
-                        "patch": current_patch,
-                        "matches": matches,
-                        "wincount": wincount,
-                        "winrate": winrate,
-                        "pickrate": pickrate,
-                        "role": currentRole,
-                        "rank": currentRank,
-                        "tier_num": tier_num,
-                        "tier_str": tier_str
-                    })
-
-                    hero_rates = {
-                        "matches": matches,
-                        "wincount": wincount,
-                        "winrate": winrate,
-                        "pickrate": pickrate,
-                        "role": currentRole,
-                        "rank": currentRank,
-                        "tier_num": tier_num,
-                        "tier_str": tier_str
-                    }
-
-
-
-                    print(hero_id, currentRole, currentRank)
-
-                    executor.submit(s3.put_object, Bucket='dotam-content', Key=f"data/{current_patch}/{hero_id}/rates/{currentRank}/{currentRole}/rates.json", Body=json.dumps(hero_rates, indent=2))
-
-
-    for tier, tier_roles in combinedArray.items():
+    if rates:
+        total_matches = sum(item["matches"] for item in rates if item["rank"] == currentRank)
+    else:
         total_matches = 0
-        if rates:
-            total_matches = sum(item["matches"] for item in rates if item["rank"] == tier)
 
-        wrArray = []
-        prArray = []
-        
-        for currentRole in Roles:
-            role_data = tier_roles[currentRole]
-            for item in role_data:
-                total_matches += item['matchCount']
-        
-        total_matches /= 10
-        
-        for currentRole in Roles:
-            role_data = tier_roles[currentRole]
-            for hero_id in hero_ids:
-                matches = 0
-                wins = 0
-                for item in role_data:
-                    if item['heroId'] == hero_id:
-                        matches += item['matchCount']
-                        wins += item['winCount']
-                if matches > 0:
-                    PR = matches / total_matches
-                    WR = wins / matches
-                    if(PR > 0.005):
-                        wrArray.append(WR)
-                        prArray.append(PR)
-        
-        for currentRole in Roles:
-            role_data = tier_roles[currentRole]
-            for hero_id in hero_ids:
-                matches = 0
-                wincount = 0
-                for item in role_data:
-                    if item['heroId'] == hero_id:
-                        matches += item['matchCount']
-                        wincount += item['winCount']
-                if matches > 0:
-                    PR = matches / total_matches
-                    WR = wincount / matches
-                    
-                    if PR > 0.005:
-                        sdWR = standardDeviation(wrArray)
-                        sdPR = standardDeviation(prArray)
-                        zScoreWR = (WR - (sum(wrArray) / len(wrArray)) ) / sdWR
-                        zScorePR = (PR - (sum(prArray) / len(prArray)) ) / sdPR
+    wrArray = []
+    prArray = []
 
-                        if zScoreWR < 0:
-                            tier_num = zScoreWR - abs(zScorePR)
-                        else:
-                            tier_num = zScoreWR + zScorePR
+    query = getQuery(currentRank)
 
-                        tier_str = tierCalc(tier_num)
+    response = requests.post(url, json={'query': query}, headers=headers)
+    data = json.loads(response.text)
 
+    currentTier = None
+
+    for tier, ranks_list in CombinedRanks.items():
+        if currentRank in ranks_list:
+            currentTier = tier
+
+    for currentRole in Roles:
+        if currentTier != None:
+            combinedArray[currentTier][currentRole].extend(data['data'][currentRole]['winHour'])
+            if rates:
+                for rate in rates:
+                    if rate["rank"] == currentRank and rate["role"] == currentRole:
+                        tempObj = {
+                            'heroId': rate["hero_id"],
+                            'matchCount': rate["matches"],
+                            'winCount': rate["wincount"]
+                        }
+                        combinedArray[currentTier][currentRole].append(tempObj)
+        role_data = data['data'][currentRole]
+        for item in role_data['winHour']:
+            total_matches += item['matchCount']
+    
+    total_matches /= 10
+
+    for currentRole in Roles:
+        role_data = data['data'][currentRole]
+        for hero_id in hero_ids:
+            matches = 0
+            wins = 0
+            for item in role_data['winHour']:
+                if item['heroId'] == hero_id:
+                    matches += item['matchCount']
+                    wins += item['winCount']
+            if rates:
+                for rate in rates:
+                    if rate["role"] == currentRole and rate["rank"] == currentRank and rate["hero_id"] == hero_id:
+                        matches += rate["matches"]
+                        wins += rate["wincount"]
+            if matches > 0:
+                PR = matches / total_matches
+                WR =  wins / matches
+                if(PR > 0.005):
+                    wrArray.append(WR)
+                    prArray.append(PR)
+
+    for currentRole in Roles:
+        role_data = data['data'][currentRole]
+        for hero_id in hero_ids:
+            matches = 0
+            wincount = 0
+            for item in role_data['winHour']:
+                if item['heroId'] == hero_id:
+                    matches += item['matchCount']
+                    wincount += item['winCount']
+            if rates:
+                for rate in rates:
+                    if rate["role"] == currentRole and rate["rank"] == currentRank and rate["hero_id"] == hero_id:
+                        matches += rate["matches"]
+                        wincount += rate["wincount"]
+
+            if matches > 0:        
+                winrate = wincount / matches
+                pickrate = matches / total_matches                    
+
+                if pickrate >= 0.005:
+                    sdWR = standardDeviation(wrArray)
+                    sdPR = standardDeviation(prArray)
+                    zScoreWR = (winrate - (sum(wrArray) / len(wrArray)) ) / sdWR
+                    zScorePR = (pickrate - (sum(prArray) / len(prArray)) ) / sdPR
+
+                    if zScoreWR < 0:
+                        tier_num = zScoreWR - abs(zScorePR)
                     else:
-                        tier_num = 0
-                        tier_str = '?'
-                    
-                    updated_rates.append({
-                        "hero_id": hero_id,
-                        "patch": current_patch,
-                        "matches": matches,
-                        "wincount": wincount,
-                        "winrate": winrate,
-                        "pickrate": pickrate,
-                        "role": currentRole,
-                        "rank": tier,
-                        "tier_num": tier_num,
-                        "tier_str": tier_str
-                    })
+                        tier_num = zScoreWR + zScorePR
 
-                    hero_rates = {
-                        "matches": matches,
-                        "wincount": wincount,
-                        "winrate": winrate,
-                        "pickrate": pickrate,
-                        "role": currentRole,
-                        "rank": tier,
-                        "tier_num": tier_num,
-                        "tier_str": tier_str
-                    }
-                    print(hero_id, currentRole, tier)
+                    tier_str = tierCalc(tier_num)
 
-                    executor.submit(s3.put_object, Bucket='dotam-content', Key=f"data/{current_patch}/{hero_id}/rates/{tier}/{currentRole}/rates.json", Body=json.dumps(hero_rates, indent=2))
+                else:
+                    tier_num = 0
+                    tier_str = '?'
+
+                updated_rates.append({
+                    "hero_id": hero_id,
+                    "patch": current_patch,
+                    "matches": matches,
+                    "wincount": wincount,
+                    "winrate": winrate,
+                    "pickrate": pickrate,
+                    "role": currentRole,
+                    "rank": currentRank,
+                    "tier_num": tier_num,
+                    "tier_str": tier_str
+                })
+
+                hero_rates = {
+                    "matches": matches,
+                    "wincount": wincount,
+                    "winrate": winrate,
+                    "pickrate": pickrate,
+                    "role": currentRole,
+                    "rank": currentRank,
+                    "tier_num": tier_num,
+                    "tier_str": tier_str
+                }
 
 
+
+                print(hero_id, currentRole, currentRank)
+
+
+for tier, tier_roles in combinedArray.items():
+    total_matches = 0
+    if rates:
+        total_matches = sum(item["matches"] for item in rates if item["rank"] == tier)
+
+    wrArray = []
+    prArray = []
+    
+    for currentRole in Roles:
+        role_data = tier_roles[currentRole]
+        for item in role_data:
+            total_matches += item['matchCount']
+    
+    total_matches /= 10
+    
+    for currentRole in Roles:
+        role_data = tier_roles[currentRole]
+        for hero_id in hero_ids:
+            matches = 0
+            wins = 0
+            for item in role_data:
+                if item['heroId'] == hero_id:
+                    matches += item['matchCount']
+                    wins += item['winCount']
+            if matches > 0:
+                PR = matches / total_matches
+                WR = wins / matches
+                if(PR > 0.005):
+                    wrArray.append(WR)
+                    prArray.append(PR)
+    
+    for currentRole in Roles:
+        role_data = tier_roles[currentRole]
+        for hero_id in hero_ids:
+            matches = 0
+            wincount = 0
+            for item in role_data:
+                if item['heroId'] == hero_id:
+                    matches += item['matchCount']
+                    wincount += item['winCount']
+            if matches > 0:
+                PR = matches / total_matches
+                WR = wincount / matches
+                
+                if PR > 0.005:
+                    sdWR = standardDeviation(wrArray)
+                    sdPR = standardDeviation(prArray)
+                    zScoreWR = (WR - (sum(wrArray) / len(wrArray)) ) / sdWR
+                    zScorePR = (PR - (sum(prArray) / len(prArray)) ) / sdPR
+
+                    if zScoreWR < 0:
+                        tier_num = zScoreWR - abs(zScorePR)
+                    else:
+                        tier_num = zScoreWR + zScorePR
+
+                    tier_str = tierCalc(tier_num)
+
+                else:
+                    tier_num = 0
+                    tier_str = '?'
+                
+                updated_rates.append({
+                    "hero_id": hero_id,
+                    "patch": current_patch,
+                    "matches": matches,
+                    "wincount": wincount,
+                    "winrate": winrate,
+                    "pickrate": pickrate,
+                    "role": currentRole,
+                    "rank": tier,
+                    "tier_num": tier_num,
+                    "tier_str": tier_str
+                })
+
+                hero_rates = {
+                    "matches": matches,
+                    "wincount": wincount,
+                    "winrate": winrate,
+                    "pickrate": pickrate,
+                    "role": currentRole,
+                    "rank": tier,
+                    "tier_num": tier_num,
+                    "tier_str": tier_str
+                }
+                print(hero_id, currentRole, tier)
 
 
 
 s3.put_object(Bucket='dotam-content', Key=f"data/{current_patch}/rates.json", Body=json.dumps(updated_rates, indent=2))
+
+by_hero_id = defaultdict(list)
+
+for rate in updated_rates:
+    hero_id = rate['hero_id']
+    rank = rate['rank']
+    by_hero_id[(hero_id, rank)].append(rate)
+
+with ThreadPoolExecutor(max_workers=10) as executor:
+    for (hero_id, rank), rates_list in by_hero_id.items():
+        executor.submit(s3.put_object, Bucket='dotam-content', Key=f"data/{current_patch}/{hero_id}/rates/{rank}/rates.json", Body=json.dumps(rates_list, indent=2))
+
+
+
 print("Done dumping into S3")     
 # conn.commit()
 # conn.close() # Close communication with the database

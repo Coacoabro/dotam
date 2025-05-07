@@ -25,15 +25,7 @@ const fetchHeroData = async (hero, type, rank, role, patch, facet, page) => {
   return await response.json();
 };
 
-const fetchRatesData = async (hero, rank, role, patch) => {
-  const response = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero}/rates/${rank}/${role}/rates.json`)
-  if (!response.ok) {
-    throw new Error('Network response was not ok')
-  }
-  return response.json()
-}
-
-export default function HeroLayout({ children, hero, current_patch, page, summary, initRole, initFacet }) {
+export default function HeroLayout({ children, hero, current_patch, page, rates, summary, initRole, initFacet }) {
 
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
@@ -43,7 +35,7 @@ export default function HeroLayout({ children, hero, current_patch, page, summar
   const [currPatch, setCurrPatch] = useState(patch || current_patch)
   const [currFacet, setCurrFacet] = useState(facet || initFacet)
 
-  const [rates, setRates] = useState(null)
+  const [currRates, setCurrRates] = useState(null)
 
   const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'info', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currRole, currPatch, currFacet, page], () => fetchHeroData(hero.id, 'page', currRank, currRole, currPatch, currFacet, page), {staleTime: 3600000});
@@ -54,26 +46,27 @@ export default function HeroLayout({ children, hero, current_patch, page, summar
     if(role){setCurrRole(role)}
     if(patch){setCurrPatch(patch)}
     if(facet){setCurrFacet(facet)}
-    
-    const loadData = async () => {
-      try {
-        const data = await fetchRatesData(hero.id, currRank, currRole, currPatch)
-        setRates(data)
-      } catch (error) {
-        console.error('Failed to fetch')
+
+    if(rates){
+      if(role){
+        setCurrRates(rates.find(rate => rate.role == role))
+      }
+      else {
+        setCurrRates(rates.find(rate => rate.role == initRole))
       }
     }
 
-    loadData()
-  }, [rank, role, patch, facet])
+  }, [rank, role, patch, facet, rates])
 
-  console.log(buildsLoading)
+
+
+  console.log(currRates)
 
   if(rates){
 
     if( buildsLoading || matchupsLoading ){
       if(heroInfo){
-        return(<HeroLoading hero={hero} heroData={heroInfo} rates={rates} current_patch={current_patch} initRole={initRole} initFacet={initFacet} />)
+        return(<HeroLoading hero={hero} heroData={heroInfo} rates={currRates} current_patch={current_patch} initRole={initRole} initFacet={initFacet} />)
       }
       else{return(<IoLoading />)}
     }
@@ -126,7 +119,7 @@ export default function HeroLayout({ children, hero, current_patch, page, summar
               </div>
 
               <div className='flex space-x-3'>
-                <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} />
+                <RatesContainer rates={currRates} initRole={initRole} current_patch={current_patch} />
                 <div className='hidden sm:block space-y-3'>
                   <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
                   <PagesList hero={hero.url} />

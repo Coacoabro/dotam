@@ -15,18 +15,18 @@ export default function RatesContainer({ rates }) {
         "F": "text-[#E8624C]"
     }
 
+    console.log(rates)
+
     
-    const [currRate, setCurrRate] = useState(rates)
-    const [heroWinRate, setHeroWinRate] = useState((currRate.winrate * 100).toFixed(2));
-    const [heroPickRate, setHeroPickRate] = useState((currRate.pickrate * 100).toFixed(2));
-    const [heroMatches, setHeroMatches] = useState(currRate.matches.toLocaleString());
-    const [heroTier, setHeroTier] = useState(currRate.tier_str);
+    const [heroWinRate, setHeroWinRate] = useState((rates.winrate * 100).toFixed(2));
+    const [heroPickRate, setHeroPickRate] = useState((rates.pickrate * 100).toFixed(2));
+    const [heroMatches, setHeroMatches] = useState(rates.matches.toLocaleString());
+    const [heroTier, setHeroTier] = useState(rates.tier_str);
     const [color, setColor] = useState(tierColor[heroTier])
 
     useEffect(() => {
 
         if (rates) {
-            setCurrRate(rates)
             setHeroWinRate((rates.winrate * 100).toFixed(2));
             setHeroPickRate((rates.pickrate * 100).toFixed(2));
             setHeroMatches(rates.matches.toLocaleString());
