@@ -17,8 +17,8 @@ import HeroLoading from './HeroLoading';
 
 import Ad from '../../../components/Ads/Venatus/Ad';
 
-const fetchHeroData = async (hero, type, rank, role, patch, facet, page) => {
-  const response = await fetch(`/api/${hero}?type=${type}&rank=${rank}&role=${role}&patch=${patch}&facet=${facet}&page=${page}`);
+const fetchHeroData = async (hero, type, rank, patch, page) => {
+  const response = await fetch(`/api/${hero}?type=${type}&rank=${rank}&patch=${patch}&page=${page}`);
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -37,8 +37,8 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
 
   const [currRates, setCurrRates] = useState(null)
 
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currRole, currPatch, currFacet, page], () => fetchHeroData(hero.id, 'page', currRank, currRole, currPatch, currFacet, page), {staleTime: 3600000});
-  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'matchups', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
+  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currPatch, page], () => fetchHeroData(hero.id, 'page', currRank, currPatch, page), {staleTime: 3600000});
+  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currRank, currPatch], () => fetchHeroData(hero.id, 'matchups', currRank, currPatch), {staleTime: 3600000});
 
   useEffect(() => {
     if(rank){setCurrRank(rank)}
@@ -117,7 +117,6 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
                 <div className='hidden sm:block space-y-3'>
                   <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
                   <PagesList hero={hero.url} />
-                  {/* <Pages hero={hero.url} /> */}
                 </div>
               </div>
 

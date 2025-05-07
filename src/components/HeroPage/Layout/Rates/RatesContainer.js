@@ -29,9 +29,8 @@ export default function RatesContainer({ rates }) {
             setHeroPickRate((rates.pickrate * 100).toFixed(2));
             setHeroMatches(rates.matches.toLocaleString());
             setHeroTier(rates.tier_str);
+            setColor(tierColor[rates.tier_str])
         }
-
-        setColor(tierColor[heroTier])
     
     }, [rates])
 

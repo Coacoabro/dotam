@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default async function handler(req, res) {
-  const { hero, type, page, patch, rank, role, facet } = req.query
+  const { hero, type, page, patch, rank } = req.query
 
   try {
 
