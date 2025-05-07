@@ -17,6 +17,7 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
     const [facetShow, setFacetShow] = useState(false)
     const [hoverFacet, setHoverFacet] = useState(null)
     const [hovFacetNum, setHovFacetNum] = useState(null)
+    const [currRates, setCurrRates] = useState({})
 
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
@@ -62,7 +63,39 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
 
     useEffect(() => {
         if(role){setCurrRole(role)}
-    }, [role])
+
+        if(rates && facetShow){
+            const wr = ((rates[currRole][hovFacetNum].total_wins / rates[currRole][hovFacetNum].total_matches)*100).toFixed(2)
+            const matches = (rates[currRole][hovFacetNum].total_matches).toLocaleString()
+            let color = ""
+            if(wr > 55) {
+                color = "text-[#F4B856]"
+            }
+            else if (wr > 52.5) {
+                color = "text-[#7879DE]"
+            }
+            else if (wr > 51.5) {
+                color = "text-[#ABDEED]"
+            }
+            else if (wr > 48.5) {
+                color = "text-slate-200"
+            }
+            else if (wr > 47.5) {
+                color = "text-[#FCA5A5]"
+            }
+            else{
+                color = "text-[#F46E58]"
+            }
+            setCurrRates({
+                "winrate": wr,
+                "matches": matches,
+                "color": color
+            })
+
+        }
+
+        
+    }, [role, rates, hovFacetNum])
 
 
         
@@ -139,8 +172,8 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
                             {hoverFacet.Title}
                         </div>
                         <div className='flex flex-col  text-base font-medium text-right'>
-                            <div>{((rates[currRole][hovFacetNum].total_wins / rates[currRole][hovFacetNum].total_matches)*100).toFixed(2)}% <span className='text-sm'>WR</span></div>
-                            <span className='text-xs opacity-50'>{(rates[currRole][hovFacetNum].total_matches).toLocaleString()} Matches</span>
+                            <div className={`${currRates.color}`}>{currRates.winrate}%<span className='text-sm opacity-50'>WR</span></div>
+                            <span className='text-xs opacity-50'>{currRates.matches} Matches</span>
                         </div>
                     </div>
                     <p
