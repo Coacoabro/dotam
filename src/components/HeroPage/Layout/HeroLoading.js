@@ -54,7 +54,7 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
                     <OptionsContainer hero={hero} hero_name={heroData.name} initFacet={initFacet} />
                 </div>
 
-                <div className="hidden sm:block"><LoadingWheel /></div>
+                <div className="hidden sm:block z-0"><LoadingWheel /></div>
             </div>
         </div>
     )
