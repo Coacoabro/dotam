@@ -240,19 +240,6 @@ for currentRank in Ranks:
                     "tier_str": tier_str
                 })
 
-                hero_rates = {
-                    "matches": matches,
-                    "wincount": wincount,
-                    "winrate": winrate,
-                    "pickrate": pickrate,
-                    "role": currentRole,
-                    "rank": currentRank,
-                    "tier_num": tier_num,
-                    "tier_str": tier_str
-                }
-
-
-
                 print(hero_id, currentRole, currentRank)
 
 
@@ -322,24 +309,14 @@ for tier, tier_roles in combinedArray.items():
                     "patch": current_patch,
                     "matches": matches,
                     "wincount": wincount,
-                    "winrate": winrate,
-                    "pickrate": pickrate,
+                    "winrate": WR,
+                    "pickrate": PR,
                     "role": currentRole,
                     "rank": tier,
                     "tier_num": tier_num,
                     "tier_str": tier_str
                 })
 
-                hero_rates = {
-                    "matches": matches,
-                    "wincount": wincount,
-                    "winrate": winrate,
-                    "pickrate": pickrate,
-                    "role": currentRole,
-                    "rank": tier,
-                    "tier_num": tier_num,
-                    "tier_str": tier_str
-                }
                 print(hero_id, currentRole, tier)
 
 

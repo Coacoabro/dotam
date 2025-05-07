@@ -20,9 +20,21 @@ export default function Layout({ children }) {
   useEffect(() => {
 
     const handleStart = (url) => {
-      if (!url.includes(route)) {
-        setRoute(router.pathname.split('/')[1])
-        setIsLoading(true)
+      const current = new URL(window.location.href);
+      const next = new URL(url, window.location.origin);
+
+      const pathnameChanged = next.pathname !== current.pathname;
+
+      const currentRank = current.searchParams.get("rank");
+      const currentPatch = current.searchParams.get("patch");
+      const nextRank = next.searchParams.get("rank");
+      const nextPatch = next.searchParams.get("patch");
+
+      const rankChanged = currentRank !== nextRank;
+      const patchChanged = currentPatch !== nextPatch;
+
+      if (pathnameChanged || rankChanged || patchChanged) {
+        setIsLoading(true);
       }
     };
 
@@ -39,7 +51,9 @@ export default function Layout({ children }) {
       router.events.off('routeChangeComplete', handleComplete);
       router.events.off('routeChangeError', handleComplete);
     };
-  }, [router]);
+  }, []);
+
+  console.log(isLoading)
 
   return (
     <div className="layout overflow-x-hidden overflow-y-hidden">

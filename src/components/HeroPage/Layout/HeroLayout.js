@@ -25,7 +25,7 @@ const fetchHeroData = async (hero, type, rank, role, patch, facet, page) => {
   return await response.json();
 };
 
-export default function HeroLayout({ children, hero, current_patch, page, rates, summary, initRole, initFacet }) {
+export default function HeroLayout({ children, hero, heroInfo, current_patch, page, rates, summary, initRole, initFacet }) {
 
   const router = useRouter()
   const {rank, role, patch, facet} = router.query
@@ -37,7 +37,6 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
   const [currRates, setCurrRates] = useState(null)
 
-  const { data: heroInfo, isLoading: infoLoading } = useQuery(['heroData', hero.id, 'info', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'info', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currRole, currPatch, currFacet, page], () => fetchHeroData(hero.id, 'page', currRank, currRole, currPatch, currFacet, page), {staleTime: 3600000});
   const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currRank, currRole, currPatch, currFacet], () => fetchHeroData(hero.id, 'matchups', currRank, currRole, currPatch, currFacet), {staleTime: 3600000});
 
@@ -58,17 +57,12 @@ export default function HeroLayout({ children, hero, current_patch, page, rates,
 
   }, [rank, role, patch, facet, rates])
 
-
-
-  console.log(currRates)
-
   if(rates){
 
     if( buildsLoading || matchupsLoading ){
       if(heroInfo){
         return(<HeroLoading hero={hero} heroData={heroInfo} rates={currRates} current_patch={current_patch} initRole={initRole} initFacet={initFacet} />)
       }
-      else{return(<IoLoading />)}
     }
 
     else{

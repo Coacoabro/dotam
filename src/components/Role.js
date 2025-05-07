@@ -13,13 +13,14 @@ export default function Role( {initRole} ) {
     const [hovered, setHovered] = useState(null)
 
     const handleClick = (role) => {
-        router.push({
-            pathname: router.pathname,
-            query: { ...router.query, role }
-        }, 
-        undefined, 
-        { shallow: true }
-    )
+        router.replace(
+            {
+                pathname: router.pathname,
+                query: { ...router.query, role }
+            }, 
+            undefined, 
+            { scroll: false, shallow: true }
+        )
         setCurrRole(role)
     }
 

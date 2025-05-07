@@ -3,21 +3,19 @@ import ItemCard from './ItemCard'
 
 export default function NthItem({order, items}){
 
-    const [nthItems, setNthItems] = useState(items.slice(0, 3))
-    
-    useEffect(() => {
-        setNthItems(items.slice(0, 3))
-    }, [items])
+    if (items){
 
-    return(
-        <div className='rounded-lg border border-slate-800 bg-slate-950 w-40 sm:w-48'>
-            <div className='font-medium text-center py-1 text-lg'>{order}{order == 3 ? "RD" : "TH"}</div>
-            <div className='w-full h-[1px] bg-slate-800' />
-            <div className='bg-slate-800 py-3 space-y-2 px-2 rounded-b-lg items-center whitespace-nowrap truncate'>
-                {nthItems ? nthItems.map((item, index) => (
-                    <ItemCard item={item} index={index} />
-                )) : null}
+        return(
+            <div className='rounded-lg border border-slate-800 bg-slate-950 w-40 sm:w-48'>
+                <div className='font-medium text-center py-1 text-lg'>{order}{order == 3 ? "RD" : "TH"}</div>
+                <div className='w-full h-[1px] bg-slate-800' />
+                <div className='bg-slate-800 py-3 space-y-2 px-2 rounded-b-lg items-center whitespace-nowrap truncate'>
+                    {items ? items.map((item, index) => (
+                        <ItemCard item={item} index={index} />
+                    )) : null}
+                </div>
             </div>
-        </div>
-    )
+        )
+        
+    }
 }

@@ -21,7 +21,7 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
     const handleClick = (facet) => {
-        router.push({
+        router.replace({
             pathname: router.pathname,
             query: { ...router.query, facet }
         }, undefined, { scroll: false, shallow: true })
