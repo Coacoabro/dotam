@@ -14,19 +14,19 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
     return(
         <div className="px-1 sm:px-4 sm:pt-14 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
 
+            <div className="h-10"/>
+
             <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
+                <img src={portrait} className="h-14 sm:h-32" />
 
-            <img src={portrait} className="h-14 sm:h-32" />
+                <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
+                    <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
+                    <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
+                </div>
 
-            <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
-                <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
-                <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
-            </div>
-
-            <div className="hidden sm:flex absolute right-0 mt-20 h-72 opacity-25 z-0">
-                <img src={crop_img} className="object-cover w-full h-full" />
-            </div>
-
+                <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25 z-0">
+                    <img src={crop_img} className="object-cover w-full h-full" />
+                </div>
             </div>
 
             <div className="sm:hidden absolute h-36 right-0 top-16 opacity-25">

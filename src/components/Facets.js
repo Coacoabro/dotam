@@ -24,7 +24,7 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
         router.push({
             pathname: router.pathname,
             query: { ...router.query, facet }
-        }, undefined, { scroll: false })
+        }, undefined, { scroll: false, shallow: true })
         setCurrFacet(facet)
     }
 
