@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import json from '../../json/Role.json'
 
@@ -13,16 +13,22 @@ export default function Role( {initRole} ) {
     const [hovered, setHovered] = useState(null)
 
     const handleClick = (role) => {
-        router.replace(
-            {
-                pathname: router.pathname,
-                query: { ...router.query, role }
-            }, 
-            undefined, 
-            { scroll: false, shallow: true }
-        )
+        if(role != "All"){
+            router.replace(
+                {
+                    pathname: router.pathname,
+                    query: { ...router.query, role }
+                }, 
+                undefined, 
+                { scroll: false, shallow: true }
+            )
+        }
         setCurrRole(role)
     }
+
+    useEffect(() => {
+
+    })
 
     return(
         <div className="flex h-8 gap-2 sm:gap-2.5 items-center">
@@ -40,12 +46,12 @@ export default function Role( {initRole} ) {
                 </button>
             )) : router.asPath.includes('matchups') ? (
                 <>
-                    <button
+                    {/* <button
                         onClick={() => handleClick("All")}
                         className={`text-sm font-bold items-center flex justify-center w-10 sm:w-12 h-7 sm:h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == "All" ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700'}`}
                     >
                         All
-                    </button>
+                    </button> */}
                     {json.filter((r) => r.role !== "").map((role) => (
                         <button 
                             onClick={() => handleClick(role.role)} 
