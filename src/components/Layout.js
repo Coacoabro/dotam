@@ -33,7 +33,7 @@ export default function Layout({ children }) {
       const rankChanged = currentRank !== nextRank;
       const patchChanged = currentPatch !== nextPatch;
 
-      if (pathnameChanged) {
+      if (pathnameChanged || rankChanged || patchChanged) {
         setIsLoading(true);
       }
     };
