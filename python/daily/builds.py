@@ -10,23 +10,28 @@ import psutil
 import copy
 import traceback
 
-from datetime import datetime
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 from collections import Counter
 from collections import defaultdict
 from botocore.exceptions import ClientError
 from concurrent.futures import ThreadPoolExecutor
 
-start_time = time.time()
-first_sunday = datetime(2025, 1, 5)
-current_day = datetime.now()
-days_diff = (current_day - first_sunday).days
-biweek = days_diff // 14 + 1
-
 load_dotenv()
 
+
+start_time = time.time()
+utc_time = datetime.fromtimestamp(start_time, tz=timezone.utc)
+hour = utc_time.hour
+
 # Steam's Web API
-API_KEY = os.environ.get('DOTA_API_KEY')
+API_KEY = ""
+if hour % 2 == 0:
+    print("Even")
+    API_KEY = os.environ.get('DOTA_API_KEY_K')
+else:
+    print("Odd")
+    API_KEY = os.environ.get('DOTA_API_KEY_A')
 SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='    
 
 # My Amazon Database
@@ -208,8 +213,6 @@ def getBuilds(ranked_matches, builds):
                                             else:
                                                 abilities.append(abilityId)
 
-
-
                                     else:
                                         if ability['isTalent'] and ability['abilityId'] not in talents:
                                             talents.append(ability['abilityId'])
@@ -282,27 +285,15 @@ def getBuilds(ranked_matches, builds):
                                             neutralItems.append(neutral)
                                 
                                 if core:
-                                    rankBuildFound = False # Specific Rank Build
-                                    lmhBuildFound = False # Low Mid High Build
-                                    allBuildFound = False # "" Build
-                                    for hero_build in builds:
-                                        if hero_build[0] == hero_id and (hero_build[1] == rank[0] or hero_build[1] == rank[1] or hero_build[1] == "") and hero_build[2] == role and hero_build[3] == facet:
-                                            if hero_build[1] == rank[0] and not rankBuildFound:
-                                                hero_build[4] += 1
-                                                hero_build[5] += win
-                                                rankBuildFound = True
+                                    # Dump into builds
 
-                                            elif hero_build[1] == rank[1] and not lmhBuildFound:
-                                                hero_build[4] += 1
-                                                hero_build[5] += win
-                                                lmhBuildFound = True
+                                    for rank_value in [rank[0], rank[1], ""]:
+                                        key = (hero_id, rank_value, role, facet)
+                                        hero_build = builds.get(key)
+                                        if hero_build:
 
-                                            elif hero_build[1] == "" and not allBuildFound:
-                                                hero_build[4] += 1
-                                                hero_build[5] += win
-                                                allBuildFound = True
-                                            
-                                            
+                                            hero_build[4] += 1
+                                            hero_build[5] += win                                            
                                             
                                             # print(f"{hero_build[0]} {hero_build[1]} {hero_build[2]} {hero_build[3]}: {hero_build[4]}")
 
@@ -407,57 +398,41 @@ def getBuilds(ranked_matches, builds):
                                                             tier = item_info['neutral_item_tier'] + 1
                                                             break
                                                     hero_build[11].append({'Tier': tier, 'Item': neutralItem, 'Wins': win, 'Matches': 1})
+
+                                        else:
+
+                                            finalTalents = []
+                                            for finalTalent in talents:
+                                                finalTalents.append({'Talent': finalTalent, 'Wins': win, 'Matches': 1})
+                                            finalEarlyItems = []
+                                            for tempEarlyItem in earlyItems:
+                                                finalEarlyItems.append({'Item': tempEarlyItem['Item'], 'isSecondPurchase': tempEarlyItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
+                                            finalCoreItems = []
+                                            lateGameItems = []
+                                            m = 3 if isSupport else 4
+                                            finalNoCore = itemBuild[(m-1):]
+                                            for _ in range(7):
+                                                if finalNoCore:
+                                                    gameItem = finalNoCore.pop(0)
+                                                    lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
+                                                m += 1
+                                            finalCoreItems.append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+                                            finalNeutrals = []
+                                            if len(neutralItems) > 0:
+                                                for finalNeutralItem in neutralItems:
+                                                    tier = None
+                                                    for item_info in item_list:
+                                                        if item_info['id'] == finalNeutralItem:
+                                                            tier = item_info['neutral_item_tier'] + 1
+                                                            break
+                                                    finalNeutrals.append({'Tier': tier, 'Item': finalNeutralItem, 'Wins': win, 'Matches': 1})
+
+                                            tempBuild = [hero_id, rank_value, role, facet, 1, win, 
+                                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
+                                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
+                                                        finalCoreItems, finalNeutrals]
                                             
-                                            if rankBuildFound and lmhBuildFound and allBuildFound:
-                                                break
-
-                                    if not (rankBuildFound and lmhBuildFound and allBuildFound):
-                                        finalTalents = []
-                                        for finalTalent in talents:
-                                            finalTalents.append({'Talent': finalTalent, 'Wins': win, 'Matches': 1})
-                                        finalEarlyItems = []
-                                        for tempEarlyItem in earlyItems:
-                                            finalEarlyItems.append({'Item': tempEarlyItem['Item'], 'isSecondPurchase': tempEarlyItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
-                                        finalCoreItems = []
-                                        lateGameItems = []
-                                        m = 3 if isSupport else 4
-                                        finalNoCore = itemBuild[(m-1):]
-                                        for _ in range(7):
-                                            if finalNoCore:
-                                                gameItem = finalNoCore.pop(0)
-                                                lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
-                                            m += 1
-                                        finalCoreItems.append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
-                                        finalNeutrals = []
-                                        if len(neutralItems) > 0:
-                                            for finalNeutralItem in neutralItems:
-                                                tier = None
-                                                for item_info in item_list:
-                                                    if item_info['id'] == finalNeutralItem:
-                                                        tier = item_info['neutral_item_tier'] + 1
-                                                        break
-                                                finalNeutrals.append({'Tier': tier, 'Item': finalNeutralItem, 'Wins': win, 'Matches': 1})
-
-
-                                        if not rankBuildFound:
-                                            tempBuild = [hero_id, rank[0], role, facet, 1, win, 
-                                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
-                                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                        finalCoreItems, finalNeutrals]
-                                            builds.append(tempBuild)
-                                        if not lmhBuildFound:
-                                            tempBuild = [hero_id, rank[1], role, facet, 1, win, 
-                                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
-                                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                        finalCoreItems, finalNeutrals]
-                                            builds.append(tempBuild)
-                                        if not allBuildFound:
-                                            tempBuild = [hero_id, "", role, facet, 1, win, 
-                                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
-                                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                        finalCoreItems, finalNeutrals]
-                                            builds.append(tempBuild)
-
+                                            builds[key] = tempBuild
 
     return builds
 
@@ -632,16 +607,13 @@ def sendtos3(builds):
 
     grouped_builds = defaultdict(list)
 
-    for build in builds:
-        hero_id = build[0]
-        rank = build[1]
+    for (hero_id, rank, role, facet), build in builds.items():
         grouped_builds[(hero_id, rank)].append(build)
 
     print("Amount of builds: ", len(grouped_builds))
 
     with ThreadPoolExecutor(max_workers=50) as executor:
         for (hero_id, rank), build_group in grouped_builds.items():
-            # process_build(build_group, hero_id, rank)
             executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
 
     ## Make Sure Everythings Up to Date
@@ -673,15 +645,15 @@ def sendtos3(builds):
 
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# file_path = './python/daily/seq_num.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+file_path = './python/daily/seq_num.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# facet_path = './python/daily/facet_nums.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
@@ -689,7 +661,8 @@ with open(facet_path, 'r') as file:
 ranked_matches = []
 
 hourlyDump = 0
-builds = []
+builds = {}
+build_index = {}
 
 sent_already = False
 
@@ -725,7 +698,7 @@ while True:
                         playersInfo.append(heroObj)
                     ranked_match['players'] = playersInfo
                     ranked_matches.append(ranked_match)
-                    if len(ranked_matches) == 30:
+                    if len(ranked_matches) == 100:
                         hourlyDump += 1
                         print(hourlyDump)
                         builds = getBuilds(ranked_matches, builds)
@@ -733,8 +706,7 @@ while True:
         else:
             seq_num += 1
 
-        if hourlyDump >= 350:
-
+        if hourlyDump >= 1250:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
