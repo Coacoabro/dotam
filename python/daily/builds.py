@@ -161,6 +161,7 @@ def getBuilds(ranked_matches, builds):
         try:
             response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
             data = json.loads(response.text)
+            print("Got the graphql data")
             break
         except:
             print(f"Got nothing, trying again in 1 minute ({3-tries} tries left)")
@@ -670,10 +671,12 @@ while True:
     try:
 
         DOTA_2_URL = SEQ_URL + str(seq_num)
-
+        
+        print("Getting dota api games")
         response = requests.get(DOTA_2_URL, timeout=600)
 
         if response.status_code == 200:
+            print("Good response")
             matches = response.json()['result']['matches']
             for match in matches:
                 seq_num = match['match_seq_num']
@@ -703,10 +706,13 @@ while True:
                         print(hourlyDump)
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
+        elif response.status_code == 429:
+            print("Too many requests, waiting 15 seconds")
+            time.sleep(15)
         else:
-            seq_num += 1
+            print("An error occured: ", response.status_code)
 
-        if hourlyDump >= 1250:
+        if hourlyDump >= 210:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
