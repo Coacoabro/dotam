@@ -63,24 +63,23 @@ build_index = {}
 
 sent_already = False
 
+backoff = 1
+
 while True:
     try:
         
         # Steam's Web API Alternating
-        utc_time = datetime.fromtimestamp(start_time, tz=timezone.utc)
-        hour = utc_time.hour
         API_KEY = os.environ.get('DOTA_API_KEY_A')
-        if hour % 2 == 0:
+        if hourlyDump % 2 == 0:
             API_KEY = os.environ.get('DOTA_API_KEY_K')
 
         SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='    
         DOTA_2_URL = SEQ_URL + str(seq_num)
         
-        print("Getting dota api games")
         response = requests.get(DOTA_2_URL, timeout=600)
 
         if response.status_code == 200:
-            print("Good response")
+            backoff = 1
             matches = response.json()['result']['matches']
             for match in matches:
                 seq_num = match['match_seq_num']
@@ -107,17 +106,20 @@ while True:
                     ranked_matches.append(ranked_match)
                     if len(ranked_matches) == 100:
                         hourlyDump += 1
+                        print(hourlyDump)
                         all_ranked_matches.append(ranked_matches)
                         ranked_matches = []
         elif response.status_code == 429:
             print("Too many requests, waiting 15 seconds")
-            time.sleep(15)
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 60)
         else:
             print("An error occured: ", response.status_code)
         
         if hourlyDump >= 100:
             with open(file_path, 'w') as file:
                 json.dump({"seq_num": seq_num}, file)
+            break
 
     except Exception as e:
         error_message = f"An error occurred in your script:\n\n{str(e)}"
@@ -127,3 +129,12 @@ while True:
             break
         else:
             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+
+
+
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+time_message = f"Finished sending to S3. That took {round((elapsed_time/60), 2)} minutes"
+print(time_message)
