@@ -25,14 +25,9 @@ utc_time = datetime.fromtimestamp(start_time, tz=timezone.utc)
 hour = utc_time.hour
 
 # Steam's Web API
-API_KEY = ""
-if hour % 2 == 0:
-    print("Even")
-    API_KEY = os.environ.get('DOTA_API_KEY_K')
-else:
-    print("Odd")
-    API_KEY = os.environ.get('DOTA_API_KEY_A')
+API_KEY = os.environ.get('DOTA_API_KEY_A')
 SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenceNum/v1/?key=' + API_KEY + '&start_at_match_seq_num='    
+
 
 # My Amazon Database
 database_url = os.environ.get('DATABASE_URL')
@@ -161,7 +156,6 @@ def getBuilds(ranked_matches, builds):
         try:
             response = requests.post(stratz_url, json={'query': query}, headers=stratz_headers, timeout=600)
             data = json.loads(response.text)
-            print("Got the graphql data")
             break
         except:
             print(f"Got nothing, trying again in 1 minute ({3-tries} tries left)")
@@ -294,9 +288,7 @@ def getBuilds(ranked_matches, builds):
                                         if hero_build:
 
                                             hero_build[4] += 1
-                                            hero_build[5] += win                                            
-                                            
-                                            # print(f"{hero_build[0]} {hero_build[1]} {hero_build[2]} {hero_build[3]}: {hero_build[4]}")
+                                            hero_build[5] += win                                          
 
                                             abilitiesFound = False
                                             currentAbilities = copy.deepcopy(hero_build[6])
@@ -433,7 +425,7 @@ def getBuilds(ranked_matches, builds):
                                                         [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
                                                         finalCoreItems, finalNeutrals]
                                             
-                                            builds[key] = tempBuild
+                                            builds[(hero_id, rank_value, role, facet)] = tempBuild
 
     return builds
 
@@ -607,7 +599,6 @@ def process_build(builds, hero_id, rank):
 def sendtos3(builds):
 
     grouped_builds = defaultdict(list)
-
     for (hero_id, rank, role, facet), build in builds.items():
         grouped_builds[(hero_id, rank)].append(build)
 
@@ -646,18 +637,19 @@ def sendtos3(builds):
 
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-file_path = './python/daily/seq_num.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# file_path = './python/daily/seq_num.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
     seq_num = data['seq_num']
 
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-facet_path = './python/daily/facet_nums.json'
-
 with open(facet_path, 'r') as file:
     facet_nums = json.load(file)
+
+
 
 ranked_matches = []
 
@@ -669,14 +661,12 @@ sent_already = False
 
 while True:
     try:
-
-        DOTA_2_URL = SEQ_URL + str(seq_num)
         
-        print("Getting dota api games")
+        DOTA_2_URL = SEQ_URL + str(seq_num)
         response = requests.get(DOTA_2_URL, timeout=600)
 
         if response.status_code == 200:
-            print("Good response")
+            backoff = 10
             matches = response.json()['result']['matches']
             for match in matches:
                 seq_num = match['match_seq_num']
@@ -707,12 +697,13 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
         elif response.status_code == 429:
-            print("Too many requests, waiting 15 seconds")
-            time.sleep(15)
+            print(f'Too many requests, waiting {backoff} seconds')
+            time.sleep(backoff)
+            backoff = min(backoff + 10, 30)
         else:
             print("An error occured: ", response.status_code)
 
-        if hourlyDump >= 210:
+        if hourlyDump >= 500:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"

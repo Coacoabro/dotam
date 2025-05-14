@@ -44,7 +44,7 @@ def send_telegram_message(bot_token, chat_id, message):
 # ranked_path = '/home/ec2-user/dotam/python/daily/ranked_matches.json'
 file_path = './python/daily/seq_num.json'
 facet_path = './python/daily/facet_nums.json'
-ranked_patch = './python/daily/ranked_matches.json'
+ranked_path = './python/temp/ranked_matches_1.json'
 
 
 with open(file_path, 'r') as file:
@@ -63,7 +63,7 @@ build_index = {}
 
 sent_already = False
 
-backoff = 1
+m = 0
 
 while True:
     try:
@@ -79,7 +79,8 @@ while True:
         response = requests.get(DOTA_2_URL, timeout=600)
 
         if response.status_code == 200:
-            backoff = 1
+            backoff = 10
+            m += 1
             matches = response.json()['result']['matches']
             for match in matches:
                 seq_num = match['match_seq_num']
@@ -110,13 +111,15 @@ while True:
                         all_ranked_matches.append(ranked_matches)
                         ranked_matches = []
         elif response.status_code == 429:
-            print("Too many requests, waiting 15 seconds")
+            print(f'Too many requests, waiting {backoff} seconds')
             time.sleep(backoff)
-            backoff = min(backoff * 2, 60)
+            backoff = min(backoff + 10, 30)
         else:
             print("An error occured: ", response.status_code)
         
         if hourlyDump >= 100:
+            with open(ranked_path, 'w') as file:
+                json.dump(all_ranked_matches, file)
             with open(file_path, 'w') as file:
                 json.dump({"seq_num": seq_num}, file)
             break
@@ -136,5 +139,5 @@ while True:
 end_time = time.time()
 elapsed_time = end_time - start_time
 
-time_message = f"Finished sending to S3. That took {round((elapsed_time/60), 2)} minutes"
+time_message = f"Finished gathering ranked matches. That took {round((elapsed_time/60), 2)} minutes and {m} calls to the Web API"
 print(time_message)
