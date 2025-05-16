@@ -41,6 +41,7 @@ conn.close()
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
+# patch = 'test'
 
 item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
 item_res = item_req.json()
@@ -228,7 +229,8 @@ def getBuilds(ranked_matches, builds):
                                     item_id = staritem['itemId']
                                     if staritem['time'] < 0 and len(startingItems) < 6:
                                         startingItems.append(item_id)
-                                
+                                startingItems = sorted(startingItems)
+
                                 # Early Game Items
                                 earlyItems = []
                                 tempItemArray = []
@@ -277,7 +279,12 @@ def getBuilds(ranked_matches, builds):
                                     if neutralEvent['neutral0'] != None:
                                         neutral = neutralEvent['neutral0']['itemId']
                                         if neutral not in neutralItems and neutral not in NeutralTokens and neutral not in FakeNeutrals:
-                                            neutralItems.append(neutral)
+                                            tier = None
+                                            for item_info in item_list:
+                                                if item_info['id'] == neutral:
+                                                    tier = item_info['neutral_item_tier'] + 1
+                                                    break
+                                            neutralItems.append({'Item': neutral, 'Tier': tier})
                                 
                                 if core:
                                     # Dump into builds
@@ -287,157 +294,128 @@ def getBuilds(ranked_matches, builds):
                                         hero_build = builds.get(key)
                                         if hero_build:
 
+                                            # Matches and Wins
                                             hero_build[4] += 1
-                                            hero_build[5] += win                                          
-
-                                            abilitiesFound = False
-                                            currentAbilities = copy.deepcopy(hero_build[6])
-                                            for abilityBuild in currentAbilities:
-                                                if abilityBuild['Abilities'] == abilities:
-                                                    abilityBuild['Wins'] += win
-                                                    abilityBuild['Matches'] += 1
-                                                    abilitiesFound = True
-                                                    hero_build[6] = currentAbilities
-                                                    break
-                                            if not abilitiesFound:
-                                                hero_build[6].append({'Abilities': abilities, 'Wins': win, 'Matches': 1})
+                                            hero_build[5] += win
                                             
+                                            # Abilities
+                                            abilityBuild = hero_build[6].get(tuple(abilities))
+                                            if abilityBuild:
+                                                abilityBuild['Wins'] += win
+                                                abilityBuild['Matches'] += 1
+                                            else:
+                                                hero_build[6][tuple(abilities)] = {'Wins': win, 'Matches': 1}
+                                            
+                                            # Talents
                                             for talent in talents:
-                                                talentFound = False
-                                                currentTalents = copy.deepcopy(hero_build[7])
-                                                for talentBuild in currentTalents:
-                                                    if talentBuild['Talent'] == talent:
-                                                        talentBuild['Wins'] += win
-                                                        talentBuild['Matches'] += 1
-                                                        talentFound = True
-                                                        hero_build[7] = currentTalents
-                                                        break
-                                                if not talentFound:
-                                                    hero_build[7].append({'Talent': talent, 'Wins': win, 'Matches': 1})
+                                                talentBuild = hero_build[7].get(talent)
+                                                if talentBuild:
+                                                    talentBuild['Wins'] += win
+                                                    talentBuild['Matches'] += 1
+                                                else:
+                                                    hero_build[7][talent] = {'Wins': win, 'Matches': 1}
 
-                                            startingFound = False
-                                            currentStarting = copy.deepcopy(hero_build[8])
-                                            for startingBuild in currentStarting:
-                                                if sorted(startingBuild['Starting']) == sorted(startingItems):
-                                                    startingBuild['Wins'] += win
-                                                    startingBuild['Matches'] += 1
-                                                    startingFound = True
-                                                    hero_build[8] = currentStarting
-                                                    break
-                                            if not startingFound:
-                                                hero_build[8].append({'Starting': sorted(startingItems), 'Wins': win, 'Matches': 1})
+                                            # Starting Items                                            
+                                            startingBuild = hero_build[8].get(tuple(startingItems))
+                                            if startingBuild:
+                                                startingBuild['Wins'] += win
+                                                startingBuild['Matches'] += 1
+                                            else:
+                                                hero_build[8][tuple(startingItems)] = {'Wins': win, 'Matches': 1}
 
-                                            currentEarly = copy.deepcopy(hero_build[9])
+                                            # Early Items
                                             for earlyGameItem in earlyItems:
-                                                earlyFound = False
-                                                for earlyItem in currentEarly:
-                                                    if earlyItem['Item'] == earlyGameItem['Item'] and earlyItem['isSecondPurchase'] == earlyGameItem['isSecondPurchase']:
-                                                        earlyItem['Matches'] += 1
-                                                        earlyItem['Wins'] += win
-                                                        earlyFound = True
-                                                        hero_build[9] = currentEarly
-                                                        break
-                                                if not earlyFound:
-                                                    hero_build[9].append({'Item': earlyGameItem['Item'], 'isSecondPurchase': earlyGameItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
+                                                earlyKey = (earlyGameItem['Item'], earlyGameItem['isSecondPurchase'])
+                                                earlyItem = hero_build[9].get(earlyKey)
+                                                if earlyItem:
+                                                    earlyItem['Matches'] += 1
+                                                    earlyItem['Wins'] += win
+                                                else:
+                                                    hero_build[9][earlyKey] = {'Wins': win, 'Matches': 1}
 
-                                            buildFound = False
-                                            currentCore = copy.deepcopy(hero_build[10])
-                                            for build in currentCore:
-                                                if build['Core'] == core:
-                                                    build['Wins'] += win
-                                                    build['Matches'] += 1
-                                                    m = 3 if isSupport else 4
-                                                    for index in range(m-1, len(itemBuild)):
-                                                        gameItem = itemBuild[index]
-                                                        lateFound = False
-                                                        for lateItem in build['Late']:
-                                                            if gameItem == lateItem['Item'] and m == lateItem['Nth']:
-                                                                lateItem['Wins'] += win
-                                                                lateItem['Matches'] += 1
-                                                                lateFound = True
-                                                                break                                                        
-                                                        if not lateFound:
-                                                            build['Late'].append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
-                                                        m += 1
-                                                    hero_build[10] = currentCore
-                                                    buildFound = True
-                                                    break
-                                            if not buildFound:
-                                                lateGameItems = []
-                                                m = 3 if isSupport else 4
+                                            # Core and Late Items
+                                            m = 3 if isSupport else 4
+                                            currentCore = hero_build[10].get(tuple(core))
+                                            if currentCore:
+                                                currentCore['Wins'] += win
+                                                currentCore['Matches'] += 1
+                                                for index in range(m-1, len(itemBuild)):
+                                                    gameItem = itemBuild[index]
+                                                    lateKey = (gameItem, m)
+                                                    lateItem = currentCore['Late'].get(lateKey)
+                                                    if lateItem:
+                                                        lateItem['Wins'] += win
+                                                        lateItem['Matches'] += 1
+                                                    else:
+                                                        currentCore['Late'][lateKey] = {'Wins': win, 'Matches': 1}
+                                            else:
+                                                lateGameItems = {}
                                                 noCoreItems = itemBuild[(m-1):]
                                                 for _ in range(7):
                                                     if noCoreItems:
                                                         gameItem = noCoreItems.pop(0)
-                                                        lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
+                                                        lateKey = (gameItem, m)
+                                                        lateGameItems[lateKey] = {'Wins': win, 'Matches': 1}
                                                     m += 1
-                                                hero_build[10].append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
+                                                hero_build[10][tuple(core)] = {'Wins': win, 'Matches': 1, 'Late': lateGameItems}
 
-                                            neutralFound = False
+                                            # Neutral Items
+                                            seen = set()
                                             for neutralItem in neutralItems:
-                                                neutralFound = False
-                                                currentNeutrals = copy.deepcopy(hero_build[11])
-                                                for currNeutrals in currentNeutrals:
-                                                    if currNeutrals['Item'] == neutralItem:
-                                                        currNeutrals['Wins'] += win
-                                                        currNeutrals['Matches'] += 1
-                                                        neutralFound = True
-                                                        hero_build[11] = currentNeutrals
-                                                        break
-                                                if not neutralFound:
-                                                    tier = None
-                                                    for item_info in item_list:
-                                                        if item_info['id'] == neutralItem:
-                                                            tier = item_info['neutral_item_tier'] + 1
-                                                            break
-                                                    hero_build[11].append({'Tier': tier, 'Item': neutralItem, 'Wins': win, 'Matches': 1})
+                                                item_id = neutralItem['Item']
+                                                if item_id in seen:
+                                                    continue
+                                                else:
+                                                    currNeutral = hero_build[11].get(item_id)
+                                                    seen.add(item_id)
+                                                    if currNeutral:
+                                                        currNeutral['Wins'] += win
+                                                        currNeutral['Matches'] += 1
+                                                    else:
+                                                        hero_build[11][item_id] = {'Tier': neutralItem['Tier'], 'Wins': win, 'Matches': 1}
+
 
                                         else:
-
-                                            finalTalents = []
+                                            finalAbilities = {}
+                                            finalAbilities[tuple(abilities)] = {'Wins': win, 'Matches': 1}
+                                            finalTalents = {}
                                             for finalTalent in talents:
-                                                finalTalents.append({'Talent': finalTalent, 'Wins': win, 'Matches': 1})
-                                            finalEarlyItems = []
+                                                finalTalents[finalTalent] = {'Wins': win, 'Matches': 1}
+                                            finalStarting = {}
+                                            finalStarting[tuple(startingItems)] = {'Wins': win, 'Matches': 1}
+                                            finalEarlyItems = {}
                                             for tempEarlyItem in earlyItems:
-                                                finalEarlyItems.append({'Item': tempEarlyItem['Item'], 'isSecondPurchase': tempEarlyItem['isSecondPurchase'], 'Wins': win, 'Matches': 1})
-                                            finalCoreItems = []
-                                            lateGameItems = []
+                                                finalEarlyItems[(tempEarlyItem['Item'], tempEarlyItem['isSecondPurchase'])] = {'Wins': win, 'Matches': 1}
+                                            finalCoreItems = {}
+                                            lateGameItems = {}
                                             m = 3 if isSupport else 4
                                             finalNoCore = itemBuild[(m-1):]
                                             for _ in range(7):
                                                 if finalNoCore:
                                                     gameItem = finalNoCore.pop(0)
-                                                    lateGameItems.append({'Item': gameItem, 'Nth': m, 'Wins': win, 'Matches': 1})
+                                                    lateKey = (gameItem, m)
+                                                    lateGameItems[lateKey] = {'Wins': win, 'Matches': 1}
                                                 m += 1
-                                            finalCoreItems.append({'Core': core, 'Wins': win, 'Matches': 1, 'Late': lateGameItems})
-                                            finalNeutrals = []
+                                            finalCoreItems[tuple(core)] = {'Wins': win, 'Matches': 1, 'Late': lateGameItems}
+                                            finalNeutrals = {}
                                             if len(neutralItems) > 0:
                                                 for finalNeutralItem in neutralItems:
-                                                    tier = None
-                                                    for item_info in item_list:
-                                                        if item_info['id'] == finalNeutralItem:
-                                                            tier = item_info['neutral_item_tier'] + 1
-                                                            break
-                                                    finalNeutrals.append({'Tier': tier, 'Item': finalNeutralItem, 'Wins': win, 'Matches': 1})
+                                                    finalNeutrals[finalNeutralItem['Item']] = {'Tier': finalNeutralItem['Tier'], 'Wins': win, 'Matches': 1}
 
-                                            tempBuild = [hero_id, rank_value, role, facet, 1, win, 
-                                                        [{'Abilities': abilities, 'Wins': win, 'Matches': 1}], finalTalents, 
-                                                        [{'Starting': startingItems, 'Wins': win, 'Matches': 1}], finalEarlyItems,
-                                                        finalCoreItems, finalNeutrals]
+                                            tempBuild = [hero_id, rank_value, role, facet, 1, win, finalAbilities, finalTalents, 
+                                                         finalStarting, finalEarlyItems, finalCoreItems, finalNeutrals]
                                             
                                             builds[(hero_id, rank_value, role, facet)] = tempBuild
 
     return builds
 
-def mergebuilds(existing, new, key_fn):
-    index = {key_fn(e): e for e in existing}
-    for item in new:
-        key = key_fn(item)
-        if key in index:
-            index[key]["Wins"] += item["Wins"]
-            index[key]["Matches"] += item["Matches"]
+def mergebuilds(existing: dict, new: dict):
+    for key, value in new.items():
+        if key in existing:
+            existing[key]['Wins'] += value['Wins']
+            existing[key]['Matches'] += value['Matches']
         else:
-            existing.append(item)
+            existing[key] = value.copy()
     return existing
 
 def process_build(builds, hero_id, rank):
@@ -497,35 +475,73 @@ def process_build(builds, hero_id, rank):
         else:
             old_abilities, old_talents, old_starting, old_early, old_core, old_neutrals = existing_build_data
 
-            updated_abilities = mergebuilds(old_abilities, abilities, lambda a: tuple(a["Abilities"]))
-            updated_talents = mergebuilds(old_talents, talents, lambda t: t["Talent"])
-            updated_starting = mergebuilds(old_starting, starting, lambda s: tuple(sorted(s["Starting"])))
-            updated_early = mergebuilds(old_early, early, lambda e: (e["Item"], e["isSecondPurchase"]))
-            updated_neutrals = mergebuilds(old_neutrals, neutrals, lambda n: (n["Tier"], n["Item"]))
+            abilities_dict = {tuple(d['Abilities']): {'Wins': d['Wins'], 'Matches': d['Matches']} for d in old_abilities}
+            talents_dict = {d['Talent']: {'Wins': d['Wins'], 'Matches': d['Matches']} for d in old_talents}
+            starting_dict = {tuple(d['Starting']): {'Wins': d['Wins'], 'Matches': d['Matches']} for d in old_starting}
+            early_dict = {(d['Item'], d['isSecondPurchase']): {'Wins': d['Wins'], 'Matches': d['Matches']} for d in old_early}
+            neutrals_dict = {d['Item']: {'Tier': d['Tier'], 'Wins': d['Wins'], 'Matches': d['Matches']} for d in old_neutrals}
 
-            # Core is unique because of Late game items
-            existing_index = {tuple(c["Core"]): c for c in old_core}
-            for nc in core:
-                key = tuple(nc["Core"])
-                if key in existing_index:
-                    ec = existing_index[key]
-                    ec["Wins"] += nc["Wins"]
-                    ec["Matches"] += nc["Matches"]
-                    ec["Late"] = mergebuilds(ec.get("Late", []), nc.get("Late", []), lambda l: (l["Nth"], l["Item"]))
+            updated_abilities = mergebuilds(abilities_dict, abilities)
+            updated_talents = mergebuilds(talents_dict, talents)
+            updated_starting = mergebuilds(starting_dict, starting)
+            updated_early = mergebuilds(early_dict, early)
+            updated_neutrals = mergebuilds(neutrals_dict, neutrals)
+
+            core_dict = {}
+            for oc in old_core:
+                old_late = {}
+                for ol in oc["Late"]:
+                    key = (ol['Item'], ol['Nth'])
+                    old_late[key] = {"Wins": ol["Wins"], "Matches": ol['Matches']}
+                core_dict[tuple(oc["Core"])] = {
+                    'Wins': oc["Wins"],
+                    'Matches': oc['Matches'],
+                    'Late': old_late
+                }
+
+            for key, value in core.items():
+                if key not in core_dict:                    
+                    core_dict[key] = {
+                        'Wins': value['Wins'],
+                        'Matches': value['Matches'],
+                        'Late': dict(value.get('Late', {}))
+                    }
                 else:
-                    old_core.append(nc)
-            updated_core = old_core
+                    core_dict[key]['Wins'] += value['Wins']
+                    core_dict[key]['Matches'] += value['Matches']
+                    
+                    for (item_id, nth), stats in value.get('Late', {}).items():
+                        late_key = (item_id, nth)
+                        if late_key not in core_dict[key]['Late']:
+                            core_dict[key]['Late'][late_key] = stats.copy()
+                        else:
+                            core_dict[key]['Late'][late_key]['Wins'] += stats['Wins']
+                            core_dict[key]['Late'][late_key]['Matches'] += stats['Matches']
 
-            existing_data[role][str(facet)] = [updated_abilities, updated_talents, updated_starting, updated_early, updated_core, updated_neutrals]
+            for value in core_dict.values():
+                transformed_late = []
+                for (item_id, nth), stats in value.get('Late', {}).items():
+                    transformed_late.append({
+                        'Item': item_id,
+                        'Nth': nth,
+                        'Wins': stats['Wins'],
+                        'Matches': stats['Matches']
+                    })
+                value["Late"] = transformed_late
+                
+            updated_core = core_dict
 
         
         # Organize Updated Builds for faster loading
 
         # Abilities Page
-        top_abilities = sorted(updated_abilities, key=lambda ta: ta["Matches"], reverse=True)[:10]
+        copied_abilities = copy.deepcopy(updated_abilities)
+        top_abilities = sorted(copied_abilities.items(), key=lambda ta: ta[1]["Matches"], reverse=True)
+        abilities_json = [{'Abilities': list(k), **v} for k, v in top_abilities]
+        talents_json = [{'Talent': k, **v} for k, v in updated_talents.items()]
         existing_abilities[role][str(facet)] = {
-            "abilities": top_abilities,
-            "talents": updated_talents
+            "abilities": abilities_json[:10],
+            "talents": talents_json
         }
 
         # Items Page
@@ -534,67 +550,76 @@ def process_build(builds, hero_id, rank):
         copied_core = copy.deepcopy(updated_core)
         copied_neutrals = copy.deepcopy(updated_neutrals)
 
-        top_starting = sorted(copied_starting, key=lambda ts: ts["Matches"], reverse=True)[:5]
-        top_early = sorted(copied_early, key=lambda te: te["Matches"], reverse=True)[:10]
-        top_core = sorted(copied_core, key=lambda tc: tc["Matches"], reverse=True)[:10]
-        top_neutrals = sorted(copied_neutrals, key=lambda tn: tn["Matches"], reverse=True)
+        top_starting = sorted(copied_starting.items(), key=lambda ts: ts[1]["Matches"], reverse=True)
+        top_early = sorted(copied_early.items(), key=lambda te: te[1]["Matches"], reverse=True)
+        top_core = sorted(copied_core.items(), key=lambda tc: tc[1]["Matches"], reverse=True)
+        top_neutrals = sorted(copied_neutrals.items(), key=lambda tn: (tn[1]['Tier'], -tn[1]["Matches"]), reverse=False)
 
-        for tc in top_core:
-            top_late = []
-            for n in range(lateStart,11):
-                nth_items = list(filter(lambda nl: nl["Nth"] == n, tc["Late"]))
-                top_late.append(sorted(nth_items, key=lambda tl: tl["Matches"], reverse=True)[:10])
-            tc["Late"] = top_late
+        # print("Updated Abilities: ", updated_abilities)
+        # print("Updated Talents: ", updated_talents)
+        # print("Updated Items: ", updated_starting, updated_early, updated_core, updated_neutrals)
+
+        for _, tc in top_core:
+            late_items = tc.get("Late", {})
+            grouped = {}
+
+            final_late = []
+            for nth in range(lateStart, 11):
+                top = sorted(grouped.get(nth, []), key=lambda x: x["Matches"], reverse=True)[:10]
+                final_late.extend(top)
+
+            tc["Late"] = final_late
+        
+        starting_json = [{'Starting': list(k), **v} for k, v in top_starting]
+        early_json = [
+            {'Item': item_id, 'isSecondPurchase': is_second, 'Wins': stats['Wins'], 'Matches': stats['Matches']} 
+            for (item_id, is_second), stats in top_early
+                ]
+        core_json = [{'Core': list(k), **v} for k, v in top_core]
+        neutrals_json = [{'Item': k, **v} for k, v in top_neutrals]
 
         existing_items[role][str(facet)] = {
-            "starting": top_starting,
-            "early": top_early,
-            "core": top_core,
-            "neutrals": top_neutrals
+            "starting": starting_json[:5],
+            "early": early_json[:10],
+            "core": core_json[:10],
+            "neutrals": neutrals_json
         }
 
         # Builds Page
-        core_copy = copy.deepcopy(top_core)
+        core_copy = copy.deepcopy(core_json)
         builds_core = core_copy[:3] if len(core_copy) > 0 else None
-        if builds_core:
-            for bc in builds_core:
-                builds_late = []
-                for nth_items in bc["Late"]:
-                    builds_late.append(nth_items[:3])
-                bc["Late"] = builds_late
 
         existing_builds[role][str(facet)] = {
-            "abilities": top_abilities[0] if len(top_abilities) > 0 else None,
-            "talents": updated_talents,
+            "abilities": abilities_json[0] if len(abilities_json) > 0 else None,
+            "talents": talents_json,
             "items": {
-                "starting": top_starting[0] if len(top_starting) > 0 else None,
-                "early": top_early[:6] if len(top_early) > 0 else None,
+                "starting": starting_json[0] if len(starting_json) > 0 else None,
+                "early": early_json[:6] if len(early_json) > 0 else None,
                 "core": builds_core,
-                "neutrals": top_neutrals
+                "neutrals": neutrals_json
             }
-        }
+        }    
+
+        existing_data[role][str(facet)] = [abilities_json, talents_json, starting_json, early_json, core_json, neutrals_json]
 
     # Dumping Updated Summary
-    json.dumps(s3_summary, indent=2)
-    s3.put_object(Bucket='dotam-builds', Key=s3_summary_key, Body=json.dumps(s3_summary, indent=2))
+    s3.put_object(Bucket='dotam-builds', Key=s3_summary_key, Body=json.dumps(s3_summary, indent=2))    
 
     # Dumping Updated Build Data
-    json.dumps(existing_data, indent=2)
     s3.put_object(Bucket='dotam-builds', Key=s3_data_key, Body=json.dumps(existing_data, indent=2))
 
     # Dumping Updated Abilities Page
-    json.dumps(existing_abilities, indent=2)
     s3.put_object(Bucket='dotam-builds', Key=s3_abilities_key, Body=json.dumps(existing_abilities, indent=2))
 
     # Dumping Updated Items Page
-    json.dumps(existing_items, indent=2)
     s3.put_object(Bucket='dotam-builds', Key=s3_items_key, Body=json.dumps(existing_items, indent=2))
 
     # Dumping Updated Builds Page
-    json.dumps(existing_builds, indent=2)
     s3.put_object(Bucket='dotam-builds', Key=s3_builds_key, Body=json.dumps(existing_builds, indent=2))
 
-    print("Done: ", hero_id, rank)
+    print("DONE: ", hero_id, rank)
+
+
 
 def sendtos3(builds):
 
@@ -606,6 +631,7 @@ def sendtos3(builds):
 
     with ThreadPoolExecutor(max_workers=50) as executor:
         for (hero_id, rank), build_group in grouped_builds.items():
+        # process_build(build_group, hero_id, rank)
             executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
 
     ## Make Sure Everythings Up to Date
@@ -637,10 +663,10 @@ def sendtos3(builds):
 
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# file_path = './python/daily/seq_num.json'
-# facet_path = './python/daily/facet_nums.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+file_path = './python/daily/seq_num.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -657,6 +683,8 @@ hourlyDump = 0
 builds = {}
 build_index = {}
 
+backoff = 5
+
 sent_already = False
 
 while True:
@@ -666,7 +694,7 @@ while True:
         response = requests.get(DOTA_2_URL, timeout=600)
 
         if response.status_code == 200:
-            backoff = 10
+            backoff = 5
             matches = response.json()['result']['matches']
             for match in matches:
                 seq_num = match['match_seq_num']
@@ -696,12 +724,6 @@ while True:
                         print(hourlyDump)
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
-        elif response.status_code == 429:
-            print(f'Too many requests, waiting {backoff} seconds')
-            time.sleep(backoff)
-            backoff = min(backoff + 10, 30)
-        else:
-            print("An error occured: ", response.status_code)
 
         if hourlyDump >= 500:
             end_time = time.time()
@@ -710,7 +732,6 @@ while True:
             print(time_message)
             send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
 
-            sent_already = True
             sendtos3(builds)
 
             break
