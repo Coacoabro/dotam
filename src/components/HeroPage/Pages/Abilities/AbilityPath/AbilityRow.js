@@ -14,11 +14,11 @@ export default function AbilityRow( {order, abilityPath, matches, wins} ) {
 
     return(
         <tr className={`${order % 2 ? null : "bg-slate-950"} ${order != 9 ? 'border-b-2 border-slate-800' : null}`}>
-            <td className="flex space-x-3 py-3 px-4 sm:py-3 sm:px-4 overflow-x-scroll sm:overflow-visible min-w-[540px]">
+            <td className="flex space-x-1 sm:space-x-3 p-2 sm:py-3 sm:px-4 overflow-x-scroll sm:overflow-visible min-w-[540px]">
                 {abilityPath.map((ability, index) => (
-                    <div className={`relative bg-slate-900 px-1 py-0.5 rounded-md`}>
-                        <div className="text-center">{index+1}</div>
-                        <img className="w-6 sm:w-10 rounded-lg" src={ability > 0 ? imgURL + ability_ids[ability] + ".png" : talentURL} />
+                    <div className={`relative bg-slate-900 px-1 pb-0.5 rounded-md w-8 sm:w-full`}>
+                        <div className="text-center text-xs sm:text-lg">{index+1}</div>
+                        <img className="sm:w-10 rounded-lg" src={ability > 0 ? imgURL + ability_ids[ability] + ".png" : talentURL} />
                     </div>
                 ))}
             </td>

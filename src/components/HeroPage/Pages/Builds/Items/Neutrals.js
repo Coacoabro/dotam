@@ -18,7 +18,7 @@ export default function Neutrals({hero, items}){
                     <h2 className='text-base text-gray-300/50 hidden sm:block'>Best neutral items for {hero.name}</h2>
                 </div>
             </div>
-            <div className="grid grid-cols-2 gap-2 sm:flex justify-evenly px-2">
+            <div className="grid grid-cols-2 gap-1 sm:flex justify-evenly px-2">
                 {tieredItems.map((items, index) => (
                     <Tier tier={index+1} items={items} />
                 ))}

@@ -10,6 +10,8 @@ export default function MobileCoreContainer({items, isCarry}){
         setCurrCore(items[0])
     }, [items])
 
+    console.log(items)
+
     return(
         <div className="bg-slate-950 rounded-lg ">
             <div className="overflow-y-auto hidden-scrollbar h-64 border border-slate-800 flex flex-col items-center">
@@ -24,7 +26,7 @@ export default function MobileCoreContainer({items, isCarry}){
             </div>
             <div className="text-lg bg-slate-900 w-full px-2 py-2 font-bold">Late Game Items</div>
             <div className="overflow-y-auto custom-scrollbar">
-                <LateItems items={currCore.late} isCarry={isCarry} />
+                <LateItems items={currCore['Late']} isCarry={isCarry} />
             </div>
         </div>
     )
