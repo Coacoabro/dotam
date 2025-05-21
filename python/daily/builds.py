@@ -40,8 +40,8 @@ hero_ids = [row[0] for row in cur.fetchall()]
 conn.close()
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-patch = res.text
-# patch = 'test'
+# patch = res.text
+patch = 'test'
 
 item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
 item_res = item_req.json()
@@ -487,6 +487,7 @@ def process_build(builds, hero_id, rank):
             updated_early = mergebuilds(early_dict, early)
             updated_neutrals = mergebuilds(neutrals_dict, neutrals)
 
+
             core_dict = {}
             for oc in old_core:
                 old_late = {}
@@ -530,30 +531,19 @@ def process_build(builds, hero_id, rank):
                 value["Late"] = transformed_late
                 
             updated_core = core_dict
-
         
         # Organize Updated Builds for faster loading
 
-        # Abilities Page
-        copied_abilities = copy.deepcopy(updated_abilities)
-        top_abilities = sorted(copied_abilities.items(), key=lambda ta: ta[1]["Matches"], reverse=True)
+        # Abilities Data
+        top_abilities = sorted(updated_abilities.items(), key=lambda ta: ta[1]["Matches"], reverse=True)
         abilities_json = [{'Abilities': list(k), **v} for k, v in top_abilities]
         talents_json = [{'Talent': k, **v} for k, v in updated_talents.items()]
-        existing_abilities[role][str(facet)] = {
-            "abilities": abilities_json[:10],
-            "talents": talents_json
-        }
 
-        # Items Page
-        copied_starting = copy.deepcopy(updated_starting)
-        copied_early = copy.deepcopy(updated_early)
-        copied_core = copy.deepcopy(updated_core)
-        copied_neutrals = copy.deepcopy(updated_neutrals)
-
-        top_starting = sorted(copied_starting.items(), key=lambda ts: ts[1]["Matches"], reverse=True)
-        top_early = sorted(copied_early.items(), key=lambda te: te[1]["Matches"], reverse=True)
-        top_core = sorted(copied_core.items(), key=lambda tc: tc[1]["Matches"], reverse=True)
-        top_neutrals = sorted(copied_neutrals.items(), key=lambda tn: (tn[1]['Tier'], -tn[1]["Matches"]), reverse=False)
+        # Items Data
+        top_starting = sorted(updated_starting.items(), key=lambda ts: ts[1]["Matches"], reverse=True)
+        top_early = sorted(updated_early.items(), key=lambda te: te[1]["Matches"], reverse=True)
+        top_core = sorted(updated_core.items(), key=lambda tc: tc[1]["Matches"], reverse=True)
+        top_neutrals = sorted(updated_neutrals.items(), key=lambda tn: (tn[1]['Tier'], -tn[1]["Matches"]), reverse=False)
 
         # print("Updated Abilities: ", updated_abilities)
         # print("Updated Talents: ", updated_talents)
@@ -563,13 +553,19 @@ def process_build(builds, hero_id, rank):
             late_items = tc.get("Late", {})
             grouped = {}
 
+            for stats in late_items:
+                nth = stats.get("nth")
+                if nth is not None:
+                    grouped.setdefault(nth, []).append(stats)
+
             final_late = []
             for nth in range(lateStart, 11):
-                top = sorted(grouped.get(nth, []), key=lambda x: x["Matches"], reverse=True)[:10]
+                top = sorted(grouped.get(nth, []), key=lambda x: x["Matches"], reverse=True)
                 final_late.extend(top)
 
             tc["Late"] = final_late
-        
+
+
         starting_json = [{'Starting': list(k), **v} for k, v in top_starting]
         early_json = [
             {'Item': item_id, 'isSecondPurchase': is_second, 'Wins': stats['Wins'], 'Matches': stats['Matches']} 
@@ -578,16 +574,45 @@ def process_build(builds, hero_id, rank):
         core_json = [{'Core': list(k), **v} for k, v in top_core]
         neutrals_json = [{'Item': k, **v} for k, v in top_neutrals]
 
+        existing_data[role][str(facet)] = [
+            abilities_json.copy(), 
+            talents_json.copy(), 
+            starting_json.copy(), 
+            early_json.copy(), 
+            core_json.copy(), 
+            neutrals_json.copy()
+            ]
+        
+        for core_entry in core_json[:10]:  # Only care about top 10 for items
+            late_entry = core_entry.get("Late", [])
+            grouped = {}
+
+            for item in late_entry:
+                nth = item.get("nth")
+                if nth is not None:
+                    grouped.setdefault(nth, []).append(item)
+
+            sliced_late = []
+            for nth in range(lateStart, 11):
+                top = sorted(grouped.get(nth, []), key=lambda x: x["Matches"], reverse=True)[:10]
+                sliced_late.extend(top)
+
+            core_entry["Late"] = sliced_late
+
+        existing_abilities[role][str(facet)] = {
+            "abilities": abilities_json[:10],
+            "talents": talents_json
+        }
+
         existing_items[role][str(facet)] = {
             "starting": starting_json[:5],
             "early": early_json[:10],
-            "core": core_json[:10],
+            "core": core_json,
             "neutrals": neutrals_json
         }
 
         # Builds Page
-        core_copy = copy.deepcopy(core_json)
-        builds_core = core_copy[:3] if len(core_copy) > 0 else None
+        builds_core = core_json[:3] if len(core_json) > 0 else None
 
         existing_builds[role][str(facet)] = {
             "abilities": abilities_json[0] if len(abilities_json) > 0 else None,
@@ -600,22 +625,21 @@ def process_build(builds, hero_id, rank):
             }
         }    
 
-        existing_data[role][str(facet)] = [abilities_json, talents_json, starting_json, early_json, core_json, neutrals_json]
-
+    
     # Dumping Updated Summary
-    s3.put_object(Bucket='dotam-builds', Key=s3_summary_key, Body=json.dumps(s3_summary, indent=2))    
+    s3.put_object(Bucket='dotam-builds', Key=s3_summary_key, Body=json.dumps(s3_summary, indent=None))    
 
     # Dumping Updated Build Data
-    s3.put_object(Bucket='dotam-builds', Key=s3_data_key, Body=json.dumps(existing_data, indent=2))
+    s3.put_object(Bucket='dotam-builds', Key=s3_data_key, Body=json.dumps(existing_data, indent=None))
 
     # Dumping Updated Abilities Page
-    s3.put_object(Bucket='dotam-builds', Key=s3_abilities_key, Body=json.dumps(existing_abilities, indent=2))
+    s3.put_object(Bucket='dotam-builds', Key=s3_abilities_key, Body=json.dumps(existing_abilities, indent=None))
 
     # Dumping Updated Items Page
-    s3.put_object(Bucket='dotam-builds', Key=s3_items_key, Body=json.dumps(existing_items, indent=2))
+    s3.put_object(Bucket='dotam-builds', Key=s3_items_key, Body=json.dumps(existing_items, indent=None))
 
     # Dumping Updated Builds Page
-    s3.put_object(Bucket='dotam-builds', Key=s3_builds_key, Body=json.dumps(existing_builds, indent=2))
+    s3.put_object(Bucket='dotam-builds', Key=s3_builds_key, Body=json.dumps(existing_builds, indent=None))
 
     print("DONE: ", hero_id, rank)
 
@@ -629,10 +653,10 @@ def sendtos3(builds):
 
     print("Amount of builds: ", len(grouped_builds))
 
-    with ThreadPoolExecutor(max_workers=50) as executor:
-        for (hero_id, rank), build_group in grouped_builds.items():
-        # process_build(build_group, hero_id, rank)
-            executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
+    # with ThreadPoolExecutor(max_workers=20) as executor:
+    for (hero_id, rank), build_group in grouped_builds.items():
+        process_build(build_group, hero_id, rank)
+            # executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
 
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
@@ -663,10 +687,10 @@ def sendtos3(builds):
 
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# file_path = './python/daily/seq_num.json'
-# facet_path = './python/daily/facet_nums.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+file_path = './python/daily/seq_num.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -688,7 +712,7 @@ backoff = 5
 sent_already = False
 
 while True:
-    try:
+    # try:
         
         DOTA_2_URL = SEQ_URL + str(seq_num)
         response = requests.get(DOTA_2_URL, timeout=600)
@@ -725,26 +749,26 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 625:
+        if hourlyDump >= 5:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
             print(time_message)
-            send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
+            # send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
 
             sendtos3(builds)
 
             break
 
-    except Exception as e:
-        error_message = f"An error occurred in your script:\n\n{str(e)}"
-        print(error_message)
-        if str(e) == "local variable 'data' referenced before assignment":
-            send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
-            break
-        else:
-            send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-            if builds and not sent_already:
-                sent_already = True
-                sendtos3(builds)
-        break
+    # except Exception as e:
+    #     error_message = f"An error occurred in your script:\n\n{str(e)}"
+    #     print(error_message)
+    #     if str(e) == "local variable 'data' referenced before assignment":
+    #         send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
+    #         break
+    #     else:
+    #         send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+    #         if builds and not sent_already:
+    #             sent_already = True
+    #             sendtos3(builds)
+    #     break
