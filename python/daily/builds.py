@@ -40,8 +40,8 @@ hero_ids = [row[0] for row in cur.fetchall()]
 conn.close()
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-# patch = res.text
-patch = 'test'
+patch = res.text
+# patch = 'test'
 
 item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
 item_res = item_req.json()
@@ -341,7 +341,7 @@ def getBuilds(ranked_matches, builds):
                                                 currentCore['Matches'] += 1
                                                 for index in range(m-1, len(itemBuild)):
                                                     gameItem = itemBuild[index]
-                                                    lateKey = (gameItem, m)
+                                                    lateKey = (gameItem, index+1)
                                                     lateItem = currentCore['Late'].get(lateKey)
                                                     if lateItem:
                                                         lateItem['Wins'] += win
@@ -518,52 +518,36 @@ def process_build(builds, hero_id, rank):
                         else:
                             core_dict[key]['Late'][late_key]['Wins'] += stats['Wins']
                             core_dict[key]['Late'][late_key]['Matches'] += stats['Matches']
-
-            for value in core_dict.values():
-                transformed_late = []
-                for (item_id, nth), stats in value.get('Late', {}).items():
-                    transformed_late.append({
-                        'Item': item_id,
-                        'Nth': nth,
-                        'Wins': stats['Wins'],
-                        'Matches': stats['Matches']
-                    })
-                value["Late"] = transformed_late
-                
-            updated_core = core_dict
+        
         
         # Organize Updated Builds for faster loading
 
         # Abilities Data
-        top_abilities = sorted(updated_abilities.items(), key=lambda ta: ta[1]["Matches"], reverse=True)
+        top_abilities = sorted(updated_abilities.items(), key=lambda ta: (ta[1]["Matches"], ta[1]["Wins"]), reverse=True)
         abilities_json = [{'Abilities': list(k), **v} for k, v in top_abilities]
         talents_json = [{'Talent': k, **v} for k, v in updated_talents.items()]
 
         # Items Data
-        top_starting = sorted(updated_starting.items(), key=lambda ts: ts[1]["Matches"], reverse=True)
-        top_early = sorted(updated_early.items(), key=lambda te: te[1]["Matches"], reverse=True)
-        top_core = sorted(updated_core.items(), key=lambda tc: tc[1]["Matches"], reverse=True)
-        top_neutrals = sorted(updated_neutrals.items(), key=lambda tn: (tn[1]['Tier'], -tn[1]["Matches"]), reverse=False)
-
-        # print("Updated Abilities: ", updated_abilities)
-        # print("Updated Talents: ", updated_talents)
-        # print("Updated Items: ", updated_starting, updated_early, updated_core, updated_neutrals)
-
+        top_starting = sorted(updated_starting.items(), key=lambda ts: (ts[1]["Matches"], ts[1]["Wins"]), reverse=True)
+        top_early = sorted(updated_early.items(), key=lambda te: (te[1]["Matches"], te[1]["Wins"]), reverse=True)
+        top_core = sorted(updated_core.items(), key=lambda tc: (tc[1]["Matches"], tc[1]["Wins"]), reverse=True)
+        top_neutrals = sorted(updated_neutrals.items(), key=lambda tn: (tn[1]['Tier'], -tn[1]["Matches"], -tn[1]["Wins"]), reverse=False)
+        
+        grouped_by_nth = defaultdict(list)
         for _, tc in top_core:
             late_items = tc.get("Late", {})
-            grouped = {}
-
-            for stats in late_items:
-                nth = stats.get("nth")
-                if nth is not None:
-                    grouped.setdefault(nth, []).append(stats)
-
-            final_late = []
-            for nth in range(lateStart, 11):
-                top = sorted(grouped.get(nth, []), key=lambda x: x["Matches"], reverse=True)
-                final_late.extend(top)
-
-            tc["Late"] = final_late
+            for (item_id, nth), stats in late_items.items():
+                grouped_by_nth[nth].append({
+                    'Item': item_id,
+                    'Wins': stats['Wins'],
+                    'Matches': stats['Matches']
+                })
+        
+            for nth in grouped_by_nth:
+                grouped_by_nth[nth].sort(key=lambda x: (x['Matches'], x['Wins']), reverse=True)
+            
+            tc["Late"] = dict(grouped_by_nth)
+            
 
 
         starting_json = [{'Starting': list(k), **v} for k, v in top_starting]
@@ -574,30 +558,15 @@ def process_build(builds, hero_id, rank):
         core_json = [{'Core': list(k), **v} for k, v in top_core]
         neutrals_json = [{'Item': k, **v} for k, v in top_neutrals]
 
-        existing_data[role][str(facet)] = [
-            abilities_json.copy(), 
-            talents_json.copy(), 
-            starting_json.copy(), 
-            early_json.copy(), 
-            core_json.copy(), 
-            neutrals_json.copy()
-            ]
-        
-        for core_entry in core_json[:10]:  # Only care about top 10 for items
-            late_entry = core_entry.get("Late", [])
-            grouped = {}
+        # Full Data, hopefully untouched when mutated later
+        existing_data[role][str(facet)] = [abilities_json, talents_json, starting_json, early_json, core_json, neutrals_json]
 
-            for item in late_entry:
-                nth = item.get("nth")
-                if nth is not None:
-                    grouped.setdefault(nth, []).append(item)
+        copied_core = copy.deepcopy(core_json[:10])
 
-            sliced_late = []
-            for nth in range(lateStart, 11):
-                top = sorted(grouped.get(nth, []), key=lambda x: x["Matches"], reverse=True)[:10]
-                sliced_late.extend(top)
-
-            core_entry["Late"] = sliced_late
+        for core_entry in copied_core:  # Only care about top 10 for items
+            if "Late" in core_entry:
+                for nth in core_entry["Late"]:
+                    core_entry["Late"][nth] = core_entry["Late"][nth][:10]
 
         existing_abilities[role][str(facet)] = {
             "abilities": abilities_json[:10],
@@ -607,12 +576,9 @@ def process_build(builds, hero_id, rank):
         existing_items[role][str(facet)] = {
             "starting": starting_json[:5],
             "early": early_json[:10],
-            "core": core_json,
+            "core": copied_core,
             "neutrals": neutrals_json
         }
-
-        # Builds Page
-        builds_core = core_json[:3] if len(core_json) > 0 else None
 
         existing_builds[role][str(facet)] = {
             "abilities": abilities_json[0] if len(abilities_json) > 0 else None,
@@ -620,10 +586,10 @@ def process_build(builds, hero_id, rank):
             "items": {
                 "starting": starting_json[0] if len(starting_json) > 0 else None,
                 "early": early_json[:6] if len(early_json) > 0 else None,
-                "core": builds_core,
+                "core": copied_core[:3],
                 "neutrals": neutrals_json
             }
-        }    
+        }  
 
     
     # Dumping Updated Summary
@@ -749,7 +715,7 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 5:
+        if hourlyDump >= 100:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
