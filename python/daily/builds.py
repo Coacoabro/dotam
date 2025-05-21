@@ -336,21 +336,23 @@ def getBuilds(ranked_matches, builds):
                                             # Core and Late Items
                                             m = 3 if isSupport else 4
                                             currentCore = hero_build[10].get(tuple(core))
+                                            noCoreItems = itemBuild[(m-1):]
                                             if currentCore:
                                                 currentCore['Wins'] += win
                                                 currentCore['Matches'] += 1
-                                                for index in range(m-1, len(itemBuild)):
-                                                    gameItem = itemBuild[index]
-                                                    lateKey = (gameItem, index+1)
-                                                    lateItem = currentCore['Late'].get(lateKey)
-                                                    if lateItem:
-                                                        lateItem['Wins'] += win
-                                                        lateItem['Matches'] += 1
-                                                    else:
-                                                        currentCore['Late'][lateKey] = {'Wins': win, 'Matches': 1}
+                                                for _ in range(7):
+                                                    if noCoreItems:
+                                                        gameItem = noCoreItems.pop(0)
+                                                        lateKey = (gameItem, m)
+                                                        lateItem = currentCore['Late'].get(lateKey)
+                                                        if lateItem:
+                                                            lateItem['Wins'] += win
+                                                            lateItem['Matches'] += 1
+                                                        else:
+                                                            currentCore['Late'][lateKey] = {'Wins': win, 'Matches': 1}
+                                                        m += 1
                                             else:
                                                 lateGameItems = {}
-                                                noCoreItems = itemBuild[(m-1):]
                                                 for _ in range(7):
                                                     if noCoreItems:
                                                         gameItem = noCoreItems.pop(0)
@@ -533,8 +535,9 @@ def process_build(builds, hero_id, rank):
         top_core = sorted(updated_core.items(), key=lambda tc: (tc[1]["Matches"], tc[1]["Wins"]), reverse=True)
         top_neutrals = sorted(updated_neutrals.items(), key=lambda tn: (tn[1]['Tier'], -tn[1]["Matches"], -tn[1]["Wins"]), reverse=False)
         
-        grouped_by_nth = defaultdict(list)
+        
         for _, tc in top_core:
+            grouped_by_nth = defaultdict(list)
             late_items = tc.get("Late", {})
             for (item_id, nth), stats in late_items.items():
                 grouped_by_nth[nth].append({
@@ -619,10 +622,10 @@ def sendtos3(builds):
 
     print("Amount of builds: ", len(grouped_builds))
 
-    # with ThreadPoolExecutor(max_workers=20) as executor:
-    for (hero_id, rank), build_group in grouped_builds.items():
-        process_build(build_group, hero_id, rank)
-            # executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        for (hero_id, rank), build_group in grouped_builds.items():
+        # process_build(build_group, hero_id, rank)
+            executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
 
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
