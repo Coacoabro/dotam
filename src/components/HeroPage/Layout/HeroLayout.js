@@ -87,7 +87,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
           <div>
             <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
               
-              <div className="pt-2 flex justify-center align-items-center h-24" >
+              <div className="pt-2 flex justify-center align-items-center sm:h-24" >
                 <Ad placementName="leaderboard" />
               </div>
               
