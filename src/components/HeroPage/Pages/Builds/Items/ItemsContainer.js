@@ -11,9 +11,10 @@ import Neutrals from './Neutrals'
 import Ad from '../../../../../components/Ads/Venatus/Ad'
 
 
-export default function ItemsContainer({build, hero, role}) {
+export default function ItemsContainer({build, hero}) {
 
     const router = useRouter()
+    const {role} = router.query
     const initPath = router.asPath.split('/').pop()
     const initOptions = initPath.split("?")[1]
 
