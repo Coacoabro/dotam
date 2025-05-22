@@ -490,36 +490,37 @@ def process_build(builds, hero_id, rank):
             updated_neutrals = mergebuilds(neutrals_dict, neutrals)
 
 
-            core_dict = {}
+            updated_core = {}
             for oc in old_core:
                 old_late = {}
-                for ol in oc["Late"]:
-                    key = (ol['Item'], ol['Nth'])
-                    old_late[key] = {"Wins": ol["Wins"], "Matches": ol['Matches']}
-                core_dict[tuple(oc["Core"])] = {
+                for nth, items in oc["Late"].items():
+                    for ol in items:
+                        key = (ol['Item'], int(nth))
+                        old_late[key] = {"Wins": ol["Wins"], "Matches": ol['Matches']}
+                updated_core[tuple(oc["Core"])] = {
                     'Wins': oc["Wins"],
                     'Matches': oc['Matches'],
                     'Late': old_late
                 }
 
             for key, value in core.items():
-                if key not in core_dict:                    
-                    core_dict[key] = {
+                if key not in updated_core:                    
+                    updated_core[key] = {
                         'Wins': value['Wins'],
                         'Matches': value['Matches'],
                         'Late': dict(value.get('Late', {}))
                     }
                 else:
-                    core_dict[key]['Wins'] += value['Wins']
-                    core_dict[key]['Matches'] += value['Matches']
+                    updated_core[key]['Wins'] += value['Wins']
+                    updated_core[key]['Matches'] += value['Matches']
                     
                     for (item_id, nth), stats in value.get('Late', {}).items():
                         late_key = (item_id, nth)
-                        if late_key not in core_dict[key]['Late']:
-                            core_dict[key]['Late'][late_key] = stats.copy()
+                        if late_key not in updated_core[key]['Late']:
+                            updated_core[key]['Late'][late_key] = stats.copy()
                         else:
-                            core_dict[key]['Late'][late_key]['Wins'] += stats['Wins']
-                            core_dict[key]['Late'][late_key]['Matches'] += stats['Matches']
+                            updated_core[key]['Late'][late_key]['Wins'] += stats['Wins']
+                            updated_core[key]['Late'][late_key]['Matches'] += stats['Matches']
         
         
         # Organize Updated Builds for faster loading
@@ -593,6 +594,7 @@ def process_build(builds, hero_id, rank):
                 "neutrals": neutrals_json
             }
         }  
+
 
     
     # Dumping Updated Summary
@@ -718,12 +720,12 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 100:
+        if hourlyDump >= 750:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
             print(time_message)
-            # send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
+            send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
 
             sendtos3(builds)
 
