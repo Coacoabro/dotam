@@ -53,17 +53,17 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
                     <div className='lg:w-1/2'><Matchups type='against' matchups={heroMatchups[0].herovs} hero={heroData} /></div>
                     <div className='lg:w-1/2'><Matchups type='with' matchups={heroMatchups[0].herowith} hero={heroData} /></div>
                 </div> : 
-                <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800 text-center'>
+                <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800 text-center text-lg'>
                     For {heroData.localized_name} matchups, visit <Link href={stratz_url} target="_blank" className='underline text-cyan-300 font-bold'>Stratz</Link>!
                 </div>
             }
             
-            <Link href={`/hero/${hero.url}/matchups`} className='flex items-center justify-between mx-auto rounded-lg border border-cyan-200/25 px-5 py-3 w-48 hover:bg-slate-700'>
+            {/* <Link href={`/hero/${hero.url}/matchups`} className='flex items-center justify-between mx-auto rounded-lg border border-cyan-200/25 px-5 py-3 w-48 hover:bg-slate-700'>
                 <div>Open Matchups</div>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
-            </Link>
+            </Link> */}
            
         </div>
     )
