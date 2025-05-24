@@ -45,7 +45,7 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
                 :
                 <div>Not enough Item data</div>
             }
-            {heroMatchups[0] ? 
+            {heroMatchups ? 
                 <div className='sm:w-4/5 sm:mx-auto lg:w-full lg:flex lg:items-end px-5 py-2 gap-10 bg-slate-900 rounded-lg border border-slate-800 space-y-2 sm:space-y-0'>
                     <div className='lg:w-1/2'><Matchups type='against' matchups={heroMatchups[0].herovs} hero={heroData} /></div>
                     <div className='lg:w-1/2'><Matchups type='with' matchups={heroMatchups[0].herowith} hero={heroData} /></div>

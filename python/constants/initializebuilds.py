@@ -20,7 +20,8 @@ newest_hero_id = 150
 base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-patch = res.text
+# patch = res.text
+patch = "7.39"
 
 def get_innate():
     global newest_hero_id
@@ -119,51 +120,6 @@ def get_facets():
     with open('./json/facet_nums.json', 'w') as f:
         json.dump(facet_nums_json, f)
 
-def postgres_data():
-    # My Amazon Database
-    database_url = os.environ.get('DATABASE_URL')
-    builds_database_url = os.environ.get('BUILDS_DATABASE_URL')
-    conn = psycopg2.connect(database_url)
-    cur = conn.cursor()
-
-    cur.execute("SELECT hero_id from heroes;")
-    hero_ids = [row[0] for row in cur.fetchall()]
-    conn.close()
-
-    conn = psycopg2.connect(builds_database_url)
-    cur = conn.cursor()
-
-    previous_patch = "7.38b"
-    res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-    patch = res.text
-
-    Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
-    Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
-    file_path = './json/hero_facets.json'
-    with open(file_path, 'r') as file:
-        Facets = json.load(file)
-
-    cur.execute("DELETE FROM main WHERE patch = %s", (previous_patch,))
-
-    data = []
-
-    for hero_id in hero_ids:
-        num_facets = len(Facets[str(hero_id)])
-        hero_facet = list(range(1, num_facets + 1))
-        for rank in Ranks:
-            for role in Roles:
-                for facet in hero_facet:
-                    data.append((hero_id, rank, role, facet, patch, 0, 0))
-
-    query = """
-        INSERT INTO main (hero_id, rank, role, facet, patch, total_matches, total_wins) 
-        VALUES %s
-    """
-
-    execute_values(cur, query, data)
-
-    conn.commit()
-    conn.close()
 
 def s3_data():
 
@@ -272,11 +228,11 @@ def hero_info():
 
 
     
-## All of these are used
+## All of these are used (INCLUDING HERO INFO!!)
 # get_facets()
 # get_innate()
-s3_data()
-# hero_info()
+# s3_data()
+hero_info()
 
 
 ### postgres_data() # NO LONGER USED

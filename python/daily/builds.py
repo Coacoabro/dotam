@@ -658,10 +658,10 @@ def sendtos3(builds):
 
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-file_path = './python/daily/seq_num.json'
-facet_path = './python/daily/facet_nums.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# file_path = './python/daily/seq_num.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -683,7 +683,7 @@ backoff = 5
 sent_already = False
 
 while True:
-    # try:
+    try:
         
         DOTA_2_URL = SEQ_URL + str(seq_num)
         response = requests.get(DOTA_2_URL, timeout=600)
@@ -731,15 +731,15 @@ while True:
 
             break
 
-    # except Exception as e:
-    #     error_message = f"An error occurred in your script:\n\n{str(e)}"
-    #     print(error_message)
-    #     if str(e) == "local variable 'data' referenced before assignment":
-    #         send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
-    #         break
-    #     else:
-    #         send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-    #         if builds and not sent_already:
-    #             sent_already = True
-    #             sendtos3(builds)
-    #     break
+    except Exception as e:
+        error_message = f"An error occurred in your script:\n\n{str(e)}"
+        print(error_message)
+        if str(e) == "local variable 'data' referenced before assignment":
+            send_telegram_message(BOT_TOKEN, CHAT_ID, "Referenced before assignment, aborting mission")
+            break
+        else:
+            send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+            if builds and not sent_already:
+                sent_already = True
+                sendtos3(builds)
+        break

@@ -317,7 +317,6 @@ for tier, tier_roles in combinedArray.items():
                     "tier_str": tier_str
                 })
 
-                print(hero_id, currentRole, tier)
 
 
 

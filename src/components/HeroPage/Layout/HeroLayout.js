@@ -36,9 +36,10 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
   const [currFacet, setCurrFacet] = useState(facet || initFacet)
 
   const [currRates, setCurrRates] = useState(null)
+  const [currMatchups, setCurrMatchups] = useState(null)
 
   const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currPatch, page], () => fetchHeroData(hero.id, 'page', currRank, currPatch, page), {staleTime: 3600000});
-  const { data: heroMatchups, isLoading: matchupsLoading } = useQuery(['heroData', hero.id, 'matchups', currRank, currPatch], () => fetchHeroData(hero.id, 'matchups', currRank, currPatch), {staleTime: 3600000});
+  const { data: heroMatchups } = useQuery(['heroData', hero.id, 'matchups', currRank, currPatch], () => fetchHeroData(hero.id, 'matchups', currRank, currPatch), {staleTime: 3600000});
 
   useEffect(() => {
     if(rank){setCurrRank(rank)}
@@ -55,11 +56,13 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
       }
     }
 
-  }, [rank, role, patch, facet, rates])
+    if(heroMatchups){setCurrMatchups(heroMatchups)}
+
+  }, [rank, role, patch, facet, rates, heroMatchups])
 
   if(rates){
 
-    if( buildsLoading || matchupsLoading ){
+    if( buildsLoading ){
       if(heroInfo){
         return(<HeroLoading hero={hero} heroData={heroInfo} rates={currRates} current_patch={current_patch} initRole={initRole} initFacet={initFacet} />)
       }
@@ -131,16 +134,22 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
                 <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} summary={summary} />
               </div>
 
-              {currBuild ?
+              {currBuild && currMatchups ?
                 <main>
                   {React.Children.map(children, child =>
-                    React.cloneElement(child, { initRole, initFacet, heroData, currBuild, heroMatchups })
+                    React.cloneElement(child, { initRole, initFacet, heroData, currBuild, currMatchups })
                   )}
                 </main>
-              : heroMatchups ? 
+              : currMatchups ? 
                 <main>
                   {React.Children.map(children, child =>
-                    React.cloneElement(child, { heroData, initRole, heroMatchups })
+                    React.cloneElement(child, { heroData, initRole, currMatchups })
+                  )}
+                </main>
+              : currBuild ? 
+                <main>
+                  {React.Children.map(children, child =>
+                    React.cloneElement(child, { heroData, initRole, currBuild })
                   )}
                 </main>
               : <div>Nothing yet!</div>}

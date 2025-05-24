@@ -49,10 +49,10 @@
             "Icon": "movement"
         },
         {
-            "Name": "bloodseeker_bloodrush",
-            "Title": "Bloodrush",
-            "Desc": "Bloodseeker can supercharge the movement speed from Thirst temporarily.",
-            "Icon": "speed"
+            "Name": "bloodseeker_old_blood",
+            "Title": "Old Blood",
+            "Desc": "Bloodrage silences the target and can be applied to enemies. Bloodrage increases base attack damage instead of spell damage.",
+            "Icon": "debuff"
         }
     ],
     "5": [
@@ -65,7 +65,7 @@
         {
             "Name": "crystal_maiden_arcane_overflow",
             "Title": "Arcane Overflow",
-            "Desc": "Activating Arcane Aura temporarily increases Crystal Maiden's spell amplification and mana costs. During the duration, Crystal Maiden restores her allies' Mana when casting spells.",
+            "Desc": "Activating Arcane Aura temporarily increases Crystal Maiden's spell amplification and mana costs. During the duration, Crystal Maiden restores her and her allies' Mana when casting spells.",
             "Icon": "mana"
         }
     ],
@@ -87,14 +87,14 @@
         {
             "Name": "earthshaker_tectonic_buildup",
             "Title": "Tectonic Buildup",
-            "Desc": "Aftershock radius is increased by {s:bonus_aftershock_range_increase_per_level_interval} every {s:bonus_aftershock_range_level_interval} hero levels.",
+            "Desc": "Aftershock radius is increased by {s:bonus_aftershock_range_increase_per_level_interval} for every level of Echo Slam.",
             "Icon": "area_of_effect"
         },
         {
-            "Name": "earthshaker_slugger",
-            "Title": "Slugger",
-            "Desc": "Enemies killed with Enchant Totem or Earthshaker's other abilities are sent flying, dealing damage to enemies they hit.",
-            "Icon": "movement"
+            "Name": "earthshaker_reverberating_ridge",
+            "Title": "Resonating Ridge",
+            "Desc": "Enemy heroes stunned by Fissure emit an echo to each nearby unit.",
+            "Icon": "ricochet"
         }
     ],
     "8": [
@@ -177,7 +177,7 @@
         {
             "Name": "puck_curveball",
             "Title": "Curveball",
-            "Desc": "Puck's Illusory Orb can be curved in any direction, moves faster, and lasts longer.",
+            "Desc": "Puck's Illusory Orb can be curved in any direction, moves faster, deals more damage and lasts longer.",
             "Icon": "curve_ball"
         }
     ],
@@ -205,22 +205,22 @@
         {
             "Name": "razor_spellamp",
             "Title": "Dynamo",
-            "Desc": "Razor gains 1% spell amplification for every 20 points of attack damage.",
+            "Desc": "Razor gains 1.25% spell amplification for every 20 points of attack damage.",
             "Icon": "nuke"
         }
     ],
     "16": [
         {
-            "Name": "sand_king_sandshroud",
-            "Title": "Sandshroud",
-            "Desc": "Sand Storm has increased radius and grants Sand King Invisibility while in it.",
-            "Icon": "vision"
+            "Name": "sand_king_obscurity",
+            "Title": "Sandblast",
+            "Desc": "When Sand King attacks enemies in Sand Storm, he applies a blinding debuff to his target.",
+            "Icon": "no_vision"
         },
         {
-            "Name": "sand_king_dust_devil",
-            "Title": "Dust Devil",
-            "Desc": "Sand Storm follows Sand King when he moves.",
-            "Icon": "speed"
+            "Name": "sand_king_pinpoint",
+            "Title": "Final Sting",
+            "Desc": "A Caustic Finale explosion is created around every enemy hero hit in Stinger's innermost radius.",
+            "Icon": "area_of_effect"
         }
     ],
     "17": [
@@ -317,7 +317,7 @@
         {
             "Name": "kunkka_grog",
             "Title": "Grog Blossom",
-            "Desc": "When X Marks the Spot returns its target, nearby allies gain Ghostship's improved Admiral's Rum buff.",
+            "Desc": "When X Marks the Spot returns its target, Kunkka and all nearby allies gain Ghostship's Admiral's Rum buff.",
             "Icon": "armor"
         }
     ],
@@ -359,7 +359,7 @@
         {
             "Name": "shadow_shaman_massive_serpent_ward",
             "Title": "Massive Serpent Ward",
-            "Desc": "Summons a single massive Serpent Ward with {s:bonus_mega_ward_multiplier_tooltip}x damage and bounty values and {s:bonus_mega_ward_health_tooltip}x health.",
+            "Desc": "Summons a single massive Serpent Ward with {s:bonus_mega_ward_multiplier_damage}x damage and {s:bonus_mega_ward_multiplier_health}x health and bounty values.",
             "Icon": "snake"
         }
     ],
@@ -393,30 +393,30 @@
     ],
     "30": [
         {
-            "Name": "witch_doctor_headhunter",
-            "Title": "Headhunter",
-            "Desc": "Paralyzing Cask deals more damage each bounce.",
-            "Icon": "ricochet"
-        },
-        {
             "Name": "witch_doctor_cleft_death",
             "Title": "Cleft Death",
             "Desc": "Death Ward attacks multiple targets with reduced damage.",
             "Icon": "death_ward"
+        },
+        {
+            "Name": "witch_doctor_malpractice",
+            "Title": "Malpractice",
+            "Desc": "Enemies dying while Maledicted explode.",
+            "Icon": "nuke"
         }
     ],
     "31": [
-        {
-            "Name": "lich_frostbound",
-            "Title": "Frostbound",
-            "Desc": "Chain Frost lingers on its last target if it fails to bounce and can bounce again if new targets become available.",
-            "Icon": "snowflake"
-        },
         {
             "Name": "lich_growing_cold",
             "Title": "Growing Cold",
             "Desc": "When an enemy is killed by Chain Frost or while under the effect of Frost Shield, the duration of these abilities is extended.",
             "Icon": "cooldown"
+        },
+        {
+            "Name": "lich_cryophobia",
+            "Title": "Evil Eye",
+            "Desc": "Sinister Gaze applies a lingering effect to the target, causing it to take extra magic damage from Lich and amplify incoming movement slows.",
+            "Icon": "vision"
         }
     ],
     "32": [
@@ -527,7 +527,7 @@
         {
             "Name": "queenofpain_facet_bondage",
             "Title": "Bondage",
-            "Desc": "Queen of Pain returns spell damage back to enemies.",
+            "Desc": "Queen of Pain returns spell damage back to enemies. Succubus's Spell Lifesteal also applies to Pure & Magical reflected damage.",
             "Icon": "twin_hearts"
         }
     ],
@@ -541,7 +541,7 @@
         {
             "Name": "venomancer_plague_carrier",
             "Title": "Plague Carrier",
-            "Desc": "Plague Wards can be attached to allies and have extra charges.",
+            "Desc": "When Venomous Gale impacts enemy heroes, {s:bonus_num_created_wards_tooltip} Plague Wards are created around them. Plague Wards also deal Septic Shock damage based on their attack damage.",
             "Icon": "summons"
         }
     ],
@@ -679,7 +679,7 @@
         {
             "Name": "dragon_knight_frost_dragon",
             "Title": "Frost Dragon",
-            "Desc": "Dragon Knight has Slow and Healing Reduction Effects on his attacks that get stronger when in Elder Dragon Form.",
+            "Desc": "Dragon Knight has Slow and Health Restoration Reduction Effects on his attacks that get stronger when in Elder Dragon Form.",
             "Icon": "dragon_frost"
         }
     ],
@@ -709,6 +709,12 @@
             "Title": "Expanded Armature",
             "Desc": "Power Cogs form in a larger radius.",
             "Icon": "area_of_effect"
+        },
+        {
+            "Name": "rattletrap_junk_mail",
+            "Title": "Chainmeal",
+            "Desc": "Clockwerk can consume Chainmails to permanently gain +{s:bonus_armor_per_chainmail} armor.",
+            "Icon": "armor"
         }
     ],
     "52": [
@@ -729,14 +735,14 @@
         {
             "Name": "furion_soothing_saplings",
             "Title": "Soothing Saplings",
-            "Desc": "Allies inside and nearby on the outside of Sprout are healed over time.",
+            "Desc": "After Sprout is cast, all trees in a {s:bonus_healing_radius} radius heal nearby allies.",
             "Icon": "healing"
         },
         {
-            "Name": "furion_ironwood_treant",
-            "Title": "Ironwood Treant",
-            "Desc": "Nature's Call creates only {s:bonus_max_treants} Treant that has more health, more damage, increased vision, increased movement speed, and is Reinforced.",
-            "Icon": "siege"
+            "Name": "furion_natures_profit",
+            "Title": "Nature's Profit",
+            "Desc": "Whenever Nature's Prophet kills an enemy hero or one dies nearby, a money tree is created in their place that drops gold bags to be collected.",
+            "Icon": "gold"
         }
     ],
     "54": [
@@ -897,14 +903,14 @@
         {
             "Name": "batrider_buff_on_displacement",
             "Title": "Stoked",
-            "Desc": "Batrider gains Move Speed and Spell Amplification when displacing enemies.",
-            "Icon": "speed"
+            "Desc": "Firefly also lights Batrider on fire. He gains increasingly more Move Speed and Spell Amplification and burns away a portion of his max health each second.",
+            "Icon": "nuke"
         },
         {
             "Name": "batrider_arsonist",
             "Title": "Arsonist",
-            "Desc": "Sticky Napalm deals damage to structures.",
-            "Icon": "siege"
+            "Desc": "Increases the max level of Sticky Napalm. Level {s:bonus_max_level_tooltip} Sticky Napalm causes every attack to apply {s:bonus_napalm_stacks_on_attack_tooltip} stack of Sticky Napalm.",
+            "Icon": "damage"
         }
     ],
     "66": [
@@ -1053,33 +1059,33 @@
         {
             "Name": "invoker_quas_focus",
             "Title": "Scholar of Koryx",
-            "Desc": "<font color='#7998b5'>Quas</font> gains an additional max level. When Invoker reaches level 6, <font color='#7998b5'>Quas</font> gains an additional level.<br><br>When <b>Cold Snap</b> triggers, Invoker is healed and restores some mana.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Ghost Walk</b> and grants 2 current and max levels to <font color='#7998b5'>Quas</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Ice Wall</b>.",
+            "Desc": "<font color='#7998b5'>Quas</font> gains an additional max level. When Invoker reaches level 6, <font color='#7998b5'>Quas</font> gains an additional level.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Ice Wall</b>.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Ghost Walk</b>.",
             "Icon": "invoker_quas"
         },
         {
             "Name": "invoker_wex_focus",
             "Title": "Mind of Tornarus",
-            "Desc": "<font color='#d671a9'>Wex</font> gains an additional max level. When Invoker reaches level 6, <font color='#d671a9'>Wex</font> gains an additional level.<br><br><b>Alacrity</b> grants bonus attack range when used on Invoker or range units under his control.</b><br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Tornado</b> and grants 2 current and max levels to <font color='#d671a9'>Wex</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>E.M.P.</b>",
+            "Desc": "<font color='#d671a9'>Wex</font> gains an additional max level. When Invoker reaches level 6, <font color='#d671a9'>Wex</font> gains an additional level.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Tornado</b>.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>E.M.P.</b>",
             "Icon": "invoker_wex"
         },
         {
             "Name": "invoker_exort_focus",
             "Title": "Agent of Gallaron",
-            "Desc": "<font color='#cabe68'>Exort</font> gains an additional max level. When Invoker reaches level 6, <font color='#cabe68'>Exort</font> gains an additional level.<br><br><b>Chaos Meteor</b>'s radius and travel distance is increased.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Sun Strike</b> and grants 2 current and max levels to <font color='#cabe68'>Exort</font>, increasing it to 10.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Sun Strike</b>.",
+            "Desc": "<font color='#cabe68'>Exort</font> gains an additional max level. When Invoker reaches level 6, <font color='#cabe68'>Exort</font> gains an additional level.<br><br><font color='#92acf5'>Aghanim's Scepter</font> upgrades <b>Sun Strike</b>.<br><br><font color='#92acf5'>Aghanim's Shard</font> upgrades <b>Sun Strike</b>.",
             "Icon": "invoker_exort"
         }
     ],
     "75": [
         {
-            "Name": "silencer_irrepressible",
-            "Title": "Irrepressible",
-            "Desc": "Silencer cannot be silenced.",
-            "Icon": "silencer"
+            "Name": "silencer_spread_the_knowledge",
+            "Title": "Synaptic Split",
+            "Desc": "Increases the max level of Glaives of Wisdom. Level {s:bonus_max_level_tooltip} Glaives of Wisdom bounce {s:bonus_bounce_count_tooltip} time to a random target within {s:bonus_bounce_range_tooltip} range.",
+            "Icon": "ricochet"
         },
         {
-            "Name": "silencer_reverberating_silence",
-            "Title": "Reverberating Silence",
-            "Desc": "The first time Global Silence ends on a unit it is applied again.",
+            "Name": "silencer_oppressive_silence",
+            "Title": "Suffer In Silence",
+            "Desc": "Silencer takes less damage from and deals more damage to silenced targets.",
             "Icon": "debuff"
         }
     ],
@@ -1197,7 +1203,7 @@
         {
             "Name": "treant_primeval_power",
             "Title": "Primeval Power",
-            "Desc": "Treant gains +{s:bonus_attack_damage_per_level} base attack damage per hero level.",
+            "Desc": "Treant gains +{s:attack_damage_per_level} base attack damage per hero level.",
             "Icon": "damage"
         },
         {
@@ -1253,7 +1259,7 @@
         {
             "Name": "disruptor_thunderstorm",
             "Title": "Thunderstorm",
-            "Desc": "Thunder Strike additionally hits all enemies within Kinetic Field.",
+            "Desc": "Thunder Strike additionally hits all enemies within Kinetic Field. Thunder Strike Slow duration is doubled.",
             "Icon": "area_of_effect"
         },
         {
@@ -1261,6 +1267,12 @@
             "Title": "Kinetic Fence",
             "Desc": "Replaces Kinetic Field with the ability to create impassable walls.",
             "Icon": "fence"
+        },
+        {
+            "Name": "disruptor_conduit",
+            "Title": "Transferrence",
+            "Desc": "Electromagnetic Repulsion can be activated manually, be cast on allies and deals damage equal to a percentage of Disruptor's current health.",
+            "Icon": "vortex_out"
         }
     ],
     "88": [
@@ -1273,7 +1285,7 @@
         {
             "Name": "nyx_assassin_scuttle",
             "Title": "Scuttle",
-            "Desc": "For the first {s:bonus_free_pathing_duration}s of Vendetta, Nyx is hasted and has unobstructed pathing.",
+            "Desc": "For the first {s:bonus_free_pathing_duration}s of Vendetta, Nyx Assassin is hasted and has unobstructed pathing.",
             "Icon": "speed"
         }
     ],
@@ -1287,7 +1299,7 @@
         {
             "Name": "naga_siren_active_riptide",
             "Title": "Deluge",
-            "Desc": "Naga Siren can create a splash around herself and her illusions, damaging enemies and reducing their Status Resistance.",
+            "Desc": "Naga Siren can create a splash around herself and her illusions, damaging enemies and capping their max movement speed.",
             "Icon": "nuke"
         }
     ],
@@ -1363,7 +1375,7 @@
         {
             "Name": "medusa_slow_attacks",
             "Title": "Venomous Volley",
-            "Desc": "Every 6 attacks, Medusa applies poison to her arrow that briefly reduces movement speed, attack speed, and cast speed.",
+            "Desc": "Every 6 attacks, Medusa applies poison to her arrow that briefly reduces movement speed and attack speed.",
             "Icon": "slow"
         },
         {
@@ -1391,7 +1403,7 @@
         {
             "Name": "centaur_counter_strike",
             "Title": "Counter-Strike",
-            "Desc": "Double Edge damage is increased when Centaur is attacked.",
+            "Desc": "Double Edge damage is increased when Centaur is damage by enemies.",
             "Icon": "nuke"
         },
         {
@@ -1479,10 +1491,10 @@
             "Icon": "cooldown"
         },
         {
-            "Name": "abaddon_mephitic_shroud",
-            "Title": "Mephitic Shroud",
-            "Desc": "Aphotic Shield absorbs more damage and reflects damage when received instead of exploding at the end.",
-            "Icon": "barrier"
+            "Name": "abaddon_mists_of_fate",
+            "Title": "Malignant Mist",
+            "Desc": "Mist Coil also deals {s:bonus_damage_percentage_on_perform_attack}% attack damage and applies effects from items and abilities. Self Damage increased when targeting enemies.",
+            "Icon": "phantom_ass_dagger"
         }
     ],
     "103": [
@@ -1543,7 +1555,7 @@
         {
             "Name": "ember_spirit_chain_gang",
             "Title": "Chain Gang",
-            "Desc": "Searing Chains can affect an additional enemy. When Searing Chains are cast, they are also cast around each Fire Remnant.",
+            "Desc": "Searing Chains can affect two additional enemies. When Searing Chains are cast, they are also cast around each Fire Remnant.",
             "Icon": "debuff"
         }
     ],
@@ -1641,7 +1653,7 @@
         {
             "Name": "arc_warden_runed_replica",
             "Title": "Runed Replica",
-            "Desc": "The Tempest Double is infused with the bonuses of Power Runes for {s:bonus_rune_duration}s when created.<br><br>Level 1 - Invisibility Rune.<br><br>Level 2 - Invisibility and Arcane Runes.<br><br>Level 3 - Invisibility, Arcane, and Haste Runes.",
+            "Desc": "The Tempest Double is infused with the bonuses of Power Runes for {s:bonus_rune_duration}s when created.<br><br>Level 1 - Arcane Rune.<br><br>Level 2 - Arcane and Invisibility Runes.<br><br>Level 3 - Arcane, Invisibility, and Haste Runes.",
             "Icon": "arc_warden_alt"
         },
         {
@@ -1653,16 +1665,16 @@
     ],
     "114": [
         {
-            "Name": "monkey_king_wukongs_faithful",
-            "Title": "Wukong's Faithful",
-            "Desc": "Monkey King's soldiers last longer and do not disperse unless he spends more than {s:bonus_leadership_time_buffer} seconds outside the area.",
-            "Icon": "summons"
-        },
-        {
             "Name": "monkey_king_simian_stride",
             "Title": "Simian Stride",
             "Desc": "Increases the max level of Tree Dance. Level {s:bonus_max_level_tooltip} Tree Dance reduces the cooldown to zero.",
             "Icon": "tree"
+        },
+        {
+            "Name": "monkey_king_transfiguration",
+            "Title": "Changing of the Guard",
+            "Desc": "Monkey King can transform into one of his soldiers during Wukong's command.",
+            "Icon": "summons"
         }
     ],
     "119": [
@@ -1703,7 +1715,7 @@
         {
             "Name": "grimstroke_fine_art",
             "Title": "Fine Art",
-            "Desc": "Stroke of Fate can now be vector targeted to manipulate the ink's travel path.",
+            "Desc": "Stroke of Fate additionally launches a reflected curved stroke from the right hand.",
             "Icon": "brush"
         }
     ],
@@ -1840,10 +1852,10 @@
             "Icon": "spirit"
         },
         {
-            "Name": "muerta_ofrenda",
-            "Title": "Ofrenda",
-            "Desc": "Muerta can place a beneficial Ofrenda on the map to respawn there instead of the fountain.",
-            "Icon": "teleport"
+            "Name": "muerta_slingshot",
+            "Title": "Quickdraw",
+            "Desc": "Dead Shot fears increase Gunslinger chance.<br><br>Gunslinger procs reduce Dead Shot cooldown. ",
+            "Icon": "ricochet"
         }
     ],
     "145": [
@@ -1856,7 +1868,7 @@
         {
             "Name": "kez_shadowhawk",
             "Title": "Shadowhawk",
-            "Desc": "Triggering a Shodo Sai Mark from invisibility deals bonus critical damage.",
+            "Desc": "Triggering a Shodo Sai Mark from invisibility deals bonus critical damage. Increases Raven's Veil invisibility duration.",
             "Icon": "kez_shadowhawk"
         }
     ]
