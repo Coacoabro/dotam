@@ -658,10 +658,10 @@ def sendtos3(builds):
 
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# file_path = './python/daily/seq_num.json'
-# facet_path = './python/daily/facet_nums.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+file_path = './python/daily/seq_num.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)

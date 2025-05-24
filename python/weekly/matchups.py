@@ -7,6 +7,7 @@ import os
 import psycopg2
 import json
 import requests
+import boto3
 
 load_dotenv()
 
@@ -22,14 +23,14 @@ headers = {'Authorization': f'Bearer {graphql_token}', 'User-Agent': 'STRATZ_API
 conn = psycopg2.connect(database_url)
 cur = conn.cursor() # Open a cursor to perform database operations
 
-cur.execute("TRUNCATE TABLE matchups")
-
 cur.execute("SELECT hero_id from heroes;")
 hero_ids = [row[0] for row in cur.fetchall()]
 
-cur.execute("SELECT * from rates WHERE patch = %s", [patch])
-rates = cur.fetchall()
+rates_response = requests.get(f"https://dhpoqm1ofsbx7.cloudfront.net/data{patch}/rates.json")
+rates = json.dumps(rates_response)
 # [0] is hero_id, [6] is role, [7] is rank
+
+s3 = boto3.client('s3')
 
 
 ranks = ['', 'HERALD_GUARDIAN', 'CRUSADER_ARCHON', 'LEGEND_ANCIENT', 'DIVINE_IMMORTAL']
@@ -99,37 +100,39 @@ for rank in ranks:
     rankName = rank if rank else 'All'
 
     matchupData = data['data'][rankName]['matchUp']
+    
+    for matchup in matchupData:
 
-    for role in roles:
+        hero_id = matchup['heroId']
+        
+        if hero_id in hero_ids:
 
-        if role == "All":
-            heroes_against = hero_ids
-            heroes_with = hero_ids
-        elif role == "POSITION_1":
-            heroes_against = hero_roles['POSITION_3']
-            heroes_with = hero_roles['POSITION_5']
-        elif role == "POSITION_2":
-            heroes_against = hero_roles['POSITION_2']
-            heroes_with.extend(hero_roles['POSITION_1'])
-            heroes_with.extend(hero_roles['POSITION_3'])
-            heroes_with.extend(hero_roles['POSITION_4'])
-            heroes_with.extend(hero_roles['POSITION_5'])
-        elif role == "POSITION_3":
-            heroes_against = hero_roles['POSITION_1']
-            heroes_with = hero_roles['POSITION_4']
-        elif role == "POSITION_4":
-            heroes_against = hero_roles['POSITION_5']
-            heroes_with = hero_roles['POSITION_3']
-        elif role == "POSITION_5":
-            heroes_against = hero_roles['POSITION_4']
-            heroes_with = hero_roles['POSITION_1']
+            hero_matchups = []
+            
+            for role in roles:
 
+                if role == "All":
+                    heroes_against = hero_ids
+                    heroes_with = hero_ids
+                elif role == "POSITION_1":
+                    heroes_against = hero_roles['POSITION_3']
+                    heroes_with = hero_roles['POSITION_5']
+                elif role == "POSITION_2":
+                    heroes_against = hero_roles['POSITION_2']
+                    heroes_with.extend(hero_roles['POSITION_1'])
+                    heroes_with.extend(hero_roles['POSITION_3'])
+                    heroes_with.extend(hero_roles['POSITION_4'])
+                    heroes_with.extend(hero_roles['POSITION_5'])
+                elif role == "POSITION_3":
+                    heroes_against = hero_roles['POSITION_1']
+                    heroes_with = hero_roles['POSITION_4']
+                elif role == "POSITION_4":
+                    heroes_against = hero_roles['POSITION_5']
+                    heroes_with = hero_roles['POSITION_3']
+                elif role == "POSITION_5":
+                    heroes_against = hero_roles['POSITION_4']
+                    heroes_with = hero_roles['POSITION_1']
 
-        for matchup in matchupData:
-
-            hero_id = matchup['heroId']
-
-            if hero_id in hero_ids:
 
                 matchupsVs = matchup['vs']
                 matchupsWith = matchup['with']
@@ -149,12 +152,17 @@ for rank in ranks:
                 
                 withFinal.sort(key=lambda x: x['WR'], reverse=True)
 
-                cur.execute("INSERT INTO matchups (hero_id, rank, role, herovs, herowith) VALUES (%s, %s, %s, %s, %s);", (hero_id, rank, role, json.dumps(vsFinal), json.dumps(withFinal)))
-                    
-                
-conn.commit() # Commit the transaction
+                matchup_json = {
+                    'role': role,
+                    'vs': vsFinal,
+                    'with': withFinal
+                }
 
-conn.close()
+                hero_matchups.append(matchup_json)
+
+        s3.put_object(Bucket='dotam-content', Key=f"data/{patch}/{hero_id}/matchups/{rank}/matchups.json", Body=json.dumps(hero_matchups, indent=2))
+                    
+
 
         
 

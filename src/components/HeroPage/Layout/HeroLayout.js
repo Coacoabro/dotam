@@ -134,22 +134,16 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
                 <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} summary={summary} />
               </div>
 
-              {currBuild && currMatchups ?
+              {currBuild  ?
                 <main>
                   {React.Children.map(children, child =>
                     React.cloneElement(child, { initRole, initFacet, heroData, currBuild, currMatchups })
                   )}
                 </main>
-              : currMatchups ? 
+              : page == 'matchups' ? 
                 <main>
                   {React.Children.map(children, child =>
                     React.cloneElement(child, { heroData, initRole, currMatchups })
-                  )}
-                </main>
-              : currBuild ? 
-                <main>
-                  {React.Children.map(children, child =>
-                    React.cloneElement(child, { heroData, initRole, currBuild })
                   )}
                 </main>
               : <div>Nothing yet!</div>}

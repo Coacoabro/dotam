@@ -21,6 +21,9 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
 
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
+    const stratz_name = heroData.name.replace("npc_dota_hero_", "")
+    const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-")
+
 
     return(
         <div className='space-y-4 flex-col justify-center'>
@@ -50,8 +53,8 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
                     <div className='lg:w-1/2'><Matchups type='against' matchups={heroMatchups[0].herovs} hero={heroData} /></div>
                     <div className='lg:w-1/2'><Matchups type='with' matchups={heroMatchups[0].herowith} hero={heroData} /></div>
                 </div> : 
-                <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800'>
-                    <h1 className='text-center text-slate-200'>No matchups available for this role</h1>
+                <div className='w-full p-5 bg-slate-900 rounded-lg border border-slate-800 text-center'>
+                    For {heroData.localized_name} matchups, visit <Link href={stratz_url} target="_blank" className='underline text-cyan-300 font-bold'>Stratz</Link>!
                 </div>
             }
             

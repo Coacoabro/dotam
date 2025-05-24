@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from "next/router"
 import MatchupTable from './MatchupTable'
 import HeroSearch from '../../../Home/Heroes/HeroSearch'
+import Link from 'next/link'
 
 
 export default function Matchups({ heroData, initRole, heroMatchups }) {
@@ -13,6 +14,9 @@ export default function Matchups({ heroData, initRole, heroMatchups }) {
     const handleSearch = (term) => {
       setSearchTerm(term)
     }
+    
+    const stratz_name = heroData.name.replace("npc_dota_hero_", "")
+    const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-")
 
     if(heroMatchups){
 
@@ -63,7 +67,9 @@ export default function Matchups({ heroData, initRole, heroMatchups }) {
     }
     else {
         return(
-            <div className='text-center py-8'>NO MATCHUPS.... yet</div>
+            <div className='text-center py-8 border border-slate-800 rounded-lg bg-slate-900'>
+                For {heroData.localized_name} matchups, visit <Link href={stratz_url} target="_blank" className='underline text-cyan-300 font-bold'>Stratz</Link>!
+            </div>
         )
     }
 
