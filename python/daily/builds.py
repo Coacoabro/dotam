@@ -15,7 +15,8 @@ from dotenv import load_dotenv
 from collections import Counter
 from collections import defaultdict
 from botocore.exceptions import ClientError
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed, TimeoutError
+from multiprocessing import Process, Queue
 
 load_dotenv()
 
@@ -616,6 +617,15 @@ def process_build(builds, hero_id, rank):
 
 
 
+def worker(queue, build_group, hero_id, rank):
+    try:
+        process_build(build_group, hero_id, rank)
+        queue.put("done")
+    except Exception as e:
+        queue.put(f"Error: {str(e)}")
+
+
+
 def sendtos3(builds):
 
     grouped_builds = defaultdict(list)
@@ -624,10 +634,53 @@ def sendtos3(builds):
 
     print("Amount of builds: ", len(grouped_builds))
 
-    with ThreadPoolExecutor(max_workers=20) as executor:
-        for (hero_id, rank), build_group in grouped_builds.items():
-        # process_build(build_group, hero_id, rank)
-            executor.submit(lambda group=build_group, h=hero_id, r=rank: process_build(group, h, r))
+    grouped_items = list(grouped_builds.items())
+    max_concurrent = 8
+
+    for i in range(0, len(grouped_items), max_concurrent):
+        active = []
+        for (hero_id, rank), build_group in grouped_items[i:i+max_concurrent]:
+            q = Queue()
+            p = Process(target=worker, args=(q, build_group, hero_id, rank))
+            p.start()
+            active.append((p, q, hero_id, rank))
+        
+        for p, q, hero_id, rank in active:
+            p.join(timeout=300)
+            if p.is_alive():
+                p.terminate()
+                p.join()
+                error_message = f"Timeout processing build for hero {hero_id} and rank {rank}" 
+                send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+            else:
+                result = q.get()
+                if result != "done":
+                    error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
+                    send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+
+
+
+    ## Thread Pool
+    # with ThreadPoolExecutor(max_workers=10) as executor:
+    #     futures = {
+    #         executor.submit(process_build, build_group, hero_id, rank): (hero_id, rank)
+    #         for (hero_id, rank), build_group in grouped_builds.items()
+    #     }
+
+    #     for future in as_completed(futures):
+    #         hero_id, rank = futures[future]
+    #         try:
+    #             future.result(timeout=300)
+    #         except TimeoutError:
+    #             error_message = f"Timeout processing build for hero {hero_id} and rank {rank}"
+    #             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+    #         except Exception as e:
+    #             error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
+    #             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+
+    ## Normal Testing, one by one
+    # for (hero_id, rank), build_group in grouped_builds.items():
+    #     process_build(build_group, hero_id, rank)
 
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
@@ -658,10 +711,10 @@ def sendtos3(builds):
 
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-file_path = './python/daily/seq_num.json'
-facet_path = './python/daily/facet_nums.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# file_path = './python/daily/seq_num.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
