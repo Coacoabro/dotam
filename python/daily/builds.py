@@ -634,49 +634,49 @@ def sendtos3(builds):
 
     print("Amount of builds: ", len(grouped_builds))
 
-    grouped_items = list(grouped_builds.items())
-    max_concurrent = 8
+    # grouped_items = list(grouped_builds.items())
+    # max_concurrent = 8
 
-    for i in range(0, len(grouped_items), max_concurrent):
-        active = []
-        for (hero_id, rank), build_group in grouped_items[i:i+max_concurrent]:
-            q = Queue()
-            p = Process(target=worker, args=(q, build_group, hero_id, rank))
-            p.start()
-            active.append((p, q, hero_id, rank))
+    # for i in range(0, len(grouped_items), max_concurrent):
+    #     active = []
+    #     for (hero_id, rank), build_group in grouped_items[i:i+max_concurrent]:
+    #         q = Queue()
+    #         p = Process(target=worker, args=(q, build_group, hero_id, rank))
+    #         p.start()
+    #         active.append((p, q, hero_id, rank))
         
-        for p, q, hero_id, rank in active:
-            p.join(timeout=300)
-            if p.is_alive():
-                p.terminate()
-                p.join()
-                error_message = f"Timeout processing build for hero {hero_id} and rank {rank}" 
+    #     for p, q, hero_id, rank in active:
+    #         p.join(timeout=300)
+    #         if p.is_alive():
+    #             p.terminate()
+    #             p.join()
+    #             error_message = f"Timeout processing build for hero {hero_id} and rank {rank}" 
+    #             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+    #         else:
+    #             result = q.get()
+    #             if result != "done":
+    #                 error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
+    #                 send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+
+
+
+    # Thread Pool
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        futures = {
+            executor.submit(process_build, build_group, hero_id, rank): (hero_id, rank)
+            for (hero_id, rank), build_group in grouped_builds.items()
+        }
+
+        for future in as_completed(futures):
+            hero_id, rank = futures[future]
+            try:
+                future.result(timeout=300)
+            except TimeoutError:
+                error_message = f"Timeout processing build for hero {hero_id} and rank {rank}"
                 send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-            else:
-                result = q.get()
-                if result != "done":
-                    error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
-                    send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-
-
-
-    ## Thread Pool
-    # with ThreadPoolExecutor(max_workers=10) as executor:
-    #     futures = {
-    #         executor.submit(process_build, build_group, hero_id, rank): (hero_id, rank)
-    #         for (hero_id, rank), build_group in grouped_builds.items()
-    #     }
-
-    #     for future in as_completed(futures):
-    #         hero_id, rank = futures[future]
-    #         try:
-    #             future.result(timeout=300)
-    #         except TimeoutError:
-    #             error_message = f"Timeout processing build for hero {hero_id} and rank {rank}"
-    #             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
-    #         except Exception as e:
-    #             error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
-    #             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
+            except Exception as e:
+                error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
+                send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
 
     ## Normal Testing, one by one
     # for (hero_id, rank), build_group in grouped_builds.items():
@@ -773,7 +773,7 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 750:
+        if hourlyDump >= 250:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
