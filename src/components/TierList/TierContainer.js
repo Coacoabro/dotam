@@ -118,9 +118,9 @@ export default function TierContainer( {heroes, rates, matchups, search} ) {
                             <div className='flex items-center'>MATCHES <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
                             </button>
                         </th>
-                        <th className='px-2 hidden lg:flex justify-center'>
+                        {/* <th className='px-2 hidden lg:flex justify-center'>
                             COUNTERS
-                        </th>
+                        </th> */}
                     </tr>
                 </thead>
                 <tbody className="text-white text-center">
