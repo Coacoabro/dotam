@@ -99,7 +99,7 @@ export default function TierRow({ tier_str, role, rank, hero, WR, PR, matches, c
             <td className={`px-2 sm:px-0 font-medium text-sm sm:text-lg ${wrColor}`}>{(WR * 100).toFixed(2)}%</td>
             <td className={`px-2 sm:px-0 text-sm sm:text-lg`}>{(PR * 100).toFixed(2)}%</td>
             <td className="text-sm sm:text-lg">{matches.toLocaleString()}</td>
-            <td>
+            {/* <td>
                 <div className="hidden lg:flex items-center justify-evenly">
                 {fiveCounters.map(hero => (
                     <Link href={`/hero/${heroURL}/builds`} className='w-12 h-12 rounded-full overflow-hidden'>                        
@@ -111,7 +111,7 @@ export default function TierRow({ tier_str, role, rank, hero, WR, PR, matches, c
                     </Link>
                 ))}
                 </div>
-            </td>
+            </td> */}
         </tr>
     );
 }
