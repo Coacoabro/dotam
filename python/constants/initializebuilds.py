@@ -6,6 +6,7 @@ import requests
 import os
 import boto3
 import datetime
+import time
 
 from datetime import datetime
 from dotenv import load_dotenv
@@ -20,8 +21,9 @@ newest_hero_id = 150
 base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-# patch = res.text
-patch = "7.39"
+patch = res.text
+# print(patch)
+# time.sleep(10)
 
 def get_innate():
     global newest_hero_id
@@ -229,9 +231,9 @@ def hero_info():
 
     
 ## All of these are used (INCLUDING HERO INFO!!)
-# get_facets()
-# get_innate()
-# s3_data()
+get_facets()
+get_innate()
+s3_data()
 hero_info()
 
 
