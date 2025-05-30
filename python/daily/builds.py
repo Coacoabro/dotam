@@ -645,7 +645,7 @@ def sendtos3(builds):
 
 
     # Thread Pool
-    with ThreadPoolExecutor(max_workers=10) as executor:
+    with ThreadPoolExecutor(max_workers=15) as executor:
         futures = {
             executor.submit(process_build, build_group, hero_id, rank): (hero_id, rank)
             for (hero_id, rank), build_group in grouped_builds.items()
@@ -662,7 +662,7 @@ def sendtos3(builds):
                 error_message = f"Error processing build for hero {hero_id} and rank {rank}: {e}"
                 send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
 
-    ## Normal Testing, one by one
+    # # Normal Testing, one by one
     # for (hero_id, rank), build_group in grouped_builds.items():
     #     process_build(build_group, hero_id, rank)
 
@@ -718,8 +718,6 @@ build_index = {}
 backoff = 5
 
 sent_already = False
-
-send_telegram_message(BOT_TOKEN, CHAT_ID, "Starting builds!")
 
 while True:
     try:
