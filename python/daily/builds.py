@@ -719,6 +719,8 @@ backoff = 5
 
 sent_already = False
 
+send_telegram_message(BOT_TOKEN, CHAT_ID, "Starting builds!")
+
 while True:
     try:
         
