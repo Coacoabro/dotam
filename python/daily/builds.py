@@ -9,8 +9,9 @@ import os
 import psutil
 import copy
 import traceback
+import clickhouse_connect
 
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from dotenv import load_dotenv
 from collections import Counter
 from collections import defaultdict
@@ -61,6 +62,14 @@ config = Config(
 )
 s3 = boto3.client('s3', config=config)
 
+# ClickHouse Client Info
+
+client = clickhouse_connect.get_client(
+    host=os.getenv('CLICKHOUSE_HOST'),
+    user='default',
+    password=os.getenv('CLICKHOUSE_KEY'),
+    secure=True
+)
 
 # Telegram Stuff
 
@@ -124,7 +133,7 @@ def getBuilds(ranked_matches, builds):
     Swords = [162, 170, 259]
 
     NeutralTokens = [2091, 2092, 2093, 2094, 2095]
-    FakeNeutrals = [1441] # So far the only one I see is Witch Doctors GrisGris
+    FakeNeutrals = [1440, 1441] # So far the only one I see is Witch Doctors GrisGris
 
     KezTalents = [6299, 7132, 1511, 1509, 1510, 1516, 1514, 1513]
 
@@ -206,7 +215,7 @@ def getBuilds(ranked_matches, builds):
                                         if abilityId in KezTalents:
                                             talents.append(abilityId)
                                             if len(abilities) < 16:
-                                                abilities.append(-1)
+                                                abilities.append(abilityId)
                                         elif len(abilities) < 16:
                                             if abilityId == 1502:
                                                 abilities.append(1498)
@@ -222,10 +231,9 @@ def getBuilds(ranked_matches, builds):
                                     else:
                                         if ability['isTalent'] and ability['abilityId'] not in talents:
                                             talents.append(ability['abilityId'])
-                                            if len(abilities) < 16:
-                                                abilities.append(-1)
-                                        elif len(abilities) < 16:
+                                        if len(abilities) < 16:
                                             abilities.append(ability['abilityId'])
+
 
                             # If a hero hits level 16 at least then we should have enough info for items and what not
                             if len(abilities) == 16:
@@ -626,12 +634,95 @@ def process_build(builds, hero_id, rank):
 
 
 
-def worker(queue, build_group, hero_id, rank):
-    try:
-        process_build(build_group, hero_id, rank)
-        queue.put("done")
-    except Exception as e:
-        queue.put(f"Error: {str(e)}")
+def batched_insert(table_name, rows, batches):
+    global client
+    BATCH_SIZE = 5000
+
+    if table_name not in batches:
+        batches[table_name] = []
+    batches[table_name].extend(rows)
+
+    if len(batches[table_name]) >= BATCH_SIZE:
+        print(table_name)
+        client.insert(table_name, batches[table_name])
+        batches[table_name].clear()
+
+def sendtoclickhouse(builds):
+    global patch
+    global client
+    
+    today = date.today()
+    batches = defaultdict(list)
+
+    main_rows = []
+    
+    for (hero_id, rank, role, facet), build in builds.items():
+
+        hero_id, rank, role, facet, matches, wins, abilities, talents, starting, early, core, neutrals = build
+        main = (today, patch, hero_id, rank, role, facet, wins, matches)
+        main_rows.append(main)
+
+        ability_rows = []
+        for ability_order, result in abilities.items():
+            row = (today, patch, hero_id, rank, role, facet, list(ability_order), result['Wins'], result['Matches'])
+            ability_rows.append(row)
+        batched_insert('abilities', ability_rows, batches)
+
+        talent_rows = []
+        for talent, result in talents.items():
+            row = (today, patch, hero_id, rank, role, facet, talent, result['Wins'], result['Matches'])
+            talent_rows.append(row)
+        batched_insert('talents', talent_rows, batches)
+
+        starting_rows = []
+        for starting_order, result in starting.items():
+            row = (today, patch, hero_id, rank, role, facet, list(starting_order), result['Wins'], result['Matches'])
+            starting_rows.append(row)
+        batched_insert('starting', starting_rows, batches)
+
+        early_rows = []
+        for (item_id, is_second), result in early.items():
+            row = (today, patch, hero_id, rank, role, facet, item_id, is_second, result['Wins'], result['Matches'])
+            early_rows.append(row)
+        batched_insert('early', early_rows, batches)
+
+        core_rows = []
+        late_rows = []
+        for core_items, result in core.items():
+            late_dict = result['Late']
+            core_row = (today, patch, hero_id, rank, role, facet, list(core_items), result['Wins'], result['Matches'])
+            core_rows.append(core_row)
+            for (late_item, nth), late_result in late_dict.items():
+                late_row = (today, patch, hero_id, rank, role, facet, list(core_items), nth, late_item, late_result['Wins'], late_result['Matches'])
+                late_rows.append(late_row)
+            
+        batched_insert('core', core_rows, batches)
+        batched_insert('late', late_rows, batches)
+
+        neutral_rows = []
+        for neutral_item, result in neutrals.items():
+            row = (today, patch, hero_id, rank, role, facet, result['Tier'], neutral_item, result['Wins'], result['Matches'])
+            neutral_rows.append(row)
+        batched_insert('neutrals', neutral_rows, batches)
+
+    for table_name, rows in batches.items():
+        if rows:
+            client.insert(table_name, rows)
+    
+    client.insert('main', main_rows)
+
+    # Finished!
+    print("Done. Last sequence num: ", seq_num)
+    with open(file_path, 'w') as file:
+        json.dump({"seq_num": seq_num}, file)
+
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+
+    time_message = f"Finished sending to ClickHouse. That took {round((elapsed_time/60), 2)} minutes"
+    print(time_message)
+    send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
+
 
 
 
@@ -695,10 +786,10 @@ def sendtos3(builds):
 
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# file_path = './python/daily/seq_num.json'
-# facet_path = './python/daily/facet_nums.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+file_path = './python/daily/seq_num.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -757,14 +848,15 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 750:
+        if hourlyDump >= 150:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
             print(time_message)
             send_telegram_message(BOT_TOKEN, CHAT_ID, time_message)
 
-            sendtos3(builds)
+            sendtoclickhouse(builds)
+            # sendtos3(builds)
 
             break
 
@@ -778,5 +870,6 @@ while True:
             send_telegram_message(BOT_TOKEN, CHAT_ID, error_message)
             if builds and not sent_already:
                 sent_already = True
-                sendtos3(builds)
+                sendtoclickhouse(builds)
+                # sendtos3(builds)
         break
