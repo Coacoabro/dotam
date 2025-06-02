@@ -636,7 +636,7 @@ def process_build(builds, hero_id, rank):
 
 def batched_insert(table_name, rows, batches):
     global client
-    BATCH_SIZE = 5000
+    BATCH_SIZE = 10000
 
     if table_name not in batches:
         batches[table_name] = []
@@ -786,10 +786,10 @@ def sendtos3(builds):
 
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-file_path = './python/daily/seq_num.json'
-facet_path = './python/daily/facet_nums.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# file_path = './python/daily/seq_num.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -848,7 +848,7 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 150:
+        if hourlyDump >= 625:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
