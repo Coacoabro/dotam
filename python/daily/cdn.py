@@ -305,20 +305,20 @@ for hero_id in hero_ids:
     
 
 
-    for core in core_rows:
+    for row in core_rows:
         rank = row['rank']
         role = row['role']
         facet = str(row['facet'])
-        key = (hero_id, rank, role, facet, tuple(core['core']))
+        key = (hero_id, rank, role, facet, tuple(row['core']))
         late_for_core = late_grouped.get(key, {})
 
         if "core" not in existing_items[rank][role][facet]:
             existing_items[rank][role][facet]["core"] = []
         
         existing_items[rank][role][facet]["core"].append({
-            'core': core['core'],
-            'Wins': core['total_wins'],
-            'Matches': core['total_matches'],
+            'Core': row['core'],
+            'Wins': row['total_wins'],
+            'Matches': row['total_matches'],
             'Late': late_for_core
         })
         
