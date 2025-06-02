@@ -224,7 +224,7 @@ for hero_id in hero_ids:
                     SUM(wins) as total_wins,
                     SUM(matches) as total_matches,
                     ROW_NUMBER() OVER (
-                        PARTITION BY hero_id, rank, role, facet
+                        PARTITION BY hero_id, rank, role, facet, tier
                         ORDER BY SUM(matches) DESC, SUM(wins) DESC
                     ) AS rn
                 FROM neutrals
@@ -234,7 +234,16 @@ for hero_id in hero_ids:
         WHERE rn <= 10
     """, parameters={"hero_id": hero_id}).named_results())
 
-
+    late_grouped = defaultdict(lambda: defaultdict(list))
+    for late in late_rows:
+        key = (late['hero_id'], late['rank'], late['role'], late['facet'], tuple(late['core']))
+        nth = late['nth']
+        late_entry = {
+            'Item': late['item'],
+            'Matches': late['late_total_matches'],
+            'Wins': late['late_total_wins']
+        }
+        late_grouped[key][nth].append(late_entry)
 
 
     for row in ability_rows:
@@ -284,29 +293,35 @@ for hero_id in hero_ids:
         role = row['role']
         facet = str(row['facet'])
 
-        if "starting" not in existing_items[rank][role][facet]:
-            existing_items[rank][role][facet]["starting"] = []
+        if "early" not in existing_items[rank][role][facet]:
+            existing_items[rank][role][facet]["early"] = []
         
-        existing_items[rank][role][facet]["starting"].append({
+        existing_items[rank][role][facet]["early"].append({
+            "Item": row["item"],
+            "isSecondPurchase": row["issecond"],
             "Wins": row["total_wins"],
             "Matches": row["total_matches"]
         })
     
-    for row in core_rows:
+
+
+    for core in core_rows:
         rank = row['rank']
         role = row['role']
         facet = str(row['facet'])
+        key = (hero_id, rank, role, facet, tuple(core['core']))
+        late_for_core = late_grouped.get(key, {})
 
         if "core" not in existing_items[rank][role][facet]:
             existing_items[rank][role][facet]["core"] = []
         
         existing_items[rank][role][facet]["core"].append({
-            "Core": row["core"],
-            "Wins": row["total_wins"],
-            "Matches": row["total_matches"],
-            "Late": row["late"]
+            'core': core['core'],
+            'Wins': core['total_wins'],
+            'Matches': core['total_matches'],
+            'Late': late_for_core
         })
-    
+        
     for row in neutral_rows:
         rank = row['rank']
         role = row['role']
@@ -316,32 +331,38 @@ for hero_id in hero_ids:
             existing_items[rank][role][facet]["neutrals"] = []
         
         existing_items[rank][role][facet]["neutrals"].append({
+            "Item": row["item"],
+            "Tier": row["tier"],
             "Wins": row["total_wins"],
             "Matches": row["total_matches"]
         })
 
     for rank in Ranks:
         sorted_abilities = {role: existing_abilities[rank][role] for role in Roles if role in existing_abilities[rank]}
-        abilities_s3_key = f"data/{patch}/{hero_id}/{rank}/abilities.json"
+        abilities_s3_key = f"data/{patch}/{hero_id}/{rank}/abilitiestest.json"
         s3.put_object(Bucket='dotam-builds', Key=abilities_s3_key, Body=json.dumps(sorted_abilities, indent=None))
 
-        sorted_items = {role: top_items[rank][role] for role in Roles if role in top_items[rank]}
-        items_s3_key = f"data/{patch}/{hero_id}/{rank}/test.json"
+        sorted_items = {role: existing_items[rank][role] for role in Roles if role in existing_items[rank]}
+        items_s3_key = f"data/{patch}/{hero_id}/{rank}/itemstest.json"
         s3.put_object(Bucket='dotam-builds', Key=items_s3_key, Body=json.dumps(sorted_items, indent=None))
 
-        for role, facets in sorted_abilities.items():
-            for facet, results in facets.items():
-                existing_builds[role][facet]["abilities"] = results["abilities"][0]
-                existing_builds[role][facet]["talents"] = results["talents"]
-                existing_builds[role][facet]["items"] = {
-                     "starting": {},
-                    "early": [],
-                    "core": [],
-                    "neutrals": []
-                }
+        print("Done: ", hero_id, rank)
+        time.sleep(10)
+
+        # for role, facets in sorted_abilities.items():
+        #     for facet, results in facets.items():
+        #         existing_builds[role][facet]["abilities"] = results["abilities"][0]
+        #         existing_builds[role][facet]["talents"] = results["talents"]
+        #         existing_builds[role][facet]["items"] = {
+        #              "starting": {},
+        #             "early": [],
+        #             "core": [],
+        #             "neutrals": []
+        #         }
         
         # for role, facets in sorted_items.items():
         #     for facet, results in facets.items(): 
+
 
 
 
