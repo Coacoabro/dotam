@@ -16,7 +16,7 @@ export default function Matchups({ heroData, initRole, heroMatchups }) {
     }
     
     const stratz_name = heroData.name.replace("npc_dota_hero_", "")
-    const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-")
+    const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-") + "/matchups"
 
     if(heroMatchups){
 

@@ -22,7 +22,7 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
     const iconLink = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/facets/'
 
     const stratz_name = heroData.name.replace("npc_dota_hero_", "")
-    const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-")
+    const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-") + "/matchups"
 
 
     return(
