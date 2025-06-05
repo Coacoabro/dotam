@@ -71,6 +71,7 @@ def send_telegram_message(message):
 Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 
+
 for hero_id in hero_ids:
     
     existing_summary = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
@@ -400,8 +401,10 @@ for hero_id in hero_ids:
 
         for role, facets in sorted_abilities.items():
             for facet, results in facets.items():
-                existing_builds[role][facet]["abilities"] = results["abilities"][0]
-                existing_builds[role][facet]["talents"] = results["talents"]
+                if "abilities" in results:
+                    existing_builds[role][facet]["abilities"] = results["abilities"][0]
+                if "talents" in results:
+                    existing_builds[role][facet]["talents"] = results["talents"]
                 existing_builds[role][facet]["items"] = {
                     "starting": {},
                     "early": [],
@@ -420,7 +423,7 @@ for hero_id in hero_ids:
                 if "neutrals" in results:
                     existing_builds[role][facet]["items"]["neutrals"] = results["neutrals"]
         
-        builds_s3_key = f"data/{patch}/{hero_id}/{rank}/buildstest.json"
+        builds_s3_key = f"data/{patch}/{hero_id}/{rank}/builds.json"
         s3.put_object(Bucket='dotam-builds', Key=builds_s3_key, Body=json.dumps(existing_builds, indent=None))
 
     print("Done: ", hero_id)

@@ -212,6 +212,8 @@ def getBuilds(ranked_matches, builds):
                                     # FOR KEZ, UPDATE TALENTS LATER
                                     
                                     if hero_id == 145:
+                                        if ability['isTalent'] and ability['abilityId'] not in talents:
+                                            talents.append(ability['abilityId'])
                                         if len(abilities) < 16:
                                             if abilityId == 1502:
                                                 abilities.append(1498)
@@ -223,8 +225,7 @@ def getBuilds(ranked_matches, builds):
                                                 abilities.append(1501)
                                             else:
                                                 abilities.append(abilityId)
-                                        if ability['isTalent'] and ability['abilityId'] not in talents:
-                                            talents.append(ability['abilityId'])
+                                        
 
                                     else:
                                         if ability['isTalent'] and ability['abilityId'] not in talents:
@@ -584,7 +585,7 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 625:
+        if hourlyDump >= 750:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to S3. That took {round((elapsed_time/60), 2)} minutes"
