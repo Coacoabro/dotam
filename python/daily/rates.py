@@ -7,6 +7,7 @@ import os
 import time
 import boto3
 import datetime
+import clickhouse_connect
 
 start_time = time.time()
 
@@ -22,6 +23,22 @@ response = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 current_patch = response.text
 database_url = os.environ.get('DATABASE_URL')
 graphql_token = os.environ.get('NEXT_PUBLIC_REACT_APP_TOKEN')
+
+url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
+headers = {'Authorization': f'Bearer {graphql_token}', 'User-Agent': 'STRATZ_API'}
+
+client = clickhouse_connect.get_client(
+    host=os.getenv('CLICKHOUSE_HOST'),
+    user='default',
+    password=os.getenv('CLICKHOUSE_KEY'),
+    secure=True
+)
+
+result = client.query('SELECT hero_id FROM heroes')
+rows = result.result_rows
+hero_ids = [row[0] for row in rows]
+
+s3 = boto3.client('s3')
 
 def getQuery(rank):
 
@@ -74,16 +91,6 @@ def tierCalc(tier_num):
     else:
         return 'F'
 
-url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
-headers = {'Authorization': f'Bearer {graphql_token}', 'User-Agent': 'STRATZ_API'}
-
-conn = psycopg2.connect(database_url)
-cur = conn.cursor() # Open a cursor to perform database operations
-cur.execute("SELECT hero_id from heroes;")
-hero_ids = [row[0] for row in cur.fetchall()]
-
-
-s3 = boto3.client('s3')
 
 try:
     rates_obj = s3.get_object(Bucket='dotam-content', Key=f"data/{current_patch}/rates.json")

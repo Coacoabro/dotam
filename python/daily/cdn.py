@@ -32,13 +32,6 @@ s3 = boto3.client('s3', config=config)
 # My Amazon Database
 database_url = os.environ.get('DATABASE_URL')
 
-# Getting all hero ids
-conn = psycopg2.connect(database_url)
-cur = conn.cursor()
-cur.execute("SELECT hero_id from heroes;")
-hero_ids = [row[0] for row in cur.fetchall()]
-conn.close()
-
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
 
@@ -48,6 +41,10 @@ client = clickhouse_connect.get_client(
     password=os.getenv('CLICKHOUSE_KEY'),
     secure=True
 )
+
+result = client.query('SELECT hero_id FROM heroes')
+rows = result.result_rows
+hero_ids = [row[0] for row in rows]
 
 # Telegram Stuff
 def send_telegram_message(message):
