@@ -2,35 +2,14 @@ import Abilities from '../../../../../../dotaconstants/build/abilities.json'
 import heroAbilities from '../../../../../../dotaconstants/build/hero_abilities.json'
 import abilityIds from '../../../../../../dotaconstants/build/ability_ids.json'
 
-export default function Talents({hero, talents}) {
+export default function Talents({hero, talents, hero_talents}) {
 
     const heroName = hero.name
 
-    const Talents = []
+    if(hero_talents){
 
-    // console.log(talents)
-
-    if(talents){
-
-        talents.forEach((talent) => {
-            const tempTalent = abilityIds[talent.Talent]
-            if(tempTalent) {
-                if(Abilities[tempTalent]){
-                    if(Abilities[tempTalent].dname){
-                        talent.talent = Abilities[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
-                    }
-                }
-            }
-        })
-
-        const talentOrder = heroAbilities[heroName].talents
-
-        talentOrder.forEach((talent) => {
-            if(Abilities[talent.name].dname){Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))}
-        })
-
-        const rightTalents = [Talents[6], Talents[4], Talents[2], Talents[0]]
-        const leftTalents = [Talents[7], Talents[5], Talents[3], Talents[1]]
+        const leftTalents = hero_talents[0]
+        const rightTalents = hero_talents[1]
 
         const bestTalents = Array(4)
         const prArray = Array(4)

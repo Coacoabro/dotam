@@ -4,8 +4,10 @@ import abilityDesc from '../../../../../../dotaconstants/build/abilities.json'
 import abilityIds from '../../../../../../dotaconstants/build/ability_ids.json'
 
 import AbilityCard from '../../../AbilityCard'
+import { useState } from 'react'
+import HoveredTalent from './HoveredTalent'
 
-export default function AbilityPath({hero, abilities}) {
+export default function AbilityPath({hero, abilities, talents}) {
 
     const heroName = hero.name
     const Abilities = heroAbilities[heroName].abilities
@@ -15,6 +17,14 @@ export default function AbilityPath({hero, abilities}) {
     const basicAbilityLength = hero_abilities[hero.hero_id].length - 1
     const heroInitAbilities = hero_abilities[hero.hero_id].slice(0, basicAbilityLength);
     const heroInitiUltimate = abilityIds[hero_abilities[hero.hero_id].at(-1)];
+
+    const [talentHovered, setTalentHovered] = useState(null)
+    const [talentRow, setTalentRow] = useState(null)
+
+    const handleTalentHovered = (talent, index) => {
+        setTalentHovered(talent)
+        setTalentRow(index)
+    }
     
     heroInitAbilities.forEach((ability) => {
         if(abilities.includes(ability)){
@@ -39,6 +49,7 @@ export default function AbilityPath({hero, abilities}) {
     basicAbilities.push(heroInitiUltimate)
 
     const finishedAbilities = []
+    const finishedTalents = []
 
     abilities.forEach((ability, index) => {
         if (finishedAbilities.length < 17){
@@ -54,26 +65,29 @@ export default function AbilityPath({hero, abilities}) {
                 const name = abilityIds[ability]
                 
                 if (name === basicAbilities[0]){
-                finishedAbilities.push([index+1, null, null, null, null])
+                    finishedAbilities.push([index+1, null, null, null, null])
+                    finishedTalents.push(null)
                 }
                 else if (name === basicAbilities[1]){
-                finishedAbilities.push([null, index+1, null, null, null])
+                    finishedAbilities.push([null, index+1, null, null, null])
+                    finishedTalents.push(null)
                 }
                 else if (name === basicAbilities[2]){
-                finishedAbilities.push([null, null, index+1, null, null])
+                    finishedAbilities.push([null, null, index+1, null, null])
+                    finishedTalents.push(null)
                 }
                 else if (name === basicAbilities[3]){
                     finishedAbilities.push([null, null, null, index+1, null])
+                    finishedTalents.push(null)
+                }
+                else {
+                    finishedAbilities.push([null, null, null, null, index+1])
+                    finishedTalents.push(ability)
                 }
             }
-            else {
-                finishedAbilities.push([null, null, null, null, index+1])
-            }
         }
-    })
+    })    
     
-      
-    const levels = Array.from({length: 16}, (_, index) => index +1)      
     
     return (
         <div className='overflow-x-scroll sm:overflow-visible'>
@@ -89,14 +103,29 @@ export default function AbilityPath({hero, abilities}) {
                         <img src='https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg'/>
                     </div>
                 </div>
-                {finishedAbilities.map((row) => (
-                <div className="grid grid-rows-5 sm:gap-2.5">
-                    {row.map((ability) => (
-                    <div className={`w-7 h-7 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center ${ability ? 'bg-slate-800 border border-slate-700/50' : 'bg-slate-950'}`}>
-                        {ability || ''}
+                {finishedAbilities.map((row, index) => (
+                    <div className="grid grid-rows-5 sm:gap-2.5">
+                        {row.map((ability, abilityIndex) => (
+                            <>
+                                <div 
+                                    className={`
+                                        w-7 h-7 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center 
+                                        ${ability ? 'bg-slate-800 border border-slate-700/50' : 'bg-slate-950'}
+                                        ${abilityIndex == 4 && ability ? "hover:bg-slate-700" : ""}
+                                    `}
+                                    {...(abilityIndex == 4 && ability ? { 
+                                        onMouseEnter: () => handleTalentHovered(finishedTalents[index], index),
+                                        onMouseLeave: () => handleTalentHovered(null, null)
+                                    } : {})}
+                                >
+                                    {ability || ''}
+                                </div>
+                                {talentHovered && abilityIndex == 4 && finishedTalents[index] && talentRow == index && (
+                                    <HoveredTalent hero_talents={talents} talent={finishedTalents[index]} />
+                                )}
+                            </>
+                        ))}
                     </div>
-                    ))}
-                </div>
                 ))}
             </div>
         </div>
