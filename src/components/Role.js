@@ -72,7 +72,10 @@ export default function Role( {initRole} ) {
                     onClick={() => handleClick(role.role)}
                     onMouseEnter={() => setHovered(role.role)}
                     onMouseLeave={() => setHovered(null)}
-                    className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border border-slate-700 bg-slate-900'} ${initRole == role.role ? 'border-cyan-300 border-2' : ''}`}
+                    className={`text-sm font-bold items-center flex justify-center w-12 h-8 py-1 px-2 rounded-lg hover:bg-slate-600 
+                        ${currRole == role.role ? 'bg-cyan-300 text-black' : 'text-white border bg-slate-900'} 
+                        ${initRole == role.role ? 'border-cyan-300 border-2' : 'border-slate-700 '}
+                    `}
                 >
                     <div className={`${hovered == role.role && hovered != "" ? "" : "hidden"} absolute -mt-16 bg-slate-950 border border-slate-700 py-1 px-2 rounded-lg text-white`}>
                         {role.name}
