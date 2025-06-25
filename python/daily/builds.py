@@ -501,7 +501,7 @@ def sendtoclickhouse(builds):
         
         except DataError as e:
             message = f"ClickHouse error inserting into {hero_id, rank, role, facet}:\n\n{str(e)}"
-            send_telegram_message(message)
+            # send_telegram_message(message)
 
     for table_name, rows in batches.items():
         try:
@@ -509,13 +509,13 @@ def sendtoclickhouse(builds):
                 client.insert(table_name, rows)
         except Exception as e:
             message = f"ClickHouse error inserting into {table_name}:\n\n{str(e)}"
-            send_telegram_message(message)
+            # send_telegram_message(message)
     
     try:
         client.insert('main', main_rows)
     except Exception as e:
         message = f"ClickHouse error inserting into Main:\n\n{str(e)}"
-        send_telegram_message(message)
+        # send_telegram_message(message)
     
     
 
