@@ -79,6 +79,7 @@ for hero_id in hero_ids:
     main_rows = list(client.query("""
         SELECT * FROM (
             SELECT    
+                patch,
                 hero_id,
                 rank,
                 role,
@@ -86,15 +87,16 @@ for hero_id in hero_ids:
                 SUM(wins) as total_wins,
                 SUM(matches) as total_matches     
             FROM main
-            WHERE hero_id = %(hero_id)s
-            GROUP BY hero_id, rank, role, facet        
+            WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+            GROUP BY patch, hero_id, rank, role, facet        
             )
-    """, parameters={"hero_id": hero_id}).named_results())
+    """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
 
     ability_rows = list(client.query("""
         SELECT *
             FROM (
                 SELECT
+                    patch,
                     hero_id,
                     rank,
                     role,
@@ -107,16 +109,17 @@ for hero_id in hero_ids:
                         ORDER BY SUM(matches) DESC, SUM(wins) DESC
                     ) AS rn
                 FROM abilities
-                WHERE hero_id = %(hero_id)s
-                GROUP BY hero_id, rank, role, facet, abilities
+                WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+                GROUP BY patch, hero_id, rank, role, facet, abilities
             )
         WHERE rn <= 10
-    """, parameters={"hero_id": hero_id}).named_results())
+    """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
 
     talent_rows = list(client.query("""
         SELECT *
             FROM (
                 SELECT
+                    patch,
                     hero_id,
                     rank,
                     role,
@@ -125,15 +128,16 @@ for hero_id in hero_ids:
                     SUM(wins) as total_wins,
                     SUM(matches) as total_matches
                 FROM talents
-                WHERE hero_id = %(hero_id)s
-                GROUP BY hero_id, rank, role, facet, talent
+                WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+                GROUP BY patch, hero_id, rank, role, facet, talent
             )
-    """, parameters={"hero_id": hero_id}).named_results())
+    """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
 
     starting_rows = list(client.query("""
         SELECT *
             FROM (
                 SELECT
+                    patch,
                     hero_id,
                     rank,
                     role,
@@ -146,16 +150,17 @@ for hero_id in hero_ids:
                         ORDER BY SUM(matches) DESC, SUM(wins) DESC
                     ) AS rn
                 FROM starting
-                WHERE hero_id = %(hero_id)s
-                GROUP BY hero_id, rank, role, facet, starting
+                WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+                GROUP BY patch, hero_id, rank, role, facet, starting
             )
         WHERE rn <= 5
-    """, parameters={"hero_id": hero_id}).named_results())
+    """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
 
     early_rows = list(client.query("""
         SELECT *
             FROM (
                 SELECT
+                    patch,
                     hero_id,
                     rank,
                     role,
@@ -169,16 +174,17 @@ for hero_id in hero_ids:
                         ORDER BY SUM(matches) DESC, SUM(wins) DESC
                     ) AS rn
                 FROM early
-                WHERE hero_id = %(hero_id)s
-                GROUP BY hero_id, rank, role, facet, item, issecond
+                WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+                GROUP BY patch, hero_id, rank, role, facet, item, issecond
             )
         WHERE rn <= 10
-    """, parameters={"hero_id": hero_id}).named_results())
+    """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
 
     core_rows = list(client.query("""
         SELECT *
             FROM (
                 SELECT
+                    patch,
                     hero_id,
                     rank,
                     role,
@@ -191,17 +197,17 @@ for hero_id in hero_ids:
                         ORDER BY SUM(matches) DESC, SUM(wins) DESC
                     ) AS rn
                 FROM core
-                WHERE hero_id = %(hero_id)s
-                GROUP BY hero_id, rank, role, facet, core
+                WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+                GROUP BY patch, hero_id, rank, role, facet, core
             )
             WHERE rn <= 10
-        """, parameters={"hero_id": hero_id}).named_results())
+        """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
     
     core_conditions = []
     if core_rows:
         for row in core_rows:
             core = "[" + ", ".join(str(x) for x in row['core']) + "]"  # explicit ClickHouse array
-            stmt = f"SELECT {row['hero_id']} AS hero_id, '{row['rank']}' AS rank, '{row['role']}' AS role, {row['facet']} AS facet, {core} AS core"
+            stmt = f"SELECT '{patch}' as patch, {row['hero_id']} AS hero_id, '{row['rank']}' AS rank, '{row['role']}' AS role, {row['facet']} AS facet, {core} AS core"
             core_conditions.append(stmt)
         core_values_clause = " UNION ALL\n".join(core_conditions)
     
@@ -212,6 +218,7 @@ for hero_id in hero_ids:
             ),
             top_late AS (
                 SELECT
+                    l.patch,
                     l.hero_id,
                     l.rank,
                     l.role,
@@ -227,17 +234,18 @@ for hero_id in hero_ids:
                     ) AS rn
                 FROM late l
                 INNER JOIN core_keys tc
-                    ON l.hero_id = tc.hero_id
+                    ON l.patch = tc.patch
+                    AND l.hero_id = tc.hero_id
                     AND l.rank = tc.rank
                     AND l.role = tc.role
                     AND l.facet = tc.facet
                     AND l.core = tc.core
-                GROUP BY l.hero_id, l.rank, l.role, l.facet, l.core, l.nth, l.item
+                GROUP BY l.patch, l.hero_id, l.rank, l.role, l.facet, l.core, l.nth, l.item
             )
             SELECT *
             FROM top_late
             WHERE rn <= 10
-        """, parameters={"hero_id": hero_id}).named_results())
+        """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
     
     else:
         late_rows = []
@@ -247,6 +255,7 @@ for hero_id in hero_ids:
         SELECT *
             FROM (
                 SELECT
+                    patch,
                     hero_id,
                     rank,
                     role,
@@ -260,11 +269,11 @@ for hero_id in hero_ids:
                         ORDER BY SUM(matches) DESC, SUM(wins) DESC
                     ) AS rn
                 FROM neutrals
-                WHERE hero_id = %(hero_id)s
-                GROUP BY hero_id, rank, role, facet, tier, item
+                WHERE patch = %(patch)s AND hero_id = %(hero_id)s
+                GROUP BY patch, hero_id, rank, role, facet, tier, item
             )
         WHERE rn <= 10
-    """, parameters={"hero_id": hero_id}).named_results())
+    """, parameters={"patch": patch, "hero_id": hero_id}).named_results())
 
     for row in main_rows:
         rank = row['rank']
