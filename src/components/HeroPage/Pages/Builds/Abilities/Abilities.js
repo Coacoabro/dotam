@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import AbilityPath from './AbilityPath'
 
-export default function Abilities({hero, abilities}) {
+export default function Abilities({hero, abilities, hero_talents}) {
 
-    if(abilities){
+    if(abilities && hero_talents){
 
         const wr = ((abilities.Wins/abilities.Matches)*100).toFixed(2)
 
@@ -14,15 +14,13 @@ export default function Abilities({hero, abilities}) {
                         <p className="text-lg sm:text-xl font-bold">Ability Path</p>
                         <h1 className="opacity-50">Best ability order for {hero.localized_name}</h1>
                     </div>
-                    {abilities[0] ? 
-                        <div className='flex items-center text-base sm:text-lg'>
-                            <h1 className=" font-bold">{wr}</h1>
-                            <h2 className="font-medium">% WR</h2>
-                            <h3 className="px-2 text-xs sm:text-base text-cyan-300">({abilities.Matches} Matches)</h3>
-                        </div>
-                    : null }
+                    <div className='flex items-center text-base opacity-75'>
+                        <h1 className=" font-bold">{wr}%</h1>
+                        <h2 className="font-medium text-xs sm:text-sm">WR</h2>
+                        <h3 className="px-2 text-xs sm:text-sm text-cyan-300">({abilities.Matches.toLocaleString()} Matches)</h3>
+                    </div>
                 </div>
-                {abilities ? <AbilityPath hero={hero} abilities={abilities.Abilities} /> : null }
+                {abilities ? <AbilityPath hero={hero} abilities={abilities.Abilities} talents={hero_talents} /> : null }
             </div>
         )
     }

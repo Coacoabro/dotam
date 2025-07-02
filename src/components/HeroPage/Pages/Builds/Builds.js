@@ -12,6 +12,10 @@ import ItemsContainer from './Items/ItemsContainer';
 import IoLoading from '../../../IoLoading';
 import Ad from '../../../../components/Ads/Venatus/Ad';
 
+import abilitiesInfo from '../../../../../dotaconstants/build/abilities.json'
+import heroAbilities from '../../../../../dotaconstants/build/hero_abilities.json'
+import abilityIds from '../../../../../dotaconstants/build/ability_ids.json'
+
 
 export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
 
@@ -24,13 +28,38 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
     const stratz_name = heroData.name.replace("npc_dota_hero_", "")
     const stratz_url = "https://www.stratz.com/heroes/" + heroData.hero_id + "-" + stratz_name.replace("_", "-") + "/matchups"
 
+    const talents = currBuild.talents
+    const talentsArray = []
+
+    talents.forEach((talent) => {
+        const tempTalent = abilityIds[talent.Talent]
+        if(tempTalent) {
+            if(abilitiesInfo[tempTalent]){
+                if(abilitiesInfo[tempTalent].dname){
+                    talent.talent = abilitiesInfo[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                }
+            }
+        }
+    })
+
+    const talentOrder = heroAbilities[heroData.name].talents
+
+    talentOrder.forEach((talent) => {
+        if(abilitiesInfo[talent.name].dname){talentsArray.push(abilitiesInfo[talent.name].dname.replace(/\{[^}]*\}/g, '?'))}
+    })
+
+    const rightTalents = [talentsArray[6], talentsArray[4], talentsArray[2], talentsArray[0]]
+    const leftTalents = [talentsArray[7], talentsArray[5], talentsArray[3], talentsArray[1]]
+
+    const finishedTalents = [leftTalents, rightTalents]
+
 
     return(
         <div className='space-y-4 flex-col justify-center'>
             {currBuild ?
                 <div className='lg:flex w-full gap-2 space-y-2 lg:space-y-0'>
-                    <div className='sm:w-11/12 mx-auto lg:w-2/3 py-2 sm:py-3 px-3  bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={heroData} abilities={currBuild.abilities} /></div>
-                    <div className='sm:w-1/2 sm:mx-auto lg:w-1/3 py-2 sm:py-3 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={heroData} talents={currBuild.talents} /></div>
+                    <div className='sm:w-11/12 mx-auto lg:w-2/3 py-2 sm:py-3 px-3  bg-slate-900 rounded-lg border border-slate-800'><Abilities hero={heroData} abilities={currBuild.abilities} hero_talents={finishedTalents} /></div>
+                    <div className='sm:w-1/2 sm:mx-auto lg:w-1/3 py-2 sm:py-3 px-2 bg-slate-900 rounded-lg border border-slate-800'><Talents hero={heroData} talents={currBuild.talents} hero_talents={finishedTalents} /></div>
                 </div>
                 :
                 <div className='lg:flex w-full gap-2'>

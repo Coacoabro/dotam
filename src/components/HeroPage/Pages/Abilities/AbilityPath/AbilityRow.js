@@ -1,5 +1,6 @@
 import { useState } from "react"
 import ability_ids from "../../../../../../dotaconstants/build/ability_ids"
+import Abilities from "../../../../../../dotaconstants/build/abilities"
 
 export default function AbilityRow( {order, abilityPath, matches, wins} ) {
 
@@ -18,7 +19,7 @@ export default function AbilityRow( {order, abilityPath, matches, wins} ) {
                 {abilityPath.map((ability, index) => (
                     <div className={`relative bg-slate-900 px-1 pb-0.5 rounded-md w-8 sm:w-full`}>
                         <div className="text-center text-xs sm:text-lg">{index+1}</div>
-                        <img className="sm:w-10 rounded-lg" src={ability > 0 ? imgURL + ability_ids[ability] + ".png" : talentURL} />
+                        <img className="sm:w-10 rounded-lg" src={Abilities[ability_ids[ability]].img ? imgURL + ability_ids[ability] + ".png" : talentURL} />
                     </div>
                 ))}
             </td>
