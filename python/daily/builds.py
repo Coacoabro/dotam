@@ -176,7 +176,8 @@ def getBuilds(ranked_matches, builds):
             break
         except:
             print(f"Got nothing, trying again in 1 minute ({3-tries} tries left)")
-            send_telegram_message(f"STRATZ ERROR: {response.text}")
+            if tries == 2:
+                send_telegram_message(f"STRATZ ERROR: {response.text}")
             time.sleep(60)
             
             tries += 1
