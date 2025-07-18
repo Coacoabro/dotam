@@ -176,7 +176,9 @@ def getBuilds(ranked_matches, builds):
             break
         except:
             print(f"Got nothing, trying again in 1 minute ({3-tries} tries left)")
+            send_telegram_message(f"STRATZ ERROR: {response.text}")
             time.sleep(60)
+            
             tries += 1
 
     for ranked_match in ranked_matches:
@@ -600,7 +602,7 @@ while True:
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to clickhouse!. That took {round((elapsed_time/60), 2)} minutes"
             print(time_message)
-            send_telegram_message(time_message)
+            # send_telegram_message(time_message)
             sendtoclickhouse(builds)
             break
 
