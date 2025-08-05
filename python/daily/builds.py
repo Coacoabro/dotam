@@ -532,7 +532,7 @@ def sendtoclickhouse(builds):
 
     time_message = f"Finished sending to ClickHouse. That took {round((elapsed_time/60), 2)} minutes"
     print(time_message)
-    send_telegram_message(time_message)
+    # send_telegram_message(time_message)
 
 
 
