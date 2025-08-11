@@ -306,7 +306,9 @@ def getBuilds(ranked_matches, builds):
                                 if core:
                                     # Dump into builds
 
-                                    for rank_value in [rank[0], rank[1], ""]:
+                                    # for rank_value in [rank[0], rank[1], ""]:
+                                    ## Right now taking away specific ranks and only doing ALL HIGH MID and LOW
+                                    for rank_value in [rank[1], ""]:
                                         key = (hero_id, rank_value, role, facet)
                                         hero_build = builds.get(key)
                                         if hero_build:
