@@ -12,6 +12,7 @@ import path from 'path'
 import BasicsLayout from "../../components/Basics/BasicsLayout";
 import IoLoading from '../../components/IoLoading'
 import PictureBox from "../../components/Basics/PictureBox";
+import RankTable from "../../components/Basics/RankTable"
 
 
 const HeadingWithId = ({ level, children }) => {
@@ -27,6 +28,7 @@ const HeadingWithId = ({ level, children }) => {
 const components = {
     PictureBox,
     Link,
+    RankTable,
     h1: (props) => <HeadingWithId level={1} {...props} />,
     h2: (props) => <HeadingWithId level={2} {...props} />,
     h3: (props) => <HeadingWithId level={3} {...props} />
@@ -93,7 +95,6 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    // If you'd like dynamic paths, read all possible slugs here to create them
     return {
         paths: [],
         fallback: 'blocking'

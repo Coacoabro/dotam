@@ -610,7 +610,7 @@ while True:
             break
 
     except Exception as e:
-        error_message = f"An error occurred in your script:\n\n{str(e)}"
+        error_message = f"An error occurred in your script:\n\n{str(traceback.format_exc())}"
         print(error_message)
         if str(e) == "local variable 'data' referenced before assignment":
             send_telegram_message("Referenced before assignment, aborting mission")
