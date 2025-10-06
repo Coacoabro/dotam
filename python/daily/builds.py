@@ -306,7 +306,9 @@ def getBuilds(ranked_matches, builds):
                                 if core:
                                     # Dump into builds
 
-                                    for rank_value in [rank[0], rank[1], ""]:
+                                    # for rank_value in [rank[0], rank[1], ""]:
+                                    ## Right now taking away specific ranks and only doing ALL HIGH MID and LOW
+                                    for rank_value in [rank[1], ""]:
                                         key = (hero_id, rank_value, role, facet)
                                         hero_build = builds.get(key)
                                         if hero_build:
@@ -608,7 +610,7 @@ while True:
             break
 
     except Exception as e:
-        error_message = f"An error occurred in your script:\n\n{str(e)}"
+        error_message = f"An error occurred in your script:\n\n{str(traceback.format_exc())}"
         print(error_message)
         if str(e) == "local variable 'data' referenced before assignment":
             send_telegram_message("Referenced before assignment, aborting mission")
