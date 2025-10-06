@@ -536,10 +536,10 @@ def sendtoclickhouse(builds):
 
 
 
-file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-# file_path = './python/daily/seq_num.json'
-# facet_path = './python/daily/facet_nums.json'
+# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+file_path = './python/daily/seq_num.json'
+facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -598,7 +598,7 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 1000:
+        if hourlyDump >= 5:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to clickhouse!. That took {round((elapsed_time/60), 2)} minutes"
