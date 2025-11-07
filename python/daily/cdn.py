@@ -434,7 +434,6 @@ try:
             s3.put_object(Bucket='dotam-builds', Key=builds_s3_key, Body=json.dumps(existing_builds, indent=None))
 
         print("Done: ", hero_id)
-        time.sleep(15)
 
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
@@ -463,15 +462,3 @@ except Exception as e:
     send_telegram_message(error_message)
     
 
-
-
-
-
-
-    
-        
-    
-
-
-
-        
