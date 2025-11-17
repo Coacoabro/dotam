@@ -40,9 +40,10 @@ export default function HeroLoading({hero, heroData, rates, current_patch, initR
 
                 <div className="flex space-x-3">
                     <RatesContainer rates={rates} initRole={initRole} current_patch={current_patch} />
-                    <div className='hidden sm:block space-y-3'>
-                        <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
+                    <div className='hidden sm:block'>
+                        <h1 className='font-bold px-2 text-lg'>More Info:</h1>
                         <PagesList hero={hero.url} />
+                        <div className='text-sm px-2 opacity-50'>Last updated <span className='text-cyan-300'>Loading...</span></div>
                     </div>
                 </div>
 

@@ -9,6 +9,7 @@ export default async function handler(req, res) {
     const heroes = await heroesResult.json()
     const ratesResult = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/rates.json`)
     const rates = await ratesResult.json()
+    const lastModified = ratesResult.headers.get("last-modified")
     const matchupsResult = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/tier-matchups.json`)    
     const matchups = await matchupsResult.json()
 
@@ -16,6 +17,7 @@ export default async function handler(req, res) {
       heroes: heroes,
       rates: rates,
       matchups: matchups,
+      modified: lastModified,
     });
 
   } catch (error) {
