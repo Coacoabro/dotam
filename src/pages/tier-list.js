@@ -79,7 +79,7 @@ export default function TierList() {
                 </div>
                 <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">
                     <p>A tier list based on current win rates and pick rates from almost all games played within the past two weeks.</p>
-                    <p className='text-base'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></p>
+                    <p className='text-xs sm:text-base'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></p>
                 </div>
                 <div className="py-2 justify-between text-white space-y-2 sm:flex">
                     <div className="flex items-center justify-center space-x-2">

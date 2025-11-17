@@ -125,8 +125,9 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
                 <StaticInfo hero={heroData} />
               </div>
 
-              <div className='flex space-x-3'>
+              <div className='sm:flex space-x-3'>
                 <RatesContainer rates={currRates} initRole={initRole} current_patch={current_patch} />
+                <div className='sm:hidden text-xs px-2 opacity-50 text-center'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></div>
                 <div className='hidden sm:block'>
                   <h1 className='font-bold px-2 text-lg'>More Info:</h1>
                   <PagesList hero={hero.url} />
