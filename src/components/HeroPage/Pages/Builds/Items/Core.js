@@ -20,20 +20,20 @@ export default function Core({items, isCarry, sendLate}) {
             <div className='p-3 rounded-b-lg'>
 
                 <button 
-                    className={`rounded-t-lg ${selectedCore == 0 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
+                    className={`rounded-t-lg ${selectedCore == 0 ? 'bg-slate-800' : 'bg-slate-950'} w-full hover:bg-slate-800`}
                     onClick={()=>handleClick(0)}
                 >
                     <CoreItems core={cores[0]} isCarry={isCarry} />
                 </button>
 
                 <button 
-                    className={`${selectedCore == 1 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
+                    className={`${selectedCore == 1 ? 'bg-slate-800' : 'bg-slate-950'} w-full hover:bg-slate-800`}
                     onClick={()=>handleClick(1)}
                 >
                     <CoreItems core={cores[1]} isCarry={isCarry} />
                 </button>
                 <button 
-                    className={`rounded-b-lg ${selectedCore == 2 ? 'bg-slate-800' : 'bg-slate-950'} px-4 py-2 w-full hover:bg-slate-800`}
+                    className={`rounded-b-lg ${selectedCore == 2 ? 'bg-slate-800' : 'bg-slate-950'} w-full hover:bg-slate-800`}
                     onClick={()=>handleClick(2)}
                 >
                     <CoreItems core={cores[2]} isCarry={isCarry} />

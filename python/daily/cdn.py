@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import time
-import psycopg2
 import boto3
 import json
 import requests
 import os
 import clickhouse_connect
+import traceback
 
 from dotenv import load_dotenv
 from botocore.config import Config
@@ -39,7 +39,9 @@ client = clickhouse_connect.get_client(
     host=os.getenv('CLICKHOUSE_HOST'),
     user='default',
     password=os.getenv('CLICKHOUSE_KEY'),
-    secure=True
+    secure=True,
+    connect_timeout=600,
+    send_receive_timeout=600
 )
 
 # result = client.query('SELECT hero_id FROM heroes')
@@ -73,6 +75,8 @@ def send_telegram_message(message):
 Ranks = ['', 'LOW', 'MID', 'HIGH']
 Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
 
+TOP_PERMS = 3
+TOP_GROUPS = 10
 
 try:
     for hero_id in hero_ids:
@@ -182,42 +186,74 @@ try:
         """, parameters={"hero_id": hero_id}).named_results())
 
         core_rows = list(client.query("""
-            SELECT *
-                FROM (
-                    SELECT
-                        hero_id,
-                        rank,
-                        role,
-                        facet,
-                        core,
-                        SUM(wins) as total_wins,
-                        SUM(matches) as total_matches,
-                        ROW_NUMBER() OVER (
-                            PARTITION BY hero_id, rank, role, facet
-                            ORDER BY SUM(matches) DESC, SUM(wins) DESC
-                        ) AS rn
-                    FROM core
-                    WHERE hero_id = %(hero_id)s
-                    GROUP BY hero_id, rank, role, facet, core
-                )
-                WHERE rn <= 10
+                SELECT
+                    hero_id,
+                    rank,
+                    role,
+                    facet,
+                    core,
+                    SUM(wins) as total_wins,
+                    SUM(matches) as total_matches
+                FROM core
+                WHERE hero_id = %(hero_id)s
+                GROUP BY hero_id, rank, role, facet, core
             """, parameters={"hero_id": hero_id}).named_results())
-        
-        core_conditions = []
-        if core_rows:
-            for row in core_rows:
-                core_items = "[" + ",".join(str(x) for x in row["core"]) + "]"
-                line = f"({row['hero_id']}, '{row['rank']}', '{row['role']}', {row['facet']}, {core_items})"
-                core_conditions.append(line)
-            core_values_clause = ",\n".join(core_conditions)
-        
 
+
+        cores_grouped = defaultdict(lambda: defaultdict(lambda: {
+            "cores": [],
+            "combined_wins": 0,
+            "combined_matches": 0
+        }))
+
+        for row in core_rows:
+            build_id = (row["hero_id"], row["rank"], row["role"], row["facet"])
+            sorted_core = tuple(sorted(row["core"]))
+
+            core_grouped = cores_grouped[build_id][sorted_core]
+
+            core_grouped["cores"].append({
+                "core": row["core"],
+                "total_wins": row["total_wins"],
+                "total_matches": row["total_matches"]
+            })
+            core_grouped["combined_wins"] += row["total_wins"]
+            core_grouped["combined_matches"] += row["total_matches"]
+
+
+        for build_id, cores in cores_grouped.items():
+            for sorted_core, data in cores.items():
+                data["cores"].sort(
+                    key=lambda c: (c["total_matches"], c["total_wins"]),
+                    reverse=True
+                )
+                data["cores"] = data["cores"][:TOP_PERMS]
+
+            sorted_cores = sorted(
+                cores.items(),
+                key=lambda item: (item[1]["combined_matches"], item[1]["combined_wins"]),
+                reverse=True
+            )[:TOP_GROUPS]
+
+            cores_grouped[build_id] = dict(sorted_cores)
+        
+        late_rows = []
+        if core_rows:
+            core_conditions = []
+            for (hero_id, rank, role, facet), groups in cores_grouped.items():
+                for sorted_core in groups.keys(): 
+                    core_items = "[" + ",".join(str(x) for x in sorted_core) + "]"
+                    line = f"({hero_id}, '{rank}', '{role}', {facet}, {core_items})"
+                    core_conditions.append(line)
+            
+                core_values_clause = ",\n".join(core_conditions)
+            
             late_rows = list(client.query(f"""
                 WITH core_keys AS (
                     SELECT * FROM (
                         SELECT * FROM VALUES (
-                            {core_values_clause} 
-                        )                   
+                            {core_values_clause}
+                        )
                     ) AS core_keys (hero_id, rank, role, facet, core)
                 ),
                 top_late AS (
@@ -226,32 +262,46 @@ try:
                         l.rank,
                         l.role,
                         l.facet,
-                        l.core,
+                        arraySort(l.core) AS core,
                         l.nth,
                         l.item,
-                        SUM(l.wins) AS late_total_wins,
+                        SUM(l.wins)   AS late_total_wins,
                         SUM(l.matches) AS late_total_matches,
                         ROW_NUMBER() OVER (
-                            PARTITION BY l.hero_id, l.rank, l.role, l.facet, l.core, l.nth
-                            ORDER BY SUM(l.matches) DESC, SUM(l.wins) DESC
+                            PARTITION BY
+                                l.hero_id,
+                                l.rank,
+                                l.role,
+                                l.facet,
+                                arraySort(l.core),
+                                l.nth
+                            ORDER BY
+                                SUM(l.matches) DESC,
+                                SUM(l.wins) DESC
                         ) AS rn
                     FROM late l
                     INNER JOIN core_keys tc
                         ON l.hero_id = tc.hero_id
-                        AND l.rank = tc.rank
-                        AND l.role = tc.role
-                        AND l.facet = tc.facet
-                        AND l.core = tc.core
-                    GROUP BY l.hero_id, l.rank, l.role, l.facet, l.core, l.nth, l.item
+                        AND l.rank    = tc.rank
+                        AND l.role    = tc.role
+                        AND l.facet   = tc.facet
+                        AND arraySort(l.core) = tc.core
+                    GROUP BY
+                        l.hero_id,
+                        l.rank,
+                        l.role,
+                        l.facet,
+                        arraySort(l.core),
+                        l.nth,
+                        l.item
                 )
                 SELECT *
                 FROM top_late
                 WHERE rn <= 10
-            """, parameters={"hero_id": hero_id}).named_results())
+            """).named_results())
         
         else:
             late_rows = []
-
 
         neutral_rows = list(client.query("""
             SELECT *
@@ -357,23 +407,25 @@ try:
             }
             late_grouped[key][nth].append(late_entry)
 
-        for row in core_rows:
-            
-            rank = row['rank']
-            role = row['role']
-            facet = str(row['facet'])
-            key = (hero_id, rank, role, facet, tuple(row['core']))
-            late_for_core = late_grouped.get(key, {})
+        for (hero_id, rank, role, facet), core_groups in cores_grouped.items():
+    
+            facet_str = str(facet)
 
-            if "core" not in existing_items[rank][role][facet]:
-                existing_items[rank][role][facet]["core"] = []
+            if "core" not in existing_items[rank][role][facet_str]:
+                existing_items[rank][role][facet_str]["core"] = []
             
-            existing_items[rank][role][facet]["core"].append({
-                'Core': row['core'],
-                'Wins': row['total_wins'],
-                'Matches': row['total_matches'],
-                'Late': late_for_core
-            })
+
+            for sorted_core, data in core_groups.items():
+                late_key = (hero_id, rank, role, facet_str, sorted_core)
+                late_for_core = late_grouped.get(late_key, {})
+
+                existing_items[rank][role][facet_str]["core"].append({
+                    'SortedCore': list(sorted_core),
+                    'CombinedWins': data['combined_wins'],
+                    'CombinedMatches': data['combined_matches'],
+                    'Permutations': data['cores'],
+                    'Late': late_for_core
+                })
             
         for row in neutral_rows:
             rank = row['rank']
@@ -434,6 +486,7 @@ try:
             s3.put_object(Bucket='dotam-builds', Key=builds_s3_key, Body=json.dumps(existing_builds, indent=None))
 
         print("Done: ", hero_id)
+        
 
     ## Make Sure Everythings Up to Date
     client = boto3.client('cloudfront')
@@ -449,6 +502,8 @@ try:
             'CallerReference': str(datetime.now())  # Unique string to prevent duplicate invalidations
         }
     )
+    print("Sent to Cloudfront")
+
 
     end_time = time.time()
     elapsed_time = end_time - start_time
@@ -457,7 +512,7 @@ try:
     send_telegram_message(time_message)
 
 except Exception as e:
-    error_message = f"An error occurred in your script:\n\n{str(e)}"
+    error_message = f"An error occurred in your script:\n\n{str(traceback.format_exc())}"
     print(error_message)
     send_telegram_message(error_message)
     
