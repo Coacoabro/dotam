@@ -18,7 +18,7 @@ export default function CoreItems({core, isCarry}) {
             return(
                 <>
                     <div 
-                        className='flex items-center gap-3 sm:gap-4 px-4 py-2 ' 
+                        className='flex items-center gap-3 sm:gap-4 px-4 pb-2 pt-3 ' 
                         onMouseEnter={() => setShowPermutations(true)}
                         onMouseLeave={() => setShowPermutations(false)}
                     >
