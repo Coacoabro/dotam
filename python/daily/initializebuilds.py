@@ -242,8 +242,8 @@ def hero_info():
 ## All of these are used (INCLUDING HERO INFO!!)
 # get_facets()
 # get_innate()
-s3_data()
-# hero_info()
+# s3_data()
+hero_info()
 
 
 ### postgres_data() # NO LONGER USED
