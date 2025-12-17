@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import psycopg2
 import json
 import requests
 import os
@@ -11,13 +10,12 @@ import clickhouse_connect
 
 from datetime import datetime
 from dotenv import load_dotenv
-from psycopg2.extras import execute_values
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
-load_dotenv()
+from hero_ids import hero_ids
 
-newest_hero_id = 150
+load_dotenv()
 
 base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
@@ -34,13 +32,16 @@ client = clickhouse_connect.get_client(
 )
 
 def get_innate():
-    global newest_hero_id
+
+    print("Starting Innate updates")
+
+    global hero_ids
     innate_json = {}
     
 
-    for i in range(1, newest_hero_id):
+    for hero_id in hero_ids:
 
-        url = base_url + str(i)
+        url = base_url + str(hero_id)
 
         response = requests.get(url)
         if response.status_code == 200:
@@ -69,22 +70,25 @@ def get_innate():
                                             value = float_values[0]
                             ability_desc = ability_desc.replace(f'%{placeholder}%', str(value))
                         
-                        innate_json[i] = {"Name": ability["name_loc"], "Desc": ability_desc}
+                        innate_json[hero_id] = {"Name": ability["name_loc"], "Desc": ability_desc}
 
 
     with open('./json/hero_innate.json', 'w') as f:
         json.dump(innate_json, f)
 
 def get_facets():
+
+    print("Starting Facet Update")
+
     # This grabs new Facets as well as the amount of facets each hero has for the backend and front end
     facets_json = {}
     facet_nums_json = {}
     
-    global newest_hero_id
+    global hero_ids
 
-    for i in range(1, newest_hero_id):
+    for hero_id in hero_ids:
 
-        url = base_url + str(i)
+        url = base_url + str(hero_id)
 
         response = requests.get(url)
         if response.status_code == 200:
@@ -122,8 +126,8 @@ def get_facets():
                     hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet_desc, "Icon": facet["icon"]} )
                     facet_nums.append(n)
                 
-                facet_nums_json[i] = facet_nums
-                facets_json[i] = hero_facets
+                facet_nums_json[hero_id] = facet_nums
+                facets_json[hero_id] = hero_facets
 
     with open('./json/hero_facets.json', 'w') as f:
         json.dump(facets_json, f)
@@ -133,14 +137,16 @@ def get_facets():
 
 def s3_data():
 
+    print("Starting S3 Data Reset")
+
     global patch
+    global hero_ids
 
     s3 = boto3.client('s3')
 
-    hero_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 119, 120, 121, 123, 126, 128, 129, 131, 135, 136, 137, 138, 145]
-
     Roles = ['POSITION_1', 'POSITION_2', 'POSITION_3', 'POSITION_4', 'POSITION_5']
-    Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
+    # Ranks = ['', 'HERALD', 'GUARDIAN', 'CRUSADER', 'ARCHON', 'LEGEND', 'ANCIENT', 'DIVINE', 'IMMORTAL', 'LOW', 'MID', 'HIGH']
+    Ranks = ['', 'LOW', 'MID', 'HIGH']
     file_path = './json/hero_facets.json'
     with open(file_path, 'r') as file:
         Facets = json.load(file)
@@ -198,11 +204,14 @@ def s3_data():
             
 def hero_info():
 
+    print("Starting Hero Info")
+
     global patch
+    global hero_ids
+
+    ATTR_MAP = ["str", "agi", "int", "all"]
 
     s3 = boto3.client('s3')
-
-    hero_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 119, 120, 121, 123, 126, 128, 129, 131, 135, 136, 137, 138, 145]
 
     heroes = []
 
@@ -210,14 +219,18 @@ def hero_info():
 
         for hero_id in hero_ids:
 
-            result = client.query("SELECT * FROM heroes WHERE hero_id = %(hero_id)s", parameters={"hero_id": hero_id})
-            hero = result.result_rows[0]
+            URL = "https://www.dota2.com/datafeed/herodata?language=english&hero_id=" + str(hero_id)
+            response = requests.get(URL, timeout=60)
+            hero = response.json()["result"]["data"]["heroes"][0]
             heroObj = {}
-            heroObj['hero_id'] = hero[0]
-            heroObj['name'] = hero[1]
-            heroObj['localized_name'] = hero[2]
-            heroObj['img'] = hero[3]
-            heroObj['attr'] = hero[4]
+            heroObj['hero_id'] = hero["id"]
+            heroObj['name'] = hero["name"]
+            heroObj['localized_name'] = hero["name_loc"]
+            hero_name = hero['name'].replace('npc_dota_hero_', '')
+            heroObj['img'] = "/apps/dota2/images/dota_react/heroes/" + hero_name + ".png?"
+            attr_num = hero["primary_attr"]
+            heroObj['attr'] = ATTR_MAP[attr_num]
+            
 
             executor.submit(s3.put_object, Bucket='dotam-content', Key=f"data/{patch}/{hero_id}/info.json", Body=json.dumps(heroObj, indent=2))
             heroes.append(heroObj)
@@ -227,10 +240,10 @@ def hero_info():
 
     
 ## All of these are used (INCLUDING HERO INFO!!)
-get_facets()
-get_innate()
+# get_facets()
+# get_innate()
 s3_data()
-hero_info()
+# hero_info()
 
 
 ### postgres_data() # NO LONGER USED

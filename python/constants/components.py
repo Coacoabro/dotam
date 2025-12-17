@@ -4,7 +4,6 @@ from collections import Counter
 from dotenv import load_dotenv
 
 import os
-import psycopg2
 import json
 import requests
 
