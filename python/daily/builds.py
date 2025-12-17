@@ -454,94 +454,103 @@ def sendtoclickhouse(builds):
 
     main_rows = []
 
-    for (hero_id, rank, role, facet), build in builds.items():
-        try:
+    if(builds):
 
-            hero_id, rank, role, facet, matches, wins, abilities, talents, starting, early, core, neutrals = build
-            main = (today, patch, hero_id, rank, role, facet, wins, matches)
-            main_rows.append(main)
+        for (hero_id, rank, role, facet), build in builds.items():
 
-            ability_rows = []
-            for ability_order, result in abilities.items():
-                row = (today, patch, hero_id, rank, role, facet, list(ability_order), result['Wins'], result['Matches'])
-                ability_rows.append(row)
-            batched_insert('abilities', ability_rows, batches)
+            try:
 
-            talent_rows = []
-            for talent, result in talents.items():
-                row = (today, patch, hero_id, rank, role, facet, talent, result['Wins'], result['Matches'])
-                talent_rows.append(row)
-            batched_insert('talents', talent_rows, batches)
+                hero_id, rank, role, facet, matches, wins, abilities, talents, starting, early, core, neutrals = build
+                main = (today, patch, hero_id, rank, role, facet, wins, matches)
+                main_rows.append(main)
 
-            starting_rows = []
-            for starting_order, result in starting.items():
-                row = (today, patch, hero_id, rank, role, facet, list(starting_order), result['Wins'], result['Matches'])
-                starting_rows.append(row)
-            batched_insert('starting', starting_rows, batches)
+                ability_rows = []
+                for ability_order, result in abilities.items():
+                    row = (today, patch, hero_id, rank, role, facet, list(ability_order), result['Wins'], result['Matches'])
+                    ability_rows.append(row)
+                batched_insert('abilities', ability_rows, batches)
 
-            early_rows = []
-            for (item_id, is_second), result in early.items():
-                row = (today, patch, hero_id, rank, role, facet, item_id, is_second, result['Wins'], result['Matches'])
-                early_rows.append(row)
-            batched_insert('early', early_rows, batches)
+                talent_rows = []
+                for talent, result in talents.items():
+                    row = (today, patch, hero_id, rank, role, facet, talent, result['Wins'], result['Matches'])
+                    talent_rows.append(row)
+                batched_insert('talents', talent_rows, batches)
 
-            core_rows = []
-            late_rows = []
-            for core_items, result in core.items():
-                late_dict = result['Late']
-                core_row = (today, patch, hero_id, rank, role, facet, list(core_items), result['Wins'], result['Matches'])
-                core_rows.append(core_row)
-                for (late_item, nth), late_result in late_dict.items():
-                    late_row = (today, patch, hero_id, rank, role, facet, list(core_items), nth, late_item, late_result['Wins'], late_result['Matches'])
-                    late_rows.append(late_row)
-                
-            batched_insert('core', core_rows, batches)
-            batched_insert('late', late_rows, batches)
+                starting_rows = []
+                for starting_order, result in starting.items():
+                    row = (today, patch, hero_id, rank, role, facet, list(starting_order), result['Wins'], result['Matches'])
+                    starting_rows.append(row)
+                batched_insert('starting', starting_rows, batches)
 
-            neutral_rows = []
-            for neutral_item, result in neutrals.items():
-                row = (today, patch, hero_id, rank, role, facet, result['Tier'], neutral_item, result['Wins'], result['Matches'])
-                neutral_rows.append(row)
-            batched_insert('neutrals', neutral_rows, batches)
+                early_rows = []
+                for (item_id, is_second), result in early.items():
+                    row = (today, patch, hero_id, rank, role, facet, item_id, is_second, result['Wins'], result['Matches'])
+                    early_rows.append(row)
+                batched_insert('early', early_rows, batches)
+
+                core_rows = []
+                late_rows = []
+                for core_items, result in core.items():
+                    late_dict = result['Late']
+                    core_row = (today, patch, hero_id, rank, role, facet, list(core_items), result['Wins'], result['Matches'])
+                    core_rows.append(core_row)
+                    for (late_item, nth), late_result in late_dict.items():
+                        late_row = (today, patch, hero_id, rank, role, facet, list(core_items), nth, late_item, late_result['Wins'], late_result['Matches'])
+                        late_rows.append(late_row)
+                    
+                batched_insert('core', core_rows, batches)
+                batched_insert('late', late_rows, batches)
+
+                neutral_rows = []
+                for neutral_item, result in neutrals.items():
+                    row = (today, patch, hero_id, rank, role, facet, result['Tier'], neutral_item, result['Wins'], result['Matches'])
+                    neutral_rows.append(row)
+                batched_insert('neutrals', neutral_rows, batches)
+            
+            except DataError as e:
+                message = f"ClickHouse error inserting into {hero_id, rank, role, facet}:\n\n{str(e)}"
+                print(message)
+                # send_telegram_message(message)
+
+        for table_name, rows in batches.items():
+            try:
+                if rows:
+                    client.insert(table_name, rows)
+            except Exception as e:
+                message = f"ClickHouse error inserting into {table_name}:\n\n{str(e)}"
+                # send_telegram_message(message)
         
-        except DataError as e:
-            message = f"ClickHouse error inserting into {hero_id, rank, role, facet}:\n\n{str(e)}"
-            # send_telegram_message(message)
-
-    for table_name, rows in batches.items():
         try:
-            if rows:
-                client.insert(table_name, rows)
+            client.insert('main', main_rows)
         except Exception as e:
-            message = f"ClickHouse error inserting into {table_name}:\n\n{str(e)}"
+            message = f"ClickHouse error inserting into Main:\n\n{str(e)}"
             # send_telegram_message(message)
+        
+        time.sleep(10)
+
+        # Finished!
+        print("Done. Last sequence num: ", seq_num)
+        with open(file_path, 'w') as file:
+            json.dump({"seq_num": seq_num}, file)
+
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+
+        time_message = f"Finished sending to ClickHouse. That took {round((elapsed_time/60), 2)} minutes"
+        print(time_message)
+        # send_telegram_message(time_message)
     
-    try:
-        client.insert('main', main_rows)
-    except Exception as e:
-        message = f"ClickHouse error inserting into Main:\n\n{str(e)}"
-        # send_telegram_message(message)
-    
-    
-
-    # Finished!
-    print("Done. Last sequence num: ", seq_num)
-    with open(file_path, 'w') as file:
-        json.dump({"seq_num": seq_num}, file)
-
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-
-    time_message = f"Finished sending to ClickHouse. That took {round((elapsed_time/60), 2)} minutes"
-    print(time_message)
-    # send_telegram_message(time_message)
+    else:
+        error_message = "Builds is empty, maybe Stratz API changed in some way"
+        print(error_message)
+        send_telegram_message(error_message)
 
 
 
-# file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
-# facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
-file_path = './python/daily/seq_num.json'
-facet_path = './python/daily/facet_nums.json'
+file_path = '/home/ec2-user/dotam/python/daily/seq_num.json'
+facet_path = '/home/ec2-user/dotam/python/daily/facet_nums.json'
+# file_path = './python/daily/seq_num.json'
+# facet_path = './python/daily/facet_nums.json'
 
 with open(file_path, 'r') as file:
     data = json.load(file)
@@ -600,7 +609,7 @@ while True:
                         builds = getBuilds(ranked_matches, builds)
                         ranked_matches = []
 
-        if hourlyDump >= 5:
+        if hourlyDump >= 1000:
             end_time = time.time()
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to clickhouse!. That took {round((elapsed_time/60), 2)} minutes"
