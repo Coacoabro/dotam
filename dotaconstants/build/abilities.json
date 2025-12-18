@@ -72516,6 +72516,30 @@
     ],
     "img": "/apps/dota2/images/dota_react/abilities/largo_encore.png"
   },
+  "special_bonus_unique_largo_1": {
+    "dname": "+15 Frogstomp Damage"
+  },
+  "special_bonus_unique_largo_2": {
+    "dname": "x2.5 Catchy Lick Health Regen"
+  },
+  "special_bonus_unique_largo_3": {
+    "dname": "1.5% Croak of Genius Max Health DPS"
+  },
+  "special_bonus_unique_largo_4": {
+    "dname": "+100 Catchy Lick Cast Range / +50 Pull Distance"
+  },
+  "special_bonus_unique_largo_5": {
+    "dname": "+140 Catchy Lick Damage"
+  },
+  "special_bonus_unique_largo_6": {
+    "dname": "50% Groovin' Armor Aura"
+  },
+  "special_bonus_unique_largo_7": {
+    "dname": "+35% Amphibian Rhapsody Song Effects"
+  },
+  "special_bonus_unique_largo_8": {
+    "dname": "2 Catchy Lick Charges"
+  },
   "special_bonus_unique_broodmother_web_speed": {
     "dname": "+{s:bonus_bonus_movespeed}% Spin Web Move Speed and Ignore Speed Limit"
   },
