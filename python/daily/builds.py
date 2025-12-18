@@ -11,6 +11,8 @@ import copy
 import traceback
 import clickhouse_connect
 
+from hero_ids import hero_ids
+
 from datetime import date, datetime, timezone
 from dotenv import load_dotenv
 from collections import Counter
@@ -64,8 +66,6 @@ client = clickhouse_connect.get_client(
 # result = client.query('SELECT hero_id FROM heroes')
 # rows = result.result_rows
 # hero_ids = [row[0] for row in rows]
-
-hero_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 119, 120, 121, 123, 126, 128, 129, 131, 135, 136, 137, 138, 145]
 
 
 # Telegram Stuff
@@ -176,7 +176,10 @@ def getBuilds(ranked_matches, builds):
             break
         except:
             print(f"Got nothing, trying again in 1 minute ({3-tries} tries left)")
+            if tries == 2:
+                send_telegram_message(f"STRATZ ERROR: {response.text}")
             time.sleep(60)
+            
             tries += 1
 
     for ranked_match in ranked_matches:
@@ -303,7 +306,9 @@ def getBuilds(ranked_matches, builds):
                                 if core:
                                     # Dump into builds
 
-                                    for rank_value in [rank[0], rank[1], ""]:
+                                    # for rank_value in [rank[0], rank[1], ""]:
+                                    ## Right now taking away specific ranks and only doing ALL HIGH MID and LOW
+                                    for rank_value in [rank[1], ""]:
                                         key = (hero_id, rank_value, role, facet)
                                         hero_build = builds.get(key)
                                         if hero_build:
@@ -449,87 +454,96 @@ def sendtoclickhouse(builds):
 
     main_rows = []
 
-    for (hero_id, rank, role, facet), build in builds.items():
-        try:
+    if(builds):
 
-            hero_id, rank, role, facet, matches, wins, abilities, talents, starting, early, core, neutrals = build
-            main = (today, patch, hero_id, rank, role, facet, wins, matches)
-            main_rows.append(main)
+        for (hero_id, rank, role, facet), build in builds.items():
 
-            ability_rows = []
-            for ability_order, result in abilities.items():
-                row = (today, patch, hero_id, rank, role, facet, list(ability_order), result['Wins'], result['Matches'])
-                ability_rows.append(row)
-            batched_insert('abilities', ability_rows, batches)
+            try:
 
-            talent_rows = []
-            for talent, result in talents.items():
-                row = (today, patch, hero_id, rank, role, facet, talent, result['Wins'], result['Matches'])
-                talent_rows.append(row)
-            batched_insert('talents', talent_rows, batches)
+                hero_id, rank, role, facet, matches, wins, abilities, talents, starting, early, core, neutrals = build
+                main = (today, patch, hero_id, rank, role, facet, wins, matches)
+                main_rows.append(main)
 
-            starting_rows = []
-            for starting_order, result in starting.items():
-                row = (today, patch, hero_id, rank, role, facet, list(starting_order), result['Wins'], result['Matches'])
-                starting_rows.append(row)
-            batched_insert('starting', starting_rows, batches)
+                ability_rows = []
+                for ability_order, result in abilities.items():
+                    row = (today, patch, hero_id, rank, role, facet, list(ability_order), result['Wins'], result['Matches'])
+                    ability_rows.append(row)
+                batched_insert('abilities', ability_rows, batches)
 
-            early_rows = []
-            for (item_id, is_second), result in early.items():
-                row = (today, patch, hero_id, rank, role, facet, item_id, is_second, result['Wins'], result['Matches'])
-                early_rows.append(row)
-            batched_insert('early', early_rows, batches)
+                talent_rows = []
+                for talent, result in talents.items():
+                    row = (today, patch, hero_id, rank, role, facet, talent, result['Wins'], result['Matches'])
+                    talent_rows.append(row)
+                batched_insert('talents', talent_rows, batches)
 
-            core_rows = []
-            late_rows = []
-            for core_items, result in core.items():
-                late_dict = result['Late']
-                core_row = (today, patch, hero_id, rank, role, facet, list(core_items), result['Wins'], result['Matches'])
-                core_rows.append(core_row)
-                for (late_item, nth), late_result in late_dict.items():
-                    late_row = (today, patch, hero_id, rank, role, facet, list(core_items), nth, late_item, late_result['Wins'], late_result['Matches'])
-                    late_rows.append(late_row)
-                
-            batched_insert('core', core_rows, batches)
-            batched_insert('late', late_rows, batches)
+                starting_rows = []
+                for starting_order, result in starting.items():
+                    row = (today, patch, hero_id, rank, role, facet, list(starting_order), result['Wins'], result['Matches'])
+                    starting_rows.append(row)
+                batched_insert('starting', starting_rows, batches)
 
-            neutral_rows = []
-            for neutral_item, result in neutrals.items():
-                row = (today, patch, hero_id, rank, role, facet, result['Tier'], neutral_item, result['Wins'], result['Matches'])
-                neutral_rows.append(row)
-            batched_insert('neutrals', neutral_rows, batches)
+                early_rows = []
+                for (item_id, is_second), result in early.items():
+                    row = (today, patch, hero_id, rank, role, facet, item_id, is_second, result['Wins'], result['Matches'])
+                    early_rows.append(row)
+                batched_insert('early', early_rows, batches)
+
+                core_rows = []
+                late_rows = []
+                for core_items, result in core.items():
+                    late_dict = result['Late']
+                    core_row = (today, patch, hero_id, rank, role, facet, list(core_items), result['Wins'], result['Matches'])
+                    core_rows.append(core_row)
+                    for (late_item, nth), late_result in late_dict.items():
+                        late_row = (today, patch, hero_id, rank, role, facet, list(core_items), nth, late_item, late_result['Wins'], late_result['Matches'])
+                        late_rows.append(late_row)
+                    
+                batched_insert('core', core_rows, batches)
+                batched_insert('late', late_rows, batches)
+
+                neutral_rows = []
+                for neutral_item, result in neutrals.items():
+                    row = (today, patch, hero_id, rank, role, facet, result['Tier'], neutral_item, result['Wins'], result['Matches'])
+                    neutral_rows.append(row)
+                batched_insert('neutrals', neutral_rows, batches)
+            
+            except DataError as e:
+                message = f"ClickHouse error inserting into {hero_id, rank, role, facet}:\n\n{str(e)}"
+                print(message)
+                # send_telegram_message(message)
+
+        for table_name, rows in batches.items():
+            try:
+                if rows:
+                    client.insert(table_name, rows)
+            except Exception as e:
+                message = f"ClickHouse error inserting into {table_name}:\n\n{str(e)}"
+                # send_telegram_message(message)
         
-        except DataError as e:
-            message = f"ClickHouse error inserting into {hero_id, rank, role, facet}:\n\n{str(e)}"
-            # send_telegram_message(message)
-
-    for table_name, rows in batches.items():
         try:
-            if rows:
-                client.insert(table_name, rows)
+            client.insert('main', main_rows)
         except Exception as e:
-            message = f"ClickHouse error inserting into {table_name}:\n\n{str(e)}"
+            message = f"ClickHouse error inserting into Main:\n\n{str(e)}"
             # send_telegram_message(message)
-    
-    try:
-        client.insert('main', main_rows)
-    except Exception as e:
-        message = f"ClickHouse error inserting into Main:\n\n{str(e)}"
-        # send_telegram_message(message)
-    
-    
+        
+        time.sleep(10)
 
-    # Finished!
-    print("Done. Last sequence num: ", seq_num)
-    with open(file_path, 'w') as file:
-        json.dump({"seq_num": seq_num}, file)
+        # Finished!
+        print("Done. Last sequence num: ", seq_num)
+        with open(file_path, 'w') as file:
+            json.dump({"seq_num": seq_num}, file)
 
-    end_time = time.time()
-    elapsed_time = end_time - start_time
+        end_time = time.time()
+        elapsed_time = end_time - start_time
 
-    time_message = f"Finished sending to ClickHouse. That took {round((elapsed_time/60), 2)} minutes"
-    print(time_message)
-    send_telegram_message(time_message)
+        time_message = f"Finished sending to ClickHouse. That took {round((elapsed_time/60), 2)} minutes"
+        print(time_message)
+        # send_telegram_message(time_message)
+    
+    else:
+        error_message = "Builds is empty, maybe Stratz API changed in some way"
+        print(error_message)
+        send_telegram_message(error_message)
 
 
 
@@ -600,12 +614,12 @@ while True:
             elapsed_time = end_time - start_time
             time_message = f"Sucessfully parsed data! Now sending to clickhouse!. That took {round((elapsed_time/60), 2)} minutes"
             print(time_message)
-            send_telegram_message(time_message)
+            # send_telegram_message(time_message)
             sendtoclickhouse(builds)
             break
 
     except Exception as e:
-        error_message = f"An error occurred in your script:\n\n{str(e)}"
+        error_message = f"An error occurred in your script:\n\n{str(traceback.format_exc())}"
         print(error_message)
         if str(e) == "local variable 'data' referenced before assignment":
             send_telegram_message("Referenced before assignment, aborting mission")

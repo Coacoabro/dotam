@@ -4,7 +4,6 @@ from collections import Counter
 from dotenv import load_dotenv
 
 import os
-import psycopg2
 import json
 import requests
 
@@ -17,11 +16,6 @@ def get_hero_abilities():
     url = 'https://api.stratz.com/graphql' #GraphQL Endpoint
     headers = {'Authorization': f'Bearer {graphql_token}'}
 
-    conn = psycopg2.connect(database_url)
-    cur = conn.cursor() # Open a cursor to perform database operations
-
-    cur.execute("SELECT hero_id from heroes;")
-    hero_ids = [row[0] for row in cur.fetchall()]
 
     hero_abilities = {}
 

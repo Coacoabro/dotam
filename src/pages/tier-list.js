@@ -45,7 +45,12 @@ export default function TierList() {
     }
 
     const { data, isLoading, error } = useQuery(['tierList', currPatch], () => fetchTierData(currPatch), {enabled: !!currPatch,})
-    console.log(data, isLoading, error)
+    
+    const dateModified = !data || isLoading ? "Loading..." : 
+        new Date(data.modified).toLocaleString("en-US", {
+            timeZone: "America/New_York",
+            hour12: true,
+        })
     
     return(
         <div className=''>
@@ -72,7 +77,10 @@ export default function TierList() {
                     Dota 2 Tier List
                     <Ad placementName="leaderboard" />
                 </div>
-                <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">A tier list based on current win rates and pick rates from almost all games played within the current patch</div>
+                <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">
+                    <p>A tier list based on current win rates and pick rates from almost all games played within the past two weeks.</p>
+                    <p className='text-xs sm:text-base'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></p>
+                </div>
                 <div className="py-2 justify-between text-white space-y-2 sm:flex">
                     <div className="flex items-center justify-center space-x-2">
                         <HeroSearch onSearch={handleSearch} />

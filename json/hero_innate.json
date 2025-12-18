@@ -1,1 +1,510 @@
-{"1": {"Name": "Persecutor", "Desc": "Attacks slow enemies based on how much mana they are missing. Min slow at 50% mana, up to max slow at % mana. No effect if enemy is above 50% mana."}, "2": {"Name": "Coat of Blood", "Desc": "Axe permanently drenches his blade every time he kills an enemy Hero, gaining 0.2/0.3/0.4/0.5 bonus armor for each stack. Killing with Culling Blade gives 3x stacks."}, "3": {"Name": "Ichor of Nyctasha", "Desc": "Bane's attribute gains are always evenly distributed across all three attributes (items that grant +3 Strength will now grant +1 Str/Agi/Int)."}, "4": {"Name": "Sanguivore", "Desc": "Bloodseeker restores some life when he kills a unit, equal to 1.5% of the units max health per Bloodseeker's Level plus a base of 25.<br><br>Restores for half values if an ally kills a nearby enemy hero."}, "5": {"Name": "Blueheart Floe", "Desc": "Crystal Maiden has 25/50/75/100% Mana Regeneration Amplification."}, "6": {"Name": "Precision Aura", "Desc": "Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received 50% of the bonus agility."}, "7": {"Name": "Slugger", "Desc": "Enemies killed with Enchant Totem or Earthshaker's other abilities are sent flying, dealing damage to enemies they hit."}, "8": {"Name": "Duelist", "Desc": "Juggernaut deals 12% more damage to targets that are facing him. Damage bonus always applies during Omnislash."}, "9": {"Name": "Selemene's Faithful", "Desc": "Healing Lotuses are 50% more effective on Mirana and her allies."}, "10": {"Name": "Accumulation", "Desc": "Morphling receives 50% of stat growth bonuses every half level instead of the full bonus at level up. All Attributes bonuses from skill points in the Talent Tree provide an additional +3 to Morphling's primary attribute."}, "11": {"Name": "Necromastery", "Desc": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. Hero kills grant 3 souls. On death, he releases 30% of them from bondage."}, "12": {"Name": "Illusory Armaments", "Desc": "Items, abilities, and auras that grant bonus damage instead grant base damage."}, "13": {"Name": "Puckish", "Desc": "Whenever Puck disjoints an attack, it restores 10 + 2% of its max mana and 10 + 2% of its max health. Dodging a targeted spell projectile restores 3.5x that amount."}, "14": {"Name": "Flesh Heap", "Desc": "Pudge's skin thickens permanently every time he kills an enemy Hero, gaining 1.1/1.4/1.7/2 bonus Strength for each stack."}, "15": {"Name": "Unstable Current", "Desc": "Passively increases Razor's movement speed by 1% per hero level."}, "16": {"Name": "Caustic Finale", "Desc": "Sand King's attacks inject a venom that causes enemy units to violently explode when they die."}, "17": {"Name": "Galvanized", "Desc": "Storm Spirit gains a charge of 0.2 mana regeneration per kill. Loses 3 charges per death. Leveling Ball Lightning gives Storm Spirit 3 bonus charges. Additionally every time he gains a charge he also gains 0.1 Mana Regen permanently."}, "18": {"Name": "Vanquisher", "Desc": "Sven's attacks deal 20% bonus damage to stunned enemies."}, "19": {"Name": "Craggy Exterior", "Desc": "Enemies that attack Tiny receive a stacking debuff that lowers their attack damage with each stack."}, "20": {"Name": "Retribution", "Desc": "Whenever an enemy hero kills Vengeful Spirit, they get a debuff until their next death, causing Vengeful Spirit to deal 20% bonus damage to them."}, "21": {"Name": "Easy Breezy", "Desc": "Windranger's movement speed cannot be lower than 240 and can reach 600."}, "22": {"Name": "Static Field", "Desc": "Zeus shocks any enemy that he attacks or is hit by his abilities, causing damage equal to a percentage of their current health."}, "23": {"Name": "Admiral's Rum", "Desc": "Damage from enemy heroes, buildings, or Roshan that would reduce Kunkka below a threshold causes him to douse himself with The Admiral's Rum, receiving bonus movement speed and a delayed reaction to incoming damage."}, "25": {"Name": "Combustion", "Desc": "Every 175 damage Lina does to an enemy hero causes them to overheat, doing damage to their nearby allies. This effect can trigger multiple times off a single instance of damage. Overheated illusions do less damage."}, "26": {"Name": "To Hell and Back", "Desc": "Lion gains 20% debuff duration and 20% spell amplification for 90s after respawning."}, "27": {"Name": "Fowl Play", "Desc": "When taking lethal damage, Shadow Shaman receives a strong dispel and survives as a 1 HP chicken. Incoming damage is reduced to zero for 1s.<br/><br/>Cooldown is reset upon respawning.\n\nDISPEL TYPE: Strong Dispel"}, "28": {"Name": "Seaborn Sentinel", "Desc": "Slardar gains bonus movement speed, health regeneration, attack damage, and armor while in a puddle, trail, or river."}, "29": {"Name": "Blubber", "Desc": "Tidehunter's hide removes negative status effects if he takes more than 450 damage. Removes most debuffs, even if they are generally not purgable.\n\nDISPEL TYPE: Strong Dispel"}, "30": {"Name": "Gris-Gris", "Desc": "Witch Doctor gets a Gris-Gris, an item that cannot be dropped or placed in the backpack. When the owner dies, 100% of the gold lost from death is added to the item, and will be refunded when the item is consumed. The value of the Gris-Gris is increased by 1 every 3s. <br><br> Right-click to consume and permanently remove the item."}, "31": {"Name": "Death Charge", "Desc": "Lich cannot gain passive mana regeneration, but any unit dying within 1500 range of Lich restores 2.5% of his Max Mana (Dying heroes restore 25% of Lich's Max Mana). Instant mana restoration from items and abilities apply to Lich as normal."}, "32": {"Name": "Backstab", "Desc": "Every time Riki strikes his enemy from behind, he deals bonus damage based on his Agility."}, "33": {"Name": "Gravity Well", "Desc": "Allies within 500 distance from Enigma have up to 9/11/13/15% Damage Reduction. Effect starts at 0min_dist% distance. Does not affect Enigma itself."}, "34": {"Name": "Eureka!", "Desc": "Tinker gains 1% item cooldown reduction per 3 Intelligence, up to a maximum of 60%."}, "35": {"Name": "Keen Scope", "Desc": "Increases Sniper's attack range."}, "36": {"Name": "Sadist", "Desc": "Necrophos gains stacking regen for 8 seconds for each unit he kills. Hero kills multiply the effect."}, "37": {"Name": "Eldritch Summoning", "Desc": "Whenever an enemy unit dies while afflicted by one or more of Warlock's abilities, a minor imp is summoned that lasts for 15 seconds and explodes on death. Imps will automatically seek out nearby units, favoring fatally bonded heroes, and will explode when reaching their prey."}, "38": {"Name": "Rugged", "Desc": "Beastmaster's melee hero Damage Block Chance is increased from 50% to 100% versus non-hero units and non-building units."}, "39": {"Name": "Succubus", "Desc": "All sources of Spell Lifesteal also apply to Pure Damage. Queen of Pain gains Spell Lifesteal that increases with proximity to her enemies. Lifesteal is at its maximum when the enemy is 300 units or closer to her and at its minimum when the enemy is 800 units or further from her."}, "40": {"Name": "Septic Shock", "Desc": "Venomancer's attacks deal extra damage based on how many debuffs the attack target has. Extra damage is dealt as magical damage. Only counts debuffs from Venomancer or his Plague Wards."}, "41": {"Name": "Distortion Field", "Desc": "Enemy Attack Projectiles within 600 radius are slowed by 35/40/45/50%."}, "42": {"Name": "Vampiric Spirit", "Desc": "Grants Wraith King Lifesteal. When slain Wraith King turns into a free pathing Wraith with Bonus Attack and Movement Speed for a short duration, delaying his death. Wraith King cannot reincarnate after being a Wraith."}, "43": {"Name": "Witchcraft", "Desc": "Death Prophet's occult knowledge deepens with experience, gaining 0.5% movement speed per level, and 0.75% spell cooldown reduction per level."}, "44": {"Name": "Blur", "Desc": "Phantom Assassin blurs her body, disjointing incoming projectiles, increasing her movement speed, causing her to be impossible to see until she comes near enemy heroes or towers."}, "45": {"Name": "Oblivion Savant", "Desc": "Pugna can cast spells and use items while channeling."}, "46": {"Name": "Third Eye", "Desc": "Templar Assassin and her teammates can see Roshan's respawn timer."}, "47": {"Name": "Predator", "Desc": "Viper's attacks deal an additional instance of physical damage per missing health percentage of the target hero, equal to 0.15 + 0.05 per Viper's level."}, "48": {"Name": "Lunar Blessing", "Desc": "Grants 1 attack damage per level to Luna and nearby allied heroes, with Luna receiving double the attack damage bonuses. At night, Lunar Blessing is global, and Luna is blessed with 250 bonus night vision + 25 per level."}, "49": {"Name": "Dragon Blood", "Desc": "The life blood of the Dragon improves Dragon Knight's health regeneration and armor. Amount for both values is increased by 0.5 per level and is multiplied when in Dragon Form."}, "50": {"Name": "Weave", "Desc": "Dazzle's abilities apply Weave to both allies and enemies they affect, increasing allied armor and reducing enemy armor. Multiple instances of this effect stack."}, "51": {"Name": "Armor Power", "Desc": "Clockwerk's outgoing damage increases by 0.25% per point of armor."}, "52": {"Name": "Defilement", "Desc": "Leshrac gains AoE per intelligence."}, "53": {"Name": "Spirit of the Forest", "Desc": "Nature's Prophet gains 3% bonus damage for each tree within 300/400/500/600 and a multiplier of that same bonus for each treant within 1200 distance of him."}, "54": {"Name": "Feast", "Desc": "Lifestealer's attacks deal damage and provide heal for a percentage of his target's max health. Allows Lifestealer to attack allied creeps at 75% health. Lifestealer gains permanent max HP whenever he kills a creep or hero."}, "55": {"Name": "Aggrandize", "Desc": "When Dark Seer levels up, he restores a percentage of his max health and mana. Restore percentage is equal to 10% + 1.5% per hero level."}, "56": {"Name": "Bone and Arrow", "Desc": "Clinkz summons a Skeleton Archer when he dies. Skeleton Archers are immobile and die within multiple attacks from a hero or tower. Skeleton Archers deal a percentage of Clinkz' damage, and deal less damage to buildings. Attack range is equal to Clinkz' attack range.<br><br>Some of Clinkz' other abilities can also summon Skeleton Archers."}, "57": {"Name": "Degen Aura", "Desc": "Degenerates the movement capabilities of enemy units that stray too near."}, "58": {"Name": "Rabble-Rouser", "Desc": "All neutral camps deal more damage to enemy heroes. Damage increase is 10% + 4% per Enchantress's hero level."}, "59": {"Name": "Blood Magic", "Desc": "Huskar does not have mana. Mana costs of items are converted into health costs."}, "60": {"Name": "Heart of Darkness", "Desc": "During the night, Night Stalker's health regeneration is increased by 20%, and during the day it is decreased by 20%."}, "61": {"Name": "Spider's Milk", "Desc": "Whenever Broodmother kills a unit, she and all units under her control in a 600 radius receive a buff that heals them for a percentage of the victims health every 0.5 seconds. Healing from creeps is reduced by 40%."}, "62": {"Name": "Big Game Hunter", "Desc": "When getting a kill or assist on an enemy that has a killing streak, Bounty Hunter receives 20% extra gold."}, "63": {"Name": "Rewoven", "Desc": "Every time Weaver casts an ability, he gains 50 attack range for 7s. This effect stacks independently."}, "64": {"Name": "Double Trouble", "Desc": "Jakiro's attacks launch an attack from each head, but deal less damage each."}, "65": {"Name": "Smoldering Resin", "Desc": "Batrider's attacks apply a debuff that deals 20% of the attack damage every 1s for 2s."}, "66": {"Name": "Summon Convert", "Desc": "Chen summons a convert to fight for him. The convert gains bonuses from Holy Persuasion and dies if Chen dies. Its maximum health is set to 220 + 80 per Chen Level.<br><br> The spell stays on cooldown while the convert is alive, but refreshes whenever Chen respawns. The Convert counts towards Holy Persuasion max unit count. The Convert's ability level increases with Chen's level of Holy Persuasion."}, "67": {"Name": "Spectral", "Desc": "Spectre and her illusions are permanently phased."}, "68": {"Name": "Death Rime", "Desc": "Ancient Apparition's abilities apply Death Rime Stacks on enemies. Death Rime slows enemies' movement speed and deals damage over time."}, "69": {"Name": "Lvl ? Pain", "Desc": "Doom's attacks deal 25% bonus damage to heroes whose level is lower than Doom's level."}, "70": {"Name": "Maul", "Desc": "Ursa gains bonus damage equal to a percentage of his Current HP."}, "71": {"Name": "Herd Mentality", "Desc": "The hero on your team whose level is lower than anybody else's on your team gains 50% more experience."}, "72": {"Name": "Chop Shop", "Desc": "Gyrocopter can disassemble most items."}, "73": {"Name": "Greevil's Greed", "Desc": "Alchemist synthesizes additional gold from his enemies and bounty runes. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next 40 seconds, an additional instance of Extra Bonus Gold is added to the total. Additionally, causes bounty runes to yield more gold."}, "74": {"Name": "Invoke", "Desc": "Combines the properties of the elements currently being manipulated to create a new spell for Invoker to use. Invoke cooldown is reduced by 0.3 seconds for each orb level. <br><br> Click the help button to see the list of possible spells."}, "75": {"Name": "Brain Drain", "Desc": "If Silencer kills an enemy hero, he permanently steals Intelligence."}, "76": {"Name": "Ominous Discernment", "Desc": "Outworld Destroyer gains an additional 2.5 mana per point of Intelligence."}, "77": {"Name": "Apex Predator", "Desc": "Lycan and units he controls deal 2% extra damage to neutral creeps per hero level."}, "78": {"Name": "Belligerent", "Desc": "Brewmaster gains 25% bonus attack damage for 15s when he comes out of Primal Split and for 45s when he respawns."}, "79": {"Name": "Menace", "Desc": "Shadow Demon's Attacks apply a stacking 2.5% Amplify Damage debuff to the enemy for 8 seconds."}, "80": {"Name": "Gift Bearer", "Desc": "Lone Druid's Spirit Bear receives a copy of his Neutral Item that has an independent cooldown."}, "81": {"Name": "Reins of Chaos", "Desc": "Whenever illusions of Chaos Knight are created, there is a 50% chance that an additional 1 extra illusion will spawn."}, "82": {"Name": "Sticky Fingers", "Desc": "Has an extra choice of neutral item to select from."}, "83": {"Name": "Nature's Guise", "Desc": "Provides Treant with Tree Walking whenever he hasn't taken damage for 2.75 seconds. While nearby trees or affected by Nature's Grasp, Treant gains bonus movement speed."}, "84": {"Name": "Dumb Luck", "Desc": "Ogre Magi's max Intelligence is 0. He receives mana and mana regeneration from Strength."}, "85": {"Name": "Ceaseless Dirge", "Desc": "When Undying dies he will instantly respawn in the fountain. Begins the game on cooldown. Cannot be refreshed."}, "86": {"Name": "Might and Magus", "Desc": "Each 1% Spell Amplification also increases Rubick's attack damage by 0.75% and Magic Resistance by 0.75."}, "87": {"Name": "Electromagnetic Repulsion", "Desc": "Whenever Disruptor takes more than 250 damage from any source within 400 radius, all nearby enemies within are pushed back up to a 400 unit distance."}, "88": {"Name": "Nyxth Sense", "Desc": "Nyx Assassin can detect heroes within 400 units of himself."}, "89": {"Name": "Eelskin", "Desc": "Naga Siren gets 8% evasion per other Naga Siren within 900 radius."}, "90": {"Name": "Special Reserve", "Desc": "Keeper of the Light cannot go below 75 mana."}, "91": {"Name": "Wellspring", "Desc": "Io regenerates from consumables 2x faster."}, "92": {"Name": "Lurker", "Desc": "Visage's ability cooldown durations are accelerated as long as he's not taking damage.<br><br>Grants a stack every 2s that Visage does not take damage. Each stack grants 2% cooldown acceleration with a max of 8 stacks. Stacks fade after 2s upon taking any damage."}, "93": {"Name": "Barracuda", "Desc": "When not visible to the enemy team, Slark gains bonus movement speed and health regeneration."}, "94": {"Name": "Mana Shield", "Desc": "Creates a shield that absorbs 98% of incoming damage in exchange for Medusa's mana that increases with each level of Medusa. Illusions absorb 60% less damage per point of mana."}, "95": {"Name": "Battle Stance", "Desc": "Troll Warlord swaps from using ranged to melee attacks. Melee attacks have decreased base attack time."}, "96": {"Name": "Rawhide", "Desc": "Permanently gain 30 max health every 120s."}, "97": {"Name": "Solid Core", "Desc": "Magnus has slow resistance and suffers less knockback from enemy's abilities and items."}, "98": {"Name": "Exposure Therapy", "Desc": "Whenever Timbersaw destroys a tree, he gains 4/6/8/10 mana."}, "99": {"Name": "Prickly", "Desc": "Bristleback has 10% damage and debuff duration amp against enemy heroes that are behind him."}, "100": {"Name": "Bitter Chill", "Desc": "Passively slows the attack speed of all enemies within 350 radius."}, "101": {"Name": "Ruin and Restoration", "Desc": "Skywrath Mage has 25/30/35/40% Spell Lifesteal."}, "102": {"Name": "Withering Mist", "Desc": "Damaging enemies applies the Withering Mist debuff for 5s. Affected enemies have their Health Restoration reduced by 35% if they are below 40% HP."}, "103": {"Name": "Tip the Scales", "Desc": "Allied creeps and buildings affected by Glyph of Fortification or Roshan's Banner deal 100% bonus damage."}, "104": {"Name": "Outfight Them!", "Desc": "Attacking an enemy hero that is equal or higher level than you increases your Health Restoration by 30/40/50/60% for 4s."}, "105": {"Name": "Minefield Sign", "Desc": "Plant a warning sign, causing Sticky Bombs and Proximity Mines within its radius to be invulnerable and deal 15% more damage. Only one sign can exist at a time. Lasts 60 seconds. "}, "106": {"Name": "Immolation", "Desc": "Ember Spirit is continuously burning, dealing damage per second to all nearby enemies at all times."}, "107": {"Name": "Stone Remnant", "Desc": "Call a Stone Remnant to the target location.  Stone Remnants have no vision and are invulnerable, and can be used with Earth Spirit's abilities.  Calling a Stone Remnant consumes a charge, which recharge over time. Gains additional charges every 5 hero levels."}, "108": {"Name": "Invading Force", "Desc": "After an allied hero Teleports, they temporarily gain Damage Reduction and Movement Speed. Allies receive 2x bonuses if teleporting via Fiend's Gate."}, "109": {"Name": "Dark Unity", "Desc": "Illusions under Terrorblade's control that are within range receive a damage bonus. Illusions outside of the range receive a damage penalty."}, "110": {"Name": "Blinding Sun", "Desc": "Phoenix ability debuffs apply a stackable 2% Miss chance per second. Lasts 4 seconds."}, "111": {"Name": "Prognosticate", "Desc": "Oracle will predict and announce to allies, where the next power rune will spawn (top or bottom)."}, "112": {"Name": "Eldwurm Scholar", "Desc": "When a Shrine of Wisdom grants experience to allies, Winter Wyvern shares the knowledge with her entire team, granting 20% of the experience to each of the 3 heroes that did not collect the initial bonus."}, "113": {"Name": "Runic Infusion", "Desc": "Upon activating any rune, gain the Regeneration Rune buff for 4s."}, "114": {"Name": "Mischief", "Desc": "Changes Monkey King's shape to deceive opponents, using the environment nearby as inspiration for the disguise. Taking damage, attacking, or using any item or ability breaks Monkey King's disguise. Grants damage immunity for 0.1 seconds upon transforming."}, "119": {"Name": "Pixie Dust", "Desc": "Whenever a skill makes Dark Willow become untargetable, she gains +150% HP Regen and +150% Mana Regen while in that state."}, "120": {"Name": "Fortune Favors the Bold", "Desc": "Random item and ability effects of enemies near Pangolier have a reduced chance to affect him."}, "121": {"Name": "Ink Trail", "Desc": "Adds an effect to Grimstroke's attacks that causes enemy heroes to leave a trail of ink behind them for 4s."}, "123": {"Name": "Mistwoods Wayfarer", "Desc": "Hoodwink has a chance to redirect enemy attacks to a nearby tree."}, "126": {"Name": "Intrinsic Edge", "Desc": "Void Spirit gains 25% more HP regen from Strength, armor from Agility, and mana regen and magic resistance from Intelligence."}, "128": {"Name": "Buckshot", "Desc": "Snapfire deals 30% more damage with her auto attacks, but has a 25% chance of a glancing shot, dealing 60 damage."}, "129": {"Name": "Dauntless", "Desc": "Mars gets more HP Regen the more he and his allies are outnumbered by enemy heroes in 700 radius."}, "131": {"Name": "Dark Carnival Barker", "Desc": "Ringmaster receives a random single-use Dark Carnival Souvenir whenever an enemy hero dies within 925 units of him. Additional Souvenirs are held as charges.<br><br>If Ringmaster does not have a Souvenir when he dies he will be granted one."}, "135": {"Name": "Break of Dawn", "Desc": "Whenever the sun comes out, Dawnbreaker gains bonus base damage and vision that decreases throughout the course of the day."}, "136": {"Name": "Special Delivery", "Desc": "Marci whistles to instantly summon her courier to her.<br><br>Passively grants all allied couriers 3 bonus levels and 1 bonus health."}, "137": {"Name": "Colossal", "Desc": "Primal Beast deals 40% more damage to buildings."}, "138": {"Name": "Supernatural", "Desc": "Muerta can always attack when she is ethereal. Muerta can always attack ethereal targets. When attacking ethereal targets, all of her attack damage is dealt as magical damage."}, "145": {"Name": "Switch Discipline", "Desc": "Kez switches between his Kazurai Katana and Shodo Sai.<br><br>He gains different attack capabilities and abilities based on the weapon equipped. The abilities level up together, and when an ability is used, the associated alternate weapon ability also goes on cooldown.<br><br>Switch Discipline cooldown decreases by 0.2s per Hero level."}}
+{
+    "1": {
+        "Name": "Persecutor",
+        "Desc": "Attacks slow enemies based on how much mana they are missing. Min slow at 50% mana, up to max slow at % mana. No effect if enemy is above 50% mana."
+    },
+    "2": {
+        "Name": "Coat of Blood",
+        "Desc": "Axe permanently drenches his blade every time he kills an enemy Hero, gaining 0.2/0.3/0.4/0.5 bonus armor for each stack. Killing with Culling Blade gives 3x stacks."
+    },
+    "3": {
+        "Name": "Ichor of Nyctasha",
+        "Desc": "Bane's attribute gains are always evenly distributed across all three attributes (items that grant +3 Strength will now grant +1 Str/Agi/Int)."
+    },
+    "4": {
+        "Name": "Sanguivore",
+        "Desc": "Bloodseeker restores some life when he kills a unit, equal to 30 health plus a percentage of the units max health.<br><br>Restores for half values if an ally kills a nearby enemy hero."
+    },
+    "5": {
+        "Name": "Blueheart Floe",
+        "Desc": "Crystal Maiden has 25/50/75/100% Mana Regeneration Amplification."
+    },
+    "6": {
+        "Name": "Precision Aura",
+        "Desc": "Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received 50% of the bonus agility."
+    },
+    "7": {
+        "Name": "Slugger",
+        "Desc": "Enemies killed with Enchant Totem or Earthshaker's other abilities are sent flying, dealing damage to enemies they hit."
+    },
+    "8": {
+        "Name": "Duelist",
+        "Desc": "Juggernaut deals 12% more damage to targets that are facing him. Damage bonus always applies during Omnislash."
+    },
+    "9": {
+        "Name": "Selemene's Faithful",
+        "Desc": "Healing Lotuses are 50% more effective on Mirana and her allies."
+    },
+    "10": {
+        "Name": "Accumulation",
+        "Desc": "Morphling receives 50% of stat growth bonuses every half level instead of the full bonus at level up. All Attributes bonuses from skill points in the Talent Tree provide an additional +3 to Morphling's primary attribute."
+    },
+    "11": {
+        "Name": "Necromastery",
+        "Desc": "Shadow Fiend steals the soul from units he kills, gaining bonus damage. Hero kills grant 4 souls. On death, he releases 30% of them from bondage."
+    },
+    "12": {
+        "Name": "Illusory Armaments",
+        "Desc": "Whenever an illusion of Phantom Lancer is created, its outgoing damage cannot go below a fixed value for 3 seconds."
+    },
+    "13": {
+        "Name": "Puckish",
+        "Desc": "Whenever Puck disjoints an attack, it restores 10 + 2% of its max mana and 10 + 2% of its max health. Dodging a targeted spell projectile restores 3.5x that amount. Does not apply to attacks by Towers."
+    },
+    "14": {
+        "Name": "Flesh Heap",
+        "Desc": "Pudge's skin thickens permanently every time he kills an enemy Hero, gaining 1.1/1.4/1.7/2 bonus Strength for each stack."
+    },
+    "15": {
+        "Name": "Unstable Current",
+        "Desc": "Passively increases Razor's movement speed by 1% per hero level."
+    },
+    "16": {
+        "Name": "Caustic Finale",
+        "Desc": "Sand King's attacks inject a venom that causes enemy units to violently explode when they die."
+    },
+    "17": {
+        "Name": "Galvanized",
+        "Desc": "Storm Spirit gains a charge of 0.2 mana regeneration per kill. Loses 2 charges per death. Leveling Ball Lightning gives Storm Spirit 3 bonus charges. Additionally every time he gains a charge he also gains 0.1 Mana Regen permanently."
+    },
+    "18": {
+        "Name": "Vanquisher",
+        "Desc": "Sven's attacks deal 20% bonus damage to stunned enemies."
+    },
+    "19": {
+        "Name": "Craggy Exterior",
+        "Desc": "Enemies that attack Tiny receive a stacking debuff that lowers their attack damage with each stack."
+    },
+    "20": {
+        "Name": "Retribution",
+        "Desc": "Whenever an enemy hero kills Vengeful Spirit, they get a debuff until their next death, causing Vengeful Spirit to deal 20% bonus damage to them."
+    },
+    "21": {
+        "Name": "Easy Breezy",
+        "Desc": "Windranger's movement speed cannot be lower than 240 and can reach 600."
+    },
+    "22": {
+        "Name": "Static Field",
+        "Desc": "Zeus shocks any enemy that he attacks or is hit by his abilities, causing damage equal to a percentage of their current health."
+    },
+    "23": {
+        "Name": "Admiral's Rum",
+        "Desc": "Damage from enemy heroes, buildings, or Roshan that would reduce Kunkka below a threshold causes him to douse himself with The Admiral's Rum, receiving bonus movement speed and a delayed reaction to incoming damage."
+    },
+    "25": {
+        "Name": "Combustion",
+        "Desc": "Every 175 damage Lina does to an enemy hero causes them to overheat, doing damage to their nearby allies. This effect can trigger multiple times off a single instance of damage. Overheated illusions do less damage."
+    },
+    "26": {
+        "Name": "To Hell and Back",
+        "Desc": "Lion gains 20% debuff duration and 20% spell amplification for 90s after respawning."
+    },
+    "27": {
+        "Name": "Fowl Play",
+        "Desc": "When taking lethal damage, Shadow Shaman receives a strong dispel and survives as a 1 HP chicken. Incoming damage is reduced to zero for 1s.<br/><br/>Cooldown is reset upon respawning.\n\nDISPEL TYPE: Strong Dispel"
+    },
+    "28": {
+        "Name": "Seaborn Sentinel",
+        "Desc": "Slardar gains bonus movement speed, health regeneration, attack damage, and armor while in a puddle, trail, or river."
+    },
+    "29": {
+        "Name": "Blubber",
+        "Desc": "Tidehunter's hide removes negative status effects if he takes more than 450 damage. Removes most debuffs, even if they are generally not purgable.\n\nDISPEL TYPE: Strong Dispel"
+    },
+    "30": {
+        "Name": "Gris-Gris",
+        "Desc": "Witch Doctor gets a Gris-Gris, an item that cannot be dropped or placed in the backpack. When the owner dies, 100% of the gold lost from death is added to the item, and will be refunded when the item is consumed. The value of the Gris-Gris is increased by 1 every 3s. <br><br> Right-click to consume and permanently remove the item."
+    },
+    "31": {
+        "Name": "Death Charge",
+        "Desc": "Lich cannot gain passive mana regeneration, but any unit dying within 1500 range of Lich restores 2.5% of his Max Mana (Dying heroes restore 25% of Lich's Max Mana). Instant mana restoration from items and abilities apply to Lich as normal."
+    },
+    "32": {
+        "Name": "Backstab",
+        "Desc": "Every time Riki strikes his enemy from behind, he deals additional bonus damage equal to a multiple of his Agility."
+    },
+    "33": {
+        "Name": "Gravity Well",
+        "Desc": "Allies within 500 distance from Enigma have up to 9/11/13/15% Damage Reduction. Effect starts at 0min_dist% distance. Does not affect Enigma itself."
+    },
+    "34": {
+        "Name": "Eureka!",
+        "Desc": "Tinker gains 1% item cooldown reduction per 3 Intelligence, up to a maximum of 60%."
+    },
+    "35": {
+        "Name": "Keen Scope",
+        "Desc": "Increases Sniper's attack range."
+    },
+    "36": {
+        "Name": "Sadist",
+        "Desc": "Necrophos gains stacking regen for 8 seconds for each unit he kills. Hero kills multiply the effect."
+    },
+    "37": {
+        "Name": "Eldritch Summoning",
+        "Desc": "Whenever an enemy unit dies while afflicted by one or more of Warlock's abilities, a minor imp is summoned that lasts for 15 seconds and explodes on death. Imps will automatically seek out nearby units, favoring fatally bonded heroes, and will explode when reaching their prey."
+    },
+    "38": {
+        "Name": "Rugged",
+        "Desc": "Beastmaster's melee hero Damage Block Chance is increased from 50% to 100% versus non-hero units and non-building units."
+    },
+    "39": {
+        "Name": "Succubus",
+        "Desc": "All sources of Spell Lifesteal also apply to Pure Damage. Queen of Pain gains Spell Lifesteal that increases with proximity to her enemies. Lifesteal is at its maximum when the enemy is 150 units or closer to her and at its minimum when the enemy is 800 units or further from her."
+    },
+    "40": {
+        "Name": "Septic Shock",
+        "Desc": "Venomancer's attacks deal extra damage based on how many debuffs the attack target has. Extra damage is dealt as magical damage. Only counts debuffs from Venomancer or his Plague Wards."
+    },
+    "41": {
+        "Name": "Distortion Field",
+        "Desc": "Enemy Attack Projectiles within 600 radius are slowed by 35/40/45/50%."
+    },
+    "42": {
+        "Name": "Vampiric Spirit",
+        "Desc": "Grants Wraith King Lifesteal. When slain Wraith King turns into a free pathing Wraith with Bonus Attack and Movement Speed for a short duration, delaying his death. Wraith King cannot reincarnate after being a Wraith."
+    },
+    "43": {
+        "Name": "Witchcraft",
+        "Desc": "Death Prophet's occult knowledge deepens with experience, gaining movement speed and spell cooldown reduction."
+    },
+    "44": {
+        "Name": "Blur",
+        "Desc": "Phantom Assassin blurs her body, disjointing incoming projectiles, increasing her movement speed, causing her to be impossible to see until she comes near enemy heroes or towers."
+    },
+    "45": {
+        "Name": "Oblivion Savant",
+        "Desc": "Pugna can cast spells and use items while channeling."
+    },
+    "46": {
+        "Name": "Third Eye",
+        "Desc": "Templar Assassin and her teammates can see Roshan's respawn timer."
+    },
+    "47": {
+        "Name": "Predator",
+        "Desc": "Viper's attacks deal an additional instance of physical damage per missing health percentage of the target hero, equal to 0.15 + 0.05 per Viper's level."
+    },
+    "48": {
+        "Name": "Lunar Blessing",
+        "Desc": "Grants attack damage to Luna and nearby allied heroes, with Luna receiving double the attack damage bonuses. At night, Lunar Blessing is global, and Luna is blessed with additional night vision."
+    },
+    "49": {
+        "Name": "Dragon Blood",
+        "Desc": "The life blood of the Dragon improves Dragon Knight's health regeneration and armor. Amount for both values is increased by 0.5 per level and is multiplied when in Dragon Form."
+    },
+    "50": {
+        "Name": "Weave",
+        "Desc": "Dazzle's abilities apply Weave to both allies and enemies they affect, increasing allied armor and reducing enemy armor. Multiple instances of this effect stack."
+    },
+    "51": {
+        "Name": "Armor Power",
+        "Desc": "Clockwerk's outgoing damage increases by 0.25% per point of armor."
+    },
+    "52": {
+        "Name": "Defilement",
+        "Desc": "Leshrac gains AoE per intelligence."
+    },
+    "53": {
+        "Name": "Spirit of the Forest",
+        "Desc": "Nature's Prophet gains 2% bonus damage for each tree within 300/400/500/600 and a multiplier of that same bonus for each treant within 1200 distance of him."
+    },
+    "54": {
+        "Name": "Feast",
+        "Desc": "Lifestealer's attacks deal damage and provide heal for a percentage of his target's max health. Allows Lifestealer to attack allied creeps at 75% health. Lifestealer gains permanent max HP whenever he kills a creep or hero."
+    },
+    "55": {
+        "Name": "Aggrandize",
+        "Desc": "When Dark Seer levels up, he restores a percentage of his max health and mana. Restore percentage is equal to 10% + 1.5% per hero level."
+    },
+    "56": {
+        "Name": "Infernal Shred",
+        "Desc": "Clinkz and his skeletons apply a stacking debuff that causes their attacks to pierce up to 20% of the target's total physical armor (does not reduce their armor).  Clinkz applies 2% per attack, and skeletons apply 1. <br><br>Lasts 5 seconds."
+    },
+    "57": {
+        "Name": "Degen Aura",
+        "Desc": "Degenerates the movement capabilities of enemy units that stray too near."
+    },
+    "58": {
+        "Name": "Rabble-Rouser",
+        "Desc": "All neutral camps and Creeps under Enchantress' control deal more damage to enemy heroes."
+    },
+    "59": {
+        "Name": "Blood Magic",
+        "Desc": "Huskar does not have mana. Mana costs of items are converted into health costs.<br/><br/>Huskar's Health Costs are Magical Damage and can be reduced by Magic Resist."
+    },
+    "60": {
+        "Name": "Heart of Darkness",
+        "Desc": "During the night, Night Stalker's health regeneration is increased by 20%."
+    },
+    "61": {
+        "Name": "Spider's Milk",
+        "Desc": "Whenever Broodmother kills a unit, she and all units under her control in a 600 radius receive a buff that heals them for a percentage of the victims health every 0.5 seconds. Healing from creeps is reduced by 40%."
+    },
+    "62": {
+        "Name": "Big Game Hunter",
+        "Desc": "When getting a kill or assist on an enemy that has a killing streak, Bounty Hunter receives 20% extra gold."
+    },
+    "63": {
+        "Name": "Rewoven",
+        "Desc": "Every time Weaver casts an ability, he gains 50 attack range for 7s. This effect stacks independently."
+    },
+    "64": {
+        "Name": "Double Trouble",
+        "Desc": "Jakiro's attacks launch an attack from each head, but deal less damage each."
+    },
+    "65": {
+        "Name": "Smoldering Resin",
+        "Desc": "Batrider's attacks apply a debuff that deals 20% of the attack damage every 1s for 2s."
+    },
+    "66": {
+        "Name": "Summon Convert",
+        "Desc": "Chen summons a convert to fight for him. The convert gains bonuses from Holy Persuasion and dies if Chen dies. Its maximum health is set to 220 + 80 per Chen Level.<br><br> The spell stays on cooldown while the convert is alive, but refreshes whenever Chen respawns. The Convert counts towards Holy Persuasion max unit count. The Convert's ability level increases with Chen's level of Holy Persuasion."
+    },
+    "67": {
+        "Name": "Desolate",
+        "Desc": "Spectre and her illusions deal bonus Pure damage if attacking an enemy that does not have any allied units within a 350 radius around them."
+    },
+    "68": {
+        "Name": "Death Rime",
+        "Desc": "Ancient Apparition's abilities apply Death Rime Stacks on enemies. Death Rime slows enemies' movement speed and deals damage over time."
+    },
+    "69": {
+        "Name": "Lvl ? Pain",
+        "Desc": "Doom's attacks deal 25% bonus damage to heroes whose level is lower than Doom's level."
+    },
+    "70": {
+        "Name": "Maul",
+        "Desc": "Ursa gains bonus damage equal to a percentage of his Current HP."
+    },
+    "71": {
+        "Name": "Herd Mentality",
+        "Desc": "The hero on your team whose level is lower than anybody else's on your team gains 50% more experience."
+    },
+    "72": {
+        "Name": "Chop Shop",
+        "Desc": "Gyrocopter can disassemble most items."
+    },
+    "73": {
+        "Name": "Greevil's Greed",
+        "Desc": "Alchemist synthesizes additional gold from his enemies and bounty runes. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next 40 seconds, an additional instance of Extra Bonus Gold is added to the total. Additionally, causes bounty runes to yield more gold."
+    },
+    "74": {
+        "Name": "Invoke",
+        "Desc": "Combines the properties of the elements currently being manipulated to create a new spell for Invoker to use. Invoke cooldown is reduced by 0.3 seconds for each orb level. <br><br> Click the help button to see the list of possible spells."
+    },
+    "75": {
+        "Name": "Brain Drain",
+        "Desc": "If Silencer kills an enemy hero, he permanently steals Intelligence."
+    },
+    "76": {
+        "Name": "Ominous Discernment",
+        "Desc": "Outworld Destroyer gains an additional 2.5 mana per point of Intelligence."
+    },
+    "77": {
+        "Name": "Apex Predator",
+        "Desc": "Lycan and units he controls deal 2% extra damage to neutral creeps per hero level."
+    },
+    "78": {
+        "Name": "Liquid Courage",
+        "Desc": "When Brewmaster drops below 50% Health he gains a Status Resistance buff and his movement speed alternates every 1s between being faster and being slower. The effect becomes stronger at lower health, scaling from 0 up to max values at 20% Health."
+    },
+    "79": {
+        "Name": "Menace",
+        "Desc": "Shadow Demon's Attacks apply a stacking 2.5% Amplify Damage debuff to the enemy for 8 seconds."
+    },
+    "80": {
+        "Name": "Summon Spirit Bear",
+        "Desc": "Summons a powerful Spirit Bear companion that can equip items.<br><br>If the bear moves 1100 distance away from the Lone Druid, it cannot attack.  Lone Druid suffers 20% of his max health as backlash damage if the Spirit Bear dies.\nSpirit Bear has Demolish, Return, Entangling Claws, Savage Roar, and Spirit Link abilities."
+    },
+    "81": {
+        "Name": "Reins of Chaos",
+        "Desc": "Whenever illusions of Chaos Knight are created, there is a 50% chance that an additional 1 extra illusion will spawn."
+    },
+    "82": {
+        "Name": "Sticky Fingers",
+        "Desc": "Has an extra choice of neutral item to select from."
+    },
+    "83": {
+        "Name": "Nature's Guise",
+        "Desc": "Grants bonus movement speed when near trees. Treant Protector additionally has Tree Walking if he has not taken damage for 2.75 seconds. While Tree Walking, Nature's Guise can be activated to grant Treant invisibility until he attacks or is no longer near a tree."
+    },
+    "84": {
+        "Name": "Dumb Luck",
+        "Desc": "Ogre Magi's max Intelligence is 0. He receives mana and mana regeneration from Strength."
+    },
+    "85": {
+        "Name": "Ceaseless Dirge",
+        "Desc": "When Undying dies he will instantly respawn in the fountain. Begins the game on cooldown. Cannot be refreshed."
+    },
+    "86": {
+        "Name": "Might and Magus",
+        "Desc": "Each 1% Spell Amplification also increases Rubick's attack damage by 0.75% and Magic Resistance by 0.75."
+    },
+    "87": {
+        "Name": "Electromagnetic Repulsion",
+        "Desc": "Whenever Disruptor takes more than 250 damage from any source within 400 radius, all nearby enemies within are pushed back up to a 400 unit distance."
+    },
+    "88": {
+        "Name": "Nyxth Sense",
+        "Desc": "Nyx Assassin can detect heroes within 400 units of himself."
+    },
+    "89": {
+        "Name": "Eelskin",
+        "Desc": "Naga Siren gets 8% evasion per other Naga Siren within 900 radius."
+    },
+    "90": {
+        "Name": "Special Reserve",
+        "Desc": "Keeper of the Light cannot go below 75 mana."
+    },
+    "91": {
+        "Name": "Wellspring",
+        "Desc": "Io regenerates from consumables and certain items 2x faster."
+    },
+    "92": {
+        "Name": "Lurker",
+        "Desc": "Visage's ability cooldown durations are accelerated as long as he's not taking damage.<br><br>Grants a stack every 2s that Visage does not take damage. Each stack grants 2% cooldown acceleration with a max of 8 stacks. Stacks fade after 2s upon taking any damage."
+    },
+    "93": {
+        "Name": "Essence Shift",
+        "Desc": "Slark steals the life essence of enemy heroes with his attacks, draining 1 of each of their attributes and converting them to bonus 3 Agility. If Slark kills an affected enemy hero, he permanently steals 1 Agility."
+    },
+    "94": {
+        "Name": "Mana Shield",
+        "Desc": "Creates a shield that absorbs 98% of incoming damage in exchange for Medusa's mana that increases with each level of Medusa. Illusions absorb 60% less damage per point of mana."
+    },
+    "95": {
+        "Name": "Battle Stance",
+        "Desc": "Troll Warlord swaps from using ranged to melee attacks. Melee attacks have decreased base attack time."
+    },
+    "96": {
+        "Name": "Rawhide",
+        "Desc": "Permanently gain 25 max health every 120s."
+    },
+    "97": {
+        "Name": "Solid Core",
+        "Desc": "Magnus has slow resistance and suffers less knockback from enemy's abilities and items."
+    },
+    "98": {
+        "Name": "Exposure Therapy",
+        "Desc": "Whenever Timbersaw destroys a tree, he gains 4/6/8/10 mana."
+    },
+    "99": {
+        "Name": "Prickly",
+        "Desc": "Bristleback has 10% damage and debuff duration amp against enemy heroes that are behind him."
+    },
+    "100": {
+        "Name": "Bitter Chill",
+        "Desc": "Passively slows the attack speed of all enemy heroes within 350 radius by 20/40/60/80."
+    },
+    "101": {
+        "Name": "Ruin and Restoration",
+        "Desc": "Skywrath Mage has 25/30/35/40% Spell Lifesteal."
+    },
+    "102": {
+        "Name": "Withering Mist",
+        "Desc": "Damaging enemies applies the Withering Mist debuff for 5s. Affected enemies have their Health Restoration reduced by 35% if they are below 40% HP."
+    },
+    "103": {
+        "Name": "Tip the Scales",
+        "Desc": "Allied creeps and buildings affected by Glyph of Fortification or Roshan's Banner deal 100% bonus damage."
+    },
+    "104": {
+        "Name": "Outfight Them!",
+        "Desc": "Attacking an enemy hero that is equal or higher level than you increases your Health Restoration by 30/40/50/60% for 4s."
+    },
+    "105": {
+        "Name": "Minefield Sign",
+        "Desc": "Plant a warning sign, causing Sticky Bombs and Proximity Mines within its radius to be invulnerable and deal 15% more damage. Only one sign can exist at a time. Lasts 60 seconds. "
+    },
+    "106": {
+        "Name": "Immolation",
+        "Desc": "Ember Spirit is continuously burning, dealing damage per second to all nearby enemies at all times."
+    },
+    "107": {
+        "Name": "Stone Remnant",
+        "Desc": "Call a Stone Remnant to the target location.  Stone Remnants have no vision and are invulnerable, and can be used with Earth Spirit's abilities.  Calling a Stone Remnant consumes a charge, which recharge over time. Stone Remnant has 7 charges.<br><br>Earth Spirit passively gains 2.5% bonus damage per unused Stone Remnant charge, and gains an additional 7.5% bonus damage for 10s when a Stone Remnant is targeted with an ability (does not stack)."
+    },
+    "108": {
+        "Name": "Invading Force",
+        "Desc": "After an allied hero Teleports, they temporarily gain Damage Reduction and Movement Speed. Allies receive 2x bonuses if teleporting via Fiend's Gate."
+    },
+    "109": {
+        "Name": "Dark Unity",
+        "Desc": "Nearby Illusions created by Terrorblade have bonus attack damage."
+    },
+    "110": {
+        "Name": "Blinding Sun",
+        "Desc": "Phoenix ability debuffs apply a stackable 2% Miss chance per second. Lasts 4 seconds."
+    },
+    "111": {
+        "Name": "Prognosticate",
+        "Desc": "Oracle will predict and announce to allies, where the next power rune will spawn (top or bottom)."
+    },
+    "112": {
+        "Name": "Eldwurm Scholar",
+        "Desc": "When a Shrine of Wisdom grants experience to allies, Winter Wyvern shares the knowledge with her entire team, granting 20% of the experience to each of the 3 heroes that did not collect the initial bonus."
+    },
+    "113": {
+        "Name": "Runic Infusion",
+        "Desc": "Upon activating any rune, gain the Regeneration Rune buff for 4s."
+    },
+    "114": {
+        "Name": "Mischief",
+        "Desc": "Changes Monkey King's shape to deceive opponents, using the environment nearby as inspiration for the disguise. Taking damage, attacking, or using any item or ability breaks Monkey King's disguise. Grants damage immunity for 0.1 seconds upon transforming."
+    },
+    "119": {
+        "Name": "Pixie Dust",
+        "Desc": "Whenever a skill makes Dark Willow become untargetable, she gains +150% HP Regen and +150% Mana Regen while in that state."
+    },
+    "120": {
+        "Name": "Fortune Favors the Bold",
+        "Desc": "Random item and ability effects of enemies near Pangolier have a reduced chance to affect him."
+    },
+    "121": {
+        "Name": "Ink Trail",
+        "Desc": "Adds an effect to Grimstroke's attacks that causes enemy heroes to leave a trail of ink behind them for 4s."
+    },
+    "123": {
+        "Name": "Mistwoods Wayfarer",
+        "Desc": "Hoodwink has a chance to redirect enemy attacks to a nearby tree."
+    },
+    "126": {
+        "Name": "Intrinsic Edge",
+        "Desc": "Void Spirit gains 25% more HP regen from Strength, armor from Agility, and mana regen and magic resistance from Intelligence."
+    },
+    "128": {
+        "Name": "Buckshot",
+        "Desc": "When attacking enemy heroes, Snapfire deals 30% more damage with her auto attacks, but has a 25% chance of a glancing shot, dealing 60 damage."
+    },
+    "129": {
+        "Name": "Dauntless",
+        "Desc": "Mars gets more HP Regen the more he and his allies are outnumbered by enemy heroes in 700 radius."
+    },
+    "131": {
+        "Name": "Dark Carnival Barker",
+        "Desc": "Ringmaster receives a random single-use Dark Carnival Souvenir whenever an enemy hero dies within 925 units of him. Additional Souvenirs are held as charges.<br><br>If Ringmaster does not have a Souvenir when he dies he will be granted one."
+    },
+    "135": {
+        "Name": "Break of Dawn",
+        "Desc": "Whenever the sun comes out, Dawnbreaker gains bonus base damage and vision that decreases throughout the course of the day."
+    },
+    "136": {
+        "Name": "Special Delivery",
+        "Desc": "Marci whistles to instantly summon her courier to her.<br><br>Passively grants all allied couriers 3 bonus levels and 1 bonus health."
+    },
+    "137": {
+        "Name": "Colossal",
+        "Desc": "Primal Beast deals 40% more damage to buildings."
+    },
+    "138": {
+        "Name": "Supernatural",
+        "Desc": "Muerta can always attack when she is ethereal. Muerta can always attack ethereal targets. When attacking ethereal targets, all of her attack damage is dealt as magical damage."
+    },
+    "145": {
+        "Name": "Switch Discipline",
+        "Desc": "Kez switches between his Kazurai Katana and Shodo Sai.<br><br>He gains different attack capabilities and abilities based on the weapon equipped. The abilities level up together, and when an ability is used, the associated alternate weapon ability also goes on cooldown."
+    },
+    "155": {
+        "Name": "Encore",
+        "Desc": "Buffs that Largo applies to himself or his team have extended duration."
+    }
+}

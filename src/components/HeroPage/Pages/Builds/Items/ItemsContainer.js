@@ -42,7 +42,9 @@ export default function ItemsContainer({build, hero}) {
         if(build.core){
             setLateItems(build.core[0].Late)
         }
-    }, [build, role, router])    
+    }, [build, role, router])  
+    
+    console.log(lateItems)
 
     return(
         <div className='w-full space-y-4'>

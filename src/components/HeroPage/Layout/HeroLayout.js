@@ -38,7 +38,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
   const [currRates, setCurrRates] = useState(null)
   const [currMatchups, setCurrMatchups] = useState(null)
 
-  const { data: heroBuilds, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currPatch, page], () => fetchHeroData(hero.id, 'page', currRank, currPatch, page), {staleTime: 3600000});
+  const { data: buildsData, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currPatch, page], () => fetchHeroData(hero.id, 'page', currRank, currPatch, page), {staleTime: 3600000});
   const { data: heroMatchups } = useQuery(['heroData', hero.id, 'matchups', currRank, currPatch], () => fetchHeroData(hero.id, 'matchups', currRank, currPatch), {staleTime: 3600000});
 
   useEffect(() => {
@@ -73,7 +73,9 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
       if(heroInfo){
 
         const heroData = heroInfo
-        const heroName = hero.name    
+        const heroName = hero.name   
+        
+        const heroBuilds = buildsData.data
 
         let currBuild = null
 
@@ -85,6 +87,11 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
           if(role == "All"){currBuild = heroBuilds[initRole][currFacet]}
           else{currBuild = heroBuilds[currRole][currFacet]}
         }
+
+        const dateModified = new Date(buildsData.modified).toLocaleString("en-US", {
+          timeZone: "America/New_York",
+          hour12: true,
+        })
 
         return(
           <div>
@@ -118,11 +125,13 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
                 <StaticInfo hero={heroData} />
               </div>
 
-              <div className='flex space-x-3'>
+              <div className='sm:flex space-x-3'>
                 <RatesContainer rates={currRates} initRole={initRole} current_patch={current_patch} />
-                <div className='hidden sm:block space-y-3'>
-                  <h1 className='font-bold px-2 pb-2 text-lg'>More Info:</h1>
+                <div className='sm:hidden text-xs px-2 opacity-50 text-center'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></div>
+                <div className='hidden sm:block'>
+                  <h1 className='font-bold px-2 text-lg'>More Info:</h1>
                   <PagesList hero={hero.url} />
+                  <div className='text-sm px-2 opacity-50'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></div>
                 </div>
               </div>
 

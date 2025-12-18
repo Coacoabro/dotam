@@ -53,8 +53,6 @@ export default function Layout({ children }) {
     };
   }, []);
 
-  console.log(isLoading)
-
   return (
     <div className="layout overflow-x-hidden overflow-y-hidden">
       

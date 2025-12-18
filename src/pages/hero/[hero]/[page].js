@@ -27,7 +27,7 @@ export async function getServerSideProps(context) {
         let initRole = ""
         let initFacet = ""
 
-        const hero_res = await fetch (`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero.id}/info.json`)
+        const hero_res = await fetch (`https://dhpoqm1ofsbx7.cloudfront.net/data/7.40/${hero.id}/info.json`)
         const heroInfo = await hero_res.json()
         const summary_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero.id}/${rank ? rank : ""}/summary.json`)
         const summary = await summary_res.json()
