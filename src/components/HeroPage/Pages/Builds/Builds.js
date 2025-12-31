@@ -31,16 +31,19 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
     const talents = currBuild.talents
     const talentsArray = []
 
-    talents.forEach((talent) => {
-        const tempTalent = abilityIds[talent.Talent]
-        if(tempTalent) {
-            if(abilitiesInfo[tempTalent]){
-                if(abilitiesInfo[tempTalent].dname){
-                    talent.talent = abilitiesInfo[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+    if (talents) {
+        talents.forEach((talent) => {
+            const tempTalent = abilityIds[talent.Talent]
+            if(tempTalent) {
+                if(abilitiesInfo[tempTalent]){
+                    if(abilitiesInfo[tempTalent].dname){
+                        talent.talent = abilitiesInfo[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                    }
                 }
             }
-        }
-    })
+        })
+    }
+    
 
     const talentOrder = heroAbilities[heroData.name].talents
 

@@ -6,7 +6,7 @@ export default function Talents({hero, talents, hero_talents}) {
 
     const heroName = hero.name
 
-    if(hero_talents){
+    if(hero_talents && talents){
 
         const leftTalents = hero_talents[0]
         const rightTalents = hero_talents[1]
@@ -60,6 +60,18 @@ export default function Talents({hero, talents, hero_talents}) {
                             ) : null}
                         </div>
                     ))}
+                </div>
+            </div>
+        )
+    }
+
+    else {
+        return(
+            <div className="flex items-center gap-2.5 px-2 sm:px-0">
+                <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg" className='h-7 w-7 sm:h-8 sm:w-8' />
+                <div className="flex items-end gap-2">
+                    <h1 className='text-lg sm:text-xl font-bold '>Talents</h1>
+                    <h2 className='text-gray-300/50 hidden sm:block'>No talent data for {hero.localized_name}...</h2>
                 </div>
             </div>
         )
