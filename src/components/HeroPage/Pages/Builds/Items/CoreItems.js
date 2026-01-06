@@ -11,8 +11,6 @@ export default function CoreItems({core, isCarry}) {
         const items = cores[0].core
         const wr = ((core.CombinedWins/core.CombinedMatches)*100).toFixed(1)
         const dispMatches = core.CombinedMatches.toLocaleString()
-
-        console.log(items)
     
         if(isCarry){
             return(

@@ -65,8 +65,12 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
         if(role){setCurrRole(role)}
 
         if(rates && facetShow){
-            const wr = ((rates[currRole][hovFacetNum].total_wins / rates[currRole][hovFacetNum].total_matches)*100).toFixed(2)
-            const matches = (rates[currRole][hovFacetNum].total_matches).toLocaleString()
+            let wr = '?'
+            let matches = 0
+            if(rates[currRole][hovFacetNum]){
+                wr = ((rates[currRole][hovFacetNum].total_wins / rates[currRole][hovFacetNum].total_matches)*100).toFixed(2)
+                matches = (rates[currRole][hovFacetNum].total_matches).toLocaleString()
+            }
             let color = ""
             if(wr > 55) {
                 color = "text-[#F4B856]"
