@@ -1,12 +1,12 @@
 [
   {
-    "id": 4,
-    "hero": "Bloodseeker",
+    "id": 2,
+    "hero": "Axe",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 7,
-    "hero": "Earthshaker",
+    "id": 3,
+    "hero": "Bane",
     "runtimeErrors": "undefined"
   },
   {
@@ -15,53 +15,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 6,
-    "hero": "Drow Ranger",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 10,
-    "hero": "Morphling",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 11,
-    "hero": "Shadow Fiend",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 5,
-    "hero": "Crystal Maiden",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 9,
-    "hero": "Mirana",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
     "id": 13,
     "hero": "Puck",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/puck/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
-  },
-  {
-    "id": 14,
-    "hero": "Pudge",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/pudge/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
-  },
-  {
-    "id": 15,
-    "hero": "Razor",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 18,
-    "hero": "Sven",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 17,
-    "hero": "Storm Spirit",
     "runtimeErrors": "undefined"
   },
   {
@@ -70,18 +25,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 20,
-    "hero": "Vengeful Spirit",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 22,
-    "hero": "Zeus",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 23,
-    "hero": "Kunkka",
+    "id": 17,
+    "hero": "Storm Spirit",
     "runtimeErrors": "undefined"
   },
   {
@@ -90,28 +35,48 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 16,
-    "hero": "Sand King",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
     "id": 26,
     "hero": "Lion",
-    "runtimeErrors": "undefined"
+    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/lion/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
   },
   {
-    "id": 21,
-    "hero": "Windranger",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
+    "id": 27,
+    "hero": "Shadow Shaman",
+    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/shadowshaman/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
   },
   {
     "id": 28,
     "hero": "Slardar",
-    "runtimeErrors": "undefined"
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 29,
+    "hero": "Tidehunter",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 30,
+    "hero": "Witch Doctor",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 31,
+    "hero": "Lich",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 32,
+    "hero": "Riki",
+    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/riki/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
   },
   {
     "id": 33,
     "hero": "Enigma",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 35,
+    "hero": "Sniper",
     "runtimeErrors": "undefined"
   },
   {
@@ -120,34 +85,19 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 36,
-    "hero": "Necrophos",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 35,
-    "hero": "Sniper",
-    "runtimeErrors": "undefined"
-  },
-  {
     "id": 37,
     "hero": "Warlock",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 36,
+    "hero": "Necrophos",
     "runtimeErrors": "undefined"
   },
   {
     "id": 38,
     "hero": "Beastmaster",
     "runtimeErrors": "undefined"
-  },
-  {
-    "id": 30,
-    "hero": "Witch Doctor",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 32,
-    "hero": "Riki",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
   },
   {
     "id": 39,
@@ -165,13 +115,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 45,
-    "hero": "Pugna",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 44,
-    "hero": "Phantom Assassin",
+    "id": 42,
+    "hero": "Wraith King",
     "runtimeErrors": "undefined"
   },
   {
@@ -180,13 +125,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 42,
-    "hero": "Wraith King",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'dname')"
+    "id": 44,
+    "hero": "Phantom Assassin",
+    "runtimeErrors": "undefined"
   },
   {
-    "id": 47,
-    "hero": "Viper",
+    "id": 45,
+    "hero": "Pugna",
     "runtimeErrors": "undefined"
   },
   {
@@ -195,8 +140,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 49,
-    "hero": "Dragon Knight",
+    "id": 47,
+    "hero": "Viper",
     "runtimeErrors": "undefined"
   },
   {
@@ -205,13 +150,53 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 49,
+    "hero": "Dragon Knight",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 50,
     "hero": "Dazzle",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'dname')"
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 51,
+    "hero": "Clockwerk",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 52,
+    "hero": "Leshrac",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 54,
+    "hero": "Lifestealer",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 55,
+    "hero": "Dark Seer",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 56,
+    "hero": "Clinkz",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 57,
+    "hero": "Omniknight",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 58,
     "hero": "Enchantress",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 59,
+    "hero": "Huskar",
     "runtimeErrors": "undefined"
   },
   {
@@ -220,9 +205,14 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 56,
-    "hero": "Clinkz",
-    "runtimeErrors": "Cannot read properties of undefined (reading '') | Cannot read properties of undefined (reading '')"
+    "id": 53,
+    "hero": "Nature's Prophet",
+    "runtimeErrors": "Cannot read properties of undefined (reading 'replace')"
+  },
+  {
+    "id": 61,
+    "hero": "Broodmother",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 62,
@@ -230,13 +220,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 59,
-    "hero": "Huskar",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
     "id": 63,
     "hero": "Weaver",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 64,
+    "hero": "Jakiro",
     "runtimeErrors": "undefined"
   },
   {
@@ -250,6 +240,11 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 67,
+    "hero": "Spectre",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 68,
     "hero": "Ancient Apparition",
     "runtimeErrors": "undefined"
@@ -258,11 +253,6 @@
     "id": 69,
     "hero": "Doom",
     "runtimeErrors": "undefined"
-  },
-  {
-    "id": 64,
-    "hero": "Jakiro",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
   },
   {
     "id": 70,
@@ -275,18 +265,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 67,
-    "hero": "Spectre",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'desc')"
-  },
-  {
     "id": 72,
     "hero": "Gyrocopter",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 73,
-    "hero": "Alchemist",
     "runtimeErrors": "undefined"
   },
   {
@@ -295,8 +275,23 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 73,
+    "hero": "Alchemist",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 75,
+    "hero": "Silencer",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 76,
     "hero": "Outworld Destroyer",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 78,
+    "hero": "Brewmaster",
     "runtimeErrors": "undefined"
   },
   {
@@ -310,14 +305,9 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 81,
-    "hero": "Chaos Knight",
+    "id": 80,
+    "hero": "Lone Druid",
     "runtimeErrors": "undefined"
-  },
-  {
-    "id": 75,
-    "hero": "Silencer",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'dname')"
   },
   {
     "id": 82,
@@ -325,9 +315,19 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 78,
-    "hero": "Brewmaster",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
+    "id": 81,
+    "hero": "Chaos Knight",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 83,
+    "hero": "Treant Protector",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 84,
+    "hero": "Ogre Magi",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 85,
@@ -335,29 +335,9 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 80,
-    "hero": "Lone Druid",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 86,
-    "hero": "Rubick",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 83,
-    "hero": "Treant Protector",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
     "id": 87,
     "hero": "Disruptor",
     "runtimeErrors": "undefined"
-  },
-  {
-    "id": 84,
-    "hero": "Ogre Magi",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'dname')"
   },
   {
     "id": 88,
@@ -380,13 +360,18 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 86,
+    "hero": "Rubick",
+    "runtimeErrors": "Cannot read properties of undefined (reading 'replace')"
+  },
+  {
     "id": 92,
     "hero": "Visage",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 94,
-    "hero": "Medusa",
+    "id": 93,
+    "hero": "Slark",
     "runtimeErrors": "undefined"
   },
   {
@@ -395,74 +380,74 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 96,
-    "hero": "Centaur Warrunner",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 99,
-    "hero": "Bristleback",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 98,
-    "hero": "Timbersaw",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 93,
-    "hero": "Slark",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 100,
-    "hero": "Tusk",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 101,
-    "hero": "Skywrath Mage",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 102,
-    "hero": "Abaddon",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 103,
-    "hero": "Elder Titan",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 104,
-    "hero": "Legion Commander",
+    "id": 94,
+    "hero": "Medusa",
     "runtimeErrors": "undefined"
   },
   {
     "id": 97,
     "hero": "Magnus",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 96,
+    "hero": "Centaur Warrunner",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 98,
+    "hero": "Timbersaw",
+    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/timbersaw/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": 101,
+    "hero": "Skywrath Mage",
+    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/skywrathmage/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": 99,
+    "hero": "Bristleback",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 102,
+    "hero": "Abaddon",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 103,
+    "hero": "Elder Titan",
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 104,
+    "hero": "Legion Commander",
+    "runtimeErrors": "fetch failed"
   },
   {
     "id": 105,
     "hero": "Techies",
-    "runtimeErrors": "undefined"
+    "runtimeErrors": "fetch failed"
   },
   {
     "id": 106,
     "hero": "Ember Spirit",
-    "runtimeErrors": "undefined"
+    "runtimeErrors": "fetch failed"
+  },
+  {
+    "id": 107,
+    "hero": "Earth Spirit",
+    "runtimeErrors": "fetch failed"
   },
   {
     "id": 108,
     "hero": "Underlord",
-    "runtimeErrors": "undefined"
+    "runtimeErrors": "fetch failed"
   },
   {
     "id": 109,
     "hero": "Terrorblade",
-    "runtimeErrors": "undefined"
+    "runtimeErrors": "fetch failed"
   },
   {
     "id": 110,
@@ -470,23 +455,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 111,
-    "hero": "Oracle",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 107,
-    "hero": "Earth Spirit",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
     "id": 114,
     "hero": "Monkey King",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 119,
-    "hero": "Dark Willow",
     "runtimeErrors": "undefined"
   },
   {
@@ -495,33 +465,18 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 123,
-    "hero": "Hoodwink",
+    "id": 120,
+    "hero": "Pangolier",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 113,
-    "hero": "Arc Warden",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 112,
-    "hero": "Winter Wyvern",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
+    "id": 119,
+    "hero": "Dark Willow",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 126,
     "hero": "Void Spirit",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 120,
-    "hero": "Pangolier",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 131,
-    "hero": "Ringmaster",
     "runtimeErrors": "undefined"
   },
   {
@@ -535,8 +490,33 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 123,
+    "hero": "Hoodwink",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 135,
+    "hero": "Dawnbreaker",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 137,
     "hero": "Primal Beast",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 136,
+    "hero": "Marci",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 138,
+    "hero": "Muerta",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 155,
+    "hero": "Largo",
     "runtimeErrors": "undefined"
   },
   {
@@ -545,23 +525,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 135,
-    "hero": "Dawnbreaker",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'dname')"
-  },
-  {
-    "id": 136,
-    "hero": "Marci",
-    "runtimeErrors": "undefined | Cannot read properties of undefined (reading '')"
-  },
-  {
-    "id": 155,
-    "hero": "Largo",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 138,
-    "hero": "Muerta",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'dname')"
+    "id": 131,
+    "hero": "Ringmaster",
+    "runtimeErrors": "Cannot read properties of undefined (reading 'replace')"
   }
 ]

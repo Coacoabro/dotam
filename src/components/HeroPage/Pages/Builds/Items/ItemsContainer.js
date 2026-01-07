@@ -11,15 +11,14 @@ import Neutrals from './Neutrals'
 import Ad from '../../../../../components/Ads/Venatus/Ad'
 
 
-export default function ItemsContainer({build, hero}) {
+export default function ItemsContainer({build, hero, currRole}) {
 
     const router = useRouter()
-    const {role} = router.query
     const initPath = router.asPath.split('/').pop()
     const initOptions = initPath.split("?")[1]
 
 
-    const [isCarry, setIsCarry] = useState(role == "POSITION_4" || role == "POSITION_5" ? false : true)
+    const [isCarry, setIsCarry] = useState(currRole == "POSITION_4" || currRole == "POSITION_5" ? false : true)
 
     const [lateItems, setLateItems] = useState(build.core ? build.core[0].Late : [])
 
@@ -33,7 +32,7 @@ export default function ItemsContainer({build, hero}) {
         const initPath = router.asPath.split('/').pop()
         const initOptions = initPath.split("?")[1]
         setCurrOptions('?' + initOptions)
-        if (role == "POSITION_4" || role == "POSITION_5") {
+        if (currRole == "POSITION_4" || currRole == "POSITION_5") {
             setIsCarry(false)
         }
         else {
@@ -42,7 +41,7 @@ export default function ItemsContainer({build, hero}) {
         if(build.core){
             setLateItems(build.core[0].Late)
         }
-    }, [build, role, router])  
+    }, [build, currRole, router])  
 
     return(
         <div className='w-full space-y-4'>

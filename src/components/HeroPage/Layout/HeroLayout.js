@@ -150,7 +150,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
             : currBuild  ?
               <main>
                 {React.Children.map(children, child =>
-                  React.cloneElement(child, { initRole, initFacet, heroData, currBuild, currMatchups })
+                  React.cloneElement(child, { initRole, initFacet, heroData, currBuild, currMatchups, currRole })
                 )}
               </main>
             : page == 'matchups' ? 
