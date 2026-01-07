@@ -3,7 +3,6 @@ import Abilities from '../../../../../dotaconstants/build/abilities.json';
 
 export default function TalentTree({ talents }) {
     const Talents = [];
-    console.log(talents)
     talents.forEach((talent) => {
         if(Abilities[talent.name]){
             Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))

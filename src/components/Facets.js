@@ -64,7 +64,7 @@ export default function Facets( {name, id, initFacet, initRole, rates} ) {
     useEffect(() => {
         if(role){setCurrRole(role)}
 
-        if(rates && facetShow){
+        if(rates && Object.keys(rates).length > 0 && facetShow){
             let wr = '?'
             let matches = 0
             if(rates[currRole][hovFacetNum]){
