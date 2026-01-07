@@ -1,7 +1,12 @@
 [
   {
-    "id": 2,
-    "hero": "Axe",
+    "id": 1,
+    "hero": "Anti-Mage",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 4,
+    "hero": "Bloodseeker",
     "runtimeErrors": "undefined"
   },
   {
@@ -10,13 +15,63 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 5,
+    "hero": "Crystal Maiden",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 7,
+    "hero": "Earthshaker",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 6,
+    "hero": "Drow Ranger",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 8,
     "hero": "Juggernaut",
     "runtimeErrors": "undefined"
   },
   {
+    "id": 9,
+    "hero": "Mirana",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 10,
+    "hero": "Morphling",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 11,
+    "hero": "Shadow Fiend",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 12,
+    "hero": "Phantom Lancer",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 13,
     "hero": "Puck",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 14,
+    "hero": "Pudge",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 16,
+    "hero": "Sand King",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 15,
+    "hero": "Razor",
     "runtimeErrors": "undefined"
   },
   {
@@ -30,6 +85,21 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 20,
+    "hero": "Vengeful Spirit",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 18,
+    "hero": "Sven",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 21,
+    "hero": "Windranger",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 25,
     "hero": "Lina",
     "runtimeErrors": "undefined"
@@ -37,42 +107,42 @@
   {
     "id": 26,
     "hero": "Lion",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/lion/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 27,
     "hero": "Shadow Shaman",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/shadowshaman/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 28,
     "hero": "Slardar",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 29,
     "hero": "Tidehunter",
-    "runtimeErrors": "fetch failed"
-  },
-  {
-    "id": 30,
-    "hero": "Witch Doctor",
-    "runtimeErrors": "fetch failed"
-  },
-  {
-    "id": 31,
-    "hero": "Lich",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 32,
     "hero": "Riki",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/riki/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 30,
+    "hero": "Witch Doctor",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 31,
+    "hero": "Lich",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 33,
     "hero": "Enigma",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 35,
@@ -85,23 +155,23 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 37,
-    "hero": "Warlock",
-    "runtimeErrors": "undefined"
-  },
-  {
     "id": 36,
     "hero": "Necrophos",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 38,
-    "hero": "Beastmaster",
+    "id": 37,
+    "hero": "Warlock",
     "runtimeErrors": "undefined"
   },
   {
     "id": 39,
     "hero": "Queen of Pain",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 38,
+    "hero": "Beastmaster",
     "runtimeErrors": "undefined"
   },
   {
@@ -125,18 +195,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 44,
-    "hero": "Phantom Assassin",
-    "runtimeErrors": "undefined"
-  },
-  {
     "id": 45,
     "hero": "Pugna",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 46,
-    "hero": "Templar Assassin",
+    "id": 44,
+    "hero": "Phantom Assassin",
     "runtimeErrors": "undefined"
   },
   {
@@ -145,13 +210,18 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 49,
+    "hero": "Dragon Knight",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 48,
     "hero": "Luna",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 49,
-    "hero": "Dragon Knight",
+    "id": 46,
+    "hero": "Templar Assassin",
     "runtimeErrors": "undefined"
   },
   {
@@ -170,6 +240,11 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 53,
+    "hero": "Nature's Prophet",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 54,
     "hero": "Lifestealer",
     "runtimeErrors": "undefined"
@@ -180,13 +255,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 56,
-    "hero": "Clinkz",
+    "id": 57,
+    "hero": "Omniknight",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 57,
-    "hero": "Omniknight",
+    "id": 56,
+    "hero": "Clinkz",
     "runtimeErrors": "undefined"
   },
   {
@@ -200,18 +275,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 60,
-    "hero": "Night Stalker",
+    "id": 61,
+    "hero": "Broodmother",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 53,
-    "hero": "Nature's Prophet",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'replace')"
-  },
-  {
-    "id": 61,
-    "hero": "Broodmother",
+    "id": 60,
+    "hero": "Night Stalker",
     "runtimeErrors": "undefined"
   },
   {
@@ -220,13 +290,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 63,
-    "hero": "Weaver",
+    "id": 64,
+    "hero": "Jakiro",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 64,
-    "hero": "Jakiro",
+    "id": 63,
+    "hero": "Weaver",
     "runtimeErrors": "undefined"
   },
   {
@@ -235,13 +305,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 66,
-    "hero": "Chen",
+    "id": 67,
+    "hero": "Spectre",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 67,
-    "hero": "Spectre",
+    "id": 66,
+    "hero": "Chen",
     "runtimeErrors": "undefined"
   },
   {
@@ -255,13 +325,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 70,
-    "hero": "Ursa",
+    "id": 71,
+    "hero": "Spirit Breaker",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 71,
-    "hero": "Spirit Breaker",
+    "id": 70,
+    "hero": "Ursa",
     "runtimeErrors": "undefined"
   },
   {
@@ -270,18 +340,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 74,
-    "hero": "Invoker",
-    "runtimeErrors": "undefined"
-  },
-  {
     "id": 73,
     "hero": "Alchemist",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 75,
-    "hero": "Silencer",
     "runtimeErrors": "undefined"
   },
   {
@@ -290,8 +350,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 78,
-    "hero": "Brewmaster",
+    "id": 74,
+    "hero": "Invoker",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 75,
+    "hero": "Silencer",
     "runtimeErrors": "undefined"
   },
   {
@@ -300,18 +365,13 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 78,
+    "hero": "Brewmaster",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 79,
     "hero": "Shadow Demon",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 80,
-    "hero": "Lone Druid",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 82,
-    "hero": "Meepo",
     "runtimeErrors": "undefined"
   },
   {
@@ -320,8 +380,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 83,
-    "hero": "Treant Protector",
+    "id": 80,
+    "hero": "Lone Druid",
     "runtimeErrors": "undefined"
   },
   {
@@ -335,8 +395,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 87,
-    "hero": "Disruptor",
+    "id": 82,
+    "hero": "Meepo",
     "runtimeErrors": "undefined"
   },
   {
@@ -345,13 +405,18 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 89,
-    "hero": "Naga Siren",
+    "id": 87,
+    "hero": "Disruptor",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 90,
-    "hero": "Keeper of the Light",
+    "id": 86,
+    "hero": "Rubick",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 89,
+    "hero": "Naga Siren",
     "runtimeErrors": "undefined"
   },
   {
@@ -360,13 +425,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 86,
-    "hero": "Rubick",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'replace')"
-  },
-  {
-    "id": 92,
-    "hero": "Visage",
+    "id": 90,
+    "hero": "Keeper of the Light",
     "runtimeErrors": "undefined"
   },
   {
@@ -375,8 +435,18 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 92,
+    "hero": "Visage",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 95,
     "hero": "Troll Warlord",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 96,
+    "hero": "Centaur Warrunner",
     "runtimeErrors": "undefined"
   },
   {
@@ -390,64 +460,74 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 96,
-    "hero": "Centaur Warrunner",
+    "id": 99,
+    "hero": "Bristleback",
     "runtimeErrors": "undefined"
   },
   {
     "id": 98,
     "hero": "Timbersaw",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/timbersaw/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 100,
+    "hero": "Tusk",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 101,
     "hero": "Skywrath Mage",
-    "runtimeErrors": "TimeoutError: page.goto: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:3000/hero/skywrathmage/builds\", waiting until \"domcontentloaded\"\u001b[22m\n"
-  },
-  {
-    "id": 99,
-    "hero": "Bristleback",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 102,
     "hero": "Abaddon",
-    "runtimeErrors": "fetch failed"
-  },
-  {
-    "id": 103,
-    "hero": "Elder Titan",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 104,
     "hero": "Legion Commander",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 103,
+    "hero": "Elder Titan",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 105,
     "hero": "Techies",
-    "runtimeErrors": "fetch failed"
-  },
-  {
-    "id": 106,
-    "hero": "Ember Spirit",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 107,
     "hero": "Earth Spirit",
-    "runtimeErrors": "fetch failed"
-  },
-  {
-    "id": 108,
-    "hero": "Underlord",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
   },
   {
     "id": 109,
     "hero": "Terrorblade",
-    "runtimeErrors": "fetch failed"
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 108,
+    "hero": "Underlord",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 106,
+    "hero": "Ember Spirit",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 111,
+    "hero": "Oracle",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 112,
+    "hero": "Winter Wyvern",
+    "runtimeErrors": "undefined"
   },
   {
     "id": 110,
@@ -455,13 +535,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 114,
-    "hero": "Monkey King",
-    "runtimeErrors": "undefined"
-  },
-  {
-    "id": 121,
-    "hero": "Grimstroke",
+    "id": 113,
+    "hero": "Arc Warden",
     "runtimeErrors": "undefined"
   },
   {
@@ -470,8 +545,23 @@
     "runtimeErrors": "undefined"
   },
   {
+    "id": 114,
+    "hero": "Monkey King",
+    "runtimeErrors": "undefined"
+  },
+  {
     "id": 119,
     "hero": "Dark Willow",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 121,
+    "hero": "Grimstroke",
+    "runtimeErrors": "undefined"
+  },
+  {
+    "id": 123,
+    "hero": "Hoodwink",
     "runtimeErrors": "undefined"
   },
   {
@@ -490,8 +580,8 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 123,
-    "hero": "Hoodwink",
+    "id": 131,
+    "hero": "Ringmaster",
     "runtimeErrors": "undefined"
   },
   {
@@ -500,13 +590,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 137,
-    "hero": "Primal Beast",
+    "id": 136,
+    "hero": "Marci",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 136,
-    "hero": "Marci",
+    "id": 137,
+    "hero": "Primal Beast",
     "runtimeErrors": "undefined"
   },
   {
@@ -515,18 +605,13 @@
     "runtimeErrors": "undefined"
   },
   {
-    "id": 155,
-    "hero": "Largo",
-    "runtimeErrors": "undefined"
-  },
-  {
     "id": 145,
     "hero": "Kez",
     "runtimeErrors": "undefined"
   },
   {
-    "id": 131,
-    "hero": "Ringmaster",
-    "runtimeErrors": "Cannot read properties of undefined (reading 'replace')"
+    "id": 155,
+    "hero": "Largo",
+    "runtimeErrors": "undefined"
   }
 ]
