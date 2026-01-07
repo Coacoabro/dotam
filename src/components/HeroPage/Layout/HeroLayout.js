@@ -83,7 +83,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
         const crop_img = 'https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/heroes/crops/' + heroData.name.replace('npc_dota_hero_', '') + '.png'
         const hero_vid = 'https://cdn.akamai.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/' + heroData.name.replace('npc_dota_hero_', '') + '.webm'
 
-        if(heroBuilds){
+        if(heroBuilds[currRole]){
           if(role == "All"){currBuild = heroBuilds[initRole][currFacet]}
           else{currBuild = heroBuilds[currRole][currFacet]}
         }
