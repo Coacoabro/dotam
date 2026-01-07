@@ -1,0 +1,1145 @@
+[
+  {
+    "id": 1,
+    "hero": "Anti-Mage",
+    "slug": "anti-mage",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 2
+  },
+  {
+    "id": 3,
+    "hero": "Bane",
+    "slug": "bane",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 2
+  },
+  {
+    "id": 4,
+    "hero": "Bloodseeker",
+    "slug": "bloodseeker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 2
+  },
+  {
+    "id": 2,
+    "hero": "Axe",
+    "slug": "axe",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 2
+  },
+  {
+    "id": 6,
+    "hero": "Drow Ranger",
+    "slug": "drowranger",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 4
+  },
+  {
+    "id": 7,
+    "hero": "Earthshaker",
+    "slug": "earthshaker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 4
+  },
+  {
+    "id": 5,
+    "hero": "Crystal Maiden",
+    "slug": "crystalmaiden",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 4
+  },
+  {
+    "id": 8,
+    "hero": "Juggernaut",
+    "slug": "juggernaut",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 4
+  },
+  {
+    "id": 9,
+    "hero": "Mirana",
+    "slug": "mirana",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 26
+  },
+  {
+    "id": 10,
+    "hero": "Morphling",
+    "slug": "morphling",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 26
+  },
+  {
+    "id": 12,
+    "hero": "Phantom Lancer",
+    "slug": "phantomlancer",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 22
+  },
+  {
+    "id": 11,
+    "hero": "Shadow Fiend",
+    "slug": "shadowfiend",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 26
+  },
+  {
+    "id": 13,
+    "hero": "Puck",
+    "slug": "puck",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 26
+  },
+  {
+    "id": 14,
+    "hero": "Pudge",
+    "slug": "pudge",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 22
+  },
+  {
+    "id": 15,
+    "hero": "Razor",
+    "slug": "razor",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 15
+  },
+  {
+    "id": 16,
+    "hero": "Sand King",
+    "slug": "sandking",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 15
+  },
+  {
+    "id": 18,
+    "hero": "Sven",
+    "slug": "sven",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 17,
+    "hero": "Storm Spirit",
+    "slug": "stormspirit",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 16
+  },
+  {
+    "id": 19,
+    "hero": "Tiny",
+    "slug": "tiny",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 20,
+    "hero": "Vengeful Spirit",
+    "slug": "vengefulspirit",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 8
+  },
+  {
+    "id": 21,
+    "hero": "Windranger",
+    "slug": "windranger",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 26
+  },
+  {
+    "id": 23,
+    "hero": "Kunkka",
+    "slug": "kunkka",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 17
+  },
+  {
+    "id": 25,
+    "hero": "Lina",
+    "slug": "lina",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 22,
+    "hero": "Zeus",
+    "slug": "zeus",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 22
+  },
+  {
+    "id": 26,
+    "hero": "Lion",
+    "slug": "lion",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 28,
+    "hero": "Slardar",
+    "slug": "slardar",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 27,
+    "hero": "Shadow Shaman",
+    "slug": "shadowshaman",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 29,
+    "hero": "Tidehunter",
+    "slug": "tidehunter",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 30,
+    "hero": "Witch Doctor",
+    "slug": "witchdoctor",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 16
+  },
+  {
+    "id": 32,
+    "hero": "Riki",
+    "slug": "riki",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 31,
+    "hero": "Lich",
+    "slug": "lich",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 17
+  },
+  {
+    "id": 33,
+    "hero": "Enigma",
+    "slug": "enigma",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 34,
+    "hero": "Tinker",
+    "slug": "tinker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 36,
+    "hero": "Necrophos",
+    "slug": "necrophos",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 8
+  },
+  {
+    "id": 35,
+    "hero": "Sniper",
+    "slug": "sniper",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 19
+  },
+  {
+    "id": 37,
+    "hero": "Warlock",
+    "slug": "warlock",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 6
+  },
+  {
+    "id": 38,
+    "hero": "Beastmaster",
+    "slug": "beastmaster",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 39,
+    "hero": "Queen of Pain",
+    "slug": "queenofpain",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 40,
+    "hero": "Venomancer",
+    "slug": "venomancer",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 19
+  },
+  {
+    "id": 41,
+    "hero": "Faceless Void",
+    "slug": "facelessvoid",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 18
+  },
+  {
+    "id": 42,
+    "hero": "Wraith King",
+    "slug": "wraithking",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 44,
+    "hero": "Phantom Assassin",
+    "slug": "phantomassassin",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 43,
+    "hero": "Death Prophet",
+    "slug": "deathprophet",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 45,
+    "hero": "Pugna",
+    "slug": "pugna",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 46,
+    "hero": "Templar Assassin",
+    "slug": "templarassassin",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 7
+  },
+  {
+    "id": 49,
+    "hero": "Dragon Knight",
+    "slug": "dragonknight",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 7
+  },
+  {
+    "id": 47,
+    "hero": "Viper",
+    "slug": "viper",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 48,
+    "hero": "Luna",
+    "slug": "luna",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 50,
+    "hero": "Dazzle",
+    "slug": "dazzle",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 51,
+    "hero": "Clockwerk",
+    "slug": "clockwerk",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 18
+  },
+  {
+    "id": 52,
+    "hero": "Leshrac",
+    "slug": "leshrac",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 18
+  },
+  {
+    "id": 53,
+    "hero": "Nature's Prophet",
+    "slug": "naturesprophet",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 17
+  },
+  {
+    "id": 54,
+    "hero": "Lifestealer",
+    "slug": "lifestealer",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 55,
+    "hero": "Dark Seer",
+    "slug": "darkseer",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 57,
+    "hero": "Omniknight",
+    "slug": "omniknight",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 56,
+    "hero": "Clinkz",
+    "slug": "clinkz",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 58,
+    "hero": "Enchantress",
+    "slug": "enchantress",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 59,
+    "hero": "Huskar",
+    "slug": "huskar",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 60,
+    "hero": "Night Stalker",
+    "slug": "nightstalker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 61,
+    "hero": "Broodmother",
+    "slug": "broodmother",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 62,
+    "hero": "Bounty Hunter",
+    "slug": "bountyhunter",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 63,
+    "hero": "Weaver",
+    "slug": "weaver",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 64,
+    "hero": "Jakiro",
+    "slug": "jakiro",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 17
+  },
+  {
+    "id": 65,
+    "hero": "Batrider",
+    "slug": "batrider",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 66,
+    "hero": "Chen",
+    "slug": "chen",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 17
+  },
+  {
+    "id": 67,
+    "hero": "Spectre",
+    "slug": "spectre",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 7
+  },
+  {
+    "id": 68,
+    "hero": "Ancient Apparition",
+    "slug": "ancientapparition",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 69,
+    "hero": "Doom",
+    "slug": "doom",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 17
+  },
+  {
+    "id": 70,
+    "hero": "Ursa",
+    "slug": "ursa",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 71,
+    "hero": "Spirit Breaker",
+    "slug": "spiritbreaker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 72,
+    "hero": "Gyrocopter",
+    "slug": "gyrocopter",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 73,
+    "hero": "Alchemist",
+    "slug": "alchemist",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 74,
+    "hero": "Invoker",
+    "slug": "invoker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 76,
+    "hero": "Outworld Destroyer",
+    "slug": "outworlddestroyer",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 75,
+    "hero": "Silencer",
+    "slug": "silencer",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 77,
+    "hero": "Lycan",
+    "slug": "lycan",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 78,
+    "hero": "Brewmaster",
+    "slug": "brewmaster",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 79,
+    "hero": "Shadow Demon",
+    "slug": "shadowdemon",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 80,
+    "hero": "Lone Druid",
+    "slug": "lonedruid",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 81,
+    "hero": "Chaos Knight",
+    "slug": "chaosknight",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 82,
+    "hero": "Meepo",
+    "slug": "meepo",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 84,
+    "hero": "Ogre Magi",
+    "slug": "ogremagi",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 7
+  },
+  {
+    "id": 83,
+    "hero": "Treant Protector",
+    "slug": "treantprotector",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 16
+  },
+  {
+    "id": 85,
+    "hero": "Undying",
+    "slug": "undying",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 86,
+    "hero": "Rubick",
+    "slug": "rubick",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 87,
+    "hero": "Disruptor",
+    "slug": "disruptor",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 88,
+    "hero": "Nyx Assassin",
+    "slug": "nyxassassin",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 89,
+    "hero": "Naga Siren",
+    "slug": "nagasiren",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 90,
+    "hero": "Keeper of the Light",
+    "slug": "keeperofthelight",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 91,
+    "hero": "Io",
+    "slug": "io",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 7
+  },
+  {
+    "id": 92,
+    "hero": "Visage",
+    "slug": "visage",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 93,
+    "hero": "Slark",
+    "slug": "slark",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 94,
+    "hero": "Medusa",
+    "slug": "medusa",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 95,
+    "hero": "Troll Warlord",
+    "slug": "trollwarlord",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 96,
+    "hero": "Centaur Warrunner",
+    "slug": "centaurwarrunner",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 97,
+    "hero": "Magnus",
+    "slug": "magnus",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 98,
+    "hero": "Timbersaw",
+    "slug": "timbersaw",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 99,
+    "hero": "Bristleback",
+    "slug": "bristleback",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 100,
+    "hero": "Tusk",
+    "slug": "tusk",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 101,
+    "hero": "Skywrath Mage",
+    "slug": "skywrathmage",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 102,
+    "hero": "Abaddon",
+    "slug": "abaddon",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 103,
+    "hero": "Elder Titan",
+    "slug": "eldertitan",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 4
+  },
+  {
+    "id": 104,
+    "hero": "Legion Commander",
+    "slug": "legioncommander",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 105,
+    "hero": "Techies",
+    "slug": "techies",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 107,
+    "hero": "Earth Spirit",
+    "slug": "earthspirit",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 108,
+    "hero": "Underlord",
+    "slug": "underlord",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 109,
+    "hero": "Terrorblade",
+    "slug": "terrorblade",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 19
+  },
+  {
+    "id": 106,
+    "hero": "Ember Spirit",
+    "slug": "emberspirit",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 111,
+    "hero": "Oracle",
+    "slug": "oracle",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 110,
+    "hero": "Phoenix",
+    "slug": "phoenix",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 112,
+    "hero": "Winter Wyvern",
+    "slug": "winterwyvern",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 16
+  },
+  {
+    "id": 113,
+    "hero": "Arc Warden",
+    "slug": "arcwarden",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 119,
+    "hero": "Dark Willow",
+    "slug": "darkwillow",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 114,
+    "hero": "Monkey King",
+    "slug": "monkeyking",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 14
+  },
+  {
+    "id": 120,
+    "hero": "Pangolier",
+    "slug": "pangolier",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 8
+  },
+  {
+    "id": 121,
+    "hero": "Grimstroke",
+    "slug": "grimstroke",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 123,
+    "hero": "Hoodwink",
+    "slug": "hoodwink",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 126,
+    "hero": "Void Spirit",
+    "slug": "voidspirit",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 128,
+    "hero": "Snapfire",
+    "slug": "snapfire",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined | undefined",
+    "reqFailCount": 13
+  },
+  {
+    "id": 129,
+    "hero": "Mars",
+    "slug": "mars",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 15
+  },
+  {
+    "id": 131,
+    "hero": "Ringmaster",
+    "slug": "ringmaster",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 10
+  },
+  {
+    "id": 135,
+    "hero": "Dawnbreaker",
+    "slug": "dawnbreaker",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 136,
+    "hero": "Marci",
+    "slug": "marci",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 6
+  },
+  {
+    "id": 137,
+    "hero": "Primal Beast",
+    "slug": "primalbeast",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 9
+  },
+  {
+    "id": 138,
+    "hero": "Muerta",
+    "slug": "muerta",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 11
+  },
+  {
+    "id": 145,
+    "hero": "Kez",
+    "slug": "kez",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "undefined",
+    "reqFailCount": 12
+  },
+  {
+    "id": 155,
+    "hero": "Largo",
+    "slug": "largo",
+    "status": 404,
+    "rendered": true,
+    "runtimeErrors": "",
+    "reqFailCount": 13
+  }
+]

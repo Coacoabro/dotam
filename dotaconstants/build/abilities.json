@@ -30142,6 +30142,9 @@
   "special_bonus_unique_dazzle_shallow_grave_cooldown": {
     "dname": "-4s Shallow Grave Cooldown"
   },
+  "special_bonus_unique_dazzle_nothl_projection_duration": {
+    "dname": "+5s Nothl Projection Duration"
+  },
   "rattletrap_jetpack": {
     "dname": "Jetpack",
     "behavior": [
