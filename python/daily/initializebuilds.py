@@ -21,7 +21,7 @@ base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
-# print(patch)
+print(patch)
 # time.sleep(10)
 
 client = clickhouse_connect.get_client(
@@ -98,9 +98,8 @@ def get_facets():
                 facets = data["result"]["data"]["heroes"][0]["facets"]
                 hero_facets = []
                 facet_nums = []
-                n = 0
                 for facet in facets:
-                    n += 1
+                    facet_num = facet["index"] + 1
                     facet_desc = facet["description_loc"]
                     percentPlaceholders = [placeholder.strip('%') for placeholder in facet_desc.split('%')[1::2]]
                     for placeholder in percentPlaceholders:
@@ -124,7 +123,7 @@ def get_facets():
                         facet_desc = facet_desc.replace(f'%{placeholder}%', str(value))
                                     
                     hero_facets.append( {"Name": facet["name"] , "Title": facet["title_loc"], "Desc": facet_desc, "Icon": facet["icon"]} )
-                    facet_nums.append(n)
+                    facet_nums.append(facet_num)
                 
                 facet_nums_json[hero_id] = facet_nums
                 facets_json[hero_id] = hero_facets
@@ -241,8 +240,8 @@ def hero_info():
     
 ## All of these are used (INCLUDING HERO INFO!!)
 # get_facets()
-# get_innate()
-# s3_data()
+get_innate()
+s3_data()
 hero_info()
 
 
