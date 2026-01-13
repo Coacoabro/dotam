@@ -36,6 +36,7 @@ SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenc
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
+print("Patch: ", patch)
 # patch = 'test'
 
 item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
@@ -291,6 +292,7 @@ def getBuilds(ranked_matches, builds):
                                 else:
                                     core = None
                                 
+
                                 # Neutral Items
                                 neutralItems = []
                                 for neutralEvent in neutralEvents:
