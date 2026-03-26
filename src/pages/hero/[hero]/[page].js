@@ -17,6 +17,8 @@ import VerticalAd from '../../../components/Ads/Google/VerticalAd.js';
 import MobileAd from '../../../components/Ads/Google/MobileAd.js'
 import Script from 'next/script.js';
 
+import facetNums from '../../../../json/facet_nums.json'
+
 export async function getServerSideProps(context) {
     const { rank } = context.query
     const hero = dota2heroes.find(hero => hero.url === context.query.hero);
@@ -34,16 +36,31 @@ export async function getServerSideProps(context) {
         const rates_res = await fetch(`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero.id}/rates/${rank ? rank : ""}/rates.json`)
         const rates = await rates_res.json()
 
-        for (const role in summary) {
-            const facets = summary[role]
-            for (const facet in facets) {
-                const { total_matches } = facets[facet]
-                if (total_matches > maxMatches) {
-                    maxMatches = total_matches
-                    initRole = role
-                    initFacet = facet
+        if(summary && Object.keys(summary).length > 0){
+            for (const role in summary) {
+                const facets = summary[role]
+                for (const facet in facets) {
+                    const { total_matches } = facets[facet]
+                    if (total_matches > maxMatches) {
+                        maxMatches = total_matches
+                        initRole = role
+                        initFacet = facet
+                    }
                 }
             }
+        }
+        else{
+            let maxMatches = -1
+            initFacet = facetNums[hero.id][0]
+
+            for (const rate of rates) {
+                const m = Number(rate?.matches ?? 0)
+                if (m > maxMatches) {
+                    maxMatches = m
+                    initRole = rate.role
+                }
+            }
+
         }
 
         return {
@@ -65,8 +82,6 @@ export default function HeroPage({ hero, heroInfo, patch, rates, summary, initRo
     const { page } = router.query;
 
     const heroName = hero.name;  
-
-
 
     // Determine which page to render based on the 'page' query
     let PageComponent

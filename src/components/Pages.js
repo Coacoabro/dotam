@@ -41,9 +41,9 @@ export default function Pages({ hero }) {
                         <Link href={`/hero/${hero}/abilities${currOptions ? currOptions : ''}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer">
                             Abilities
                         </Link>
-                        <Link href={`/hero/${hero}/matchups${currOptions ? currOptions : ''}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-b">
+                        {/* <Link href={`/hero/${hero}/matchups${currOptions ? currOptions : ''}`} onClick={()=>setIsOpen(false)} className="sm:text-lg flex items-center p-2 hover:bg-slate-700 cursor-pointer rounded-b">
                             Matchups
-                        </Link>
+                        </Link> */}
                     </div>
             )}
             

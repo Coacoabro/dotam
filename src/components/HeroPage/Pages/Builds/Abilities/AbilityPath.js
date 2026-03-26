@@ -61,33 +61,31 @@ export default function AbilityPath({hero, abilities, talents}) {
             if(ability == 1281) {
                 ability = 5185
             }
-            if(ability > 0) {
-                const name = abilityIds[ability]
-                
-                if (name === basicAbilities[0]){
-                    finishedAbilities.push([index+1, null, null, null, null])
-                    finishedTalents.push(null)
-                }
-                else if (name === basicAbilities[1]){
-                    finishedAbilities.push([null, index+1, null, null, null])
-                    finishedTalents.push(null)
-                }
-                else if (name === basicAbilities[2]){
-                    finishedAbilities.push([null, null, index+1, null, null])
-                    finishedTalents.push(null)
-                }
-                else if (name === basicAbilities[3]){
-                    finishedAbilities.push([null, null, null, index+1, null])
-                    finishedTalents.push(null)
-                }
-                else {
-                    finishedAbilities.push([null, null, null, null, index+1])
-                    finishedTalents.push(ability)
-                }
+            const name = abilityIds[ability]
+            
+            if (name === basicAbilities[0]){
+                finishedAbilities.push([index+1, null, null, null, null])
+                finishedTalents.push(null)
             }
+            else if (name === basicAbilities[1]){
+                finishedAbilities.push([null, index+1, null, null, null])
+                finishedTalents.push(null)
+            }
+            else if (name === basicAbilities[2]){
+                finishedAbilities.push([null, null, index+1, null, null])
+                finishedTalents.push(null)
+            }
+            else if (name === basicAbilities[3]){
+                finishedAbilities.push([null, null, null, index+1, null])
+                finishedTalents.push(null)
+            }
+            else {
+                finishedAbilities.push([null, null, null, null, index+1])
+                finishedTalents.push(ability)
+            }
+            
         }
     })    
-    
     
     return (
         <div className='overflow-x-scroll sm:overflow-visible'>
@@ -113,10 +111,10 @@ export default function AbilityPath({hero, abilities, talents}) {
                                         ${ability ? 'bg-slate-800 border border-slate-700/50' : 'bg-slate-950'}
                                         ${abilityIndex == 4 && ability ? "hover:bg-slate-700" : ""}
                                     `}
-                                    {...(abilityIndex == 4 && ability ? { 
-                                        onMouseEnter: () => handleTalentHovered(finishedTalents[index], index),
-                                        onMouseLeave: () => handleTalentHovered(null, null)
-                                    } : {})}
+                                    // {...(abilityIndex == 4 && ability ? { 
+                                    //     onMouseEnter: () => handleTalentHovered(finishedTalents[index], index),
+                                    //     onMouseLeave: () => handleTalentHovered(null, null)
+                                    // } : {})}
                                 >
                                     {ability || ''}
                                 </div>

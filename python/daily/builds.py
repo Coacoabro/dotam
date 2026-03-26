@@ -36,6 +36,7 @@ SEQ_URL = 'https://api.steampowered.com/IDOTA2Match_570/GetMatchHistoryBySequenc
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
+print("Patch: ", patch)
 # patch = 'test'
 
 item_req = requests.get("https://www.dota2.com/datafeed/itemlist?language=english")
@@ -117,6 +118,7 @@ def getBuilds(ranked_matches, builds):
     Support = [30, 40, 42, 43, 45, 188, 257, 286]
     Consumable = [38, 39, 44, 216, 241, 265, 4204, 4205, 4026]
 
+    ## Wand ID is 36
     Early = [29, 34, 36, 41, 73, 75, 77, 88, 178, 181, 240, 244, 569]
     Stackable = [73, 75, 77]
     SupportFull = [37, 79, 90, 92, 102, 226, 231, 254, 269, 1128]
@@ -290,6 +292,7 @@ def getBuilds(ranked_matches, builds):
                                 else:
                                     core = None
                                 
+
                                 # Neutral Items
                                 neutralItems = []
                                 for neutralEvent in neutralEvents:

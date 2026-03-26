@@ -32,9 +32,9 @@ export default function PagesList({ hero }) {
             <Link href={`/hero/${hero}/abilities${currOptions ? currOptions : ''}`} onClick={()=>setIsOpen(false)} className={`sm:text-lg flex items-center hover:underline hover:text-cyan-300 ${router.asPath.includes('abilities') ? "underline text-cyan-300" : ""}`}>
                 Abilities
             </Link>
-            <Link href={`/hero/${hero}/matchups${currOptions ? currOptions : ''}`} onClick={()=>setIsOpen(false)} className={`sm:text-lg flex items-center hover:underline hover:text-cyan-300 ${router.asPath.includes('matchups') ? "underline text-cyan-300" : ""}`}>
+            {/* <Link href={`/hero/${hero}/matchups${currOptions ? currOptions : ''}`} onClick={()=>setIsOpen(false)} className={`sm:text-lg flex items-center hover:underline hover:text-cyan-300 ${router.asPath.includes('matchups') ? "underline text-cyan-300" : ""}`}>
                 Matchups
-            </Link>
+            </Link> */}
         </div>
     )
 }

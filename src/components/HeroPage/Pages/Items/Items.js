@@ -11,15 +11,11 @@ export default function Items({ initRole, heroData, currBuild }) {
     const router = useRouter()
     const { role } = router.query
 
-    const [currRole, setCurrRole] = useState(role || initRole)
-    const [isCarry, setIsCarry] = useState(currRole == "POSITION_4" || currRole == "POSITION_5" ? false : true)
+    const [isCarry, setIsCarry] = useState(role || initRole == "POSITION_4" || role || initRole == "POSITION_5" ? false : true)
 
     useEffect(() => {
-        if(role){setCurrRole(role)}
-        if(currRole){setIsCarry(currRole == "POSITION_4" || currRole == "POSITION_5" ? false : true)}
+        if(role){setIsCarry(role == "POSITION_4" || role == "POSITION_5" ? false : true)}
     }, [role])
-
-    console.log(currBuild)
 
     return(
         <div className="space-y-4">

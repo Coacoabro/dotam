@@ -17,7 +17,7 @@ import heroAbilities from '../../../../../dotaconstants/build/hero_abilities.jso
 import abilityIds from '../../../../../dotaconstants/build/ability_ids.json'
 
 
-export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
+export default function Builds({ hero, heroData, currBuild, heroMatchups, currRole }) {
 
     const router = useRouter()
 
@@ -31,21 +31,31 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
     const talents = currBuild.talents
     const talentsArray = []
 
-    talents.forEach((talent) => {
-        const tempTalent = abilityIds[talent.Talent]
-        if(tempTalent) {
-            if(abilitiesInfo[tempTalent]){
-                if(abilitiesInfo[tempTalent].dname){
-                    talent.talent = abilitiesInfo[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+    if (talents) {
+        talents.forEach((talent) => {
+            const tempTalent = abilityIds[talent.Talent]
+            if(tempTalent) {
+                if(abilitiesInfo[tempTalent]){
+                    if(abilitiesInfo[tempTalent].dname){
+                        talent.talent = abilitiesInfo[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                    }
                 }
             }
-        }
-    })
+        })
+    }
+    
 
     const talentOrder = heroAbilities[heroData.name].talents
 
     talentOrder.forEach((talent) => {
-        if(abilitiesInfo[talent.name].dname){talentsArray.push(abilitiesInfo[talent.name].dname.replace(/\{[^}]*\}/g, '?'))}
+        if(abilitiesInfo[talent.name] && Object.keys(abilitiesInfo[talent.name]).length > 0)
+            {
+                talentsArray.push(abilitiesInfo[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
+            }
+        else
+            {
+                talentsArray.push("?")
+            }
     })
 
     const rightTalents = [talentsArray[6], talentsArray[4], talentsArray[2], talentsArray[0]]
@@ -72,7 +82,7 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups }) {
             </div>
             {currBuild ?
                 <div className='flex w-full gap-2'>
-                    <ItemsContainer build={currBuild.items} hero={hero} role={currBuild.role} />
+                    <ItemsContainer build={currBuild.items} hero={hero} currRole={currRole} />
                 </div>
                 :
                 <div>Not enough Item data</div>
