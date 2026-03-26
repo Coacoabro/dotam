@@ -47,30 +47,33 @@ def get_innate():
         if response.status_code == 200:
             data = response.json()
 
-            if data["result"]["data"]["heroes"]:
-                abilities = data["result"]["data"]["heroes"][0]["abilities"]
-                for ability in abilities:
-                    if ability["ability_is_innate"]:
-                        ability_desc = ability["desc_loc"]
-                        placeholders = [placeholder.strip('%') for placeholder in ability_desc.split('%')[1::2]]
-                        for placeholder in placeholders:
-                            special_values = ability["special_values"]
-                            value = ''
-                            if placeholder == '':
-                                value = '%'
-                            else:
-                                for special_value in special_values:
-                                    if special_value["name"] == placeholder:
-                                        float_values = special_value["values_float"]
-                                        if len(float_values) > 1:
-                                            for float_value in float_values:
-                                                value += str(float_value) + '/'
-                                            value = value[:-1]
-                                        else:
-                                            value = float_values[0]
-                            ability_desc = ability_desc.replace(f'%{placeholder}%', str(value))
-                        
-                        innate_json[hero_id] = {"Name": ability["name_loc"], "Desc": ability_desc}
+            if data["result"]:
+                if data["result"]["data"]["heroes"]:
+                    abilities = data["result"]["data"]["heroes"][0]["abilities"]
+                    for ability in abilities:
+                        if ability["ability_is_innate"]:
+                            ability_desc = ability["desc_loc"]
+                            placeholders = [placeholder.strip('%') for placeholder in ability_desc.split('%')[1::2]]
+                            for placeholder in placeholders:
+                                special_values = ability["special_values"]
+                                value = ''
+                                if placeholder == '':
+                                    value = '%'
+                                else:
+                                    for special_value in special_values:
+                                        if special_value["name"] == placeholder:
+                                            float_values = special_value["values_float"]
+                                            if len(float_values) > 1:
+                                                for float_value in float_values:
+                                                    value += str(float_value) + '/'
+                                                value = value[:-1]
+                                            else:
+                                                value = float_values[0]
+                                ability_desc = ability_desc.replace(f'%{placeholder}%', str(value))
+                            
+                            innate_json[hero_id] = {"Name": ability["name_loc"], "Desc": ability_desc}
+            else:
+                print(hero_id)
 
 
     with open('./json/hero_innate.json', 'w') as f:
@@ -240,10 +243,10 @@ def hero_info():
 
     
 ## All of these are used (INCLUDING HERO INFO!!)
-# get_facets()
+get_facets()
 # get_innate()
 # s3_data()
-hero_info()
+# hero_info()
 
 
 ### postgres_data() # NO LONGER USED
