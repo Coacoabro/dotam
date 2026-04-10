@@ -3,25 +3,30 @@ import ItemIds from '../../../dotaconstants/build/item_ids.json';
 import ItemInfo from '../../../dotaconstants/build/items.json';
 import Components from '../../../json/components.json';
 import TooltipPortal from '../TooltipPortal';
+import { useRouter } from 'next/router';
 
 export default function ItemCard({ id }) {
     const item = ItemInfo[ItemIds[id]];
+    const router = useRouter()
     const videoRef = useRef(null);
     const [toolTip, setToolTip] = useState(false);
 
     const [toolTipPosition, setTooltipPosition] = useState({top: 0, left: 0})
 
     const showTooltip = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect()
-        setTooltipPosition({ top: rect.top + window.scrollY + 50, left: rect.left + rect.width / 2 })
-        setToolTip(true);
+        if (e) {
+            const rect = e.currentTarget.getBoundingClientRect()
+            setTooltipPosition({ top: rect.top + window.scrollY + 50, left: rect.left + rect.width / 2 })
+            setToolTip(true);
 
-        if (videoRef.current) {
-            videoRef.current.currentTime = 0;
-            videoRef.current.addEventListener('canplay', function() {
-                this.play();
-            });
+            if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.addEventListener('canplay', function() {
+                    this.play();
+                });
+            }
         }
+        
     };
 
     const hideTooltip = () => {
@@ -52,9 +57,9 @@ export default function ItemCard({ id }) {
         return (
             <div className="relative">
                 <button onClick={toggleTooltip} className="relative">
-                    <img src={itemImg} className='w-12 sm:w-16' onMouseEnter={(e) => showTooltip(e)} onMouseLeave={hideTooltip} />
+                    <img src={itemImg} className='w-12 sm:w-16 rounded-xl' onMouseEnter={(e) => showTooltip(e)} onMouseLeave={hideTooltip} />
                 </button>
-                {toolTip && (
+                {toolTip && router.pathname.includes("hero") && (
                     <TooltipPortal>
                         <div 
                             className='fixed sm:absolute flex items-center justify-center z-50' 

@@ -88,34 +88,42 @@ export default function TierContainer( {heroes, rates, matchups, search} ) {
     }, [rates, matchups, rank, role, patch, initPatch, currentSort, sortBy, search]);
 
     return(
-        <div className="overflow-x-auto bg-slate-950 rounded-lg shadow border border-slate-800">
+        <div className="overflow-x-auto bg-slate-950 rounded-xl        shadow border border-slate-800">
             <table className="table-auto w-full text-slate-200 font-medium font-['Inter'] font-sans leading-tight">
                 <thead>
-                    <tr className="bg-slate-950 text-white text-sm sm:text-xl text-center">
+                    <tr className="bg-slate-950 text-white/50 text-sm sm:text-[13px] text-center">
                         <th className="py-2 px-3 text-center">
                             <button onClick={() => handleSortClick("tier_num", currentSort)}>
-                            <div className='flex items-center'>TIER <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                                <div className='flex items-center'>
+                                    Tier
+                                </div>
                             </button>
                         </th>
                         <th>
-                            HERO
+                            Hero
                         </th>
                         <th className="flex pt-2 px-2 sm:px-0">
-                            ROLE
+                            Role
                         </th>
                         <th className='px-4 sm:px-0'>
                             <button onClick={() => handleSortClick("winrate", currentSort)}>
-                            <div className='flex items-center'>WR <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                                <div className='flex items-center'>
+                                    WR
+                                </div>
                             </button>
                         </th>
                         <th className='px-4 sm:px-0'>
                             <button onClick={() => handleSortClick("pickrate", currentSort)}>
-                            <div className='flex items-center'>PR <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                                <div className='flex items-center'>
+                                    PR
+                                </div>
                             </button>
                         </th>
                         <th className='px-4 sm:px-0'>
                             <button onClick={() => handleSortClick("matches", currentSort)}>
-                            <div className='flex items-center'>MATCHES <img src="UpDown.svg" className='w-4 h-4 sm:w-6 sm:h-6' /></div>
+                                <div className='flex items-center'>
+                                    Matches
+                                </div>
                             </button>
                         </th>
                         {/* <th className='px-2 hidden lg:flex justify-center'>

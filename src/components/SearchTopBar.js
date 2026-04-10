@@ -70,7 +70,7 @@ export default function SearchBar() {
     const value = event.target.value;
     setSearchTerm(value);
 
-    const filteredHeroes = value.toLowerCase() == "tracker" ? [dota2Heroes[60]] : 
+    const filteredHeroes = value.toLowerCase() == "tracker" ? [dota2Heroes[60]] :
       dota2Heroes.filter(hero =>
         hero.name.toLowerCase().startsWith(value.toLowerCase())
       );
@@ -86,35 +86,48 @@ export default function SearchBar() {
   };
 
   return (
-    <div className={`flex transition-all ease-in-out duration-500 ${expandSearch ? 'w-[225px] sm:w-[350px] lg:w-[500px]' : 'w-[30px]'}`}>
-        <button onClick={() => setExpandSearch(!expandSearch)}><img className={`${!expandSearch ? " w-6 h-6" : "hidden"}`} src="/search-icon.svg" /></button>
-        <div ref={searchBarRef} className={`${expandSearch ? 'w-[225px] sm:w-[350px] lg:w-[500px]' : 'hidden'} transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] border border-slate-700 flex items-center`}>
-            <div className="h-[25px] sm:h-[44px] px-3 py-[12px] flex items-center">
-                <button onClick={() => setExpandSearch(!expandSearch)}><img src="/search-icon.svg" alt="Search Icon" className='w-4 h-4' /></button>
-                <div>
+    <div className={`flex transition-all ease-in-out duration-500 ${expandSearch ? 'w-[225px] sm:w-[350px] lg:w-[500px]' : 'sm:w-[200px]'}`}>
+        <button className={`${!expandSearch ? "" : "hidden"} flex items-center gap-1 opacity-60`} onClick={() => setExpandSearch(!expandSearch)}>
+          <img className="w-5 h-5" src="/search-icon.svg" /> 
+          <span className='hidden sm:flex'>Search Heroes</span>
+        </button>
+        <div 
+          ref={searchBarRef} 
+          className={`
+            ${expandSearch ? 'w-[225px] sm:w-[350px] lg:w-[500px]' : 'hidden'} 
+            transition-all duration-500 ease-in-out mx-auto shadow-sm rounded-[36px] border border-slate-700 flex items-center
+          `}
+        >
+          <div className="h-[25px] sm:h-[44px] px-3 py-[12px] flex items-center">
+              <button onClick={() => setExpandSearch(!expandSearch)}><img src="/search-icon.svg" alt="Search Icon" className='w-5 h-5' /></button>
+              <div>
                 <input
                     type="text"
                     value={searchTerm}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    placeholder="Search a hero..."
+                    placeholder="Search heroes..."
                     className={`w-[175px] sm:w-[245px] lg:w-[387.5px] text-slate-200 text-sm sm:text-lg font-medium leading-5 bg-transparent border-none outline-none flex-1 tracking-wide px-2`}
                 />
                 {searchTerm && showSuggestions && suggestions.length > 0 && (
                     <ul className={`absolute border border-gray-900 rounded-md rounded shadow-md mt-2 sm:mt-4 text-black w-[175px] sm:w-[250px] lg:w-[400px]`}>
-                    {suggestions.map((hero, index) => (
-                        <li
-                        key={hero.id}
-                        onClick={() => handleSuggestionClick(hero)}
-                        className={`${index == 0 ? 'rounded-t-lg' : null} ${index == suggestions.length - 1 ? 'rounded-b-lg' : null} px-2 py-1 sm:px-3 sm:py-2 gap-2 flex items-center text-white text-sm sm:text-lg cursor-pointer z-50 border border-slate-700 hover:bg-slate-900 ${index === selectedSuggestionIndex ? 'bg-slate-900' : 'bg-slate-800'}`}
-                        >
-                          <img src={'https://cdn.cloudflare.steamstatic.com' + heroData[hero.id].img} className="h-6 sm:h-10 sm:px-2" />
-                          {hero.name}
-                        </li>
-                    ))}
+                      {suggestions.map((hero, index) => (
+                          <li
+                            key={hero.id}
+                            onClick={() => handleSuggestionClick(hero)}
+                            className={`
+                              ${index == 0 ? 'rounded-t-lg' : null} ${index == suggestions.length - 1 ? 'rounded-b-lg' : null} 
+                              px-2 py-1 sm:px-3 sm:py-2 gap-2 flex items-center text-white text-sm sm:text-lg cursor-pointer z-50 border border-slate-700 hover:bg-slate-900 
+                              ${index === selectedSuggestionIndex ? 'bg-slate-900' : 'bg-slate-800'}
+                              `}
+                          >
+                            <img src={'https://cdn.cloudflare.steamstatic.com' + heroData[hero.id].img} className="h-6 sm:h-10 sm:px-2" />
+                            {hero.name}
+                          </li>
+                      ))}
                     </ul>
                 )}
-                </div>
+              </div>
             </div>
             <button 
                 className={`hidden sm:flex sm:w-[62.5px] lg:w-[70px] rounded-r-full text-sm h-[30px] sm:h-[45px] sm:px-5 py-[9px] bg-gray-900 z-20 border-l border-slate-700 flex justify-center items-center text-slate-200 font-medium tracking-wide`}

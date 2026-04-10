@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import RateCard from './RateCard';
 
 
-export default function RatesContainer({ rates }) {
+export default function RatesContainer({ rates, onSendData }) {
 
     const tierColor = {
         "S+": "text-[#F4B856]", 
@@ -35,27 +35,19 @@ export default function RatesContainer({ rates }) {
     }, [rates])
 
 
-
     
     return (
-        <div className="flex mx-2 sm:mx-0 py-2 sm:py-0 sm:gap-1 text-slate-200 space-x-1">
+        <div className="flex sm:gap-[24px] text-slate-200 space-x-1 items-end ml-1 h-[32px]">
 
-            <div className="w-14 h-16 sm:w-20 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
-                <div className={`text-center text-xl md:text-2xl ${color} py-1 sm:py-2`}>{heroTier}</div>
-                <div className="text-center text-sm md:text-md align-bottom text-cyan-300">Tier</div>
+            <div className={`py-2 px-[10px] rounded-md text-[20px]/[20px] font-semibold bg-[#FFFFFF14] ${color}`}>
+                {heroTier}
             </div>
 
-            <div className="w-20 sm:w-28 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
-                <RateCard type="Win Rate" rate={heroWinRate} />
-            </div>
+            <RateCard type="Win Rate" rate={heroWinRate} />
 
-            <div className="w-20 sm:w-28 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
-                <RateCard type="Pick Rate" rate={heroPickRate} />
-            </div>
+            <RateCard type="Pick Rate" rate={heroPickRate} />
 
-            <div className="w-28 sm:w-36 sm:h-20 rounded-md bg-slate-800 border border-slate-700">
-                <RateCard type="Matches" rate={heroMatches} />
-            </div>
+            <RateCard type="Matches" rate={heroMatches} />
             
         </div>
     );

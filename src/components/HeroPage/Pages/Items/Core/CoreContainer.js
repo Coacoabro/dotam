@@ -15,7 +15,7 @@ export default function CoreContainer({items, isCarry}){
             <div className="overflow-y-auto hidden-scrollbar w-[25%]">
                 {items.map(core => (
                     <button 
-                        className={`${core == currCore ? null : 'bg-slate-900 border border-slate-800 opacity-50'} p-2 hover:bg-slate-950 hover:opacity-100 w-full`}
+                        className={`${core == currCore ? null : 'bg-slate-900 border border-slate-800 opacity-50 hover:bg-slate-950 hover:opacity-100'} p-2  w-full`}
                         onClick={()=>setCurrCore(core)}
                     >
                         <CoreItems core={core} isCarry={isCarry} />

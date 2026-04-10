@@ -14,20 +14,20 @@ export default function CoreItems({core, isCarry}) {
         if(isCarry){
             return(
                 <div className='space-y-1'>
-                    <div className='flex justify-between items-center px-2'>
+                    <div className='flex justify-between items-center px-2 text-[14px]/[20px]'>
                         <div className='flex items-center gap-1'>
-                            <h1 className={`${wrColor} text-base sm:text-xl`}>{wr}%</h1>
-                            <h2 className='text-xs sm:text-base opacity-50'>WR</h2>
+                            <h1 className={`${wrColor} `}>{wr}%</h1>
+                            <h2 className=' opacity-50'>WR</h2>
                         </div>
-                        <div className='text-xs sm:text-base opacity-50 whitespace-nowrap truncate'>{dispMatches} Matches</div>
+                        <div className=' opacity-50 whitespace-nowrap truncate'>{dispMatches} Matches</div>
                     </div>
                     <div className='flex sm:gap-2.5 items-center sm:px-2'>
                         <Item id={items[0]} />
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-6 sm:h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
                         <Item id={items[1]} />
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-6 sm:h-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
                         <Item id={items[2]} />
@@ -38,12 +38,12 @@ export default function CoreItems({core, isCarry}) {
         else {
             return(
                 <div className='space-y-1'>
-                    <div className='flex justify-between items-center px-2'>
+                    <div className='flex justify-between items-center px-2 text-[14px]/[20px]'>
                         <div className='flex items-center gap-1'>
-                            <h1 className={`${wrColor} text-base sm:text-xl`}>{wr}%</h1>
-                            <h2 className='text-xs sm:text-base opacity-50'>WR</h2>
+                            <h1 className={`${wrColor}`}>{wr}%</h1>
+                            <h2 className=' opacity-50'>WR</h2>
                         </div>
-                        <div className='text-xs sm:text-base opacity-50 whitespace-nowrap truncate'>{dispMatches} Matches</div>
+                        <div className=' opacity-50 whitespace-nowrap truncate'>{dispMatches} Matches</div>
                     </div>
                     <div className='flex gap-2.5 items-center justify-center'>
                         <Item id={items[0]} />

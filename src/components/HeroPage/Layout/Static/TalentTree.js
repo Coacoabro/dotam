@@ -36,11 +36,11 @@ export default function TalentTree({ talents }) {
 
     return (
         <div className="relative">
-            <button onClick={talentPress} className="relative sm:p-1 h-8 w-8 hover:scale-110 sm:h-16 sm:w-16">
+            <button onClick={talentPress} className="flex items-center justify-center h-8 w-8 hover:scale-110 sm:h-[48px] sm:w-[48px] bg-[#FFFFFF14] rounded-xl">
                 <img
                     src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg"
                     alt="Talent Tree"
-                    className=""
+                    className="w-[40px]"
                     onMouseEnter={showTooltip}
                     onMouseLeave={hideTooltip}
                 />

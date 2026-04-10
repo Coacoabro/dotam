@@ -476,7 +476,7 @@ try:
                     if "starting" in results:
                         existing_builds[role][facet]["items"]["starting"] = results["starting"][0]
                     if "early" in results:
-                        existing_builds[role][facet]["items"]["early"] = results["early"][:6]
+                        existing_builds[role][facet]["items"]["early"] = results["early"][:8]
                     if "core" in results:
                         existing_builds[role][facet]["items"]["core"] = results["core"][:3]
                     if "neutrals" in results:

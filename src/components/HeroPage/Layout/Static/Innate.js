@@ -25,11 +25,11 @@ export default function Innate({ id }) {
 
     return (
         <div className="relative">
-            <button onClick={innatePress} className="relative sm:p-1 h-8 w-8 hover:scale-110 sm:h-16 sm:w-16">
+            <button onClick={innatePress} className="flex items-center justify-center h-8 w-8 hover:scale-110 sm:h-[48px] sm:w-[48px] bg-[#FFFFFF14] rounded-xl">
                 <img
                     src="https://cdn.akamai.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png"
                     alt="Innate"
-                    className=""
+                    className="w-[44px]"
                     onMouseEnter={showTooltip}
                     onMouseLeave={hideTooltip}
                 />

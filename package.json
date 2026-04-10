@@ -22,7 +22,7 @@
     "graphql": "^16.11.0",
     "gray-matter": "^4.0.3",
     "latest": "^0.2.0",
-    "next": "15.4.10",
+    "next": "^15.5.12",
     "next-sitemap": "^4.2.3",
     "pg": "^8.16.3",
     "postgres": "^3.4.7",
@@ -34,7 +34,7 @@
     "remark-heading-id": "^1.0.1",
     "remark-mdx": "^3.1.0",
     "remark-slug": "^8.0.0",
-    "tailwind": "^4.0.0",
+    "tailwind": "^2.3.1",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {

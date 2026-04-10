@@ -40,16 +40,21 @@ export default function Heroes({scrollY}) {
   const universalHeroes = Object.values(sortedHeroData).filter(hero => hero.primary_attr === 'all');
   
   return (
-    <div className='space-y-12'>
+    <div className='space-y-12 pt-14'>
+
+      <div className='text-center text-[48px]/[56px] font-semibold'>
+        Dota 2 All Heroes
+      </div>
+
       <div>
         <HeroSearch onSearch={handleSearch} scrollY={scrollY} />
-      </div>
-      <div className={`transition-all duration-500 ease-in-out px-2 z-0 lg:max-w-6xl lg:mx-auto space-y-6 text-slate-200 ${(scrollY !== 0 && router.pathname == '/') || router.pathname == '/heroes' ? 'blur-none opacity-100' : 'blur opacity-25'}`}>        
-        <div className='sm:flex justify-center items-end space-y-2 space-x-2'>
-          <p className='sm:text-xl text-center py-1'>Roles:</p>
-          <div className='flex justify-center align-items-center'><Role /></div>
+        <div className='flex justify-center items-center gap-3 w-[450px] h-[56px] mx-auto p-3 bg-[#24536D]/60 rounded-b-xl'>
+          <span className='font-semibold'>Roles</span> <Role />
         </div>
-        <div className="grid sm:grid-cols-4 gap-[10px] place-items-center sm:place-items-start">
+      </div>
+
+      <div className={`transition-all duration-500 ease-in-out px-2 z-0 lg:max-w-6xl lg:mx-auto space-y-6 text-slate-200 ${(scrollY !== 0 && router.pathname == '/') || router.pathname == '/heroes' ? 'blur-none opacity-100' : 'blur opacity-25'}`}>        
+        <div className="grid sm:grid-cols-4 gap-[8px] place-items-center sm:place-items-start">
           <div>
             <HeroTable heroes={strengthHeroes} search={searchTerm} attr="Strength" img="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png"/>
           </div>

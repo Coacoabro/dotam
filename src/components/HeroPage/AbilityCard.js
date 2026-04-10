@@ -62,15 +62,15 @@ export default function AbilityCard({ ability, hero, type, path }) {
   
     return (
       <div className="relative">
-        <button onClick={abilityPress} className={`relative hover:scale-110 ${path ? 'w-6 h-6 sm:h-10 sm:w-10' : 'w-8 h-8 sm:h-16 sm:w-16'}`}>
+        <button onClick={abilityPress} className={`relative flex items-center justify-center hover:scale-110 ${path ? 'w-6 h-6 sm:h-10 sm:w-10' : 'w-8 h-8 sm:h-[48px] sm:w-[48px]'}`}>
           {type == "Shard" ? (
-            <img src={shardImg} className="w-8 h-8 sm:h-14 sm:w-14 absolute pointer-events-none" />
+            <img src={shardImg} className="w-8 h-8 sm:h-[48px] sm:w-[48px] absolute pointer-events-none rounded-bl-xl z-10" />
           ) : type == "Scepter" ? (
-            <img src={scepterImg} className="w-8 h-8 sm:h-14 sm:w-14 absolute pointer-events-none" />
+            <img src={scepterImg} className="w-8 h-8 sm:h-[48px] sm:w-[48px] absolute pointer-events-none rounded-bl-xl z-10" />
           ) : null}
           <img
             src={'https://cdn.cloudflare.steamstatic.com' + abilityInfo.img}
-            className={`${path ? 'w-6 h-6 sm:h-10 sm:w-10' : 'w-8 h-8 sm:w-14 sm:h-14'} rounded-md z-0`}
+            className={`${path ? 'w-6 h-6 sm:h-10 sm:w-10' : 'w-8 h-8 sm:h-[48px] sm:w-[48px]'} rounded-xl z-0`}
             onMouseEnter={showTooltip}
             onMouseLeave={hideTooltip}
           />

@@ -332,6 +332,17 @@ for tier, tier_roles in combinedArray.items():
 
 s3.put_object(Bucket='dotam-content', Key=f"data/{current_patch}/rates.json", Body=json.dumps(updated_rates, indent=2))
 
+top_rates = defaultdict(list)
+for rate in updated_rates:
+    if rate.get("rank") == "":
+        role = rate["role"]
+        tier = rate["tier_num"]
+
+        if role not in top_rates or tier > top_rates[role]["tier_num"]:
+            top_rates[role] = rate
+
+s3.put_object(Bucket='dotam-content', Key=f"data/{current_patch}/meta_heroes.json", Body=json.dumps(top_rates, indent=2))
+
 by_hero_id = defaultdict(list)
 
 for rate in updated_rates:

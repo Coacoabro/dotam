@@ -52,20 +52,19 @@ export default function TalentOptions({talents, hero}) {
         const levels = [25, 20, 15, 10]
 
         return(
-            <div className='space-y-2 sm:space-y-4 bg-slate-900 py-2 px-4 sm:py-4 sm:px-8 mx-auto rounded-lg border border-slate-800'>
+            <div className='space-y-2 sm:space-y-4 bg-slate-950 py-2 px-4 sm:px-4 sm:py-6 mx-auto rounded-xl border border-slate-800'>
                 <div className="flex items-center gap-2.5 px-2 sm:px-0">
-                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg" className='h-7 w-7 sm:h-10 sm:w-10' />
+                    <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/talents.svg" className='h-7 w-7 sm:h-6 sm:w-6' />
                     <div className="flex items-end gap-2">
-                        <h1 className='text-lg sm:text-2xl font-bold '>Talents</h1>
-                        <h2 className='text-lg text-gray-300/50 hidden sm:block'>Best talents for {hero.localized_name}</h2>
+                        <h1 className='text-lg sm:text-[18px]/[24px] font-bold '>Talents</h1>
+                        <h2 className='text-[14px]/[20px] text-gray-300/50 hidden sm:block'>Best talents for {hero.localized_name}</h2>
                     </div>
                 </div>
 
-                <div className="bg-slate-950 rounded-lg border border-slate-800">
+                <div className="bg-slate-950 rounded-lg space-y-4">
                     {levels.map((_, index) => (
                         <>
                             <TalentRow level={levels[index]} right={rightTalents[index]} left={leftTalents[index]} />
-                            {index != 3 ? <div className="h-[2px] w-full bg-slate-800" /> : null}
                         </>
                     ))}
                 </div>

@@ -12,32 +12,26 @@ export default function Core({items, isCarry, sendLate}) {
     }
 
     return(
-        <div className='bg-slate-900 rounded-lg border border-slate-800 space-y-1'>
-            <div className='sm:flex items-end gap-2.5 px-5 pt-3'>
+        <div className='space-y-1'>
+            <div className='sm:flex items-end gap-2.5 px-5 pt-4'>
                 <h1 className='text-lg sm:text-xl font-bold'>Core Item Builds</h1>
                 <h2 className='opacity-50'>First set of items to purchase</h2>
             </div>
-            <div className='p-3 rounded-b-lg'>
+            <div className={`px-3 pt-3 flex ${isCarry ? "justify-between" : "space-x-4"}`}>
 
-                <button 
-                    className={`rounded-t-lg ${selectedCore == 0 ? 'bg-slate-800' : 'bg-slate-950'} w-full hover:bg-slate-800`}
-                    onClick={()=>handleClick(0)}
-                >
-                    <CoreItems core={cores[0]} isCarry={isCarry} />
-                </button>
+                {cores.map((core, key) => (
+                    <div className={`${selectedCore == key ? "bg-border-fade" : ""} pt-[1px] px-[1px] rounded-t-xl`}>
+                        <div className='bg-slate-950 rounded-t-xl'>
+                            <button 
+                                className={`rounded-t-xl ${selectedCore == key ? 'bg-gray-gradient' : 'bg-slate-950'} w-full hover:bg-gray-gradient`}
+                                onClick={()=>handleClick(key)}
+                            >
+                                <CoreItems core={core} isCarry={isCarry} />
+                            </button>
+                        </div>
+                    </div>
+                ))}
 
-                <button 
-                    className={`${selectedCore == 1 ? 'bg-slate-800' : 'bg-slate-950'} w-full hover:bg-slate-800`}
-                    onClick={()=>handleClick(1)}
-                >
-                    <CoreItems core={cores[1]} isCarry={isCarry} />
-                </button>
-                <button 
-                    className={`rounded-b-lg ${selectedCore == 2 ? 'bg-slate-800' : 'bg-slate-950'} w-full hover:bg-slate-800`}
-                    onClick={()=>handleClick(2)}
-                >
-                    <CoreItems core={cores[2]} isCarry={isCarry} />
-                </button>
             </div>
         </div>
     )

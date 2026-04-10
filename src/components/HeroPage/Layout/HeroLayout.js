@@ -13,7 +13,6 @@ import BottomBar from '../../BottomBar';
 import Patches from '../../../../json/Patches.json'
 import MiniLoadingWheel from '../../MiniLoadingWheel';
 import PagesList from '../../PagesList';
-import HeroLoading from './HeroLoading';
 
 import Ad from '../../../components/Ads/Venatus/Ad';
 
@@ -38,10 +37,18 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
   const [currRates, setCurrRates] = useState(null)
   const [currMatchups, setCurrMatchups] = useState(null)
 
-  const { data: buildsData, isLoading: buildsLoading } = useQuery(['heroData', hero.id, 'page', currRank, currPatch, page], () => fetchHeroData(hero.id, 'page', currRank, currPatch, page), {staleTime: 3600000});
+  // const [tierData, setTierData] = useState({ tier: "", color: "" })
+
+  const { data: buildsData, isLoading: buildsLoading, isFetching: buildsFetching } = useQuery(['heroData', hero.id, 'page', currRank, currPatch, page], () => fetchHeroData(hero.id, 'page', currRank, currPatch, page), {staleTime: 3600000});
   const { data: heroMatchups } = useQuery(['heroData', hero.id, 'matchups', currRank, currPatch], () => fetchHeroData(hero.id, 'matchups', currRank, currPatch), {staleTime: 3600000});
 
+
+  // const handleTierData = (tier, color) => {
+  //   setTierData({ tier, color })
+  // }
+
   useEffect(() => {
+
     if(rank){setCurrRank(rank)}
     if(role){setCurrRole(role)}
     if(patch){setCurrPatch(patch)}
@@ -59,6 +66,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
     if(heroMatchups){setCurrMatchups(heroMatchups)}
 
   }, [rank, role, patch, facet, rates, heroMatchups])
+
 
   if(rates){
 
@@ -93,46 +101,54 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
         dateModified = tempDate + " EST"
       }
 
+      console.log("Builds loading: ", buildsLoading)
+
       return(
         <div>
-          <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-7xl space-y-2 sm:space-y-0">
-            
-            <div className="pt-2 flex justify-center align-items-center sm:h-24" >
-              <Ad placementName="leaderboard" />
-            </div>
-            
 
-            <div className="flex relative items-end sm:items-center gap-1 sm:gap-4">
+          <div className="flex justify-center align-items-center sm:h-24" >
+            <Ad placementName="leaderboard" />
+          </div>
 
-              <img src={portrait} className="h-14 sm:h-32" />
+          <div className="px-1 sm:px-4 sm:mx-auto sm:max-w-[1360px] space-y-2 sm:space-y-0">            
 
-              <div className="sm:py-7 sm:px-2 flex-col space-y-2 z-20 sm:z-40">
-                <div className="text-2xl sm:text-5xl font-bold ml-2">{heroName}</div>
-                <div className="hidden sm:block"><StaticInfo hero={heroData} /></div>
+            <div className="flex justify-between item-center bg-[#0B0D1C] p-4 rounded-2xl h-[240px]">
+              <div className=''>
+                <div className='flex items-center h-[140px] gap-4'>
+                  <img src={portrait} className=" rounded-2xl" />
+
+                  <div className="sm:py-7 sm:px-2 flex-col space-y-3 z-20 sm:z-40 ">
+                    <div className="text-2xl sm:text-3xl font-bold ml-2 flex gap-2">
+                      {heroName}
+                    </div>
+
+                    <RatesContainer rates={currRates} initRole={initRole} current_patch={current_patch} />
+
+                    <div className="hidden sm:block">
+                      <StaticInfo hero={heroData} />
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <PagesList hero={hero.url} />
+                
+              </div>
+              
+
+              <div className="hidden sm:flex w-[500px] opacity-25 z-0">
+                <img src={crop_img} className="object-cover object-top w-full h-[110%] -mt-1.5" />
               </div>
 
-              <div className="hidden sm:flex absolute right-0 mt-24 h-72 opacity-25 z-0">
-                <img src={crop_img} className="object-cover w-full h-full" />
-              </div>
-
             </div>
 
-            <div className="sm:hidden absolute h-36 right-0 top-20 opacity-25">
+            {/* Mobile */}
+            <div className="inset-0 sm:hidden absolute h-36 right-0 top-20 opacity-25">
               <img src={crop_img} className="object-cover w-full h-full" />
             </div>
 
             <div className="block sm:hidden z-10">
               <StaticInfo hero={heroData} />
-            </div>
-
-            <div className='sm:flex space-x-3'>
-              <RatesContainer rates={currRates} initRole={initRole} current_patch={current_patch} />
-              <div className='sm:hidden text-xs px-2 opacity-50 text-center'>Last updated <span className='text-cyan-300'>{dateModified}</span></div>
-              <div className='hidden sm:block'>
-                <h1 className='font-bold px-2 text-lg'>More Info:</h1>
-                <PagesList hero={hero.url} />
-                <div className='text-sm px-2 opacity-50'>Last updated <span className='text-cyan-300'>{dateModified}</span></div>
-              </div>
             </div>
 
             <div className="pt-2 flex justify-center align-items-center" >
@@ -143,7 +159,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
               <OptionsContainer hero={hero} initRole={initRole} initFacet={initFacet} hero_name={heroData.name} summary={summary} />
             </div>
 
-            {buildsLoading ? 
+            {(buildsLoading || buildsFetching) ? 
               <main>
                 <div className="hidden sm:block z-0"><LoadingWheel /></div>
               </main>
@@ -153,17 +169,11 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
                   React.cloneElement(child, { initRole, initFacet, heroData, currBuild, currMatchups, currRole })
                 )}
               </main>
-            : page == 'matchups' ? 
-              <main>
-                {React.Children.map(children, child =>
-                  React.cloneElement(child, { heroData, initRole, currMatchups })
-                )}
-              </main>
             : <div>Nothing yet!</div>}
 
           </div>
 
-          <div className='z-0 mx-auto mt-12'>
+          <div className={`${buildsLoading || buildsFetching ? "hidden" : ""} z-0 mx-auto`}>
             <BottomBar />
           </div>
 

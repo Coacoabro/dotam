@@ -7,11 +7,11 @@ export default function NthItem({item}){
     const matches = (item.Matches).toLocaleString()
 
     return(
-        <div className='w-20 truncate text-center text-xs sm:text-base'>
+        <div className='w-20 truncate text-center text-[14px]/[20px] '>
             <Item id={item.Item} />
             <div>
-                <div>{wr}% <span className='sm:text-sm'>WR</span></div>
-                <div className='text-2xs sm:text-xs'>{matches} Matches</div>
+                <div className='font-semibold'>{wr}% <span className=''>WR</span></div>
+                <div className='text-[10px]/[14px]'>{matches} Matches</div>
             </div>
         </div>
     )

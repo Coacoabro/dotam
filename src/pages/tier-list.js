@@ -53,7 +53,7 @@ export default function TierList() {
         })
     
     return(
-        <div className=''>
+        <div className='sm:mt-36'>
 
             <Head>
                 <title>Dota 2 Tier Lists</title>
@@ -72,21 +72,26 @@ export default function TierList() {
                 crossOrigin="anonymous"
             />
 
-            <div className="max-w-7xl mx-auto px-1 sm:px-4 sm:space-y-4 text-white sm:pt-8">
-                <div className="text-xl sm:text-3xl px-2 sm:px-0 py-2 sm:py-4 font-semibold flex justify-between items-end">
-                    Dota 2 Tier List
+            <div className="max-w-7xl mx-auto px-1 sm:px-4 sm:space-y-6 text-white sm:pt-8">
+                <div className="px-2 sm:px-0 py-2 sm:py-4 flex justify-between items-end">
+                    <div className='space-y-[10px] w-[432px]'>
+                        <p className="text-xl sm:text-3xl font-semibold ">
+                            Dota 2 Tier List
+                        </p>
+                        <p className="text-sm sm:text-base text-gray-300 px-2 sm:px-0 py-1 opacity-80">
+                            A tier list based on current win rates and pick rates from almost all games played within the past two weeks.
+                        </p>
+                    </div>
                     <Ad placementName="leaderboard" />
                 </div>
-                <div className="text-sm sm:text-xl text-gray-300 px-2 sm:px-0 py-1 opacity-50">
-                    <p>A tier list based on current win rates and pick rates from almost all games played within the past two weeks.</p>
-                    <p className='text-xs sm:text-base'>Last updated <span className='text-cyan-300'>{dateModified} EST</span></p>
-                </div>
-                <div className="py-2 justify-between text-white space-y-2 sm:flex">
+                <div className="justify-between text-white sm:flex">
                     <div className="flex items-center justify-center space-x-2">
                         <HeroSearch onSearch={handleSearch} />
                     </div>
+                    <div className='flex gap-2 items-center'>
+                        Roles <Role />
+                    </div>
                     <div class="hidden sm:flex items-center justify-center space-x-2">
-                        <Role />
                         <Patches />
                         <Rank />
                     </div>
@@ -98,8 +103,16 @@ export default function TierList() {
                         </div>
                     </div>
                 </div>
+
+                
                 {isLoading ? (<LoadingWheel />) : (
-                    <TierContainer heroes={data.heroes} rates={data.rates} matchups={data.matchups} search={searchTerm} />
+                    <div className='space-y-2'>
+                        <p className='text-xs sm:text-base font-semibold opacity-75'>
+                            Last updated <span className='text-cyan-300 font-normal'>{dateModified} EST</span>
+                        </p>
+                        <TierContainer heroes={data.heroes} rates={data.rates} matchups={data.matchups} search={searchTerm} />
+                    </div>
+                    
                 )}
             </div>
 

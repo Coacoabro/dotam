@@ -3,6 +3,8 @@
 from collections import Counter
 from dotenv import load_dotenv
 
+from hero_ids import hero_ids
+
 import os
 import json
 import requests

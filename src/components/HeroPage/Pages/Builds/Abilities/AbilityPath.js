@@ -89,8 +89,8 @@ export default function AbilityPath({hero, abilities, talents}) {
     
     return (
         <div className='overflow-x-scroll sm:overflow-visible'>
-            <div className="min-w-[540px] grid grid-cols-17 sm:gap-2.5 text-center">
-                <div className="grid grid-rows-5 gap-1 sm:gap-2.5">
+            <div className="min-w-[540px] grid grid-cols-17 sm:gap-2 text-center">
+                <div className="grid grid-rows-5 gap-1 sm:gap-2">
                 {basicAbilities ? basicAbilities.map((ability, index) => (
                     <div className={`w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center z-[${(3-index)*5}]`}>
                         <AbilityCard ability={ability} hero={hero.name} path={true} />
@@ -102,13 +102,13 @@ export default function AbilityPath({hero, abilities, talents}) {
                     </div>
                 </div>
                 {finishedAbilities.map((row, index) => (
-                    <div className="grid grid-rows-5 sm:gap-2.5">
+                    <div className="grid grid-rows-5 sm:gap-2">
                         {row.map((ability, abilityIndex) => (
                             <>
                                 <div 
                                     className={`
                                         w-7 h-7 md:w-10 md:h-10 rounded-lg flex md:text-md text-sm items-center bold justify-center 
-                                        ${ability ? 'bg-slate-800 border border-slate-700/50' : 'bg-slate-950'}
+                                        ${ability ? 'bg-[#1A1F2D] border border-slate-700/50' : 'bg-[#070812]'}
                                         ${abilityIndex == 4 && ability ? "hover:bg-slate-700" : ""}
                                     `}
                                     // {...(abilityIndex == 4 && ability ? { 

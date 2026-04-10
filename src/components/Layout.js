@@ -25,16 +25,24 @@ export default function Layout({ children }) {
 
       const pathnameChanged = next.pathname !== current.pathname;
 
+      const currentHero = current.pathname.split('/')[2]
       const currentRank = current.searchParams.get("rank");
       const currentPatch = current.searchParams.get("patch");
+      const nextHero = next.pathname.split('/')[2]
       const nextRank = next.searchParams.get("rank");
       const nextPatch = next.searchParams.get("patch");
 
+      const heroChanged = currentHero !== nextHero;
       const rankChanged = currentRank !== nextRank;
       const patchChanged = currentPatch !== nextPatch;
 
-      if (pathnameChanged || rankChanged || patchChanged) {
-        setIsLoading(true);
+      if (pathnameChanged && !rankChanged && !patchChanged) {
+        if(!router.pathname.includes("/hero/")){
+          setIsLoading(true)
+        }
+        else if (heroChanged) {
+          setIsLoading(true)
+        }
       }
     };
 
@@ -97,15 +105,42 @@ export default function Layout({ children }) {
 
       </Head>
 
-      <header className='z-10'>
+      <header className='z-10 opacity-100'>
         <TopBar />
       </header>
 
-      {isLoading ? (<IoLoading />) : (<main className='pt-24 z-20'>{children}</main>)}
+      {isLoading ? (<IoLoading />) : (
+        <div className='relative'>
+          <div 
+            className={`
+              ${router.asPath == "/" ? "opacity-80" : router.pathname.includes("/tier-list") || router.pathname.includes("/hero") ? "opacity-25" : "opacity-60"} 
+              absolute inset-x-0 top-16 h-[1366px] z-0 bg-cover bg-center
+            `}
+            style={{ backgroundImage: "url('/dota-2-wisp-wallpaper.jpg')" }} 
+          />
 
-      <footer className={`${isLoading || router.pathname.includes('/hero/') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} ${router.asPath == '/' ? 'pt-32 lg:pt-[400px]' : 'pt-12 lg:pt-24'}  z-0`}>
-        <BottomBar />
-      </footer>
+          <div className="absolute inset-x-0 top-24 h-[1366px] -z-10 bg-gradient-to-b from-transparent to-[#0B0D1C]" />
+          
+          <div className='relative z-20 flex min-h-screen flex-col'>
+            <main className='flex-1'>
+              {children}
+            </main>
+          </div>
+
+          <footer 
+            className={`
+              ${router.pathname.includes('/hero') || router.pathname == '/tier-list' || router.pathname.includes('/basics/') ? 'hidden' : ''} 
+              ${router.asPath == '/' ? 'mt-24 pt-32 lg:pt-[400px]' : 'pt-12 lg:pt-24'}  
+              -z-10
+            `}
+          >
+            <BottomBar />
+          </footer>
+        </div>
+        )
+      }
+
+      
       
       <Analytics />
 

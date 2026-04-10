@@ -33,9 +33,8 @@ export default function HeroesPage() {
           crossOrigin="anonymous"
       />
 
-      <div className='sm:py-10 space-y-4 sm:space-y-10'>
-        <div className="text-xl sm:text-3xl sm:text-center font-semibold px-6 sm:px-3">Dota 2 All Heroes</div>
-        <div className='z-0'><Heroes /></div>
+      <div className='sm:py-16 z-0'>
+        <Heroes />
       </div>
 
       {/* <VerticalAd />

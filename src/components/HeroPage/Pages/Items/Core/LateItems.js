@@ -12,7 +12,7 @@ export default function LateItems({items}){
 
     if (lateItems){
         return(
-            <div className="flex custom-scrollbar p-2 sm:p-4 gap-1.5 sm:gap-3">
+            <div className="flex custom-scrollbar p-2 sm:p-4 gap-1.5 sm:gap-4 justify-center">
                 {Object.entries(lateItems).map(([nth, nthItems]) => (
                     <div>
                         <NthItems items={nthItems} order={nth} />

@@ -1,14 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @layer utilities {
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Dark shadow to emphasize white text */
   }
   .custom-scrollbar::-webkit-scrollbar {
-    width: 12px;
+    width: 4px;
     height: 12px;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
@@ -28,9 +28,12 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
     background-color: #0B0D1C;
     color: rgb(226 232 240);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.25px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
 .basics {

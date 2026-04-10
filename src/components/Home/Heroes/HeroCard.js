@@ -18,6 +18,8 @@ export default function HeroCard({ hero, search }) {
   const heroURL = dota2heroes.find(r => r.id === heroId)?.url
   const heroRoles = hero_roles[heroId]
 
+  console.log(heroRoles)
+
   const heroImage = 'https://dhpoqm1ofsbx7.cloudfront.net/hero_thumbnail/' + hero.name + '.jpg';
   const heroVideo = 'https://dhpoqm1ofsbx7.cloudfront.net/hero_animation/' + hero.name + '.webm';
 
@@ -74,7 +76,7 @@ export default function HeroCard({ hero, search }) {
 
     <Link href={`/hero/${heroURL}/builds`} className={`${searched != 100 ? "hidden sm:block" : ""}`}>
       <div
-        className={`relative rounded-md transition-transform-all duration-300 hover:scale-150 hover:z-10 opacity-${searched}`}
+        className={`relative rounded-lg transition-transform-all duration-300 hover:scale-150 hover:z-10 opacity-${searched}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -83,7 +85,7 @@ export default function HeroCard({ hero, search }) {
             {hero.localized_name}
           </div>
         </div>
-        <img src={heroImage} className={`${hovered ? 'rounded-lg' : ''} transition-transform duration-300 p-1 w-[56px] h-[75px] sm:w-[64px] sm:h-[85px]`} />
+        <img src={heroImage} className={`rounded-lg transition-transform duration-300 p-1 w-[56px] h-[75px] sm:w-[64px] sm:h-[85px]`} />
         {/* 
         {hovered && 
           <video className={`absolute inset-0 w-full h-full object-cover rounded-md shadow-md`} onLoadedData={handleLoadedData} autoPlay loop disablePictureInPicture>

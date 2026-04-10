@@ -16,34 +16,36 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name,
     const hero_id = hero.id
 
     return (
-        <div className='pb-3 sm:py-3 lg:py-0 space-y-2 bg-slate-900 rounded-lg border border-slate-800 text-xs'>
+        <div className='pb-3 sm:py-3 lg:py-0 space-y-2 rounded-lg bg-black-gradient border border-slate-800 text-xs'>
 
             {/* Desktop Screen */}
-            <div className='px-3 text-lg items-center hidden lg:flex justify-evenly'>
-                {initFacet == 'blank' ? null : 
+            <div className='px-3 text-lg items-center hidden lg:flex justify-between'>
+                {initFacet == 'blank' || initFacet == 0 ? null : 
                 <>
                     <div className='flex gap-2 items-center'>
                         Facets: 
                         <Facets initFacet={initFacet} initRole={initRole} name={hero_name} id={hero_id} rates={summary} />
                     </div>
                 
-                    <div className='h-14 w-[1px] bg-slate-800'/>
+                    <div className='h-[64px] w-[1px] bg-slate-800'/>
                 </>
                 }
-                <div className='flex gap-2 items-center'>
-                    Roles: 
+                <div className='flex gap-2 items-center px-[40px]'>
+                    <span className='font-semibold text-[14px]/[16px]'>Roles</span>
                     <Role initRole={initRole} />
                 </div>
-                <div className='h-14 w-[1px] bg-slate-800'/>
-                <div className='flex gap-2 items-center'>
-                    Ranks: 
+                
+                <div className='h-[64px] w-[1px] bg-slate-800'/>
+                <div className='flex gap-2 items-center px-[40px] '>
+                    <span className='font-semibold text-[14px]/[16px]'>Ranks</span>
                     <Rank />
                 </div>
-                <div className='h-14 w-[1px] bg-slate-800'/>
-                <div className='flex gap-2 items-center'>
-                    Patch: 
+                <div className='h-[64px] w-[1px] bg-slate-800'/>
+                <div className='flex gap-2 items-center px-[40px]'>
+                    <span className='font-semibold text-[14px]/[16px]'>Patch</span>
                     <Patches />
                 </div>
+                
             </div>
 
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useQuery } from 'react-query';
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 
@@ -6,11 +7,24 @@ import Head from 'next/head'
 import Hero from '../components/Home/Hero'
 import Heroes from '../components/Home/Heroes'
 import SearchBar from '../components/SearchBar'
+import MetaHeroes from '../components/Home/MetaHeroes/MetaHeroes'
 import HorizontalAd from '../components/Ads/Google/HorizontalAd'
 import VerticalAd from '../components/Ads/Google/VerticalAd'
 import SquareAd from '../components/Ads/Google/SquareAd'
 import MobileAd from '../components/Ads/Google/MobileAd'
 import Ad from '../components/Ads/Venatus/Ad'
+import PatchesJson from '../../json/Patches.json'
+
+
+const fetchMetaHeroes = async (patch) => {
+    const response = await fetch(`/api/meta-heroes?patch=${patch}`)
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    const json = await response.json()
+    return json;
+};
 
 
 export default function Home() {
@@ -18,6 +32,12 @@ export default function Home() {
     const router = useRouter()
 
     const [scrollY, setScrollY] = useState(0);
+
+    
+    const currPatch = PatchesJson[0].Patch
+
+
+    const { data, isLoading, error } = useQuery([currPatch], () => fetchMetaHeroes(currPatch), {enabled: !!currPatch,})
 
     useEffect(() => {
 
@@ -75,16 +95,17 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div id="heroes" className="flex top-[10vh] sm:top-[22.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
+            {/* <div id="heroes" className="flex top-[10vh] sm:top-[22.5vh] justify-center items-center relative py-4 space-x-1 sm:text-lg">
                 <div>Data powered by</div>
                 <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.stratz.com" target="_blank"> <img src="/StratzLogo.svg" className='w-8 h-8'/>Stratz</a>
-                {/* <div>and</div>
-                <a className="font-bold flex space-x-1 items-center text-indigo-200" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a> */}
-            </div>
+                <div>and</div>
+                <a className="font-bold flex space-x-1 items-center text-[#0994af]" href="https://www.opendota.com" target="_blank"> <img src="/OpenDotaLogo.png" className='w-8 h-8'/>OpenDota</a>
+            </div> */}
 
             <div className={`relative top-[15vh] sm:top-[25vh] filter transition-all top-3/4 duration-500 ease-in-out z-0 space-y-8`}>
                 {/* <HorizontalAd slot="1909967797" /> */}
-                <Heroes scrollY={scrollY}/>
+                <SearchBar />
+                <MetaHeroes data={data} isLoading={isLoading} />
             </div>
 
             <div className='fixed top-1/4 right-4'>

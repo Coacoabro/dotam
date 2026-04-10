@@ -6,7 +6,7 @@ import os
 import boto3
 import datetime
 import time
-import clickhouse_connect
+# import clickhouse_connect
 
 from datetime import datetime
 from dotenv import load_dotenv
@@ -19,17 +19,17 @@ load_dotenv()
 
 base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
-res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
-patch = res.text
-print(patch)
-# time.sleep(10)
+# res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
+# patch = res.text
+# print(patch)
+# # time.sleep(10)
 
-client = clickhouse_connect.get_client(
-    host=os.getenv('CLICKHOUSE_HOST'),
-    user='default',
-    password=os.getenv('CLICKHOUSE_KEY'),
-    secure=True
-)
+# client = clickhouse_connect.get_client(
+#     host=os.getenv('CLICKHOUSE_HOST'),
+#     user='default',
+#     password=os.getenv('CLICKHOUSE_KEY'),
+#     secure=True
+# )
 
 def get_innate():
 
@@ -200,7 +200,7 @@ def s3_data():
                 executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_abilities_key, Body=json.dumps(abilities, indent=2))
                 executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_items_key, Body=json.dumps(items, indent=2))
                 executor.submit(s3.put_object, Bucket='dotam-builds', Key=s3_builds_key, Body=json.dumps(builds, indent=2))
-            
+           
 def hero_info():
 
     print("Starting Hero Info")
@@ -236,13 +236,46 @@ def hero_info():
     
     s3.put_object(Bucket='dotam-content', Key=f"data/heroes.json", Body=json.dumps(heroes, indent=2))
 
+def get_abilities():
+    print("Starting Abilities Update")
+
+    abilities_json = {}
+    
+    global hero_ids
+
+    for hero_id in hero_ids:
+
+        max_levels = [3, 4]
+        
+        if hero_id == 74:
+            abilities_json["74"] = [5370, 5371, 5372, 5375]
+        else:
+            url = base_url + str(hero_id)
+
+            response = requests.get(url)
+            if response.status_code == 200:
+                data = response.json()
+
+                if data["result"]["data"]["heroes"]:
+                    abilities = data["result"]["data"]["heroes"][0]["abilities"]
+                    abilities_array = []
+                    for ability in abilities:
+                        id = ability["id"]
+                        if ability["max_level"] in max_levels:
+                            abilities_array.append(id)
+                    abilities_json[hero_id] = abilities_array
+
+    with open('./json/hero_abilities.json', 'w') as f:
+        json.dump(abilities_json, f)
+                    
 
     
 ## All of these are used (INCLUDING HERO INFO!!)
 # get_facets()
-get_innate()
-s3_data()
-hero_info()
+# get_innate()
+# s3_data()
+# hero_info()
+get_abilities()
 
 
 ### postgres_data() # NO LONGER USED

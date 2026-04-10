@@ -8,9 +8,15 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'black-gradient': 'linear-gradient(180deg, #141827 0%, #0B0D1C 100%)',
+        'border-fade': 'linear-gradient(180deg, rgba(168, 201, 244, 0.55) 0%, rgba(168, 201, 244, 0) 100%)',
+        'gray-gradient': 'linear-gradient(180deg, rgba(168, 201, 244, 0.16) 0%, rgba(67, 80, 97, 0.16) 100%)',
+        'search-border': 'linear-gradient(94.42deg, rgba(255, 255, 255, 0.0576) -12.8%, rgba(255, 255, 255, 0.192) 9.71%, rgba(255, 255, 255, 0.0768) 29.28%, rgba(255, 255, 255, 0.24) 53.25%, rgba(255, 255, 255, 0.0384) 72.33%, rgba(255, 255, 255, 0.192) 88.96%)',
+        'left-talent-gradient': 'linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 95.38%)',
+        'left-talent-border': 'linear-gradient(90deg, #A8C9F4 100%, rgba(168, 201, 244, 0) 25%)',
+        'right-talent-gradient': 'linear-gradient(270deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 97.66%)',
+        'right-talent-border': 'linear-gradient(270deg, rgba(168, 201, 244, 0) 25%, #A8C9F4 100%)',
+        'talent-circle-border': 'linear-gradient(315deg, rgba(168, 201, 244, 0.8) 0%, rgba(168, 201, 244, 0.16) 100%)',
       },
       fontSize: {
         '2xs': '0.65rem',
