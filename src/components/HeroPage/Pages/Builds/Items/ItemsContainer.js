@@ -64,8 +64,8 @@ export default function ItemsContainer({build, hero, currRole}) {
             </div>
 
             <div className='flex items-center px-3'>
-                <div className='lg:flex lg:items-center gap-2 w-full sm:w-3/5 sm:mx-auto lg:mx-0 lg:w-3/4'>
-                    {build.neutrals ? <Neutrals hero={hero} items={build.neutrals} /> : <div>No neutral data</div>}
+                <div className='lg:flex lg:items-center gap-2 w-full sm:w-3/5 sm:mx-auto lg:mx-0 lg:w-3/4 min-h-64'>
+                    {/* {build.neutrals ? <Neutrals hero={hero} items={build.neutrals} /> : <div>No neutral data</div>} */}
                 </div>
                 <div className='hidden lg:block w-1/3'>
                     <Ad placementName="video" />
