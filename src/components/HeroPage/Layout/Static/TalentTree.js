@@ -6,7 +6,7 @@ export default function TalentTree({ talents }) {
 
     talents.forEach((talent) => {
         if(Abilities[talent.name] && Object.keys(Abilities[talent.name]).length > 0){
-            Talents.push(Abilities[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
+            Talents.push(Abilities[talent.name].dname?.replace(/\{[^}]*\}/g, '?'))
         }
         else{
             Talents.push("?")

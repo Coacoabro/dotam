@@ -37,7 +37,7 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups, currRo
             if(tempTalent) {
                 if(abilitiesInfo[tempTalent]){
                     if(abilitiesInfo[tempTalent].dname){
-                        talent.talent = abilitiesInfo[tempTalent].dname.replace(/\{[^}]*\}/g, '?')
+                        talent.talent = abilitiesInfo[tempTalent].dname?.replace(/\{[^}]*\}/g, '?')
                     }
                 }
             }
@@ -50,7 +50,7 @@ export default function Builds({ hero, heroData, currBuild, heroMatchups, currRo
     talentOrder.forEach((talent) => {
         if(abilitiesInfo[talent.name] && Object.keys(abilitiesInfo[talent.name]).length > 0)
             {
-                talentsArray.push(abilitiesInfo[talent.name].dname.replace(/\{[^}]*\}/g, '?'))
+                talentsArray.push(abilitiesInfo[talent.name].dname?.replace(/\{[^}]*\}/g, '?'))
             }
         else
             {
