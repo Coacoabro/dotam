@@ -21,7 +21,7 @@ base_url = 'https://www.dota2.com/datafeed/herodata?language=english&hero_id='
 
 res = requests.get("https://dhpoqm1ofsbx7.cloudfront.net/patch.txt")
 patch = res.text
-# print(patch)
+print(patch)
 # # time.sleep(10)
 
 # client = clickhouse_connect.get_client(
