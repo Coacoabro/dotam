@@ -93,6 +93,12 @@ export default function TierList() {
                     </div>
                     <div class="hidden sm:flex items-center justify-center space-x-2">
                         {/* <Patches /> */}
+                        <span className={`
+                            bg-slate-950 text-sm sm:text-lg h-8 sm:h-10 px-1.5 sm:px-4 sm:py-2 
+                            rounded-lg border-white/15 border justify-between items-center gap-1 inline-flex
+                        `}>
+                            7.41f
+                        </span> 
                         <Rank />
                     </div>
                     <div class="flex flex-col sm:hidden items-center justify-center space-y-2">
