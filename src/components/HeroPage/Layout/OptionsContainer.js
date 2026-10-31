@@ -43,7 +43,13 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name,
                 <div className='h-[64px] w-[1px] bg-slate-800'/>
                 <div className='flex gap-2 items-center px-[40px]'>
                     <span className='font-semibold text-[14px]/[16px]'>Patch</span>
-                    <Patches />
+                    <span className={`
+                        bg-slate-950 text-sm sm:text-lg h-8 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 
+                        rounded-lg border-white/15 border justify-between items-center gap-1 inline-flex
+                    `}>
+                        7.41f
+                    </span> 
+                    {/* <Patches /> */}
                 </div>
                 
             </div>

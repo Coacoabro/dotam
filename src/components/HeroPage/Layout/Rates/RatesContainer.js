@@ -37,7 +37,7 @@ export default function RatesContainer({ rates, onSendData }) {
 
     
     return (
-        <div className="flex sm:gap-[24px] text-slate-200 space-x-1 items-end ml-1 h-[32px]">
+        <div className="flex sm:gap-[24px] text-slate-200 space-x-1 items-center ml-1 h-[32px]">
 
             <div className={`py-2 px-[10px] rounded-md text-[20px]/[20px] font-semibold bg-[#FFFFFF14] ${color}`}>
                 {heroTier}

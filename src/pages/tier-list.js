@@ -92,13 +92,13 @@ export default function TierList() {
                         Roles <Role />
                     </div>
                     <div class="hidden sm:flex items-center justify-center space-x-2">
-                        <Patches />
+                        {/* <Patches /> */}
                         <Rank />
                     </div>
                     <div class="flex flex-col sm:hidden items-center justify-center space-y-2">
                         <Role />
                         <div className='flex gap-6'>
-                            <Patches />
+                            {/* <Patches /> */}
                             <Rank />
                         </div>
                     </div>

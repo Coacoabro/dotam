@@ -136,7 +136,7 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
               </div>
               
 
-              <div className="hidden sm:flex w-[500px] opacity-25 z-0">
+              <div className="hidden sm:flex w-[450px] opacity-25 z-0">
                 <img src={crop_img} className="object-cover object-top w-full h-[110%] -mt-1.5" />
               </div>
 
