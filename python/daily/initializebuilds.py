@@ -274,7 +274,7 @@ def get_abilities():
 
     
 ## All of these are used (INCLUDING HERO INFO!!)
-# get_innate()
+get_innate()
 s3_data()
 hero_info()
 # get_abilities()

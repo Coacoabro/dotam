@@ -1,0 +1,1 @@
+export const currentPatch = "7.42"

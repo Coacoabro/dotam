@@ -13,6 +13,7 @@ import HeroSearch from '../components/Home/Heroes/HeroSearch';
 import Ad from '../components/Ads/Venatus/Ad';
 import PatchesJson from '../../json/Patches.json'
 import { useRouter } from 'next/router';
+import {currentPatch} from '../components/patch.js'
 
 const fetchTierData = async (patch) => {
 
@@ -97,7 +98,7 @@ export default function TierList() {
                             bg-slate-950 text-sm sm:text-lg h-8 sm:h-10 px-1.5 sm:px-4 sm:py-2 
                             rounded-lg border-white/15 border justify-between items-center gap-1 inline-flex
                         `}>
-                            7.41f
+                            {currentPatch}
                         </span> 
                         <Rank />
                     </div>

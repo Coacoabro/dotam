@@ -8,6 +8,8 @@ import Patches from '../../Patches'
 import Facets from '../../Facets';
 import Pages from '../../Pages';
 
+import { currentPatch } from "../../patch.js"
+
 
 export default function OptionsContainer({ hero, initRole, initFacet, hero_name, summary }) {
 
@@ -47,7 +49,7 @@ export default function OptionsContainer({ hero, initRole, initFacet, hero_name,
                         bg-slate-950 text-sm sm:text-lg h-8 sm:h-10 px-1.5 sm:px-3.5 sm:py-2 
                         rounded-lg border-white/15 border justify-between items-center gap-1 inline-flex
                     `}>
-                        7.41f
+                        {currentPatch}
                     </span> 
                     {/* <Patches /> */}
                 </div>
