@@ -101,8 +101,6 @@ export default function HeroLayout({ children, hero, heroInfo, current_patch, pa
         dateModified = tempDate + " EST"
       }
 
-      console.log("Builds loading: ", buildsLoading)
-
       return(
         <div>
 

@@ -5,8 +5,6 @@ export default function Abilities({hero, abilities, hero_talents}) {
 
     if(abilities && hero_talents){
 
-        console.log(abilities)
-
         const wr = ((abilities.Wins/abilities.Matches)*100).toFixed(2)
 
         return(

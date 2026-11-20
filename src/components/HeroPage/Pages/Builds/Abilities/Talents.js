@@ -4,8 +4,6 @@ import abilityIds from '../../../../../../dotaconstants/build/ability_ids.json'
 
 export default function Talents({hero, talents, hero_talents}) {
 
-    console.log(talents, hero_talents)
-
     const heroName = hero.name
 
     if(hero_talents && talents){
