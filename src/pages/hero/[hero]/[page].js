@@ -18,18 +18,19 @@ import MobileAd from '../../../components/Ads/Google/MobileAd.js'
 import Script from 'next/script.js';
 
 import facetNums from '../../../../json/facet_nums.json'
+import { currentPatch } from '../../../components/patch.js';
 
 export async function getServerSideProps(context) {
     const { rank } = context.query
     const hero = dota2heroes.find(hero => hero.url === context.query.hero);
-    const patch = Patches[0].Patch
+    const patch = currentPatch
     if(hero && patch){
 
         let maxMatches = 0
         let initRole = ""
         let initFacet = ""
 
-        const hero_res = await fetch (`https://dhpoqm1ofsbx7.cloudfront.net/data/7.41e/${hero.id}/info.json`)
+        const hero_res = await fetch (`https://dhpoqm1ofsbx7.cloudfront.net/data/${patch}/${hero.id}/info.json`)
         const heroInfo = await hero_res.json()
         const summary_res = await fetch(`https://d3b0g9x0itdgze.cloudfront.net/data/${patch}/${hero.id}/${rank ? rank : ""}/summary.json`)
         const summary = await summary_res.json()

@@ -32,7 +32,7 @@ export default function TierList() {
     const {patch} = router.query
 
     const [searchTerm, setSearchTerm] = useState('')
-    const [currPatch, setCurrPatch] = useState(patch || PatchesJson[0].Patch)
+    const [currPatch, setCurrPatch] = useState(currentPatch)
 
     useEffect(() => {
         if(patch){setCurrPatch(patch)}
@@ -52,7 +52,7 @@ export default function TierList() {
             timeZone: "America/New_York",
             hour12: true,
         })
-    
+
     return(
         <div className='sm:mt-36'>
 

@@ -7,6 +7,8 @@ import patches_json from '../../../json/Patches.json'
 import LoadingWheel from '../LoadingWheel';
 import heroInfo from '../../../json/dota2heroes.json'
 
+import { currentPatch } from '../../components/patch.js'
+
 
 export default function TierContainer( {heroes, rates, matchups, search} ) {
 
@@ -16,7 +18,7 @@ export default function TierContainer( {heroes, rates, matchups, search} ) {
 
     const [isLoading, setIsLoading] = useState(false)
     
-    const initPatch = patches_json[0].Patch
+    const initPatch = currentPatch
 
     const [currentSort, setCurrentSort] = useState("tier_num");
     const [sortBy, setSortBy] = useState("f2l");
